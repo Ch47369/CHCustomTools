@@ -12,12 +12,12 @@ $fixture=Join-Path $upgradeRoot ('.validation/'+$upgradeRun+'-'+$engine+'-Fixtur
 $project=Join-Path $upgradeRoot ('.validation/'+$upgradeRun+'-'+$engine+'-Project')
 if(Test-Path -LiteralPath $fixture){throw 'This fixture already exists. Preserve earlier attempts and use a fresh run directory.'}
 New-Item -ItemType Directory -Force -Path $fixture,($project+'/Packages'),($project+'/ProjectSettings'),($project+'/Assets/Editor')|Out-Null
-$baseline=Join-Path $upgradeRoot 'Releases~/com.aseshader.handwritten-converter-0.5.0.tgz'
-if((Get-FileHash -LiteralPath $baseline -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'f94c7a874cca9a2c8be0f69b3fe37232aae9a36bf1d1c5f76d39f517b022230d'){throw 'Baseline archive changed.'}
+$baseline=Join-Path $upgradeRoot 'Releases~/com.aseshader.handwritten-converter-0.6.0.tgz'
+if((Get-FileHash -LiteralPath $baseline -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'a37737a8436f40aa48658a5ef6518eac5b940cbd1919ebb15c68d1519ee8e9bd'){throw 'Baseline archive changed.'}
 & tar -xzf $baseline -C $fixture
 if($LASTEXITCODE -ne 0){throw 'Could not extract the baseline package.'}
 $package=Join-Path $fixture 'package'
-# The baseline is the exact published 0.5.0 package. No candidate source is backported.
+# The baseline is the exact published 0.6.0 package. No candidate source is backported.
 $meta=Get-Content -LiteralPath ($package+'/package.json') -Raw|ConvertFrom-Json
 $dependencies=[ordered]@{}
 foreach($property in $meta.dependencies.PSObject.Properties){$dependencies[$property.Name]=$property.Value}
@@ -27,8 +27,8 @@ $dependencies['com.aseshader.handwritten-converter']='file:'+ $package.Replace('
 Copy-Item -LiteralPath ($upgradeRoot+'/Tests/UnityGitInstallSmoke.cs') -Destination ($project+'/Assets/Editor/UnityGitInstallSmoke.cs')
 $attempt=Join-Path $upgradeRoot ('.build~/'+$upgradeRun+'/Attempts/'+[DateTimeOffset]::UtcNow.ToString('yyyyMMddHHmmssfff'))
 New-Item -ItemType Directory -Force -Path $attempt|Out-Null
-@{baseline='0.5.0';unmodified=$true;sha256=(Get-FileHash -LiteralPath $baseline -Algorithm SHA256).Hash.ToLowerInvariant()}|ConvertTo-Json|Set-Content -LiteralPath ($attempt+'/baseline.json') -Encoding utf8NoBOM
+@{baseline='0.6.0';unmodified=$true;sha256=(Get-FileHash -LiteralPath $baseline -Algorithm SHA256).Hash.ToLowerInvariant()}|ConvertTo-Json|Set-Content -LiteralPath ($attempt+'/baseline.json') -Encoding utf8NoBOM
 $log=Join-Path $attempt 'editor.log'
 $arguments='-projectPath "'+$project+'" -executeMethod UnityGitInstallSmoke.Run -logFile "'+$log+'" -force-d3d11'
 $process=Start-Process -FilePath $UnityEditorPath -ArgumentList $arguments -WorkingDirectory $project -WindowStyle Hidden -PassThru
-[pscustomobject]@{id=$process.Id;project=$project;log=$log;output=$project+'/Artifacts/real-git-install.json';baseline='0.5.0 unmodified published package';startedUtc=[DateTimeOffset]::UtcNow.ToString('o')}|ConvertTo-Json|Tee-Object -FilePath ($attempt+'/launch.json')
+[pscustomobject]@{id=$process.Id;project=$project;log=$log;output=$project+'/Artifacts/real-git-install.json';baseline='0.6.0 unmodified published package';startedUtc=[DateTimeOffset]::UtcNow.ToString('o')}|ConvertTo-Json|Tee-Object -FilePath ($attempt+'/launch.json')

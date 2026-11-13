@@ -21,6 +21,7 @@ namespace CH.CustomTools.Paths.Editor
         }
         internal static void DrawPath(BezierPath path)
         {
+            EditorGUILayout.HelpBox(PathText.T("选中路径或其生成物，按住 Ctrl 在线上点击即可插点，松开 Ctrl 后可拖动新点。插入时保留线形，相邻控制柄改为手动；Ctrl+Z 可撤销。修改后重新生成模型或网格。", "Select the path or its generated objects. Hold Ctrl and click the curve to insert; release Ctrl to drag the new point. Insertion preserves the curve and makes adjacent handles manual. Ctrl+Z undoes it. Rebuild models/meshes after editing."), MessageType.None);
             var so = new SerializedObject(path); so.Update();
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(so.FindProperty("closed"), new GUIContent(PathText.T("闭合路径", "Closed path")));
@@ -58,13 +59,15 @@ namespace CH.CustomTools.Paths.Editor
             EditorGUILayout.EndHorizontal();
             SnapToSurface = EditorGUILayout.Toggle(PathText.T("拖点时贴合下方表面", "Snap moved points to surface"), SnapToSurface);
         }
-        void OnSceneGUI()
+        internal static void DrawSceneHandles(BezierPath path)
         {
-            var path = (BezierPath)target; if (Application.isPlaying || PathMotionPreview.IsActive || path.knots == null) return;
+            if (Application.isPlaying || PathMotionPreview.IsActive || path.knots == null) return;
             try { path.ValidatePath(); } catch (System.Exception) { return; }
+            if (PathPointInsertion.InsertionModifier(Event.current) && GUIUtility.hotControl == 0) return;
             for (int i = 0; i < path.knots.Count; i++)
             {
                 var k = path.knots[i]; if (k == null) continue; var position = path.transform.TransformPoint(k.position);
+                Handles.color = PathPointInsertion.IsFocused(path, i) ? Color.green : Color.white;
                 Handles.Label(position + Vector3.up * HandleUtility.GetHandleSize(position) * .12f, (i + 1).ToString());
                 EditorGUI.BeginChangeCheck(); var moved = Handles.PositionHandle(position, Tools.pivotRotation == PivotRotation.Local ? path.transform.rotation : Quaternion.identity);
                 if (EditorGUI.EndChangeCheck())

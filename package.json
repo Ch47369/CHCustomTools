@@ -1,7 +1,7 @@
 {
   "name": "com.aseshader.handwritten-converter",
   "displayName": "CH自定义工具集",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "unity": "2022.3",
   "description": "CH 自定义工具集：Shader转换器、ASE着色器库、Agent接入、音频转动画曲线、子特效时序、VFX引用资源整理、场景测量与路径工具（模型放置、UV网格/标线/栏杆、带朝向的运行时路径运动）。统一窗口、语言和GitHub更新。Shader转换范围与管线版本限制见文档。",
   "author": {
