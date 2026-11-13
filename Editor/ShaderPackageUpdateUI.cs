@@ -48,25 +48,28 @@ namespace ASEShaderConverter.Editor
         public void OnPackageAddedOrUpdated(PackageInfo packageInfo) { if (packageInfo != null && packageInfo.name == ShaderPackageUpdatePolicy.PackageName) Refresh(); }
         public void OnPackageRemoved(PackageInfo packageInfo) { if (packageInfo != null && packageInfo.name == ShaderPackageUpdatePolicy.PackageName) { selected = false; Refresh(); } }
     }
-    public sealed class ShaderPackageUpdateWindow : EditorWindow
+    internal static class ShaderPackageUpdateGUI
     {
-        public static void Open() { var window = GetWindow<ShaderPackageUpdateWindow>(CHToolLanguage.Text("Shader转换器 · 更新")); window.minSize = new Vector2(480, 210); window.Show(); }
-        void OnEnable() { ShaderPackageUpdater.Changed += Repaint; ShaderPackageUpdater.EnsureChecked(); }
-        void OnDisable() { ShaderPackageUpdater.Changed -= Repaint; }
-        void OnGUI()
+        internal static void Draw()
         {
-            titleContent = new GUIContent(CHToolLanguage.Text("Shader转换器 · 更新"));
-            EditorGUILayout.LabelField(CHToolLanguage.Text("Shader转换器 · 插件更新"), EditorStyles.boldLabel);
-            EditorGUILayout.LabelField(ShaderPackageUpdater.SourceLabel);
-            EditorGUILayout.HelpBox(ShaderPackageUpdater.InstallationNote, MessageType.Info);
-            EditorGUILayout.HelpBox(ShaderPackageUpdater.Message, ShaderPackageUpdater.HasError ? MessageType.Error : MessageType.None);
             EditorGUILayout.BeginHorizontal();
-            using (new EditorGUI.DisabledScope(!ShaderPackageUpdater.CanCheck)) if (GUILayout.Button(CHToolLanguage.Text("检查更新"))) ShaderPackageUpdater.CheckForUpdates();
+            GUILayout.Label(ShaderPackageUpdater.SourceLabel, EditorStyles.miniLabel);
+            GUILayout.FlexibleSpace();
+            using (new EditorGUI.DisabledScope(!ShaderPackageUpdater.CanCheck))
+                if (GUILayout.Button(CHToolLanguage.Text("检查更新"), GUILayout.Width(110))) ShaderPackageUpdater.CheckForUpdates();
             if (ShaderPackageUpdater.HasNewVersion)
                 using (new EditorGUI.DisabledScope(!ShaderPackageUpdater.CanInstall)) if (GUILayout.Button(ShaderPackageUpdater.InstallLabel)) ShaderPackageUpdater.InstallLatest();
             if (ShaderPackageUpdater.CanMigrate && GUILayout.Button(CHToolLanguage.Text("改用 Git 安装当前版本"))) ShaderPackageUpdater.InstallLatest();
-            if (GUILayout.Button(CHToolLanguage.Text("版本说明"))) Application.OpenURL(ShaderPackageUpdatePolicy.ReleasesUrl);
             EditorGUILayout.EndHorizontal();
+            EditorGUILayout.HelpBox(ShaderPackageUpdater.Message, ShaderPackageUpdater.HasError ? MessageType.Error : MessageType.None);
         }
+    }
+    // Keep the old public entry point and saved-layout type compatible, routing both to the main window.
+    public sealed class ShaderPackageUpdateWindow : EditorWindow
+    {
+        public static void Open() { ASEShaderConverterWindow.Open(); ShaderPackageUpdater.EnsureChecked(); }
+        void OnEnable() { EditorApplication.update += Redirect; }
+        void OnDisable() { EditorApplication.update -= Redirect; }
+        void Redirect() { if (this == null) return; Open(); Close(); }
     }
 }

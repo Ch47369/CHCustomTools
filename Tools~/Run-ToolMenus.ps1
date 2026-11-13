@@ -3,7 +3,8 @@ param(
     [ValidateSet('Shader','Audio','Both')][string]$Packages='Both',
     [switch]$Tarballs,
     [ValidatePattern('^[A-Za-z0-9-]+$')][string]$RunId='ToolMenus043',
-    [ValidatePattern('^\d+\.\d+\.\d+$')][string]$ShaderVersion='0.4.3'
+    [ValidatePattern('^\d+\.\d+\.\d+$')][string]$ShaderVersion='0.4.3',
+    [ValidateSet('UnityToolMenusSmoke','UnityInlineUpdateSmoke')][string]$TestClass='UnityToolMenusSmoke'
 )
 $ErrorActionPreference='Stop'
 $menuRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
@@ -25,10 +26,10 @@ if($Packages -ne 'Shader'){
 }
 @{dependencies=$dependencies}|ConvertTo-Json -Depth 4|Set-Content -LiteralPath ($project+'/Packages/manifest.json') -Encoding utf8NoBOM
 ('m_EditorVersion: '+$(if($engine -eq 'Unity6'){'6000.0.80f1'}else{'2022.3.10f1'}))|Set-Content -LiteralPath ($project+'/ProjectSettings/ProjectVersion.txt') -Encoding utf8NoBOM
-Copy-Item -LiteralPath ($menuRoot+'/Tests/UnityToolMenusSmoke.cs') -Destination ($project+'/Assets/Editor/UnityToolMenusSmoke.cs') -Force
+Copy-Item -LiteralPath ($menuRoot+'/Tests/'+$TestClass+'.cs') -Destination ($project+'/Assets/Editor/'+$TestClass+'.cs') -Force
 $attempt=Join-Path $menuRoot ('.build~/'+$RunId+'/Attempts/'+[DateTimeOffset]::UtcNow.ToString('yyyyMMddHHmmssfff'))
 New-Item -ItemType Directory -Force -Path $attempt|Out-Null
 $log=Join-Path $attempt 'editor.log'
-$arguments='-projectPath "'+$project+'" -executeMethod UnityToolMenusSmoke.Run -logFile "'+$log+'" -force-d3d11'
+$arguments='-projectPath "'+$project+'" -executeMethod '+$TestClass+'.Run -logFile "'+$log+'" -force-d3d11'
 $process=Start-Process -FilePath $UnityEditorPath -ArgumentList $arguments -WorkingDirectory $project -WindowStyle Hidden -PassThru
 [pscustomobject]@{id=$process.Id;project=$project;log=$log;output=$project+'/Artifacts/tool-menus-verification.json';startedUtc=[DateTimeOffset]::UtcNow.ToString('o')}|ConvertTo-Json|Tee-Object -FilePath ($attempt+'/launch.json')

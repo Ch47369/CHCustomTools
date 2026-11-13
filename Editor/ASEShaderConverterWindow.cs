@@ -31,7 +31,18 @@ namespace ASEShaderConverter.Editor
         private static readonly string[] PipelineNames = { "自动识别", "Built-in", "URP", "HDRP" };
         private static readonly string[] PipelineIds = { "Auto", "BuiltIn", "URP", "HDRP" };
 
-        private void OnEnable() { titleContent = new GUIContent(CHToolLanguage.Text("Shader转换器")); }
+        private void OnEnable()
+        {
+            titleContent = new GUIContent(CHToolLanguage.Text("Shader转换器"));
+            ShaderPackageUpdater.Changed += Repaint;
+            EditorApplication.delayCall += EnsureUpdateCheck;
+        }
+        private void OnDisable()
+        {
+            ShaderPackageUpdater.Changed -= Repaint;
+            EditorApplication.delayCall -= EnsureUpdateCheck;
+        }
+        private void EnsureUpdateCheck() { if (this != null) ShaderPackageUpdater.EnsureChecked(); }
 
         [MenuItem("Tools/Shader")]
         public static void Open()
@@ -51,7 +62,7 @@ namespace ASEShaderConverter.Editor
             titleContent = new GUIContent(CHToolLanguage.Text("Shader转换器"));
             CHToolLanguage.DrawLanguageSelector();
             scroll = EditorGUILayout.BeginScrollView(scroll);
-            if (GUILayout.Button(CHToolLanguage.Text("插件更新（检查版本与 Git 升级）"))) ShaderPackageUpdateWindow.Open();
+            ShaderPackageUpdateGUI.Draw();
             if (GUILayout.Button(CHToolLanguage.Text("ASE 着色器库（分类、搜索与一键安装）"))) ShaderLibraryWindow.Open();
             if (GUILayout.Button(CHToolLanguage.Pick("打开 Agent 接入目录", "Open Agent inbox"))) ShaderAgentInbox.OpenInbox();
             EditorGUILayout.HelpBox(CHToolLanguage.Text("统一入口：手写 Shader → ASE / Shader Graph；Shader Graph → ASE、ASE → Shader Graph 先分析阻塞，再由 Agent 提交审查后的原生计划。"), MessageType.Info);

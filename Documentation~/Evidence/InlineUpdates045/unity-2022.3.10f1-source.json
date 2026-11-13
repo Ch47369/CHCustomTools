@@ -1,0 +1,26 @@
+{
+    "success": true,
+    "privateGitCheckSucceeded": false,
+    "unityVersion": "2022.3.10f1",
+    "version": "0.4.5",
+    "source": "Local",
+    "discoveredTag": "",
+    "checkMessage": "检查更新失败。请确认 Git 已安装、当前账号有私有仓库访问权限及网络可用，然后重试。",
+    "error": "",
+    "checks": [
+        "Tools/Shader directly opens the converter",
+        "Update flow stays in the same converter window at phase -1 (converter=1, update=0)",
+        "Checking starts directly without opening another window",
+        "Actual private Git check reports its result in the main window",
+        "A failed network check offers no update",
+        "Update flow stays in the same converter window at phase -1 (converter=1, update=0)",
+        "Update flow stays in the same converter window at phase 0 (converter=1, update=0)",
+        "Unknown release hides the update action",
+        "Update flow stays in the same converter window at phase 1 (converter=1, update=0)",
+        "Equal version hides the update action",
+        "Update flow stays in the same converter window at phase 2 (converter=1, update=0)",
+        "Newer release exposes the versioned update action",
+        "Update flow stays in the same converter window at phase 3 (converter=1, update=0)",
+        "Inline update states render without GUI errors"
+    ]
+}

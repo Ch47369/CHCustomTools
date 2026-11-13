@@ -1,5 +1,7 @@
 # 接入本项目的 Agent
 
+0.4.5 接续：检查更新、状态、版本更新按钮内置主窗口，不再新开更新窗口。ShaderPackageUpdateWindow.Open 公开旧入口改为打开主窗口；恢复旧布局时延迟转到主窗口并关闭旧更新窗口。后台查询/安装策略和 Package Manager 扩展保留；仍只在发现严格高版本时显示更新动作。入口 Tools/Shader、作者 CH、语言按钮不变；音频包不改。验证 Run-InlineUpdates.ps1 / Verify-InlineUpdatesRelease.py，证据 InlineUpdates045。历史包/证据保留。
+
 0.4.4 接续：用户要求直接点击顶部 Tools/Shader 打开转换器，不保留 Shader 下二级菜单；库、更新、Agent 目录均从主窗口进入，公开 Open API 保留。作者 CH，主窗口内置语言按钮不变；音频包不修改。复现 Run-ShaderEntry.ps1、Verify-ShaderEntryRelease.py；证据 ShaderEntry044，历史包和证据保留。
 
 0.4.3 接续：作者 CH；最终入口为 Tools/Shader 与 Tools/VFX。按用户最新要求，各工具主窗口直接显示中文/English 切换；不设独立设置窗口、顶部设置分组或语言插件，子页面不重复。各包语言代码随包维护，无跨包程序集依赖；共用 CH.CustomTools.Language，未选择时跟随 Unity，手动保存。CLI 不修改。验证 UnityToolMenusSmoke.cs / Run-ToolMenus.ps1；历史证据/包保留，转换核心及原图不变。

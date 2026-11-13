@@ -1,6 +1,6 @@
 # Shader转换器
 
-**0.4.4 顶部直接入口**：插件作者为 **CH**，点击 Unity 顶部 **Tools → Shader** 直接打开转换器主窗口。着色器库、插件更新和 Agent 接入目录从主窗口打开。在各工具主窗口直接选择 **中文 / English**，全部功能共用；默认跟随 Unity 编辑器语言，手动选择后跨重载和重启保存。语言切换随各插件内置，无独立语言插件或设置窗口。用法见 [语言设置](Documentation~/LanguageSettings.md)。
+**0.4.5 主窗口直接更新**：插件作者为 **CH**，点击 Unity 顶部 **Tools → Shader** 直接打开转换器主窗口。检查更新、检查结果和“更新到…”按钮直接显示在主窗口，不另开更新窗口；着色器库和 Agent 接入目录仍从主窗口进入。在各工具主窗口直接选择 **中文 / English**，全部功能共用；默认跟随 Unity 编辑器语言，手动选择后跨重载和重启保存。语言切换随各插件内置，无独立语言插件或设置窗口。用法见 [语言设置](Documentation~/LanguageSettings.md)。
 
 **0.4.1 插件更新按钮**：后台自动检查私有 Git 仓库正式标签，**只有仓库版本高于当前安装版本时，Package Manager 详情页才显示“更新到 X.Y.Z”**，无新版本时隐藏更新按钮；主窗口提供“插件更新”入口，并可手动刷新。本地目录/Tarball 安装可切换为私有 Git 标签安装。0.4.0 及更早版本需先通过 Git URL 安装一次 0.4.1。按钮使用 Unity 的公开详情扩展 API；Git 包不会获得注册表包的原生工具栏按钮或左侧“更新”列表。具体操作与认证要求见 [插件更新](Documentation~/PackageUpdates.md)。
 
@@ -43,7 +43,7 @@
 ## 安装和使用
 
 1. ASE 输出/库需安装正版 ASE 和目标管线模板。Shader Graph 输出需 Unity 2022.3、URP/Shader Graph 14.0.8 并启用 URP，无需安装 ASE。
-2. 推荐使用 Git 安装：Package Manager → **Add package from git URL**，填写 `https://github.com/Ch47369/ShaderConverter.git#v0.4.4`。仓库为私有，电脑需安装 Git 并通过系统 Git 凭据管理器或 SSH 认证有访问权限的 GitHub 账号；Package Manager 不会授予仓库权限，URL 中也不应填写 Token。已配置 SSH 的电脑可使用 `ssh://git@github.com/Ch47369/ShaderConverter.git#v0.4.4`。固定标签安装对应版本；后续用插件的“检查更新”按钮升级。也可从私有仓库的 Release 下载 `.tgz`，用 Add package from tarball 安装。源码目录支持 Add package from disk 选择 `package.json`；完整着色器库需保留配套目录。
+2. 推荐使用 Git 安装：Package Manager → **Add package from git URL**，填写 `https://github.com/Ch47369/ShaderConverter.git#v0.4.5`。仓库为私有，电脑需安装 Git 并通过系统 Git 凭据管理器或 SSH 认证有访问权限的 GitHub 账号；Package Manager 不会授予仓库权限，URL 中也不应填写 Token。已配置 SSH 的电脑可使用 `ssh://git@github.com/Ch47369/ShaderConverter.git#v0.4.5`。固定标签安装对应版本；后续用插件的“检查更新”按钮升级。也可从私有仓库的 Release 下载 `.tgz`，用 Add package from tarball 安装。源码目录支持 Add package from disk 选择 `package.json`；完整着色器库需保留配套目录。
 3. 打开 `Tools/Shader`，把 Project 窗口中的 Shader 拖到“输入 Shader”栏，或把系统文件夹中的单个 `.shader` 拖到拖放区域。也可浏览、粘贴路径或使用选中 Shader；切换输入会建议一个不会覆盖原文件的 `Assets/*_ASE.shader` 输出路径。
 4. 选择输出格式 ASE 或 Shader Graph；后者需选择 URP 并明确勾选标准宿主适配。点击“分析”，通过后点击“生成并验证”，获取新的 `.shader` 或 `.shadergraph`。若显示“需要适配”，列出的项目仍阻止生成；复制/导出报告供 Agent 逐项适配。已有输出不会覆盖。
 5. 在 ASE 中打开输出，并在目标场景比较原、新材质的颜色、Alpha、深度和渲染状态。报告中的 `visualComparisonPassed` 默认是 false。
