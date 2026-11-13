@@ -1,0 +1,41 @@
+{
+  "success": true,
+  "version": "0.4.1",
+  "coreChecks": 592,
+  "editorCompile": {
+    "2022.3.10f1": true,
+    "6000.0.80f1": true
+  },
+  "integration": [
+    {
+      "unityVersion": "2022.3.10f1",
+      "checks": 21,
+      "result": "unity-2022.3.10f1.json",
+      "attempt": ".build~/PackageUpdater041/Attempts/20261113020651582/result.json",
+      "source": "Local",
+      "latest": "v0.4.0"
+    },
+    {
+      "unityVersion": "6000.0.80f1",
+      "checks": 21,
+      "result": "unity-6000.0.80f1.json",
+      "attempt": ".build~/PackageUpdater041/Attempts/20261113020739333/result.json",
+      "source": "Local",
+      "latest": "v0.4.0"
+    }
+  ],
+  "newVersionButtonVisibleOnlyWhenStrictlyNewer": true,
+  "backgroundDiscovery": true,
+  "futureVersionUiUsesSyntheticFixtureOnly": true,
+  "installationEvidence": "See Releases~/package-updater-install-verification-0.4.1.json after tag publication",
+  "sourceHashes": {
+    "Runtime/ShaderPackageUpdatePolicy.cs": "293568b9de3245b8091aed1b5b106b3ca4a421e82d242e73acdd833bbc21ddce",
+    "Editor/ShaderPackageUpdater.cs": "343a2d8271541d7a5f0d40bf7fa61b847e81ba73ea8eaef2236f118cfb66a80e",
+    "Editor/ShaderPackageUpdateUI.cs": "148e82a0e5013a4c4e2f191b89f7afe256a4cd6c8b84694ae508039c11b01d5a",
+    "Editor/ASEShaderConverterWindow.cs": "0eabac880e7d8b67d55b77cafef406a170768e54ad9a266dbea6ffa17538f007",
+    "Tests/PackageUpdateChecks.cs": "02f3987bf61bc96bf28d432d0e56af83db35b853bfe77acc37a615e74a480fdf",
+    "Tests/UnityPackageUpdaterSmoke.cs": "f271193f3eeaa7c9e22a8d2c292f76b60d0ddecbdc0631f38e30e7626e359ec4"
+  },
+  "conversionBackendUnchanged": true,
+  "userProjectModified": false
+}

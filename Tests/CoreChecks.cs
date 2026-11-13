@@ -147,6 +147,7 @@ float4 frag(v2f i) : SV_Target { return " + expression + "; } ENDCG } } }";
         checks += ShaderGraphSourceChecks.Run();
         checks += ShaderGraphNativeChecks.Run();
         checks += ShaderLibraryQueryChecks.Run();
+        checks += PackageUpdateChecks.Run();
         Console.WriteLine("PASS: " + checks + " checks");
     }
 }

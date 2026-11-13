@@ -49,6 +49,7 @@ namespace ASEShaderConverter.Editor
         private void OnGUI()
         {
             scroll = EditorGUILayout.BeginScrollView(scroll);
+            if (GUILayout.Button("插件更新（检查版本与 Git 升级）")) ShaderPackageUpdateWindow.Open();
             if (GUILayout.Button("ASE 着色器库（分类、搜索与一键安装）")) ShaderLibraryWindow.Open();
             EditorGUILayout.HelpBox("统一入口：手写 Shader → ASE / Shader Graph；Shader Graph → ASE、ASE → Shader Graph 先分析阻塞，再由 Agent 提交审查后的原生计划。", MessageType.Info);
             DrawInput();

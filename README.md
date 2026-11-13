@@ -1,5 +1,7 @@
 # Shader转换器
 
+**0.4.1 插件更新按钮**：后台自动检查私有 Git 仓库正式标签，**只有仓库版本高于当前安装版本时，Package Manager 详情页才显示“更新到 X.Y.Z”**，无新版本时隐藏更新按钮；菜单 `Tools/Shader转换器/检查插件更新` 和主窗口也有入口，并可手动刷新。本地目录/Tarball 安装可切换为私有 Git 标签安装。0.4.0 及更早版本需先通过 Git URL 安装一次 0.4.1。按钮使用 Unity 的公开详情扩展 API；Git 包不会获得注册表包的原生工具栏按钮或左侧“更新”列表。具体操作与认证要求见 [插件更新](Documentation~/PackageUpdates.md)。
+
 插件统一名称为 **Shader转换器**，入口为 `Tools → Shader转换器 → 打开转换器`，Project 右键菜单为 `Shader转换器 → 分析并转换`。0.4.0 按优先级新增 **手写 Shader → Shader Graph** 和 **Agent 原生 Shader Graph 建图**，保留全部现有 ASE 功能。新后端限定 Unity 2022.3 / Shader Graph 14.0.8 / URP 14.0.8 的标准 Unlit 原生子集，支持数学、Float/Range/Vector 参数、UV 与普通 2D 采样。明确声明的 ShaderLab Enum 若直接控制二路 Lerp，会在 Shader Graph 中生成 Enum `KeywordNode`；普通 Float/Lerp 保持连续 `LerpNode`，多条目/嵌套/未证明语义交给 Agent。必须明确选择标准 URP 宿主适配，Alpha 无法证明恒为 1 或其他未映射语义仍阻塞。ASE↔Shader Graph 的通用自动互转尚未实现，输入继续提供分析与 Agent 显式适配路径；完整支持表、示例与限制见 [图格式与 Agent 使用](Documentation~/ShaderConversionRoadmap.md)。
 
 包 ID、旧 C# API、Agent 接入路径及所有已有图/资源身份保留，支持既有安装原位升级。Shader Graph 输出不要求安装 ASE；分类库继续标记为“ASE 着色器库”，其中 293 个图仍需要 ASE。实际图重载/编译与合成浮点夹具分别记录于 [0.4.0 证据](Documentation~/Evidence/GraphInterop040/README.md)，不代表原场景或跨平台画面等价。下述 0.3.x 为历史验证记录。
@@ -28,7 +30,7 @@
 
 本地 21 个压缩包与解压目录按数据读取，去重为 255 份源码，152 张图/子图解析成功。100 个 Shader Graph 中 20 个已生成，80 个仍有明确阻塞；StackLit、专用 Eye 模型和复杂宿主不以普通 Lit 替代。统一研究页记录 1,042 个来源身份，原始参考源码不随包分发。完整使用、三管线边界、丝袜基础及水面设置见 [分类库说明](Documentation~/ShaderLibrary.md)，计数与证据见 [LocalLibrary030](Documentation~/Evidence/LocalLibrary030/README.md)。JSON 请求 `operation: "library"` 返回同一份目录；42 条语义规则/14 个研究分类继续通过 `rules`/`analyze` 提供。
 
-安装包为 `Releases~/com.aseshader.handwritten-converter-0.4.0.tgz`（UPM）或 `Releases~/ShaderConverter-0.4.0.zip`。以下旧版数字按历史批次保留。
+安装包为 `Releases~/com.aseshader.handwritten-converter-0.4.1.tgz`（UPM）或 `Releases~/ShaderConverter-0.4.1.zip`。以下旧版数字按历史批次保留。
 
 **0.2.9 人物材质库**：新增皮肤、头发/毛发、眼球、衣服布料四份独立档案，记录 SSS/厚度/微法线、发卡与发丝散射/覆盖、角膜虹膜分层、棉绒 Sheen 与丝绸各向异性，以及三管线依赖、输入色彩空间、验证与成本要求。当时使用独立人物库入口，0.3.4 已合并到统一 ASE 着色器库的对应分类，可实际检查当前环境及参考模板端口；主转换器分析与 JSON API 同步显示人物语义审查。四类仍为方案/分析能力，完整生成适配尚未实现，不能宣称已训练模型权重或达到 3A 画质。479 项核心检查、EditorCompile 与隔离 HDRP API/模板检查通过，35 份人物参考的完整 Shader 三目标可规划为 0/0/0；详情见 [人物材质库](Documentation~/CharacterMaterials.md) 和 [证据](Documentation~/Evidence/CharacterMaterials029/README.md)。
 
@@ -39,7 +41,7 @@
 ## 安装和使用
 
 1. ASE 输出/库需安装正版 ASE 和目标管线模板。Shader Graph 输出需 Unity 2022.3、URP/Shader Graph 14.0.8 并启用 URP，无需安装 ASE。
-2. 推荐使用 Git 安装：Package Manager → **Add package from git URL**，填写 `https://github.com/Ch47369/ShaderConverter.git#v0.4.0`。仓库为私有，电脑需安装 Git 并通过系统 Git 凭据管理器或 SSH 认证有访问权限的 GitHub 账号；Package Manager 不会授予仓库权限，URL 中也不应填写 Token。已配置 SSH 的电脑可使用 `ssh://git@github.com/Ch47369/ShaderConverter.git#v0.4.0`。固定标签安装对应版本；后续按新标签升级。也可从私有仓库的 Release 下载 `.tgz`，用 Add package from tarball 安装。源码目录支持 Add package from disk 选择 `package.json`；完整着色器库需保留配套目录。
+2. 推荐使用 Git 安装：Package Manager → **Add package from git URL**，填写 `https://github.com/Ch47369/ShaderConverter.git#v0.4.1`。仓库为私有，电脑需安装 Git 并通过系统 Git 凭据管理器或 SSH 认证有访问权限的 GitHub 账号；Package Manager 不会授予仓库权限，URL 中也不应填写 Token。已配置 SSH 的电脑可使用 `ssh://git@github.com/Ch47369/ShaderConverter.git#v0.4.1`。固定标签安装对应版本；后续用插件的“检查更新”按钮升级。也可从私有仓库的 Release 下载 `.tgz`，用 Add package from tarball 安装。源码目录支持 Add package from disk 选择 `package.json`；完整着色器库需保留配套目录。
 3. 打开 `Tools/Shader转换器/打开转换器`，把 Project 窗口中的 Shader 拖到“输入 Shader”栏，或把系统文件夹中的单个 `.shader` 拖到拖放区域。也可浏览、粘贴路径或使用选中 Shader；切换输入会建议一个不会覆盖原文件的 `Assets/*_ASE.shader` 输出路径。
 4. 选择输出格式 ASE 或 Shader Graph；后者需选择 URP 并明确勾选标准宿主适配。点击“分析”，通过后点击“生成并验证”，获取新的 `.shader` 或 `.shadergraph`。若显示“需要适配”，列出的项目仍阻止生成；复制/导出报告供 Agent 逐项适配。已有输出不会覆盖。
 5. 在 ASE 中打开输出，并在目标场景比较原、新材质的颜色、Alpha、深度和渲染状态。报告中的 `visualComparisonPassed` 默认是 false。

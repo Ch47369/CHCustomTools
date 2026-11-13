@@ -14,6 +14,7 @@
     <Compile Include="ShaderGraphSourceChecks.cs" />
     <Compile Include="ShaderGraphNativeChecks.cs" />
     <Compile Include="ShaderLibraryQueryChecks.cs" />
+    <Compile Include="PackageUpdateChecks.cs" />
     <ProjectReference Include="../ASEShaderConverter.Core.csproj" />
   </ItemGroup>
 </Project>
