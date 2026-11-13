@@ -17,14 +17,14 @@ namespace ASEShaderConverter.Editor
             string graph = report.targetGraph == "ShaderGraph" ? "Shader Graph" : "ASE";
             switch (report.status)
             {
-                case "NeedsAgent": return "需要适配：此 Shader 超出当前自动转换范围，共有 " + report.blockers.Count + " 项阻塞。请复制或导出报告，交给 Agent 逐项适配节点与模板设置；适配完成前无法自动生成。";
-                case "ExistingAseGraph": return "此文件已经包含 ASE 图。请用已安装的 ASE 打开并迁移。";
-                case "Generated": return report.visualComparisonPassed ? "生成、"+graph+" 重载、Shader 编译及画面对比已通过。" : "生成、"+graph+" 重载和 Shader 编译已通过。画面对比尚未验证，请在目标场景比较原、新材质。";
-                case "GenerationFailed": return "生成失败。请检查下方原因，输出路径中可能保留了用于诊断的文件。";
-                case "ValidationFailed": return "验证未通过。已保存的图还不能视为成功转换，请检查 "+graph+" 重载与 Shader 编译结果。";
-                case "Blocked": return "生成已阻塞。请按下方原因检查环境、模板和输出路径，再重新分析。";
-                case "Planned": return "分析通过，可以生成。"+graph+" 保存重载与 Shader 编译尚未验证，请点击“生成并验证”。";
-                default: return "当前状态：" + report.status;
+                case "NeedsAgent": return CHToolLanguage.Text("需要适配：此 Shader 超出当前自动转换范围，共有 ") + report.blockers.Count + CHToolLanguage.Text(" 项阻塞。请复制或导出报告，交给 Agent 逐项适配节点与模板设置；适配完成前无法自动生成。");
+                case "ExistingAseGraph": return CHToolLanguage.Text("此文件已经包含 ASE 图。请用已安装的 ASE 打开并迁移。");
+                case "Generated": return report.visualComparisonPassed ? CHToolLanguage.Text("生成、")+graph+CHToolLanguage.Text(" 重载、Shader 编译及画面对比已通过。") : CHToolLanguage.Text("生成、")+graph+CHToolLanguage.Text(" 重载和 Shader 编译已通过。画面对比尚未验证，请在目标场景比较原、新材质。");
+                case "GenerationFailed": return CHToolLanguage.Text("生成失败。请检查下方原因，输出路径中可能保留了用于诊断的文件。");
+                case "ValidationFailed": return CHToolLanguage.Text("验证未通过。已保存的图还不能视为成功转换，请检查 ")+graph+CHToolLanguage.Text(" 重载与 Shader 编译结果。");
+                case "Blocked": return CHToolLanguage.Text("生成已阻塞。请按下方原因检查环境、模板和输出路径，再重新分析。");
+                case "Planned": return CHToolLanguage.Text("分析通过，可以生成。")+graph+CHToolLanguage.Text(" 保存重载与 Shader 编译尚未验证，请点击“生成并验证”。");
+                default: return CHToolLanguage.Text("当前状态：") + report.status;
             }
         }
 
@@ -52,6 +52,7 @@ namespace ASEShaderConverter.Editor
 
         public static string Explain(string message)
         {
+            if (!CHToolLanguage.IsChinese) return message;
             for (int i = 0; i < Prefixes.GetLength(0); i++)
                 if (message.StartsWith(Prefixes[i, 0], StringComparison.Ordinal)) return Prefixes[i, 1] + message.Substring(Prefixes[i, 0].Length);
             switch (message)

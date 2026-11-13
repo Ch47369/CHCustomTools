@@ -13,9 +13,10 @@ namespace ASEShaderConverter.Editor
         [Serializable] public sealed class Report {public string pipeline;public bool completed,cancelled;public int requested;public List<Item> items=new List<Item>();}
         static string[] ids; static int cursor;static Report report;static string reportPath;
         public static bool IsRunning {get;private set;}
-        public static string LastReport {get;private set;}
+        static string lastReportZh="",lastReportEn="";
+        public static string LastReport {get{return CHToolLanguage.Pick(lastReportZh,lastReportEn);}}
         public static Report LastResult {get;private set;}
-        public static string Progress {get{return IsRunning?"生成进度 "+cursor+" / "+ids.Length:"";}}
+        public static string Progress {get{return IsRunning?CHToolLanguage.Pick("生成进度 ","Progress ")+cursor+" / "+ids.Length:"";}}
         public static Item Generate(string id)
         {
             var item=new Item{id=id};
@@ -48,7 +49,7 @@ namespace ASEShaderConverter.Editor
             if(ids.Any(id=>!catalog.entries.Any(e=>e.id==id&&e.pipeline==environment.activePipeline&&e.aseRoundTripPassed&&e.shaderCompiled)))throw new ArgumentException("All requested entries must be validated for the active pipeline.");
             report=new Report{pipeline=environment.activePipeline,requested=ids.Length};cursor=0;
             string folder="Library/ASEShaderConverter/LibraryBatches";Directory.CreateDirectory(folder);reportPath=folder+"/"+Guid.NewGuid().ToString("N")+".json";
-            Save();IsRunning=true;LastReport="";EditorApplication.update+=Tick;AssemblyReloadEvents.beforeAssemblyReload+=Interrupted;
+            Save();IsRunning=true;lastReportZh=lastReportEn="";EditorApplication.update+=Tick;AssemblyReloadEvents.beforeAssemblyReload+=Interrupted;
         }
         public static void Cancel(){if(!IsRunning)return;report.cancelled=true;Finish();}
         static void Interrupted(){if(!IsRunning)return;report.cancelled=true;Finish();}
@@ -63,7 +64,8 @@ namespace ASEShaderConverter.Editor
         static void Finish()
         {
             EditorApplication.update-=Tick;AssemblyReloadEvents.beforeAssemblyReload-=Interrupted;IsRunning=false;AssetDatabase.SaveAssets();Save();
-            LastReport=(report.cancelled?"已停止":"已完成")+"：成功 "+report.items.Count(i=>i.success)+"，失败 "+report.items.Count(i=>!i.success)+"，未处理 "+(ids.Length-cursor)+"。报告："+reportPath;
+            lastReportZh=(report.cancelled?"已停止":"已完成")+"：成功 "+report.items.Count(i=>i.success)+"，失败 "+report.items.Count(i=>!i.success)+"，未处理 "+(ids.Length-cursor)+"。报告："+reportPath;
+            lastReportEn=(report.cancelled?"Stopped":"Completed")+": succeeded "+report.items.Count(i=>i.success)+", failed "+report.items.Count(i=>!i.success)+", pending "+(ids.Length-cursor)+". Report: "+reportPath;
             LastResult=report;
             Debug.Log(LastReport);
         }

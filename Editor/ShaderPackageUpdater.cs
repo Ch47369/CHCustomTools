@@ -26,7 +26,8 @@ namespace ASEShaderConverter.Editor
         static bool restored;
         public static event Action Changed;
         public static ShaderPackageRelease Latest { get; private set; }
-        public static string Message { get; private set; } = "等待检查仓库版本…";
+        static CHToolMessage message = new CHToolMessage(CHToolLanguage.Text(true, "等待检查仓库版本…"), CHToolLanguage.Text(false, "等待检查仓库版本…"));
+        public static string Message { get { return message; } }
         public static bool HasError { get; private set; }
         public static bool Busy { get { return check != null || installation != null || SessionState.GetString(Pending, "").Length > 0; } }
         static ShaderPackageUpdater()
@@ -45,9 +46,9 @@ namespace ASEShaderConverter.Editor
             get
             {
                 var p = Installed;
-                if (p == null) return "未找到已安装的 Shader转换器";
-                string source = p.source == PackageSource.Git ? "Git" : p.source == PackageSource.LocalTarball ? "本地 Tarball" : p.source == PackageSource.Local ? "本地目录" : p.source == PackageSource.Embedded ? "嵌入式目录" : p.source.ToString();
-                return "当前版本 " + p.version + " · " + source;
+                if (p == null) return CHToolLanguage.Text("未找到已安装的 Shader转换器");
+                string source = p.source == PackageSource.Git ? "Git" : p.source == PackageSource.LocalTarball ? CHToolLanguage.Text("本地 Tarball") : p.source == PackageSource.Local ? CHToolLanguage.Text("本地目录") : p.source == PackageSource.Embedded ? CHToolLanguage.Text("嵌入式目录") : p.source.ToString();
+                return CHToolLanguage.Text("当前版本 ") + p.version + " · " + source;
             }
         }
         public static string InstallationNote
@@ -55,10 +56,10 @@ namespace ASEShaderConverter.Editor
             get
             {
                 var p = Installed;
-                if (p != null && p.source == PackageSource.Embedded) return "嵌入式包不能直接更新。请先备份并移出项目 Packages 中的源码目录，再通过 Git URL 安装。";
-                if (p != null && p.source == PackageSource.Git && Repository == null) return "此包来自其他 Git 地址。请在其来源仓库管理版本；本更新器只处理 ShaderConverter 官方私有仓库。";
-                if (p != null && (p.source == PackageSource.Local || p.source == PackageSource.LocalTarball)) return "当前为本地安装。切换为 Git 安装会更改当前项目的包引用，本地源码目录和 Tarball 文件会保留。";
-                return "私有仓库需要本机 Git 已认证。更新会锁定选定的正式版本，不会自动跟随分支。";
+                if (p != null && p.source == PackageSource.Embedded) return CHToolLanguage.Text("嵌入式包不能直接更新。请先备份并移出项目 Packages 中的源码目录，再通过 Git URL 安装。");
+                if (p != null && p.source == PackageSource.Git && Repository == null) return CHToolLanguage.Text("此包来自其他 Git 地址。请在其来源仓库管理版本；本更新器只处理 ShaderConverter 官方私有仓库。");
+                if (p != null && (p.source == PackageSource.Local || p.source == PackageSource.LocalTarball)) return CHToolLanguage.Text("当前为本地安装。切换为 Git 安装会更改当前项目的包引用，本地源码目录和 Tarball 文件会保留。");
+                return CHToolLanguage.Text("私有仓库需要本机 Git 已认证。更新会锁定选定的正式版本，不会自动跟随分支。");
             }
         }
         static bool SupportedSource(PackageInfo p) { return p != null && (p.source == PackageSource.Git || p.source == PackageSource.Local || p.source == PackageSource.LocalTarball) && Repository != null; }
@@ -74,9 +75,9 @@ namespace ASEShaderConverter.Editor
         }
         public static string InstallLabel
         {
-            get { return "更新到 " + (Latest == null ? "新版本" : Latest.version.ToString()); }
+            get { return CHToolLanguage.Text("更新到 ") + (Latest == null ? CHToolLanguage.Text("新版本") : Latest.version.ToString()); }
         }
-        static void SetMessage(string text, bool error = false) { Message = text; HasError = error; if (Changed != null) Changed(); }
+        static void SetMessage(CHToolMessage text, bool error = false) { message = text; HasError = error; if (Changed != null) Changed(); }
         // Session cache survives script reloads, while each new Editor session checks again.
         public static void EnsureChecked()
         {
@@ -104,8 +105,9 @@ namespace ASEShaderConverter.Editor
         static void SetVersionMessage()
         {
             var p = Installed;
-            SetMessage(Latest == null ? "仓库中没有 vX.Y.Z 格式的正式版本。" : HasNewVersion ? "发现新版本 " + Latest.version + "。"
-                : p != null && p.version == Latest.version.ToString() ? "当前已是最新版本（" + Latest.version + "）。" : "当前版本高于仓库最新正式版 " + Latest.version + "。");
+            SetMessage(new CHToolMessage(Latest == null ? CHToolLanguage.Text(true, "仓库中没有 vX.Y.Z 格式的正式版本。") : HasNewVersion ? CHToolLanguage.Text(true, "发现新版本 ") + Latest.version + "。"
+                : p != null && p.version == Latest.version.ToString() ? CHToolLanguage.Text(true, "当前已是最新版本（") + Latest.version + "）。" : CHToolLanguage.Text(true, "当前版本高于仓库最新正式版 ") + Latest.version + "。", Latest == null ? CHToolLanguage.Text(false, "仓库中没有 vX.Y.Z 格式的正式版本。") : HasNewVersion ? CHToolLanguage.Text(false, "发现新版本 ") + Latest.version + "。"
+                : p != null && p.version == Latest.version.ToString() ? CHToolLanguage.Text(false, "当前已是最新版本（") + Latest.version + "）。" : CHToolLanguage.Text(false, "当前版本高于仓库最新正式版 ") + Latest.version + "。"));
         }
         public static void CheckForUpdates()
         {
@@ -117,7 +119,7 @@ namespace ASEShaderConverter.Editor
             SessionState.SetString(CachedRepository, Repository);
             cancellation = new CancellationTokenSource();
             check = ReadTags(Repository, cancellation.Token);
-            SetMessage("正在检查正式版本…");
+            SetMessage(new CHToolMessage(CHToolLanguage.Text(true, "正在检查正式版本…"), CHToolLanguage.Text(false, "正在检查正式版本…")));
         }
         static async Task<ShaderPackageRelease> ReadTags(string repository, CancellationToken token)
         {
@@ -158,8 +160,8 @@ namespace ASEShaderConverter.Editor
             string url = ShaderPackageUpdatePolicy.InstallationUrl(Repository, Latest.tag);
             SessionState.SetString(Pending, url);
             SessionState.SetString(Started, DateTime.UtcNow.ToString("o"));
-            try { installation = Client.Add(url); SetMessage("Unity Package Manager 正在安装 " + Latest.version + "，请等待包解析和脚本重载…"); }
-            catch (Exception) { SessionState.EraseString(Pending); SessionState.EraseString(Started); SetMessage("无法启动更新，请在 Package Manager 中检查正在进行的操作。", true); }
+            try { installation = Client.Add(url); SetMessage(new CHToolMessage(CHToolLanguage.Text(true, "Unity Package Manager 正在安装 ") + Latest.version + CHToolLanguage.Text(true, "，请等待包解析和脚本重载…"), CHToolLanguage.Text(false, "Unity Package Manager 正在安装 ") + Latest.version + CHToolLanguage.Text(false, "，请等待包解析和脚本重载…"))); }
+            catch (Exception) { SessionState.EraseString(Pending); SessionState.EraseString(Started); SetMessage(new CHToolMessage(CHToolLanguage.Text(true, "无法启动更新，请在 Package Manager 中检查正在进行的操作。"), CHToolLanguage.Text(false, "无法启动更新，请在 Package Manager 中检查正在进行的操作。")), true); }
         }
         static void CancelCheck() { if (cancellation != null) cancellation.Cancel(); }
         static void Poll()
@@ -173,7 +175,7 @@ namespace ASEShaderConverter.Editor
                     // Observe the exception, but never display Git/credential-helper diagnostics.
                     var ignored = completed.Exception;
                     SessionState.SetBool(LastFailed, true);
-                    SetMessage("检查更新失败。请确认 Git 已安装、当前账号有私有仓库访问权限及网络可用，然后重试。", true);
+                    SetMessage(new CHToolMessage(CHToolLanguage.Text(true, "检查更新失败。请确认 Git 已安装、当前账号有私有仓库访问权限及网络可用，然后重试。"), CHToolLanguage.Text(false, "检查更新失败。请确认 Git 已安装、当前账号有私有仓库访问权限及网络可用，然后重试。")), true);
                 }
                 else
                 {
@@ -194,7 +196,7 @@ namespace ASEShaderConverter.Editor
             if (installation != null)
             {
                 if (!installation.IsCompleted) return;
-                if (installation.Status == StatusCode.Failure) { installation = null; SessionState.EraseString(Pending); SessionState.EraseString(Started); SetMessage("更新未完成。请在 Package Manager 查看错误并检查 Git 认证或网络；当前包引用以 Unity 的解析结果为准。", true); return; }
+                if (installation.Status == StatusCode.Failure) { installation = null; SessionState.EraseString(Pending); SessionState.EraseString(Started); SetMessage(new CHToolMessage(CHToolLanguage.Text(true, "更新未完成。请在 Package Manager 查看错误并检查 Git 认证或网络；当前包引用以 Unity 的解析结果为准。"), CHToolLanguage.Text(false, "更新未完成。请在 Package Manager 查看错误并检查 Git 认证或网络；当前包引用以 Unity 的解析结果为准。")), true); return; }
                 installation = null;
             }
             if (EditorApplication.isCompiling || EditorApplication.isUpdating) return;
@@ -204,13 +206,13 @@ namespace ASEShaderConverter.Editor
             // packageId contains the requested repository and tag even in that case.
             if (installed != null && installed.source == PackageSource.Git && installed.packageId == ShaderPackageUpdatePolicy.PackageName + "@" + pending && installed.version == tag.Substring(1))
             {
-                SessionState.EraseString(Pending); SessionState.EraseString(Started); SetMessage("已安装 " + installed.version + "。Git 版本已锁定到 " + tag + "。");
+                SessionState.EraseString(Pending); SessionState.EraseString(Started); SetMessage(new CHToolMessage(CHToolLanguage.Text(true, "已安装 ") + installed.version + CHToolLanguage.Text(true, "。Git 版本已锁定到 ") + tag + "。", CHToolLanguage.Text(false, "已安装 ") + installed.version + CHToolLanguage.Text(false, "。Git 版本已锁定到 ") + tag + "。"));
             }
             else
             {
                 DateTime started;
                 if (DateTime.TryParse(SessionState.GetString(Started, ""), null, System.Globalization.DateTimeStyles.RoundtripKind, out started) && DateTime.UtcNow - started > TimeSpan.FromMinutes(3))
-                { SessionState.EraseString(Pending); SessionState.EraseString(Started); SetMessage("尚未确认安装结果。请查看 Package Manager 的包版本和错误信息，包解析仍可能继续完成。", true); }
+                { SessionState.EraseString(Pending); SessionState.EraseString(Started); SetMessage(new CHToolMessage(CHToolLanguage.Text(true, "尚未确认安装结果。请查看 Package Manager 的包版本和错误信息，包解析仍可能继续完成。"), CHToolLanguage.Text(false, "尚未确认安装结果。请查看 Package Manager 的包版本和错误信息，包解析仍可能继续完成。")), true); }
             }
         }
     }

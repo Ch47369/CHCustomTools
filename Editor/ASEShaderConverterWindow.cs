@@ -31,12 +31,12 @@ namespace ASEShaderConverter.Editor
         private static readonly string[] PipelineNames = { "自动识别", "Built-in", "URP", "HDRP" };
         private static readonly string[] PipelineIds = { "Auto", "BuiltIn", "URP", "HDRP" };
 
-        private void OnEnable() { titleContent = new GUIContent("Shader转换器"); }
+        private void OnEnable() { titleContent = new GUIContent(CHToolLanguage.Text("Shader转换器")); }
 
         [MenuItem("Tools/Shader转换器/打开转换器")]
         public static void Open()
         {
-            var window = GetWindow<ASEShaderConverterWindow>("Shader转换器");
+            var window = GetWindow<ASEShaderConverterWindow>(CHToolLanguage.Text("Shader转换器"));
             window.minSize = new Vector2(580, 440);
             window.UseSelection(); window.Show();
         }
@@ -48,98 +48,100 @@ namespace ASEShaderConverter.Editor
 
         private void OnGUI()
         {
+            titleContent = new GUIContent(CHToolLanguage.Text("Shader转换器"));
+            if (GUILayout.Button(CHToolLanguage.Pick("工具集设置", "Tool settings"))) CHToolLanguage.OpenSettings();
             scroll = EditorGUILayout.BeginScrollView(scroll);
-            if (GUILayout.Button("插件更新（检查版本与 Git 升级）")) ShaderPackageUpdateWindow.Open();
-            if (GUILayout.Button("ASE 着色器库（分类、搜索与一键安装）")) ShaderLibraryWindow.Open();
-            EditorGUILayout.HelpBox("统一入口：手写 Shader → ASE / Shader Graph；Shader Graph → ASE、ASE → Shader Graph 先分析阻塞，再由 Agent 提交审查后的原生计划。", MessageType.Info);
+            if (GUILayout.Button(CHToolLanguage.Text("插件更新（检查版本与 Git 升级）"))) ShaderPackageUpdateWindow.Open();
+            if (GUILayout.Button(CHToolLanguage.Text("ASE 着色器库（分类、搜索与一键安装）"))) ShaderLibraryWindow.Open();
+            EditorGUILayout.HelpBox(CHToolLanguage.Text("统一入口：手写 Shader → ASE / Shader Graph；Shader Graph → ASE、ASE → Shader Graph 先分析阻塞，再由 Agent 提交审查后的原生计划。"), MessageType.Info);
             DrawInput();
             EditorGUI.BeginChangeCheck();
-            targetGraph = EditorGUILayout.Popup("输出图格式",targetGraph,new[]{"ASE","Shader Graph（URP 原生子集）"});
+            targetGraph = EditorGUILayout.Popup(CHToolLanguage.Text("输出图格式"),targetGraph,new[]{"ASE",CHToolLanguage.Text("Shader Graph（URP 原生子集）")});
             if (EditorGUI.EndChangeCheck()) { ClearAnalysis(); outputPath = AssetDatabase.GenerateUniqueAssetPath("Assets/Converted"+(targetGraph == 0 ? "_ASE.shader" : "_SG.shadergraph")); }
             if (targetGraph == 1)
             {
                 EditorGUI.BeginChangeCheck();
-                acceptStandardTarget = EditorGUILayout.ToggleLeft("使用标准 URP Unlit 宿主（雾 / AO / Decal / 附加 Pass；不代表原宿主等价）",acceptStandardTarget);
+                acceptStandardTarget = EditorGUILayout.ToggleLeft(CHToolLanguage.Text("使用标准 URP Unlit 宿主（雾 / AO / Decal / 附加 Pass；不代表原宿主等价）"),acceptStandardTarget);
                 if (EditorGUI.EndChangeCheck()) ClearAnalysis();
-                EditorGUILayout.HelpBox("当前适配：Unity 2022.3 + Shader Graph / URP 14.0.8。手写输入要求 Alpha 恒为 1；数学、Float/Range/Vector 参数、2D 纹理采样及直接 UV 插值可转换。Color 属性、复杂顶点与渲染状态仍需适配。",MessageType.None);
+                EditorGUILayout.HelpBox(CHToolLanguage.Text("当前适配：Unity 2022.3 + Shader Graph / URP 14.0.8。手写输入要求 Alpha 恒为 1；数学、Float/Range/Vector 参数、2D 纹理采样及直接 UV 插值可转换。Color 属性、复杂顶点与渲染状态仍需适配。"),MessageType.None);
             }
             EditorGUILayout.BeginHorizontal();
-            outputPath = EditorGUILayout.TextField("输出 Shader", outputPath);
-            if (GUILayout.Button("选择", GUILayout.Width(60)))
+            outputPath = EditorGUILayout.TextField(CHToolLanguage.Text("输出 Shader"), outputPath);
+            if (GUILayout.Button(CHToolLanguage.Text("选择"), GUILayout.Width(60)))
             {
-                string chosen = EditorUtility.SaveFilePanelInProject("保存转换图", targetGraph == 0 ? "Converted_ASE" : "Converted_SG", targetGraph == 0 ? "shader" : "shadergraph", "选择新的输出文件");
+                string chosen = EditorUtility.SaveFilePanelInProject(CHToolLanguage.Text("保存转换图"), targetGraph == 0 ? "Converted_ASE" : "Converted_SG", targetGraph == 0 ? "shader" : "shadergraph", CHToolLanguage.Text("选择新的输出文件"));
                 if (!string.IsNullOrEmpty(chosen)) outputPath = chosen;
             }
             EditorGUILayout.EndHorizontal();
             EditorGUI.BeginChangeCheck();
-            pipeline = EditorGUILayout.Popup("目标管线", pipeline, PipelineNames);
-            if(targetGraph == 0) keepName = EditorGUILayout.Toggle("保留 Shader 名称", keepName);
-            advanced = EditorGUILayout.Foldout(advanced, "高级：节点排列与功能说明", true);
+            pipeline = EditorGUILayout.Popup(CHToolLanguage.Text("目标管线"), pipeline, CHToolLanguage.Text(PipelineNames));
+            if(targetGraph == 0) keepName = EditorGUILayout.Toggle(CHToolLanguage.Text("保留 Shader 名称"), keepName);
+            advanced = EditorGUILayout.Foldout(advanced, CHToolLanguage.Text("高级：节点排列与功能说明"), true);
             if (advanced && targetGraph == 0)
             {
-                autoLayout = EditorGUILayout.Toggle("按连线顺序排列", autoLayout);
-                addComments = EditorGUILayout.Toggle("添加中文 Comment 说明", addComments);
-                useRegisters = EditorGUILayout.Toggle("长连线使用 Register / Get", useRegisters);
-                if (useRegisters) longWireDistance = Mathf.Clamp(EditorGUILayout.FloatField("长连线距离", longWireDistance), 600, 20000);
-                EditorGUILayout.HelpBox("节点按计算步骤从左到右排列。Comment 说明每步用途；长连线两端用同名 Register/Get 传递结果。", MessageType.None);
+                autoLayout = EditorGUILayout.Toggle(CHToolLanguage.Text("按连线顺序排列"), autoLayout);
+                addComments = EditorGUILayout.Toggle(CHToolLanguage.Text("添加中文 Comment 说明"), addComments);
+                useRegisters = EditorGUILayout.Toggle(CHToolLanguage.Text("长连线使用 Register / Get"), useRegisters);
+                if (useRegisters) longWireDistance = Mathf.Clamp(EditorGUILayout.FloatField(CHToolLanguage.Text("长连线距离"), longWireDistance), 600, 20000);
+                EditorGUILayout.HelpBox(CHToolLanguage.Text("节点按计算步骤从左到右排列。Comment 说明每步用途；长连线两端用同名 Register/Get 传递结果。"), MessageType.None);
             }
             if (EditorGUI.EndChangeCheck()) ClearAnalysis();
             EditorGUILayout.BeginHorizontal();
             using (new EditorGUI.DisabledScope(string.IsNullOrWhiteSpace(inputPath)))
             {
-                if (GUILayout.Button("分析")) Analyze();
+                if (GUILayout.Button(CHToolLanguage.Text("分析"))) Analyze();
                 using (new EditorGUI.DisabledScope(analysis != null && (analysis.report.status == "NeedsAgent" || analysis.report.existingAseGraph)))
                 {
-                    if (GUILayout.Button("生成并验证")) Generate();
+                    if (GUILayout.Button(CHToolLanguage.Text("生成并验证"))) Generate();
                 }
             }
-            if (GUILayout.Button("检查环境")) { if(targetGraph == 0) environment = AseEditorBridge.Probe(); else nativeEnvironment = ShaderGraphEditorBridge.Probe(); }
-            if (GUILayout.Button("使用选中 Shader")) UseSelection();
+            if (GUILayout.Button(CHToolLanguage.Text("检查环境"))) { if(targetGraph == 0) environment = AseEditorBridge.Probe(); else nativeEnvironment = ShaderGraphEditorBridge.Probe(); }
+            if (GUILayout.Button(CHToolLanguage.Text("使用选中 Shader"))) UseSelection();
             EditorGUILayout.EndHorizontal();
             if (analysis != null)
             {
                 EditorGUILayout.BeginHorizontal();
-                if (GUILayout.Button("复制分析报告")) EditorGUIUtility.systemCopyBuffer = nativeAnalysis == null ? JsonUtility.ToJson(analysis, true) : JsonUtility.ToJson(nativeAnalysis,true);
-                if (GUILayout.Button("导出节点计划和报告"))
+                if (GUILayout.Button(CHToolLanguage.Text("复制分析报告"))) EditorGUIUtility.systemCopyBuffer = nativeAnalysis == null ? JsonUtility.ToJson(analysis, true) : JsonUtility.ToJson(nativeAnalysis,true);
+                if (GUILayout.Button(CHToolLanguage.Text("导出节点计划和报告")))
                 {
-                    string path = EditorUtility.SaveFilePanel("导出分析", Application.dataPath, "shader-analysis", "json");
+                    string path = EditorUtility.SaveFilePanel(CHToolLanguage.Text("导出分析"), Application.dataPath, "shader-analysis", "json");
                     if (!string.IsNullOrEmpty(path)) File.WriteAllText(path, nativeAnalysis == null ? JsonUtility.ToJson(analysis, true) : JsonUtility.ToJson(nativeAnalysis,true));
                 }
                 EditorGUILayout.EndHorizontal();
             }
             if (!string.IsNullOrEmpty(error)) EditorGUILayout.HelpBox(error, MessageType.Error);
-            if (targetGraph == 1 && nativeEnvironment != null) { EditorGUILayout.LabelField("Unity / Shader Graph / URP",nativeEnvironment.unityVersion+" / "+nativeEnvironment.shaderGraphVersion+" / "+nativeEnvironment.urpVersion); DrawMessages(nativeEnvironment.errors,"环境问题",MessageType.Error); }
+            if (targetGraph == 1 && nativeEnvironment != null) { EditorGUILayout.LabelField("Unity / Shader Graph / URP",nativeEnvironment.unityVersion+" / "+nativeEnvironment.shaderGraphVersion+" / "+nativeEnvironment.urpVersion); DrawMessages(nativeEnvironment.errors,CHToolLanguage.Text("环境问题"),MessageType.Error); }
             if (targetGraph == 0 && environment != null)
             {
                 EditorGUILayout.LabelField("Unity / ASE", environment.unityVersion + " / " + environment.aseVersion);
-                EditorGUILayout.LabelField("当前管线", environment.activePipeline);
-                DrawMessages(environment.errors, "环境问题", MessageType.Error);
-                foreach (var template in environment.templates) EditorGUILayout.LabelField((template.ready ? "可用：" : "需导入：") + template.name);
+                EditorGUILayout.LabelField(CHToolLanguage.Text("当前管线"), environment.activePipeline);
+                DrawMessages(environment.errors, CHToolLanguage.Text("环境问题"), MessageType.Error);
+                foreach (var template in environment.templates) EditorGUILayout.LabelField((template.ready ? CHToolLanguage.Text("可用：") : CHToolLanguage.Text("需导入：")) + template.name);
             }
             if (analysis != null)
             {
                 var r = analysis.report;
                 EditorGUILayout.Space();
                 EditorGUILayout.HelpBox(ShaderConverterMessages.Summary(r), ShaderConverterMessages.Severity(r));
-                EditorGUILayout.LabelField("源管线 → 目标管线", r.sourcePipeline + " → " + r.pipeline);
+                EditorGUILayout.LabelField(CHToolLanguage.Text("源管线 → 目标管线"), r.sourcePipeline + " → " + r.pipeline);
                 DrawTargets();
-                EditorGUILayout.LabelField("原生节点 / Custom Expression", r.nativeNodeCount + " / " + r.customExpressionCount);
+                EditorGUILayout.LabelField(CHToolLanguage.Text("原生节点 / Custom Expression"), r.nativeNodeCount + " / " + r.customExpressionCount);
                 if (generationAttempted) EditorGUILayout.LabelField("Comment / Register / Get", r.commentCount + " / " + r.registerNodeCount + " / " + r.getNodeCount);
                 if (generationAttempted)
                 {
-                    EditorGUILayout.LabelField(targetGraph == 0 ? "ASE 保存并重载" : "Shader Graph 保存并重载", (targetGraph == 0 ? r.aseRoundTripPassed : r.shaderGraphRoundTripPassed) ? "通过" : "未通过或未完成");
-                    EditorGUILayout.LabelField("Shader 编译", r.shaderCompiled ? "通过" : "未通过或未完成");
-                    EditorGUILayout.LabelField("画面对比", r.visualComparisonPassed ? "通过" : "尚未验证");
+                    EditorGUILayout.LabelField(targetGraph == 0 ? CHToolLanguage.Text("ASE 保存并重载") : CHToolLanguage.Text("Shader Graph 保存并重载"), (targetGraph == 0 ? r.aseRoundTripPassed : r.shaderGraphRoundTripPassed) ? CHToolLanguage.Text("通过") : CHToolLanguage.Text("未通过或未完成"));
+                    EditorGUILayout.LabelField(CHToolLanguage.Text("Shader 编译"), r.shaderCompiled ? CHToolLanguage.Text("通过") : CHToolLanguage.Text("未通过或未完成"));
+                    EditorGUILayout.LabelField(CHToolLanguage.Text("画面对比"), r.visualComparisonPassed ? CHToolLanguage.Text("通过") : CHToolLanguage.Text("尚未验证"));
                 }
-                else EditorGUILayout.LabelField("生成与验证", "尚未执行");
+                else EditorGUILayout.LabelField(CHToolLanguage.Text("生成与验证"), CHToolLanguage.Text("尚未执行"));
                 DrawKnowledge();
-                DrawMessages(r.blockers, r.status == "NeedsAgent" ? "需要适配的项目（仍会阻止自动生成）" : "阻塞原因", MessageType.None);
-                DrawMessages(r.fallbackReasons, "Custom Expression 使用原因", MessageType.Warning);
-                DrawMessages(r.warnings, "说明", MessageType.None);
-                showOriginalMessages = EditorGUILayout.Foldout(showOriginalMessages, "查看原始诊断", true);
+                DrawMessages(r.blockers, r.status == "NeedsAgent" ? CHToolLanguage.Text("需要适配的项目（仍会阻止自动生成）") : CHToolLanguage.Text("阻塞原因"), MessageType.None);
+                DrawMessages(r.fallbackReasons, CHToolLanguage.Text("Custom Expression 使用原因"), MessageType.Warning);
+                DrawMessages(r.warnings, CHToolLanguage.Text("说明"), MessageType.None);
+                showOriginalMessages = EditorGUILayout.Foldout(showOriginalMessages, CHToolLanguage.Text("查看原始诊断"), true);
                 if (showOriginalMessages)
                 {
-                    EditorGUILayout.LabelField("状态", r.status);
+                    EditorGUILayout.LabelField(CHToolLanguage.Text("状态"), r.status);
                     DrawOriginalMessages(r.blockers);
                     DrawOriginalMessages(r.fallbackReasons);
                     DrawOriginalMessages(r.warnings);
@@ -165,58 +167,58 @@ namespace ASEShaderConverter.Editor
         private void DrawTargets()
         {
             if (targetAnalyses == null) return;
-            showTargets = EditorGUILayout.Foldout(showTargets, "Built-in / URP / HDRP 转换检查", true);
+            showTargets = EditorGUILayout.Foldout(showTargets, CHToolLanguage.Text("Built-in / URP / HDRP 转换检查"), true);
             if (!showTargets) return;
             foreach (var target in targetAnalyses)
             {
                 var r = target.report;
-                string state = r.existingAseGraph ? "已有 ASE 图，需在目标管线迁移" : r.CanGenerate ? "分析通过，尚未生成验证" : "需适配 " + r.blockers.Count + " 项";
+                string state = r.existingAseGraph ? CHToolLanguage.Text("已有 ASE 图，需在目标管线迁移") : r.CanGenerate ? CHToolLanguage.Text("分析通过，尚未生成验证") : CHToolLanguage.Text("需适配 ") + r.blockers.Count + CHToolLanguage.Text(" 项");
                 EditorGUILayout.LabelField(r.pipeline, state);
             }
-            EditorGUILayout.HelpBox("切换上方目标管线可查看具体阻塞并生成。实际生成需要当前 Unity 项目启用该管线，以及可用的 ASE 模板。", MessageType.None);
+            EditorGUILayout.HelpBox(CHToolLanguage.Text("切换上方目标管线可查看具体阻塞并生成。实际生成需要当前 Unity 项目启用该管线，以及可用的 ASE 模板。"), MessageType.None);
         }
 
         private void DrawKnowledge()
         {
             var knowledge = analysis.knowledge;
             if (knowledge == null) return;
-            showKnowledge = EditorGUILayout.Foldout(showKnowledge, "转换规则与已记录的语义（" + knowledge.rules.Count + "）", true);
+            showKnowledge = EditorGUILayout.Foldout(showKnowledge, CHToolLanguage.Text("转换规则与已记录的语义（") + knowledge.rules.Count + "）", true);
             if (!showKnowledge) return;
-            EditorGUILayout.LabelField("规则库版本", knowledge.libraryVersion);
+            EditorGUILayout.LabelField(CHToolLanguage.Text("规则库版本"), knowledge.libraryVersion);
             if(knowledge.sourceGraph!=null)
             {
                 var sg=knowledge.sourceGraph;
-                EditorGUILayout.HelpBox("Shader Graph · "+sg.format+" · "+sg.sourcePipeline+" / "+sg.target+"\n节点 "+sg.nodeCount+"，连线 "+sg.edgeCount+"，属性 "+sg.properties.Count+"，关键词 "+sg.keywordCount+"。结构分析不等于 ASE 转换完成。",MessageType.Info);
-                foreach(var b in sg.blocks)EditorGUILayout.LabelField((b.connected?"已连接 · ":"默认值 · ")+b.descriptor);
+                EditorGUILayout.HelpBox("Shader Graph · "+sg.format+" · "+sg.sourcePipeline+" / "+sg.target+CHToolLanguage.Text("\n节点 ")+sg.nodeCount+CHToolLanguage.Text("，连线 ")+sg.edgeCount+CHToolLanguage.Text("，属性 ")+sg.properties.Count+CHToolLanguage.Text("，关键词 ")+sg.keywordCount+CHToolLanguage.Text("。结构分析不等于 ASE 转换完成。"),MessageType.Info);
+                foreach(var b in sg.blocks)EditorGUILayout.LabelField((b.connected?CHToolLanguage.Text("已连接 · "):CHToolLanguage.Text("默认值 · "))+b.descriptor);
                 foreach(var dependency in sg.dependencies)EditorGUILayout.HelpBox(dependency,MessageType.None);
             }
             if (knowledge.materialCategories.Count > 0)
             {
                 var catalog = ShaderRuleLibrary.Catalog();
-                EditorGUILayout.LabelField("材质与动效分类线索", string.Join(" / ", knowledge.materialCategories.ConvertAll(id => {
+                EditorGUILayout.LabelField(CHToolLanguage.Text("材质与动效分类线索"), string.Join(" / ", knowledge.materialCategories.ConvertAll(id => {
                     var category = catalog.categories.Find(c => c.id == id); return category == null ? id : category.title;
                 }).ToArray()));
             }
             foreach(var character in knowledge.characterMaterials)
             {
-                EditorGUILayout.LabelField(character.title + " · 人物材质分析，尚未生成验证", EditorStyles.boldLabel);
-                EditorGUILayout.HelpBox("识别线索：" + string.Join("、", character.matchedSignals.ToArray()) + "\n待核对：" + string.Join("；", character.requiredReview.ToArray()), MessageType.None);
+                EditorGUILayout.LabelField(character.title + CHToolLanguage.Text(" · 人物材质分析，尚未生成验证"), EditorStyles.boldLabel);
+                EditorGUILayout.HelpBox(CHToolLanguage.Text("识别线索：") + string.Join("、", character.matchedSignals.ToArray()) + CHToolLanguage.Text("\n待核对：") + string.Join("；", character.requiredReview.ToArray()), MessageType.None);
             }
-            if(knowledge.characterMaterials.Count>0 && GUILayout.Button("在 ASE 着色器库查看人物分类与适配要求")) ShaderLibraryWindow.OpenCategory(knowledge.characterMaterials[0].profileId);
-            EditorGUILayout.LabelField("静态成本线索（未测 GPU）", "采样位置 " + knowledge.performance.directTextureSampleSites + " / 循环 " + knowledge.performance.loopSites + " / 显式 Pass " + knowledge.performance.explicitPasses);
+            if(knowledge.characterMaterials.Count>0 && GUILayout.Button(CHToolLanguage.Text("在 ASE 着色器库查看人物分类与适配要求"))) ShaderLibraryWindow.OpenCategory(knowledge.characterMaterials[0].profileId);
+            EditorGUILayout.LabelField(CHToolLanguage.Text("静态成本线索（未测 GPU）"), CHToolLanguage.Text("采样位置 ") + knowledge.performance.directTextureSampleSites + CHToolLanguage.Text(" / 循环 ") + knowledge.performance.loopSites + CHToolLanguage.Text(" / 显式 Pass ") + knowledge.performance.explicitPasses);
             foreach (string observation in knowledge.performance.observations) EditorGUILayout.HelpBox(observation, MessageType.None);
             if (!string.IsNullOrEmpty(knowledge.referenceFile))
                 EditorGUILayout.HelpBox(knowledge.referenceFile + "：" + knowledge.referenceNotes, MessageType.None);
             if (knowledge.graph.present)
             {
-                EditorGUILayout.LabelField("原图版本 / 节点 / 连线", knowledge.graph.version + " / " + knowledge.graph.nodeCount + " / " + knowledge.graph.wireCount);
-                foreach (string guid in knowledge.graph.functionGuids) EditorGUILayout.LabelField("依赖 Function GUID", guid);
+                EditorGUILayout.LabelField(CHToolLanguage.Text("原图版本 / 节点 / 连线"), knowledge.graph.version + " / " + knowledge.graph.nodeCount + " / " + knowledge.graph.wireCount);
+                foreach (string guid in knowledge.graph.functionGuids) EditorGUILayout.LabelField(CHToolLanguage.Text("依赖 Function GUID"), guid);
             }
             foreach (var rule in knowledge.rules)
             {
-                string state = rule.implementation == "NativePlanner" ? "原生计划规则" : rule.implementation == "AseMigration" ? "ASE 迁移规则" : rule.implementation == "AnalysisRule" ? "分析规则" : "已记录，仍需适配验证";
+                string state = rule.implementation == "NativePlanner" ? CHToolLanguage.Text("原生计划规则") : rule.implementation == "AseMigration" ? CHToolLanguage.Text("ASE 迁移规则") : rule.implementation == "AnalysisRule" ? CHToolLanguage.Text("分析规则") : CHToolLanguage.Text("已记录，仍需适配验证");
                 EditorGUILayout.LabelField(rule.title + " · " + state, EditorStyles.boldLabel);
-                EditorGUILayout.HelpBox(rule.recipe + "\n保留：" + string.Join("；", rule.preserve.ToArray()), MessageType.None);
+                EditorGUILayout.HelpBox(rule.recipe + CHToolLanguage.Text("\n保留：") + string.Join("；", rule.preserve.ToArray()), MessageType.None);
             }
             foreach (string note in knowledge.notes) EditorGUILayout.HelpBox(note, MessageType.None);
         }
@@ -235,24 +237,24 @@ namespace ASEShaderConverter.Editor
         {
             if (inputShader == null) inputShader = LoadInputShader();
             EditorGUI.BeginChangeCheck();
-            var chosen = (Shader)EditorGUILayout.ObjectField(new GUIContent("输入 Shader", "可从 Project 窗口拖入 .shader 文件"), inputShader, typeof(Shader), false);
+            var chosen = (Shader)EditorGUILayout.ObjectField(new GUIContent(CHToolLanguage.Text("输入 Shader"), CHToolLanguage.Text("可从 Project 窗口拖入 .shader 文件")), inputShader, typeof(Shader), false);
             if (EditorGUI.EndChangeCheck())
             {
                 string path = chosen == null ? "" : AssetDatabase.GetAssetPath(chosen);
                 if (chosen == null || IsShaderFile(path)) SetInput(path);
-                else error = "请选择包含源码的 .shader 文件。Unity 内置 Shader 不能作为文件输入。";
+                else error = CHToolLanguage.Text("请选择包含源码的 .shader 文件。Unity 内置 Shader 不能作为文件输入。");
             }
             EditorGUILayout.BeginHorizontal();
-            string edited = EditorGUILayout.TextField("文件路径", inputPath);
+            string edited = EditorGUILayout.TextField(CHToolLanguage.Text("文件路径"), inputPath);
             if (edited != inputPath) SetInput(edited);
-            if (GUILayout.Button("浏览", GUILayout.Width(60)))
+            if (GUILayout.Button(CHToolLanguage.Text("浏览"), GUILayout.Width(60)))
             {
-                string path = EditorUtility.OpenFilePanelWithFilters("选择 Shader 或 Shader Graph", Application.dataPath, new[]{"Shader / Shader Graph","shader,shadergraph,shadersubgraph"});
+                string path = EditorUtility.OpenFilePanelWithFilters(CHToolLanguage.Text("选择 Shader 或 Shader Graph"), Application.dataPath, new[]{"Shader / Shader Graph","shader,shadergraph,shadersubgraph"});
                 if (!string.IsNullOrEmpty(path)) SetInput(path);
             }
             EditorGUILayout.EndHorizontal();
             Rect dropArea = GUILayoutUtility.GetRect(0, 38, GUILayout.ExpandWidth(true));
-            GUI.Box(dropArea, "拖入 .shader / .shadergraph / .shadersubgraph（支持系统文件夹）", EditorStyles.helpBox);
+            GUI.Box(dropArea, CHToolLanguage.Text("拖入 .shader / .shadergraph / .shadersubgraph（支持系统文件夹）"), EditorStyles.helpBox);
             HandleDrop(dropArea);
         }
 
@@ -298,7 +300,7 @@ namespace ASEShaderConverter.Editor
 
         private static string SourceDiskPath(string path)
         {
-            if (string.IsNullOrWhiteSpace(path)) throw new ArgumentException("请先拖入或选择一个 .shader 文件。");
+            if (string.IsNullOrWhiteSpace(path)) throw new ArgumentException(CHToolLanguage.Text("请先拖入或选择一个 .shader 文件。"));
             string normalized = path.Replace('\\', '/');
             if (normalized.StartsWith("Packages/", StringComparison.Ordinal))
             {

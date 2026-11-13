@@ -1,5 +1,7 @@
 # Shader转换器
 
+**0.4.2 工具集与语言设置**：Package Manager 作者分组统一为 **CH自定义工具集**。在插件主窗口点击“工具集设置”，只需在统一窗口选择 **中文 / English**，全部功能共用；未手动选择时跟随 Unity 编辑器语言，手动选择后跨重载和重启保存。与音频节奏曲线/特效资源整理包同时安装时也共用设置。用法见 [语言设置](Documentation~/LanguageSettings.md)。
+
 **0.4.1 插件更新按钮**：后台自动检查私有 Git 仓库正式标签，**只有仓库版本高于当前安装版本时，Package Manager 详情页才显示“更新到 X.Y.Z”**，无新版本时隐藏更新按钮；菜单 `Tools/Shader转换器/检查插件更新` 和主窗口也有入口，并可手动刷新。本地目录/Tarball 安装可切换为私有 Git 标签安装。0.4.0 及更早版本需先通过 Git URL 安装一次 0.4.1。按钮使用 Unity 的公开详情扩展 API；Git 包不会获得注册表包的原生工具栏按钮或左侧“更新”列表。具体操作与认证要求见 [插件更新](Documentation~/PackageUpdates.md)。
 
 插件统一名称为 **Shader转换器**，入口为 `Tools → Shader转换器 → 打开转换器`，Project 右键菜单为 `Shader转换器 → 分析并转换`。0.4.0 按优先级新增 **手写 Shader → Shader Graph** 和 **Agent 原生 Shader Graph 建图**，保留全部现有 ASE 功能。新后端限定 Unity 2022.3 / Shader Graph 14.0.8 / URP 14.0.8 的标准 Unlit 原生子集，支持数学、Float/Range/Vector 参数、UV 与普通 2D 采样。明确声明的 ShaderLab Enum 若直接控制二路 Lerp，会在 Shader Graph 中生成 Enum `KeywordNode`；普通 Float/Lerp 保持连续 `LerpNode`，多条目/嵌套/未证明语义交给 Agent。必须明确选择标准 URP 宿主适配，Alpha 无法证明恒为 1 或其他未映射语义仍阻塞。ASE↔Shader Graph 的通用自动互转尚未实现，输入继续提供分析与 Agent 显式适配路径；完整支持表、示例与限制见 [图格式与 Agent 使用](Documentation~/ShaderConversionRoadmap.md)。
@@ -41,7 +43,7 @@
 ## 安装和使用
 
 1. ASE 输出/库需安装正版 ASE 和目标管线模板。Shader Graph 输出需 Unity 2022.3、URP/Shader Graph 14.0.8 并启用 URP，无需安装 ASE。
-2. 推荐使用 Git 安装：Package Manager → **Add package from git URL**，填写 `https://github.com/Ch47369/ShaderConverter.git#v0.4.1`。仓库为私有，电脑需安装 Git 并通过系统 Git 凭据管理器或 SSH 认证有访问权限的 GitHub 账号；Package Manager 不会授予仓库权限，URL 中也不应填写 Token。已配置 SSH 的电脑可使用 `ssh://git@github.com/Ch47369/ShaderConverter.git#v0.4.1`。固定标签安装对应版本；后续用插件的“检查更新”按钮升级。也可从私有仓库的 Release 下载 `.tgz`，用 Add package from tarball 安装。源码目录支持 Add package from disk 选择 `package.json`；完整着色器库需保留配套目录。
+2. 推荐使用 Git 安装：Package Manager → **Add package from git URL**，填写 `https://github.com/Ch47369/ShaderConverter.git#v0.4.2`。仓库为私有，电脑需安装 Git 并通过系统 Git 凭据管理器或 SSH 认证有访问权限的 GitHub 账号；Package Manager 不会授予仓库权限，URL 中也不应填写 Token。已配置 SSH 的电脑可使用 `ssh://git@github.com/Ch47369/ShaderConverter.git#v0.4.2`。固定标签安装对应版本；后续用插件的“检查更新”按钮升级。也可从私有仓库的 Release 下载 `.tgz`，用 Add package from tarball 安装。源码目录支持 Add package from disk 选择 `package.json`；完整着色器库需保留配套目录。
 3. 打开 `Tools/Shader转换器/打开转换器`，把 Project 窗口中的 Shader 拖到“输入 Shader”栏，或把系统文件夹中的单个 `.shader` 拖到拖放区域。也可浏览、粘贴路径或使用选中 Shader；切换输入会建议一个不会覆盖原文件的 `Assets/*_ASE.shader` 输出路径。
 4. 选择输出格式 ASE 或 Shader Graph；后者需选择 URP 并明确勾选标准宿主适配。点击“分析”，通过后点击“生成并验证”，获取新的 `.shader` 或 `.shadergraph`。若显示“需要适配”，列出的项目仍阻止生成；复制/导出报告供 Agent 逐项适配。已有输出不会覆盖。
 5. 在 ASE 中打开输出，并在目标场景比较原、新材质的颜色、Alpha、深度和渲染状态。报告中的 `visualComparisonPassed` 默认是 false。

@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "version": "0.4.2",
+  "author": "CH自定义工具集",
+  "baselineArchiveSha256": "9ab343f5852215855df75f925fbc4737c6a82631bef0212580c18e81380a2b72",
+  "protectedFilesUnchanged": 401,
+  "runtimeConversionAndAllSamplesUnchanged": true,
+  "languageChoices": [
+    "中文",
+    "English"
+  ],
+  "implicitDefaultFollowsUnityEditor": true,
+  "sharedSettingsInsidePlugin": true,
+  "integration": [
+    {
+      "unityVersion": "2022.3.10f1",
+      "checks": 29,
+      "file": "unity-2022.3.10f1.json"
+    },
+    {
+      "unityVersion": "6000.0.80f1",
+      "checks": 29,
+      "file": "unity-6000.0.80f1.json"
+    }
+  ],
+  "scope": "Editor presentation only; no new conversion or rendering equivalence claims"
+}
