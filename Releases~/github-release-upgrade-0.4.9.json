@@ -1,0 +1,78 @@
+{
+  "version": "0.4.9",
+  "success": true,
+  "repository": "https://github.com/Ch47369/CHCustomTools",
+  "release": "https://github.com/Ch47369/CHCustomTools/releases/tag/v0.4.9",
+  "sourceCommit": "a987ab9d541be49d7fc3d83c915694c998b75092",
+  "checkedUtc": "2026-11-13T08:10:03.355303+00:00",
+  "anonymousGitHubReleaseDownload": true,
+  "targetTarballSha256": "097db53ce038672e367a062faf97c0886999c43a91c1c53fde47f22073a57cd7",
+  "baselineTarballSha256": "8f95611f89a7c75398a05f46d0ff08b8f86f027885abbecac5a6d795e01cadc9",
+  "fixtureNote": "Fixed real 0.4.7 contents/version with only the candidate updater explicitly backported; target is the actual published 0.4.9 GitHub release archive.",
+  "unmodifiedLegacyUpdaterSelfHealingClaimed": false,
+  "userProjectsModified": false,
+  "results": [
+    {
+      "success": true,
+      "unity": "2022.3.10f1",
+      "beforeVersion": "0.4.7",
+      "beforeSource": "Local",
+      "targetTag": "v0.4.9",
+      "installedVersion": "0.4.9",
+      "installedSource": "LocalTarball",
+      "packageId": "com.aseshader.handwritten-converter@file:F:\\ASEShader\\.validation\\GitHubReleaseUpgrade049-2022-Project\\Packages\\CHCustomToolsCache~\\com.aseshader.handwritten-converter-0.4.9.tgz",
+      "failure": "",
+      "downloadedCacheSha256": "097db53ce038672e367a062faf97c0886999c43a91c1c53fde47f22073a57cd7",
+      "downloadedCacheBytes": 15229956,
+      "manifestReference": "file:CHCustomToolsCache~/com.aseshader.handwritten-converter-0.4.9.tgz",
+      "updaterClearedPendingAfterReload": true
+    },
+    {
+      "success": true,
+      "unity": "6000.0.80f1",
+      "beforeVersion": "0.4.7",
+      "beforeSource": "Local",
+      "targetTag": "v0.4.9",
+      "installedVersion": "0.4.9",
+      "installedSource": "LocalTarball",
+      "packageId": "com.aseshader.handwritten-converter@file:F:\\ASEShader\\.validation\\GitHubReleaseUpgrade049-Unity6-Project\\Packages\\CHCustomToolsCache~\\com.aseshader.handwritten-converter-0.4.9.tgz",
+      "failure": "",
+      "downloadedCacheSha256": "097db53ce038672e367a062faf97c0886999c43a91c1c53fde47f22073a57cd7",
+      "downloadedCacheBytes": 15229956,
+      "manifestReference": "file:CHCustomToolsCache~/com.aseshader.handwritten-converter-0.4.9.tgz",
+      "updaterClearedPendingAfterReload": true
+    }
+  ],
+  "historical048NetworkFailures": [
+    {
+      "report": {
+        "success": false,
+        "unity": "6000.0.80f1",
+        "beforeVersion": "0.4.7",
+        "beforeSource": "Local",
+        "targetTag": "v0.4.8",
+        "installedVersion": "0.4.7",
+        "installedSource": "Local",
+        "packageId": "com.aseshader.handwritten-converter@file:F:\\ASEShader\\.validation\\GitHubReleaseUpgrade048-Unity6-Fixture\\package",
+        "failure": "System.Exception: GitHub installation failed: Network; 连接 GitHub 失败，请检查网络、VPN / 代理及 DNS 后重试。公开更新无需登录。\r\n  at UnityGitInstallSmoke.Tick () [0x001fb] in F:\\ASEShader\\.validation\\GitHubReleaseUpgrade048-Unity6-Project\\Assets\\Editor\\UnityGitInstallSmoke.cs:54 "
+      },
+      "source": "Documentation~/Evidence/GitHubDownload049/unity6-048-failure-20261113074630849.json",
+      "installationPreserved": true
+    },
+    {
+      "report": {
+        "success": false,
+        "unity": "6000.0.80f1",
+        "beforeVersion": "0.4.7",
+        "beforeSource": "Local",
+        "targetTag": "v0.4.8",
+        "installedVersion": "0.4.7",
+        "installedSource": "Local",
+        "packageId": "com.aseshader.handwritten-converter@file:F:\\ASEShader\\.validation\\GitHubReleaseUpgrade048-Unity6-Fixture\\package",
+        "failure": "System.Exception: GitHub installation failed: Network; 连接 GitHub 失败，请检查网络、VPN / 代理及 DNS 后重试。公开更新无需登录。\r\n  at UnityGitInstallSmoke.Tick () [0x001fb] in F:\\ASEShader\\.validation\\GitHubReleaseUpgrade048-Unity6-Project\\Assets\\Editor\\UnityGitInstallSmoke.cs:54 "
+      },
+      "source": "Documentation~/Evidence/GitHubDownload049/unity6-048-failure-20261113074950880.json",
+      "installationPreserved": true
+    }
+  ]
+}
