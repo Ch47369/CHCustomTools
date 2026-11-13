@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "publicRepository": true,
+  "draft": false,
+  "release": "https://github.com/Ch47369/CHCustomTools/releases/tag/v0.6.1",
+  "tagCommit": "a3fbc0beb4bc354e15356e9c255bf810fa7391c7",
+  "assetDigestsMatch": true,
+  "version": "0.6.1",
+  "sourceCommit": "a3fbc0beb4bc354e15356e9c255bf810fa7391c7",
+  "tag": "v0.6.1",
+  "checkedUtc": "2026-11-13T10:26:10.264461+00:00",
+  "packagedFilesMatchTaggedSource": 1381,
+  "tarballSha256": "3cbc9257f645b0fa9d2e71c464c322b6833754ed385ac609d6688277252d9f42",
+  "backendTaskExcluded": true
+}
