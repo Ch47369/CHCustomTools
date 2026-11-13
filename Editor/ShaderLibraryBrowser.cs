@@ -18,7 +18,6 @@ namespace ASEShaderConverter.Editor
         readonly Dictionary<string,bool> expanded=new Dictionary<string,bool>();
         readonly CharacterMaterialPanel character=new CharacterMaterialPanel();
         readonly string[] pipelines={"全部管线","BuiltIn","URP","HDRP"},devices={"全部设备","Mobile","Pad","PC"},deviceLabels={"全部设备","移动端 / 手机","Pad / 平板","PC / 电脑"},tiers={"全部复杂度","Low","Medium","High","Unrated"},tierLabels={"全部复杂度","低复杂度","中复杂度","高复杂度","未分级"};
-        [MenuItem("Tools/Shader/ASE 着色器库")]
         public static void Open(){var window=GetWindow<ShaderLibraryWindow>(CHToolLanguage.Text("ASE 着色器库"));window.minSize=new Vector2(680,520);window.Show();}
         public static void OpenCategory(string id)
         {

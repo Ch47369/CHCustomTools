@@ -50,8 +50,16 @@ public static class UnityToolMenusSmoke
                 check(((string[])language.GetField("Choices", Static).GetValue(null)).SequenceEqual(new[] { "中文", "English" }), p.name + ": exactly two language choices");
                 if (shader)
                 {
-                    expected.AddRange(new[] { "Tools/Shader/打开转换器", "Tools/Shader/ASE 着色器库", "Tools/Shader/检查插件更新", "Tools/Shader/打开 Agent 接入目录" });
-                    open.AddRange(new[] { "Tools/Shader/打开转换器", "Tools/Shader/ASE 着色器库" });
+                    if (new Version(manifest.version) >= new Version(0, 4, 4))
+                    {
+                        expected.Add("Tools/Shader");
+                        open.Add("Tools/Shader");
+                    }
+                    else
+                    {
+                        expected.AddRange(new[] { "Tools/Shader/打开转换器", "Tools/Shader/ASE 着色器库", "Tools/Shader/检查插件更新", "Tools/Shader/打开 Agent 接入目录" });
+                        open.AddRange(new[] { "Tools/Shader/打开转换器", "Tools/Shader/ASE 着色器库" });
+                    }
                 }
                 else
                 {

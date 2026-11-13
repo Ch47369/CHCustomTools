@@ -50,7 +50,6 @@ namespace ASEShaderConverter.Editor
     }
     public sealed class ShaderPackageUpdateWindow : EditorWindow
     {
-        [MenuItem("Tools/Shader/检查插件更新")]
         public static void Open() { var window = GetWindow<ShaderPackageUpdateWindow>(CHToolLanguage.Text("Shader转换器 · 更新")); window.minSize = new Vector2(480, 210); window.Show(); }
         void OnEnable() { ShaderPackageUpdater.Changed += Repaint; ShaderPackageUpdater.EnsureChecked(); }
         void OnDisable() { ShaderPackageUpdater.Changed -= Repaint; }

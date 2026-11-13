@@ -32,7 +32,6 @@ namespace ASEShaderConverter.Editor
 
         static ShaderAgentInbox() { EditorApplication.update += Update; }
 
-        [MenuItem("Tools/Shader/打开 Agent 接入目录")]
         public static void OpenInbox() { EnsureDirectories(); EditorUtility.RevealInFinder(Root); }
 
         private static void EnsureDirectories()

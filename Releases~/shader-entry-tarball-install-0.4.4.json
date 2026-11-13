@@ -1,0 +1,22 @@
+{
+    "success": true,
+    "unityVersion": "2022.3.10f1",
+    "error": "",
+    "packages": [
+        "com.aseshader.handwritten-converter@0.4.4 (LocalTarball)"
+    ],
+    "checks": [
+        "At least one CH package is installed",
+        "com.aseshader.handwritten-converter: exact author is CH",
+        "com.aseshader.handwritten-converter: exactly two language choices",
+        "Every top Tools entry belongs to the exact unified hierarchy",
+        "Only Shader / VFX feature menus are registered; no extra settings branch or duplicate paths",
+        "Native menu opens: Tools/Shader",
+        "Each plugin has a built-in language selector with no separate settings window",
+        "All installed tools share Chinese",
+        "All installed tools share English",
+        "Reset returns all tools to actual Unity Editor language",
+        "Rendered window follows language: Shader Converter",
+        "Rendered window follows language: Shader转换器"
+    ]
+}

@@ -1,5 +1,7 @@
 # 接入本项目的 Agent
 
+0.4.4 接续：用户要求直接点击顶部 Tools/Shader 打开转换器，不保留 Shader 下二级菜单；库、更新、Agent 目录均从主窗口进入，公开 Open API 保留。作者 CH，主窗口内置语言按钮不变；音频包不修改。复现 Run-ShaderEntry.ps1、Verify-ShaderEntryRelease.py；证据 ShaderEntry044，历史包和证据保留。
+
 0.4.3 接续：作者 CH；最终入口为 Tools/Shader 与 Tools/VFX。按用户最新要求，各工具主窗口直接显示中文/English 切换；不设独立设置窗口、顶部设置分组或语言插件，子页面不重复。各包语言代码随包维护，无跨包程序集依赖；共用 CH.CustomTools.Language，未选择时跟随 Unity，手动保存。CLI 不修改。验证 UnityToolMenusSmoke.cs / Run-ToolMenus.ps1；历史证据/包保留，转换核心及原图不变。
 
 0.4.2 接续：Package Manager 作者为 CH自定义工具集。CHToolLanguage 的同一 EditorPrefs 键 CH.CustomTools.Language（zh/en）供 Shader 与 Audio 独立包共享；未设覆盖时只读 Unity 当前 Editor 界面语言，非 OS 语言。两种选择仅中文/English，插件内单一设置窗口，不在每个页面重复开关；恢复默认清除覆盖。双包同时安装时优先打开 Shader 侧同一窗口。语言读取延后到编辑器主循环，避免 Unity6 窗口反序列化期间在静态构造读取 EditorPrefs；后台文本查询只读缓存。原始图/目录/研究/报告/路径/搜索身份保留，菜单保持兼容路径，CLI 不修改。新文档 LanguageSettings.md、验证 UnityLocalizationSmoke.cs / Run-Localization.ps1；本轮不扩大转换语义或画面等价结论。历史证据/失败保留。

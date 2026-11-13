@@ -1,12 +1,12 @@
 [
   {
-    "file": "com.aseshader.handwritten-converter-0.4.3.tgz",
-    "bytes": 15083610,
-    "sha256": "078f5da5552a799d294980d0dc1da0a7ae412984bf0b56f11705689bbc17707a"
+    "file": "com.aseshader.handwritten-converter-0.4.4.tgz",
+    "bytes": 15084334,
+    "sha256": "6121769e137a645f41aa8f61b8205fceda9046eb3b15bd528f4bc6f35f729126"
   },
   {
-    "file": "ShaderConverter-0.4.3.zip",
-    "bytes": 17570710,
-    "sha256": "9fd25dd54816dd68d703346746ee7b0f12a052eb6849e898812a3cf4fc34d012"
+    "file": "ShaderConverter-0.4.4.zip",
+    "bytes": 17573979,
+    "sha256": "42997dfe2f0eef63c03629824196a0cbe04aecb5b53185fa908e477b7c4e19f3"
   }
 ]
