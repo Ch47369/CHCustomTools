@@ -1,0 +1,27 @@
+{
+    "success": false,
+    "unityVersion": "2022.3.10f1",
+    "mode": "Check",
+    "version": "0.4.1",
+    "source": "Git",
+    "packageId": "com.aseshader.handwritten-converter@https://github.com/Ch47369/ShaderConverter.git#v0.4.1",
+    "revision": "",
+    "latest": "",
+    "message": "检查更新失败。请确认 Git 已安装、当前账号有私有仓库访问权限及网络可用，然后重试。",
+    "error": "System.Exception: Private Git discovery succeeds without prompting\r\n  at UnityPackageUpdaterSmoke.Check (System.Boolean ok, System.String name) [0x00015] in F:\\ASEShader\\.validation\\UnityPackageUpdater041\\Assets\\Editor\\UnityPackageUpdaterSmoke.cs:38 \r\n  at UnityPackageUpdaterSmoke.Poll () [0x0003d] in F:\\ASEShader\\.validation\\UnityPackageUpdater041\\Assets\\Editor\\UnityPackageUpdaterSmoke.cs:96 ",
+    "checks": [
+        "Updater package 0.4.1 loaded",
+        "Installed source permits checking",
+        "Install disabled until a version is discovered",
+        "Unselected extension hidden",
+        "Update button hidden before discovery",
+        "Converter selection shows extension",
+        "Selecting converter automatically starts private Git discovery",
+        "Both update controls created",
+        "Null selection hides extension",
+        "Other package available to verify selection isolation",
+        "Other package hides extension",
+        "Removal hides extension",
+        "Standalone update window opens"
+    ]
+}

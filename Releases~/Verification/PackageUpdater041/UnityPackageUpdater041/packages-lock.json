@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "com.aseshader.handwritten-converter": {
+      "version": "https://github.com/Ch47369/ShaderConverter.git#v0.4.1",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "221089fe7167e4b87c3209db9c06fb497c4da754"
+    },
+    "com.unity.modules.imgui": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    }
+  }
+}

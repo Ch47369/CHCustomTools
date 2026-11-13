@@ -1,0 +1,94 @@
+{
+  "success": true,
+  "successScope": "Tarball contents, UPM install/confirmation using a task-local Git mirror, and forced in-flight reload; GitHub bulk fetch did not complete",
+  "version": "0.4.1",
+  "installationUrl": "https://github.com/Ch47369/ShaderConverter.git#v0.4.1",
+  "commit": "221089fe7167e4b87c3209db9c06fb497c4da754",
+  "tarballInstalledBeforeMigration": {
+    "success": true,
+    "source": "LocalTarball",
+    "filesComparedByteForByte": 1144,
+    "packageRoot": "F:\\ASEShader\\.validation\\UnityPackageUpdater041Tarball\\Library\\PackageCache\\com.aseshader.handwritten-converter@7ec5cc1f9c0d",
+    "sha256": "9ab343f5852215855df75f925fbc4737c6a82631bef0212580c18e81380a2b72"
+  },
+  "installations": [
+    {
+      "project": "UnityPackageUpdater041",
+      "unityVersion": "2022.3.10f1",
+      "checks": 30,
+      "scriptReloadResumed": false,
+      "transport": "Task-local Git mirror of the published tag; not a completed GitHub network fetch",
+      "sourceFilesComparedByteForByte": 1235,
+      "tarballFilesComparedByteForByte": 1144,
+      "upmExcludedGitMetadata": [
+        ".gitignore"
+      ],
+      "unityPackageMetadata": [],
+      "commit": "221089fe7167e4b87c3209db9c06fb497c4da754",
+      "result": "Releases~/Verification/PackageUpdater041/UnityPackageUpdater041/result.json",
+      "attempt": ".build~/PackageUpdater041/Attempts/20261113022031902/result.json"
+    },
+    {
+      "project": "UnityPackageUpdater041Tarball",
+      "unityVersion": "2022.3.10f1",
+      "checks": 31,
+      "scriptReloadResumed": true,
+      "transport": "Task-local Git mirror of the published tag; not a completed GitHub network fetch",
+      "sourceFilesComparedByteForByte": 1235,
+      "tarballFilesComparedByteForByte": 1144,
+      "upmExcludedGitMetadata": [
+        ".gitignore"
+      ],
+      "unityPackageMetadata": [],
+      "commit": "221089fe7167e4b87c3209db9c06fb497c4da754",
+      "result": "Releases~/Verification/PackageUpdater041/UnityPackageUpdater041Tarball/result.json",
+      "attempt": ".build~/PackageUpdater041/Attempts/20261113022244166/result.json"
+    },
+    {
+      "project": "UnityPackageUpdater041Unity6",
+      "unityVersion": "6000.0.80f1",
+      "checks": 31,
+      "scriptReloadResumed": true,
+      "transport": "Task-local Git mirror of the published tag; not a completed GitHub network fetch",
+      "sourceFilesComparedByteForByte": 1234,
+      "tarballFilesComparedByteForByte": 1143,
+      "upmExcludedGitMetadata": [
+        ".gitignore"
+      ],
+      "unityPackageMetadata": [
+        {
+          "file": "package.json",
+          "unityAddedField": "_fingerprint",
+          "value": "221089fe7167e4b87c3209db9c06fb497c4da754",
+          "allOriginalFieldsIdentical": true
+        }
+      ],
+      "commit": "221089fe7167e4b87c3209db9c06fb497c4da754",
+      "result": "Releases~/Verification/PackageUpdater041/UnityPackageUpdater041Unity6/result.json",
+      "attempt": ".build~/PackageUpdater041/Attempts/20261113022353273/result.json"
+    }
+  ],
+  "equalVersionGitMigrationSeparateFromUpdateButton": true,
+  "updaterConfirmationAfterReload": true,
+  "privateRemoteTagDiscoveryVerified": true,
+  "privateRemoteBulkGitInstallVerified": false,
+  "networkAttempts": [
+    {
+      "attempt": "20261113021056329",
+      "result": "Releases~/Verification/PackageUpdater041/NetworkAttempts/20261113021056329.json",
+      "phase": "UPM GitHub fetch",
+      "completed": false,
+      "fixtureDeadlineSeconds": 210
+    },
+    {
+      "attempt": "20261113021513796",
+      "result": "Releases~/Verification/PackageUpdater041/NetworkAttempts/20261113021513796.json",
+      "phase": "UPM GitHub fetch",
+      "completed": false,
+      "fixtureDeadlineSeconds": 210
+    }
+  ],
+  "validationOnlyGitConfig": "GIT_CONFIG_GLOBAL pointed at .build~/PackageUpdater041/validation.gitconfig in validation processes only; no global user Git config or shipped source changed",
+  "futureVersionUiUsesSyntheticFixtureOnly": true,
+  "userProjectModified": false
+}
