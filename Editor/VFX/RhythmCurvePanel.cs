@@ -43,7 +43,6 @@ namespace CH.CustomTools.VFX
         [SerializeField] private RhythmEffectTimingEditor effectTiming = new RhythmEffectTimingEditor();
         [SerializeField] private bool includeEffectTiming = true;
         private bool advanced;
-        private GUIStyle titleStyle;
         private GUIStyle hintStyle;
 
         internal void Enable(Action repaintHost)
@@ -88,15 +87,12 @@ namespace CH.CustomTools.VFX
 
         internal void DrawPanel()
         {
-            if (titleStyle == null) titleStyle = new GUIStyle(EditorStyles.boldLabel) { fontSize = 20 };
             if (hintStyle == null) hintStyle = new GUIStyle(EditorStyles.wordWrappedMiniLabel) { padding = new RectOffset(0, 0, 3, 5) };
             float oldLabelWidth = EditorGUIUtility.labelWidth;
             EditorGUIUtility.labelWidth = 145;
             scroll = EditorGUILayout.BeginScrollView(scroll);
             try
             {
-                GUILayout.Space(12);
-                GUILayout.Label("AUDIO  /  RHYTHM CURVES", titleStyle);
                 GUILayout.Label(CHToolLanguage.Text("把声音的强弱、频段与起音，转成可编辑的特效曲线。"), hintStyle);
                 GUILayout.Space(8);
                 DrawSource();

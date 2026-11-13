@@ -1,0 +1,49 @@
+{
+  "version": "0.6.2",
+  "success": true,
+  "change": "Shared feature page title styling",
+  "prefixAndSlashColor": "#FFFFFF",
+  "suffixColor": "#FF7711",
+  "fontSize": 20,
+  "bold": true,
+  "wordWrap": true,
+  "fixedAboveScrollContent": true,
+  "pages": [
+    "conversion",
+    "library",
+    "agent",
+    "audio",
+    "organizer",
+    "measurement",
+    "paths",
+    "settings/general",
+    "settings/updates",
+    "settings/about"
+  ],
+  "titleLanguage": "English wordmarks matching the existing audio header; controls and descriptions keep global localization",
+  "coreChecks": 629,
+  "editorCompiles": [
+    {
+      "unity": "2022.3.10f1",
+      "warnings": 0,
+      "errors": 0
+    },
+    {
+      "unity": "6000.0.80f1",
+      "warnings": 0,
+      "errors": 0
+    }
+  ],
+  "unchanged": [
+    "Runtime",
+    "293 ASE graphs",
+    "conversion semantics",
+    "path insertion and dragging",
+    "audio/VFX algorithms",
+    "measurement algorithms",
+    "GitHub updater"
+  ],
+  "finalTarballUiReports": "Releases~/feature-headers-tarball-install-0.6.2.json",
+  "visualReview": "Resource organizer header inspected in Unity; UI navigation, localization and minimum width use the existing UnityCustomToolsSmoke fixture",
+  "userProjectsModified": false
+}

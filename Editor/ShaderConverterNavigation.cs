@@ -97,6 +97,7 @@ namespace ASEShaderConverter.Editor
             GUILayout.Label(PageTitle(ActiveCategory), EditorStyles.boldLabel);
             DrawCategoryTabs();
             GUILayout.Space(6);
+            DrawFeatureHeader();
             if (activePage == "library") library.DrawPanel();
             else if (activePage == "agent") DrawAgentPage();
             else if (activePage == "settings") DrawSettingsPage();
@@ -108,6 +109,20 @@ namespace ASEShaderConverter.Editor
             EditorGUILayout.EndVertical();
             GUILayout.Space(8);
             EditorGUILayout.EndHorizontal();
+        }
+        private void DrawFeatureHeader()
+        {
+            switch (activePage)
+            {
+                case "library": CHFeatureHeader.Draw("SHADER", "SHADER LIBRARY"); break;
+                case "agent": CHFeatureHeader.Draw("AGENT", "INTEGRATION"); break;
+                case "audio": CHFeatureHeader.Draw("AUDIO", "RHYTHM CURVES"); break;
+                case "organizer": CHFeatureHeader.Draw("VFX", "RESOURCE ORGANIZER"); break;
+                case "measurement": CHFeatureHeader.Draw("SCENE", "MEASUREMENT"); break;
+                case "paths": CHFeatureHeader.Draw("PATH", "CREATION & MOTION"); break;
+                case "settings": CHFeatureHeader.Draw("SETTINGS", settingsTab == 1 ? "PLUGIN UPDATES" : settingsTab == 2 ? "ABOUT" : "GENERAL"); break;
+                default: CHFeatureHeader.Draw("SHADER", "GRAPH CONVERSION"); break;
+            }
         }
         private void DrawCategoryTabs()
         {

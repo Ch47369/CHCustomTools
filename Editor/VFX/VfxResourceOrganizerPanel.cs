@@ -88,8 +88,6 @@ namespace CH.CustomTools.VFX
             scroll = EditorGUILayout.BeginScrollView(scroll);
             try
             {
-                GUILayout.Space(8);
-                GUILayout.Label(CHToolLanguage.Text("特效引用资源整理"), new GUIStyle(EditorStyles.boldLabel) { fontSize = 20 });
                 EditorGUILayout.LabelField(CHToolLanguage.Text("选择特效 → 扫描递归引用 → 设置分类和命名 → 预览并执行"), EditorStyles.wordWrappedLabel);
                 DrawTargets();
                 if (GUILayout.Button(CHToolLanguage.Text("1. 扫描特效引用"), GUILayout.Height(30))) Run(() =>

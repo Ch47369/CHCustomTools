@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "version": "0.6.2",
+  "baselineVersion": "0.6.1",
+  "baselineTarballSha256": "3cbc9257f645b0fa9d2e71c464c322b6833754ed385ac609d6688277252d9f42",
+  "tarballSha256": "078a5018004acf5baae41c04a81a759bcd1bac418ddd82981d31a37f9d9bd0a7",
+  "baselineFiles": 1381,
+  "packagedFilesMatchSource": 1384,
+  "changedBaselineFiles": [
+    "AGENTS.md",
+    "Documentation~/CustomTools.md",
+    "Editor/ShaderConverterNavigation.cs",
+    "Editor/VFX/RhythmCurvePanel.cs",
+    "Editor/VFX/VfxResourceOrganizerPanel.cs",
+    "README.md",
+    "package.json"
+  ],
+  "addedFiles": [
+    "Documentation~/Evidence/FeatureHeaders062/verification.json",
+    "Editor/CHFeatureHeader.cs",
+    "Editor/CHFeatureHeader.cs.meta"
+  ],
+  "protectedRuntimeAlgorithmsLibraryAndUpdaterFiles": 385,
+  "allProtectedFilesIdentical": true,
+  "libraryShaderCount": 293,
+  "backendTaskExcluded": true
+}
