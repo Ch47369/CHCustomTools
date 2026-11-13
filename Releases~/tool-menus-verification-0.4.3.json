@@ -1,0 +1,14 @@
+{
+  "success": true,
+  "version": "0.4.3",
+  "author": "CH",
+  "protectedFilesByteIdentical": 407,
+  "libraryShaderCount": 293,
+  "tarballSha256": "078f5da5552a799d294980d0dc1da0a7ae412984bf0b56f11705689bbc17707a",
+  "installedMenuChecks": {
+    "unity-2022.3.10f1-Both-source": 23,
+    "unity-2022.3.10f1-Shader-source": 15,
+    "unity-6000.0.80f1-Both-source": 23
+  },
+  "conversionSemanticsChanged": false
+}

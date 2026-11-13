@@ -1,0 +1,34 @@
+{
+    "success": true,
+    "unityVersion": "2022.3.10f1",
+    "error": "",
+    "packages": [
+        "com.aseshader.handwritten-converter@0.4.3 (LocalTarball)",
+        "com.audiorhythmcurves.audio-rhythm-curves@1.0.9 (LocalTarball)"
+    ],
+    "checks": [
+        "At least one CH package is installed",
+        "com.aseshader.handwritten-converter: exact author is CH",
+        "com.aseshader.handwritten-converter: exactly two language choices",
+        "com.audiorhythmcurves.audio-rhythm-curves: exact author is CH",
+        "com.audiorhythmcurves.audio-rhythm-curves: exactly two language choices",
+        "Every top Tools entry belongs to the exact unified hierarchy",
+        "Only Shader / VFX feature menus are registered; no extra settings branch or duplicate paths",
+        "Native menu opens: Tools/Shader/打开转换器",
+        "Native menu opens: Tools/Shader/ASE 着色器库",
+        "Native menu opens: Tools/VFX/音频节奏曲线",
+        "Native menu opens: Tools/VFX/特效资源整理",
+        "Each plugin has a built-in language selector with no separate settings window",
+        "All installed tools share Chinese",
+        "All installed tools share English",
+        "Reset returns all tools to actual Unity Editor language",
+        "Rendered window follows language: VFX Resource Organizer",
+        "Rendered window follows language: Audio Rhythm · Curves",
+        "Rendered window follows language: ASE Shader Library",
+        "Rendered window follows language: Shader Converter",
+        "Rendered window follows language: 特效资源整理",
+        "Rendered window follows language: 音频节奏 · 曲线",
+        "Rendered window follows language: ASE 着色器库",
+        "Rendered window follows language: Shader转换器"
+    ]
+}

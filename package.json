@@ -1,10 +1,10 @@
 {
   "name": "com.aseshader.handwritten-converter",
   "displayName": "Shader转换器",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "unity": "2021.3",
   "description": "Shader转换器：手写 Shader 到 ASE，以及 URP Unlit 原生子集到 Shader Graph；提供 Agent 原生建图、保存重载、编译检查及 ASE 分类库。图互转范围与宿主适配限制见文档。",
   "author": {
-    "name": "CH自定义工具集"
+    "name": "CH"
   }
 }

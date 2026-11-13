@@ -1,5 +1,7 @@
 # 接入本项目的 Agent
 
+0.4.3 接续：作者 CH；最终入口为 Tools/Shader 与 Tools/VFX。按用户最新要求，各工具主窗口直接显示中文/English 切换；不设独立设置窗口、顶部设置分组或语言插件，子页面不重复。各包语言代码随包维护，无跨包程序集依赖；共用 CH.CustomTools.Language，未选择时跟随 Unity，手动保存。CLI 不修改。验证 UnityToolMenusSmoke.cs / Run-ToolMenus.ps1；历史证据/包保留，转换核心及原图不变。
+
 0.4.2 接续：Package Manager 作者为 CH自定义工具集。CHToolLanguage 的同一 EditorPrefs 键 CH.CustomTools.Language（zh/en）供 Shader 与 Audio 独立包共享；未设覆盖时只读 Unity 当前 Editor 界面语言，非 OS 语言。两种选择仅中文/English，插件内单一设置窗口，不在每个页面重复开关；恢复默认清除覆盖。双包同时安装时优先打开 Shader 侧同一窗口。语言读取延后到编辑器主循环，避免 Unity6 窗口反序列化期间在静态构造读取 EditorPrefs；后台文本查询只读缓存。原始图/目录/研究/报告/路径/搜索身份保留，菜单保持兼容路径，CLI 不修改。新文档 LanguageSettings.md、验证 UnityLocalizationSmoke.cs / Run-Localization.ps1；本轮不扩大转换语义或画面等价结论。历史证据/失败保留。
 
 0.4.1 更新入口接续：Package Manager 使用公开 IPackageManagerExtension，Git 包仍无注册表原生工具栏按钮/左侧更新列表。项目空闲时自动检查私有仓库 vX.Y.Z 标签，成功会话缓存1小时/失败5分钟；选中本包或打开更新窗口也触发检查，手动可立即刷新。只有正式版严格高于安装版本才显示更新按钮，未知/失败/相同/旧版隐藏；本地相同版“改用 Git 安装当前版本”为独立操作。保留 HTTPS/SSH 传输，不接管其他 Git 来源/嵌入式包，不读取或存储令牌。公开 Client.Add 安装固定标签，SessionState 跨域重载确认。592核心、两版本EditorCompile 0/0；实际查询/条件UI证据 Documentation~/Evidence/PackageUpdater041，安装结果另存 Releases~/package-updater-install-verification-0.4.1.json。工具 Run/Collect/Verify-PackageUpdater，固定0.4.0 tgz SHA3489ab5d5bf3cead93a76f1761e5ea92160e095fe447d173bff0d63889239a02；旧转换Runtime/Editor/293图/资源/模板/Samples逐字节保留，旧主窗口只加更新入口。新版本安装 URL https://github.com/Ch47369/ShaderConverter.git#v0.4.1，仍私有。更新器Unity6验证不代表SG17后端已支持。历史包与失败证据保留，Unity活跃时不改共享C#，dotnet顺序运行。

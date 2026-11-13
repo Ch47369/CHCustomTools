@@ -78,37 +78,19 @@ namespace ASEShaderConverter.Editor
         }
         internal static string[] Text(bool useChinese, string[] values) { return Array.ConvertAll(values, value => Text(useChinese, value)); }
 
-        internal static void OpenSettings()
+        // Each plugin main window carries its own selector; all features share the saved preference.
+        internal static void DrawLanguageSelector()
         {
-            // Prefer the converter's settings window when both packages are loaded, so all entry points open one window.
-            var owner = Type.GetType("ASEShaderConverter.Editor.CHToolSettingsWindow, ASEShaderConverter.Editor", false) ?? typeof(CHToolSettingsWindow);
-            var window = EditorWindow.GetWindow(owner, false, Pick("CH自定义工具集 · 设置", "CH自定义工具集 · Settings"));
-            window.minSize = new Vector2(420, 205); window.Show();
-        }
-    }
-
-    internal sealed class CHToolSettingsWindow : EditorWindow
-    {
-        [MenuItem("Tools/Shader转换器/工具集设置")]
-        static void Open() { CHToolLanguage.OpenSettings(); }
-        void OnGUI()
-        {
-            titleContent = new GUIContent(CHToolLanguage.Pick("CH自定义工具集 · 设置", "CH自定义工具集 · Settings"));
-            GUILayout.Space(12);
-            EditorGUILayout.LabelField("CH自定义工具集", EditorStyles.boldLabel);
-            EditorGUILayout.LabelField(CHToolLanguage.Pick("插件语言", "Plugin language"));
             EditorGUILayout.BeginHorizontal();
-            for (int i = 0; i < CHToolLanguage.Choices.Length; i++)
+            GUILayout.Label(new GUIContent(Pick("语言", "Language"), Pick("默认跟随 Unity；手动选择后保存。", "Follows Unity by default; manual choices are saved.")), GUILayout.Width(65));
+            for (int i = 0; i < Choices.Length; i++)
             {
-                bool selected = CHToolLanguage.IsChinese == (i == 0);
-                bool pressed = GUILayout.Toggle(selected, CHToolLanguage.Choices[i], "Button", GUILayout.Height(28));
-                if (pressed != selected) CHToolLanguage.Set(i == 0);
+                bool selected = IsChinese == (i == 0);
+                if (GUILayout.Toggle(selected, Choices[i], "Button", GUILayout.Width(75)) != selected) Set(i == 0);
             }
+            GUILayout.FlexibleSpace();
+            if (HasOverride && GUILayout.Button(Pick("恢复默认语言", "Reset language"), EditorStyles.miniButton, GUILayout.Width(130))) Reset();
             EditorGUILayout.EndHorizontal();
-            EditorGUILayout.HelpBox(CHToolLanguage.HasOverride
-                ? CHToolLanguage.Pick("已记住手动选择。CH 工具集内所有功能共用此设置。", "Your choice is saved. All CH tool features share this setting.")
-                : CHToolLanguage.Pick("默认语言跟随 Unity 编辑器。选择中文或 English 后会记住你的选择。", "The default follows the Unity Editor language. Selecting 中文 or English saves your choice."), MessageType.None);
-            if (CHToolLanguage.HasOverride && GUILayout.Button(CHToolLanguage.Pick("恢复默认语言", "Reset language preference"))) CHToolLanguage.Reset();
         }
     }
 

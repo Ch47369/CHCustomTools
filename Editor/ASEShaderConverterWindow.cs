@@ -33,7 +33,7 @@ namespace ASEShaderConverter.Editor
 
         private void OnEnable() { titleContent = new GUIContent(CHToolLanguage.Text("Shader转换器")); }
 
-        [MenuItem("Tools/Shader转换器/打开转换器")]
+        [MenuItem("Tools/Shader/打开转换器")]
         public static void Open()
         {
             var window = GetWindow<ASEShaderConverterWindow>(CHToolLanguage.Text("Shader转换器"));
@@ -49,7 +49,7 @@ namespace ASEShaderConverter.Editor
         private void OnGUI()
         {
             titleContent = new GUIContent(CHToolLanguage.Text("Shader转换器"));
-            if (GUILayout.Button(CHToolLanguage.Pick("工具集设置", "Tool settings"))) CHToolLanguage.OpenSettings();
+            CHToolLanguage.DrawLanguageSelector();
             scroll = EditorGUILayout.BeginScrollView(scroll);
             if (GUILayout.Button(CHToolLanguage.Text("插件更新（检查版本与 Git 升级）"))) ShaderPackageUpdateWindow.Open();
             if (GUILayout.Button(CHToolLanguage.Text("ASE 着色器库（分类、搜索与一键安装）"))) ShaderLibraryWindow.Open();

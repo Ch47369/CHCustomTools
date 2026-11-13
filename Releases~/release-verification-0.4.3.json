@@ -1,0 +1,25 @@
+{
+  "version": "0.4.3",
+  "archives": [
+    {
+      "file": "com.aseshader.handwritten-converter-0.4.3.tgz",
+      "bytes": 15083610,
+      "sha256": "078f5da5552a799d294980d0dc1da0a7ae412984bf0b56f11705689bbc17707a",
+      "files": 1164,
+      "libraryShaderCount": 293,
+      "allCatalogAndSourceHashesMatch": true,
+      "referenceSourcesAndAseSourcesExcluded": true,
+      "buildCachesAndPythonBytecodeExcluded": true
+    },
+    {
+      "file": "ShaderConverter-0.4.3.zip",
+      "bytes": 17570710,
+      "sha256": "9fd25dd54816dd68d703346746ee7b0f12a052eb6849e898812a3cf4fc34d012",
+      "files": 1164,
+      "libraryShaderCount": 293,
+      "allCatalogAndSourceHashesMatch": true,
+      "referenceSourcesAndAseSourcesExcluded": true,
+      "buildCachesAndPythonBytecodeExcluded": true
+    }
+  ]
+}
