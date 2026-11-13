@@ -1,0 +1,48 @@
+{
+  "version": "0.5.0",
+  "success": true,
+  "repository": "https://github.com/Ch47369/CHCustomTools",
+  "release": "https://github.com/Ch47369/CHCustomTools/releases/tag/v0.5.0",
+  "sourceCommit": "e03c9e728404e5e0bb7f1709f23e12a1ad75ca5d",
+  "checkedUtc": "2026-11-13T09:10:32.579722+00:00",
+  "anonymousGitHubReleaseDownload": true,
+  "targetTarballSha256": "f94c7a874cca9a2c8be0f69b3fe37232aae9a36bf1d1c5f76d39f517b022230d",
+  "baselineTarballSha256": "097db53ce038672e367a062faf97c0886999c43a91c1c53fde47f22073a57cd7",
+  "fixtureNote": "Unmodified published 0.4.9 package checks GitHub, downloads and installs the actual public 0.5.0 release, then resumes across domain reload.",
+  "baselineUpdaterBackported": false,
+  "userProjectsModified": false,
+  "results": [
+    {
+      "success": true,
+      "unity": "2022.3.10f1",
+      "beforeVersion": "0.4.9",
+      "beforeSource": "Local",
+      "targetTag": "v0.5.0",
+      "installedVersion": "0.5.0",
+      "installedSource": "LocalTarball",
+      "packageId": "com.aseshader.handwritten-converter@file:F:\\ASEShader\\.validation\\GitHubReleaseUpgrade050-2022-Project\\Packages\\CHCustomToolsCache~\\com.aseshader.handwritten-converter-0.5.0.tgz",
+      "failure": "",
+      "downloadedCacheSha256": "f94c7a874cca9a2c8be0f69b3fe37232aae9a36bf1d1c5f76d39f517b022230d",
+      "downloadedCacheBytes": 15285193,
+      "manifestReference": "file:CHCustomToolsCache~/com.aseshader.handwritten-converter-0.5.0.tgz",
+      "updaterClearedPendingAfterReload": true,
+      "baselinePackageUnmodified": true
+    },
+    {
+      "success": true,
+      "unity": "6000.0.80f1",
+      "beforeVersion": "0.4.9",
+      "beforeSource": "Local",
+      "targetTag": "v0.5.0",
+      "installedVersion": "0.5.0",
+      "installedSource": "LocalTarball",
+      "packageId": "com.aseshader.handwritten-converter@file:F:\\ASEShader\\.validation\\GitHubReleaseUpgrade050-Unity6-Project\\Packages\\CHCustomToolsCache~\\com.aseshader.handwritten-converter-0.5.0.tgz",
+      "failure": "",
+      "downloadedCacheSha256": "f94c7a874cca9a2c8be0f69b3fe37232aae9a36bf1d1c5f76d39f517b022230d",
+      "downloadedCacheBytes": 15285193,
+      "manifestReference": "file:CHCustomToolsCache~/com.aseshader.handwritten-converter-0.5.0.tgz",
+      "updaterClearedPendingAfterReload": true,
+      "baselinePackageUnmodified": true
+    }
+  ]
+}
