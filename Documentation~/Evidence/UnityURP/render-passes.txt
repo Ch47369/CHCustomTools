@@ -1,0 +1,2 @@
+﻿ConverterSamples/UniversalTexture: 0/1 <Unnamed Pass 0>
+ConverterSamples/UniversalTexture_ASE: 0/5 Unlit

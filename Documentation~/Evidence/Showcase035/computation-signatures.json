@@ -1,0 +1,36 @@
+{
+  "sameReachableComputation": true,
+  "outputs": {
+    "BuiltIn": {
+      "Color": {
+        "port": "0",
+        "hash": "7047e9a1d33a4e4205282d7e88ead2a71e9723c4244076f4c274a556b0588a14"
+      },
+      "Clip": {
+        "port": "0",
+        "hash": "586ba82e540ce6edea4600bff1c3db256a8daee9e07744d2308837e4cd36ffcf"
+      }
+    },
+    "URP": {
+      "Color": {
+        "port": "0",
+        "hash": "7047e9a1d33a4e4205282d7e88ead2a71e9723c4244076f4c274a556b0588a14"
+      },
+      "Clip": {
+        "port": "0",
+        "hash": "586ba82e540ce6edea4600bff1c3db256a8daee9e07744d2308837e4cd36ffcf"
+      }
+    },
+    "HDRP": {
+      "Color": {
+        "port": "0",
+        "hash": "7047e9a1d33a4e4205282d7e88ead2a71e9723c4244076f4c274a556b0588a14"
+      },
+      "Clip": {
+        "port": "0",
+        "hash": "586ba82e540ce6edea4600bff1c3db256a8daee9e07744d2308837e4cd36ffcf"
+      }
+    }
+  },
+  "scope": "Same graph computation; independent host/visual checks required."
+}

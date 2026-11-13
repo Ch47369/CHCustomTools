@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "version": "0.3.7",
+  "tarball": "com.aseshader.handwritten-converter-0.3.7.tgz",
+  "sha256": "cda054dc8a9357e6f064e498bafb376c7fa19c28d8940ced37af73d35a296bb8",
+  "bytes": 15000860,
+  "installedVia": "UPM tarball dependency in isolated project",
+  "installedRoot": "F:\\ASEShader\\.validation\\Unity2022\\Library\\PackageCache\\com.aseshader.handwritten-converter@19cc85f9f023",
+  "installedSourceSha256": "e52ffdaaccf7393ead76de8a98e606b3bae8d888cb4bb1eb25442a7492b8bbbd",
+  "recoveryChecks": 23,
+  "unityVersion": "2022.3.10f1",
+  "aseVersion": "1.9.9.13",
+  "log": ".build~/AgentInbox037/Attempts/20261107075342683-Recovery/editor.log",
+  "result": "Releases~/Verification/AgentInbox037/tarball-recovery.json",
+  "userProjectModified": false,
+  "isolationManifestRestored": true
+}

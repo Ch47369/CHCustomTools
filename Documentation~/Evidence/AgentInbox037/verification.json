@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "version": "0.3.7",
+  "scope": "Agent inbox file publication and delivery recovery; unchanged shader library",
+  "coreChecks": 540,
+  "editorCompile": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "recoveryChecks": 23,
+  "unityVersion": "2022.3.10f1",
+  "aseVersion": "1.9.9.13",
+  "protocolOperationsPassed": [
+    "probe",
+    "describe",
+    "analyze",
+    "generate"
+  ],
+  "aseRoundTripPassed": true,
+  "shaderCompiled": true,
+  "customExpressionCount": 0,
+  "visualComparisonPerformed": false,
+  "newShaderLibraryGraphs": 0,
+  "originalSceneEquivalent": false,
+  "preservedAttempts": [
+    ".build~/AgentInbox037/Attempts/recovery-startup-1.log",
+    ".build~/AgentInbox037/Attempts/20261107074905001-Protocol",
+    ".build~/AgentInbox037/Attempts/20261107075002994-Protocol"
+  ],
+  "successfulRecoveryLog": ".build~/AgentInbox037/recovery-2.log",
+  "successfulProtocolLog": ".build~/AgentInbox037/Attempts/20261107075114105-Protocol/editor.log",
+  "limitations": [
+    "Rename fallback may briefly remove the destination path; readers must retry.",
+    "Cached pending responses do not survive domain reload or process termination.",
+    "Rollback failure and power loss were not fault-injected.",
+    "Early Unity include/Pass diagnostics and failed attempts are retained; success is the final API validation, not a claim that all Unity logs are error-free."
+  ],
+  "sourceSha256": {
+    "Editor/ShaderAgentInbox.cs": "e52ffdaaccf7393ead76de8a98e606b3bae8d888cb4bb1eb25442a7492b8bbbd",
+    "Tests/UnityAgentInboxRecoverySmoke.cs": "9cb10a43f665b48ed041efefc162ce1e533504591e22213ebb62865db193ced1",
+    "package.json": "adbb2ea3d9ad49188b03f61457d9b3a973d311c80e7b84ede06e01d105a65b58"
+  }
+}

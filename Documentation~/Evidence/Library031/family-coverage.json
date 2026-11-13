@@ -1,0 +1,1999 @@
+{
+  "families": [
+    {
+      "familyId": "Eye-Foundation",
+      "title": "虹膜瞳孔",
+      "category": "Eye",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-Eye",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "original-URP-Eye",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "original-HDRP-Eye",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Eye-IrisBands",
+      "title": "虹膜同心纹",
+      "category": "Eye",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Eye-IrisBands",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Eye-IrisBands",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Eye-IrisBands",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Eye-IrisMask",
+      "title": "虹膜纹理叠色",
+      "category": "Eye",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Eye-IrisMask",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Eye-IrisMask",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Eye-IrisMask",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Eye-IrisSpeckles",
+      "title": "虹膜程序斑点",
+      "category": "Eye",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Eye-IrisSpeckles",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Eye-IrisSpeckles",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Eye-IrisSpeckles",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Eye-LimbalRing",
+      "title": "角膜缘平面色环",
+      "category": "Eye",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Eye-LimbalRing",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Eye-LimbalRing",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Eye-LimbalRing",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Eye-ScleraTint",
+      "title": "巩膜顶点染色",
+      "category": "Eye",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Eye-ScleraTint",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Eye-ScleraTint",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Eye-ScleraTint",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Fabric-Checks",
+      "title": "格纹布料",
+      "category": "Fabric",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Fabric-Checks",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Fabric-Checks",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Fabric-Checks",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Fabric-CrossWeave",
+      "title": "交叉织纹染色",
+      "category": "Fabric",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Fabric-CrossWeave",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Fabric-CrossWeave",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Fabric-CrossWeave",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Fabric-Foundation",
+      "title": "织物基础",
+      "category": "Fabric",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-Fabric",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "original-URP-Fabric",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "original-HDRP-Fabric",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Fabric-Print",
+      "title": "印花遮罩",
+      "category": "Fabric",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Fabric-Print",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Fabric-Print",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Fabric-Print",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Fabric-Stripes",
+      "title": "条纹布料",
+      "category": "Fabric",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Fabric-Stripes",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Fabric-Stripes",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Fabric-Stripes",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Fabric-VertexDye",
+      "title": "顶点布料染色",
+      "category": "Fabric",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Fabric-VertexDye",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Fabric-VertexDye",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Fabric-VertexDye",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Hair-DyeMask",
+      "title": "局部染发遮罩",
+      "category": "Hair",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Hair-DyeMask",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Hair-DyeMask",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Hair-DyeMask",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Hair-Foundation",
+      "title": "发卡覆盖",
+      "category": "Hair",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-Hair",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "original-URP-Hair",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "original-HDRP-Hair",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Hair-RootTip",
+      "title": "发根发梢渐变",
+      "category": "Hair",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Hair-RootTip",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Hair-RootTip",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Hair-RootTip",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Hair-Streaks",
+      "title": "发束条纹染色",
+      "category": "Hair",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Hair-Streaks",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Hair-Streaks",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Hair-Streaks",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Hair-TipFade",
+      "title": "发梢覆盖渐隐",
+      "category": "Hair",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Hair-TipFade",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Hair-TipFade",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Hair-TipFade",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Hair-VertexDye",
+      "title": "顶点染发",
+      "category": "Hair",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Hair-VertexDye",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Hair-VertexDye",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Hair-VertexDye",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Hosiery-Diamond",
+      "title": "菱形网纹覆盖",
+      "category": "Hosiery",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Hosiery-Diamond",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Hosiery-Diamond",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Hosiery-Diamond",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Hosiery-Dots",
+      "title": "波点丝袜覆盖",
+      "category": "Hosiery",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Hosiery-Dots",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Hosiery-Dots",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Hosiery-Dots",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Hosiery-Foundation",
+      "title": "丝袜覆盖与织纹",
+      "category": "Hosiery",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-Hosiery",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "original-URP-Hosiery",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "original-HDRP-Hosiery",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Hosiery-Gradient",
+      "title": "渐变丝袜覆盖",
+      "category": "Hosiery",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Hosiery-Gradient",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Hosiery-Gradient",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Hosiery-Gradient",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Hosiery-Lace",
+      "title": "蕾丝遮罩覆盖",
+      "category": "Hosiery",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Hosiery-Lace",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Hosiery-Lace",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Hosiery-Lace",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Hosiery-Rib",
+      "title": "竖条罗纹覆盖",
+      "category": "Hosiery",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Hosiery-Rib",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Hosiery-Rib",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Hosiery-Rib",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Jade-Clouds",
+      "title": "玉石云絮纹理",
+      "category": "Jade",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Jade-Clouds",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Jade-Clouds",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Jade-Clouds",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Jade-Foundation",
+      "title": "玉石透射基础",
+      "category": "Jade",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-Jade",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "original-URP-Jade",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "original-HDRP-Jade",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Jade-Gradient",
+      "title": "玉石渐变色",
+      "category": "Jade",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Jade-Gradient",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Jade-Gradient",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Jade-Gradient",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Jade-Rind",
+      "title": "玉皮径向遮罩",
+      "category": "Jade",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Jade-Rind",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Jade-Rind",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Jade-Rind",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Jade-Speckles",
+      "title": "玉石程序斑点",
+      "category": "Jade",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Jade-Speckles",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Jade-Speckles",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Jade-Speckles",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Jade-Veins",
+      "title": "玉石程序细纹",
+      "category": "Jade",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Jade-Veins",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Jade-Veins",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Jade-Veins",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Metal-Brushed",
+      "title": "拉丝纹理法线",
+      "category": "Metal",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Metal-Brushed",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Metal-Brushed",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Metal-Brushed",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Metal-Foundation",
+      "title": "金属粗糙度",
+      "category": "Metal",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-Metal",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "original-URP-Metal",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "original-HDRP-Metal",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Metal-HeatTint",
+      "title": "热变色渐变",
+      "category": "Metal",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Metal-HeatTint",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Metal-HeatTint",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Metal-HeatTint",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Metal-Oxidized",
+      "title": "氧化遮罩",
+      "category": "Metal",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Metal-Oxidized",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Metal-Oxidized",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Metal-Oxidized",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Metal-Panels",
+      "title": "金属格纹面板",
+      "category": "Metal",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Metal-Panels",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Metal-Panels",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Metal-Panels",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Metal-Scratches",
+      "title": "划痕粗糙度遮罩",
+      "category": "Metal",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Metal-Scratches",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Metal-Scratches",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Metal-Scratches",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Skin-Blush",
+      "title": "顶点色腮红",
+      "category": "Skin",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Skin-Blush",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Skin-Blush",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Skin-Blush",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Skin-Dust",
+      "title": "皮肤污渍层",
+      "category": "Skin",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Skin-Dust",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Skin-Dust",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Skin-Dust",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Skin-Foundation",
+      "title": "皮肤微表面",
+      "category": "Skin",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-Skin",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "original-URP-Skin",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "original-HDRP-Skin",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Skin-Freckles",
+      "title": "程序雀斑",
+      "category": "Skin",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Skin-Freckles",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Skin-Freckles",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Skin-Freckles",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Skin-OilMask",
+      "title": "油光遮罩",
+      "category": "Skin",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Skin-OilMask",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Skin-OilMask",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Skin-OilMask",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Skin-Tan",
+      "title": "肤色渐变",
+      "category": "Skin",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Skin-Tan",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Skin-Tan",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Skin-Tan",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Stone-Cracks",
+      "title": "裂隙遮罩叠色",
+      "category": "Stone",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Stone-Cracks",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Stone-Cracks",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Stone-Cracks",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Stone-Foundation",
+      "title": "岩石细节",
+      "category": "Stone",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-Stone",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "original-URP-Stone",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "original-HDRP-Stone",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Stone-MossMask",
+      "title": "苔藓纹理遮罩",
+      "category": "Stone",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Stone-MossMask",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Stone-MossMask",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Stone-MossMask",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Stone-Strata",
+      "title": "岩层条纹",
+      "category": "Stone",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Stone-Strata",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Stone-Strata",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Stone-Strata",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Stone-VertexPaint",
+      "title": "岩石顶点染色",
+      "category": "Stone",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Stone-VertexPaint",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Stone-VertexPaint",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Stone-VertexPaint",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Stone-Wet",
+      "title": "湿润光滑度遮罩",
+      "category": "Stone",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Stone-Wet",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Stone-Wet",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Stone-Wet",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UI-Foundation",
+      "title": "界面纹理",
+      "category": "UI",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-UI",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "original-URP-UI",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "original-HDRP-UI",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UI-Frame",
+      "title": "界面矩形边框",
+      "category": "UI",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UI-Frame",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UI-Frame",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UI-Frame",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UI-Gradient",
+      "title": "界面纵向渐变",
+      "category": "UI",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UI-Gradient",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UI-Gradient",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UI-Gradient",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UI-MaskTint",
+      "title": "界面纹理叠色",
+      "category": "UI",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UI-MaskTint",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UI-MaskTint",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UI-MaskTint",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UI-RadialMask",
+      "title": "界面径向遮罩",
+      "category": "UI",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UI-RadialMask",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UI-RadialMask",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UI-RadialMask",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UI-Scanline",
+      "title": "界面扫描线",
+      "category": "UI",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UI-Scanline",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UI-Scanline",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UI-Scanline",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UIEffects-Foundation",
+      "title": "界面流光",
+      "category": "UIEffects",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-UIEffects",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "original-URP-UIEffects",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "original-HDRP-UIEffects",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UIEffects-Grid",
+      "title": "界面动态网格",
+      "category": "UIEffects",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UIEffects-Grid",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UIEffects-Grid",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UIEffects-Grid",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UIEffects-Pulse",
+      "title": "界面呼吸亮度",
+      "category": "UIEffects",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UIEffects-Pulse",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UIEffects-Pulse",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UIEffects-Pulse",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UIEffects-RingPulse",
+      "title": "界面扩散圆环",
+      "category": "UIEffects",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UIEffects-RingPulse",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UIEffects-RingPulse",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UIEffects-RingPulse",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UIEffects-ScanPulse",
+      "title": "扫描线脉冲",
+      "category": "UIEffects",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UIEffects-ScanPulse",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UIEffects-ScanPulse",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UIEffects-ScanPulse",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UIEffects-Wipe",
+      "title": "界面循环擦除",
+      "category": "UIEffects",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UIEffects-Wipe",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UIEffects-Wipe",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UIEffects-Wipe",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UVAnimation-Distortion",
+      "title": "纹理扰动叠层",
+      "category": "UVAnimation",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UVAnimation-Distortion",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UVAnimation-Distortion",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UVAnimation-Distortion",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UVAnimation-Flipbook",
+      "title": "序列帧叠层",
+      "category": "UVAnimation",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UVAnimation-Flipbook",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UVAnimation-Flipbook",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UVAnimation-Flipbook",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UVAnimation-FlowMask",
+      "title": "流动遮罩叠层",
+      "category": "UVAnimation",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UVAnimation-FlowMask",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UVAnimation-FlowMask",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UVAnimation-FlowMask",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UVAnimation-Foundation",
+      "title": "双层UV流动",
+      "category": "UVAnimation",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-UVAnimation",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "original-URP-UVAnimation",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "original-HDRP-UVAnimation",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UVAnimation-LayerRotate",
+      "title": "旋转纹理叠层",
+      "category": "UVAnimation",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UVAnimation-LayerRotate",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UVAnimation-LayerRotate",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UVAnimation-LayerRotate",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "UVAnimation-PingPong",
+      "title": "往返UV叠层",
+      "category": "UVAnimation",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-UVAnimation-PingPong",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-UVAnimation-PingPong",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-UVAnimation-PingPong",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "VFX-Beam",
+      "title": "溶解叠加光束",
+      "category": "VFX",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-VFX-Beam",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-VFX-Beam",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-VFX-Beam",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "VFX-Foundation",
+      "title": "溶解与边缘",
+      "category": "VFX",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-VFX",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "original-URP-VFX",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "original-HDRP-VFX",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "VFX-Pulse",
+      "title": "呼吸溶解",
+      "category": "VFX",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-VFX-Pulse",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-VFX-Pulse",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-VFX-Pulse",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "VFX-Ring",
+      "title": "溶解叠加圆环",
+      "category": "VFX",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-VFX-Ring",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-VFX-Ring",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-VFX-Ring",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "VFX-Scan",
+      "title": "条纹溶解",
+      "category": "VFX",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-VFX-Scan",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-VFX-Scan",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-VFX-Scan",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "VFX-SoftDisc",
+      "title": "柔边圆盘溶解",
+      "category": "VFX",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-VFX-SoftDisc",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-VFX-SoftDisc",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-VFX-SoftDisc",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "VertexAnimation-Bend",
+      "title": "高度加权弯曲",
+      "category": "VertexAnimation",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-VertexAnimation-Bend",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-VertexAnimation-Bend",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-VertexAnimation-Bend",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "VertexAnimation-Bob",
+      "title": "整体上下浮动",
+      "category": "VertexAnimation",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-VertexAnimation-Bob",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-VertexAnimation-Bob",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-VertexAnimation-Bob",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "VertexAnimation-CrossWind",
+      "title": "双轴交叉风摆",
+      "category": "VertexAnimation",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-VertexAnimation-CrossWind",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-VertexAnimation-CrossWind",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-VertexAnimation-CrossWind",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "VertexAnimation-Flutter",
+      "title": "高频颤动",
+      "category": "VertexAnimation",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-VertexAnimation-Flutter",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-VertexAnimation-Flutter",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-VertexAnimation-Flutter",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "VertexAnimation-Foundation",
+      "title": "顶点风摆",
+      "category": "VertexAnimation",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-VertexAnimation",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "original-URP-VertexAnimation",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "original-HDRP-VertexAnimation",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "VertexAnimation-Ripple",
+      "title": "径向顶点涟漪",
+      "category": "VertexAnimation",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-VertexAnimation-Ripple",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-VertexAnimation-Ripple",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-VertexAnimation-Ripple",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Water-DualNormal",
+      "title": "双层流动法线",
+      "category": "Water",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Water-DualNormal",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Water-DualNormal",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Water-DualNormal",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Water-Foam",
+      "title": "流动泡沫遮罩",
+      "category": "Water",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Water-Foam",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Water-Foam",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Water-Foam",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Water-Foundation",
+      "title": "流动水面基础",
+      "category": "Water",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-Water",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "original-URP-Water",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "original-HDRP-Water",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Water-RimTint",
+      "title": "掠射角水色",
+      "category": "Water",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Water-RimTint",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Water-RimTint",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Water-RimTint",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Water-Ripples",
+      "title": "同心波纹水色",
+      "category": "Water",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Water-Ripples",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Water-Ripples",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Water-Ripples",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "Water-VertexWave",
+      "title": "顶点波纹水面",
+      "category": "Water",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "effect-BuiltIn-Water-VertexWave",
+          "status": "Generated"
+        },
+        "URP": {
+          "id": "effect-URP-Water-VertexWave",
+          "status": "Generated"
+        },
+        "HDRP": {
+          "id": "effect-HDRP-Water-VertexWave",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-044b7612c112",
+      "title": "SF_BaseTransparentGlass · 原图适配 044b7612",
+      "category": "General",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-044b7612c112",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-0b09e8a8e8b4",
+      "title": "SF_Base · 原图适配 0b09e8a8",
+      "category": "General",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-0b09e8a8e8b4",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-18acaa20c040",
+      "title": "RGB · 原图适配 18acaa20",
+      "category": "UVAnimation",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-18acaa20c040",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-1ddc5d05b394",
+      "title": "Shader_Golem_Basic · 原图适配 1ddc5d05",
+      "category": "Metal",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-1ddc5d05b394",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-1e59d2455441",
+      "title": "Eye · 原图适配 1e59d245",
+      "category": "Eye",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-1e59d2455441",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-2a377100bd62",
+      "title": "SF_Pipe_01 · 原图适配 2a377100",
+      "category": "General",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-2a377100bd62",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-4a617f9c3b5d",
+      "title": "SF_Base_VertexPaint · 原图适配 4a617f9c",
+      "category": "General",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-4a617f9c3b5d",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-4e9932aa7d81",
+      "title": "SRP · 原图适配 4e9932aa",
+      "category": "Hair",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-4e9932aa7d81",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-5f1acba57c6f",
+      "title": "Girl_Hair · 原图适配 5f1acba5",
+      "category": "Hair",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-5f1acba57c6f",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-6dec954b5a2e",
+      "title": "Eye · 原图适配 6dec954b",
+      "category": "Eye",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-6dec954b5a2e",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-8b2f70979b9e",
+      "title": "Girl_Hair · 原图适配 8b2f7097",
+      "category": "Hair",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-8b2f70979b9e",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-8cb1136f317e",
+      "title": "SF_BaseMasked · 原图适配 8cb1136f",
+      "category": "General",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-8cb1136f317e",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-91b14ee430f3",
+      "title": "Unlit_Graph · 原图适配 91b14ee4",
+      "category": "General",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-91b14ee430f3",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-98503c7606a4",
+      "title": "SF_BaseMaskedTranslucent · 原图适配 98503c76",
+      "category": "General",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-98503c7606a4",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-aaace4303347",
+      "title": "Fabric · 原图适配 aaace430",
+      "category": "Fabric",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-aaace4303347",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-b22f3d64654c",
+      "title": "Eye · 原图适配 b22f3d64",
+      "category": "Eye",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-b22f3d64654c",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-bc4aa57b1388",
+      "title": "SF_Base · 原图适配 bc4aa57b",
+      "category": "General",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-bc4aa57b1388",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-bf1acc8b5350",
+      "title": "Girl_Hair · 原图适配 bf1acc8b",
+      "category": "Hair",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-bf1acc8b5350",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-e604d2baf899",
+      "title": "Unlit Shadow · 原图适配 e604d2ba",
+      "category": "General",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-e604d2baf899",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "local-HDRP-efb1bec0bd9d",
+      "title": "Fabric_Trans · 原图适配 efb1bec0",
+      "category": "Fabric",
+      "pipelines": {
+        "BuiltIn": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "id": "local-HDRP-efb1bec0bd9d",
+          "status": "Generated"
+        }
+      }
+    },
+    {
+      "familyId": "original-BuiltIn-DeepWater",
+      "title": "DeepWater 深度吸收 / 折射 / 焦散",
+      "category": "Water",
+      "pipelines": {
+        "BuiltIn": {
+          "id": "original-BuiltIn-DeepWater",
+          "status": "Generated"
+        },
+        "URP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        },
+        "HDRP": {
+          "status": "RequiresAdapter",
+          "reason": "No verified equivalent target implementation; no silent BSDF or render-state substitution."
+        }
+      }
+    }
+  ]
+}

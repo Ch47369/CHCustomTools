@@ -1,0 +1,62 @@
+﻿[
+    {
+        "file":  "normal-environment.json",
+        "bytes":  7263,
+        "sha256":  "6edbc5a20c8eddb1f637c6aa05dcf58e9aacab76fbd0fc17ab4a499b4716e8f0"
+    },
+    {
+        "file":  "normal-Normal360-conversion.json",
+        "bytes":  18370,
+        "sha256":  "615d5db24cbddf64fcd7f167e0cd947dfa565914b89148926a0c8b117777a440"
+    },
+    {
+        "file":  "normal-NormalImagePanZoom-conversion.json",
+        "bytes":  41175,
+        "sha256":  "bbc9645c5e6cb1823fc73cd4dca532eec66f32397ebc1c14b8feae69719e3365"
+    },
+    {
+        "file":  "normal-pixels.txt",
+        "bytes":  1448,
+        "sha256":  "b94145d300761eda8b7fe1cd97b27568b0753dbebfeffec1c6f5b69884a882b6"
+    },
+    {
+        "file":  "normal-smoke-result.txt",
+        "bytes":  170,
+        "sha256":  "94ed93a09a427fcded8df4a8e90be75975f8faf36337e8587e0ca6fd01bb2277"
+    },
+    {
+        "file":  "normal-template-a99d644facf4442398d54acf418923b9.json",
+        "bytes":  10367,
+        "sha256":  "8829bb9b1ff57f2bb932f596149d4c1788035b31018e3e55e627917402bb02c3"
+    },
+    {
+        "file":  "normal-template-c08fd7d51a79449e86b199a5bb4a5724.json",
+        "bytes":  10364,
+        "sha256":  "b3ac679282636793cfd4d6e1872af24fb68eb9d0c02acde86020a62f6b5ef7ed"
+    },
+    {
+        "file":  "regression-presentation-smoke-result.txt",
+        "bytes":  148,
+        "sha256":  "92b4a95eba41de690eca2b1d702e8e6816c0c10524227a4700ccdc4457131081"
+    },
+    {
+        "file":  "regression-ui-conversion.json",
+        "bytes":  114750,
+        "sha256":  "0171f8d4fb40a3015081e7eaed3b59df44cc338fad57496a843c6354662e1df0"
+    },
+    {
+        "file":  "regression-ui-pixels.txt",
+        "bytes":  432,
+        "sha256":  "2992b26d07923f4193b149a9e1a667d17964a302a54cd8fc000c3d7d3cbea7cb"
+    },
+    {
+        "file":  "unity-success-markers.txt",
+        "bytes":  75,
+        "sha256":  "7bc80947ba806725885a61ae980f0a24addbc0a5c5d5502f3fb11a0513254b3d"
+    },
+    {
+        "file":  "verification.json",
+        "bytes":  7454,
+        "sha256":  "4ef10cae12313effd67192a0a6923b452f23c72901bb4e0948ccb2394863ab5a"
+    }
+]

@@ -1,0 +1,141 @@
+{
+    "pipeline": "HDRP",
+    "error": "",
+    "finishedUtc": "2026-10-23T02:43:43.6285786Z",
+    "success": true,
+    "sourceSceneEquivalence": false,
+    "checks": [
+        {
+            "state": "Default",
+            "image": "LibraryBuildEvidence/Showcase035/Default.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 0,
+            "visiblePixels": 4056,
+            "sourceCompared": false,
+            "compiled": true
+        },
+        {
+            "state": "Iteration1",
+            "image": "LibraryBuildEvidence/Showcase035/Iteration1.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 2097,
+            "visiblePixels": 4056,
+            "sourceCompared": false,
+            "compiled": true
+        },
+        {
+            "state": "Iteration1.5",
+            "image": "LibraryBuildEvidence/Showcase035/Iteration1.5.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 1131,
+            "visiblePixels": 4056,
+            "sourceCompared": false,
+            "compiled": true
+        },
+        {
+            "state": "Iteration6",
+            "image": "LibraryBuildEvidence/Showcase035/Iteration6.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 2595,
+            "visiblePixels": 4056,
+            "sourceCompared": false,
+            "compiled": true
+        },
+        {
+            "state": "Iteration15",
+            "image": "LibraryBuildEvidence/Showcase035/Iteration15.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 2705,
+            "visiblePixels": 4056,
+            "sourceCompared": false,
+            "compiled": true
+        },
+        {
+            "state": "NoParallax",
+            "image": "LibraryBuildEvidence/Showcase035/NoParallax.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 1838,
+            "visiblePixels": 4056,
+            "sourceCompared": false,
+            "compiled": true
+        },
+        {
+            "state": "DeepParallax",
+            "image": "LibraryBuildEvidence/Showcase035/DeepParallax.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 1789,
+            "visiblePixels": 4056,
+            "sourceCompared": false,
+            "compiled": true
+        },
+        {
+            "state": "FlatNormal",
+            "image": "LibraryBuildEvidence/Showcase035/FlatNormal.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 3538,
+            "visiblePixels": 4056,
+            "sourceCompared": false,
+            "compiled": true
+        },
+        {
+            "state": "StrongNormal",
+            "image": "LibraryBuildEvidence/Showcase035/StrongNormal.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 3552,
+            "visiblePixels": 4056,
+            "sourceCompared": false,
+            "compiled": true
+        },
+        {
+            "state": "FlowTime7",
+            "image": "LibraryBuildEvidence/Showcase035/FlowTime7.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 3634,
+            "visiblePixels": 4056,
+            "sourceCompared": false,
+            "compiled": true
+        },
+        {
+            "state": "ViewAngle",
+            "image": "LibraryBuildEvidence/Showcase035/ViewAngle.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 0,
+            "visiblePixels": 3602,
+            "sourceCompared": false,
+            "compiled": true
+        },
+        {
+            "state": "TextureST",
+            "image": "LibraryBuildEvidence/Showcase035/TextureST.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 3778,
+            "visiblePixels": 4056,
+            "sourceCompared": false,
+            "compiled": true
+        },
+        {
+            "state": "CutoutDisabled",
+            "image": "LibraryBuildEvidence/Showcase035/CutoutDisabled.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 4622,
+            "visiblePixels": 4900,
+            "sourceCompared": false,
+            "compiled": true
+        }
+    ],
+    "sourcePassCount": 0,
+    "asePassCount": 1
+}

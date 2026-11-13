@@ -1,0 +1,297 @@
+{
+    "success": true,
+    "legacyRedirected": true,
+    "resetRestored": true,
+    "sourceFilesUnchanged": true,
+    "pipeline": "URP",
+    "version": "0.3.4",
+    "error": "",
+    "finishedUtc": "2026-10-23T02:00:30.4060366Z",
+    "checks": 70,
+    "defaultVisibleVersions": 89,
+    "strictVisibleVersions": 64,
+    "allVersions": 287,
+    "researchSources": 1079,
+    "guiEventsDispatched": 6,
+    "categories": [
+        {
+            "id": "Eye",
+            "families": 9,
+            "versions": 21,
+            "builtIn": 6,
+            "urp": 6,
+            "hdrp": 9,
+            "researchSources": 7,
+            "missingTargets": 6,
+            "featureGapTargets": 0
+        },
+        {
+            "id": "Fabric",
+            "families": 8,
+            "versions": 20,
+            "builtIn": 6,
+            "urp": 6,
+            "hdrp": 8,
+            "researchSources": 38,
+            "missingTargets": 4,
+            "featureGapTargets": 12
+        },
+        {
+            "id": "General",
+            "families": 9,
+            "versions": 9,
+            "builtIn": 0,
+            "urp": 0,
+            "hdrp": 9,
+            "researchSources": 134,
+            "missingTargets": 18,
+            "featureGapTargets": 0
+        },
+        {
+            "id": "Hair",
+            "families": 10,
+            "versions": 22,
+            "builtIn": 6,
+            "urp": 6,
+            "hdrp": 10,
+            "researchSources": 74,
+            "missingTargets": 8,
+            "featureGapTargets": 12
+        },
+        {
+            "id": "Hosiery",
+            "families": 6,
+            "versions": 18,
+            "builtIn": 6,
+            "urp": 6,
+            "hdrp": 6,
+            "researchSources": 0,
+            "missingTargets": 0,
+            "featureGapTargets": 0
+        },
+        {
+            "id": "Jade",
+            "families": 6,
+            "versions": 18,
+            "builtIn": 6,
+            "urp": 6,
+            "hdrp": 6,
+            "researchSources": 0,
+            "missingTargets": 0,
+            "featureGapTargets": 12
+        },
+        {
+            "id": "Metal",
+            "families": 7,
+            "versions": 19,
+            "builtIn": 6,
+            "urp": 6,
+            "hdrp": 7,
+            "researchSources": 139,
+            "missingTargets": 2,
+            "featureGapTargets": 0
+        },
+        {
+            "id": "Skin",
+            "families": 6,
+            "versions": 18,
+            "builtIn": 6,
+            "urp": 6,
+            "hdrp": 6,
+            "researchSources": 94,
+            "missingTargets": 0,
+            "featureGapTargets": 12
+        },
+        {
+            "id": "Stone",
+            "families": 6,
+            "versions": 18,
+            "builtIn": 6,
+            "urp": 6,
+            "hdrp": 6,
+            "researchSources": 28,
+            "missingTargets": 0,
+            "featureGapTargets": 0
+        },
+        {
+            "id": "UI",
+            "families": 6,
+            "versions": 18,
+            "builtIn": 6,
+            "urp": 6,
+            "hdrp": 6,
+            "researchSources": 47,
+            "missingTargets": 0,
+            "featureGapTargets": 0
+        },
+        {
+            "id": "UIEffects",
+            "families": 6,
+            "versions": 18,
+            "builtIn": 6,
+            "urp": 6,
+            "hdrp": 6,
+            "researchSources": 28,
+            "missingTargets": 0,
+            "featureGapTargets": 0
+        },
+        {
+            "id": "UVAnimation",
+            "families": 8,
+            "versions": 22,
+            "builtIn": 7,
+            "urp": 7,
+            "hdrp": 8,
+            "researchSources": 116,
+            "missingTargets": 2,
+            "featureGapTargets": 0
+        },
+        {
+            "id": "VertexAnimation",
+            "families": 6,
+            "versions": 18,
+            "builtIn": 6,
+            "urp": 6,
+            "hdrp": 6,
+            "researchSources": 135,
+            "missingTargets": 0,
+            "featureGapTargets": 0
+        },
+        {
+            "id": "VFX",
+            "families": 9,
+            "versions": 27,
+            "builtIn": 9,
+            "urp": 9,
+            "hdrp": 9,
+            "researchSources": 110,
+            "missingTargets": 0,
+            "featureGapTargets": 0
+        },
+        {
+            "id": "Water",
+            "families": 7,
+            "versions": 21,
+            "builtIn": 7,
+            "urp": 7,
+            "hdrp": 7,
+            "researchSources": 27,
+            "missingTargets": 0,
+            "featureGapTargets": 1
+        }
+    ],
+    "installs": [
+        {
+            "id": "original-URP-Skin",
+            "shaderPath": "Assets/ASEShaderLibrary/Skin/URP/original-URP-Skin.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Skin/URP/original-URP-Skin.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Hair",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/URP/original-URP-Hair.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/URP/original-URP-Hair.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Eye",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/URP/original-URP-Eye.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/URP/original-URP-Eye.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Fabric",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/URP/original-URP-Fabric.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/URP/original-URP-Fabric.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Hosiery",
+            "shaderPath": "Assets/ASEShaderLibrary/Hosiery/URP/original-URP-Hosiery.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hosiery/URP/original-URP-Hosiery.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Water",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/URP/original-URP-Water.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/URP/original-URP-Water.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Metal",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/URP/original-URP-Metal.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/URP/original-URP-Metal.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Stone",
+            "shaderPath": "Assets/ASEShaderLibrary/Stone/URP/original-URP-Stone.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Stone/URP/original-URP-Stone.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Jade",
+            "shaderPath": "Assets/ASEShaderLibrary/Jade/URP/original-URP-Jade.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Jade/URP/original-URP-Jade.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-UI",
+            "shaderPath": "Assets/ASEShaderLibrary/UI/URP/original-URP-UI.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UI/URP/original-URP-UI.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-UIEffects",
+            "shaderPath": "Assets/ASEShaderLibrary/UIEffects/URP/original-URP-UIEffects.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UIEffects/URP/original-URP-UIEffects.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-VFX",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/URP/original-URP-VFX.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/URP/original-URP-VFX.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-UVAnimation",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/URP/original-URP-UVAnimation.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/URP/original-URP-UVAnimation.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-VertexAnimation",
+            "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/URP/original-URP-VertexAnimation.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/URP/original-URP-VertexAnimation.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        }
+    ]
+}

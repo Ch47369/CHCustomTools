@@ -1,0 +1,99 @@
+{
+    "checkedUtc":  "2026-10-22T01:48:44.0103278+00:00",
+    "targets":  [
+                    {
+                        "project":  "Unity2022",
+                        "runIds":  [
+                                       "20261022-013635-cc8a2e",
+                                       "20261022-013902-417e21",
+                                       "20261022-014101-352826",
+                                       "20261022-014516-4c6f66"
+                                   ],
+                        "pipeline":  "BuiltIn",
+                        "unityVersion":  "2022.3.10f1",
+                        "aseVersion":  "1.9.9.13",
+                        "finishedUtc":  "2026-10-22T01:45:52.0339378Z",
+                        "inputs":  457,
+                        "sourceHashMismatches":  0,
+                        "results":  [
+                                        {
+                                            "status":  "Generated",
+                                            "count":  11
+                                        },
+                                        {
+                                            "status":  "NeedsAgent",
+                                            "count":  438
+                                        },
+                                        {
+                                            "status":  "MigrationCompiled",
+                                            "count":  8
+                                        }
+                                    ],
+                        "generated":  11,
+                        "migratedAndCompiled":  8,
+                        "comparedFixtures":  3,
+                        "errors":  0,
+                        "scope":  "Default/current material passes on D3D11. Fixture comparisons do not establish source-scene, all-keyword or all-platform equivalence. Blocked inputs have not been generated."
+                    },
+                    {
+                        "project":  "UnityURP",
+                        "runIds":  [
+                                       "20261022-013736-a85241",
+                                       "20261022-014451-c9bf13"
+                                   ],
+                        "pipeline":  "URP",
+                        "unityVersion":  "2022.3.10f1",
+                        "aseVersion":  "1.9.9.13",
+                        "finishedUtc":  "2026-10-22T01:45:13.9940874Z",
+                        "inputs":  457,
+                        "sourceHashMismatches":  0,
+                        "results":  [
+                                        {
+                                            "status":  "NeedsAgent",
+                                            "count":  443
+                                        },
+                                        {
+                                            "status":  "Generated",
+                                            "count":  6
+                                        },
+                                        {
+                                            "status":  "ExistingAseGraph",
+                                            "count":  8
+                                        }
+                                    ],
+                        "generated":  6,
+                        "migratedAndCompiled":  0,
+                        "comparedFixtures":  3,
+                        "errors":  0,
+                        "scope":  "Default/current material passes on D3D11. Fixture comparisons do not establish source-scene, all-keyword or all-platform equivalence. Blocked inputs have not been generated."
+                    },
+                    {
+                        "project":  "UnityHDRP",
+                        "runIds":  [
+                                       "20261022-013817-9ccc91",
+                                       "20261022-014614-0201f3"
+                                   ],
+                        "pipeline":  "HDRP",
+                        "unityVersion":  "2022.3.10f1",
+                        "aseVersion":  "1.9.9.13",
+                        "finishedUtc":  "2026-10-22T01:47:47.2859626Z",
+                        "inputs":  457,
+                        "sourceHashMismatches":  0,
+                        "results":  [
+                                        {
+                                            "status":  "NeedsAgent",
+                                            "count":  449
+                                        },
+                                        {
+                                            "status":  "ExistingAseGraph",
+                                            "count":  8
+                                        }
+                                    ],
+                        "generated":  0,
+                        "migratedAndCompiled":  0,
+                        "comparedFixtures":  0,
+                        "errors":  0,
+                        "scope":  "Default/current material passes on D3D11. Fixture comparisons do not establish source-scene, all-keyword or all-platform equivalence. Blocked inputs have not been generated."
+                    }
+                ]
+}

@@ -1,0 +1,29 @@
+{
+    "pipeline": "HDRP",
+    "error": "",
+    "finishedUtc": "2026-10-23T02:52:51.0912076Z",
+    "success": true,
+    "apiLoaded": true,
+    "windowOpened": true,
+    "editsPreserved": true,
+    "shaderPreserved": true,
+    "sourceHashPreserved": true,
+    "textureChecks": 5,
+    "presetChecks": 3,
+    "installed": {
+        "id": "showcase-HDRP-LayeredParallaxGlitter",
+        "shaderPath": "Assets/ASEShaderLibrary/VFX/HDRP/LayeredParallaxGlitter_ASE.shader",
+        "materialPath": "Assets/ASEShaderLibrary/VFX/HDRP/LayeredParallaxGlitter_ASE.mat",
+        "error": "",
+        "success": true,
+        "materialReused": false
+    },
+    "reused": {
+        "id": "showcase-HDRP-LayeredParallaxGlitter",
+        "shaderPath": "Assets/ASEShaderLibrary/VFX/HDRP/LayeredParallaxGlitter_ASE.shader",
+        "materialPath": "Assets/ASEShaderLibrary/VFX/HDRP/LayeredParallaxGlitter_ASE.mat",
+        "error": "",
+        "success": true,
+        "materialReused": true
+    }
+}

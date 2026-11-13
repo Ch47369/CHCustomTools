@@ -1,0 +1,382 @@
+{
+  "logs": [
+    {
+      "path": ".build~/ValidationRuns/Library-build-builtin.log",
+      "sha256": "965f1aaea112ec53635460cdbf6d9bf9b5a59d9da48ce8236f8fd98d76731af7",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_JOB original-BuiltIn-Skin True ",
+        "ASE_LIBRARY_JOB original-BuiltIn-Hair True ",
+        "ASE_LIBRARY_JOB original-BuiltIn-Eye True ",
+        "ASE_LIBRARY_JOB original-BuiltIn-Fabric True ",
+        "ASE_LIBRARY_JOB original-BuiltIn-Hosiery True ",
+        "ASE_LIBRARY_JOB original-BuiltIn-Water True ",
+        "ASE_LIBRARY_JOB original-BuiltIn-Metal True ",
+        "ASE_LIBRARY_JOB original-BuiltIn-Stone True ",
+        "ASE_LIBRARY_JOB original-BuiltIn-Jade True ",
+        "ASE_LIBRARY_JOB original-BuiltIn-UI True ",
+        "ASE_LIBRARY_JOB original-BuiltIn-UIEffects True ",
+        "ASE_LIBRARY_JOB original-BuiltIn-VFX True ",
+        "ASE_LIBRARY_JOB original-BuiltIn-UVAnimation True ",
+        "ASE_LIBRARY_JOB original-BuiltIn-VertexAnimation True ",
+        "ASE_LIBRARY_BUILD_COMPLETE BuiltIn"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-build-hdrp-retry.log",
+      "sha256": "2cb55e8f194ad126329077875bdfa7fca2dae085742db3bdf08c25eac5ce132e",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_JOB original-HDRP-Skin True ",
+        "ASE_LIBRARY_JOB original-HDRP-Hair True ",
+        "ASE_LIBRARY_JOB original-HDRP-Eye True ",
+        "ASE_LIBRARY_JOB original-HDRP-Fabric True ",
+        "ASE_LIBRARY_JOB original-HDRP-Hosiery True ",
+        "ASE_LIBRARY_JOB original-HDRP-Water True ",
+        "ASE_LIBRARY_JOB original-HDRP-Metal True ",
+        "ASE_LIBRARY_JOB original-HDRP-Stone True ",
+        "ASE_LIBRARY_JOB original-HDRP-Jade True ",
+        "ASE_LIBRARY_JOB original-HDRP-UI True ",
+        "ASE_LIBRARY_JOB original-HDRP-UIEffects True ",
+        "ASE_LIBRARY_JOB original-HDRP-VFX True ",
+        "ASE_LIBRARY_JOB original-HDRP-UVAnimation True ",
+        "ASE_LIBRARY_JOB original-HDRP-VertexAnimation True ",
+        "ASE_LIBRARY_BUILD_COMPLETE HDRP"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-build-hdrp.log",
+      "sha256": "644c0d22ef353882ec54e38609a402a42012563a00343e3bab0ffd3b4212a740",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "F:\\ASEShader\\Runtime\\ShaderRuleLibrary.cs(55,16): error CS0246: The type or namespace name 'SourceGraphReview' could not be found (are you missing a using directive or an assembly reference?)",
+        "ASE_LIBRARY_JOB original-HDRP-Skin False ",
+        "ASE_LIBRARY_JOB original-HDRP-Hair False ",
+        "ASE_LIBRARY_JOB original-HDRP-Eye False ",
+        "ASE_LIBRARY_JOB original-HDRP-Fabric False ",
+        "ASE_LIBRARY_JOB original-HDRP-Hosiery False ",
+        "ASE_LIBRARY_JOB original-HDRP-Water False ",
+        "ASE_LIBRARY_JOB original-HDRP-Metal False ",
+        "ASE_LIBRARY_JOB original-HDRP-Stone False ",
+        "ASE_LIBRARY_JOB original-HDRP-Jade False ",
+        "ASE_LIBRARY_JOB original-HDRP-UI False ",
+        "ASE_LIBRARY_JOB original-HDRP-UIEffects False ",
+        "ASE_LIBRARY_JOB original-HDRP-VFX False ",
+        "ASE_LIBRARY_JOB original-HDRP-UVAnimation False ",
+        "ASE_LIBRARY_JOB original-HDRP-VertexAnimation False ",
+        "ASE_LIBRARY_BUILD_COMPLETE HDRP"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-build-local-hdrp-boolean.log",
+      "sha256": "654e66f6ee118d21d95c584ff6dd82d42bd4f597cab45e37bdbf1bdd0bb2ff16",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_JOB local-HDRP-0b09e8a8e8b4 True ",
+        "ASE_LIBRARY_JOB local-HDRP-044b7612c112 True ",
+        "ASE_LIBRARY_JOB local-HDRP-5f1acba57c6f True ",
+        "ASE_LIBRARY_BUILD_COMPLETE HDRP"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-build-local-hdrp-final.log",
+      "sha256": "9416e472f9b0f95c14a42808575dbb36a2b5749c2c64cd7fa4d019bc19060067",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_JOB local-HDRP-0b09e8a8e8b4 True ",
+        "ASE_LIBRARY_JOB local-HDRP-044b7612c112 True ",
+        "ASE_LIBRARY_JOB local-HDRP-2a377100bd62 True ",
+        "ASE_LIBRARY_JOB local-HDRP-5f1acba57c6f False ",
+        "ASE_LIBRARY_JOB local-HDRP-91b14ee430f3 True ",
+        "ASE_LIBRARY_JOB local-HDRP-efb1bec0bd9d True ",
+        "ASE_LIBRARY_JOB local-HDRP-18acaa20c040 True ",
+        "ASE_LIBRARY_JOB local-HDRP-b22f3d64654c True ",
+        "ASE_LIBRARY_JOB local-HDRP-bf1acc8b5350 False ",
+        "ASE_LIBRARY_JOB local-HDRP-4e9932aa7d81 True ",
+        "ASE_LIBRARY_JOB local-HDRP-6dec954b5a2e False ",
+        "ASE_LIBRARY_JOB local-HDRP-bc4aa57b1388 True ",
+        "ASE_LIBRARY_JOB local-HDRP-8cb1136f317e True ",
+        "ASE_LIBRARY_JOB local-HDRP-98503c7606a4 True ",
+        "ASE_LIBRARY_JOB local-HDRP-4a617f9c3b5d True ",
+        "ASE_LIBRARY_JOB local-HDRP-e604d2baf899 True ",
+        "ASE_LIBRARY_JOB local-HDRP-8b2f70979b9e True ",
+        "ASE_LIBRARY_JOB local-HDRP-1e59d2455441 False ",
+        "ASE_LIBRARY_JOB local-HDRP-1ddc5d05b394 True ",
+        "ASE_LIBRARY_JOB local-HDRP-aaace4303347 True ",
+        "ASE_LIBRARY_BUILD_COMPLETE HDRP"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-build-local-hdrp-layout.log",
+      "sha256": "72e9e64aff7e9c6e09609189f3c1139e7ed7903c9629b7795afe4e6c10625ab5",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_JOB local-HDRP-0b09e8a8e8b4 True ",
+        "ASE_LIBRARY_JOB local-HDRP-044b7612c112 True ",
+        "ASE_LIBRARY_JOB local-HDRP-2a377100bd62 True ",
+        "ASE_LIBRARY_JOB local-HDRP-5f1acba57c6f True ",
+        "ASE_LIBRARY_JOB local-HDRP-91b14ee430f3 True ",
+        "ASE_LIBRARY_JOB local-HDRP-efb1bec0bd9d True ",
+        "ASE_LIBRARY_JOB local-HDRP-18acaa20c040 True ",
+        "ASE_LIBRARY_JOB local-HDRP-b22f3d64654c True ",
+        "ASE_LIBRARY_JOB local-HDRP-bf1acc8b5350 True ",
+        "ASE_LIBRARY_JOB local-HDRP-4e9932aa7d81 True ",
+        "ASE_LIBRARY_JOB local-HDRP-6dec954b5a2e True ",
+        "ASE_LIBRARY_JOB local-HDRP-bc4aa57b1388 True ",
+        "ASE_LIBRARY_JOB local-HDRP-8cb1136f317e True ",
+        "ASE_LIBRARY_JOB local-HDRP-98503c7606a4 True ",
+        "ASE_LIBRARY_JOB local-HDRP-4a617f9c3b5d True ",
+        "ASE_LIBRARY_JOB local-HDRP-e604d2baf899 True ",
+        "ASE_LIBRARY_JOB local-HDRP-8b2f70979b9e True ",
+        "ASE_LIBRARY_JOB local-HDRP-1e59d2455441 True ",
+        "ASE_LIBRARY_JOB local-HDRP-1ddc5d05b394 True ",
+        "ASE_LIBRARY_JOB local-HDRP-aaace4303347 True ",
+        "ASE_LIBRARY_BUILD_COMPLETE HDRP"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-build-local-hdrp-refined.log",
+      "sha256": "3953bb8044284d027e5eed02c121c8690118ff1a90d5b3a2cd17ff9e092e67c6",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_JOB local-HDRP-2a377100bd62 True ",
+        "ASE_LIBRARY_JOB local-HDRP-5f1acba57c6f False ",
+        "ASE_LIBRARY_JOB local-HDRP-91b14ee430f3 True ",
+        "ASE_LIBRARY_JOB local-HDRP-efb1bec0bd9d True ",
+        "ASE_LIBRARY_JOB local-HDRP-bf1acc8b5350 False ",
+        "ASE_LIBRARY_JOB local-HDRP-4e9932aa7d81 True ",
+        "ASE_LIBRARY_JOB local-HDRP-e604d2baf899 True ",
+        "ASE_LIBRARY_JOB local-HDRP-8b2f70979b9e False ",
+        "ASE_LIBRARY_JOB local-HDRP-1ddc5d05b394 True ",
+        "ASE_LIBRARY_BUILD_COMPLETE HDRP"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-build-local-hdrp-repair.log",
+      "sha256": "81101f3b5919ae5a2560b92afc6f62d5295f1972eb9f901537f4daa0a6622858",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_JOB local-HDRP-5f1acba57c6f True ",
+        "ASE_LIBRARY_JOB local-HDRP-bf1acc8b5350 True ",
+        "ASE_LIBRARY_JOB local-HDRP-6dec954b5a2e True ",
+        "ASE_LIBRARY_JOB local-HDRP-1e59d2455441 True ",
+        "ASE_LIBRARY_BUILD_COMPLETE HDRP"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-build-local-hdrp-texture-defaults.log",
+      "sha256": "775b3a28f0449e1aa99e71a31a1d5aa5f9596c843e562a9cc9704a61bc9a184c",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_JOB local-HDRP-0b09e8a8e8b4 True ",
+        "ASE_LIBRARY_JOB local-HDRP-044b7612c112 True ",
+        "ASE_LIBRARY_JOB local-HDRP-2a377100bd62 True ",
+        "ASE_LIBRARY_JOB local-HDRP-5f1acba57c6f True ",
+        "ASE_LIBRARY_JOB local-HDRP-91b14ee430f3 True ",
+        "ASE_LIBRARY_JOB local-HDRP-efb1bec0bd9d True ",
+        "ASE_LIBRARY_JOB local-HDRP-18acaa20c040 True ",
+        "ASE_LIBRARY_JOB local-HDRP-b22f3d64654c True "
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-build-local-hdrp-texture-remaining.log",
+      "sha256": "e50f8e96319cc1364b36d6db8463bb1e7b885dd2cdced33dd580108de11bfb24",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_JOB local-HDRP-bf1acc8b5350 True ",
+        "ASE_LIBRARY_JOB local-HDRP-4e9932aa7d81 True ",
+        "ASE_LIBRARY_JOB local-HDRP-6dec954b5a2e True ",
+        "ASE_LIBRARY_JOB local-HDRP-bc4aa57b1388 True ",
+        "ASE_LIBRARY_JOB local-HDRP-8cb1136f317e True ",
+        "ASE_LIBRARY_JOB local-HDRP-98503c7606a4 True ",
+        "ASE_LIBRARY_JOB local-HDRP-4a617f9c3b5d True ",
+        "ASE_LIBRARY_JOB local-HDRP-e604d2baf899 True ",
+        "ASE_LIBRARY_JOB local-HDRP-8b2f70979b9e True ",
+        "ASE_LIBRARY_JOB local-HDRP-1e59d2455441 True ",
+        "ASE_LIBRARY_JOB local-HDRP-1ddc5d05b394 True ",
+        "ASE_LIBRARY_JOB local-HDRP-aaace4303347 True ",
+        "ASE_LIBRARY_BUILD_COMPLETE HDRP"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-build-local-hdrp.log",
+      "sha256": "a22daddf9d782b76dae227755fd19e0c8a7c5814c84d080257712c025fc3b25a",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_JOB original-HDRP-Skin True ",
+        "ASE_LIBRARY_JOB original-HDRP-Jade True ",
+        "ASE_LIBRARY_JOB local-HDRP-2a377100bd62 True ",
+        "ASE_LIBRARY_JOB local-HDRP-5f1acba57c6f True ",
+        "ASE_LIBRARY_JOB local-HDRP-91b14ee430f3 True ",
+        "ASE_LIBRARY_JOB local-HDRP-efb1bec0bd9d True ",
+        "ASE_LIBRARY_JOB local-HDRP-b22f3d64654c False ",
+        "ASE_LIBRARY_JOB local-HDRP-bf1acc8b5350 True ",
+        "ASE_LIBRARY_JOB local-HDRP-4e9932aa7d81 True ",
+        "ASE_LIBRARY_JOB local-HDRP-6dec954b5a2e False ",
+        "ASE_LIBRARY_JOB local-HDRP-e604d2baf899 True ",
+        "ASE_LIBRARY_JOB local-HDRP-8b2f70979b9e False ",
+        "ASE_LIBRARY_JOB local-HDRP-1e59d2455441 False ",
+        "ASE_LIBRARY_JOB local-HDRP-1ddc5d05b394 True ",
+        "ASE_LIBRARY_JOB local-HDRP-aaace4303347 False ",
+        "ASE_LIBRARY_BUILD_COMPLETE HDRP"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-build-urp-hair-fix.log",
+      "sha256": "ed041275c524dd1e9ebd22629c349e375f58b947343de535b1ae96fe642d0e7a",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_JOB original-URP-Hair True ",
+        "ASE_LIBRARY_BUILD_COMPLETE URP"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-build-urp.log",
+      "sha256": "7f9b3e40494998d3db5a3386e0886bfc36f2d95bf06debf7754e1345c1ab8c61",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_JOB original-URP-Skin True ",
+        "ASE_LIBRARY_JOB original-URP-Hair False ",
+        "ASE_LIBRARY_JOB original-URP-Eye True ",
+        "ASE_LIBRARY_JOB original-URP-Fabric True ",
+        "ASE_LIBRARY_JOB original-URP-Hosiery True ",
+        "ASE_LIBRARY_JOB original-URP-Water True ",
+        "ASE_LIBRARY_JOB original-URP-Metal True ",
+        "ASE_LIBRARY_JOB original-URP-Stone True ",
+        "ASE_LIBRARY_JOB original-URP-Jade True ",
+        "ASE_LIBRARY_JOB original-URP-UI True ",
+        "ASE_LIBRARY_JOB original-URP-UIEffects True ",
+        "ASE_LIBRARY_JOB original-URP-VFX True ",
+        "ASE_LIBRARY_JOB original-URP-UVAnimation True ",
+        "ASE_LIBRARY_JOB original-URP-VertexAnimation True ",
+        "ASE_LIBRARY_BUILD_COMPLETE URP"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-describe-builtin.log",
+      "sha256": "0909ea074916ef6b456b795c2a93f943bc7967e917bedead0db041dc6d448320",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "F:\\ASEShader\\Runtime\\ShaderRuleLibrary.cs(55,16): error CS0246: The type or namespace name 'SourceGraphReview' could not be found (are you missing a using directive or an assembly reference?)",
+        "F:\\ASEShader\\Runtime\\ShaderRuleLibrary.cs(27,21): error CS0246: The type or namespace name 'CharacterMaterialProfile' could not be found (are you missing a using directive or an assembly reference?)",
+        "F:\\ASEShader\\Runtime\\ShaderRuleLibrary.cs(59,21): error CS0246: The type or namespace name 'CharacterMaterialReview' could not be found (are you missing a using directive or an assembly reference?)"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-describe-hdrp.log",
+      "sha256": "3e6b9fa0c99325a74a35f33bc084693748e563de0bb95ec236210028774131ca",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-describe-urp-retry.log",
+      "sha256": "82c3b87f9f2bd94904bd497521674c717853cb82dd44f5f19cdba9e03bfd5250",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "F:\\ASEShader\\Runtime\\ShaderRuleLibrary.cs(55,16): error CS0246: The type or namespace name 'SourceGraphReview' could not be found (are you missing a using directive or an assembly reference?)",
+        "F:\\ASEShader\\Runtime\\ShaderRuleLibrary.cs(27,21): error CS0246: The type or namespace name 'CharacterMaterialProfile' could not be found (are you missing a using directive or an assembly reference?)",
+        "F:\\ASEShader\\Runtime\\ShaderRuleLibrary.cs(59,21): error CS0246: The type or namespace name 'CharacterMaterialReview' could not be found (are you missing a using directive or an assembly reference?)"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-describe-urp.log",
+      "sha256": "ee232277dd92fc93fdfca0222a5378dd3ac5769ac202b48e963777b9482c6fe7",
+      "markers": [
+        "[Licensing::IpcConnector] Error: Failed to connect to License Client channel (error code: 0x80000009) .",
+        "[Licensing::IpcConnector] Error: Connection attempt to the License Client on channel: \"LicenseClient-SY\" failed); code: \"0x80000009\"",
+        "[Licensing::IpcConnector] Error: Failed to connect to License Client channel (error code: 0x80000009) .",
+        "[Licensing::IpcConnector] Connection attempt to the License Client on channel: \"LicenseClient-SY-2022.3.10\" failed because channel doesn't exist; code: \"0x80000002\"",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-import-guards.log",
+      "sha256": "56de434fc2224613d4f170a02935ae21c1c48939f9ee7c6f6174b88a5143b36f",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_GUARDS_PASS"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-import-local-defaults.log",
+      "sha256": "5157a115598c67b6efef8fdb8a3a28ad43b6351cf6296de76a876c9a4fe7ed9e",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_IMPORT_SMOKE HDRP True 20"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-import-Unity2022.log",
+      "sha256": "88690f6add51c11fbfda1e79e667527a38cb09abd6053c08798770e5939a99fb",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_IMPORT_SMOKE BuiltIn True 14"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-import-UnityHDRP-final.log",
+      "sha256": "9eda4b4c64edb4bdc329e860fca09dbaa9c9397916ddeae6ea4ce3b09c09883e",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_IMPORT_SMOKE HDRP True 34"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-import-UnityHDRP.log",
+      "sha256": "4f1657ffecdba286191c453d99d6b56187a469d666aa640e9fc13bc8ad983070",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-import-UnityURP.log",
+      "sha256": "4e8f6173f103b7fa45cc60d967bdc976337a46fc87c9cc229eb6e554081a2a83",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_IMPORT_SMOKE URP True 14"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-import-water.log",
+      "sha256": "97ec26e57e8fcb5943edd89747acf021ee29aebe96cc36266f9d11dbb9dfc9ee",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_WATER_IMPORTED Assets/Shaders/DeepWater_ASE.shader"
+      ]
+    },
+    {
+      "path": ".build~/ValidationRuns/Library-water-support.log",
+      "sha256": "6d7e67e1ffa94331316b3e38f49abe840329fb1472bb6c0238674c496192a22e",
+      "markers": [
+        "[Licensing::Module] Error: LicensingClient has failed validation; ignoring",
+        "[Licensing::Module] Error: Access token is unavailable; failed to update",
+        "ASE_LIBRARY_WATER_SUPPORT True"
+      ]
+    }
+  ],
+  "rawLogsKeptInWorkspace": true
+}

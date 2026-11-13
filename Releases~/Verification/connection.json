@@ -1,0 +1,18 @@
+{
+    "schemaVersion": 1,
+    "protocol": "ase-converter-files-v1",
+    "unityVersion": "6000.0.80f1",
+    "projectPath": "F:\\ASEShader\\.validation\\Unity6_80",
+    "sessionId": "064c4ed6d02d4db58637125d06aa3cd8",
+    "requests": "F:\\ASEShader\\.validation\\Unity6_80\\Library\\ASEShaderConverter\\Agent\\requests",
+    "responses": "F:\\ASEShader\\.validation\\Unity6_80\\Library\\ASEShaderConverter\\Agent\\responses",
+    "updatedUtc": "2026-10-21T01:07:38.6992225Z",
+    "instructionsPath": "F:\\ASEShader\\.validation\\Unity6_80\\Library\\PackageCache\\com.aseshader.handwritten-converter@121d0151a278\\Documentation~/AgentProtocol.md",
+    "operations": [
+        "probe",
+        "describe",
+        "analyze",
+        "generate",
+        "generatePlan"
+    ]
+}

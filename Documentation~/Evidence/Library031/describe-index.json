@@ -1,0 +1,1055 @@
+{
+  "rows": [
+    {
+      "id": "effect-BuiltIn-Skin-Freckles",
+      "responseSha256": "fda05c7603528a74acfcb03c3af9d0998a000ef445ca84e4fe438af8e406744a",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Skin-Blush",
+      "responseSha256": "5350c269be8ec73928736574bf63765f62ed1919e2012a989f71b16d91860c72",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Skin-Tan",
+      "responseSha256": "1e44b20b9ea484e2e4e8002e9425e6171d7a14a38812d34054ccb0eb25605bfb",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Skin-OilMask",
+      "responseSha256": "32b5d38eddb38dbb13e6f349bfcc851c8c7a9aced740d00bd505c7b18bf85e4d",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Skin-Dust",
+      "responseSha256": "8ad6724647163d34c173ea5d9aa3585ba947a9ecebd1e306832ac07dd3bf4b1e",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Hair-RootTip",
+      "responseSha256": "45ae74070c9fa82aae6d8d6e1247ec547cc77837bb72ac2f8093f0eb7890619b",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Hair-Streaks",
+      "responseSha256": "a7309cb3be565b4190a31aafce18dfeffcc1d746b30c3c2f1fa60a44357eed8b",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Hair-VertexDye",
+      "responseSha256": "559dba89b86be8138b9fc4458a2fba20166bae4618849c673d6cbab8908e292f",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Hair-DyeMask",
+      "responseSha256": "c188fd006434af0195b90378e5cf61340d977e263a34174fb3aaf0b098fc67e7",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Hair-TipFade",
+      "responseSha256": "93ec5500d4032f3e74e4dea8a4cc878db8e4142b7cb29926ae5605c1e812d9d5",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Eye-LimbalRing",
+      "responseSha256": "5f7f88095301f1e06904f179ac3297a01debe4c316135ff7ff34abc820401bef",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Eye-IrisBands",
+      "responseSha256": "3734817d74670b89f05a8dd9962482a9c167f4526233f7ee80dbc010bfa128e0",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Eye-IrisMask",
+      "responseSha256": "5f7f88095301f1e06904f179ac3297a01debe4c316135ff7ff34abc820401bef",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Eye-ScleraTint",
+      "responseSha256": "652fe6862ce26ef6061feef228595ec847534c66e4020da327efcd055438d1d5",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Eye-IrisSpeckles",
+      "responseSha256": "46477c95e9a910e765e3053c423960762fdc9671da72d130f6d09cb2e8411d8c",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-Checks",
+      "responseSha256": "b0f092ee7305e7bb1d0e62325805b121a737159ffd447ec347117e466130d5ba",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-Stripes",
+      "responseSha256": "82bd4d7d438cda6630577ee47fbd34a9c14b2748cde929b75a24a00ec0421f92",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-CrossWeave",
+      "responseSha256": "82bd4d7d438cda6630577ee47fbd34a9c14b2748cde929b75a24a00ec0421f92",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-Print",
+      "responseSha256": "8ad6724647163d34c173ea5d9aa3585ba947a9ecebd1e306832ac07dd3bf4b1e",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-VertexDye",
+      "responseSha256": "5350c269be8ec73928736574bf63765f62ed1919e2012a989f71b16d91860c72",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Dots",
+      "responseSha256": "cc1c38a42268428c3c8c2e6105540f788b4ea7453629e7ec9ba0f1848fef70ad",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Rib",
+      "responseSha256": "8bbdcc6a2eb6ad5a1a717ebd46fd591400ab8b29bf694bfde53f845c27387300",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Lace",
+      "responseSha256": "8bbdcc6a2eb6ad5a1a717ebd46fd591400ab8b29bf694bfde53f845c27387300",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Gradient",
+      "responseSha256": "2864ba38af49f2efca3c1039cb54180ddf7cb873c04b3c8fa976b77bb91fd6e3",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Diamond",
+      "responseSha256": "8bbdcc6a2eb6ad5a1a717ebd46fd591400ab8b29bf694bfde53f845c27387300",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Water-Foam",
+      "responseSha256": "ac1c459f3a7aca9cfb3b002a56d2632b03efbe1b871b9140b37e1973ae5bbeb9",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Water-Ripples",
+      "responseSha256": "90d8dac0530c1149b28fe8eadc7de63ea1431d9807d2a7734c485e53a9ef91e2",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Water-RimTint",
+      "responseSha256": "040ca6d75a0d36df52cfadb136affb4e55e900560c9a0c9e45c0be2f7ee48662",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Water-VertexWave",
+      "responseSha256": "6254af3a8a2b2fd9c2e2f5a7f76a282c8e67c05197c777f6422516d30d54e41f",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Water-DualNormal",
+      "responseSha256": "30f465d1859221d7874b9b96b9aebbd9256e79ba0bc2c04c5d42df400a7fafd1",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Metal-Brushed",
+      "responseSha256": "827dd246e9cd72cc404858539da443438c10b3967e8963fb5484016625f34424",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Metal-Oxidized",
+      "responseSha256": "c188fd006434af0195b90378e5cf61340d977e263a34174fb3aaf0b098fc67e7",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Metal-Scratches",
+      "responseSha256": "f6754023083bef96a93df848d659d74ae29e5a562a25d5291ee45c02b6968d90",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Metal-HeatTint",
+      "responseSha256": "45ae74070c9fa82aae6d8d6e1247ec547cc77837bb72ac2f8093f0eb7890619b",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Metal-Panels",
+      "responseSha256": "a7a0555c61619a8ff97772805ab5cd6b79a4390b194bc0b1c9e63eb9eadb1fda",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Stone-MossMask",
+      "responseSha256": "8ad6724647163d34c173ea5d9aa3585ba947a9ecebd1e306832ac07dd3bf4b1e",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Stone-Strata",
+      "responseSha256": "82bd4d7d438cda6630577ee47fbd34a9c14b2748cde929b75a24a00ec0421f92",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Stone-Cracks",
+      "responseSha256": "87c25b779dcf46a9d0f910491c1f29e57c0e98265489fcfc4b0ed2b5412ca453",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Stone-Wet",
+      "responseSha256": "32b5d38eddb38dbb13e6f349bfcc851c8c7a9aced740d00bd505c7b18bf85e4d",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Stone-VertexPaint",
+      "responseSha256": "5350c269be8ec73928736574bf63765f62ed1919e2012a989f71b16d91860c72",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Veins",
+      "responseSha256": "82bd4d7d438cda6630577ee47fbd34a9c14b2748cde929b75a24a00ec0421f92",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Clouds",
+      "responseSha256": "8ad6724647163d34c173ea5d9aa3585ba947a9ecebd1e306832ac07dd3bf4b1e",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Gradient",
+      "responseSha256": "1e44b20b9ea484e2e4e8002e9425e6171d7a14a38812d34054ccb0eb25605bfb",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Speckles",
+      "responseSha256": "fda05c7603528a74acfcb03c3af9d0998a000ef445ca84e4fe438af8e406744a",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Rind",
+      "responseSha256": "7a6ce3d348c9e61c0fb235fd3b4c6b5fac6d447716ed6149ffa9f51e59bc82d3",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UI-Gradient",
+      "responseSha256": "09074202fe3492467bc40cb6966bf08f6c9678c10c8c045e3fcb8730f45cc840",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UI-RadialMask",
+      "responseSha256": "50fb45f41784c50afbf3ecdd9a3499e0ae3f477fe0cd14fc613d9dd404bb1e76",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UI-Frame",
+      "responseSha256": "ab713a24e06949e16d0d4ad4d84decc21838c5bb1558f1a99d7b4fdc96af3384",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UI-Scanline",
+      "responseSha256": "56bb396515cc0942cec2dd6c8d177b9dded2566ef53433bc4b60a4b67240c2a8",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UI-MaskTint",
+      "responseSha256": "48d9440df9ce8066a8390c9a733a2280593e4f2975b77e46726db61b0a623af1",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-ScanPulse",
+      "responseSha256": "64af4a4ec7b895c515fae4f0a5113c5ba4f81905d265d58d874b2c63cb9e5258",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-Pulse",
+      "responseSha256": "64af4a4ec7b895c515fae4f0a5113c5ba4f81905d265d58d874b2c63cb9e5258",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-Wipe",
+      "responseSha256": "0d2825bb448dc755351163c43a733e3c42edaee9ed66d2af28dbe8221348756e",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-Grid",
+      "responseSha256": "d600a90c735a1d1644dec81fde4dec871276e51c293a34546dec70f792cddb4f",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-RingPulse",
+      "responseSha256": "f844b0ecc56ecb536e52477652660a8dc07aba1f4e71cd0274083d3c5ed53d48",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-VFX-Ring",
+      "responseSha256": "b61b83aff7a7dc019c4cf92de16402dfd8ad95982c18d9684ec5c01b511faeb3",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-VFX-Beam",
+      "responseSha256": "e82c73a115e66f7d6f12ab083ada26273af85d76876f96a3415b16ba756531c9",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-VFX-SoftDisc",
+      "responseSha256": "b61b83aff7a7dc019c4cf92de16402dfd8ad95982c18d9684ec5c01b511faeb3",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-VFX-Scan",
+      "responseSha256": "cb3564d1d30d953737e6ae89c7d728166293a38cc19b369d47c5032e964a6a2a",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-VFX-Pulse",
+      "responseSha256": "af2fb64f1110437f529ed090bb31a479dd4d7ac384fa06f7a210e20f9829e841",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-LayerRotate",
+      "responseSha256": "b71055611d766c916f81c3572b728f61e6cc821d3664893a14057ada5a834f36",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-FlowMask",
+      "responseSha256": "10d5d5e23e10044221742284e1d14e48ba2e5f459bbb25cdc6830ecd73c1a330",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-Distortion",
+      "responseSha256": "ac18bb55d60e823b3a9e738b4ce43046db579af3fd2cd51ec729f536c7741733",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-Flipbook",
+      "responseSha256": "287c306b2f3f0182304f0d6ccdb1564314cc14f9f5d817358fe95878bbb1d6a8",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-PingPong",
+      "responseSha256": "c8dfc16b05ae0ee1d3d845ade48925c86decaadaf10c822cf12d05e2e3a9dd50",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-Flutter",
+      "responseSha256": "c1960a7612821e495aae0d9aa8e5e4e8e1c581c7a97ff376277a31bc38bef3fa",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-Ripple",
+      "responseSha256": "60a28f9ccbe42faaa7c0d440e83a03d9847e2fe3aaaf3a3f54b881f00280c0ec",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-Bob",
+      "responseSha256": "c1960a7612821e495aae0d9aa8e5e4e8e1c581c7a97ff376277a31bc38bef3fa",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-Bend",
+      "responseSha256": "43aa44cd4ba9d38f0b99981c94dcae0fb49c0f7406d02194577b9aedc2748bf1",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-CrossWind",
+      "responseSha256": "c1960a7612821e495aae0d9aa8e5e4e8e1c581c7a97ff376277a31bc38bef3fa",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Skin-Freckles",
+      "responseSha256": "a8a7cba29ea547ff00ba9001f045fd4648d3fa9f3dcbef9991a74a8c8f7ee974",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Skin-Blush",
+      "responseSha256": "3e3418f2d064068d531332c0bdafa2a5803d352d56ac0edba075189c016bf0d7",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Skin-Tan",
+      "responseSha256": "504ad32e6e0c7c128abab3617b6394e49a6eb5ea257041ea47e9ce6a3905c2a0",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Skin-OilMask",
+      "responseSha256": "90fd2b9f6946a120ad838ba6f80075707a79d6ff59dea3d085f1d855cea9b7e7",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Skin-Dust",
+      "responseSha256": "4dde7692fede24e1b44bd24d1a8d48e227f365cd65f3fb2d4bf91a25780d6f53",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Hair-RootTip",
+      "responseSha256": "9107dde9024be6609081836f82bbe690e886989bfe39fbe70ab2d132ac30e2cc",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Hair-Streaks",
+      "responseSha256": "5ae25d56936d2f59a3d040c0d29ffd4901472e4ade7ee86a35532b02bb7d3832",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Hair-VertexDye",
+      "responseSha256": "ecc6bc82bf7d46a9e70b32a437fdd4e8092449078f0b9aa0461efedceeca2f16",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Hair-DyeMask",
+      "responseSha256": "3431af5ba6cbc7871dfbd6e90ad63cd63ebd1c74d449ae8406767faf7fa34282",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Hair-TipFade",
+      "responseSha256": "00aff9775f3a42297ca04493be6fa6a34b8f443fce1cb7d4faf9997c9c87bc77",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Eye-LimbalRing",
+      "responseSha256": "61977867b98d2c8bbae533cc44e74a53ecd9fca3d64ba09fa5dcb0d5f3452e29",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Eye-IrisBands",
+      "responseSha256": "9ab9b7a2804f29bf59b43ebdb397e83847f6980b3388357ddc6045a7242577cb",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Eye-IrisMask",
+      "responseSha256": "61977867b98d2c8bbae533cc44e74a53ecd9fca3d64ba09fa5dcb0d5f3452e29",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Eye-ScleraTint",
+      "responseSha256": "90f9348184df7378539e79efa78adedacee3007a2addb49ef41eb60a17aed24e",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Eye-IrisSpeckles",
+      "responseSha256": "e71d53015be1fe7658b27d493575c5df3346bf7e8c2772c5f7b47a7337e93bb0",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Fabric-Checks",
+      "responseSha256": "4ad8b5eece4e6c384fc5b681bdb8ea2b55ec62b63a1477cb12c7469fcec4aebf",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Fabric-Stripes",
+      "responseSha256": "99f0ab3db174a60097acd724ed2ede81985f461f4fab05fba0f7c5900b9dee73",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Fabric-CrossWeave",
+      "responseSha256": "99f0ab3db174a60097acd724ed2ede81985f461f4fab05fba0f7c5900b9dee73",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Fabric-Print",
+      "responseSha256": "4dde7692fede24e1b44bd24d1a8d48e227f365cd65f3fb2d4bf91a25780d6f53",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Fabric-VertexDye",
+      "responseSha256": "3e3418f2d064068d531332c0bdafa2a5803d352d56ac0edba075189c016bf0d7",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Hosiery-Dots",
+      "responseSha256": "0beb43893ee21e9ed3919c9f42c214d2164c0058e92b57694a81ee13694071d9",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Hosiery-Rib",
+      "responseSha256": "ee3dee63f13dd8ad4da55485fbedb3d5f31aabda0cfd38996112dcbf7947a897",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Hosiery-Lace",
+      "responseSha256": "ee3dee63f13dd8ad4da55485fbedb3d5f31aabda0cfd38996112dcbf7947a897",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Hosiery-Gradient",
+      "responseSha256": "c5380ebe443394bd560cfe12b1eaeeddce6bb3d1227117e6ce638ff5c5526178",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Hosiery-Diamond",
+      "responseSha256": "ee3dee63f13dd8ad4da55485fbedb3d5f31aabda0cfd38996112dcbf7947a897",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Water-Foam",
+      "responseSha256": "27b485e3005d9964b4a02d1728c3f2402145d7948b0b6c86979dc5a165fec1ff",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Water-Ripples",
+      "responseSha256": "26d5db746ef6b4ff1ff98934f983d9efd2d4a4b8c97f085f0410ed99df180954",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Water-RimTint",
+      "responseSha256": "8b9efae70e59df6bf7f12f9cfdfa305e4a34cfee29e6d8310be11d0c554ff9c3",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Water-VertexWave",
+      "responseSha256": "8e899c85d0b2b0af077e60726b67096621116c37ab26c5d18e15eb7cb696908d",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Water-DualNormal",
+      "responseSha256": "82294c2f9b4c3d8b000703b9374a2bdf81453b43d16ec69fd9d8ae8d4a72abfa",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Metal-Brushed",
+      "responseSha256": "724aa9730f3a3171ccc7d70c971f70cfd46ad16ec3ca7b9710a424a6585ef3d1",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Metal-Oxidized",
+      "responseSha256": "3431af5ba6cbc7871dfbd6e90ad63cd63ebd1c74d449ae8406767faf7fa34282",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Metal-Scratches",
+      "responseSha256": "2d5d5978ef59cae28b4207cea77197d48790f0c34d1e740412acdb6d523218c3",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Metal-HeatTint",
+      "responseSha256": "9107dde9024be6609081836f82bbe690e886989bfe39fbe70ab2d132ac30e2cc",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Metal-Panels",
+      "responseSha256": "c67353734bde8b764d76596208b9ab12f28617b38101d0639f075ad6ec72b27d",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Stone-MossMask",
+      "responseSha256": "4dde7692fede24e1b44bd24d1a8d48e227f365cd65f3fb2d4bf91a25780d6f53",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Stone-Strata",
+      "responseSha256": "99f0ab3db174a60097acd724ed2ede81985f461f4fab05fba0f7c5900b9dee73",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Stone-Cracks",
+      "responseSha256": "db26649283c104a5a3879878fbee7cf85253c03facda849ffd89d8c03f789619",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Stone-Wet",
+      "responseSha256": "90fd2b9f6946a120ad838ba6f80075707a79d6ff59dea3d085f1d855cea9b7e7",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Stone-VertexPaint",
+      "responseSha256": "3e3418f2d064068d531332c0bdafa2a5803d352d56ac0edba075189c016bf0d7",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Jade-Veins",
+      "responseSha256": "99f0ab3db174a60097acd724ed2ede81985f461f4fab05fba0f7c5900b9dee73",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Jade-Clouds",
+      "responseSha256": "4dde7692fede24e1b44bd24d1a8d48e227f365cd65f3fb2d4bf91a25780d6f53",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Jade-Gradient",
+      "responseSha256": "504ad32e6e0c7c128abab3617b6394e49a6eb5ea257041ea47e9ce6a3905c2a0",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Jade-Speckles",
+      "responseSha256": "a8a7cba29ea547ff00ba9001f045fd4648d3fa9f3dcbef9991a74a8c8f7ee974",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-Jade-Rind",
+      "responseSha256": "9324b2e7d420c729f18e880ed132e0efa80588982c362aa7f93319b2238b7da8",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UI-Gradient",
+      "responseSha256": "09074202fe3492467bc40cb6966bf08f6c9678c10c8c045e3fcb8730f45cc840",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UI-RadialMask",
+      "responseSha256": "50fb45f41784c50afbf3ecdd9a3499e0ae3f477fe0cd14fc613d9dd404bb1e76",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UI-Frame",
+      "responseSha256": "ab713a24e06949e16d0d4ad4d84decc21838c5bb1558f1a99d7b4fdc96af3384",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UI-Scanline",
+      "responseSha256": "56bb396515cc0942cec2dd6c8d177b9dded2566ef53433bc4b60a4b67240c2a8",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UI-MaskTint",
+      "responseSha256": "48d9440df9ce8066a8390c9a733a2280593e4f2975b77e46726db61b0a623af1",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UIEffects-ScanPulse",
+      "responseSha256": "64af4a4ec7b895c515fae4f0a5113c5ba4f81905d265d58d874b2c63cb9e5258",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UIEffects-Pulse",
+      "responseSha256": "64af4a4ec7b895c515fae4f0a5113c5ba4f81905d265d58d874b2c63cb9e5258",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UIEffects-Wipe",
+      "responseSha256": "0d2825bb448dc755351163c43a733e3c42edaee9ed66d2af28dbe8221348756e",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UIEffects-Grid",
+      "responseSha256": "d600a90c735a1d1644dec81fde4dec871276e51c293a34546dec70f792cddb4f",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UIEffects-RingPulse",
+      "responseSha256": "f844b0ecc56ecb536e52477652660a8dc07aba1f4e71cd0274083d3c5ed53d48",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-VFX-Ring",
+      "responseSha256": "5eec04a92bc96dd8275437e9aab9853ec5bf7afb215dca2a16e283d65a94203b",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-VFX-Beam",
+      "responseSha256": "dea881faaa2b3d1436443178d6ae00186280aff47870dd9f11782b016ed85315",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-VFX-SoftDisc",
+      "responseSha256": "5eec04a92bc96dd8275437e9aab9853ec5bf7afb215dca2a16e283d65a94203b",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-VFX-Scan",
+      "responseSha256": "b297c0ff7beec804f63b33c2cf91cee30857e5c05321e2d86bc12c3875879de7",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-VFX-Pulse",
+      "responseSha256": "32e3ebf6ff645bafac0513c60e624b0b31da88ce6ff159861b079e8d0be234c9",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UVAnimation-LayerRotate",
+      "responseSha256": "4dc7cee525426e999b7d7823459c91b70f1ee78d65eb9a4d6849fc708014a438",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UVAnimation-FlowMask",
+      "responseSha256": "c2939df873834acd44bc029fec6a4477e6dbb1f62fb2ae4aaf5e2d9c872cdf99",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UVAnimation-Distortion",
+      "responseSha256": "d3c32d7759ba09908c6eace7fb493ca8810aefcbbd403ef20096c652013ab77c",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UVAnimation-Flipbook",
+      "responseSha256": "16948ed6477bb22e64c0230f550e4f44017ae858cf52238c946c293fcb726aa6",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-UVAnimation-PingPong",
+      "responseSha256": "6f3c1fe58ed669ace97665bec3e082c50c9340eede97609add607d41b6f258b4",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-VertexAnimation-Flutter",
+      "responseSha256": "a1bf7d034487ee2f78850a024825081e5a9fa462e179dc16f62b9551af33995b",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-VertexAnimation-Ripple",
+      "responseSha256": "ecee4d83cb93afa0283826513723bb2bc1decdd39c9c799f8dee2ded064a4982",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-VertexAnimation-Bob",
+      "responseSha256": "a1bf7d034487ee2f78850a024825081e5a9fa462e179dc16f62b9551af33995b",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-VertexAnimation-Bend",
+      "responseSha256": "bb9737552297a704d546f6a37a9af9e9ab9d5586abd6ba951f45a952273b014e",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-URP-VertexAnimation-CrossWind",
+      "responseSha256": "a1bf7d034487ee2f78850a024825081e5a9fa462e179dc16f62b9551af33995b",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Skin-Freckles",
+      "responseSha256": "ea0f905adfea9e74b4837875b5a75e2cc7ab82ff2e9b0791addcaba65f1dfe0e",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Skin-Blush",
+      "responseSha256": "2e3de0c10b90ecadfae739717c66be1039e07db10f742403dd4e80f3e408242c",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Skin-Tan",
+      "responseSha256": "2165eccdf6249ed1e75c8e924f235fc561e9ddc81f9b5c7078e3df527e54d907",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Skin-OilMask",
+      "responseSha256": "e58b6c857d481a3cb10902fbc357333713e86ce6f22cee161d9ffd88eb8cda0c",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Skin-Dust",
+      "responseSha256": "b795a9971f16d2b6c50f0c5f8c6149c58d43007a5cbd272dfc6cfefe3e4effb9",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Hair-RootTip",
+      "responseSha256": "a11ed0b2d7881c22201116340ead0c4849b397496f1aca7d6e6c922775e1cf4d",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Hair-Streaks",
+      "responseSha256": "b91c76ed3bbbc3a01453357d6bfac7d798fb0f9c96ec2cfb1e31361820aec925",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Hair-VertexDye",
+      "responseSha256": "d050979dbcad45524019b4e00f5aa1ced0a83888094d3ec9872ed0d74046f38b",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Hair-DyeMask",
+      "responseSha256": "5e8e62207757da28b93359d9ad1fb39856ca49618539c07dd9d6ef6b36b549b1",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Hair-TipFade",
+      "responseSha256": "ede41f1b0539dcd093419c59b8380491842043ade0cc87a3b34adfc9b3d0deab",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Eye-LimbalRing",
+      "responseSha256": "ad5569eda2f9c61b5ac4aa9c9932f4b273700caa2961466aa8800fde570b65b1",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Eye-IrisBands",
+      "responseSha256": "b561516f4343ff01aa31bcb625efa70f389acd6d8235394cee162301a7d41508",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Eye-IrisMask",
+      "responseSha256": "ad5569eda2f9c61b5ac4aa9c9932f4b273700caa2961466aa8800fde570b65b1",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Eye-ScleraTint",
+      "responseSha256": "47ac269b1b07289d69826ec2fe7f12eea29655455262c6bc70982d7dd5406a56",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Eye-IrisSpeckles",
+      "responseSha256": "e1219ef2c89e4227d3ca1bed773be0a1767cef28cc245004a536a33f6ddc859d",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Fabric-Checks",
+      "responseSha256": "574ddb975d828b82d01cd0412216c2d8ae91bdf33d521531b6a9d52440a4cd41",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Fabric-Stripes",
+      "responseSha256": "8d71c82a51553cec730bd069b35e93a44b964ae7b5effbf6ab795cc668deb6a1",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Fabric-CrossWeave",
+      "responseSha256": "8d71c82a51553cec730bd069b35e93a44b964ae7b5effbf6ab795cc668deb6a1",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Fabric-Print",
+      "responseSha256": "41ea5178978809510242366198a4f0b9c5ef2ef87f4f0bdd226e7abb15857a86",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Fabric-VertexDye",
+      "responseSha256": "ea1d3730af301b0e6054b37e97a3ec84689c63f788e1a461b91f922127b02c96",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Hosiery-Dots",
+      "responseSha256": "962cf7d442e7146e34d45fcedb13de61c99a601b9409f1019c470dedab7d1400",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Hosiery-Rib",
+      "responseSha256": "c79bffa5d66cf7a5f97e69048d0d8dfd12e096930a7bd3daaaa3bdce4d4e25c1",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Hosiery-Lace",
+      "responseSha256": "c79bffa5d66cf7a5f97e69048d0d8dfd12e096930a7bd3daaaa3bdce4d4e25c1",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Hosiery-Gradient",
+      "responseSha256": "cf8d4e67600b785bb0a2f761ba1f4f05952ad23689274df7fc3204c39284b290",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Hosiery-Diamond",
+      "responseSha256": "c79bffa5d66cf7a5f97e69048d0d8dfd12e096930a7bd3daaaa3bdce4d4e25c1",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Water-Foam",
+      "responseSha256": "a36ea7d2ffe38a6edbdc82cc3cc240276b6692643538b58d68c72cdb9577ec34",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Water-Ripples",
+      "responseSha256": "36bf4391a55d80816922d2ef11098b4b361a1c0c4c8e718be9a1673b65457a75",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Water-RimTint",
+      "responseSha256": "de09a71f512964041f7b2b1e60d270c9717f34f717f4741c3c74b639b3e2bf17",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Water-VertexWave",
+      "responseSha256": "b179feba039d4543373b964524bde7a3737c524372cd0d88d94e04e7b5679d23",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Water-DualNormal",
+      "responseSha256": "e00ff9beb293deb7cca3b5e76b7093a14456ac8b4ad4604c5c298eb6d1e37d76",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Metal-Brushed",
+      "responseSha256": "0d8b6077d88914300e10167c60f8ccde628e6c94f7fac40b75c4c1590186f6ec",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Metal-Oxidized",
+      "responseSha256": "c966a2a18f7d5d2d1064fc07b29f48d2eefdc447688743399ac47069d97546c9",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Metal-Scratches",
+      "responseSha256": "4d08c821cbd1b00544508985c74c77554fd16677247a4cb64ac26a7a877f8c21",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Metal-HeatTint",
+      "responseSha256": "df6237a6a4399f9fb491d9e18dcf17dae9ab15dd9ff487612d824ba49cf02109",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Metal-Panels",
+      "responseSha256": "cef1d47388990dac005abc30e6371372fe015c4a94bc55a8029cc021a83dfa9f",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Stone-MossMask",
+      "responseSha256": "463def9333cd98b5397d1a411c859a9a42ef1fef31cbe2a6ee78702db2d41788",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Stone-Strata",
+      "responseSha256": "33e38ef885b69f8be7e1e010cad1e530e70fe54b6bd95d9d8ab07aa5ba8df036",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Stone-Cracks",
+      "responseSha256": "4f9287231319176ebf8df3a73b37917b449d2ed6f7221799acca1251df620d99",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Stone-Wet",
+      "responseSha256": "8fb2f4617049b57e51b75f0f930948cf03ad176bcf1fcd7b14ceb66ac123dd14",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Stone-VertexPaint",
+      "responseSha256": "1da721bd1580a3a802548b6263542f086dae8ae24834534853d709c75c922bcb",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Jade-Veins",
+      "responseSha256": "bf117500bcf5cf0308d1dbe0851ae4a9d6e7352fa6aab6bf8f678dd7614728c0",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Jade-Clouds",
+      "responseSha256": "b795a9971f16d2b6c50f0c5f8c6149c58d43007a5cbd272dfc6cfefe3e4effb9",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Jade-Gradient",
+      "responseSha256": "2165eccdf6249ed1e75c8e924f235fc561e9ddc81f9b5c7078e3df527e54d907",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Jade-Speckles",
+      "responseSha256": "ea0f905adfea9e74b4837875b5a75e2cc7ab82ff2e9b0791addcaba65f1dfe0e",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-Jade-Rind",
+      "responseSha256": "86206bb7d90abc1bc3e54a43ab501099140cc6519d7aff7f26c3ed9da40bac6e",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UI-Gradient",
+      "responseSha256": "09074202fe3492467bc40cb6966bf08f6c9678c10c8c045e3fcb8730f45cc840",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UI-RadialMask",
+      "responseSha256": "50fb45f41784c50afbf3ecdd9a3499e0ae3f477fe0cd14fc613d9dd404bb1e76",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UI-Frame",
+      "responseSha256": "ab713a24e06949e16d0d4ad4d84decc21838c5bb1558f1a99d7b4fdc96af3384",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UI-Scanline",
+      "responseSha256": "56bb396515cc0942cec2dd6c8d177b9dded2566ef53433bc4b60a4b67240c2a8",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UI-MaskTint",
+      "responseSha256": "48d9440df9ce8066a8390c9a733a2280593e4f2975b77e46726db61b0a623af1",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UIEffects-ScanPulse",
+      "responseSha256": "64af4a4ec7b895c515fae4f0a5113c5ba4f81905d265d58d874b2c63cb9e5258",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UIEffects-Pulse",
+      "responseSha256": "64af4a4ec7b895c515fae4f0a5113c5ba4f81905d265d58d874b2c63cb9e5258",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UIEffects-Wipe",
+      "responseSha256": "0d2825bb448dc755351163c43a733e3c42edaee9ed66d2af28dbe8221348756e",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UIEffects-Grid",
+      "responseSha256": "d600a90c735a1d1644dec81fde4dec871276e51c293a34546dec70f792cddb4f",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UIEffects-RingPulse",
+      "responseSha256": "f844b0ecc56ecb536e52477652660a8dc07aba1f4e71cd0274083d3c5ed53d48",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-VFX-Ring",
+      "responseSha256": "474110f9a054c6492eff4a9b1009664c1009675f4bb8eeb309ca5cf3a96c4f81",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-VFX-Beam",
+      "responseSha256": "eef1fc1241b43f6c19a41c66e746185f7e30e3d441fa4b1d46d924b335c9e099",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-VFX-SoftDisc",
+      "responseSha256": "474110f9a054c6492eff4a9b1009664c1009675f4bb8eeb309ca5cf3a96c4f81",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-VFX-Scan",
+      "responseSha256": "2969512e2d09baf43e86a02001fbca1883ad2152eb65416bcf6f7cb14189c45b",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-VFX-Pulse",
+      "responseSha256": "0598650b08985f4fec4467203688aa0ec4d59ff7d11745f6c9cbcbde72837429",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UVAnimation-LayerRotate",
+      "responseSha256": "c818e0cf77ea0e9f4c91685c72087278aa30398cbedfc969433b8658522c1027",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UVAnimation-FlowMask",
+      "responseSha256": "716039fc9228b1bcbe51462d5987422f80e42d9c45966c164676d793acf46a00",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UVAnimation-Distortion",
+      "responseSha256": "fb1bfa0ed8903eb60d8e05e9bae88a94765badec081558e855a355708c1dd7a8",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UVAnimation-Flipbook",
+      "responseSha256": "0c3c6565ecd3e537bf1c59b26f56d0dbbef146729a6b898d626a2796e05ebea7",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-UVAnimation-PingPong",
+      "responseSha256": "a4aa007b77c34a3825f5429faa4b4ae2925204a858316740d57202850583424f",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-VertexAnimation-Flutter",
+      "responseSha256": "29e706fb170cfe79e1cb4d6d60e3a901b0417896b7afbc7e0d2d4c0fb70c4bd3",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-VertexAnimation-Ripple",
+      "responseSha256": "6e1748c109d2d612d7cad0bda4516f3f821fe3f5c43666228a56a01afed9cdbb",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-VertexAnimation-Bob",
+      "responseSha256": "29e706fb170cfe79e1cb4d6d60e3a901b0417896b7afbc7e0d2d4c0fb70c4bd3",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-VertexAnimation-Bend",
+      "responseSha256": "779fbf8ae8475cdfaad9192582c3bff161acbae8847f9143b5a6354f6da8d6e4",
+      "allPlannedNodeTypesDescribed": true
+    },
+    {
+      "id": "effect-HDRP-VertexAnimation-CrossWind",
+      "responseSha256": "29e706fb170cfe79e1cb4d6d60e3a901b0417896b7afbc7e0d2d4c0fb70c4bd3",
+      "allPlannedNodeTypesDescribed": true
+    }
+  ],
+  "rawResponsesRetainedInIsolatedProjects": true
+}

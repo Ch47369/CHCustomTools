@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <UnityEditorPath Condition="'$(UnityEditorPath)' == ''">C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor</UnityEditorPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../Editor/*.cs" />
+    <ProjectReference Include="../ASEShaderConverter.Core.csproj" />
+    <Reference Include="$(UnityEditorPath)/Data/Managed/UnityEngine/*.dll" />
+    <Reference Include="$(UnityEditorPath)/Data/Managed/UnityEngine.dll" Condition="!Exists('$(UnityEditorPath)/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll')" />
+    <Reference Include="$(UnityEditorPath)/Data/Managed/UnityEditor.dll" Condition="!Exists('$(UnityEditorPath)/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll')" />
+  </ItemGroup>
+</Project>

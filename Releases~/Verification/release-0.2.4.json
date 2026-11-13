@@ -1,0 +1,25 @@
+﻿{
+    "packageVersion":  "0.2.4",
+    "recordDate":  "2026-10-21",
+    "passed":  true,
+    "tgzFileCount":  186,
+    "zipFileCount":  186,
+    "allArchiveFilesMatchWorkspace":  true,
+    "zipMatchesTar":  true,
+    "noReferenceAseSource":  true,
+    "noBuildOrValidationCaches":  true,
+    "noBinaryAssemblies":  true,
+    "requiredNewFilesPresent":  true,
+    "checksums":  [
+                      {
+                          "file":  "com.aseshader.handwritten-converter-0.2.4.tgz",
+                          "bytes":  181566,
+                          "sha256":  "119e5b59d43145ad21bc71f51dedf0f343a64ccbb203ef77f12604afdead0afe"
+                      },
+                      {
+                          "file":  "ASEShaderConverter-0.2.4.zip",
+                          "bytes":  261855,
+                          "sha256":  "c75dc01a50c8428e47af7feedd24b0f11540971e1bcb9ab57d17a67d6f8a6c5c"
+                      }
+                  ]
+}

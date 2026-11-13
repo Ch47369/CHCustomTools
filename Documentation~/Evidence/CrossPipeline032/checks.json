@@ -1,0 +1,18 @@
+{
+  "core": {
+    "command": "dotnet run --project Tests/CoreChecks.csproj --no-restore",
+    "passed": 523
+  },
+  "editor": {
+    "command": "dotnet build Tests/EditorCompile.csproj --no-restore",
+    "warnings": 0,
+    "errors": 0
+  },
+  "correspondence": {
+    "command": "C:/Users/SY/AppData/Local/Programs/Python/Python314/python.exe Tests/TestCrossPipelineContracts.py",
+    "tests": 4,
+    "success": true
+  },
+  "crossPipelineVisualEquivalence": false,
+  "hardwareBenchmarked": false
+}

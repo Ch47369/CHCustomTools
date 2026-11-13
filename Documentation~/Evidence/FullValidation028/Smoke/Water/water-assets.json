@@ -1,0 +1,80 @@
+{
+    "success": true,
+    "compiled": true,
+    "error": "",
+    "shader": "Assets/Shaders/DeepWater_ASE.shader",
+    "material": "Assets/Shaders/DeepWater/DeepWater.mat",
+    "prefab": "Assets/Shaders/DeepWater/DeepWater.prefab",
+    "preview": "Assets/Shaders/DeepWater/DeepWater_Preview.png",
+    "graphicsApi": "Direct3D11",
+    "mainPass": "ForwardBase",
+    "shaderPasses": 4,
+    "mainPassIndex": 1,
+    "vertices": 16641,
+    "triangles": 32768,
+    "propertyCount": 34,
+    "compilerMessages": [],
+    "materialKeywords": [
+        "_WATER_CAUSTICS_ON",
+        "_WATER_DEPTH_ON",
+        "_WATER_FOAM_ON",
+        "_WATER_FRESNEL_ON",
+        "_WATER_REFRACTION_ON",
+        "_WATER_RIPPLES_ON",
+        "_WATER_SCATTER_ON",
+        "_WATER_WAVES_ON"
+    ],
+    "variants": [
+        {
+            "name": "Low",
+            "preview": "",
+            "keywords": [
+                "_WATER_CAUSTICS_ON",
+                "_WATER_DEPTH_ON",
+                "_WATER_FOAM_ON",
+                "_WATER_FRESNEL_ON",
+                "_WATER_REFRACTION_ON",
+                "_WATER_RIPPLES_ON",
+                "_WATER_SCATTER_ON",
+                "_WATER_WAVES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 0,
+            "meanAbsoluteDifference": 0.0
+        },
+        {
+            "name": "Medium",
+            "preview": "",
+            "keywords": [
+                "_WATER_CAUSTICS_ON",
+                "_WATER_DEPTH_ON",
+                "_WATER_FOAM_ON",
+                "_WATER_FRESNEL_ON",
+                "_WATER_REFRACTION_ON",
+                "_WATER_RIPPLES_ON",
+                "_WATER_SCATTER_ON",
+                "_WATER_WAVES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 0,
+            "meanAbsoluteDifference": 0.0
+        },
+        {
+            "name": "High",
+            "preview": "",
+            "keywords": [
+                "_WATER_CAUSTICS_ON",
+                "_WATER_DEPTH_ON",
+                "_WATER_FOAM_ON",
+                "_WATER_FRESNEL_ON",
+                "_WATER_REFRACTION_ON",
+                "_WATER_RIPPLES_ON",
+                "_WATER_SCATTER_ON",
+                "_WATER_WAVES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 0,
+            "meanAbsoluteDifference": 0.0
+        }
+    ]
+}

@@ -1,0 +1,1476 @@
+{
+    "schemaVersion": 1,
+    "success": true,
+    "error": "",
+    "environment": {
+        "unityVersion": "",
+        "aseVersion": "",
+        "activePipeline": "",
+        "templates": [],
+        "errors": []
+    },
+    "description": {
+        "masters": [
+            {
+                "type": "TemplateMultiPassMasterNode",
+                "pass": "ExtraPrePass",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "Color",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Alpha",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Alpha Clip Threshold",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 28,
+                        "name": "Depth",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Vertex Offset",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "Vertex Normal",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 5,
+                        "name": "Vertex Tangent",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "type": "TemplateMultiPassMasterNode",
+                "pass": "ForwardBase",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "Albedo",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Normal",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Specular",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "Metallic",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 5,
+                        "name": "Smoothness",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 6,
+                        "name": "Occlusion",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Emission",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 7,
+                        "name": "Alpha",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 8,
+                        "name": "Alpha Clip Threshold",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 9,
+                        "name": "Alpha Clip Threshold Shadow",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 10,
+                        "name": "Baked GI",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 13,
+                        "name": "Transmission",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 14,
+                        "name": "Translucency",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 28,
+                        "name": "Depth",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 15,
+                        "name": "Vertex Offset",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 16,
+                        "name": "Vertex Normal",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 17,
+                        "name": "Vertex Tangent",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "type": "TemplateMultiPassMasterNode",
+                "pass": "ForwardAdd",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "Albedo",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Normal",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Specular",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "Metallic",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 5,
+                        "name": "Smoothness",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 6,
+                        "name": "Occlusion",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Emission",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 7,
+                        "name": "Alpha",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 8,
+                        "name": "Alpha Clip Threshold",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 13,
+                        "name": "Transmission",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 14,
+                        "name": "Translucency",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 28,
+                        "name": "Depth",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 15,
+                        "name": "Vertex Offset",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 16,
+                        "name": "Vertex Normal",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 17,
+                        "name": "Vertex Tangent",
+                        "type": "FLOAT4",
+                        "visible": false,
+                        "locked": false
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "type": "TemplateMultiPassMasterNode",
+                "pass": "Deferred",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "Albedo",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Normal",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Specular",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "Metallic",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 5,
+                        "name": "Smoothness",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 6,
+                        "name": "Occlusion",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Emission",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 7,
+                        "name": "Alpha",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 8,
+                        "name": "Alpha Clip Threshold",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 10,
+                        "name": "Baked GI",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 28,
+                        "name": "Depth",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 15,
+                        "name": "Vertex Offset",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 16,
+                        "name": "Vertex Normal",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 17,
+                        "name": "Vertex Tangent",
+                        "type": "FLOAT4",
+                        "visible": false,
+                        "locked": false
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "type": "TemplateMultiPassMasterNode",
+                "pass": "Meta",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "Albedo",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Emission",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 7,
+                        "name": "Alpha",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 8,
+                        "name": "Alpha Clip Threshold",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 15,
+                        "name": "Vertex Offset",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 16,
+                        "name": "Vertex Normal",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 17,
+                        "name": "Vertex Tangent",
+                        "type": "FLOAT4",
+                        "visible": false,
+                        "locked": false
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "type": "TemplateMultiPassMasterNode",
+                "pass": "ShadowCaster",
+                "inputs": [
+                    {
+                        "id": 7,
+                        "name": "Alpha",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 8,
+                        "name": "Alpha Clip Threshold",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 9,
+                        "name": "Alpha Clip Threshold Shadow",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 28,
+                        "name": "Depth",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 15,
+                        "name": "Vertex Offset",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 16,
+                        "name": "Vertex Normal",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 17,
+                        "name": "Vertex Tangent",
+                        "type": "FLOAT4",
+                        "visible": false,
+                        "locked": false
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "type": "TemplateMultiPassMasterNode",
+                "pass": "SceneSelectionPass",
+                "inputs": [
+                    {
+                        "id": 7,
+                        "name": "Alpha",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 8,
+                        "name": "Alpha Clip Threshold",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 28,
+                        "name": "Depth",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 15,
+                        "name": "Vertex Offset",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 16,
+                        "name": "Vertex Normal",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 17,
+                        "name": "Vertex Tangent",
+                        "type": "FLOAT4",
+                        "visible": false,
+                        "locked": false
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "type": "TemplateMultiPassMasterNode",
+                "pass": "ScenePickingPass",
+                "inputs": [
+                    {
+                        "id": 7,
+                        "name": "Alpha",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 8,
+                        "name": "Alpha Clip Threshold",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 28,
+                        "name": "Depth",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 15,
+                        "name": "Vertex Offset",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 16,
+                        "name": "Vertex Normal",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 17,
+                        "name": "Vertex Tangent",
+                        "type": "FLOAT4",
+                        "visible": false,
+                        "locked": false
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "type": "Vector4Node",
+                "pass": "",
+                "inputs": [],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "XYZW",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "X",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Y",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Z",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "W",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "SwizzleNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "RangedFloatNode",
+                "pass": "",
+                "inputs": [],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "ColorNode",
+                "pass": "",
+                "inputs": [],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "RGBA",
+                        "type": "COLOR",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "R",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "G",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "B",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "A",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 5,
+                        "name": "RGB",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "StaticSwitch",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 1,
+                        "name": "False",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 0,
+                        "name": "True",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Key2",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Key3",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "Key4",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 5,
+                        "name": "Key5",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 6,
+                        "name": "Key6",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 7,
+                        "name": "Key7",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 8,
+                        "name": "Key8",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "WorldSpaceLightDirHlpNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "XYZ",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "X",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Y",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Z",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "TransformDirectionNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "XYZ",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "X",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Y",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Z",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "SimpleMultiplyOpNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "A",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "B",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "SimpleSubtractOpNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "A",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "B",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "PosVertexDataNode",
+                "pass": "",
+                "inputs": [],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "XYZ",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "X",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Y",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Z",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "W",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "DistanceOpNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "A",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "B",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "SimpleAddOpNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "A",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "B",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "SimpleDivideOpNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "A",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "B",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "PowerNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "Base",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Exp",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "SaturateNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            }
+        ],
+        "options": [
+            {
+                "name": "option:Category",
+                "value": "Geometry|Terrain|Impostor|disable"
+            },
+            {
+                "name": "option:  Instanced Terrain Normals",
+                "value": "Force Vertex|Force Pixel|Material Option|disable"
+            },
+            {
+                "name": "option:Workflow",
+                "value": "Specular|Metallic|BlinnPhong|Lambert|disable"
+            },
+            {
+                "name": "option:Surface",
+                "value": "Opaque|Transparent|disable"
+            },
+            {
+                "name": "option:  Blend",
+                "value": "Alpha|Premultiply|Additive|Multiply|Translucent|Custom|disable"
+            },
+            {
+                "name": "option:  Dither Shadows",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Two Sided",
+                "value": "On|Cull Back|Cull Front|disable"
+            },
+            {
+                "name": "option:Alpha Clipping",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:  Use Shadow Threshold",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Deferred Pass",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Normal Space",
+                "value": "Tangent|Object|World|disable"
+            },
+            {
+                "name": "option:Transmission",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:  Transmission Shadow",
+                "value": "Change|Inline|disable"
+            },
+            {
+                "name": "option:Translucency",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:  Translucency Strength",
+                "value": "Change|Inline|disable"
+            },
+            {
+                "name": "option:  Normal Distortion",
+                "value": "Change|Inline|disable"
+            },
+            {
+                "name": "option:  Scattering",
+                "value": "Change|Inline|disable"
+            },
+            {
+                "name": "option:  Direct",
+                "value": "Change|Inline|disable"
+            },
+            {
+                "name": "option:  Ambient",
+                "value": "Change|Inline|disable"
+            },
+            {
+                "name": "option:  Shadow",
+                "value": "Change|Inline|disable"
+            },
+            {
+                "name": "option:Cast Shadows",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Receive Shadows",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Receive Specular",
+                "value": "Force Off|Force On|Material Toggle|Keyword Only|disable"
+            },
+            {
+                "name": "option:Receive Reflections",
+                "value": "Force Off|Force On|Material Toggle|Keyword Only|disable"
+            },
+            {
+                "name": "option:GPU Instancing",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:LOD CrossFade",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Built-in Fog",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Ambient Light",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Meta Pass",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Add Pass",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Override Baked GI",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Write Depth",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:  Conservative",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Extra Pre Pass",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Tessellation",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:  Phong",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:  Strength",
+                "value": "Change|Inline|disable"
+            },
+            {
+                "name": "option:  Type",
+                "value": "Fixed|Distance Based|Edge Length|Edge Length Cull|disable"
+            },
+            {
+                "name": "option:  Tess",
+                "value": "Change|Inline|disable"
+            },
+            {
+                "name": "option:  Min",
+                "value": "Change|Inline|disable"
+            },
+            {
+                "name": "option:  Max",
+                "value": "Change|Inline|disable"
+            },
+            {
+                "name": "option:  Edge Length",
+                "value": "Change|Inline|disable"
+            },
+            {
+                "name": "option:  Max Displacement",
+                "value": "Change|Inline|disable"
+            },
+            {
+                "name": "option:Disable Batching",
+                "value": "False|True|LOD Fading|disable"
+            },
+            {
+                "name": "option:Vertex Position",
+                "value": "Absolute|Relative|disable"
+            }
+        ]
+    },
+    "analysis": {
+        "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+                "autoLayout": true,
+                "addComments": true,
+                "useRegisters": true,
+                "longWireDistance": 1800.0,
+                "maxRegisters": 24
+            },
+            "comments": []
+        },
+        "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+        },
+        "knowledge": {
+            "libraryVersion": "0.3.5",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+                "present": false,
+                "complete": false,
+                "version": "",
+                "nodeCount": 0,
+                "wireCount": 0,
+                "customExpressionCount": 0,
+                "nodeTypes": [],
+                "templateGuids": [],
+                "functionGuids": []
+            },
+            "sourceGraph": {
+                "format": "",
+                "status": "AnalysisOnly",
+                "target": "",
+                "sourcePipeline": "Unknown",
+                "nodeCount": 0,
+                "edgeCount": 0,
+                "keywordCount": 0,
+                "groupCount": 0,
+                "noteCount": 0,
+                "properties": [],
+                "blocks": [],
+                "nodeTypes": [],
+                "dependencies": [],
+                "targetSettings": [],
+                "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+                "status": "NotBenchmarked",
+                "directTextureSampleSites": 0,
+                "loopSites": 0,
+                "explicitPasses": 0,
+                "includesMayAddWork": false,
+                "observations": []
+            }
+        }
+    },
+    "report": {
+        "status": "Planned",
+        "sourcePath": "",
+        "outputPath": "",
+        "shaderName": "",
+        "pipeline": "",
+        "unityVersion": "",
+        "aseVersion": "",
+        "templateGuid": "",
+        "sourcePipeline": "",
+        "crossPipeline": false,
+        "existingAseGraph": false,
+        "aseRoundTripPassed": false,
+        "shaderCompiled": false,
+        "visualComparisonPassed": false,
+        "nativeNodeCount": 0,
+        "customExpressionCount": 0,
+        "propertyCount": 0,
+        "layoutApplied": false,
+        "commentCount": 0,
+        "registerNodeCount": 0,
+        "getNodeCount": 0,
+        "nativeMappings": [],
+        "fallbackReasons": [],
+        "blockers": [],
+        "warnings": []
+    },
+    "ruleLibrary": {
+        "version": "0.3.5",
+        "rules": [],
+        "references": [],
+        "publicSources": [],
+        "categories": [],
+        "characterProfiles": []
+    },
+    "shaderLibrary": {
+        "version": "0.3.5",
+        "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+        "entries": [],
+        "research": [],
+        "familyContracts": []
+    },
+    "targetAnalyses": []
+}

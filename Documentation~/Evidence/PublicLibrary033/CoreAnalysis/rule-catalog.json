@@ -1,0 +1,1822 @@
+{
+  "version": "0.3.3",
+  "rules": [
+    {
+      "id": "ase-migration",
+      "title": "\u5DF2\u6709 ASE \u56FE\u4E0E\u4F9D\u8D56",
+      "implementation": "AseMigration",
+      "recipe": "\u7531 ASE \u6253\u5F00\u5E76\u8FC1\u79FB\u5B8C\u6574\u56FE\uFF1B\u5206\u6790\u5143\u6570\u636E\u53EA\u7528\u4E8E\u6E05\u70B9\uFF0C\u4E0D\u91CD\u5EFA\u751F\u6210\u7684 HLSL\u3002",
+      "nativeNodes": [],
+      "preserve": [
+        "\u56FE\u7248\u672C",
+        "\u5168\u90E8 Master \u548C Pass",
+        "Function \u5B50\u56FE GUID",
+        "\u6A21\u677F GUID",
+        "\u8282\u70B9\u8BBE\u7F6E\u548C\u539F\u6709\u8FDE\u7EBF"
+      ],
+      "validation": [
+        "\u76EE\u6807 ASE \u80FD\u52A0\u8F7D\u5168\u90E8\u8282\u70B9\u548C\u4F9D\u8D56",
+        "\u4FDD\u5B58\u91CD\u8F7D",
+        "\u7F16\u8BD1\u5404 Pass",
+        "\u573A\u666F\u6BD4\u8F83"
+      ]
+    },
+    {
+      "id": "pure-functions",
+      "title": "\u7EAF\u6570\u5B66\u8F85\u52A9\u51FD\u6570",
+      "implementation": "NativePlanner",
+      "recipe": "\u6309\u503C\u7ED1\u5B9A\u53C2\u6570\u3001\u9694\u79BB\u5C40\u90E8\u4F5C\u7528\u57DF\uFF0C\u5C06\u53EF\u89E3\u6790\u7684\u51FD\u6570\u4F53\u5185\u8054\u4E3A\u539F\u751F\u6570\u5B66\u8282\u70B9\uFF1B\u4E0D\u6309\u6587\u4EF6\u540D\u6216\u6E90\u7801\u7B7E\u540D\u6388\u6743\u3002",
+      "nativeNodes": [
+        "SimpleAddOpNode",
+        "SimpleMultiplyOpNode",
+        "DotProductOpNode",
+        "FractNode",
+        "LerpOp",
+        "CosOpNode"
+      ],
+      "preserve": [
+        "\u53C2\u6570\u7C7B\u578B\u4E0E\u8FD4\u56DE\u5BBD\u5EA6",
+        "\u53EA\u5141\u8BB8\u5C40\u90E8\u8D4B\u503C",
+        "\u7CBE\u786E\u5BBD\u5EA6\u91CD\u8F7D\u9009\u62E9",
+        "\u62D2\u7EDD\u9012\u5F52\u3001\u9690\u85CF\u91C7\u6837\u4E0E\u5168\u5C40\u5199\u5165",
+        "\u539F\u6709\u6E32\u67D3\u548C\u9876\u70B9\u68C0\u67E5\u7EE7\u7EED\u6267\u884C"
+      ],
+      "validation": [
+        "\u8C03\u7528\u4E0E\u624B\u52A8\u5185\u8054\u7684\u6570\u503C\u7ED3\u679C\u4E00\u81F4",
+        "\u4E0D\u540C\u51FD\u6570\u540D\u548C\u53C2\u6570\u540D",
+        "\u53C2\u6570\u4F5C\u7528\u57DF\u4E92\u4E0D\u6C61\u67D3",
+        "\u6076\u610F\u6216\u4E0D\u652F\u6301\u7684\u51FD\u6570\u4ECD\u963B\u585E"
+      ]
+    },
+    {
+      "id": "exact-helper-overloads",
+      "title": "\u6309\u53C2\u6570\u5BBD\u5EA6\u9009\u62E9\u8F85\u52A9\u51FD\u6570\u91CD\u8F7D",
+      "implementation": "NativePlanner",
+      "recipe": "\u6309\u51FD\u6570\u540D\u3001\u53C2\u6570\u6570\u76EE\u548C\u6BCF\u4E2A\u6807\u91CF/\u5411\u91CF\u5BBD\u5EA6\u7CBE\u786E\u9009\u62E9\uFF1B\u5141\u8BB8\u4E0D\u540C\u5BBD\u5EA6\u91CD\u8F7D\u76F8\u4E92\u8C03\u7528\u3002",
+      "nativeNodes": [],
+      "preserve": [
+        "\u62D2\u7EDD\u7CBE\u5EA6\u7C7B\u578B\u540C\u5BBD\u6B67\u4E49",
+        "\u62D2\u7EDD\u9690\u5F0F\u8F6C\u6362",
+        "\u4E0D\u80FD\u4E22\u6389\u672A\u652F\u6301\u7684\u6574\u6570\u3001\u8D44\u6E90\u6216 out/inout \u91CD\u8F7D",
+        "\u6309\u5B8C\u6574\u7B7E\u540D\u68C0\u67E5\u9012\u5F52"
+      ],
+      "validation": [
+        "\u6807\u91CF\u3001float2\u3001float4 \u4E09\u91CD\u8F7D\u6570\u503C",
+        "\u91CD\u8F7D\u95F4\u8C03\u7528",
+        "\u91CD\u590D\u3001\u7CBE\u5EA6\u3001\u6574\u6570\u548C\u5BBD\u5EA6\u4E0D\u5339\u914D\u62D2\u7EDD"
+      ]
+    },
+    {
+      "id": "scalar-conditionals",
+      "title": "\u6807\u91CF\u6761\u4EF6\u4E0E\u4E09\u5143\u9009\u62E9",
+      "implementation": "NativePlanner",
+      "recipe": "\u628A\u6807\u91CF \u003E\u3001\u003C\u3001\u003E=\u3001\u003C=\u3001==\u3001!= \u7684\u7EAF\u6570\u503C\u4E09\u5143\u8868\u8FBE\u5F0F\u6620\u5C04\u4E3A\u539F\u751F If\uFF0C\u663E\u5F0F\u63A5\u5165\u5927\u4E8E\u3001\u7B49\u4E8E\u3001\u5C0F\u4E8E\u4E09\u4E2A\u7ED3\u679C\u53E3\u3002",
+      "nativeNodes": [
+        "ConditionalIfNode"
+      ],
+      "preserve": [
+        "\u76F8\u7B49\u8FB9\u754C",
+        "\u5206\u652F\u7ED3\u679C\u5BBD\u5EA6",
+        "\u53F3\u7ED3\u5408\u5D4C\u5957",
+        "\u62D2\u7EDD\u5206\u652F\u91C7\u6837\u3001\u5BFC\u6570\u3001\u5411\u91CF\u8C13\u8BCD\u4E0E\u526F\u4F5C\u7528"
+      ],
+      "validation": [
+        "\u516D\u79CD\u6BD4\u8F83\u7684\u8D1F\u3001\u96F6\u3001\u6B63\u8FB9\u754C\u6570\u503C",
+        "\u5D4C\u5957\u4E0E\u8F85\u52A9\u51FD\u6570",
+        "\u6761\u4EF6\u91C7\u6837\u548C\u5BBD\u5EA6\u53D8\u5316\u62D2\u7EDD"
+      ]
+    },
+    {
+      "id": "casts-intrinsics",
+      "title": "\u6D6E\u70B9\u663E\u5F0F\u8F6C\u6362\u4E0E\u8865\u5145\u6570\u5B66\u51FD\u6570",
+      "implementation": "NativePlanner",
+      "recipe": "\u652F\u6301\u6D6E\u70B9\u6807\u91CF\u590D\u5236\u3001\u5411\u91CF\u622A\u53D6\u548C\u540C\u5BBD\u8F6C\u6362\uFF1B\u8865\u5145 rsqrt/sign/trunc/fmod/atan/atan2/asin/acos \u5BF9\u5E94\u539F\u751F\u8282\u70B9\u3002",
+      "nativeNodes": [
+        "SwizzleNode",
+        "DynamicAppendNode",
+        "RSqrtOpNode",
+        "SignOpNode",
+        "TruncOpNode",
+        "FmodOpNode",
+        "ATan2OpNode"
+      ],
+      "preserve": [
+        "\u6574\u6570\u9664\u6CD5\u4E0D\u5F53\u6D6E\u70B9\u9664\u6CD5",
+        "\u4FDD\u7559 f/h \u5B57\u9762\u91CF",
+        "\u62D2\u7EDD\u6574\u6570\u8F6C\u6362\u548C\u975E\u6CD5\u5411\u91CF\u6269\u5C55",
+        "fmod \u7684\u8D1F\u6570\u622A\u65AD\u8BED\u4E49",
+        "\u4E0D\u4FDD\u8BC1 half/fixed \u91CF\u5316\u7B49\u4EF7"
+      ],
+      "validation": [
+        "\u663E\u5F0F\u622A\u53D6/\u590D\u5236",
+        "\u8D1F\u6570 fmod \u548C trunc",
+        "atan2 \u8F93\u5165\u987A\u5E8F",
+        "\u975E\u6CD5\u5E38\u91CF\u4E0E\u6DF1\u5EA6\u9650\u5236"
+      ]
+    },
+    {
+      "id": "vertex-uv-arithmetic",
+      "title": "\u9876\u70B9 UV \u52A8\u753B\u4E0E\u9636\u6BB5",
+      "implementation": "NativePlanner",
+      "recipe": "\u5728 float2 TEXCOORD varying \u7684\u5355\u6B21\u8D4B\u503C\u4E2D\u89C4\u5212\u7EAF\u7B97\u672F\u3001\u65F6\u95F4\u4E0E\u53C2\u6570\uFF1B\u7531 Vertex To Fragment \u5728\u539F\u9876\u70B9\u9636\u6BB5\u6C42\u503C\u5E76\u63D2\u503C\u3002\u5141\u8BB8 TRANSFORM_TEX \u540E\u7EE7\u7EED\u7EC4\u5408\u7B97\u672F\u3002",
+      "nativeNodes": [
+        "TextureCoordinatesNode",
+        "TimeNode",
+        "VertexToFragmentNode",
+        "SinOpNode"
+      ],
+      "preserve": [
+        "\u6E90 TEXCOORD \u901A\u9053",
+        "\u9876\u70B9\u6C42\u503C\u987A\u5E8F",
+        "\u7EB9\u7406 ST",
+        "\u4E0D\u6355\u83B7\u7247\u5143\u5C40\u90E8\u53D8\u91CF",
+        "\u672A\u4F7F\u7528\u7684\u672A\u9002\u914D\u8D4B\u503C\u4ECD\u963B\u585E",
+        "\u4E0D\u628A\u9876\u70B9\u4F4D\u7F6E\u53D8\u5F62\u5192\u5145 UV"
+      ],
+      "validation": [
+        "\u9876\u70B9\u6EDA\u52A8\u548C\u6B63\u5F26\u6570\u503C",
+        "ST \u52A0\u65F6\u95F4",
+        "\u91CD\u590D\u5199\u5165\u62D2\u7EDD",
+        "\u9636\u6BB5\u9694\u79BB\u4E0E\u672A\u4F7F\u7528\u672A\u77E5\u51FD\u6570\u62D2\u7EDD"
+      ]
+    },
+    {
+      "id": "pipeline-contract",
+      "title": "\u6E90\u7BA1\u7EBF\u4E0E\u4E09\u6761\u76EE\u6807\u7BA1\u7EBF\u68C0\u67E5",
+      "implementation": "AnalysisRule",
+      "recipe": "\u5206\u522B\u68C0\u6D4B\u6E90\u7BA1\u7EBF\u5E76\u72EC\u7ACB\u5206\u6790 Built-in\u3001URP\u3001HDRP\uFF1B\u4EC5\u5171\u7528\u53EF\u79FB\u690D\u7684\u6570\u503C\u56FE\uFF0C\u9010\u76EE\u6807\u68C0\u67E5\u6A21\u677F\u548C\u72B6\u6001\u5951\u7EA6\u3002",
+      "nativeNodes": [],
+      "preserve": [
+        "\u5B9E\u9645 RenderPipeline Tag \u548C include",
+        "\u6E90 HDRP \u66DD\u5149\u4E0E Pass \u4E0D\u56E0\u76EE\u6807\u6539\u6210 Built-in \u800C\u6D88\u5931",
+        "\u6DF7\u5408\u7BA1\u7EBF\u4E0D\u80FD\u9760\u76EE\u6807\u9009\u9879\u6D88\u9664",
+        "\u5206\u6790\u4E0D\u7B49\u4E8E\u751F\u6210\u9A8C\u8BC1"
+      ],
+      "validation": [
+        "\u4E09\u6761\u7BA1\u7EBF\u5206\u522B\u62A5\u544A",
+        "\u6E90 HDRP \u5411\u4E09\u4E2A\u76EE\u6807\u5747\u4FDD\u7559\u5BA1\u67E5",
+        "\u6CE8\u91CA\u548C Shader \u540D\u4E0D\u5F71\u54CD\u68C0\u6D4B",
+        "\u76EE\u6807\u9879\u76EE probe/describe \u548C\u771F\u5B9E\u751F\u6210\u53E6\u9A8C"
+      ]
+    },
+    {
+      "id": "dependency-stage-contract",
+      "title": "\u4F9D\u8D56\u3001\u6307\u4EE4\u4E0E\u9636\u6BB5\u5165\u53E3\u5BA1\u67E5",
+      "implementation": "AnalysisRule",
+      "recipe": "\u7EDF\u4E00\u8BC6\u522B # \u540E\u7A7A\u767D\u7684\u6307\u4EE4\uFF0C\u5BA1\u6838\u5F15\u53F7\u53CA\u5C16\u62EC\u53F7 include\uFF1B\u5B8F\u8DEF\u5F84\u3001\u7EED\u884C\u3001include_with_pragmas \u7B49\u4FDD\u6301\u963B\u585E\u3002\u5165\u53E3\u5FC5\u987B\u552F\u4E00\u5B9A\u4E49\uFF1B\u7981\u6B62\u8F85\u52A9\u51FD\u6570\u8986\u76D6\u5DF2\u6620\u5C04\u7684\u5185\u7F6E\u5750\u6807\u53D8\u6362\u3002",
+      "nativeNodes": [],
+      "preserve": [
+        "\u5B8C\u6574\u4F9D\u8D56\u8DEF\u5F84",
+        "\u672A\u77E5 include \u4E0D\u9759\u9ED8\u4E22\u5F03",
+        "\u7EED\u884C\u5148\u4E8E\u6CE8\u91CA\u5904\u7406",
+        "\u9876\u70B9\u5355\u4E00\u672B\u5C3E return \u4E0E\u8D4B\u503C\u987A\u5E8F",
+        "\u5165\u53E3\u91CD\u8F7D\u5BA1\u67E5",
+        "\u539F\u6709\u7BA1\u7EBF\u3001\u5C5E\u6027\u548C Pass \u963B\u585E\u7EE7\u7EED\u751F\u6548"
+      ],
+      "validation": [
+        "\u5408\u6CD5\u7A7A\u767D\u6307\u4EE4\u548C\u5DF2\u77E5 include \u53EF\u89C4\u5212",
+        "\u672A\u77E5\u4F9D\u8D56\u3001\u5B8F\u8DEF\u5F84\u3001\u53D8\u4F53\u4E0E\u76EE\u6807\u4E0D\u88AB\u7ED5\u8FC7",
+        "\u5185\u7F6E\u53D8\u6362\u8986\u76D6\u548C\u63D0\u524D return \u963B\u585E",
+        "\u4E09\u76EE\u6807\u5408\u6210\u5951\u7EA6\u56DE\u5F52",
+        "ASE \u4FDD\u5B58\u91CD\u8F7D\u4E0E\u753B\u9762\u53E6\u9A8C"
+      ]
+    },
+    {
+      "id": "opaque-state-contract",
+      "title": "Built-in / URP \u4E0D\u900F\u660E\u961F\u5217\u4E0E\u5254\u9664",
+      "implementation": "NativePlanner",
+      "recipe": "Geometry \u961F\u5217\u663E\u5F0F\u8BBE\u4E3A Opaque \u5E76\u6821\u9A8C\u5B9E\u9645\u6A21\u677F Tags\u3002Built-in \u9759\u6001 Cull Front/Off \u4F7F\u7528\u53D7\u9650\u6A21\u5757\uFF1BURP \u4F7F\u7528\u5DF2\u63CF\u8FF0\u7684 Two Sided \u9009\u9879\u53CA\u539F\u503C\u3002",
+      "nativeNodes": [],
+      "preserve": [
+        "\u76EE\u6807\u6A21\u677F\u771F\u5B9E\u9009\u9879",
+        "\u9759\u6001 Cull Front/Off",
+        "\u91CD\u590D\u4F5C\u7528\u57DF\u4ECD\u963B\u585E",
+        "\u4E0D\u64C5\u81EA\u6539\u53D8 Blend \u6216\u6DF1\u5EA6",
+        "ASE API \u7248\u672C\u4E0E\u4FDD\u5B58\u91CD\u8F7D\u6821\u9A8C"
+      ],
+      "validation": [
+        "\u4E24\u4E2A\u76EE\u6807\u7684 Front/Off \u8BA1\u5212",
+        "Geometry \u961F\u5217",
+        "\u5185\u8054\u72B6\u6001\u8FB9\u754C",
+        "\u751F\u6210\u4E0E\u753B\u9762\u9700\u53E6\u9A8C"
+      ]
+    },
+    {
+      "id": "ui-canvas",
+      "title": "UI / Canvas \u4E0E\u88C1\u526A",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u4FDD\u7559\u9876\u70B9\u8272\u3001Tint\u3001PerRendererData\u3001TextureSampleAdd\u3001Stencil \u4E0E RectMask2D\uFF0C\u533A\u5206\u786C\u88C1\u526A\u548C\u50CF\u7D20\u5927\u5C0F/\u8F6F\u5EA6\u53C2\u4E0E\u7684\u8F6F\u88C1\u526A\u3002",
+      "nativeNodes": [
+        "VertexColorNode",
+        "SamplerNode",
+        "LerpOp"
+      ],
+      "preserve": [
+        "Canvas \u6E32\u67D3\u6A21\u5F0F",
+        "unity_GUIZTestMode",
+        "ColorMask",
+        "UI \u5173\u952E\u5B57",
+        "\u5B57\u4F53 SDF \u4E0E\u5916\u90E8\u56FE\u96C6",
+        "Gamma/Linear \u9876\u70B9\u8272",
+        "Alpha \u7CBE\u5EA6"
+      ],
+      "validation": [
+        "Mask \u548C RectMask2D \u5185\u5916",
+        "\u8F6F\u5EA6\u4E0E\u5206\u8FA8\u7387",
+        "\u5B57\u4F53\u8FB9\u7F18",
+        "Canvas Overlay/Camera/World",
+        "\u9879\u76EE\u5B9E\u9645 UI \u6E32\u67D3\u8DEF\u5F84"
+      ]
+    },
+    {
+      "id": "ui-animation",
+      "title": "UI \u52A8\u6548\u4E0E\u8FC7\u6E21",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u628A\u6E10\u53D8\u3001\u6D41\u5149\u3001\u6EB6\u89E3\u548C\u626D\u66F2\u7684\u6570\u503C\u90E8\u5206\u62C6\u4E3A\u8282\u70B9\uFF0C\u4FDD\u7559\u811A\u672C\u9A71\u52A8\u53C2\u6570\u3001\u5173\u952E\u8BCD\u3001\u989D\u5916 UV \u901A\u9053\u3001\u88C1\u526A\u548C\u6700\u7EC8 Alpha/\u6DF7\u5408\u3002",
+      "nativeNodes": [
+        "TimeNode",
+        "FractNode",
+        "SmoothstepOpNode",
+        "LerpOp",
+        "SamplerNode"
+      ],
+      "preserve": [
+        "\u8FC7\u6E21\u901F\u7387\u548C 0.9999 \u7B49\u8FB9\u754C\u7CFB\u6570",
+        "\u906E\u7F69\u4E0E\u52A8\u6548\u5148\u540E\u987A\u5E8F",
+        "\u5C40\u90E8\u5750\u6807",
+        "\u91C7\u6837\u6EE4\u6CE2",
+        "SoftMask \u5305\u4F9D\u8D56",
+        "\u539F\u59CB\u6DF7\u5408\u56E0\u5B50"
+      ],
+      "validation": [
+        "\u52A8\u6548 0/\u8FB9\u754C/1",
+        "\u6682\u505C\u4E0E\u53CD\u5411",
+        "\u6EDA\u52A8\u89C6\u56FE\u88C1\u526A",
+        "\u53E0\u8272",
+        "Gamma/Linear",
+        "\u5916\u90E8\u9A71\u52A8\u72EC\u7ACB\u6539\u53D8"
+      ]
+    },
+    {
+      "id": "vfx-particles",
+      "title": "\u7279\u6548\u4E0E\u7C92\u5B50\u6570\u636E",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u4FDD\u7559 Particle System \u9876\u70B9\u6D41\u3001Custom Data\u3001\u5E8F\u5217\u5E27\u3001Soft Particles\u3001\u6DF1\u5EA6\u6DE1\u5316\u548C\u6DF7\u5408\uFF1BGPU \u4EFF\u771F\u3001\u62D6\u5C3E\u548C\u5BBF\u4E3B RT \u8C03\u5EA6\u72EC\u7ACB\u5217\u4E3A\u4F9D\u8D56\u3002",
+      "nativeNodes": [
+        "VertexColorNode",
+        "SamplerNode",
+        "CameraDepthFade",
+        "TimeNode"
+      ],
+      "preserve": [
+        "\u52A0\u6CD5/\u76F4\u901A Alpha/\u9884\u4E58\u5404\u81EA\u7684 RGB \u548C Alpha",
+        "\u7C92\u5B50 UV \u6570\u636E\u5E03\u5C40",
+        "\u6DF1\u5EA6\u4E0E\u76F8\u673A\u8F93\u5165",
+        "VFX Graph/\u51E0\u4F55\u9636\u6BB5\u4E0D\u80FD\u53EA\u7528\u7247\u5143\u56FE\u66FF\u4EE3"
+      ],
+      "validation": [
+        "\u6240\u6709\u542F\u7528\u7684\u9876\u70B9\u6D41",
+        "\u4EA4\u53E0\u548C\u4EA4\u754C",
+        "\u8FD1\u8FDC\u88C1\u526A",
+        "CPU/GPU \u7C92\u5B50",
+        "\u6A21\u62DF\u7EB9\u7406\u751F\u547D\u5468\u671F",
+        "\u76EE\u6807\u7BA1\u7EBF\u8F85\u52A9 Pass"
+      ]
+    },
+    {
+      "id": "uv-animation",
+      "title": "UV \u52A8\u753B\u5206\u7C7B\u65B9\u6848",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u533A\u5206\u6EDA\u52A8\u3001\u4E2D\u5FC3\u65CB\u8F6C\u3001\u5E8F\u5217\u5E27\u3001\u6D41\u56FE\u548C\u626D\u66F2\u3002\u53EF\u7528\u7EAF\u7B97\u672F\u7531\u901A\u7528\u8282\u70B9\u89C4\u5212\uFF1B\u6574\u6570\u5E27\u7D22\u5F15\u3001\u6D3E\u751F\u91C7\u6837\u3001\u5206\u652F\u548C\u8FC7\u6EE4\u884C\u4E3A\u4ECD\u987B\u9002\u914D\u3002",
+      "nativeNodes": [
+        "TimeNode",
+        "TextureCoordinatesNode",
+        "SinOpNode",
+        "CosOpNode",
+        "FloorOpNode",
+        "FractNode"
+      ],
+      "preserve": [
+        "\u6E90 UV \u901A\u9053\u4E0E\u9636\u6BB5",
+        "_Time \u5206\u91CF",
+        "\u4E2D\u5FC3\u3001\u65B9\u5411\u4E0E\u901F\u5EA6",
+        "Atlas \u683C\u6570\u3001\u5E27\u5E8F\u548C\u63D2\u5E27",
+        "ST \u662F\u5426\u5B58\u5728",
+        "wrap/filter/mip"
+      ],
+      "validation": [
+        "\u8D1F\u901F\u5EA6",
+        "\u56DE\u7ED5\u4E0E\u5E27\u8FB9\u754C",
+        "\u975E\u65B9\u5F62\u56FE\u96C6",
+        "\u591A\u901A\u9053",
+        "\u9876\u70B9\u8BA1\u7B97\u548C\u7247\u5143\u8BA1\u7B97\u5206\u522B\u9A8C\u8BC1"
+      ]
+    },
+    {
+      "id": "vertex-animation",
+      "title": "\u9876\u70B9\u52A8\u753B\u5206\u7C7B\u65B9\u6848",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u6309\u7A7A\u95F4\u8BB0\u5F55\u6CE2\u6D6A\u3001\u98CE\u6446\u3001\u516C\u544A\u677F\u3001VAT\u3001\u9AA8\u9ABC\u6216 GPU \u4F4D\u7F6E\u7EB9\u7406\u7684\u53D8\u5F62\u6B65\u9AA4\u3002\u9700\u8981\u9876\u70B9\u4F4D\u7F6E\u3001\u6CD5\u7EBF/\u5207\u7EBF\u53CA\u5404\u8F85\u52A9 Pass \u7684\u4E00\u81F4\u8BA1\u5212\u3002",
+      "nativeNodes": [
+        "PositionNode",
+        "SinOpNode",
+        "TimeNode",
+        "SamplerNode",
+        "CrossProductOpNode"
+      ],
+      "preserve": [
+        "Object/World \u7A7A\u95F4",
+        "\u7EDD\u5BF9\u4F4D\u7F6E\u6216\u76F8\u5BF9\u504F\u79FB",
+        "\u6CD5\u7EBF/\u5207\u7EBF\u91CD\u5EFA",
+        "\u663E\u5F0F\u9876\u70B9 LOD",
+        "Bounds \u4E0E Culling",
+        "ShadowCaster/Depth/Motion Vectors",
+        "\u4EFF\u771F\u811A\u672C\u4E0E\u5386\u53F2\u4F4D\u7F6E"
+      ],
+      "validation": [
+        "\u975E\u5747\u5300\u7F29\u653E",
+        "\u52A8\u753B\u65F6\u523B",
+        "\u8FB9\u754C\u88C1\u526A",
+        "\u9634\u5F71\u548C\u6DF1\u5EA6",
+        "\u8FD0\u52A8\u77E2\u91CF",
+        "\u7EB9\u7406\u683C\u5F0F\u53CA\u5E03\u5C40"
+      ]
+    },
+    {
+      "id": "bounded-loops",
+      "title": "\u56FA\u5B9A\u6B21\u6570\u7684\u7B97\u672F\u7D2F\u52A0\u5FAA\u73AF",
+      "implementation": "NativePlanner",
+      "recipe": "\u5C55\u5F00 for(int k=N; k\u003CM; k\u002B\u002B) \u7684\u7B97\u672F\u7D2F\u52A0\uFF0C\u6700\u591A 16 \u6B21\uFF1B\u5FAA\u73AF\u4F53\u4E0D\u8BFB\u53D6\u8BA1\u6570\u5668\u3001\u4E0D\u58F0\u660E\u5C40\u90E8\u4F5C\u7528\u57DF\u3001\u4E0D\u91C7\u6837\u3001\u4E0D\u8DF3\u8F6C\u3002",
+      "nativeNodes": [
+        "SimpleAddOpNode",
+        "SimpleMultiplyOpNode"
+      ],
+      "preserve": [
+        "\u539F\u59CB\u8FD0\u7B97\u987A\u5E8F",
+        "\u6BCF\u8F6E\u7D2F\u52A0\u548C\u9891\u7387/\u632F\u5E45\u66F4\u65B0",
+        "\u52A8\u6001\u5FAA\u73AF\u7EE7\u7EED\u963B\u585E",
+        "\u96F6\u6B21\u5FAA\u73AF\u4ECD\u5BA1\u67E5\u526F\u4F5C\u7528"
+      ],
+      "validation": [
+        "0/1/3/16 \u6B21\u8FB9\u754C",
+        "17 \u6B21\u62D2\u7EDD",
+        "\u52A8\u6001\u754C\u9650\u62D2\u7EDD",
+        "break\u3001\u8BA1\u6570\u5668\u8BFB\u53D6\u548C\u7EB9\u7406\u91C7\u6837\u62D2\u7EDD"
+      ]
+    },
+    {
+      "id": "vertex-texture-st",
+      "title": "\u9876\u70B9\u7EB9\u7406 Tiling/Offset",
+      "implementation": "NativePlanner",
+      "recipe": "\u6309 TEXCOORD \u8BED\u4E49\u6620\u5C04 TRANSFORM_TEX\uFF0C\u5C06\u7EB9\u7406\u5C5E\u6027\u63A5\u5230 UV \u8282\u70B9 Tex \u7AEF\uFF0C\u518D\u7ECF Vertex To Fragment \u4FDD\u7559\u9876\u70B9\u8BA1\u7B97\u548C\u63D2\u503C\u3002",
+      "nativeNodes": [
+        "TexturePropertyNode",
+        "TextureCoordinatesNode",
+        "VertexToFragmentNode"
+      ],
+      "preserve": [
+        "\u6E90 UV \u901A\u9053",
+        "\u5B9E\u9645\u7EB9\u7406 ST",
+        "\u539F\u9876\u70B9\u9636\u6BB5",
+        "\u65E0 ST \u7684\u91C7\u6837\u4E0D\u5F97\u81EA\u52A8\u52A0 ST",
+        "\u91CD\u590D\u5199\u5165\u7EE7\u7EED\u963B\u585E"
+      ],
+      "validation": [
+        "\u4E0D\u540C\u5C5E\u6027\u548C UV \u901A\u9053",
+        "Tex \u8FDE\u7EBF",
+        "\u9636\u6BB5\u8282\u70B9",
+        "\u91CD\u590D\u5199\u5165\u548C\u975E\u6CD5\u8BED\u4E49\u62D2\u7EDD"
+      ]
+    },
+    {
+      "id": "unity-globals-distance",
+      "title": "\u65F6\u95F4\u3001\u76F8\u673A\u4F4D\u7F6E\u4E0E\u8DDD\u79BB",
+      "implementation": "NativePlanner",
+      "recipe": "_Time \u6620\u5C04\u5B8C\u6574\u56DB\u5206\u91CF Time \u8282\u70B9\uFF1B_WorldSpaceCameraPos \u6620\u5C04\u4E16\u754C\u76F8\u673A\u4F4D\u7F6E\uFF1Blength/distance \u4F7F\u7528\u5BF9\u5E94\u539F\u751F\u8282\u70B9\u3002",
+      "nativeNodes": [
+        "TimeNode",
+        "WorldSpaceCameraPos",
+        "LengthOpNode",
+        "DistanceOpNode"
+      ],
+      "preserve": [
+        "_Time.x=t/20\u3001y=t\u3001z=2t\u3001w=3t",
+        "\u5750\u6807\u7A7A\u95F4\u7531\u539F\u8868\u8FBE\u5F0F\u51B3\u5B9A",
+        "distance \u4E24\u7AEF\u5BBD\u5EA6\u4E00\u81F4"
+      ],
+      "validation": [
+        "\u65F6\u95F4\u5206\u91CF\u4E0D\u4E92\u6362",
+        "\u8DDD\u79BB\u6570\u503C",
+        "\u975E\u6CD5\u5BBD\u5EA6\u548C\u7EB9\u7406\u8F93\u5165\u62D2\u7EDD"
+      ]
+    },
+    {
+      "id": "noise-fbm",
+      "title": "\u786E\u5B9A\u6027\u566A\u58F0\u4E0E\u5206\u5C42\u7D2F\u52A0",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u5148\u5185\u8054\u539F hash/value-noise\uFF0C\u518D\u5C55\u5F00\u56FA\u5B9A octave\u3002\u4E0D\u80FD\u628A\u4E0D\u540C hash \u6216 value noise \u66FF\u6362\u6210 ASE \u7684 Simplex Noise\u3002",
+      "nativeNodes": [
+        "FractNode",
+        "FloorOpNode",
+        "DotProductOpNode",
+        "LerpOp",
+        "SimpleMultiplyOpNode"
+      ],
+      "preserve": [
+        "hash \u5E38\u6570\u548C\u8F93\u5165\u7A7A\u95F4",
+        "\u63D2\u503C\u66F2\u7EBF",
+        "\u6BCF\u5C42\u9891\u7387\u3001\u632F\u5E45\u4E0E\u7D2F\u8BA1\u987A\u5E8F",
+        "\u65F6\u95F4\u5206\u91CF"
+      ],
+      "validation": [
+        "\u6574\u6570\u6676\u683C\u53CA\u8FB9\u754C",
+        "\u8D1F\u5750\u6807",
+        "\u591A\u4E2A\u52A8\u753B\u65F6\u523B",
+        "\u50CF\u7D20\u6BD4\u8F83"
+      ]
+    },
+    {
+      "id": "fresnel-space",
+      "title": "Fresnel\u3001\u89C6\u7EBF\u4E0E\u5F69\u819C",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u4FDD\u7559\u6CD5\u7EBF\u548C\u89C6\u7EBF\u7684\u5750\u6807\u7A7A\u95F4\u3001\u9876\u70B9\u63D2\u503C\u4E0E\u7247\u5143\u5F52\u4E00\u5316\u987A\u5E8F\uFF1Bdot\u2192saturate\u21921-x\u2192pow\u3002\u4F59\u5F26\u5F69\u819C\u4F7F\u7528\u539F\u76F8\u4F4D\u548C\u9891\u7387\u3002",
+      "nativeNodes": [
+        "NormalizeNode",
+        "DotProductOpNode",
+        "SaturateNode",
+        "OneMinusNode",
+        "PowerNode",
+        "CosOpNode"
+      ],
+      "preserve": [
+        "\u6B63\u53CD\u9762\u6CD5\u7EBF\u7B26\u53F7",
+        "\u89C6\u7EBF\u65B9\u5411",
+        "\u4E58\u8272\u3001\u5F3A\u5EA6\u548C Alpha",
+        "\u4E0D\u63D0\u524D\u5728\u9876\u70B9\u5F52\u4E00\u5316"
+      ],
+      "validation": [
+        "\u975E\u5747\u5300\u7F29\u653E",
+        "\u6B63\u53CD\u9762",
+        "\u63A0\u5C04\u89D2",
+        "\u4E0D\u540C\u76F8\u673A\u4F4D\u7F6E"
+      ]
+    },
+    {
+      "id": "ordered-passes",
+      "title": "\u591A Pass\u3001\u900F\u660E\u6DF7\u5408\u4E0E\u56DE\u9000",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u4E3A\u6BCF\u4E2A Pass \u5206\u522B\u8BB0\u5F55\u9876\u70B9/\u7247\u5143\u8F93\u51FA\u3001Cull\u3001Blend\u3001\u6DF1\u5EA6\u548C\u961F\u5217\uFF0C\u5E76\u4FDD\u7559\u6267\u884C\u987A\u5E8F\u4E0E Fallback\u3002",
+      "nativeNodes": [],
+      "preserve": [
+        "\u5185\u58C1\u5148\u3001\u5916\u58C1\u540E",
+        "Pass \u6570\u91CF\u4E0E\u987A\u5E8F",
+        "\u72EC\u7ACB Cull",
+        "\u6DF7\u5408\u548C\u6DF1\u5EA6",
+        "Fallback"
+      ],
+      "validation": [
+        "\u9010 Pass \u7F16\u8BD1",
+        "\u6B63\u53CD\u7ED5\u5E8F",
+        "\u900F\u660E\u91CD\u53E0",
+        "\u56DE\u9000\u8D44\u6E90\u5B58\u5728"
+      ]
+    },
+    {
+      "id": "stencil-state",
+      "title": "Stencil \u4E0E\u6750\u8D28\u7ED1\u5B9A\u72B6\u6001",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u901A\u8FC7\u6A21\u677F\u660E\u786E\u7ED1\u5B9A Ref/Comp/Pass/ReadMask/WriteMask\uFF0C\u4E0D\u80FD\u53EA\u590D\u5236\u989C\u8272\u56FE\u3002",
+      "nativeNodes": [],
+      "preserve": [
+        "Stencil \u7684\u4F5C\u7528\u8303\u56F4",
+        "\u52A8\u6001\u5C5E\u6027\u7ED1\u5B9A",
+        "Blend\u3001ColorMask\u3001ZWrite\u3001ZTest",
+        "\u6750\u8D28\u5C5E\u6027\u7279\u6027"
+      ],
+      "validation": [
+        "\u906E\u7F69\u5185\u5916",
+        "\u8BFB\u5199\u63A9\u7801",
+        "\u72B6\u6001\u52A8\u6001\u4FEE\u6539"
+      ]
+    },
+    {
+      "id": "vertex-transform",
+      "title": "\u516C\u544A\u677F\u3001\u9876\u70B9\u4F4D\u79FB\u4E0E\u63D2\u503C",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u9876\u70B9\u53D8\u6362\u9700\u8981\u72EC\u7ACB\u9636\u6BB5\u8BA1\u5212\uFF1B\u7269\u4F53\u539F\u70B9\u3001\u7F29\u653E\u3001\u76F8\u673A\u65B9\u5411\u3001\u53C9\u79EF\u548C\u8F74\u5411\u7EA6\u675F\u4E0D\u5F97\u6539\u6210\u7247\u5143\u8BA1\u7B97\u3002",
+      "nativeNodes": [
+        "PositionNode",
+        "ObjectPositionNode",
+        "ObjectScaleNode",
+        "WorldSpaceCameraPos",
+        "CrossProductOpNode"
+      ],
+      "preserve": [
+        "\u5C40\u90E8/\u4E16\u754C/\u88C1\u526A\u7A7A\u95F4",
+        "\u53D8\u5F62\u987A\u5E8F",
+        "\u7C92\u5B50\u81EA\u5B9A\u4E49\u6570\u636E",
+        "ShadowCaster \u4E0E\u4E3B Pass \u540C\u6B65"
+      ],
+      "validation": [
+        "\u975E\u5747\u5300\u548C\u8D1F\u7F29\u653E",
+        "\u4E0D\u540C\u76F8\u673A\u59FF\u6001",
+        "\u9634\u5F71",
+        "\u6279\u5904\u7406\u4E0E\u5B9E\u4F8B\u5316"
+      ]
+    },
+    {
+      "id": "pbr-outline",
+      "title": "PBR \u6750\u8D28\u8F93\u51FA\u4E0E\u63CF\u8FB9",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u4F7F\u7528\u5BF9\u5E94 Lit/Surface Master \u7684\u5B8C\u6574\u6750\u8D28\u8F93\u51FA\uFF1B\u63CF\u8FB9\u4E3A\u72EC\u7ACB Pass\uFF0C\u4FDD\u7559\u81A8\u80C0\u65B9\u5F0F\u548C\u5168\u90E8\u706F\u5149/\u9634\u5F71\u7B49\u8F85\u52A9 Pass\u3002",
+      "nativeNodes": [
+        "FresnelNode",
+        "TransformDirectionNode",
+        "UnpackScaleNormalNode"
+      ],
+      "preserve": [
+        "\u91D1\u5C5E/\u9AD8\u5149\u5DE5\u4F5C\u6D41",
+        "\u6CD5\u7EBF\u7A7A\u95F4",
+        "\u900F\u660E\u4E0E\u88C1\u526A",
+        "\u5B50\u56FE\u4F9D\u8D56",
+        "\u63CF\u8FB9 Cull/\u6DF1\u5EA6/Pass \u987A\u5E8F"
+      ],
+      "validation": [
+        "\u5149\u7167\u548C\u53CD\u5C04",
+        "\u9634\u5F71\u4E0E\u70D8\u7119",
+        "\u63CF\u8FB9\u539A\u5EA6",
+        "\u6240\u6709\u6750\u8D28\u8F93\u51FA"
+      ]
+    },
+    {
+      "id": "dissolve-alpha",
+      "title": "\u6EB6\u89E3\u3001\u7C92\u5B50\u4E0E\u6E10\u9690",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u628A\u566A\u58F0\u3001\u9608\u503C\u3001Smoothstep \u4E0E\u8FB9\u7F18\u989C\u8272\u62C6\u4E3A\u539F\u751F\u8282\u70B9\uFF0C\u5E76\u5206\u522B\u6620\u5C04 Alpha\u3001\u88C1\u526A\u548C\u6DF7\u5408\u3002",
+      "nativeNodes": [
+        "SamplerNode",
+        "SmoothstepOpNode",
+        "LerpOp",
+        "VertexColorNode",
+        "PannerNode"
+      ],
+      "preserve": [
+        "\u52A0\u6CD5\u6216\u76F4\u901A Alpha \u6DF7\u5408",
+        "\u9876\u70B9\u8272\u548C\u7C92\u5B50\u6570\u636E",
+        "UV \u52A8\u753B",
+        "\u88C1\u526A\u9608\u503C",
+        "\u9634\u5F71 Pass"
+      ],
+      "validation": [
+        "\u6EB6\u89E3 0/\u8FB9\u754C/1",
+        "\u9876\u70B9\u8272 Alpha",
+        "\u900F\u660E\u91CD\u53E0",
+        "\u88C1\u526A\u9634\u5F71"
+      ]
+    },
+    {
+      "id": "uv-rotate-fade",
+      "title": "\u4E2D\u5FC3\u65CB\u8F6C\u4E0E\u7269\u4F53\u8DDD\u79BB\u6E10\u9690",
+      "implementation": "RecipeRecorded",
+      "recipe": "UV \u51CF\u4E2D\u5FC3\u2192\u6309\u539F\u65F6\u95F4\u5206\u91CF\u505A\u6B63\u5F26/\u4F59\u5F26\u65CB\u8F6C\u2192\u52A0\u56DE\u4E2D\u5FC3\u3002\u8DDD\u79BB\u4F7F\u7528\u7269\u4F53\u539F\u70B9\uFF1B\u8F74\u5411\u5750\u6807\u5728\u9876\u70B9\u9636\u6BB5\u9009\u62E9\u540E\u63D2\u503C\u3002",
+      "nativeNodes": [
+        "TextureCoordinatesNode",
+        "SinOpNode",
+        "CosOpNode",
+        "SimpleMultiplyOpNode",
+        "LerpOp",
+        "ConditionalIfNode"
+      ],
+      "preserve": [
+        "_Time.x \u662F t/20",
+        "\u534A\u5F84 0.51 \u5916\u8FD4\u56DE\u96F6 RGBA\uFF0C\u4E0D\u80FD\u66FF\u6362\u6210 clip",
+        "\u52A8\u6001 Blend/Cull",
+        "\u8FDE\u7EED\u4E24\u6B21 Alpha \u66F4\u65B0\u548C\u672A\u94B3\u5236 lerp",
+        "\u672A\u4F7F\u7528\u7684 _MinValue \u4ECD\u4FDD\u7559\u5C5E\u6027",
+        "\u4E0D\u51ED\u7A7A\u6DFB\u52A0\u7EB9\u7406 ST"
+      ],
+      "validation": [
+        "\u65CB\u8F6C\u6B63\u8D1F\u901F\u5EA6",
+        "\u534A\u5F84\u8FB9\u754C",
+        "\u8DDD\u79BB\u4E0A\u4E0B\u754C\u53CA\u76F8\u7B49",
+        "\u4E24\u79CD\u8F74",
+        "\u5404\u79CD\u6DF7\u5408\u6A21\u5F0F"
+      ]
+    },
+    {
+      "id": "chroma-key",
+      "title": "YCbCr \u89C6\u9891\u62A0\u50CF\u4E0E\u7FBD\u5316",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u6309\u539F Cb/Cr \u7CFB\u6570\u8BA1\u7B97\u8272\u5EA6\u8DDD\u79BB\u5E73\u65B9\uFF0C\u4F7F\u7528\u5E73\u65B9\u9608\u503C\u6C42\u906E\u7F69\uFF1B\u4FDD\u7559 4/8 \u90BB\u57DF\u3001\u5BF9\u89D2\u6743\u91CD\u3001\u8FB9\u7F18\u5206\u652F\u3001\u53BB\u6EA2\u8272\u548C\u4EAE\u5EA6\u8865\u507F\u3002",
+      "nativeNodes": [
+        "DotProductOpNode",
+        "SimpleSubtractOpNode",
+        "SaturateNode",
+        "SamplerNode",
+        "SmoothstepOpNode",
+        "LerpOp",
+        "SimpleMinOpNode"
+      ],
+      "preserve": [
+        "4 \u90BB\u57DF\u7CFB\u6570 0.2",
+        "8 \u90BB\u57DF\u5BF9\u89D2 0.707\u3001\u603B\u7CFB\u6570 0.12774655",
+        "\u539F half \u7CBE\u5EA6",
+        "TexelSize \u4E0E\u9876\u70B9 ST",
+        "\u6700\u7EC8 Alpha \u6765\u81EA smoothedMask*TInt.a\uFF0C\u4E0D\u4E58\u6E90 Alpha",
+        "\u4E0D\u64C5\u52A0\u9664\u96F6 epsilon"
+      ],
+      "validation": [
+        "\u7EAF\u80CC\u666F/\u524D\u666F/\u8FB9\u7F18",
+        "\u9608\u503C\u76F8\u7B49\u65F6\u7684\u539F\u884C\u4E3A",
+        "\u4E0D\u540C\u5206\u8FA8\u7387\u4E0E ST",
+        "\u4F4E/\u9AD8\u8D28\u91CF\u5173\u952E\u8BCD\u5206\u522B\u9A8C\u8BC1",
+        "\u534A\u7CBE\u5EA6\u548C\u5206\u652F\u5185\u5BFC\u6570"
+      ]
+    },
+    {
+      "id": "keyword-binding",
+      "title": "\u5173\u952E\u8BCD\u3001\u5C5E\u6027\u4E0E\u7F16\u8BD1\u53D8\u4F53",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u5206\u522B\u8BB0\u5F55\u5C5E\u6027 Toggle \u6D3E\u751F\u5173\u952E\u8BCD\u3001pragma \u7684 global/local \u5173\u952E\u8BCD\u53CA\u6761\u4EF6\u5206\u652F\uFF1B\u540D\u79F0\u4E0D\u4E00\u81F4\u65F6\u62A5\u544A\uFF0C\u4E0D\u80FD\u81EA\u52A8\u6539\u540D\u7ED1\u5B9A\u30020.2.8 \u4EBA\u5DE5\u8BA1\u5212\u7684 StaticSwitch \u53D7\u9650\u9002\u914D\u4E3A\u5927\u5199 Float \u5C5E\u6027\u30010/1 \u9ED8\u8BA4\u503C\u3001local shader_feature\uFF0C\u5173\u952E\u8BCD\u4E3A\u5C5E\u6027\u540D\u52A0 _ON\uFF1B\u4E0D\u8868\u793A\u4EFB\u610F\u6E90\u7801\u5B8F\u5DF2\u80FD\u8F6C\u6362\u3002",
+      "nativeNodes": [
+        "StaticSwitch"
+      ],
+      "preserve": [
+        "global/local \u4F5C\u7528\u57DF",
+        "\u9ED8\u8BA4\u5206\u652F",
+        "\u5B8F\u4E0E\u5173\u952E\u8BCD\u539F\u540D",
+        "\u591A Pass \u53D8\u4F53",
+        "\u5B9E\u4F8B\u5316\u4E0E stereo",
+        "\u6750\u8D28 float \u4E0E\u5173\u952E\u8BCD\u9700\u540C\u6B65",
+        "HLSL \u5206\u652F\u4E0D\u79FB\u9664 ShaderLab GrabPass"
+      ],
+      "validation": [
+        "\u6BCF\u79CD\u5173\u952E\u8BCD\u7EC4\u5408",
+        "\u6750\u8D28\u6570\u503C\u4E0E\u5173\u952E\u8BCD\u72EC\u7ACB\u53D8\u5316",
+        "\u76EE\u6807\u56FE\u5F62 API",
+        "ASE \u5F00\u5173\u8BBE\u7F6E\u4FDD\u5B58\u91CD\u8F7D"
+      ]
+    },
+    {
+      "id": "screen-depth",
+      "title": "\u5C4F\u5E55\u3001\u6DF1\u5EA6\u4E0E\u540E\u5904\u7406",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u5206\u522B\u6620\u5C04\u5C4F\u5E55/\u6295\u5F71\u5750\u6807\u3001\u6DF1\u5EA6\u91C7\u6837\u548C\u8FD8\u539F\u3001\u5168\u5C4F Blit \u53CA\u76F8\u5173\u76F8\u673A\u8F93\u5165\uFF1B\u7981\u6B62\u7528\u666E\u901A UV \u91C7\u6837\u4EE3\u66FF\u3002",
+      "nativeNodes": [
+        "GrabScreenPosition",
+        "ScreenDepthNode",
+        "CameraDepthFade"
+      ],
+      "preserve": [
+        "\u900F\u89C6\u9664\u6CD5",
+        "\u7EBF\u6027/\u539F\u59CB\u6DF1\u5EA6",
+        "\u53CD\u5411 Z",
+        "\u76F8\u673A\u6DF1\u5EA6\u7EB9\u7406\u4F9D\u8D56",
+        "\u5E73\u53F0 Y \u7FFB\u8F6C"
+      ],
+      "validation": [
+        "\u900F\u89C6/\u6B63\u4EA4\u76F8\u673A",
+        "\u524D\u540E\u88C1\u526A\u9762",
+        "\u4E0D\u540C\u6E32\u67D3 API"
+      ]
+    },
+    {
+      "id": "sdf-raymarch",
+      "title": "SDF \u4E0E Raymarch \u63A7\u5236\u6D41",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u8BC6\u522B\u8DDD\u79BB\u51FD\u6570\u3001\u56FA\u5B9A/\u52A8\u6001\u6B65\u8FDB\u548C\u63D0\u524D\u9000\u51FA\uFF1B\u539F\u751F\u8282\u70B9\u4E0D\u8DB3\u4EE5\u8868\u8FBE\u8FED\u4EE3\u65F6\uFF0C\u9700\u5C40\u90E8 Custom Expression \u7684\u660E\u786E\u8F93\u5165\u8F93\u51FA\u53CA\u539F\u56E0\u3002",
+      "nativeNodes": [
+        "LengthOpNode",
+        "SimpleMinOpNode",
+        "SimpleMaxOpNode"
+      ],
+      "preserve": [
+        "\u7A7A\u95F4\u548C\u8DDD\u79BB\u5355\u4F4D",
+        "\u8FED\u4EE3\u4E0A\u9650\u4E0E\u63D0\u524D\u9000\u51FA",
+        "\u6CD5\u7EBF\u4F30\u8BA1",
+        "\u6DF1\u5EA6\u5199\u5165",
+        "\u4E0D\u5C06\u6574\u4EFD Shader \u585E\u5165 Custom Expression"
+      ],
+      "validation": [
+        "\u547D\u4E2D/\u672A\u547D\u4E2D",
+        "\u6B65\u8FDB\u8FB9\u754C",
+        "\u76F8\u673A\u5185\u5916",
+        "\u6DF1\u5EA6\u906E\u6321"
+      ]
+    },
+    {
+      "id": "bloom-pyramid",
+      "title": "Bloom \u91D1\u5B57\u5854\u4E0E HDR \u7F16\u7801",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u8BB0\u5F55\u9884\u8FC7\u6EE4\u3001\u964D\u91C7\u6837\u3001\u5347\u91C7\u6837\u4E0E\u6700\u7EC8\u5408\u6210\u5404 Pass\uFF1B\u91D1\u5B57\u5854\u8C03\u5EA6\u7531\u5BBF\u4E3B\u811A\u672C\u8D1F\u8D23\uFF0C\u4E0D\u80FD\u7531\u5355\u4E2A\u6750\u8D28\u56FE\u66FF\u4EE3\u3002",
+      "nativeNodes": [
+        "SamplerNode",
+        "SimpleMinOpNode",
+        "SimpleMaxOpNode",
+        "SimpleAddOpNode"
+      ],
+      "preserve": [
+        "RGBM \u4E0E\u6D6E\u70B9 HDR \u5206\u652F",
+        "Karis \u4EAE\u5EA6\u52A0\u6743",
+        "4 \u70B9\u5747\u503C\u4E0E 9 \u70B9 tent \u6743\u91CD",
+        "Gamma/Linear \u53D8\u6362",
+        "stereo \u548C\u5E73\u53F0 Y \u7FFB\u8F6C",
+        "\u6700\u7EC8\u4FDD\u7559 base.a"
+      ],
+      "validation": [
+        "\u684C\u9762/\u79FB\u52A8\u7F16\u7801",
+        "HDR \u9AD8\u4EAE",
+        "\u6297\u95EA\u70C1\u5F00\u5173",
+        "\u5206\u8FA8\u7387\u4E0E\u91C7\u6837\u5C3A\u5EA6",
+        "\u591A\u7EA7 RT \u751F\u547D\u5468\u671F"
+      ]
+    },
+    {
+      "id": "urp-pass-contract",
+      "title": "URP \u6A21\u677F\u4E0E\u8F85\u52A9 Pass",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u6309\u76EE\u6807 URP \u7248\u672C\u9009\u62E9\u5B9E\u9645 ASE \u6A21\u677F\u5E76\u63CF\u8FF0\u7AEF\u53E3\uFF1B\u4FDD\u6301\u6750\u8D28 CBUFFER\u3001\u53D8\u4F53\u3001\u706F\u5149\u8F93\u5165\u4E0E\u8F85\u52A9 Pass \u5951\u7EA6\u3002",
+      "nativeNodes": [],
+      "preserve": [
+        "SRP Batcher \u7684 UnityPerMaterial",
+        "DepthOnly/DepthNormals \u4E0E Depth Priming",
+        "ShadowCaster/Meta",
+        "\u9876\u70B9\u8272\u548C\u5149\u7167\u8F93\u5165",
+        "RenderPipeline/LightMode"
+      ],
+      "validation": [
+        "\u5B9E\u9645 URP \u7248\u672C",
+        "Depth Priming \u5F00\u5173",
+        "\u76F8\u673A\u6DF1\u5EA6/\u6CD5\u7EBF",
+        "\u9634\u5F71\u548C\u70D8\u7119",
+        "\u5B9E\u4F8B\u5316\u4E0E stereo"
+      ]
+    },
+    {
+      "id": "performance-evidence",
+      "title": "\u753B\u8D28\u4E0E GPU \u6210\u672C\u8BC4\u4F30",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u5148\u4FDD\u6301\u884C\u4E3A\uFF0C\u518D\u6309\u76EE\u6807\u8BBE\u5907\u6D4B GPU \u65F6\u95F4\u3001\u5E26\u5BBD\u3001overdraw\u3001\u53D8\u4F53\u548C\u753B\u8D28\u8BEF\u5DEE\uFF1B\u9759\u6001\u6E90\u7801\u53EA\u80FD\u63D0\u793A\u6210\u672C\uFF0C\u4E0D\u80FD\u7ED9\u51FA\u6027\u80FD\u4F18\u80DC\u7ED3\u8BBA\u3002",
+      "nativeNodes": [],
+      "preserve": [
+        "\u91C7\u6837\u8C03\u7528\u4F4D\u7F6E\u4E0D\u7B49\u4E8E\u6BCF\u50CF\u7D20\u91C7\u6837\u6B21\u6570",
+        "include\u3001\u5FAA\u73AF\u4E0E\u5206\u652F\u4F1A\u6539\u53D8\u5DE5\u4F5C\u91CF",
+        "Register/Get \u6574\u7406\u8FDE\u7EBF\u4E0D\u4FDD\u8BC1\u51CF\u5C11 GPU \u6307\u4EE4",
+        "\u907F\u514D\u7528\u672A\u7ECF\u6BD4\u8F83\u7684\u4FBF\u5B9C\u7B97\u6CD5\u66FF\u6362\u539F\u6548\u679C"
+      ],
+      "validation": [
+        "\u56FA\u5B9A\u573A\u666F\u548C\u5206\u8FA8\u7387",
+        "GPU \u578B\u53F7/API/\u7BA1\u7EBF",
+        "GPU \u4E2D\u4F4D\u6570\u4E0E\u9AD8\u5206\u4F4D\u65F6\u95F4",
+        "\u79FB\u52A8\u7AEF\u70ED\u7A33\u5B9A",
+        "\u6750\u8D28\u753B\u9762\u5BF9\u6BD4"
+      ]
+    },
+    {
+      "id": "water-material",
+      "title": "\u6C34\u9762\u3001\u6298\u5C04\u3001\u6CE1\u6CAB\u4E0E\u7126\u6563",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u5206\u5F00\u8BB0\u5F55\u6CD5\u7EBF/\u6CE2\u6D6A\u3001Fresnel\u3001\u6DF1\u5EA6\u7740\u8272\u3001\u6298\u5C04\u3001\u5CB8\u6CAB\u53CA\u9876\u70B9\u4F4D\u79FB\uFF1B\u9AD8\u7EA7\u6C34\u7CFB\u7EDF\u8FD8\u4F9D\u8D56\u6A21\u62DF\u4E0E\u6E32\u67D3\u8C03\u5EA6\u3002\u539F\u521B Built-in \u6DF1\u5EA6\u6C34\u8BA1\u5212\u89C1 Tools~/Build-DepthWaterPlan.py\uFF1A\u4E09\u5411\u6D8C\u6D6A\u4E0E\u89E3\u6790\u659C\u7387\u3001\u53CC\u5C42\u7EBF\u6027\u659C\u7387\u7EB9\u7406\u3001RGB \u5438\u6536\u3001\u5CB8\u6CAB\uFF0C0.2.8 \u52A0\u5165\u6309\u91CD\u5EFA\u6C34\u5E95\u4E16\u754C\u4F4D\u7F6E\u6295\u5F71\u7684\u53CC\u5C42\u6D41\u52A8\u7126\u6563\u548C\u72EC\u7ACB\u6548\u679C\u5F00\u5173\u3002\u65E2\u6709\u8BA1\u5212\u5728 Unity 2022.3.10f1 / ASE 1.9.9.13 / D3D11 \u9A8C\u8BC1\uFF1B\u4E0D\u8868\u793A\u901A\u7528\u6C34\u8F6C\u6362\u6216 SRP \u652F\u6301\u3002",
+      "nativeNodes": [
+        "SamplerNode",
+        "FresnelNode",
+        "DepthFade",
+        "PannerNode",
+        "StaticSwitch"
+      ],
+      "preserve": [
+        "\u900F\u660E\u4E0E\u6DF1\u5EA6\u5199\u5165",
+        "\u5C4F\u5E55\u989C\u8272/\u6DF1\u5EA6\u8F93\u5165",
+        "\u4F4D\u79FB\u548C\u6CD5\u7EBF\u7A7A\u95F4\u4E00\u81F4",
+        "\u91CD\u5EFA\u6C34\u5E95\u4F4D\u7F6E\u4E0E\u6DF1\u5EA6\u8870\u51CF",
+        "\u7126\u6563\u4F9D\u8D56\u6C34\u5E95\u900F\u89C6",
+        "\u5173\u952E\u8BCD\u5206\u652F\u4E0E\u5171\u4EAB\u6DF1\u5EA6",
+        "\u5173\u95ED\u6298\u5C04\u4ECD\u6709 GrabPass \u62F7\u8D1D",
+        "\u9884\u5408\u6210\u80CC\u666F\u4E0D\u518D\u6B21 Alpha \u6DF7\u5408"
+      ],
+      "validation": [
+        "\u6C34\u6DF1\u3001\u5CB8\u8FB9\u548C\u4EA4\u53E0",
+        "\u5173\u95ED\u548C\u7EC4\u5408\u5F00\u5173",
+        "\u900F\u660E\u6392\u5E8F",
+        "\u79FB\u52A8\u8BBE\u5907\u5E26\u5BBD",
+        "\u6C34\u9762\u4E0B\u89C6\u89D2\u5C1A\u672A\u9A8C\u8BC1",
+        "\u4EBA\u5DE5\u8BA1\u5212\u4E0D\u80FD\u66FF\u4EE3\u76EE\u6807\u573A\u666F\u9A8C\u8BC1"
+      ]
+    },
+    {
+      "id": "skin-jade-scattering",
+      "title": "\u76AE\u80A4\u3001\u7389\u77F3\u4E0E\u900F\u5C04\u6563\u5C04",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u533A\u5206\u76AE\u80A4\u6F2B\u53CD\u5C04/\u9AD8\u5149\u3001\u539A\u5EA6\u9A71\u52A8\u900F\u5C04\u4E0E\u7BA1\u7EBF SSS/Diffusion Profile\uFF1B\u7B80\u5316\u8FD1\u4F3C\u4E0D\u80FD\u58F0\u79F0\u7B49\u4EF7\u4E8E\u5C4F\u5E55\u7A7A\u95F4\u6216\u4F53\u79EF\u6563\u5C04\u3002",
+      "nativeNodes": [
+        "SamplerNode",
+        "DotProductOpNode",
+        "PowerNode",
+        "LerpOp"
+      ],
+      "preserve": [
+        "\u539A\u5EA6\u5355\u4F4D\u548C\u5149\u7167\u65B9\u5411",
+        "\u6269\u6563\u8F6E\u5ED3\u8D44\u4EA7",
+        "\u6563\u5C04\u989C\u8272\u4E0E\u80FD\u91CF",
+        "\u6B63\u80CC\u9762",
+        "\u9634\u5F71\u548C\u66DD\u5149",
+        "\u76AE\u80A4\u4E0E\u7389\u77F3\u5206\u522B\u8C03\u53C2"
+      ],
+      "validation": [
+        "\u9006\u5149\u4E0E\u4FA7\u5149",
+        "\u8584\u539A\u533A\u57DF",
+        "\u4E0D\u540C\u5149\u8272",
+        "\u8FD1\u8FDC\u8DDD\u79BB",
+        "SSS \u5F00\u5173\u53CA\u6210\u672C"
+      ]
+    },
+    {
+      "id": "character-skin",
+      "title": "\u9AD8\u8D28\u91CF\u4EBA\u7269\u76AE\u80A4\u4E0E\u5FAE\u8868\u9762",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u4EBA\u7269\u76AE\u80A4\u72EC\u7ACB\u5EFA\u6863\uFF1A\u57FA\u8272\u3001\u53CC\u5C3A\u5EA6\u6CD5\u7EBF\u3001\u7C97\u7CD9\u5EA6/\u9AD8\u5149\u3001\u539A\u5EA6\u4E0E SSS Mask\u3001\u6269\u6563\u8D44\u4EA7\u53CA\u53EF\u9009\u76B1\u7EB9\u9A71\u52A8\uFF1B\u5148\u6838\u5BF9\u771F\u5B9E\u5149\u7167\u6A21\u677F\u548C\u5916\u90E8\u6269\u6563\u8C03\u5EA6\u3002",
+      "nativeNodes": [
+        "SamplerNode",
+        "BlendNormalsNode",
+        "LerpOp"
+      ],
+      "preserve": [
+        "\u6F2B\u53CD\u5C04/\u9AD8\u5149\u5206\u79BB",
+        "SSS \u4E0D\u66FF\u4EE3\u8584\u90E8\u4F4D\u900F\u5C04",
+        "\u539A\u5EA6\u5355\u4F4D\u548C\u8D34\u56FE\u901A\u9053",
+        "Diffusion Profile/LUT",
+        "\u8499\u76AE\u4E0E\u8FD0\u52A8\u77E2\u91CF",
+        "\u5FAE\u8868\u9762\u8FC7\u6EE4"
+      ],
+      "validation": [
+        "\u8033\u9F3B\u9006\u5149\u4E0E\u9762\u90E8\u539A\u90E8\u4F4D",
+        "\u66DD\u5149\u548C\u80A4\u8272",
+        "\u8868\u60C5\u9A71\u52A8",
+        "\u8FD1\u8FDC\u8DDD\u79BB/TAA",
+        "\u76EE\u6807 ASE \u6A21\u677F\u3001\u56FE\u91CD\u8F7D\u3001\u7F16\u8BD1\u548C\u89D2\u8272\u753B\u9762\u5BF9\u6BD4"
+      ]
+    },
+    {
+      "id": "eye-cornea-iris",
+      "title": "\u4EBA\u7269\u773C\u7403\u3001\u89D2\u819C\u4E0E\u8679\u819C",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u5355\u72EC\u63CF\u8FF0\u89D2\u819C\u5916\u5C42\u548C\u8679\u819C/\u5DE9\u819C\u5185\u5C42\uFF0C\u4FDD\u7559\u5404\u81EA\u6CD5\u7EBF\u3001\u7C97\u7CD9\u5EA6\u3001IOR\u3001\u8679\u819C\u51F9\u9677/\u6298\u5C04\u3001\u77B3\u5B54\u7F29\u653E\u548C\u5DE9\u819C\u6563\u5C04\uFF1B\u666E\u901A Lit \u6216 Clear Coat \u4E0D\u89C6\u4E3A\u7B49\u4EF7\u773C\u7403 BSDF\u3002",
+      "nativeNodes": [
+        "SamplerNode",
+        "FresnelNode",
+        "ParallaxMappingNode",
+        "LerpOp"
+      ],
+      "preserve": [
+        "\u5185\u5916\u5C42\u6CD5\u7EBF\u4E0E\u7A7A\u95F4",
+        "IOR \u548C\u6DF1\u5EA6\u5355\u4F4D",
+        "\u77B3\u5B54\u4E0D\u8BEF\u4F5C\u900F\u660E",
+        "\u8679\u819C/\u89D2\u819C\u7F18\u906E\u7F69",
+        "\u773C\u7751\u906E\u6321\u548C\u6CEA\u7EBF",
+        "\u5DE9\u819C\u6269\u6563\u8D44\u4EA7",
+        "\u900F\u660E\u5C42\u4E0E\u53CD\u5C04",
+        "\u773C\u7403\u89C6\u7EBF\u52A8\u753B"
+      ],
+      "validation": [
+        "\u773C\u7403\u8F6C\u52A8/\u63A0\u5C04\u89D2",
+        "\u8679\u819C\u89C6\u5DEE\u548C\u77B3\u5B54\u8303\u56F4",
+        "\u89D2\u819C\u9AD8\u5149/\u73AF\u5883\u53CD\u5C04",
+        "\u773C\u7751\u4EA4\u754C",
+        "\u66DD\u5149\u4E0E\u8FD1\u8FDC\u8DDD\u79BB",
+        "\u76EE\u6807 Eye \u6A21\u677F/\u8D44\u4EA7/\u56FE\u91CD\u8F7D/\u7F16\u8BD1/\u753B\u9762\u5BF9\u6BD4"
+      ]
+    },
+    {
+      "id": "character-material-contract",
+      "title": "\u4EBA\u7269\u6750\u8D28\u4F9D\u8D56\u4E0E\u8D28\u91CF\u8FB9\u754C",
+      "implementation": "AnalysisRule",
+      "recipe": "\u4E3A\u76AE\u80A4\u3001\u6BDB\u53D1\u3001\u773C\u7403\u3001\u5E03\u6599\u8FD4\u56DE\u7ED3\u6784\u5316\u8F93\u5165\u3001\u4E09\u7BA1\u7EBF\u9002\u914D\u8981\u6C42\u3001\u8BED\u4E49\u4FDD\u7559\u3001\u9A8C\u8BC1\u4E0E\u6210\u672C\u6E05\u5355\uFF1B\u5206\u7C7B\u53EA\u4F5C\u7EBF\u7D22\uFF0C\u4E0D\u89E3\u9501\u751F\u6210\u3001\u4E0D\u8BC1\u660E\u8D34\u56FE/\u7F51\u683C/\u5BBF\u4E3B\u4F9D\u8D56\u9F50\u5907\u3002",
+      "nativeNodes": [],
+      "preserve": [
+        "\u53D1\u5361/\u53D1\u4E1D/\u58F3\u5C42\u533A\u5206",
+        "\u68C9\u9EBB/\u4E1D\u7EF8\u4E0D\u540C BSDF",
+        "\u89D2\u819C/\u5185\u5C42\u533A\u5206",
+        "SSS \u5916\u90E8\u8C03\u5EA6",
+        "HDRP \u7248\u672C\u8FB9\u754C",
+        "\u4E0D\u5BA3\u79F0 3A \u753B\u8D28\u6216 GPU \u6027\u80FD"
+      ],
+      "validation": [
+        "\u907F\u514D Skinning/StereoEyeIndex \u7B49\u8BEF\u5206\u7C7B",
+        "\u56DB\u7C7B\u53CA\u7EC4\u5408\u6750\u8D28\u5206\u6790",
+        "\u89C4\u5219\u548C API \u53EF\u8BFB",
+        "\u5DF2\u6709\u963B\u585E\u4E0D\u53EF\u88AB\u7C7B\u522B\u6807\u7B7E\u7ED5\u8FC7",
+        "\u5B9E\u9645\u89D2\u8272\u53CA\u591A\u5149\u7167\u9A8C\u8BC1\u53E6\u505A"
+      ]
+    },
+    {
+      "id": "hair-anisotropy",
+      "title": "\u5934\u53D1\u4E0E\u5404\u5411\u5F02\u6027",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u8BB0\u5F55\u6CBF\u53D1\u4E1D\u5207\u7EBF\u7684\u9AD8\u5149\u3001\u53CC\u53F6\u6216\u7269\u7406\u6563\u5C04\u6A21\u578B\uFF1B\u5207\u7EBF\u7A7A\u95F4\u3001Alpha Clip/Blend\u3001\u80CC\u9762\u548C\u9634\u5F71\u5FC5\u987B\u72EC\u7ACB\u6620\u5C04\u3002",
+      "nativeNodes": [
+        "DotProductOpNode",
+        "NormalizeNode",
+        "PowerNode"
+      ],
+      "preserve": [
+        "\u5207\u7EBF\u65B9\u5411\u4E0E\u624B\u6027",
+        "\u9AD8\u5149\u4F4D\u79FB/\u5BBD\u5EA6",
+        "\u53D1\u5361\u900F\u660E\u6392\u5E8F",
+        "Alpha \u88C1\u526A",
+        "\u53CC\u9762\u6CD5\u7EBF",
+        "\u9634\u5F71\u8986\u76D6"
+      ],
+      "validation": [
+        "\u65CB\u8F6C\u5149\u6E90",
+        "\u8FD1\u666F\u53D1\u4E1D",
+        "\u91CD\u53E0 overdraw",
+        "TAA/MSAA",
+        "\u9634\u5F71\u95EA\u70C1"
+      ]
+    },
+    {
+      "id": "fabric-sheen",
+      "title": "\u5E03\u6599\u3001\u7ED2\u9762\u4E0E\u7EC7\u7269",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u533A\u5206\u68C9\u9EBB\u7ED2\u9762 Sheen\u3001\u4E1D\u7EF8\u5404\u5411\u5F02\u6027\u548C\u7EC7\u7EB9\u6CD5\u7EBF\uFF1B\u9009\u62E9\u652F\u6301\u76F8\u5E94 BSDF \u7684\u6A21\u677F\uFF0C\u666E\u901A\u91D1\u5C5E PBR \u4E0D\u8DB3\u4EE5\u66FF\u4EE3\u3002",
+      "nativeNodes": [
+        "SamplerNode",
+        "DotProductOpNode",
+        "LerpOp"
+      ],
+      "preserve": [
+        "Sheen lobe \u4E0E\u80FD\u91CF\u8865\u507F",
+        "\u5207\u7EBF\u548C\u53CC\u9762",
+        "\u7EC7\u7EB9\u5C3A\u5EA6",
+        "\u6CD5\u7EBF\u548C\u7C97\u7CD9\u5EA6",
+        "\u900F\u5C04"
+      ],
+      "validation": [
+        "\u63A0\u5C04\u89D2",
+        "\u4E0D\u540C\u5149\u5411",
+        "\u7EC7\u7EB9\u8FDC\u8FD1\u6297\u952F\u9F7F",
+        "\u53CC\u9762\u4E0E\u9634\u5F71"
+      ]
+    },
+    {
+      "id": "metal-stone-pbr",
+      "title": "\u91D1\u5C5E\u3001\u77F3\u5934\u4E0E\u7EB9\u7406\u6620\u5C04",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u5206\u522B\u8BB0\u5F55\u91D1\u5C5E/\u7C97\u7CD9\u5EA6\u6216\u9AD8\u5149\u5DE5\u4F5C\u6D41\uFF1B\u77F3\u5934\u5E38\u7528\u591A\u5C3A\u5EA6\u6CD5\u7EBF\u3001\u906E\u853D\u3001\u7EC6\u8282\u548C\u4E09\u5E73\u9762\u6620\u5C04\uFF0C\u4E0D\u4F9D\u636E\u540D\u79F0\u81EA\u52A8\u6539\u5199\u6750\u8D28\u3002",
+      "nativeNodes": [
+        "SamplerNode",
+        "TransformDirectionNode",
+        "LerpOp"
+      ],
+      "preserve": [
+        "\u7EBF\u6027/\u989C\u8272\u7EB9\u7406\u7A7A\u95F4",
+        "\u91D1\u5C5E\u53CD\u5C04\u4E0E\u73AF\u5883",
+        "\u6CD5\u7EBF\u5408\u6210",
+        "AO \u4F5C\u7528\u4F4D\u7F6E",
+        "\u4E09\u5E73\u9762\u6743\u91CD\u548C\u8D1F\u7F29\u653E",
+        "\u89C6\u5DEE\u6210\u672C"
+      ],
+      "validation": [
+        "HDR \u5149\u7167\u548C\u53CD\u5C04\u63A2\u9488",
+        "\u4E0D\u540C\u7C97\u7CD9\u5EA6",
+        "\u975E\u5747\u5300\u7F29\u653E",
+        "\u7EB9\u7406\u63A5\u7F1D",
+        "\u8DDD\u79BB\u548C mip"
+      ]
+    },
+    {
+      "id": "shadergraph-contract",
+      "title": "Shader Graph \u7ED3\u6784\u4E0E\u76EE\u6807\u8BED\u4E49",
+      "implementation": "AnalysisRule",
+      "recipe": "\u53EA\u8BFB\u89E3\u6790\u591A JSON \u5BF9\u8C61\u53CA\u65E7\u7248\u5D4C\u5957 JSON\uFF0C\u6E05\u70B9\u5B9E\u9645\u8282\u70B9\u3001\u5C5E\u6027\u3001\u8FDE\u7EBF\u3001\u6D3B\u52A8\u76EE\u6807\u914D\u7F6E\u3001\u8F93\u51FA\u5757\u3001\u5173\u952E\u8BCD\u4E0E\u5B50\u56FE/\u51FD\u6570\u4F9D\u8D56\uFF1B\u4E0D\u4F1A\u628A\u672A\u6620\u5C04\u56FE\u6807\u6210\u5DF2\u8F6C\u6362\u3002",
+      "nativeNodes": [],
+      "preserve": [
+        "\u6D3B\u52A8 SubTarget/\u6750\u8D28\u6A21\u578B",
+        "\u9876\u70B9\u4E0E\u7247\u5143\u8F93\u51FA",
+        "Pass\u3001\u6E32\u67D3\u72B6\u6001\u548C\u53D8\u4F53",
+        "\u5C5E\u6027\u9ED8\u8BA4\u503C\u53CA\u7EB9\u7406 GUID",
+        "\u5B50\u56FE\u4E0E\u5BBF\u4E3B\u6570\u636E",
+        "\u6E90 HDRP \u4F9D\u8D56\u4E0D\u80FD\u968F\u76EE\u6807\u5207\u6362\u6D88\u5931"
+      ],
+      "validation": [
+        "\u635F\u574F\u5BF9\u8C61/\u8FDE\u7EBF/\u69FD\u4F4D\u62D2\u7EDD",
+        "\u65E7\u7248\u6E05\u70B9",
+        "\u771F\u5B9E\u76EE\u6807\u548C\u4F9D\u8D56",
+        "\u5404\u76EE\u6807 ASE \u4FDD\u5B58\u91CD\u8F7D/\u7F16\u8BD1",
+        "\u539F\u573A\u666F\u753B\u9762\u5BF9\u6BD4\u53E6\u505A"
+      ]
+    },
+    {
+      "id": "hosiery-weave",
+      "title": "\u4E1D\u889C\u3001\u8584\u7EC7\u7269\u4E0E\u8986\u76D6\u7387",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u5206\u5F00\u8BB0\u5F55\u5E95\u5C42\u76AE\u80A4\u4E0E\u4E1D\u889C\u5916\u5C42\u3001\u7EA4\u7EF4\u65B9\u5411\u3001\u7EC7\u7EB9\u8986\u76D6\u7387\u3001\u63A0\u5C04\u53CD\u5149\u3001\u539A\u5EA6/\u900F\u5C04\u3001\u62C9\u4F38\u4E0E\u63A5\u7F1D\uFF1B\u4E0D\u4EE5\u666E\u901A\u534A\u900F\u660E\u9ED1\u8272\u66FF\u4EE3\u5B8C\u6574\u4E1D\u889C\u6750\u8D28\u3002",
+      "nativeNodes": [
+        "SamplerNode",
+        "FresnelNode",
+        "DotProductOpNode",
+        "LerpOp"
+      ],
+      "preserve": [
+        "\u76AE\u80A4\u4E0E\u8863\u7269\u5C42\u6B21",
+        "\u8986\u76D6\u7387\u4E0E\u900F\u660E\u6DF7\u5408",
+        "\u7EC7\u7EB9\u771F\u5B9E\u5C3A\u5EA6\u548C\u8FC7\u6EE4",
+        "\u5404\u5411\u5F02\u6027\u65B9\u5411",
+        "\u62C9\u4F38/\u5BC6\u5EA6",
+        "\u53CC\u9762\u3001\u9634\u5F71\u53CA\u6DF1\u5EA6"
+      ],
+      "validation": [
+        "\u6B63\u9762\u4E0E\u63A0\u5C04\u89D2",
+        "\u817F\u90E8\u66F2\u9762\u62C9\u4F38",
+        "\u8FD1\u8FDC\u8DDD\u79BB moire/TAA",
+        "\u4E0E\u76AE\u80A4\u4EA4\u53E0",
+        "\u9634\u5F71\u548C\u900F\u660E\u6392\u5E8F",
+        "\u76EE\u6807\u8BBE\u5907 GPU \u65F6\u95F4"
+      ]
+    },
+    {
+      "id": "explicit-image-filters",
+      "title": "\u663E\u5F0F\u8F93\u5165\u56FE\u50CF\u6EE4\u955C\u4E0E\u5BBF\u4E3B\u8FB9\u754C",
+      "implementation": "RecipeRecorded",
+      "recipe": "\u8BB0\u5F55 MIT Kino \u6697\u89D2\u3001\u6A21\u62DF/\u6570\u5B57\u6545\u969C\u548C\u4E07\u82B1\u7B52\u7684\u9010\u6E90\u7801\u4E09\u7BA1\u7EBF\u56FE\u8BA1\u5212\uFF1B\u7ECF\u9A8C\u8BC1\u7684\u5B9E\u9645\u56FE\u7531\u5206\u7C7B\u5E93\u63D0\u4F9B\uFF0C\u4E0D\u662F\u4EFB\u610F\u540E\u5904\u7406\u4EE3\u7801\u7684\u81EA\u52A8\u8F6C\u6362\u89C4\u5219\u3002",
+      "nativeNodes": [
+        "SamplerNode",
+        "ATan2OpNode",
+        "StaticSwitch",
+        "PowerNode",
+        "StepOpNode"
+      ],
+      "preserve": [
+        "\u539F\u59CB RGBA \u4E0E\u7EB9\u7406\u5750\u6807",
+        "Cull Off\u3001ZTest Always\u3001ZWrite Off\u3001Blend Off",
+        "\u5168\u5C40 multi_compile",
+        "\u566A\u58F0\u548C\u5386\u53F2\u5E27\u8F93\u5165",
+        "\u52A8\u753B\u53C2\u6570\u79EF\u5206\u4E0E\u76F8\u673A\u6CE8\u5165",
+        "\u8272\u5F69\u7F16\u7801\u4E0E\u66DD\u5149\u9636\u6BB5"
+      ],
+      "validation": [
+        "\u5B9E\u9645 ASE \u4FDD\u5B58\u91CD\u8F7D\u4E0E\u4E3B Pass \u7F16\u8BD1",
+        "\u663E\u5F0F\u7EB9\u7406\u6D6E\u70B9\u6E32\u67D3\u56DE\u8BFB",
+        "\u53C2\u6570\u4E0E\u5173\u952E\u8BCD\u4F5C\u7528",
+        "\u539F\u76F8\u673A\u548C\u76EE\u6807\u8BBE\u5907\u53E6\u884C\u9A8C\u8BC1"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "file": "BillBordScale.shader",
+      "signature": "e80a3bc5a0d18bb0bec5376ea2422947d6c37330f4c6fbeddfdc37c6f90b35d3",
+      "kind": "ExistingAseGraph",
+      "notes": "ASE 19908\uFF1B94 \u8282\u70B9\u3002\u516C\u544A\u677F\u5FC5\u987B\u4FDD\u7559\u9876\u70B9\u7A7A\u95F4\u548C\u8F74\u5411\u7EA6\u675F\u3002",
+      "ruleIds": [
+        "ase-migration",
+        "vertex-transform"
+      ]
+    },
+    {
+      "file": "bubble.shader",
+      "signature": "0f6cbdcf4a5aa21b4003b016224b10c7d66b9f981079eb21eb3e5c36442bdec2",
+      "kind": "Handwritten",
+      "notes": "11 \u5C5E\u6027\uFF0C\u53CC Pass\u3002\u5185\u58C1 Cull Front \u5148\u753B\uFF0C\u5916\u58C1 Cull Back \u540E\u753B\uFF1B\u5747 ZWrite Off\u3001SrcAlpha\u3002hash21 \u5E38\u6570 123.34/456.21/45.32\uFF0Cvalue-noise \u7528 f*f*(3-2*f)\uFF0Cfbm \u4E09\u5C42\u632F\u5E45 .5/.25/.125\u3001\u9891\u7387\u500D\u7387 2.03\u3002\u4FDD\u7559\u4F59\u5F26\u76F8\u4F4D (0,.33,.67)\u3001LOD 100 \u53CA Unlit/Transparent Fallback\u3002\u89C4\u5219\u5DF2\u8BB0\u5F55\uFF0C\u53CC Pass \u6A21\u677F\u548C\u9636\u6BB5\u6620\u5C04\u5C1A\u672A\u9A8C\u8BC1\u3002",
+      "ruleIds": [
+        "pure-functions",
+        "bounded-loops",
+        "noise-fbm",
+        "fresnel-space",
+        "ordered-passes"
+      ]
+    },
+    {
+      "file": "Custom2TexStencilmask.shader",
+      "signature": "e6d13de5d1ebbf70c97b83dcd84f734e779a3f8fb2d06e8cd47158b58a48aa83",
+      "kind": "ExistingAseGraph",
+      "notes": "ASE 19908\uFF1B158 \u8282\u70B9\u3002\u4FDD\u7559 Stencil\u3001\u7C92\u5B50\u6570\u636E\u3001\u52A8\u753B\u3001\u6DF7\u5408\u548C\u5168\u90E8 Pass\u3002",
+      "ruleIds": [
+        "ase-migration",
+        "stencil-state",
+        "dissolve-alpha"
+      ]
+    },
+    {
+      "file": "Custom2TexV2.shader",
+      "signature": "d2ff75658d9996133f640da6af9d1532fe4daf30bf3f730bcb6369cc76ec378c",
+      "kind": "ExistingAseGraph",
+      "notes": "ASE 19908\uFF1B121 \u8282\u70B9\u3002\u4FDD\u7559\u53CC\u7EB9\u7406\u52A8\u753B\u3001\u8DDD\u79BB\u6E10\u9690\u3001\u9876\u70B9\u8272\u548C\u7C92\u5B50\u6570\u636E\u3002",
+      "ruleIds": [
+        "ase-migration",
+        "dissolve-alpha",
+        "vertex-transform"
+      ]
+    },
+    {
+      "file": "Dissolve_add.shader",
+      "signature": "4e0f69b11883c9c1670b2e8669078d808e9b753c2bc24441950c38412bd5fc60",
+      "kind": "ExistingAseGraph",
+      "notes": "ASE 19908\uFF1B36 \u8282\u70B9\u3002\u4FDD\u7559\u6EB6\u89E3\u8FB9\u7F18\u3001Fresnel\u3001\u52A0\u6CD5\u6DF7\u5408\u548C Alpha\u3002",
+      "ruleIds": [
+        "ase-migration",
+        "dissolve-alpha",
+        "fresnel-space"
+      ]
+    },
+    {
+      "file": "Fresnel_A.shader",
+      "signature": "6adbc342a5e4e5c096e418bd04f0ef5b51cf325badf05b496f7ed622fff60564",
+      "kind": "ExistingAseGraph",
+      "notes": "ASE 19908\uFF1B17 \u8282\u70B9\u3002\u4FDD\u7559\u6CD5\u7EBF\u548C\u89C6\u7EBF\u53D8\u6362\u3001Fresnel \u53C2\u6570\u53CA Alpha\u3002",
+      "ruleIds": [
+        "ase-migration",
+        "fresnel-space"
+      ]
+    },
+    {
+      "file": "PBR.shader",
+      "signature": "e0ab06712280325c00af603753e3de0b2f564ccda0b9831c9a12f15f0766df3a",
+      "kind": "ExistingAseGraph",
+      "notes": "ASE 19908\uFF1B151 \u8282\u70B9\u3002Standard Surface \u8F93\u51FA\uFF0C\u4F9D\u8D56 Square Wave \u5B50\u56FE GUID 6f8df4c09ccca5d42b0d3d422aad9cbd\u3002",
+      "ruleIds": [
+        "ase-migration",
+        "pbr-outline"
+      ]
+    },
+    {
+      "file": "PBR_OutLine.shader",
+      "signature": "48f3727d0c9b2fba00f8ae1f0ab8ab12315a78a9363e772dc4695c7ffb2815ef",
+      "kind": "ExistingAseGraph",
+      "notes": "ASE 19908\uFF1B178 \u8282\u70B9\u3002Lit \u6A21\u677F\u548C\u72EC\u7ACB OutLinePass\uFF1B\u4FDD\u7559 7 \u4E2A\u663E\u5F0F Pass\uFF0C\u4F9D\u8D56\u540C\u4E00 Square Wave \u5B50\u56FE\u3002",
+      "ruleIds": [
+        "ase-migration",
+        "pbr-outline",
+        "ordered-passes"
+      ]
+    },
+    {
+      "file": "RotateAroundCenter.shader",
+      "signature": "f7eac528ee3581ceea8ba3549d17dcd7da2c30ec1eaadaada620bf39fe11413e",
+      "kind": "Handwritten",
+      "notes": "14 \u5C5E\u6027\u3002_Color.a \u7684\u8D4B\u503C\u9700\u5728\u56FE\u4E2D\u6539\u4E3A\u7B49\u4EF7\u5C40\u90E8\u503C\uFF0C\u4E0D\u80FD\u4FEE\u6539\u5168\u5C40\u5C5E\u6027\u3002\u4FDD\u7559\u4E24\u6B21\u987A\u5E8F\u66F4\u65B0\u548C\u5E73\u65B9\u9879\uFF1B_MinValue \u539F\u672C\u672A\u4F7F\u7528\uFF0C\u4E0D\u5E94\u64C5\u81EA\u63A5\u7EBF\u3002\u4E24\u4E2A Toggle(_True) \u4E0D\u4EE3\u8868\u4E24\u4E2A\u6570\u503C\u53C2\u6570\u76F8\u4E92\u8054\u52A8\u3002\u6A21\u677F\u7ED1\u5B9A Blend [_Src] [_Dst]\u3001Cull [_CullMode]\uFF1B\u9636\u6BB5\u548C\u72B6\u6001\u9002\u914D\u4ECD\u5F85\u9A8C\u8BC1\u3002",
+      "ruleIds": [
+        "uv-rotate-fade",
+        "vertex-transform",
+        "keyword-binding"
+      ]
+    },
+    {
+      "file": "TransMovie.shader",
+      "signature": "a0228a509ba72606798bb04d5870efcc2f917b002794c8eca7cc2441348b2ea3",
+      "kind": "Handwritten",
+      "notes": "10 \u5C5E\u6027\u3002Queue Transparent\u002B1\u3001Cull Off\u3001ZWrite Off\u3001SrcAlpha \u6DF7\u5408\u3002_HighQualityFeather \u7684\u666E\u901A Toggle \u6D3E\u751F _HIGHQUALITYFEATHER_ON\uFF0C\u4E0E pragma multi_compile_local _ _HIGH_QUALITY_FEATHER \u4E0D\u540C\uFF1B\u4E0D\u5F97\u81EA\u52A8\u4FEE\u6B63\u3002\u4ECD\u9700\u5C40\u90E8\u5173\u952E\u8BCD\u3001\u91C7\u6837\u5206\u652F\u3001half \u7CBE\u5EA6\u4E0E stereo \u6A21\u677F\u9002\u914D\u9A8C\u8BC1\u3002",
+      "ruleIds": [
+        "pure-functions",
+        "chroma-key",
+        "keyword-binding"
+      ]
+    },
+    {
+      "file": "Vertex offset.shader",
+      "signature": "7bffb2ee1f0ee766ff62b3362ef9a9af074940647f054e59c9876eb81536fc9a",
+      "kind": "ExistingAseGraph",
+      "notes": "ASE 19908\uFF1B53 \u8282\u70B9\u3002\u4FDD\u7559\u9876\u70B9\u4F4D\u79FB\u3001\u65F6\u95F4\u52A8\u753B\u53CA ShadowCaster\u3002",
+      "ruleIds": [
+        "ase-migration",
+        "vertex-transform",
+        "dissolve-alpha"
+      ]
+    }
+  ],
+  "publicSources": [
+    {
+      "repository": "Unity-Technologies/Graphics",
+      "url": "https://github.com/Unity-Technologies/Graphics",
+      "license": "Unity Companion License",
+      "focus": "URP\u3001HDRP Lit/\u6563\u5C04\u3001Hair\u3001Eye\u3001Fabric\u3001Water\uFF1B\u4EBA\u7269\u6863\u6848\u53E6\u6838\u5BF9\u5DF2\u5B89\u88C5 HDRP 14.0.8\uFF0C\u4E0D\u5C06\u66F4\u65B0\u7248\u672C\u7279\u6027\u81EA\u52A8\u56DE\u586B",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "ronja-tutorials/ShaderTutorials",
+      "url": "https://github.com/ronja-tutorials/ShaderTutorials",
+      "license": "No root license declared",
+      "focus": "\u57FA\u7840\u3001Surface\u3001\u566A\u58F0\u3001SDF\u3001\u6DF1\u5EA6\u548C\u540E\u5904\u7406\uFF1B\u53EA\u8BFB\u7814\u7A76\uFF0C\u4E0D\u5206\u53D1\u5176\u6E90\u7801",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "keijiro/NoiseShader",
+      "url": "https://github.com/keijiro/NoiseShader",
+      "license": "MIT",
+      "focus": "Classic/Simplex \u566A\u58F0\u3001hash\u3001fade \u548C\u91CD\u8F7D\u4F9D\u8D56",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "keijiro/KinoBloom",
+      "url": "https://github.com/keijiro/KinoBloom",
+      "license": "MIT",
+      "focus": "Bloom \u591A\u9636\u6BB5\u3001RGBM\u3001\u6297\u95EA\u70C1\u3001\u91C7\u6837\u6743\u91CD",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "keijiro/KinoGlitch",
+      "url": "https://github.com/keijiro/KinoGlitch",
+      "license": "MIT",
+      "focus": "\u5C4F\u5E55\u5931\u771F\u548C\u79BB\u6563\u566A\u58F0",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "keijiro/KinoMotion",
+      "url": "https://github.com/keijiro/KinoMotion",
+      "license": "MIT",
+      "focus": "\u8FD0\u52A8\u5411\u91CF\u3001\u6DF1\u5EA6\u4E0E\u91CD\u5EFA\u91C7\u6837",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "keijiro/KinoFog",
+      "url": "https://github.com/keijiro/KinoFog",
+      "license": "MIT",
+      "focus": "\u6DF1\u5EA6\u91CD\u5EFA\u548C\u96FE",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "Cyanilux/URP_ShaderCodeTemplates",
+      "url": "https://github.com/Cyanilux/URP_ShaderCodeTemplates",
+      "license": "CC0-1.0",
+      "focus": "URP Unlit/Lit\u3001CBUFFER\u3001\u8F85\u52A9 Pass \u4E0E\u5173\u952E\u8BCD",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "danielshervheim/unity-stylized-water",
+      "url": "https://github.com/danielshervheim/unity-stylized-water",
+      "license": "BSD-3-Clause",
+      "focus": "\u6C34\u9762\u6CE2\u6D6A\u3001GrabPass \u6298\u5C04\u3001\u6DF1\u5EA6\u3001\u6CE1\u6CAB\u4E0E\u53CD\u5C04",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "IronWarrior/ToonWaterShader",
+      "url": "https://github.com/IronWarrior/ToonWaterShader",
+      "license": "Unlicense",
+      "focus": "\u5361\u901A\u6C34\u3001\u6DF1\u5EA6\u8FB9\u5CB8\u6CE1\u6CAB",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "nvjob/nvjob-water-shader-simple-and-fast",
+      "url": "https://github.com/nvjob/nvjob-water-shader-simple-and-fast",
+      "license": "MIT",
+      "focus": "\u7B80\u5355\u6C34\u9762\u65B9\u6848\uFF1B\u4ED3\u5E93\u547D\u540D\u4E0D\u7B49\u4E8E\u5DF2\u6D4B\u5F97\u9AD8\u6027\u80FD",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "leonardo-domingues/skin-shader-unity",
+      "url": "https://github.com/leonardo-domingues/skin-shader-unity",
+      "license": "MIT",
+      "focus": "GPU Gems \u76AE\u80A4\u6563\u5C04\u3001\u5377\u79EF\u7EB9\u7406\u548C\u5916\u90E8\u8C03\u5EA6",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "itsFulcrum/Unity-URP-Hair-Shader",
+      "url": "https://github.com/itsFulcrum/Unity-URP-Hair-Shader",
+      "license": "CC0-1.0",
+      "focus": "\u53D1\u5361\u53CC\u9AD8\u5149\u3001\u5207\u7EBF\u3001URP \u5149\u7167\u548C\u900F\u660E/\u9634\u5F71",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "radiatoryang/unity-triplanar-terrain-cliff-shader",
+      "url": "https://github.com/radiatoryang/unity-triplanar-terrain-cliff-shader",
+      "license": "MIT",
+      "focus": "\u5CA9\u58C1\u4E09\u5E73\u9762\u3001\u5730\u5F62\u6DF7\u5408\u4E0E\u6CD5\u7EBF",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "aspect-ux/AspectURP",
+      "url": "https://github.com/aspect-ux/AspectURP",
+      "license": "MIT at repository root; inspect per-file notices",
+      "focus": "SSS \u8FD1\u4F3C\u3001\u9884\u79EF\u5206\u76AE\u80A4\u3001PBR\u3001\u91D1\u5C5E\u4E0E\u591A\u79CD\u6848\u4F8B\uFF1BDepth_Jade \u672C\u8EAB\u4EC5\u4E3A\u6DF1\u5EA6\u67E5\u770B\u5668",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "blurfeng/blur-toon-urp",
+      "url": "https://github.com/blurfeng/blur-toon-urp",
+      "license": "MIT",
+      "focus": "\u89D2\u8272\u5361\u901A\u5149\u7167\u3001\u9634\u5F71\u548C\u8F6E\u5ED3",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "hecomi/UnityFurURP",
+      "url": "https://github.com/hecomi/UnityFurURP",
+      "license": "No fetched root license; inspect per-file and upstream notices",
+      "focus": "URP shell/fin/geometry \u6BDB\u53D1\u3001\u98CE\u6446\u53CA\u9634\u5F71\uFF1B\u4E0D\u5047\u5B9A\u666E\u901A\u7247\u5143\u56FE\u53EF\u66FF\u4EE3\u51E0\u4F55\u9636\u6BB5",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "ColinLeung-NiloCat/UnityURPToonLitShaderExample",
+      "url": "https://github.com/ColinLeung-NiloCat/UnityURPToonLitShaderExample",
+      "license": "MIT",
+      "focus": "\u89D2\u8272\u5149\u7167\u5206\u5C42\u3001\u63CF\u8FB9\u3001\u6DF1\u5EA6\u504F\u79FB\u53CA invLerp/remap",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "keijiro/KinoVignette",
+      "url": "https://github.com/keijiro/KinoVignette",
+      "license": "MIT notice in Vignette.shader; no fetched root license",
+      "focus": "\u6697\u89D2\u534A\u5F84\u3001Falloff \u4E0E\u56DB\u6B21\u8870\u51CF\uFF1B\u663E\u5F0F\u8F93\u5165\u6EE4\u955C\u4E09\u7BA1\u7EBF\u56FE\u89C1\u5206\u7C7B\u5E93",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "keijiro/KinoMirror",
+      "url": "https://github.com/keijiro/KinoMirror",
+      "license": "MIT notice in Mirror.shader; no fetched root license",
+      "focus": "\u539F\u7559\u51FA\u6837\u672C\u5DF2\u7528\u4E8E\u663E\u5F0F\u8BA1\u5212\u9002\u914D\uFF0C\u4E0D\u518D\u4F5C\u4E3A\u672A\u89C1\u7559\u51FA\u8BC1\u636E\uFF1B\u5168\u5C40\u5BF9\u79F0\u5173\u952E\u8BCD\u3001\u6781\u5750\u6807\u4E0E\u8FB9\u754C\u53CD\u5C04",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "knapeczadam/unity-shaders",
+      "url": "https://github.com/knapeczadam/unity-shaders",
+      "license": "MIT at repository root; Copyright (c) 2018 Knapecz \u00C1d\u00E1m",
+      "focus": "\u65B0\u589E 37 \u4EFD\u57FA\u7840 Surface/Lambert/BlinnPhong/Standard \u793A\u4F8B\uFF1B\u4FDD\u7559\u7F16\u8BD1\u6307\u4EE4\u548C\u5149\u7167\u6A21\u578B\u963B\u585E\uFF0C\u672A\u5F53\u4F5C\u5DF2\u751F\u6210\u5E93",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "keijiro/KinoContour",
+      "url": "https://github.com/keijiro/KinoContour",
+      "license": "MIT",
+      "focus": "\u72EC\u7ACB\u7559\u51FA\u68C0\u67E5\u96C6\uFF1B\u6DF1\u5EA6/\u6CD5\u7EBF\u8F6E\u5ED3",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "mob-sakai/UIEffect",
+      "url": "https://github.com/mob-sakai/UIEffect",
+      "license": "MIT at repository root; bundled TMP files have separate notices",
+      "focus": "UI \u52A8\u6548\u3001\u8FC7\u6E21\u3001\u8F6F\u88C1\u526A\u3001\u989D\u5916 UV\u3001\u5173\u952E\u8BCD\u4E0E SoftMask \u4F9D\u8D56",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "mob-sakai/ParticleEffectForUGUI",
+      "url": "https://github.com/mob-sakai/ParticleEffectForUGUI",
+      "license": "MIT",
+      "focus": "UI \u52A0\u6CD5\u7C92\u5B50\u3001\u8F6F\u88C1\u526A\u3001\u9876\u70B9\u8272 Gamma \u5904\u7406\u3001Alpha \u91CF\u5316\u4E0E\u9884\u4E58",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    },
+    {
+      "repository": "keijiro/KvantSwarm",
+      "url": "https://github.com/keijiro/KvantSwarm",
+      "license": "Per-file notices; no fetched root license",
+      "focus": "\u4F4D\u7F6E\u7EB9\u7406\u9A71\u52A8\u7684\u9876\u70B9\u52A8\u753B\u3001\u76F8\u90BB\u70B9\u6CD5\u7EBF\u91CD\u5EFA\u3001\u4EFF\u771F\u4E0E Surface \u9634\u5F71\u4F9D\u8D56",
+      "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+    }
+  ],
+  "categories": [
+    {
+      "id": "Water",
+      "title": "\u6C34",
+      "scope": "\u6C34\u9762\u3001\u6298\u5C04\u3001\u6CE1\u6CAB\u4E0E\u6A21\u62DF",
+      "ruleIds": [
+        "water-material"
+      ]
+    },
+    {
+      "id": "Skin",
+      "title": "\u4EBA\u7269\u76AE\u80A4",
+      "scope": "SSS\u3001\u5FAE\u8868\u9762\u3001\u539A\u5EA6\u53CA\u76B1\u7EB9\u9A71\u52A8",
+      "ruleIds": [
+        "character-skin"
+      ]
+    },
+    {
+      "id": "Hair",
+      "title": "\u5934\u53D1\u4E0E\u6BDB\u53D1",
+      "scope": "\u53D1\u5361\u3001\u53D1\u4E1D\u3001shell/fin",
+      "ruleIds": [
+        "hair-anisotropy"
+      ]
+    },
+    {
+      "id": "Fabric",
+      "title": "\u5E03\u6599",
+      "scope": "\u7ED2\u9762\u3001\u4E1D\u7EF8\u3001\u7EC7\u7EB9",
+      "ruleIds": [
+        "fabric-sheen"
+      ]
+    },
+    {
+      "id": "Eye",
+      "title": "\u773C\u7403",
+      "scope": "\u89D2\u819C\u3001\u8679\u819C\u3001\u77B3\u5B54\u4E0E\u5DE9\u819C",
+      "ruleIds": [
+        "eye-cornea-iris"
+      ]
+    },
+    {
+      "id": "Hosiery",
+      "title": "\u4E1D\u889C\u4E0E\u8584\u7EC7\u7269",
+      "scope": "\u76AE\u80A4/\u7EC7\u7269\u5C42\u6B21\u3001\u8986\u76D6\u7387\u3001\u7EA4\u7EF4\u65B9\u5411\u4E0E\u62C9\u4F38",
+      "ruleIds": [
+        "hosiery-weave"
+      ]
+    },
+    {
+      "id": "Metal",
+      "title": "\u91D1\u5C5E",
+      "scope": "\u91D1\u5C5E\u5DE5\u4F5C\u6D41\u548C\u53CD\u5C04",
+      "ruleIds": [
+        "metal-stone-pbr"
+      ]
+    },
+    {
+      "id": "Stone",
+      "title": "\u77F3\u5934",
+      "scope": "\u5CA9\u58C1\u3001\u4E09\u5E73\u9762\u4E0E\u7EC6\u8282",
+      "ruleIds": [
+        "metal-stone-pbr"
+      ]
+    },
+    {
+      "id": "Jade",
+      "title": "\u7389\u77F3",
+      "scope": "\u539A\u5EA6\u3001\u900F\u5C04\u548C\u6563\u5C04\uFF1B\u4E13\u7528\u5B8C\u6574\u5B9E\u73B0\u5C1A\u672A\u9A8C\u8BC1",
+      "ruleIds": [
+        "skin-jade-scattering"
+      ]
+    },
+    {
+      "id": "UI",
+      "title": "UI",
+      "scope": "Canvas\u3001Mask\u3001\u5B57\u4F53\u548C\u56FE\u96C6",
+      "ruleIds": [
+        "ui-canvas"
+      ]
+    },
+    {
+      "id": "UIEffects",
+      "title": "UI \u52A8\u6548",
+      "scope": "\u6E10\u53D8\u3001\u6D41\u5149\u3001\u6EB6\u89E3\u548C\u8FC7\u6E21",
+      "ruleIds": [
+        "ui-animation"
+      ]
+    },
+    {
+      "id": "VFX",
+      "title": "\u7279\u6548",
+      "scope": "\u7C92\u5B50\u3001\u62D6\u5C3E\u3001\u8F6F\u7C92\u5B50\u548C GPU \u4EFF\u771F",
+      "ruleIds": [
+        "vfx-particles"
+      ]
+    },
+    {
+      "id": "UVAnimation",
+      "title": "UV \u52A8\u753B",
+      "scope": "\u6EDA\u52A8\u3001\u65CB\u8F6C\u3001\u5E8F\u5217\u5E27\u548C\u626D\u66F2",
+      "ruleIds": [
+        "uv-animation"
+      ]
+    },
+    {
+      "id": "VertexAnimation",
+      "title": "\u9876\u70B9\u52A8\u753B",
+      "scope": "\u6CE2\u6D6A\u3001\u98CE\u6446\u3001\u516C\u544A\u677F\u548C VAT",
+      "ruleIds": [
+        "vertex-animation"
+      ]
+    }
+  ],
+  "characterProfiles": [
+    {
+      "id": "Skin",
+      "title": "\u4EBA\u7269\u76AE\u80A4 / SSS \u4E0E\u5FAE\u8868\u9762",
+      "ruleId": "character-skin",
+      "implementation": "RecipeRecorded",
+      "qualityTarget": "\u9AD8\u8D28\u91CF\u5B9E\u65F6\u4EBA\u7269\u76EE\u6807\uFF1B\u5206\u7C7B\u5E93\u6709\u5DF2\u4FDD\u5B58\u91CD\u8F7D\u5E76\u7F16\u8BD1\u7684\u57FA\u7840\u56FE\u548C\u90E8\u5206\u539F\u56FE\u9002\u914D\u3002\u5B8C\u6574\u89D2\u8272\u8D34\u56FE/\u5BBF\u4E3B\u4E0E\u539F\u573A\u666F\u753B\u9762\u5BF9\u6BD4\u5C1A\u672A\u9A8C\u8BC1\uFF0C\u4E0D\u80FD\u5BA3\u79F0\u8FBE\u5230 3A \u6210\u7247\u8D28\u91CF\u3002",
+      "geometry": "\u4FDD\u7559\u8499\u76AE\u3001\u6CD5\u7EBF/\u5207\u7EBF\u3001UV \u63A5\u7F1D\u548C\u8138\u90E8\u7EC6\u8282\uFF1B\u8868\u60C5\u76B1\u7EB9\u8D34\u56FE\u4F9D\u8D56\u52A8\u753B\u9A71\u52A8\u3002",
+      "inputs": [
+        {
+          "name": "Base Color",
+          "usage": "\u53BB\u9664\u70D8\u7119\u9AD8\u5149/\u9634\u5F71\u7684\u80A4\u8272",
+          "colorSpace": "sRGB"
+        },
+        {
+          "name": "Normal / Micro Normal",
+          "usage": "\u5B8F\u89C2\u4E0E\u6BDB\u5B54\u6CD5\u7EBF\uFF0C\u4FDD\u7559\u538B\u7F29\u89E3\u7801\u53CA\u5408\u6210\u65B9\u5F0F",
+          "colorSpace": "NormalMap"
+        },
+        {
+          "name": "Mask / Roughness / Specular",
+          "usage": "\u901A\u9053\u5E03\u5C40\u6309\u6E90\u6750\u8D28\u786E\u8BA4\uFF0C\u4E0D\u80FD\u81EA\u52A8\u5047\u5B9A",
+          "colorSpace": "Linear"
+        },
+        {
+          "name": "Thickness / Subsurface Mask",
+          "usage": "\u539A\u5EA6\u91CF\u7EB2\u3001\u5F52\u4E00\u5316\u4E0E\u6269\u6563\u906E\u7F69\u5206\u522B\u786E\u8BA4",
+          "colorSpace": "Linear"
+        },
+        {
+          "name": "Diffusion Profile / SSS LUT",
+          "usage": "\u7BA1\u7EBF\u8D44\u4EA7\u6216\u9884\u79EF\u5206 LUT\uFF1B\u5FC5\u987B\u660E\u786E\u751F\u6210\u4E0E\u7ED1\u5B9A",
+          "colorSpace": "AssetOrDeclaredLUT"
+        },
+        {
+          "name": "Wrinkle Maps (optional)",
+          "usage": "\u8868\u60C5\u9A71\u52A8\u7684\u6CD5\u7EBF/\u7C97\u7CD9\u5EA6\u5C42",
+          "colorSpace": "DeclaredPerChannel"
+        }
+      ],
+      "pipelines": [
+        {
+          "pipeline": "BuiltIn",
+          "status": "RequiresAdapter",
+          "requirements": "\u9700\u8981\u4E13\u95E8\u5149\u7167\u6A21\u677F\u548C SSS \u9884\u79EF\u5206/\u5C4F\u5E55\u6269\u6563\u5BBF\u4E3B\uFF1B\u666E\u901A Standard \u7684\u5305\u88F9\u6F2B\u53CD\u5C04\u4E0D\u80FD\u5192\u5145\u5B8C\u6574 SSS\u3002",
+          "referenceTemplateGuid": ""
+        },
+        {
+          "pipeline": "URP",
+          "status": "RequiresAdapter",
+          "requirements": "\u9700\u8981\u5BF9\u5E94\u7248\u672C\u7684\u81EA\u5B9A\u4E49\u5149\u7167\u53CA Renderer Feature/\u6269\u6563\u8C03\u5EA6\uFF1B\u9ED8\u8BA4 Lit \u6CA1\u6709\u7B49\u4EF7 HDRP SSS\u3002",
+          "referenceTemplateGuid": ""
+        },
+        {
+          "pipeline": "HDRP",
+          "status": "RequiresAdapter",
+          "requirements": "\u53C2\u8003 14.0.8 Lit \u7684 Subsurface Scattering/Transmission\u3001Diffusion Profile \u4E0E\u76F8\u673A/\u8D44\u6E90\u5E27\u8BBE\u7F6E\uFF1B\u5FC5\u987B describe ASE \u6A21\u677F\u662F\u5426\u66B4\u9732\u76F8\u540C\u529F\u80FD\u3002",
+          "referenceTemplateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87"
+        }
+      ],
+      "preserve": [
+        "\u6F2B\u53CD\u5C04\u4E0E\u9AD8\u5149\u5206\u79BB",
+        "\u6B21\u8868\u9762\u6269\u6563\u4E0E\u8584\u90E8\u4F4D\u900F\u5C04\u5206\u5F00",
+        "\u539A\u5EA6\u5C3A\u5EA6\u4E0E Diffusion Profile \u8D44\u4EA7",
+        "\u7C97\u7CD9\u5EA6/\u9AD8\u5149\u5DE5\u4F5C\u6D41",
+        "\u5FAE\u6CD5\u7EBF\u8FDC\u8DDD\u8FC7\u6EE4",
+        "\u76B1\u7EB9\u9A71\u52A8\u4E0E\u9634\u5F71/\u6DF1\u5EA6/\u8FD0\u52A8\u77E2\u91CF Pass"
+      ],
+      "validation": [
+        "\u767D\u5149/\u5F69\u5149/\u9006\u5149",
+        "\u8033\u9F3B\u8584\u90E8\u4F4D\u4E0E\u8138\u988A\u539A\u90E8\u4F4D",
+        "\u66DD\u5149\u4E0E\u80A4\u8272",
+        "\u8868\u60C5\u4E0E\u8499\u76AE\u8FD0\u52A8",
+        "SSS \u5F00\u5173",
+        "\u8FD1\u666F/\u8FDC\u666F\u53CA TAA \u7A33\u5B9A\u6027"
+      ],
+      "costs": [
+        "\u5C4F\u5E55\u7A7A\u95F4 SSS \u662F\u5916\u90E8\u6269\u6563\u8C03\u5EA6\uFF0C\u4E0D\u80FD\u9760\u51E0\u4E2A\u6570\u5B66\u8282\u70B9\u66FF\u4EE3",
+        "\u7EC6\u8282\u7EB9\u7406\u4E0E\u76B1\u7EB9\u5C42\u5E26\u5BBD",
+        "\u900F\u5C04\u9634\u5F71\u3001Diffusion Profile \u4E0E\u5E27\u8BBE\u7F6E\u6210\u672C"
+      ],
+      "sources": [
+        "Unity-Technologies/Graphics: Lit \u002B SubsurfaceScattering (installed HDRP 14.0.8)",
+        "leonardo-domingues/skin-shader-unity (MIT; external convolution host)"
+      ]
+    },
+    {
+      "id": "Hair",
+      "title": "\u5934\u53D1 / \u6BDB\u53D1\u4E0E\u5404\u5411\u5F02\u6027",
+      "ruleId": "hair-anisotropy",
+      "implementation": "RecipeRecorded",
+      "qualityTarget": "\u9AD8\u8D28\u91CF\u5B9E\u65F6\u4EBA\u7269\u76EE\u6807\uFF1B\u5206\u7C7B\u5E93\u6709\u5DF2\u4FDD\u5B58\u91CD\u8F7D\u5E76\u7F16\u8BD1\u7684\u57FA\u7840\u56FE\u548C\u90E8\u5206\u539F\u56FE\u9002\u914D\u3002\u5B8C\u6574\u89D2\u8272\u8D34\u56FE/\u5BBF\u4E3B\u4E0E\u539F\u573A\u666F\u753B\u9762\u5BF9\u6BD4\u5C1A\u672A\u9A8C\u8BC1\uFF0C\u4E0D\u80FD\u5BA3\u79F0\u8FBE\u5230 3A \u6210\u7247\u8D28\u91CF\u3002",
+      "geometry": "\u533A\u5206 Hair Cards \u53D1\u5361\u3001\u771F\u5B9E Strand \u53D1\u4E1D\u4E0E Shell/Fin \u58F3\u5C42\u6BDB\u53D1\uFF1B\u5207\u7EBF\u65B9\u5411\u3001\u6839\u68A2\u5C5E\u6027\u3001Bounds \u548C LOD \u4E0D\u80FD\u7701\u7565\u3002",
+      "inputs": [
+        {
+          "name": "Base / Root-Tip Color",
+          "usage": "\u57FA\u8272\u6216\u6839\u68A2/\u67D3\u8272\u5206\u5E03",
+          "colorSpace": "sRGBOrDeclared"
+        },
+        {
+          "name": "Opacity / Coverage",
+          "usage": "\u8986\u76D6\u7387\uFF0C\u8FC7\u6EE4\u3001mip \u4E0E\u9608\u503C\u5FC5\u987B\u914D\u5957",
+          "colorSpace": "Linear"
+        },
+        {
+          "name": "Tangent / Flow",
+          "usage": "\u68B3\u7406\u65B9\u5411\u548C\u6B63\u4EA4\u57FA\uFF1B\u4E0D\u80FD\u5F53\u666E\u901A RGB \u6CD5\u7EBF\u8BFB\u53D6",
+          "colorSpace": "LinearOrVertexAttribute"
+        },
+        {
+          "name": "Normal / Roughness / Shift",
+          "usage": "\u539F\u6A21\u578B\u7684\u6CD5\u7EBF\u3001\u7EB5\u5411/\u6A2A\u5411\u7C97\u7CD9\u5EA6\u4E0E\u9AD8\u5149\u4F4D\u79FB",
+          "colorSpace": "DeclaredPerChannel"
+        },
+        {
+          "name": "Strand / Shell Data",
+          "usage": "\u957F\u5EA6\u3001\u5BC6\u5EA6\u3001\u6839\u68A2\u3001LOD\u3001\u4EFF\u771F\u53CA\u8FD0\u52A8\u5386\u53F2",
+          "colorSpace": "MeshAndHostData"
+        }
+      ],
+      "pipelines": [
+        {
+          "pipeline": "BuiltIn",
+          "status": "RequiresAdapter",
+          "requirements": "\u9700\u8981\u5404\u5411\u5F02\u6027\u5149\u7167\u6A21\u677F\u3001\u8986\u76D6/\u53CC\u9762\u4E0E\u9634\u5F71\u9002\u914D\uFF1B\u58F3\u5C42/\u53D1\u4E1D\u51E0\u4F55\u548C\u5BBF\u4E3B\u4EFF\u771F\u72EC\u7ACB\u5B9E\u73B0\u3002",
+          "referenceTemplateGuid": ""
+        },
+        {
+          "pipeline": "URP",
+          "status": "RequiresAdapter",
+          "requirements": "\u9700\u8981\u76F8\u5E94\u7248\u672C\u7684\u706F\u5149/\u9634\u5F71\u63A5\u53E3\u53CA Alpha/DepthNormals \u9002\u914D\uFF1B\u793A\u4F8B\u53CC\u9AD8\u5149\u4E0D\u662F\u6240\u6709\u7269\u7406\u53D1\u4E1D\u6A21\u578B\u7684\u7B49\u4EF7\u5B9E\u73B0\u3002",
+          "referenceTemplateGuid": ""
+        },
+        {
+          "pipeline": "HDRP",
+          "status": "RequiresAdapter",
+          "requirements": "\u53C2\u8003\u76EE\u6807\u7248\u672C Hair BSDF\uFF1B14.0.8 \u7684\u5B9E\u9645\u7279\u6027\u4E0D\u80FD\u5957\u7528\u540E\u7EED HDRP \u7269\u7406\u53D1\u4E1D\u529F\u80FD\u3002ASE \u6A21\u677F\u3001\u900F\u660E\u6DF1\u5EA6\u4E0E\u8FD0\u52A8 Pass \u9010\u9879\u6838\u5BF9\u3002",
+          "referenceTemplateGuid": "e4fe21624ace6de4b9fbaabdda0c51de"
+        }
+      ],
+      "preserve": [
+        "\u53D1\u5361\u4E0E\u53D1\u4E1D\u6563\u5C04\u6A21\u578B\u4E0D\u6DF7\u540C",
+        "\u5207\u7EBF\u8F74\u5411\u4E0E\u624B\u6027",
+        "\u53CC\u53F6\u9AD8\u5149\u6216 R/TT/TRT \u5404\u53F6\u7684\u539F\u59CB\u5B9A\u4E49",
+        "Alpha Clip/Blend/AlphaToCoverage \u5404\u81EA\u8BED\u4E49",
+        "\u53CC\u9762\u6CD5\u7EBF\u4E0E\u900F\u660E\u6392\u5E8F",
+        "\u6BDB\u53D1\u5BC6\u5EA6/\u98CE\u6446/\u5386\u53F2\u4F4D\u7F6E",
+        "ShadowCaster/Depth/Motion Vectors \u8986\u76D6\u4E00\u81F4"
+      ],
+      "validation": [
+        "\u7ED5\u5149\u9AD8\u5149\u79FB\u52A8",
+        "\u6B63\u80CC\u5149\u4E0E\u8F6E\u5ED3\u900F\u5C04",
+        "\u53D1\u5361\u591A\u5C42\u4EA4\u53E0",
+        "Alpha \u8FB9\u7F18\u53CA\u9634\u5F71",
+        "LOD/\u8DDD\u79BB/\u8FD0\u52A8",
+        "TAA/MSAA \u5404\u81EA\u68C0\u67E5",
+        "\u58F3\u5C42\u5916\u8F6E\u5ED3\u4E0E\u51E0\u4F55\u9636\u6BB5"
+      ],
+      "costs": [
+        "\u53D1\u5361\u4E3B\u8981\u5173\u6CE8 overdraw\u3001\u9634\u5F71\u548C Alpha \u6D4B\u8BD5",
+        "\u771F\u5B9E\u53D1\u4E1D\u7684\u51E0\u4F55/\u6A21\u62DF\u4E0E\u6563\u5C04\u6210\u672C",
+        "\u58F3\u5C42/fin \u7684 draw\u3001\u9876\u70B9\u653E\u5927\u4E0E\u5254\u9664\u6210\u672C"
+      ],
+      "sources": [
+        "Unity-Technologies/Graphics: Hair (installed HDRP 14.0.8)",
+        "itsFulcrum/Unity-URP-Hair-Shader (CC0-1.0)",
+        "hecomi/UnityFurURP (license unresolved; read-only research only)"
+      ]
+    },
+    {
+      "id": "Eye",
+      "title": "\u773C\u7403 / \u89D2\u819C\u3001\u8679\u819C\u4E0E\u5DE9\u819C",
+      "ruleId": "eye-cornea-iris",
+      "implementation": "RecipeRecorded",
+      "qualityTarget": "\u9AD8\u8D28\u91CF\u5B9E\u65F6\u4EBA\u7269\u76EE\u6807\uFF1B\u5206\u7C7B\u5E93\u6709\u5DF2\u4FDD\u5B58\u91CD\u8F7D\u5E76\u7F16\u8BD1\u7684\u57FA\u7840\u56FE\u548C\u90E8\u5206\u539F\u56FE\u9002\u914D\u3002\u5B8C\u6574\u89D2\u8272\u8D34\u56FE/\u5BBF\u4E3B\u4E0E\u539F\u573A\u666F\u753B\u9762\u5BF9\u6BD4\u5C1A\u672A\u9A8C\u8BC1\uFF0C\u4E0D\u80FD\u5BA3\u79F0\u8FBE\u5230 3A \u6210\u7247\u8D28\u91CF\u3002",
+      "geometry": "\u660E\u786E\u89D2\u819C\u5916\u58F3\u4E0E\u773C\u7403\u5185\u5C42\u662F\u53CC\u7F51\u683C\u8FD8\u662F\u7BA1\u7EBF\u5355\u6750\u8D28\u6A21\u578B\uFF1B\u8679\u819C\u51F9\u9677\u3001\u77B3\u5B54\u906E\u7F69\u3001\u773C\u7751\u906E\u6321\u53CA\u6CEA\u7EBF\u5206\u5F00\u3002",
+      "inputs": [
+        {
+          "name": "Iris / Sclera Base",
+          "usage": "\u8679\u819C\u548C\u5DE9\u819C\u989C\u8272\uFF1B\u5E03\u5C40\u4E0E\u906E\u7F69\u6309\u6E90\u786E\u8BA4",
+          "colorSpace": "sRGB"
+        },
+        {
+          "name": "Iris / Cornea Normal",
+          "usage": "\u5185\u5C42\u4E0E\u89D2\u819C\u5916\u5C42\u5206\u522B\u4FDD\u7559",
+          "colorSpace": "NormalMap"
+        },
+        {
+          "name": "Iris / Pupil / Limbal Masks",
+          "usage": "\u8679\u819C\u3001\u77B3\u5B54\u548C\u89D2\u819C\u7F18\uFF0C\u4E0D\u628A\u77B3\u5B54\u9ED1\u8272\u5F53\u900F\u660E",
+          "colorSpace": "Linear"
+        },
+        {
+          "name": "IOR / Iris Depth / Pupil Scale",
+          "usage": "\u91CF\u7EB2\u3001\u6298\u5C04\u65B9\u5411\u53CA\u77B3\u5B54\u5C3A\u5BF8\u8303\u56F4",
+          "colorSpace": "Parameters"
+        },
+        {
+          "name": "Thickness / Diffusion Profile",
+          "usage": "\u5DE9\u819C\u6563\u5C04\u7684\u7BA1\u7EBF/\u8D34\u56FE\u4F9D\u8D56",
+          "colorSpace": "AssetOrLinear"
+        },
+        {
+          "name": "Occlusion / Tearline",
+          "usage": "\u773C\u7751\u9634\u5F71\u4E0E\u6CEA\u7EBF\u662F\u72EC\u7ACB\u6A21\u578B/\u6750\u8D28\u6216\u8F93\u5165",
+          "colorSpace": "DeclaredHostData"
+        }
+      ],
+      "pipelines": [
+        {
+          "pipeline": "BuiltIn",
+          "status": "RequiresAdapter",
+          "requirements": "\u9700\u8981\u89D2\u819C/\u8679\u819C\u5206\u5C42\u5149\u7167\u4E0E\u6298\u5C04\u6A21\u677F\uFF1B\u4EC5\u52A0 Clear Coat \u6216\u666E\u901A\u900F\u660E\u9AD8\u5149\u4E0D\u80FD\u89C6\u4E3A\u7B49\u4EF7\u773C\u7403\u3002",
+          "referenceTemplateGuid": ""
+        },
+        {
+          "pipeline": "URP",
+          "status": "RequiresAdapter",
+          "requirements": "\u9700\u8981\u81EA\u5B9A\u4E49\u773C\u7403\u5149\u7167\u3001\u6298\u5C04\u8F93\u5165\u4E0E\u5FC5\u8981\u7684 Renderer Feature\uFF1B\u5185\u5916\u5C42\u6CD5\u7EBF\u4E0E\u6392\u5E8F\u72EC\u7ACB\u5BA1\u67E5\u3002",
+          "referenceTemplateGuid": ""
+        },
+        {
+          "pipeline": "HDRP",
+          "status": "RequiresAdapter",
+          "requirements": "\u53C2\u8003 14.0.8 Eye \u7684\u89D2\u819C/\u8679\u819C\u53CC\u5C42\u3001IOR \u4E0E SSS\uFF1B\u4E0D\u80FD\u4EE5\u666E\u901A HDRP Lit \u8F93\u51FA\u4EE3\u66FF Eye BSDF\uFF0CASE Eye \u6A21\u677F\u662F\u5426\u53EF\u7528\u987B\u5B9E\u9645 probe/describe\u3002",
+          "referenceTemplateGuid": ""
+        }
+      ],
+      "preserve": [
+        "\u89D2\u819C\u4E0E\u5185\u5C42\u4E0D\u540C\u6CD5\u7EBF\u548C\u7C97\u7CD9\u5EA6",
+        "IOR \u4E0E\u6298\u5C04\u7A7A\u95F4",
+        "\u8679\u819C\u51F9\u9677\u548C\u89C6\u5DEE\u6DF1\u5EA6",
+        "\u77B3\u5B54\u76F4\u5F84\u53CA UV \u539F\u70B9",
+        "\u5DE9\u819C\u6563\u5C04\u4E0E\u8840\u4E1D",
+        "\u89D2\u819C\u9AD8\u5149\u4E0E\u53CD\u5C04",
+        "\u773C\u7751\u906E\u6321/\u6CEA\u7EBF\u53CA\u900F\u660E\u6392\u5E8F",
+        "\u8499\u76AE/\u89C6\u7EBF\u52A8\u753B\u4E0E\u8FD0\u52A8 Pass"
+      ],
+      "validation": [
+        "\u6B63\u89C6/\u63A0\u5C04\u4E0E\u773C\u7403\u8F6C\u52A8",
+        "\u77B3\u5B54\u7F29\u653E\u53CA\u8679\u819C\u8FB9\u7F18",
+        "\u89D2\u819C\u9AD8\u5149/\u53CD\u5C04",
+        "\u4FA7\u9762\u8679\u819C\u89C6\u5DEE",
+        "\u773C\u7751/\u6CEA\u7EBF\u906E\u6321",
+        "\u8FD1\u8FDC\u8DDD\u79BB/\u66DD\u5149",
+        "\u4E0D\u540C\u5149\u6E90\u53CA\u7ACB\u4F53\u89C6\u56FE"
+      ],
+      "costs": [
+        "\u89D2\u819C\u6298\u5C04\u91C7\u6837\u53CA\u900F\u660E\u53E0\u5C42",
+        "\u53CC\u5C42 BSDF \u4E0E\u89C6\u5DEE\u6B65\u9AA4",
+        "\u5DE9\u819C SSS \u5916\u90E8\u8C03\u5EA6",
+        "\u989D\u5916\u773C\u7751/\u6CEA\u7EBF\u51E0\u4F55\u548C\u6750\u8D28\u6210\u672C"
+      ],
+      "sources": [
+        "Unity-Technologies/Graphics: Eye/Eye.hlsl \u002B Eye.cs.hlsl \u002B EyeUtils.hlsl (installed HDRP 14.0.8)"
+      ]
+    },
+    {
+      "id": "Fabric",
+      "title": "\u8863\u670D\u5E03\u6599 / Sheen\u3001\u4E1D\u7EF8\u4E0E\u7EC7\u7EB9",
+      "ruleId": "fabric-sheen",
+      "implementation": "RecipeRecorded",
+      "qualityTarget": "\u9AD8\u8D28\u91CF\u5B9E\u65F6\u4EBA\u7269\u76EE\u6807\uFF1B\u5206\u7C7B\u5E93\u6709\u5DF2\u4FDD\u5B58\u91CD\u8F7D\u5E76\u7F16\u8BD1\u7684\u57FA\u7840\u56FE\u548C\u90E8\u5206\u539F\u56FE\u9002\u914D\u3002\u5B8C\u6574\u89D2\u8272\u8D34\u56FE/\u5BBF\u4E3B\u4E0E\u539F\u573A\u666F\u753B\u9762\u5BF9\u6BD4\u5C1A\u672A\u9A8C\u8BC1\uFF0C\u4E0D\u80FD\u5BA3\u79F0\u8FBE\u5230 3A \u6210\u7247\u8D28\u91CF\u3002",
+      "geometry": "\u8863\u670D\u8499\u76AE/\u5E03\u6599\u6A21\u62DF\u662F\u5BBF\u4E3B\u529F\u80FD\uFF1B\u68C9\u9EBB/\u7ED2\u9762\u4E0E\u4E1D\u7EF8\u5206\u522B\u9009\u62E9\u6563\u5C04\u6A21\u578B\uFF0C\u4FDD\u7559\u7EC7\u7EB9\u65B9\u5411\u4E0E\u53CC\u9762\u539A\u5EA6\u3002",
+      "inputs": [
+        {
+          "name": "Base Color",
+          "usage": "\u7EC7\u7269\u57FA\u8272/\u56FE\u6848\uFF0C\u53BB\u9664\u70D8\u7119\u5149\u7167",
+          "colorSpace": "sRGB"
+        },
+        {
+          "name": "Normal / Weave Detail",
+          "usage": "\u8936\u76B1\u548C\u7EC6\u7EC7\u7EB9\uFF0C\u4FDD\u7559\u6CD5\u7EBF\u5408\u6210\u53CA\u771F\u5B9E\u5C3A\u5BF8",
+          "colorSpace": "NormalMap"
+        },
+        {
+          "name": "Roughness / Sheen / Anisotropy",
+          "usage": "\u5177\u4F53\u6A21\u578B\u4E0E\u901A\u9053\u6309\u539F\u6E90\u6750\u8D28\u786E\u8BA4",
+          "colorSpace": "Linear"
+        },
+        {
+          "name": "Tangent / Weave Direction",
+          "usage": "\u4E1D\u7EF8\u9AD8\u5149\u53CA\u7EA4\u7EF4\u65B9\u5411",
+          "colorSpace": "LinearOrVertexAttribute"
+        },
+        {
+          "name": "Thickness / Transmission",
+          "usage": "\u80CC\u5149\u900F\u5C04\u4E0E\u53CC\u9762\u8FD1\u4F3C",
+          "colorSpace": "Linear"
+        },
+        {
+          "name": "Simulation / Wear Masks (optional)",
+          "usage": "\u5E03\u6599\u8FD0\u52A8\u5BBF\u4E3B\u53CA\u6C61\u6E0D/\u78E8\u635F\u5C42",
+          "colorSpace": "DeclaredHostData"
+        }
+      ],
+      "pipelines": [
+        {
+          "pipeline": "BuiltIn",
+          "status": "RequiresAdapter",
+          "requirements": "\u9700\u8981\u68C9\u9EBB Sheen/\u4E1D\u7EF8\u5404\u5411\u5F02\u6027\u4E13\u7528\u5149\u7167\u6A21\u677F\uFF1B\u666E\u901A Standard \u4E0D\u63D0\u4F9B\u7B49\u4EF7 Fabric BSDF\u3002",
+          "referenceTemplateGuid": ""
+        },
+        {
+          "pipeline": "URP",
+          "status": "RequiresAdapter",
+          "requirements": "\u9700\u8981\u76EE\u6807\u7248\u672C\u7684\u81EA\u5B9A\u4E49 Sheen/\u5404\u5411\u5F02\u6027\u5149\u7167\u53CA\u53CC\u9762/\u9634\u5F71\u9002\u914D\uFF1B\u7EC7\u7EB9\u6570\u5B66\u53EF\u590D\u7528\u4F46\u4E0D\u4EE3\u8868\u5B8C\u6574\u6750\u8D28\u8F6C\u6362\u3002",
+          "referenceTemplateGuid": ""
+        },
+        {
+          "pipeline": "HDRP",
+          "status": "RequiresAdapter",
+          "requirements": "\u53C2\u8003 14.0.8 Fabric \u7684 Cotton/Wool \u4E0E Silk \u6A21\u578B\u3001\u900F\u5C04\u548C\u5207\u7EBF\u8BBE\u7F6E\uFF1BASE \u6A21\u677F\u4E0E\u5404\u8F85\u52A9 Pass \u987B\u5B9E\u9645\u6838\u5BF9\u3002",
+          "referenceTemplateGuid": "41e04be03f2c20941bc749271be1c937"
+        }
+      ],
+      "preserve": [
+        "\u68C9\u9EBB Sheen \u4E0E\u4E1D\u7EF8\u5404\u5411\u5F02\u6027\u533A\u5206",
+        "\u539F\u59CB\u7C97\u7CD9\u5EA6/\u80FD\u91CF\u8865\u507F",
+        "\u7EC7\u7EB9\u5207\u7EBF\u65B9\u5411\u4E0E\u771F\u5B9E\u5C3A\u5EA6",
+        "\u7EC6\u8282\u6CD5\u7EBF\u548C\u8FDC\u8DDD\u8FC7\u6EE4",
+        "\u53CC\u9762\u6CD5\u7EBF/\u900F\u5C04\u4E0E\u539A\u5EA6",
+        "\u6C61\u6E0D/\u78E8\u635F\u906E\u7F69",
+        "\u8499\u76AE/\u5E03\u6599\u6A21\u62DF\u4E0E Shadow/Depth/Motion Pass"
+      ],
+      "validation": [
+        "\u68C9\u9EBB/\u4E1D\u7EF8\u5206\u522B\u7ED5\u5149",
+        "\u63A0\u5C04\u89D2\u4E0E\u8936\u76B1",
+        "\u7EC7\u7EB9\u8FD1\u8FDC\u6297\u952F\u9F7F",
+        "\u6B63\u80CC\u9762\u53CA\u9006\u5149\u900F\u5C04",
+        "\u5E03\u6599\u8FD0\u52A8\u548C\u9634\u5F71",
+        "\u66DD\u5149\u4E0E\u591A\u5149\u6E90"
+      ],
+      "costs": [
+        "Sheen/\u5404\u5411\u5F02\u6027 BSDF \u6210\u672C",
+        "\u9AD8\u9891\u7EC7\u7EB9\u7EB9\u7406\u548C\u91C7\u6837\u8FC7\u6EE4",
+        "\u53CC\u9762 overdraw \u4E0E\u900F\u5C04\u9634\u5F71",
+        "\u5E03\u6599\u6A21\u62DF\u3001\u9876\u70B9\u8FD0\u52A8\u4E0E\u5386\u53F2\u5E27\u7684\u989D\u5916\u6210\u672C"
+      ],
+      "sources": [
+        "Unity-Technologies/Graphics: Fabric/Fabric.hlsl \u002B Fabric.cs.hlsl (installed HDRP 14.0.8)"
+      ]
+    }
+  ]
+}

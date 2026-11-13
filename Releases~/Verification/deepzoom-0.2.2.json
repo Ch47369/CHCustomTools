@@ -1,0 +1,69 @@
+{
+    "packageVersion":  "0.2.2",
+    "recordDate":  "2026-10-21",
+    "unityVersion":  "2022.3.10f1",
+    "aseVersion":  "1.9.9.13",
+    "pipeline":  "BuiltIn",
+    "graphicsApi":  "Direct3D11",
+    "coreChecks":  {
+                       "count":  48,
+                       "passed":  true
+                   },
+    "editorReferenceCompile":  {
+                                   "errors":  0,
+                                   "warnings":  0,
+                                   "passed":  true
+                               },
+    "unityChecks":  {
+                        "marker":  "ASE_ARRAY_SMOKE_PASS: 34",
+                        "count":  34,
+                        "passed":  true
+                    },
+    "source":  {
+                   "copyMatchesOriginal":  true,
+                   "path":  "F:/BingMaYongPhoto/Assets/Scripts/GameLogic/MediaManager/ShowDetailPanel/ShowDetail360/DeepZoomPageTable360.shader",
+                   "sha256":  "69f2ebdea4fb87f9ea69e887f36dbcd9ab8ddf73f9f857465e99e80aaf1c9728"
+               },
+    "output":  {
+                   "sha256":  "5c4d4efe2f2f16352517f2e54ee23f3158e1b5fc92ef31e2479b7a0ddf345802",
+                   "shaderCompiled":  true,
+                   "properties":  6,
+                   "nativeNodes":  79,
+                   "path":  "Releases~/Converted/DeepZoomPageTable360/DeepZoomPageTable360_ASE.shader",
+                   "aseRoundTripPassed":  true,
+                   "customExpressions":  0
+               },
+    "fixtureComparison":  {
+                              "width":  128,
+                              "height":  64,
+                              "grids":  [
+                                            "4x2",
+                                            "3x3"
+                                        ],
+                              "flipValues":  [
+                                                 0,
+                                                 0.5,
+                                                 1
+                                             ],
+                              "frontFacesCulled":  true,
+                              "passed":  true,
+                              "maxAbsoluteError":  0,
+                              "threshold":  0.00784313725490196,
+                              "nullArrayDefaultMatches":  true,
+                              "visibleNonconstantReference":  true,
+                              "channels":  "RGBA",
+                              "cases":  6
+                          },
+    "targetSceneComparisonPassed":  false,
+    "originalAssetsModified":  false,
+    "originalAseSourceRedistributed":  false,
+    "independentSample":  {
+                              "output":  "Samples~/Generated/BuiltIn/ArrayLookup_ASE.shader",
+                              "source":  "Samples~/Handwritten/ArrayLookup.shader",
+                              "nativeNodes":  33,
+                              "sha256":  "43d1e90195d7b5e6c0f821adff66dfa69ace7aa856d4ee6a68c75719ec2a96e6",
+                              "shaderCompiled":  true,
+                              "aseRoundTripPassed":  true,
+                              "visualComparisonPassed":  false
+                          }
+}

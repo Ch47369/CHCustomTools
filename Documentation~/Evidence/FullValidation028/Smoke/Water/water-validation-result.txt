@@ -1,0 +1,1 @@
+PASS: ASE save/reload/compile; 22 feature keyword combinations compiled and rendered. Original authored plan; no source-shader visual equivalence or GPU benchmark.

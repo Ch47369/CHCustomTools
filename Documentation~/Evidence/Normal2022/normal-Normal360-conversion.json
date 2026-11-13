@@ -1,0 +1,499 @@
+{
+    "schemaVersion": 1,
+    "success": true,
+    "error": "",
+    "environment": {
+        "unityVersion": "",
+        "aseVersion": "",
+        "activePipeline": "",
+        "templates": [],
+        "errors": []
+    },
+    "description": {
+        "masters": [],
+        "options": []
+    },
+    "analysis": {
+        "plan": {
+            "schemaVersion": 1,
+            "shaderName": "Unlit/Normal360_ASE",
+            "pipeline": "BuiltIn",
+            "surface": "Unlit",
+            "templateGuid": "a99d644facf4442398d54acf418923b9",
+            "nodes": [
+                {
+                    "id": "n0",
+                    "type": "TexturePropertyNode",
+                    "purpose": "Property _MainTex",
+                    "fallbackReason": "",
+                    "group": "properties",
+                    "label": "_MainTex",
+                    "x": 2730.0,
+                    "y": 115.0,
+                    "propertyName": "_MainTex",
+                    "displayName": "Texture",
+                    "value": "\"white\" {}",
+                    "propertyKind": "2D",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n1",
+                    "type": "RangedFloatNode",
+                    "purpose": "Property _FlipHorizontally",
+                    "fallbackReason": "",
+                    "group": "properties",
+                    "label": "_FlipHorizontally",
+                    "x": 50.0,
+                    "y": 115.0,
+                    "propertyName": "_FlipHorizontally",
+                    "displayName": "Flip Horizontally",
+                    "value": "0",
+                    "propertyKind": "Float",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [
+                        {
+                            "name": "attribute:Toggle",
+                            "value": "true"
+                        }
+                    ],
+                    "customInputs": []
+                },
+                {
+                    "id": "n2",
+                    "type": "TextureCoordinatesNode",
+                    "purpose": "UV0",
+                    "fallbackReason": "",
+                    "group": "phase2",
+                    "label": "uv",
+                    "x": 50.0,
+                    "y": 725.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [
+                        {
+                            "name": "m_textureCoordChannel",
+                            "value": "0"
+                        }
+                    ],
+                    "customInputs": []
+                },
+                {
+                    "id": "n3",
+                    "type": "RangedFloatNode",
+                    "purpose": "Constant",
+                    "fallbackReason": "",
+                    "group": "phase3",
+                    "label": "",
+                    "x": 910.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "0.5",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n4",
+                    "type": "RangedFloatNode",
+                    "purpose": "Constant",
+                    "fallbackReason": "",
+                    "group": "phase3",
+                    "label": "",
+                    "x": 910.0,
+                    "y": 480.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "1.0",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n5",
+                    "type": "SwizzleNode",
+                    "purpose": "Swizzle x",
+                    "fallbackReason": "",
+                    "group": "phase3",
+                    "label": "",
+                    "x": 910.0,
+                    "y": 845.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "x",
+                    "code": "",
+                    "outputType": "FLOAT",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n6",
+                    "type": "SimpleSubtractOpNode",
+                    "purpose": "SimpleSubtractOpNode",
+                    "fallbackReason": "",
+                    "group": "phase3",
+                    "label": "",
+                    "x": 1310.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n7",
+                    "type": "SwizzleNode",
+                    "purpose": "Swizzle x",
+                    "fallbackReason": "",
+                    "group": "phase3",
+                    "label": "",
+                    "x": 910.0,
+                    "y": 1210.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "x",
+                    "code": "",
+                    "outputType": "FLOAT",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n8",
+                    "type": "ConditionalIfNode",
+                    "purpose": "Local if/else: uv.x",
+                    "fallbackReason": "",
+                    "group": "phase3",
+                    "label": "",
+                    "x": 1710.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n9",
+                    "type": "SwizzleNode",
+                    "purpose": "Swizzle y",
+                    "fallbackReason": "",
+                    "group": "phase3",
+                    "label": "",
+                    "x": 910.0,
+                    "y": 1575.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "y",
+                    "code": "",
+                    "outputType": "FLOAT",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n10",
+                    "type": "DynamicAppendNode",
+                    "purpose": "DynamicAppendNode",
+                    "fallbackReason": "",
+                    "group": "phase3",
+                    "label": "",
+                    "x": 2110.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "FLOAT2",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n11",
+                    "type": "SamplerNode",
+                    "purpose": "Texture sample",
+                    "fallbackReason": "",
+                    "group": "phase11",
+                    "label": "col",
+                    "x": 3130.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                }
+            ],
+            "wires": [
+                {
+                    "from": "n2",
+                    "fromPort": "0",
+                    "to": "n5",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n4",
+                    "fromPort": "0",
+                    "to": "n6",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n5",
+                    "fromPort": "0",
+                    "to": "n6",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n2",
+                    "fromPort": "0",
+                    "to": "n7",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n1",
+                    "fromPort": "0",
+                    "to": "n8",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n3",
+                    "fromPort": "0",
+                    "to": "n8",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n7",
+                    "fromPort": "0",
+                    "to": "n8",
+                    "toPort": "4"
+                },
+                {
+                    "from": "n7",
+                    "fromPort": "0",
+                    "to": "n8",
+                    "toPort": "3"
+                },
+                {
+                    "from": "n6",
+                    "fromPort": "0",
+                    "to": "n8",
+                    "toPort": "2"
+                },
+                {
+                    "from": "n2",
+                    "fromPort": "0",
+                    "to": "n9",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n8",
+                    "fromPort": "0",
+                    "to": "n10",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n9",
+                    "fromPort": "0",
+                    "to": "n10",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n0",
+                    "fromPort": "0",
+                    "to": "n11",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n10",
+                    "fromPort": "0",
+                    "to": "n11",
+                    "toPort": "1"
+                }
+            ],
+            "outputs": [
+                {
+                    "node": "n11",
+                    "port": "0",
+                    "masterPort": "Color",
+                    "pass": "Unlit"
+                }
+            ],
+            "masterSettings": [],
+            "presentation": {
+                "autoLayout": true,
+                "addComments": true,
+                "useRegisters": true,
+                "longWireDistance": 1800.0,
+                "maxRegisters": 24
+            },
+            "comments": [
+                {
+                    "id": "properties",
+                    "title": "材质输入",
+                    "text": "这些属性提供纹理、颜色和参数；属性名与原 Shader 一致。"
+                },
+                {
+                    "id": "phase2",
+                    "title": "计算 uv",
+                    "text": "按连线计算并传递结果。表达式：i.uv"
+                },
+                {
+                    "id": "phase3",
+                    "title": "条件选择",
+                    "text": "比较输入并选择分支，更新局部变量；保留相等时的分支结果。"
+                },
+                {
+                    "id": "phase11",
+                    "title": "计算 col",
+                    "text": "按 UV 采样纹理。表达式：tex2D(_MainTex, uv) 模板先在顶点阶段应用 _MainTex 的缩放/偏移，最终保留 Alpha 并应用 Unity 雾效；双面可见。"
+                }
+            ]
+        },
+        "report": {
+            "status": "Generated",
+            "sourcePath": "Assets/Source/Normal360.shader",
+            "outputPath": "Assets/Generated/Normal360_ASE 1.shader",
+            "shaderName": "Unlit/Normal360_ASE",
+            "pipeline": "BuiltIn",
+            "unityVersion": "2022.3.10f1",
+            "aseVersion": "1.9.9.13",
+            "templateGuid": "a99d644facf4442398d54acf418923b9",
+            "existingAseGraph": false,
+            "aseRoundTripPassed": true,
+            "shaderCompiled": true,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 14,
+            "customExpressionCount": 0,
+            "propertyCount": 2,
+            "layoutApplied": true,
+            "commentCount": 4,
+            "registerNodeCount": 1,
+            "getNodeCount": 1,
+            "nativeMappings": [
+                "Property _MainTex -> TexturePropertyNode",
+                "Property _FlipHorizontally -> RangedFloatNode",
+                "UV0 -> TextureCoordinatesNode",
+                "Constant -> RangedFloatNode",
+                "Constant -> RangedFloatNode",
+                "Swizzle x -> SwizzleNode",
+                "SimpleSubtractOpNode -> SimpleSubtractOpNode",
+                "Swizzle x -> SwizzleNode",
+                "Local if/else: uv.x -> ConditionalIfNode",
+                "Swizzle y -> SwizzleNode",
+                "DynamicAppendNode -> DynamicAppendNode",
+                "Texture sample -> SamplerNode",
+                "Reviewed Normal360 profile: native UV/If/sample graph; template preserves vertex TRANSFORM_TEX, Cull Off, LOD 100, default target 2.5, multi_compile_fog, UNITY_TRANSFER_FOG and UNITY_APPLY_FOG."
+            ],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": [
+                "This Normal360 adapter is restricted to the reviewed source signature and requires the converter's two-sided fog template.",
+                "A plan is not a validated ASE shader. Generate and reload it in the target Unity/ASE environment, then compare rendering with the source.",
+                "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+            ]
+        }
+    },
+    "report": {
+        "status": "Generated",
+        "sourcePath": "Assets/Source/Normal360.shader",
+        "outputPath": "Assets/Generated/Normal360_ASE 1.shader",
+        "shaderName": "Unlit/Normal360_ASE",
+        "pipeline": "BuiltIn",
+        "unityVersion": "2022.3.10f1",
+        "aseVersion": "1.9.9.13",
+        "templateGuid": "a99d644facf4442398d54acf418923b9",
+        "existingAseGraph": false,
+        "aseRoundTripPassed": true,
+        "shaderCompiled": true,
+        "visualComparisonPassed": false,
+        "nativeNodeCount": 14,
+        "customExpressionCount": 0,
+        "propertyCount": 2,
+        "layoutApplied": true,
+        "commentCount": 4,
+        "registerNodeCount": 1,
+        "getNodeCount": 1,
+        "nativeMappings": [
+            "Property _MainTex -> TexturePropertyNode",
+            "Property _FlipHorizontally -> RangedFloatNode",
+            "UV0 -> TextureCoordinatesNode",
+            "Constant -> RangedFloatNode",
+            "Constant -> RangedFloatNode",
+            "Swizzle x -> SwizzleNode",
+            "SimpleSubtractOpNode -> SimpleSubtractOpNode",
+            "Swizzle x -> SwizzleNode",
+            "Local if/else: uv.x -> ConditionalIfNode",
+            "Swizzle y -> SwizzleNode",
+            "DynamicAppendNode -> DynamicAppendNode",
+            "Texture sample -> SamplerNode",
+            "Reviewed Normal360 profile: native UV/If/sample graph; template preserves vertex TRANSFORM_TEX, Cull Off, LOD 100, default target 2.5, multi_compile_fog, UNITY_TRANSFER_FOG and UNITY_APPLY_FOG."
+        ],
+        "fallbackReasons": [],
+        "blockers": [],
+        "warnings": [
+            "This Normal360 adapter is restricted to the reviewed source signature and requires the converter's two-sided fog template.",
+            "A plan is not a validated ASE shader. Generate and reload it in the target Unity/ASE environment, then compare rendering with the source.",
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+        ]
+    }
+}

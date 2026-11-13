@@ -1,0 +1,360 @@
+{
+  "contracts": [
+    {
+      "id": "local-HDRP-0b09e8a8e8b4",
+      "sourceSha256": "0b09e8a8e8b43cce0a750f452362b78d06045c51bec67d0c108959be6574cc9b",
+      "planSha256": "dc6f03bb5fdb8eba0e8f18a9c038a02057b6efa8d877edf710aef2d62ab2d893",
+      "nativePlannedNodes": 60,
+      "plannedComments": 2,
+      "assetBindings": [
+        {
+          "property": "_NormalMap",
+          "guid": "07c705c812ce4d74a961f65dc8dbe447",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "Smoothness",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        }
+      ],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-044b7612c112",
+      "sourceSha256": "044b7612c112f6cc282ca13662d6cbadc33d7bec7a2a7b2769e66f1ae3f9f213",
+      "planSha256": "4e26b08f8d8b731d1fd8db6e7efbe5b966a53a8b6d6a315f14f41f91af276ff0",
+      "nativePlannedNodes": 66,
+      "plannedComments": 2,
+      "assetBindings": [
+        {
+          "property": "_NormalMap",
+          "guid": "07c705c812ce4d74a961f65dc8dbe447",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "Smoothness",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        }
+      ],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-2a377100bd62",
+      "sourceSha256": "2a377100bd62b31426400f4093474a961767be3a48b4c8dc9fb2698661196915",
+      "planSha256": "e9b4afd0e2fccaba0d96345a84834bafdeec883f056eb541f271f9330d6c0adb",
+      "nativePlannedNodes": 18,
+      "plannedComments": 2,
+      "assetBindings": [],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-5f1acba57c6f",
+      "sourceSha256": "5f1acba57c6f60c427ac293d959dcf2c9bbe6f14f5327d25eff2678099c82a1e",
+      "planSha256": "9b7410a75d35d6200384e993e3faf1f08bc8b04e1cce922fd2644e705f1b53a8",
+      "nativePlannedNodes": 71,
+      "plannedComments": 17,
+      "assetBindings": [],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-91b14ee430f3",
+      "sourceSha256": "91b14ee430f3cd2090223700cbb23c21882185aa72477f5064bc9cce6f0dd14a",
+      "planSha256": "f597d04e1863649ba2af65427b5152b3dbac82f322f79bf28dfe76913e9a79c8",
+      "nativePlannedNodes": 3,
+      "plannedComments": 1,
+      "assetBindings": [],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-efb1bec0bd9d",
+      "sourceSha256": "efb1bec0bd9d46195c72727dd04aa297e8ff437cbc012b14d6f33476d5448b9b",
+      "planSha256": "5e8469ee3af1ee89dc063b98114aba1ee85c3ae35678ee9d571f6666b3fbd9ec",
+      "nativePlannedNodes": 98,
+      "plannedComments": 2,
+      "assetBindings": [],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-18acaa20c040",
+      "sourceSha256": "18acaa20c040e9f90232ef4dea88207f6f2daa5db760438adbbe8b7c8fb72c86",
+      "planSha256": "9d99e53d14e45991809314557a14395d3f1638b7ddcd6f6c374fccb7f341c5aa",
+      "nativePlannedNodes": 65,
+      "plannedComments": 2,
+      "assetBindings": [],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-b22f3d64654c",
+      "sourceSha256": "b22f3d64654cb39a7d4839ee1e46af46b78317f1d9c8b020654763171776deb4",
+      "planSha256": "470696e4c36e5cbd5fe3bb36d667b59e8f30afd5eaadd9036098b5cb03248fb2",
+      "nativePlannedNodes": 300,
+      "plannedComments": 22,
+      "assetBindings": [
+        {
+          "property": "_MainTex",
+          "guid": "4f47073b006bcef44bc62e532cafc4fb",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_ShadeScleraTex",
+          "guid": "4a04cda9fb11e7245b2e2b6ed221e008",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_IrisColorTex",
+          "guid": "6dee9e1c6726c9a4fb3b487598969152",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_IrisTex",
+          "guid": "d6f59e45d58f66344811c1af0bf412a2",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_ShadeIrisTex",
+          "guid": "b444eddaee4f4e84b82d5448a713adc1",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_EyeBump",
+          "guid": "81b3acbd0c61e354bb574c92d8fb9da0",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_CorneaBump",
+          "guid": "fb64935e844038c40a4780f4ef1a7693",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_IrisBump",
+          "guid": "778e5c3fd9fd91c43821754495d8bf1b",
+          "status": "RequiresSourceAssetBinding"
+        }
+      ],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-bf1acc8b5350",
+      "sourceSha256": "bf1acc8b5350144891be8844429f46f199158919949277717ee5b769724e3277",
+      "planSha256": "8659667de62f40dc43917f9300ffed2d0284767e1cc965b5930eb91e6c45e962",
+      "nativePlannedNodes": 71,
+      "plannedComments": 17,
+      "assetBindings": [],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-4e9932aa7d81",
+      "sourceSha256": "4e9932aa7d8132320e50eafc57a0b5390fb93d71b1d9f90dbd923028822ac2d7",
+      "planSha256": "3923e6e5ce253888bf957b96757160a2d292f1ff9dfa1ab51b75df813f0efb8e",
+      "nativePlannedNodes": 9,
+      "plannedComments": 2,
+      "assetBindings": [],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-6dec954b5a2e",
+      "sourceSha256": "6dec954b5a2e83e63966111a907122843debfb59bab3904b3b8e2a0c0401292f",
+      "planSha256": "4d8060cf26c50cff603b966e3a1b1196e8f715b14fe72cf0603e688692e45147",
+      "nativePlannedNodes": 305,
+      "plannedComments": 24,
+      "assetBindings": [],
+      "inactiveOutputs": [
+        {
+          "descriptor": "SurfaceDescription.Specular",
+          "connected": true,
+          "retainedNode": "n282",
+          "reason": "Source render feature disabled; preserved as an unconnected native branch."
+        }
+      ]
+    },
+    {
+      "id": "local-HDRP-bc4aa57b1388",
+      "sourceSha256": "bc4aa57b1388001c2d2784c3ec34434cc51560ee62f489f98fe686a6cb3a18e1",
+      "planSha256": "6ae33ccd56d2fd4f89b55333723a124a04c30886434f7522b7f3aa42bf96dcda",
+      "nativePlannedNodes": 75,
+      "plannedComments": 2,
+      "assetBindings": [
+        {
+          "property": "_AlbedoColorMask",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_NormalMap",
+          "guid": "07c705c812ce4d74a961f65dc8dbe447",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_DetailNormalMap",
+          "guid": "abc00000000005661724113764724317",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "Smoothness",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        }
+      ],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-8cb1136f317e",
+      "sourceSha256": "8cb1136f317ee204256948c5407e97f7fcbe2c7a0a558684b503f2fb9bb617b8",
+      "planSha256": "dc16a1a205d854dcfce870557ff523bd4c04fcff9bd665875b6e7b0ed7e1a43f",
+      "nativePlannedNodes": 68,
+      "plannedComments": 2,
+      "assetBindings": [
+        {
+          "property": "_NormalMap",
+          "guid": "07c705c812ce4d74a961f65dc8dbe447",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "Smoothness",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_Mask",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        }
+      ],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-98503c7606a4",
+      "sourceSha256": "98503c7606a40749c7681a2d968d6efe664b87ae4d65d1bdb197e7ceddd6ff56",
+      "planSha256": "0bb05bd5c69f482176526ebfa6f6510662d69be2ec492d74ccd4bd28f2b7f051",
+      "nativePlannedNodes": 67,
+      "plannedComments": 2,
+      "assetBindings": [
+        {
+          "property": "_NormalMap",
+          "guid": "07c705c812ce4d74a961f65dc8dbe447",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "Smoothness",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_Mask",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        }
+      ],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-4a617f9c3b5d",
+      "sourceSha256": "4a617f9c3b5d0e676f02edba234f1bd137365c5880cccb35142c2378037b1d74",
+      "planSha256": "c7b469172642bd6425867fac734365b50307361ec7ba29eb9d0dc3480a24d0dd",
+      "nativePlannedNodes": 115,
+      "plannedComments": 2,
+      "assetBindings": [
+        {
+          "property": "_AlbedoColorMask",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_Mask",
+          "guid": "abc00000000000204514655943510958",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_NormalMap",
+          "guid": "07c705c812ce4d74a961f65dc8dbe447",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_DetailNormalMap",
+          "guid": "abc00000000005661724113764724317",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "Smoothness",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_NormalMap2",
+          "guid": "07c705c812ce4d74a961f65dc8dbe447",
+          "status": "RequiresSourceAssetBinding"
+        }
+      ],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-e604d2baf899",
+      "sourceSha256": "e604d2baf89953b2af9de07ee544444f55e9933316f665072a1e96165179b5d6",
+      "planSha256": "3e96758e31c419af374f1d846e7c4769e033bc17acfc1d7c47a37bc15a31a4ca",
+      "nativePlannedNodes": 9,
+      "plannedComments": 2,
+      "assetBindings": [],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-8b2f70979b9e",
+      "sourceSha256": "8b2f70979b9e997463113cd96244ef4d9d3bd7c48d2923e841ffa93f83186fd6",
+      "planSha256": "efb4f1a30b25c11d9d1ff54ec15bbfbd219ac25567047398970314f17c97d4e6",
+      "nativePlannedNodes": 71,
+      "plannedComments": 17,
+      "assetBindings": [],
+      "inactiveOutputs": [
+        {
+          "descriptor": "SurfaceDescription.AlphaClipThresholdDepthPostpass",
+          "connected": false,
+          "retainedNode": "n57",
+          "reason": "Source render feature disabled; preserved as an unconnected native branch."
+        }
+      ]
+    },
+    {
+      "id": "local-HDRP-1e59d2455441",
+      "sourceSha256": "1e59d245544136544aa90690c672807d0e37d3ecff52e702abd6d4c31a77e32f",
+      "planSha256": "5d702262b23e04affa03064ac0e591650a197a87e0cfcb1dfbe2ba421ab34c06",
+      "nativePlannedNodes": 305,
+      "plannedComments": 24,
+      "assetBindings": [],
+      "inactiveOutputs": [
+        {
+          "descriptor": "SurfaceDescription.Specular",
+          "connected": true,
+          "retainedNode": "n282",
+          "reason": "Source render feature disabled; preserved as an unconnected native branch."
+        }
+      ]
+    },
+    {
+      "id": "local-HDRP-1ddc5d05b394",
+      "sourceSha256": "1ddc5d05b3947d2fcbd5610e74cf760e197dfcf636827008f2a5cae622073e3a",
+      "planSha256": "e84206193b509c312ab010fff615ef2f9e6389c73133dbcaf6d56ddd0260cc43",
+      "nativePlannedNodes": 29,
+      "plannedComments": 1,
+      "assetBindings": [],
+      "inactiveOutputs": []
+    },
+    {
+      "id": "local-HDRP-aaace4303347",
+      "sourceSha256": "aaace4303347e1abbabe389e22d0311a82e489b468830e16a862b9d1a4057e4c",
+      "planSha256": "72c994673acd2c65d7425ffc53cdc9abc86234d6762b9d53c87126e5f030af83",
+      "nativePlannedNodes": 98,
+      "plannedComments": 2,
+      "assetBindings": [],
+      "inactiveOutputs": [
+        {
+          "descriptor": "SurfaceDescription.Thickness",
+          "connected": true,
+          "retainedNode": "n98",
+          "reason": "Source render feature disabled; preserved as an unconnected native branch."
+        }
+      ]
+    }
+  ],
+  "note": "Hashes of the final explicit native plans; ASE artifact bytes and successful reload/compile reports are listed separately."
+}

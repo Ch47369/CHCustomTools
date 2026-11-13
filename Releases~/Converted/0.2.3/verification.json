@@ -1,0 +1,136 @@
+﻿{
+    "packageVersion":  "0.2.3",
+    "recordDate":  "2026-10-21",
+    "unityVersion":  "2022.3.10f1",
+    "aseVersion":  "1.9.9.13",
+    "pipeline":  "BuiltIn",
+    "graphicsApi":  "Direct3D11",
+    "coreChecks":  {
+                       "count":  55,
+                       "passed":  true
+                   },
+    "editorReferenceCompile":  {
+                                   "errors":  0,
+                                   "warnings":  0,
+                                   "passed":  true
+                               },
+    "outputs":  [
+                    {
+                        "id":  "360",
+                        "source":  {
+                                       "path":  "F:/BingMaYongPhoto/Assets/Scripts/GameLogic/MediaManager/ShowDetailPanel/ShowDetail360/DeepZoomPageTable360.shader",
+                                       "sha256":  "69f2ebdea4fb87f9ea69e887f36dbcd9ab8ddf73f9f857465e99e80aaf1c9728",
+                                       "copyMatchesOriginal":  true
+                                   },
+                        "output":  {
+                                       "path":  "Releases~/Converted/0.2.3/DeepZoomPageTable360_ASE_Organized.shader",
+                                       "originalOutputPath":  "Assets/Generated/DeepZoomPageTable360_ASE 4.shader",
+                                       "shaderName":  "DeepZoom/DeepZoomPageTable360_ASE_Organized",
+                                       "sha256":  "ee56f1efcff075a9685ad7b841e63533fe2b67eac27f396916095f8b925bb63f",
+                                       "status":  "Generated",
+                                       "aseRoundTripPassed":  true,
+                                       "shaderCompiled":  true,
+                                       "visualComparisonPassed":  false,
+                                       "computationalNativeNodes":  79,
+                                       "nativeNodeCount":  99,
+                                       "customExpressions":  0,
+                                       "properties":  6,
+                                       "layoutApplied":  true,
+                                       "commentCount":  13,
+                                       "registerNodeCount":  9,
+                                       "getNodeCount":  11
+                                   },
+                        "unityChecks":  {
+                                            "marker":  "ASE_ARRAY_SMOKE_PASS: 34",
+                                            "count":  34,
+                                            "passed":  true
+                                        },
+                        "fixtureComparison":  {
+                                                  "cases":  6,
+                                                  "width":  128,
+                                                  "height":  64,
+                                                  "format":  "Linear ARGB32",
+                                                  "channels":  "RGBA",
+                                                  "maxAbsoluteError":  0,
+                                                  "passed":  true,
+                                                  "visibleNonconstantReference":  true
+                                              },
+                        "targetSceneComparisonPassed":  false
+                    },
+                    {
+                        "id":  "UI",
+                        "source":  {
+                                       "path":  "F:/BingMaYongPhoto/Assets/Scripts/GameLogic/MediaManager/ShowDetailPanel/ShowDetailImage/DeepZoomPageTableUI.shader",
+                                       "sha256":  "10e54427cb68d922ab0cb4a5669d0ce05cd7cf835c6ec473285c7e950e009257",
+                                       "copyMatchesOriginal":  true
+                                   },
+                        "output":  {
+                                       "path":  "Releases~/Converted/0.2.3/DeepZoomPageTableUI_ASE.shader",
+                                       "originalOutputPath":  "Assets/Generated/DeepZoomPageTableUI_ASE 3.shader",
+                                       "shaderName":  "DeepZoom/DeepZoomPageTableUI_ASE",
+                                       "sha256":  "fbaae0a8526bdd0b4527bb343792e576fcaefc3f55a6fb2241a6afd5db653820",
+                                       "status":  "Generated",
+                                       "aseRoundTripPassed":  true,
+                                       "shaderCompiled":  true,
+                                       "visualComparisonPassed":  false,
+                                       "computationalNativeNodes":  96,
+                                       "nativeNodeCount":  124,
+                                       "customExpressions":  0,
+                                       "properties":  16,
+                                       "layoutApplied":  true,
+                                       "commentCount":  15,
+                                       "registerNodeCount":  12,
+                                       "getNodeCount":  16
+                                   },
+                        "unityChecks":  {
+                                            "marker":  "ASE_PRESENTATION_SMOKE_PASS: 139",
+                                            "count":  139,
+                                            "passed":  true
+                                        },
+                        "fixtureComparison":  {
+                                                  "cases":  21,
+                                                  "width":  128,
+                                                  "height":  64,
+                                                  "format":  "Linear RGBAFloat",
+                                                  "channels":  "RGBA",
+                                                  "maxAbsoluteError":  0,
+                                                  "passed":  true,
+                                                  "visibleNonconstantReference":  true
+                                              },
+                        "targetSceneComparisonPassed":  false
+                    }
+                ],
+    "uiTemplate":  {
+                       "guid":  "eab467e6cd0b4d27ab8e9e434d8c30e3",
+                       "source":  "Editor/Templates/UiStraightAlpha.shader",
+                       "sha256":  "214f98f0ff64640497127ca8c5f5da84aa6b9a43b445980556dfd2e15895af31",
+                       "reviewedSourceSignature":  "35a270c13137241f646d8a1753db56ef57817917fbd367aa5749b62e8e5e38fb",
+                       "all16PropertyTypesAttributesAndNumericDefaultsMatched":  true,
+                       "straightAlphaBlending":  true,
+                       "hardRectClip":  true,
+                       "vertexColorAndTint":  true,
+                       "globalUiVariants":  true,
+                       "stencilAndColorMaskAndGuiDepth":  true,
+                       "changedSourceRejected":  true
+                   },
+    "presentationDisabled":  {
+                                 "aseRoundTripPassed":  true,
+                                 "shaderCompiled":  true,
+                                 "nativeNodeCount":  96,
+                                 "layoutApplied":  false,
+                                 "commentCount":  0,
+                                 "registerNodeCount":  0,
+                                 "getNodeCount":  0
+                             },
+    "targetSceneComparisonPassed":  false,
+    "originalAssetsModified":  false,
+    "originalAseSourceRedistributed":  false,
+    "notes":  [
+                  "Fixture results cover the recorded material states only. Original 360 and Canvas/Mask/RectMask2D scenes were not compared.",
+                  "The API visualComparisonPassed flag deliberately remains false.",
+                  "Delivered shader bytes are identical to ASE-saved, reloaded and Unity-compiled outputs.",
+                  "Empty 2DArray defaults are serialized as white by ASE; this normalization is recorded in the conversion reports.",
+                  "The 360 submitted intermediate plan is the saved analysis plan with the _Organized name requested by UnityArraySmoke.Run. Presentation nodes are added through ASE at generation time.",
+                  "UI graph editing requires this package template GUID; arbitrary modified UI sources remain blocked."
+              ]
+}

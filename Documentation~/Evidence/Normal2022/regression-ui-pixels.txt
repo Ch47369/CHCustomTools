@@ -1,0 +1,22 @@
+128x64 linear RGBAFloat; straight-alpha blending; max RGBA error per state:
+variants0-flip0: 0
+variants0-flip0.5: 0
+variants0-flip1: 0
+variants1-flip0: 0
+variants1-flip0.5: 0
+variants1-flip1: 0
+variants2-flip0: 0
+variants2-flip0.5: 0
+variants2-flip1: 0
+variants3-flip0: 0
+variants3-flip0.5: 0
+variants3-flip1: 0
+stencil0: 0
+stencil1: 0
+stencil2: 0
+stencil3: 0
+colormask0: 0
+colormask14: 0
+colormask1: 0
+ztestNever: 0
+ztestAlways: 0

@@ -1,0 +1,1 @@
+PASS: 4 profiles through rules/analyze; unsupported character inputs remain blocked; actual HDRP Hair/Fabric/Lit templates described; Editor window created/closed. No character ASE generation, shader compilation, source-scene comparison or GPU benchmark.

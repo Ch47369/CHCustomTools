@@ -1,0 +1,14 @@
+{
+    "package":  "com.aseshader.handwritten-converter-0.2.1.tgz",
+    "version":  "0.2.1",
+    "archiveFilesVerified":  118,
+    "excludedContentFound":  0,
+    "sha256":  "e2189f9fedae3a65505b8673885b2457dc32a149261494d0b1d531d93e623ad2",
+    "coreChecksPassed":  38,
+    "editorCompilePassed":  true,
+    "unityWindowChecksPassed":  20,
+    "unityVersion":  "2022.3.10f1",
+    "aseVersion":  "1.9.9.13",
+    "mouseGestureReplay":  false,
+    "visualComparisonPassed":  false
+}

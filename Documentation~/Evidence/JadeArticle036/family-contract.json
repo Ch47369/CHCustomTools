@@ -1,0 +1,63 @@
+{
+  "familyId": "Fangmu-LogicalLight-Jade",
+  "sourceIdentity": "ArticleFunctionSHA256:a9cc314b7587c26e32c17e12fd87f0a8dffb19447ad5528a1522e33dac99993f",
+  "comparisonStatus": "NotCompared",
+  "sharedFeatures": [
+    "同一文章核心函数与原参数名称",
+    "World→Object 方向变换后归一化；局部网格位置",
+    "逻辑光源减号、距离、pow、两次 saturate 与中间 remap",
+    "标准 Lit 表面与可调核心 Emission 为补充实现",
+    "场景主方向光/手动世界方向选择；不透明",
+    "原生节点与五组中文气泡"
+  ],
+  "targets": [
+    {
+      "pipeline": "BuiltIn",
+      "entryId": "jade-article-BuiltIn",
+      "status": "Mapped",
+      "gaps": [],
+      "hostRequirements": [
+        "正版 ASE 与对应管线标准 Lit 模板。无需作者模型或额外深度/散射贴图。",
+        "网格中心是局部原点，偏心模型用 _JadeOffset 修正；仅静态网格验证，骨骼、顶点变形、XR 未验证。",
+        "DepthDistance+LightDistance>0，MaxDist>MinDist，Pow>0；方向非零、物体变换可逆；未偷偷给原公式加 epsilon。",
+        "场景模式需要一盏主方向光；HDRP 读取第一方向光。无灯光或需要精确指定方向时关闭 _JADE_SCENE_LIGHT 并提供 _JadeMainLightWS。",
+        "新材质会同步 Float 与 _JADE_SCENE_LIGHT_ON 关键词；复用材质保留用户修改。运行时改开关需同步关键词。",
+        "核心函数不接灯色、强度、阴影、法线；本次将它作为 Emission，场景照明/阴影只影响补充 Lit 表面。",
+        "Mapped 仅覆盖声明的核心公式和补充材质，不代表完整原材质或管线 BSDF 一致。"
+      ],
+      "evidence": "Documentation~/Evidence/JadeArticle036/Build-BuiltIn/results.json"
+    },
+    {
+      "pipeline": "URP",
+      "entryId": "jade-article-URP",
+      "status": "Mapped",
+      "gaps": [],
+      "hostRequirements": [
+        "正版 ASE 与对应管线标准 Lit 模板。无需作者模型或额外深度/散射贴图。",
+        "网格中心是局部原点，偏心模型用 _JadeOffset 修正；仅静态网格验证，骨骼、顶点变形、XR 未验证。",
+        "DepthDistance+LightDistance>0，MaxDist>MinDist，Pow>0；方向非零、物体变换可逆；未偷偷给原公式加 epsilon。",
+        "场景模式需要一盏主方向光；HDRP 读取第一方向光。无灯光或需要精确指定方向时关闭 _JADE_SCENE_LIGHT 并提供 _JadeMainLightWS。",
+        "新材质会同步 Float 与 _JADE_SCENE_LIGHT_ON 关键词；复用材质保留用户修改。运行时改开关需同步关键词。",
+        "核心函数不接灯色、强度、阴影、法线；本次将它作为 Emission，场景照明/阴影只影响补充 Lit 表面。",
+        "Mapped 仅覆盖声明的核心公式和补充材质，不代表完整原材质或管线 BSDF 一致。"
+      ],
+      "evidence": "Documentation~/Evidence/JadeArticle036/Build-URP/results.json"
+    },
+    {
+      "pipeline": "HDRP",
+      "entryId": "jade-article-HDRP",
+      "status": "Mapped",
+      "gaps": [],
+      "hostRequirements": [
+        "正版 ASE 与对应管线标准 Lit 模板。无需作者模型或额外深度/散射贴图。",
+        "网格中心是局部原点，偏心模型用 _JadeOffset 修正；仅静态网格验证，骨骼、顶点变形、XR 未验证。",
+        "DepthDistance+LightDistance>0，MaxDist>MinDist，Pow>0；方向非零、物体变换可逆；未偷偷给原公式加 epsilon。",
+        "场景模式需要一盏主方向光；HDRP 读取第一方向光。无灯光或需要精确指定方向时关闭 _JADE_SCENE_LIGHT 并提供 _JadeMainLightWS。",
+        "新材质会同步 Float 与 _JADE_SCENE_LIGHT_ON 关键词；复用材质保留用户修改。运行时改开关需同步关键词。",
+        "核心函数不接灯色、强度、阴影、法线；本次将它作为 Emission，场景照明/阴影只影响补充 Lit 表面。",
+        "Mapped 仅覆盖声明的核心公式和补充材质，不代表完整原材质或管线 BSDF 一致。"
+      ],
+      "evidence": "Documentation~/Evidence/JadeArticle036/Build-HDRP/results.json"
+    }
+  ]
+}

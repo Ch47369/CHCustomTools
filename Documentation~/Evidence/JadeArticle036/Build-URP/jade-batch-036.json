@@ -1,0 +1,26 @@
+{
+  "pipeline": "URP",
+  "error": "",
+  "finishedUtc": "2026-11-02T03:04:16.9017498Z",
+  "success": true,
+  "apiLoaded": true,
+  "windowOpened": true,
+  "editsPreserved": true,
+  "keywordInitialized": true,
+  "installed": {
+    "id": "jade-article-URP",
+    "shaderPath": "Assets/ASEShaderLibrary/Jade/URP/FangmuLogicalLight_ASE.shader",
+    "materialPath": "Assets/ASEShaderLibrary/Jade/URP/FangmuLogicalLight_ASE.mat",
+    "error": "",
+    "success": true,
+    "materialReused": false
+  },
+  "reused": {
+    "id": "jade-article-URP",
+    "shaderPath": "Assets/ASEShaderLibrary/Jade/URP/FangmuLogicalLight_ASE.shader",
+    "materialPath": "Assets/ASEShaderLibrary/Jade/URP/FangmuLogicalLight_ASE.mat",
+    "error": "",
+    "success": true,
+    "materialReused": true
+  }
+}

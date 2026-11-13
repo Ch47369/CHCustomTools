@@ -1,0 +1,53 @@
+{
+  "checkedUtc": "2026-10-22T04:59:02.774636+00:00",
+  "unity": "2022.3.10f1",
+  "ase": "1.9.9.13",
+  "pipeline": "HDRP",
+  "profileCount": 4,
+  "categoryCount": 13,
+  "ruleCount": 40,
+  "templates": [
+    {
+      "name": "HDRP/Decal",
+      "guid": "d345501910c196f4a81c9eff8a0a5ad7",
+      "ready": true
+    },
+    {
+      "name": "HDRP/Fabric",
+      "guid": "41e04be03f2c20941bc749271be1c937",
+      "ready": true
+    },
+    {
+      "name": "HDRP/Hair",
+      "guid": "e4fe21624ace6de4b9fbaabdda0c51de",
+      "ready": true
+    },
+    {
+      "name": "HDRP/Lit",
+      "guid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+      "ready": true
+    },
+    {
+      "name": "HDRP/Unlit",
+      "guid": "7f5cb9c3ea6481f469fdd856555439ef",
+      "ready": true
+    }
+  ],
+  "eyeTemplatePresent": false,
+  "aseGenerationPerformed": false,
+  "characterShaderCompilationPerformed": false,
+  "characterVisualComparisonPerformed": false,
+  "gpuBenchmarked": false,
+  "log": {
+    "path": ".build~\\ValidationRuns\\Character-library-final2.log",
+    "sha256": "aebd885418213b1e551e24c66451832b88ac7f5dcf94d89e28e2d3c7db94828b",
+    "marker": "ASE_CHARACTER_LIBRARY_SMOKE_PASS"
+  },
+  "codeHashes": {
+    "Runtime\\CharacterMaterialLibrary.cs": "568a7089ca1381fc41e3d54ec6d3f9ba43c065a949d7288201eef9a37516d7d7",
+    "Runtime\\ShaderRuleLibrary.cs": "37cbaca674b0e2dca5b6fbf8f87c5e2961dbf3269411176086ec854354245720",
+    "Editor\\CharacterMaterialWindow.cs": "4b849ba8b6dfcd0afeed9fb02697bdb6e7415d26c17bc2909aa906b36d4898eb",
+    "Tests\\UnityCharacterLibrarySmoke.cs": "f4930bfa3d962490dc3857541d211a1a0bb21d90b71c8fcdc84084361b2e0f61"
+  },
+  "result": "PASS: 4 profiles through rules/analyze; unsupported character inputs remain blocked; actual HDRP Hair/Fabric/Lit templates described; Editor window created/closed. No character ASE generation, shader compilation, source-scene comparison or GPU benchmark."
+}

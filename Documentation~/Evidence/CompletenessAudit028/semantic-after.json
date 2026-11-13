@@ -1,0 +1,1895 @@
+{
+  "summary": {
+    "probeCount": 39,
+    "targetEvaluations": 117,
+    "passed": 117,
+    "failed": 0,
+    "generatedShaders": 0,
+    "aseSaveReloadPerformed": false,
+    "unityShaderCompilationPerformed": false,
+    "visualComparisonPerformed": false
+  },
+  "probes": [
+    {
+      "id": "constant-color",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": null,
+      "portable": true
+    },
+    {
+      "id": "vertex-uv-stage",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return float4(data.uv,0,1); }\nENDCG } } }",
+      "blocker": null,
+      "portable": true
+    },
+    {
+      "id": "known-angle-include",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u003CUnityCG.cginc\u003E\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": null,
+      "portable": true
+    },
+    {
+      "id": "spaced-entry-pragmas",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n# pragma vertex vertexMain\n# pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": null,
+      "portable": true
+    },
+    {
+      "id": "tabbed-entry-pragmas",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#\tpragma vertex vertexMain\n#\tpragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": null,
+      "portable": true
+    },
+    {
+      "id": "comments-are-not-directives",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\n// #include \u003CMissing.cginc\u003E\n/* # pragma multi_compile_fog */\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": null,
+      "portable": true
+    },
+    {
+      "id": "display-name-is-not-directive",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022# pragma multi_compile_fog\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": null,
+      "portable": true
+    },
+    {
+      "id": "pure-helper",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nfloat4 tint(float4 x) { return x * 0.5; }\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return tint(_Tint); }\nENDCG } } }",
+      "blocker": null,
+      "portable": true
+    },
+    {
+      "id": "unknown-quoted-include",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\n#include \u0022Missing.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Include needs explicit dependency mapping",
+      "portable": false
+    },
+    {
+      "id": "unknown-angle-include",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\n#include \u003CMissing.cginc\u003E\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Include needs explicit dependency mapping",
+      "portable": false
+    },
+    {
+      "id": "macro-include",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\n#include DEPENDENCY_FILE\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Include operand requires explicit dependency mapping",
+      "portable": false
+    },
+    {
+      "id": "continued-include",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\n#include \\\n\u0022Missing.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Preprocessor line continuation",
+      "portable": false
+    },
+    {
+      "id": "continued-line-comment",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); // hidden by continuation \\\nresult.uv = mesh.uv;\n return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Preprocessor line continuation",
+      "portable": false
+    },
+    {
+      "id": "include-trailing-tokens",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022 MissingTokens\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Include operand requires explicit dependency mapping",
+      "portable": false
+    },
+    {
+      "id": "spaced-unknown-include",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\n# include \u003CMissing.cginc\u003E\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Include needs explicit dependency mapping",
+      "portable": false
+    },
+    {
+      "id": "spaced-variant-pragma",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\n# pragma multi_compile_fog\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Pragma requires explicit ASE mapping",
+      "portable": false
+    },
+    {
+      "id": "spaced-target-pragma",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\n# pragma target 5.0\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Non-default shader target",
+      "portable": false
+    },
+    {
+      "id": "spaced-branch",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\n# if UNKNOWN\n# endif\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Preprocessor branches",
+      "portable": false
+    },
+    {
+      "id": "pragma-include-with-pragmas",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\n# include_with_pragmas \u0022Variants.hlsl\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Preprocessor directive requires explicit mapping",
+      "portable": false
+    },
+    {
+      "id": "shadow-builtin-transform",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nfloat4 UnityObjectToClipPos(float4 x) { return x * 2.0; }\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Helper/overloaded function",
+      "portable": false
+    },
+    {
+      "id": "shadow-srp-transform",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nfloat4 TransformObjectToHClip(float3 x) { return float4(x*2.0,1.0); }\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = TransformObjectToHClip(mesh.position.xyz); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Helper/overloaded function",
+      "portable": false
+    },
+    {
+      "id": "shadow-texture-st",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nfloat2 TRANSFORM_TEX(float2 x, float2 y) { return x\u002By; }\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Helper/overloaded function",
+      "portable": false
+    },
+    {
+      "id": "duplicate-vertex-entry",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nfloat4 vertexMain(float4 x) { return x * 2.0; }\nENDCG } } }",
+      "blocker": "Entry point requires exactly one definition",
+      "portable": false
+    },
+    {
+      "id": "duplicate-fragment-entry",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nfloat4 pixelMain(float4 x) : SV_Target { return x; }\nENDCG } } }",
+      "blocker": "Entry point requires exactly one definition",
+      "portable": false
+    },
+    {
+      "id": "return-before-varying-write",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); return result; result.uv = mesh.uv; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Vertex entry requires",
+      "portable": false
+    },
+    {
+      "id": "return-before-position-write",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; return result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Vertex entry requires",
+      "portable": false
+    },
+    {
+      "id": "duplicate-vertex-return",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Vertex entry requires",
+      "portable": false
+    },
+    {
+      "id": "centroid-interpolation",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; centroid float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Non-default interpolation",
+      "portable": false
+    },
+    {
+      "id": "vertex-position-animation",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position * 2.0); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Vertex position transformation",
+      "portable": false
+    },
+    {
+      "id": "vertex-color-stage",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; float4 color : COLOR; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; result.color = _Tint; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Non-UV vertex assignment",
+      "portable": false
+    },
+    {
+      "id": "transparent-blending",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { Blend SrcAlpha OneMinusSrcAlpha\n CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Render state needs ASE mapping",
+      "portable": false
+    },
+    {
+      "id": "stencil",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { Stencil { Ref 1 Comp Equal }\n CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Stencil/GrabPass/UsePass",
+      "portable": false
+    },
+    {
+      "id": "grabpass",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { GrabPass {} Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Stencil/GrabPass/UsePass",
+      "portable": false
+    },
+    {
+      "id": "multiple-passes",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass {} Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Multiple or implicit passes",
+      "portable": false
+    },
+    {
+      "id": "depth-state",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { ZWrite Off\n CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Render state needs ASE mapping",
+      "portable": false
+    },
+    {
+      "id": "mrt",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target1 { return _Tint; }\nENDCG } } }",
+      "blocker": "Fragment output semantic",
+      "portable": false
+    },
+    {
+      "id": "discard",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { discard; return _Tint; }\nENDCG } } }",
+      "blocker": "clip/discard",
+      "portable": false
+    },
+    {
+      "id": "hdrp-source-review",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Tags { \u0022RenderPipeline\u0022=\u0022HDRenderPipeline\u0022 } Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "exposure",
+      "portable": false
+    },
+    {
+      "id": "mixed-source-review",
+      "source": "Shader \u0022Audit/Contract\u0022 { Properties { _Tint (\u0022Tint\u0022, Color) = (1,0.5,0.25,0.8) } SubShader { Pass { CGPROGRAM\n#pragma vertex vertexMain\n#pragma fragment pixelMain\n#include \u0022UnityCG.cginc\u0022\n#include \u003CPackages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariables.hlsl\u003E\n#include \u003CPackages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl\u003E\nstruct Mesh { float4 position : POSITION; float2 uv : TEXCOORD0; };\nstruct Varyings { float4 clip : SV_POSITION; float2 uv : TEXCOORD0; };\nVaryings vertexMain(Mesh mesh) { Varyings result; result.clip = UnityObjectToClipPos(mesh.position); result.uv = mesh.uv; return result; }\nfloat4 pixelMain(Varyings data) : SV_Target { return _Tint; }\nENDCG } } }",
+      "blocker": "Multiple source pipelines",
+      "portable": false
+    }
+  ],
+  "results": [
+    {
+      "id": "constant-color",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "constant-color",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "constant-color",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "exposure",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "vertex-uv-stage",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "vertex-uv-stage",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "vertex-uv-stage",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "exposure",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "known-angle-include",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "known-angle-include",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "known-angle-include",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "exposure",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-entry-pragmas",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-entry-pragmas",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-entry-pragmas",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "exposure",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "tabbed-entry-pragmas",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "tabbed-entry-pragmas",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "tabbed-entry-pragmas",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "exposure",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "comments-are-not-directives",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "comments-are-not-directives",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "comments-are-not-directives",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "exposure",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "display-name-is-not-directive",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "display-name-is-not-directive",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "display-name-is-not-directive",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "exposure",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "pure-helper",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "pure-helper",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "Planned",
+      "requiredBlocker": null,
+      "expectedCanPlan": true,
+      "actualCanPlan": true,
+      "passed": true,
+      "blockers": [],
+      "planErrors": []
+    },
+    {
+      "id": "pure-helper",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "exposure",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "unknown-quoted-include",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include needs explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Include needs explicit dependency mapping: Missing.cginc"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "unknown-quoted-include",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include needs explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Include needs explicit dependency mapping: Missing.cginc"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "unknown-quoted-include",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include needs explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Include needs explicit dependency mapping: Missing.cginc"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "unknown-angle-include",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include needs explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Include needs explicit dependency mapping: Missing.cginc"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "unknown-angle-include",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include needs explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Include needs explicit dependency mapping: Missing.cginc"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "unknown-angle-include",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include needs explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Include needs explicit dependency mapping: Missing.cginc"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "macro-include",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include operand requires explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Include operand requires explicit dependency mapping: #include DEPENDENCY_FILE"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "macro-include",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include operand requires explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Include operand requires explicit dependency mapping: #include DEPENDENCY_FILE"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "macro-include",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include operand requires explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Include operand requires explicit dependency mapping: #include DEPENDENCY_FILE"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "continued-include",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Preprocessor line continuation",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Preprocessor line continuation requires explicit dependency and directive mapping.",
+        "Include operand requires explicit dependency mapping: #include \\"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "continued-include",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Preprocessor line continuation",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Preprocessor line continuation requires explicit dependency and directive mapping.",
+        "Include operand requires explicit dependency mapping: #include \\"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "continued-include",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Preprocessor line continuation",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Preprocessor line continuation requires explicit dependency and directive mapping.",
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Include operand requires explicit dependency mapping: #include \\"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "continued-line-comment",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Preprocessor line continuation",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Preprocessor line continuation requires explicit dependency and directive mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "continued-line-comment",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Preprocessor line continuation",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Preprocessor line continuation requires explicit dependency and directive mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "continued-line-comment",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Preprocessor line continuation",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Preprocessor line continuation requires explicit dependency and directive mapping.",
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "include-trailing-tokens",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include operand requires explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Include operand requires explicit dependency mapping: #include \u0022UnityCG.cginc\u0022 MissingTokens"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "include-trailing-tokens",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include operand requires explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Include operand requires explicit dependency mapping: #include \u0022UnityCG.cginc\u0022 MissingTokens"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "include-trailing-tokens",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include operand requires explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Include operand requires explicit dependency mapping: #include \u0022UnityCG.cginc\u0022 MissingTokens"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-unknown-include",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include needs explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Include needs explicit dependency mapping: Missing.cginc"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-unknown-include",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include needs explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Include needs explicit dependency mapping: Missing.cginc"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-unknown-include",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Include needs explicit dependency mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Include needs explicit dependency mapping: Missing.cginc"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-variant-pragma",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Pragma requires explicit ASE mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Pragma requires explicit ASE mapping: #pragma multi_compile_fog"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-variant-pragma",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Pragma requires explicit ASE mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Pragma requires explicit ASE mapping: #pragma multi_compile_fog"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-variant-pragma",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Pragma requires explicit ASE mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Pragma requires explicit ASE mapping: #pragma multi_compile_fog"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-target-pragma",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Non-default shader target",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Non-default shader target requires explicit template settings."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-target-pragma",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Non-default shader target",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Non-default shader target requires explicit template settings."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-target-pragma",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Non-default shader target",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Non-default shader target requires explicit template settings."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-branch",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Preprocessor branches",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Preprocessor branches and macros require explicit agent mapping.",
+        "Preprocessor directive requires explicit mapping: #if",
+        "Preprocessor directive requires explicit mapping: #endif"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-branch",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Preprocessor branches",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Preprocessor branches and macros require explicit agent mapping.",
+        "Preprocessor directive requires explicit mapping: #if",
+        "Preprocessor directive requires explicit mapping: #endif"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "spaced-branch",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Preprocessor branches",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Preprocessor branches and macros require explicit agent mapping.",
+        "Preprocessor directive requires explicit mapping: #if",
+        "Preprocessor directive requires explicit mapping: #endif"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "pragma-include-with-pragmas",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Preprocessor directive requires explicit mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Preprocessor directive requires explicit mapping: #include_with_pragmas"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "pragma-include-with-pragmas",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Preprocessor directive requires explicit mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Preprocessor directive requires explicit mapping: #include_with_pragmas"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "pragma-include-with-pragmas",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Preprocessor directive requires explicit mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Preprocessor directive requires explicit mapping: #include_with_pragmas"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "shadow-builtin-transform",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Helper/overloaded function",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Helper/overloaded function needs explicit semantic mapping: UnityObjectToClipPos"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "shadow-builtin-transform",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Helper/overloaded function",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Helper/overloaded function needs explicit semantic mapping: UnityObjectToClipPos"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "shadow-builtin-transform",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Helper/overloaded function",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Helper/overloaded function needs explicit semantic mapping: UnityObjectToClipPos"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "shadow-srp-transform",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Helper/overloaded function",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Helper/overloaded function needs explicit semantic mapping: TransformObjectToHClip"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "shadow-srp-transform",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Helper/overloaded function",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Helper/overloaded function needs explicit semantic mapping: TransformObjectToHClip"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "shadow-srp-transform",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Helper/overloaded function",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Helper/overloaded function needs explicit semantic mapping: TransformObjectToHClip"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "shadow-texture-st",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Helper/overloaded function",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Helper/overloaded function needs explicit semantic mapping: TRANSFORM_TEX"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "shadow-texture-st",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Helper/overloaded function",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Helper/overloaded function needs explicit semantic mapping: TRANSFORM_TEX"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "shadow-texture-st",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Helper/overloaded function",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Helper/overloaded function needs explicit semantic mapping: TRANSFORM_TEX"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "duplicate-vertex-entry",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Entry point requires exactly one definition",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Entry point requires exactly one definition; overloads need explicit stage mapping: vertexMain"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "duplicate-vertex-entry",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Entry point requires exactly one definition",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Entry point requires exactly one definition; overloads need explicit stage mapping: vertexMain"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "duplicate-vertex-entry",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Entry point requires exactly one definition",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Entry point requires exactly one definition; overloads need explicit stage mapping: vertexMain"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "duplicate-fragment-entry",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Entry point requires exactly one definition",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Entry point requires exactly one definition; overloads need explicit stage mapping: pixelMain"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "duplicate-fragment-entry",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Entry point requires exactly one definition",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Entry point requires exactly one definition; overloads need explicit stage mapping: pixelMain"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "duplicate-fragment-entry",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Entry point requires exactly one definition",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Entry point requires exactly one definition; overloads need explicit stage mapping: pixelMain"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "return-before-varying-write",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Vertex entry requires",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Vertex entry requires one output declaration followed by assignments and one final return; early returns need explicit stage mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "return-before-varying-write",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Vertex entry requires",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Vertex entry requires one output declaration followed by assignments and one final return; early returns need explicit stage mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "return-before-varying-write",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Vertex entry requires",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Vertex entry requires one output declaration followed by assignments and one final return; early returns need explicit stage mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "return-before-position-write",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Vertex entry requires",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Vertex entry requires one output declaration followed by assignments and one final return; early returns need explicit stage mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "return-before-position-write",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Vertex entry requires",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Vertex entry requires one output declaration followed by assignments and one final return; early returns need explicit stage mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "return-before-position-write",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Vertex entry requires",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Vertex entry requires one output declaration followed by assignments and one final return; early returns need explicit stage mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "duplicate-vertex-return",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Vertex entry requires",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Vertex entry requires one output declaration followed by assignments and one final return; early returns need explicit stage mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "duplicate-vertex-return",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Vertex entry requires",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Vertex entry requires one output declaration followed by assignments and one final return; early returns need explicit stage mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "duplicate-vertex-return",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Vertex entry requires",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Vertex entry requires one output declaration followed by assignments and one final return; early returns need explicit stage mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "centroid-interpolation",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Non-default interpolation",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Non-default interpolation requires an agent plan."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "centroid-interpolation",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Non-default interpolation",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Non-default interpolation requires an agent plan."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "centroid-interpolation",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Non-default interpolation",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Non-default interpolation requires an agent plan."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "vertex-position-animation",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Vertex position transformation",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Vertex position transformation requires explicit ASE vertex nodes."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "vertex-position-animation",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Vertex position transformation",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Vertex position transformation requires explicit ASE vertex nodes."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "vertex-position-animation",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Vertex position transformation",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Vertex position transformation requires explicit ASE vertex nodes."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "vertex-color-stage",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Non-UV vertex assignment",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Non-UV vertex assignment requires an explicit node plan: result.color = _Tint;"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "vertex-color-stage",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Non-UV vertex assignment",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Non-UV vertex assignment requires an explicit node plan: result.color = _Tint;"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "vertex-color-stage",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Non-UV vertex assignment",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Non-UV vertex assignment requires an explicit node plan: result.color = _Tint;"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "transparent-blending",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Render state needs ASE mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Render state needs ASE mapping: Blend SrcAlpha OneMinusSrcAlpha"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "transparent-blending",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Render state needs ASE mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Render state needs ASE mapping: Blend SrcAlpha OneMinusSrcAlpha"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "transparent-blending",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Render state needs ASE mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Render state needs ASE mapping: Blend SrcAlpha OneMinusSrcAlpha"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "stencil",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Stencil/GrabPass/UsePass",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Stencil/GrabPass/UsePass requires explicit ASE template settings."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "stencil",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Stencil/GrabPass/UsePass",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Stencil/GrabPass/UsePass requires explicit ASE template settings."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "stencil",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Stencil/GrabPass/UsePass",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Stencil/GrabPass/UsePass requires explicit ASE template settings."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "grabpass",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Stencil/GrabPass/UsePass",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Stencil/GrabPass/UsePass requires explicit ASE template settings."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "grabpass",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Stencil/GrabPass/UsePass",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Stencil/GrabPass/UsePass requires explicit ASE template settings."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "grabpass",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Stencil/GrabPass/UsePass",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Stencil/GrabPass/UsePass requires explicit ASE template settings."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "multiple-passes",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Multiple or implicit passes",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Multiple or implicit passes require explicit agent mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "multiple-passes",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Multiple or implicit passes",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Multiple or implicit passes require explicit agent mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "multiple-passes",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Multiple or implicit passes",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Multiple or implicit passes require explicit agent mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "depth-state",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Render state needs ASE mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Render state needs ASE mapping: ZWrite Off"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "depth-state",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Render state needs ASE mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Render state needs ASE mapping: ZWrite Off"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "depth-state",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Render state needs ASE mapping",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Render state needs ASE mapping: ZWrite Off"
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "mrt",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Fragment output semantic",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Fragment output semantic must be SV_Target or SV_Target0; other render targets require explicit mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "mrt",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Fragment output semantic",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Fragment output semantic must be SV_Target or SV_Target0; other render targets require explicit mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "mrt",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Fragment output semantic",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Fragment output semantic must be SV_Target or SV_Target0; other render targets require explicit mapping."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "discard",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "clip/discard",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Fragment control flow or clip/discard requires an agent plan; preserve its side effects and inputs."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "discard",
+      "pipeline": "URP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "clip/discard",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Fragment control flow or clip/discard requires an agent plan; preserve its side effects and inputs."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "discard",
+      "pipeline": "HDRP",
+      "sourcePipeline": "BuiltIn",
+      "status": "NeedsAgent",
+      "requiredBlocker": "clip/discard",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.",
+        "Fragment control flow or clip/discard requires an agent plan; preserve its side effects and inputs."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "hdrp-source-review",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "HDRP",
+      "status": "NeedsAgent",
+      "requiredBlocker": "exposure",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "hdrp-source-review",
+      "pipeline": "URP",
+      "sourcePipeline": "HDRP",
+      "status": "NeedsAgent",
+      "requiredBlocker": "exposure",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "hdrp-source-review",
+      "pipeline": "HDRP",
+      "sourcePipeline": "HDRP",
+      "status": "NeedsAgent",
+      "requiredBlocker": "exposure",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "mixed-source-review",
+      "pipeline": "BuiltIn",
+      "sourcePipeline": "Mixed",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Multiple source pipelines",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Multiple source pipelines require selecting and reviewing each SubShader; a target selection does not resolve source semantics."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "mixed-source-review",
+      "pipeline": "URP",
+      "sourcePipeline": "Mixed",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Multiple source pipelines",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Multiple source pipelines require selecting and reviewing each SubShader; a target selection does not resolve source semantics."
+      ],
+      "planErrors": []
+    },
+    {
+      "id": "mixed-source-review",
+      "pipeline": "HDRP",
+      "sourcePipeline": "Mixed",
+      "status": "NeedsAgent",
+      "requiredBlocker": "Multiple source pipelines",
+      "expectedCanPlan": false,
+      "actualCanPlan": false,
+      "passed": true,
+      "blockers": [
+        "Multiple source pipelines require selecting and reviewing each SubShader; a target selection does not resolve source semantics.",
+        "HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline."
+      ],
+      "planErrors": []
+    }
+  ]
+}

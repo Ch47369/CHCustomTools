@@ -1,0 +1,48 @@
+{
+  "success": true,
+  "version": "0.3.4",
+  "coreChecks": 540,
+  "editorCompile": {
+    "warnings": 0,
+    "errors": 0
+  },
+  "unityBrowserChecks": [
+    {
+      "pipeline": "BuiltIn",
+      "checks": 70,
+      "visibleVersions": 89,
+      "categoryInstalls": 14,
+      "guiEventsDispatched": 6
+    },
+    {
+      "pipeline": "URP",
+      "checks": 70,
+      "visibleVersions": 89,
+      "categoryInstalls": 14,
+      "guiEventsDispatched": 6
+    },
+    {
+      "pipeline": "HDRP",
+      "checks": 72,
+      "visibleVersions": 109,
+      "categoryInstalls": 15,
+      "guiEventsDispatched": 6
+    }
+  ],
+  "artifacts": 287,
+  "families": 109,
+  "researchSources": 1079,
+  "threeArtifactFamilies": 89,
+  "threeMappedTargetFamilies": 64,
+  "newGeneratedArtifacts": 0,
+  "libraryDataUnchangedFrom033": true,
+  "baselineArchiveSha256": "01a2b28e023b25ff6c5c8f15e5503accd186afb35668d3e87c9ef2a2750c4662",
+  "shaderRenderingEvidence": "Historical PublicLibrary033 / CrossPipeline032; not rerun for this UI change",
+  "crossPipelineVisualEquivalenceProven": false,
+  "remaining": {
+    "missingPipelineVersions": 40,
+    "existingVersionsWithKnownFeatureGaps": 49,
+    "localSourceGraphsStillBlocked": 80
+  },
+  "sourceProjectsModified": false
+}

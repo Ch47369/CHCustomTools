@@ -1,0 +1,23 @@
+{
+    "checkedUtc":  "2026-10-22T01:51:36.3354746+00:00",
+    "evidenceKind":  "Observed command stdout and process exit status in this validation session",
+    "checks":  [
+                   {
+                       "stdout":  "PASS: 427 checks",
+                       "exitCode":  0,
+                       "command":  "dotnet run --project Tests/CoreChecks.csproj --no-restore"
+                   },
+                   {
+                       "exitCode":  0,
+                       "command":  "dotnet build Tests/EditorCompile.csproj --no-restore",
+                       "errors":  0,
+                       "warnings":  0
+                   },
+                   {
+                       "exitCode":  0,
+                       "command":  "dotnet build Tests/WaterAssetsCompile.csproj --no-restore",
+                       "errors":  0,
+                       "warnings":  0
+                   }
+               ]
+}

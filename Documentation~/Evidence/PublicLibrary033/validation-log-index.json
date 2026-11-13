@@ -1,0 +1,349 @@
+{
+  "logsRemainInNonDistributedCache": true,
+  "logs": [
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Build-20261023010825823/BuiltIn.log",
+      "sha256": "f2e23ce9ac836ab5855569a8d705860da142b009c782951e98f34042dabaa047",
+      "bytes": 107413,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": true
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Build-20261023010825823/HDRP.log",
+      "sha256": "37d418f2e4f7e7e2191915588472ad704bc7e78dec096ed53b83d0953f779268",
+      "bytes": 128149,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": true
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Build-20261023010825823/URP.log",
+      "sha256": "b5dbc4315a9786ceb79b2781ed3d9b80583aba170472fc5a7c5bb4a39661bbd6",
+      "bytes": 121325,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": true
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Build-20261023011115641/BuiltIn.log",
+      "sha256": "f32fff8589fea628fc2f02dc66d16121b0fdc9e15b627e3a6b91fe18bb668ea2",
+      "bytes": 110569,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Build-20261023011115641/HDRP.log",
+      "sha256": "691114dedc0eb5dd390140543fb9c4d0629485f779dda799d1d54b9b82581bdf",
+      "bytes": 168485,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": true
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Build-20261023011115641/URP.log",
+      "sha256": "064aa7c11ca57367d6b1c861f01c8c60a50c0921a6e174681c5320d022e0a2de",
+      "bytes": 154982,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": true
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Build-20261023011253457/BuiltIn.log",
+      "sha256": "15ce1999402b332b2fffc325203cb26235e1d727e017cfc8398100cf7a868f18",
+      "bytes": 113607,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": true
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Build-20261023011253457/HDRP.log",
+      "sha256": "a48c17b213d93304ff0e168ec483ae79757583dc4e34ad51212ede9d365b3dce",
+      "bytes": 136952,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Build-20261023011253457/URP.log",
+      "sha256": "513e7ccce053ee81cea4f848893afdb292c05235ceb12450e4bfab1a7126dea8",
+      "bytes": 119707,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Build-20261023011602229/BuiltIn.log",
+      "sha256": "b2d0526e1b47eb293ada2b59e5a3d155ffaad93fd6ab49faac3823dd46c06f8c",
+      "bytes": 111103,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Build-20261023011602229/HDRP.log",
+      "sha256": "779c1528c47ab934147e6c83f1dc3f2d764c6a5340cda89aa0151a0d57141c92",
+      "bytes": 128800,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Build-20261023011602229/URP.log",
+      "sha256": "4c1b4e18da043132f15b27da46f5cb57212d1182dd68a81308f7f313d38986c0",
+      "bytes": 119327,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Build-20261023011746049/BuiltIn.log",
+      "sha256": "f8f5d4a6b37e73be790a0dee82ef36731e8eba9da4a55acddb72351354552feb",
+      "bytes": 2681,
+      "licenseLaunchFailure": true,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Filters-20261023011747699/HDRP.log",
+      "sha256": "3d172ec25bb14e213fc1f585fbbf5eec408df24e087ffab22d03c9d89f35480b",
+      "bytes": 2680,
+      "licenseLaunchFailure": true,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Filters-20261023011747699/URP.log",
+      "sha256": "76e15e74dd789cd0f1334ef9cf712a369b77428d60909d275c1e2aeea8beae01",
+      "bytes": 68651,
+      "licenseLaunchFailure": false,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": true
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Filters-20261023011941521/BuiltIn.log",
+      "sha256": "29738e6002f2a4b3a4c793ea12cd96f6ea131350eac42a2e3c873daa04065140",
+      "bytes": 2786,
+      "licenseLaunchFailure": true,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Filters-20261023011941521/HDRP.log",
+      "sha256": "f7d94fd28d61ca0172b2f82049103994f962b5a29bca59753828342420709a83",
+      "bytes": 2681,
+      "licenseLaunchFailure": true,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/Attempts/Filters-20261023011941521/URP.log",
+      "sha256": "d30067ff5d3b55a9bf000be4ca242d5a13f763c2ed069bb7ca430fcc5cea71e2",
+      "bytes": 68652,
+      "licenseLaunchFailure": false,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": true
+    },
+    {
+      "path": ".build~/PublicLibrary033/batch-BuiltIn.log",
+      "sha256": "b8bcaca906598353bf23c89b408ffbed91c809d2dd9364c1460d6ae5f88b5e7d",
+      "bytes": 122357,
+      "licenseLaunchFailure": false,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": true,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/batch-HDRP.log",
+      "sha256": "7b3c83bbb7e3b545229fdc60ed9d1f5ff15a44c4e60cbf588e73c36b7cb68127",
+      "bytes": 148845,
+      "licenseLaunchFailure": false,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": true,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/batch-URP.log",
+      "sha256": "3388610c607f15f401d8759f3f039a6550c75dc5b6cd5a46de3e752a7de2ab3b",
+      "bytes": 133101,
+      "licenseLaunchFailure": false,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": true,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/build-BuiltIn-attempt1.log",
+      "sha256": "121cd1ab75e0fc63f603d274dde3979b394865f60786603a8458ae8f1a55edbc",
+      "bytes": 2679,
+      "licenseLaunchFailure": true,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/build-BuiltIn.log",
+      "sha256": "20719e740c1a153f3457a8e52dabc019dfe78255ef1400756a9b94082433370d",
+      "bytes": 110020,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/build-HDRP-attempt1.log",
+      "sha256": "73210a263b8e1defd811ec134c1b0e1f54b35dc334a905ac529c0592538f7c73",
+      "bytes": 52220,
+      "licenseLaunchFailure": false,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": true
+    },
+    {
+      "path": ".build~/PublicLibrary033/build-HDRP.log",
+      "sha256": "cb5880f058fcacc064e2bd8d0ead066bf533caa86fec88e708d907d871d902d7",
+      "bytes": 129178,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/build-URP-attempt1.log",
+      "sha256": "c0a3a6b6b70228041d2204994928ad29e427ba5c3e3f47ccc680888758b336e0",
+      "bytes": 51071,
+      "licenseLaunchFailure": false,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": true
+    },
+    {
+      "path": ".build~/PublicLibrary033/build-URP.log",
+      "sha256": "6ec7005b747cd7462589fa72a5c2e8bd5429af2667e3ca3986861d6a1bbf2030",
+      "bytes": 123504,
+      "licenseLaunchFailure": false,
+      "generationCompleted": true,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/core-checks.log",
+      "sha256": "172b4f0abde1d258b974bada80ceec71edd7be8d501f1fc69bceb7e1ecc1eb26",
+      "bytes": 38,
+      "licenseLaunchFailure": false,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/editor-compile.log",
+      "sha256": "a15e04ae6af3e69addc745ebb7473e87b854cd2ceeb0640aa1070bf8a949f353",
+      "bytes": 526,
+      "licenseLaunchFailure": false,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/filters-BuiltIn.log",
+      "sha256": "9939241975cdaebc8503734ad71a546e68ead12ea114d3fdb05d323beb9150d7",
+      "bytes": 67271,
+      "licenseLaunchFailure": false,
+      "generationCompleted": false,
+      "filterPassed": true,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/filters-HDRP.log",
+      "sha256": "55ffc925bc3101cd7a85cd33a478464772e50ca0095cc794b9645a64183b1562",
+      "bytes": 78148,
+      "licenseLaunchFailure": false,
+      "generationCompleted": false,
+      "filterPassed": true,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/filters-URP.log",
+      "sha256": "7ba73f6abbd73a0225f4786f78fa16fa32f84e3f0a591b0a4fb1ef9be0f1fae9",
+      "bytes": 73914,
+      "licenseLaunchFailure": false,
+      "generationCompleted": false,
+      "filterPassed": true,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    },
+    {
+      "path": ".build~/PublicLibrary033/python-checks.log",
+      "sha256": "608b28fccd475453fe4454c4db9ca86c5445ea804fef0fcd63924edd36c45922",
+      "bytes": 866,
+      "licenseLaunchFailure": false,
+      "generationCompleted": false,
+      "filterPassed": false,
+      "batchPassed": false,
+      "hasCompilationOrGenerationDiagnostics": false
+    }
+  ],
+  "harnesses": [
+    {
+      "path": "Tests/UnityLibraryBuild.cs",
+      "sha256": "4aa26279453d1a0eabcc7cd4561c1654022981469d76998b2770e2767114debd"
+    },
+    {
+      "path": "Tests/UnityLibraryBatchSmoke.cs",
+      "sha256": "7cc64abe8cf2c68266030ec18c36189af5095778bb89977f5f956977c2b0fa45"
+    },
+    {
+      "path": "Tests/UnityPublicFilterSmoke.cs",
+      "sha256": "8161984379724066ea2f19e00274912d55a48ea2b4e2b7c5a8d2b1ec39faf81d"
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "version": "0.3.5",
+  "success": true,
+  "finishedUtc": "2026-10-23T02:57:17.495100+00:00",
+  "sourceSha256": "ceb4795f177903e42c4d3ab0e85d6ce3f741750a988346be488f17ff0926252f",
+  "sourceHashUnchanged": true,
+  "newIndependentEffects": 1,
+  "newPipelineArtifacts": 3,
+  "newMaterialPresets": 3,
+  "nativeComputationEquivalent": true,
+  "validationHost": "Unity 2022.3.10f1 / ASE 1.9.9.13 / Windows D3D11",
+  "pipelines": {
+    "BuiltIn": {
+      "colorSpace": "Linear",
+      "nativeNodes": 2501,
+      "comments": 13,
+      "renderedStates": 13,
+      "sourceComparedStates": 0,
+      "maxSourceMeanError": 0.0,
+      "maxSourcePixelError": 0.0,
+      "sceneChangedPixels": 24750,
+      "cameraTranslationMeanError": 0.0,
+      "materialTextureChecks": 5,
+      "presetChecks": 3
+    },
+    "URP": {
+      "colorSpace": "Linear",
+      "nativeNodes": 2501,
+      "comments": 13,
+      "renderedStates": 13,
+      "sourceComparedStates": 13,
+      "maxSourceMeanError": 2.9493094189092517e-08,
+      "maxSourcePixelError": 9.5367431640625e-07,
+      "sceneChangedPixels": 24883,
+      "cameraTranslationMeanError": 0.0,
+      "materialTextureChecks": 5,
+      "presetChecks": 3
+    },
+    "HDRP": {
+      "colorSpace": "Linear",
+      "nativeNodes": 2501,
+      "comments": 13,
+      "renderedStates": 13,
+      "sourceComparedStates": 0,
+      "maxSourceMeanError": 0.0,
+      "maxSourcePixelError": 0.0,
+      "sceneChangedPixels": 24750,
+      "cameraTranslationMeanError": 0.0,
+      "materialTextureChecks": 5,
+      "presetChecks": 3
+    }
+  },
+  "crossPipelineFixedFixtureComparisons": [
+    {
+      "pipeline": "BuiltIn",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "Default",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "BuiltIn",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "Iteration1",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "BuiltIn",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "Iteration1.5",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "BuiltIn",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "Iteration6",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "BuiltIn",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "Iteration15",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "BuiltIn",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "NoParallax",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "BuiltIn",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "DeepParallax",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "BuiltIn",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "FlatNormal",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "BuiltIn",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "StrongNormal",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "BuiltIn",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "FlowTime7",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "BuiltIn",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "ViewAngle",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "BuiltIn",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "TextureST",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "BuiltIn",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "CutoutDisabled",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "HDRP",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "Default",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "HDRP",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "Iteration1",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "HDRP",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "Iteration1.5",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "HDRP",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "Iteration6",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "HDRP",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "Iteration15",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "HDRP",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "NoParallax",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "HDRP",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "DeepParallax",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "HDRP",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "FlatNormal",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "HDRP",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "StrongNormal",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "HDRP",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "FlowTime7",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "HDRP",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "ViewAngle",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "HDRP",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "TextureST",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    },
+    {
+      "pipeline": "HDRP",
+      "reference": "URP ASE with separate original-source comparison",
+      "state": "CutoutDisabled",
+      "meanChannelError": 0.0,
+      "maxChannelError": 0.0
+    }
+  ],
+  "historical287EntriesAnd109ContractsUnchanged": true,
+  "researchIdentitiesUnchanged": true,
+  "coreChecks": 540,
+  "editorCompile": {
+    "warnings": 0,
+    "errors": 0
+  },
+  "originalSourceSceneEquivalence": false,
+  "gpuBenchmark": false,
+  "remaining": {
+    "missingPipelineVersions": 40,
+    "generatedTargetsWithFeatureGaps": 49,
+    "localGraphsStillBlocked": 80
+  },
+  "library": {
+    "version": "0.3.5",
+    "artifacts": 290,
+    "families": 110,
+    "pipelines": {
+      "BuiltIn": 90,
+      "URP": 90,
+      "HDRP": 110
+    },
+    "threeArtifactFamilies": 90,
+    "threeMappedTargetFamilies": 65,
+    "targetStates": {
+      "Mapped": 241,
+      "FeatureGap": 49,
+      "RequiresAdapter": 40
+    },
+    "researchRecords": 1079,
+    "originalLocalGraphsStillBlocked": 80,
+    "newIndependentEffects": 1,
+    "newArtifacts": 3
+  }
+}

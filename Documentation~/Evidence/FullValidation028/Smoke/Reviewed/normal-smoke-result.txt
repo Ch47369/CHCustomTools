@@ -1,0 +1,1 @@
+PASS: 258 checks; 49 rendered states. ASE reload, native graph, properties, fog, double-sided ST/flip, UI clipping/stencil/depth/masks. Original user scenes not compared.

@@ -1,0 +1,3228 @@
+{
+  "libraryVersion": "0.2.5",
+  "generatedShaders": 0,
+  "files": [
+    {
+      "repository": "user-reference",
+      "path": "BillBordScale.shader",
+      "commit": "",
+      "url": "",
+      "license": "Private/read-only; not distributed",
+      "sha256": "e1fd8f3a1b4ce59a7c882679b75adf692e20e2fd8c46e8d12a6cfa9c9a1a1e94",
+      "sourceUnchanged": true,
+      "status": "ExistingAseGraph",
+      "canPlan": false,
+      "planNodeCount": 0,
+      "planErrors": [],
+      "blockers": [],
+      "warnings": [
+        "The input already contains an ASE graph. Open/migrate it with the installed ASE; do not reconstruct it from generated HLSL."
+      ],
+      "includes": [
+        "UnityCG.cginc",
+        "UnityShaderVariables.cginc",
+        "HLSLSupport.cginc",
+        "Lighting.cginc",
+        "UnityPBSLighting.cginc"
+      ],
+      "helperDefinitions": [
+        "ComputeClipSpacePosition"
+      ],
+      "overloadedHelperNames": [],
+      "knowledge": {
+        "libraryVersion": "0.2.5",
+        "classification": "ExistingAseGraph",
+        "sourceSignature": "e80a3bc5a0d18bb0bec5376ea2422947d6c37330f4c6fbeddfdc37c6f90b35d3",
+        "referenceFile": "BillBordScale.shader",
+        "referenceNotes": "ASE 19908\uFF1B94 \u8282\u70B9\u3002\u516C\u544A\u677F\u5FC5\u987B\u4FDD\u7559\u9876\u70B9\u7A7A\u95F4\u548C\u8F74\u5411\u7EA6\u675F\u3002",
+        "explicitPassCount": 2,
+        "surfaceShader": false,
+        "graph": {
+          "present": true,
+          "complete": true,
+          "version": "19908",
+          "nodeCount": 94,
+          "wireCount": 83,
+          "customExpressionCount": 0,
+          "nodeTypes": [
+            "AmplifyShaderEditor.ColorNode",
+            "AmplifyShaderEditor.CommentaryNode",
+            "AmplifyShaderEditor.ComponentMaskNode",
+            "AmplifyShaderEditor.CrossProductOpNode",
+            "AmplifyShaderEditor.DistanceOpNode",
+            "AmplifyShaderEditor.DynamicAppendNode",
+            "AmplifyShaderEditor.GetLocalVarNode",
+            "AmplifyShaderEditor.LerpOp",
+            "AmplifyShaderEditor.NegateNode",
+            "AmplifyShaderEditor.NormalizeNode",
+            "AmplifyShaderEditor.ObjectPositionNode",
+            "AmplifyShaderEditor.ObjectScaleNode",
+            "AmplifyShaderEditor.PosVertexDataNode",
+            "AmplifyShaderEditor.RangedFloatNode",
+            "AmplifyShaderEditor.RegisterLocalVarNode",
+            "AmplifyShaderEditor.SamplerNode",
+            "AmplifyShaderEditor.SaturateNode",
+            "AmplifyShaderEditor.SimpleAddOpNode",
+            "AmplifyShaderEditor.SimpleDivideOpNode",
+            "AmplifyShaderEditor.SimpleMinOpNode",
+            "AmplifyShaderEditor.SimpleMultiplyOpNode",
+            "AmplifyShaderEditor.SimpleSubtractOpNode",
+            "AmplifyShaderEditor.TemplateMultiPassMasterNode",
+            "AmplifyShaderEditor.TexCoordVertexDataNode",
+            "AmplifyShaderEditor.Vector3Node",
+            "AmplifyShaderEditor.Vector4Node",
+            "AmplifyShaderEditor.WorldPosInputsNode",
+            "AmplifyShaderEditor.WorldSpaceCameraPos"
+          ],
+          "templateGuids": [
+            "0770190933193b94aaa3065e307002fa"
+          ],
+          "functionGuids": []
+        },
+        "rules": [
+          {
+            "id": "ase-migration",
+            "title": "\u5DF2\u6709 ASE \u56FE\u4E0E\u4F9D\u8D56",
+            "implementation": "AseMigration",
+            "recipe": "\u7531 ASE \u6253\u5F00\u5E76\u8FC1\u79FB\u5B8C\u6574\u56FE\uFF1B\u5206\u6790\u5143\u6570\u636E\u53EA\u7528\u4E8E\u6E05\u70B9\uFF0C\u4E0D\u91CD\u5EFA\u751F\u6210\u7684 HLSL\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u56FE\u7248\u672C",
+              "\u5168\u90E8 Master \u548C Pass",
+              "Function \u5B50\u56FE GUID",
+              "\u6A21\u677F GUID",
+              "\u8282\u70B9\u8BBE\u7F6E\u548C\u539F\u6709\u8FDE\u7EBF"
+            ],
+            "validation": [
+              "\u76EE\u6807 ASE \u80FD\u52A0\u8F7D\u5168\u90E8\u8282\u70B9\u548C\u4F9D\u8D56",
+              "\u4FDD\u5B58\u91CD\u8F7D",
+              "\u7F16\u8BD1\u5404 Pass",
+              "\u573A\u666F\u6BD4\u8F83"
+            ]
+          },
+          {
+            "id": "pure-functions",
+            "title": "\u7EAF\u6570\u5B66\u8F85\u52A9\u51FD\u6570",
+            "implementation": "NativePlanner",
+            "recipe": "\u6309\u503C\u7ED1\u5B9A\u53C2\u6570\u3001\u9694\u79BB\u5C40\u90E8\u4F5C\u7528\u57DF\uFF0C\u5C06\u53EF\u89E3\u6790\u7684\u51FD\u6570\u4F53\u5185\u8054\u4E3A\u539F\u751F\u6570\u5B66\u8282\u70B9\uFF1B\u4E0D\u6309\u6587\u4EF6\u540D\u6216\u6E90\u7801\u7B7E\u540D\u6388\u6743\u3002",
+            "nativeNodes": [
+              "SimpleAddOpNode",
+              "SimpleMultiplyOpNode",
+              "DotProductOpNode",
+              "FractNode",
+              "LerpOp",
+              "CosOpNode"
+            ],
+            "preserve": [
+              "\u53C2\u6570\u7C7B\u578B\u4E0E\u8FD4\u56DE\u5BBD\u5EA6",
+              "\u53EA\u5141\u8BB8\u5C40\u90E8\u8D4B\u503C",
+              "\u62D2\u7EDD\u9012\u5F52\u548C\u91CD\u8F7D",
+              "\u62D2\u7EDD\u9690\u85CF\u91C7\u6837\u4E0E\u5168\u5C40\u5199\u5165",
+              "\u539F\u6709\u6E32\u67D3\u548C\u9876\u70B9\u68C0\u67E5\u7EE7\u7EED\u6267\u884C"
+            ],
+            "validation": [
+              "\u8C03\u7528\u4E0E\u624B\u52A8\u5185\u8054\u7684\u6570\u503C\u7ED3\u679C\u4E00\u81F4",
+              "\u4E0D\u540C\u51FD\u6570\u540D\u548C\u53C2\u6570\u540D",
+              "\u53C2\u6570\u4F5C\u7528\u57DF\u4E92\u4E0D\u6C61\u67D3",
+              "\u6076\u610F\u6216\u4E0D\u652F\u6301\u7684\u51FD\u6570\u4ECD\u963B\u585E"
+            ]
+          },
+          {
+            "id": "unity-globals-distance",
+            "title": "\u65F6\u95F4\u3001\u76F8\u673A\u4F4D\u7F6E\u4E0E\u8DDD\u79BB",
+            "implementation": "NativePlanner",
+            "recipe": "_Time \u6620\u5C04\u5B8C\u6574\u56DB\u5206\u91CF Time \u8282\u70B9\uFF1B_WorldSpaceCameraPos \u6620\u5C04\u4E16\u754C\u76F8\u673A\u4F4D\u7F6E\uFF1Blength/distance \u4F7F\u7528\u5BF9\u5E94\u539F\u751F\u8282\u70B9\u3002",
+            "nativeNodes": [
+              "TimeNode",
+              "WorldSpaceCameraPos",
+              "LengthOpNode",
+              "DistanceOpNode"
+            ],
+            "preserve": [
+              "_Time.x=t/20\u3001y=t\u3001z=2t\u3001w=3t",
+              "\u5750\u6807\u7A7A\u95F4\u7531\u539F\u8868\u8FBE\u5F0F\u51B3\u5B9A",
+              "distance \u4E24\u7AEF\u5BBD\u5EA6\u4E00\u81F4"
+            ],
+            "validation": [
+              "\u65F6\u95F4\u5206\u91CF\u4E0D\u4E92\u6362",
+              "\u8DDD\u79BB\u6570\u503C",
+              "\u975E\u6CD5\u5BBD\u5EA6\u548C\u7EB9\u7406\u8F93\u5165\u62D2\u7EDD"
+            ]
+          },
+          {
+            "id": "ordered-passes",
+            "title": "\u591A Pass\u3001\u900F\u660E\u6DF7\u5408\u4E0E\u56DE\u9000",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4E3A\u6BCF\u4E2A Pass \u5206\u522B\u8BB0\u5F55\u9876\u70B9/\u7247\u5143\u8F93\u51FA\u3001Cull\u3001Blend\u3001\u6DF1\u5EA6\u548C\u961F\u5217\uFF0C\u5E76\u4FDD\u7559\u6267\u884C\u987A\u5E8F\u4E0E Fallback\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u5185\u58C1\u5148\u3001\u5916\u58C1\u540E",
+              "Pass \u6570\u91CF\u4E0E\u987A\u5E8F",
+              "\u72EC\u7ACB Cull",
+              "\u6DF7\u5408\u548C\u6DF1\u5EA6",
+              "Fallback"
+            ],
+            "validation": [
+              "\u9010 Pass \u7F16\u8BD1",
+              "\u6B63\u53CD\u7ED5\u5E8F",
+              "\u900F\u660E\u91CD\u53E0",
+              "\u56DE\u9000\u8D44\u6E90\u5B58\u5728"
+            ]
+          },
+          {
+            "id": "vertex-transform",
+            "title": "\u516C\u544A\u677F\u3001\u9876\u70B9\u4F4D\u79FB\u4E0E\u63D2\u503C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u9876\u70B9\u53D8\u6362\u9700\u8981\u72EC\u7ACB\u9636\u6BB5\u8BA1\u5212\uFF1B\u7269\u4F53\u539F\u70B9\u3001\u7F29\u653E\u3001\u76F8\u673A\u65B9\u5411\u3001\u53C9\u79EF\u548C\u8F74\u5411\u7EA6\u675F\u4E0D\u5F97\u6539\u6210\u7247\u5143\u8BA1\u7B97\u3002",
+            "nativeNodes": [
+              "PositionNode",
+              "ObjectPositionNode",
+              "ObjectScaleNode",
+              "WorldSpaceCameraPos",
+              "CrossProductOpNode"
+            ],
+            "preserve": [
+              "\u5C40\u90E8/\u4E16\u754C/\u88C1\u526A\u7A7A\u95F4",
+              "\u53D8\u5F62\u987A\u5E8F",
+              "\u7C92\u5B50\u81EA\u5B9A\u4E49\u6570\u636E",
+              "ShadowCaster \u4E0E\u4E3B Pass \u540C\u6B65"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u548C\u8D1F\u7F29\u653E",
+              "\u4E0D\u540C\u76F8\u673A\u59FF\u6001",
+              "\u9634\u5F71",
+              "\u6279\u5904\u7406\u4E0E\u5B9E\u4F8B\u5316"
+            ]
+          },
+          {
+            "id": "pbr-outline",
+            "title": "PBR \u6750\u8D28\u8F93\u51FA\u4E0E\u63CF\u8FB9",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4F7F\u7528\u5BF9\u5E94 Lit/Surface Master \u7684\u5B8C\u6574\u6750\u8D28\u8F93\u51FA\uFF1B\u63CF\u8FB9\u4E3A\u72EC\u7ACB Pass\uFF0C\u4FDD\u7559\u81A8\u80C0\u65B9\u5F0F\u548C\u5168\u90E8\u706F\u5149/\u9634\u5F71\u7B49\u8F85\u52A9 Pass\u3002",
+            "nativeNodes": [
+              "FresnelNode",
+              "TransformDirectionNode",
+              "UnpackScaleNormalNode"
+            ],
+            "preserve": [
+              "\u91D1\u5C5E/\u9AD8\u5149\u5DE5\u4F5C\u6D41",
+              "\u6CD5\u7EBF\u7A7A\u95F4",
+              "\u900F\u660E\u4E0E\u88C1\u526A",
+              "\u5B50\u56FE\u4F9D\u8D56",
+              "\u63CF\u8FB9 Cull/\u6DF1\u5EA6/Pass \u987A\u5E8F"
+            ],
+            "validation": [
+              "\u5149\u7167\u548C\u53CD\u5C04",
+              "\u9634\u5F71\u4E0E\u70D8\u7119",
+              "\u63CF\u8FB9\u539A\u5EA6",
+              "\u6240\u6709\u6750\u8D28\u8F93\u51FA"
+            ]
+          },
+          {
+            "id": "keyword-binding",
+            "title": "\u5173\u952E\u8BCD\u3001\u5C5E\u6027\u4E0E\u7F16\u8BD1\u53D8\u4F53",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u8BB0\u5F55\u5C5E\u6027 Toggle \u6D3E\u751F\u5173\u952E\u8BCD\u3001pragma \u7684 global/local \u5173\u952E\u8BCD\u53CA\u6761\u4EF6\u5206\u652F\uFF1B\u540D\u79F0\u4E0D\u4E00\u81F4\u65F6\u62A5\u544A\uFF0C\u4E0D\u80FD\u81EA\u52A8\u6539\u540D\u7ED1\u5B9A\u3002",
+            "nativeNodes": [
+              "StaticSwitch",
+              "KeywordSwitchNode"
+            ],
+            "preserve": [
+              "global/local \u4F5C\u7528\u57DF",
+              "\u9ED8\u8BA4\u5206\u652F",
+              "\u5B8F\u4E0E\u5173\u952E\u8BCD\u539F\u540D",
+              "\u591A Pass \u53D8\u4F53",
+              "\u5B9E\u4F8B\u5316\u4E0E stereo"
+            ],
+            "validation": [
+              "\u6BCF\u79CD\u5173\u952E\u8BCD\u7EC4\u5408",
+              "\u6750\u8D28\u6570\u503C\u4E0E\u5173\u952E\u8BCD\u72EC\u7ACB\u53D8\u5316",
+              "\u76EE\u6807\u56FE\u5F62 API"
+            ]
+          },
+          {
+            "id": "screen-depth",
+            "title": "\u5C4F\u5E55\u3001\u6DF1\u5EA6\u4E0E\u540E\u5904\u7406",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u6620\u5C04\u5C4F\u5E55/\u6295\u5F71\u5750\u6807\u3001\u6DF1\u5EA6\u91C7\u6837\u548C\u8FD8\u539F\u3001\u5168\u5C4F Blit \u53CA\u76F8\u5173\u76F8\u673A\u8F93\u5165\uFF1B\u7981\u6B62\u7528\u666E\u901A UV \u91C7\u6837\u4EE3\u66FF\u3002",
+            "nativeNodes": [
+              "GrabScreenPosition",
+              "ScreenDepthNode",
+              "CameraDepthFade"
+            ],
+            "preserve": [
+              "\u900F\u89C6\u9664\u6CD5",
+              "\u7EBF\u6027/\u539F\u59CB\u6DF1\u5EA6",
+              "\u53CD\u5411 Z",
+              "\u76F8\u673A\u6DF1\u5EA6\u7EB9\u7406\u4F9D\u8D56",
+              "\u5E73\u53F0 Y \u7FFB\u8F6C"
+            ],
+            "validation": [
+              "\u900F\u89C6/\u6B63\u4EA4\u76F8\u673A",
+              "\u524D\u540E\u88C1\u526A\u9762",
+              "\u4E0D\u540C\u6E32\u67D3 API"
+            ]
+          },
+          {
+            "id": "performance-evidence",
+            "title": "\u753B\u8D28\u4E0E GPU \u6210\u672C\u8BC4\u4F30",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5148\u4FDD\u6301\u884C\u4E3A\uFF0C\u518D\u6309\u76EE\u6807\u8BBE\u5907\u6D4B GPU \u65F6\u95F4\u3001\u5E26\u5BBD\u3001overdraw\u3001\u53D8\u4F53\u548C\u753B\u8D28\u8BEF\u5DEE\uFF1B\u9759\u6001\u6E90\u7801\u53EA\u80FD\u63D0\u793A\u6210\u672C\uFF0C\u4E0D\u80FD\u7ED9\u51FA\u6027\u80FD\u4F18\u80DC\u7ED3\u8BBA\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u91C7\u6837\u8C03\u7528\u4F4D\u7F6E\u4E0D\u7B49\u4E8E\u6BCF\u50CF\u7D20\u91C7\u6837\u6B21\u6570",
+              "include\u3001\u5FAA\u73AF\u4E0E\u5206\u652F\u4F1A\u6539\u53D8\u5DE5\u4F5C\u91CF",
+              "Register/Get \u6574\u7406\u8FDE\u7EBF\u4E0D\u4FDD\u8BC1\u51CF\u5C11 GPU \u6307\u4EE4",
+              "\u907F\u514D\u7528\u672A\u7ECF\u6BD4\u8F83\u7684\u4FBF\u5B9C\u7B97\u6CD5\u66FF\u6362\u539F\u6548\u679C"
+            ],
+            "validation": [
+              "\u56FA\u5B9A\u573A\u666F\u548C\u5206\u8FA8\u7387",
+              "GPU \u578B\u53F7/API/\u7BA1\u7EBF",
+              "GPU \u4E2D\u4F4D\u6570\u4E0E\u9AD8\u5206\u4F4D\u65F6\u95F4",
+              "\u79FB\u52A8\u7AEF\u70ED\u7A33\u5B9A",
+              "\u6750\u8D28\u753B\u9762\u5BF9\u6BD4"
+            ]
+          }
+        ],
+        "notes": [
+          "\u5DF2\u8BB0\u5F55\u7684\u8BED\u4E49\u65B9\u6848\u4E0D\u7B49\u4E8E\u81EA\u52A8\u652F\u6301\uFF1B\u672A\u5B9E\u73B0\u7684\u6A21\u677F\u3001\u9636\u6BB5\u4E0E\u72B6\u6001\u4ECD\u7531\u539F\u5206\u6790\u5668\u963B\u585E\u3002"
+        ],
+        "materialCategories": [],
+        "performance": {
+          "status": "NotBenchmarked",
+          "directTextureSampleSites": 3,
+          "loopSites": 0,
+          "explicitPasses": 2,
+          "includesMayAddWork": true,
+          "observations": [
+            "\u9759\u6001\u8C03\u7528\u4F4D\u7F6E\u4E0D\u662F\u8FD0\u884C\u6B21\u6570\uFF1Binclude\u3001\u5FAA\u73AF\u3001\u5B8F\u548C\u5206\u652F\u672A\u7ECF\u5C55\u5F00\u3002\u6027\u80FD\u5C1A\u672A\u5728\u76EE\u6807 GPU \u4E0A\u6D4B\u91CF\u3002",
+            "\u5B58\u5728\u6DF7\u5408\u72B6\u6001\uFF1A\u900F\u660E\u8986\u76D6\u5C42\u6570\u548C\u5E26\u5BBD\u53EF\u80FD\u6BD4\u8282\u70B9\u6570\u66F4\u5F71\u54CD\u6027\u80FD\u3002"
+          ]
+        }
+      }
+    },
+    {
+      "repository": "user-reference",
+      "path": "bubble.shader",
+      "commit": "",
+      "url": "",
+      "license": "Private/read-only; not distributed",
+      "sha256": "134d9ac3245dbe68f50fa1baf71d69fc7ecb523f2fc3c29d539c20d1b905705b",
+      "sourceUnchanged": true,
+      "status": "NeedsAgent",
+      "canPlan": false,
+      "planNodeCount": 0,
+      "planErrors": [],
+      "blockers": [
+        "Property attributes need explicit ASE mapping: _RimColor [Header(Fresnel Rim)]",
+        "Property attributes need explicit ASE mapping: _IridStrength [Header(Iridescence Oil Film)]",
+        "Property attributes need explicit ASE mapping: _NoiseScale [Header(Film Noise)]",
+        "Property attributes need explicit ASE mapping: _Alpha [Header(Opacity)]",
+        "Automatic planning requires one program block with no additional shared program blocks.",
+        "Exactly one vertex and fragment entry point must be declared.",
+        "Multiple or implicit passes require explicit agent mapping.",
+        "Render state needs ASE mapping: ZWrite Off",
+        "Render state needs ASE mapping: Blend SrcAlpha OneMinusSrcAlpha",
+        "Render state needs ASE mapping: ZWrite Off",
+        "Render state needs ASE mapping: Blend SrcAlpha OneMinusSrcAlpha",
+        "Multiple Cull declarations require explicit pass/subshader scope mapping.",
+        "Transparency/queue/alpha clipping needs explicit template options and Alpha output.",
+        "ShaderLab LOD selection requires explicit ASE template settings.",
+        "Additional ShaderLab behavior requires an agent plan.",
+        "Tag needs explicit template mapping: \u0022Queue\u0022=\u0022Transparent\u0022",
+        "Tag needs explicit template mapping: \u0022RenderType\u0022=\u0022Transparent\u0022",
+        "Tag needs explicit template mapping: \u0022IgnoreProjector\u0022=\u0022True\u0022",
+        "Vertex modifications/varyings need explicit ASE mapping: o.worldNormal = UnityObjectToWorldNormal(v.normal);\n            float3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;\n            o.worldViewDir = UnityWorldSpaceViewDir(worldPos);\n            o.objPos = v.vertex.xyz;"
+      ],
+      "warnings": [
+        "A plan is not a validated ASE shader. Generate and reload it in the target Unity/ASE environment, then compare rendering with the source."
+      ],
+      "includes": [
+        "UnityCG.cginc"
+      ],
+      "helperDefinitions": [
+        "hash21",
+        "vnoise",
+        "fbm",
+        "iridescence"
+      ],
+      "overloadedHelperNames": [],
+      "knowledge": {
+        "libraryVersion": "0.2.5",
+        "classification": "Handwritten",
+        "sourceSignature": "0f6cbdcf4a5aa21b4003b016224b10c7d66b9f981079eb21eb3e5c36442bdec2",
+        "referenceFile": "bubble.shader",
+        "referenceNotes": "11 \u5C5E\u6027\uFF0C\u53CC Pass\u3002\u5185\u58C1 Cull Front \u5148\u753B\uFF0C\u5916\u58C1 Cull Back \u540E\u753B\uFF1B\u5747 ZWrite Off\u3001SrcAlpha\u3002hash21 \u5E38\u6570 123.34/456.21/45.32\uFF0Cvalue-noise \u7528 f*f*(3-2*f)\uFF0Cfbm \u4E09\u5C42\u632F\u5E45 .5/.25/.125\u3001\u9891\u7387\u500D\u7387 2.03\u3002\u4FDD\u7559\u4F59\u5F26\u76F8\u4F4D (0,.33,.67)\u3001LOD 100 \u53CA Unlit/Transparent Fallback\u3002\u89C4\u5219\u5DF2\u8BB0\u5F55\uFF0C\u53CC Pass \u6A21\u677F\u548C\u9636\u6BB5\u6620\u5C04\u5C1A\u672A\u9A8C\u8BC1\u3002",
+        "explicitPassCount": 2,
+        "surfaceShader": false,
+        "graph": {
+          "present": false,
+          "complete": false,
+          "version": "",
+          "nodeCount": 0,
+          "wireCount": 0,
+          "customExpressionCount": 0,
+          "nodeTypes": [],
+          "templateGuids": [],
+          "functionGuids": []
+        },
+        "rules": [
+          {
+            "id": "pure-functions",
+            "title": "\u7EAF\u6570\u5B66\u8F85\u52A9\u51FD\u6570",
+            "implementation": "NativePlanner",
+            "recipe": "\u6309\u503C\u7ED1\u5B9A\u53C2\u6570\u3001\u9694\u79BB\u5C40\u90E8\u4F5C\u7528\u57DF\uFF0C\u5C06\u53EF\u89E3\u6790\u7684\u51FD\u6570\u4F53\u5185\u8054\u4E3A\u539F\u751F\u6570\u5B66\u8282\u70B9\uFF1B\u4E0D\u6309\u6587\u4EF6\u540D\u6216\u6E90\u7801\u7B7E\u540D\u6388\u6743\u3002",
+            "nativeNodes": [
+              "SimpleAddOpNode",
+              "SimpleMultiplyOpNode",
+              "DotProductOpNode",
+              "FractNode",
+              "LerpOp",
+              "CosOpNode"
+            ],
+            "preserve": [
+              "\u53C2\u6570\u7C7B\u578B\u4E0E\u8FD4\u56DE\u5BBD\u5EA6",
+              "\u53EA\u5141\u8BB8\u5C40\u90E8\u8D4B\u503C",
+              "\u62D2\u7EDD\u9012\u5F52\u548C\u91CD\u8F7D",
+              "\u62D2\u7EDD\u9690\u85CF\u91C7\u6837\u4E0E\u5168\u5C40\u5199\u5165",
+              "\u539F\u6709\u6E32\u67D3\u548C\u9876\u70B9\u68C0\u67E5\u7EE7\u7EED\u6267\u884C"
+            ],
+            "validation": [
+              "\u8C03\u7528\u4E0E\u624B\u52A8\u5185\u8054\u7684\u6570\u503C\u7ED3\u679C\u4E00\u81F4",
+              "\u4E0D\u540C\u51FD\u6570\u540D\u548C\u53C2\u6570\u540D",
+              "\u53C2\u6570\u4F5C\u7528\u57DF\u4E92\u4E0D\u6C61\u67D3",
+              "\u6076\u610F\u6216\u4E0D\u652F\u6301\u7684\u51FD\u6570\u4ECD\u963B\u585E"
+            ]
+          },
+          {
+            "id": "bounded-loops",
+            "title": "\u56FA\u5B9A\u6B21\u6570\u7684\u7B97\u672F\u7D2F\u52A0\u5FAA\u73AF",
+            "implementation": "NativePlanner",
+            "recipe": "\u5C55\u5F00 for(int k=N; k\u003CM; k\u002B\u002B) \u7684\u7B97\u672F\u7D2F\u52A0\uFF0C\u6700\u591A 16 \u6B21\uFF1B\u5FAA\u73AF\u4F53\u4E0D\u8BFB\u53D6\u8BA1\u6570\u5668\u3001\u4E0D\u58F0\u660E\u5C40\u90E8\u4F5C\u7528\u57DF\u3001\u4E0D\u91C7\u6837\u3001\u4E0D\u8DF3\u8F6C\u3002",
+            "nativeNodes": [
+              "SimpleAddOpNode",
+              "SimpleMultiplyOpNode"
+            ],
+            "preserve": [
+              "\u539F\u59CB\u8FD0\u7B97\u987A\u5E8F",
+              "\u6BCF\u8F6E\u7D2F\u52A0\u548C\u9891\u7387/\u632F\u5E45\u66F4\u65B0",
+              "\u52A8\u6001\u5FAA\u73AF\u7EE7\u7EED\u963B\u585E",
+              "\u96F6\u6B21\u5FAA\u73AF\u4ECD\u5BA1\u67E5\u526F\u4F5C\u7528"
+            ],
+            "validation": [
+              "0/1/3/16 \u6B21\u8FB9\u754C",
+              "17 \u6B21\u62D2\u7EDD",
+              "\u52A8\u6001\u754C\u9650\u62D2\u7EDD",
+              "break\u3001\u8BA1\u6570\u5668\u8BFB\u53D6\u548C\u7EB9\u7406\u91C7\u6837\u62D2\u7EDD"
+            ]
+          },
+          {
+            "id": "unity-globals-distance",
+            "title": "\u65F6\u95F4\u3001\u76F8\u673A\u4F4D\u7F6E\u4E0E\u8DDD\u79BB",
+            "implementation": "NativePlanner",
+            "recipe": "_Time \u6620\u5C04\u5B8C\u6574\u56DB\u5206\u91CF Time \u8282\u70B9\uFF1B_WorldSpaceCameraPos \u6620\u5C04\u4E16\u754C\u76F8\u673A\u4F4D\u7F6E\uFF1Blength/distance \u4F7F\u7528\u5BF9\u5E94\u539F\u751F\u8282\u70B9\u3002",
+            "nativeNodes": [
+              "TimeNode",
+              "WorldSpaceCameraPos",
+              "LengthOpNode",
+              "DistanceOpNode"
+            ],
+            "preserve": [
+              "_Time.x=t/20\u3001y=t\u3001z=2t\u3001w=3t",
+              "\u5750\u6807\u7A7A\u95F4\u7531\u539F\u8868\u8FBE\u5F0F\u51B3\u5B9A",
+              "distance \u4E24\u7AEF\u5BBD\u5EA6\u4E00\u81F4"
+            ],
+            "validation": [
+              "\u65F6\u95F4\u5206\u91CF\u4E0D\u4E92\u6362",
+              "\u8DDD\u79BB\u6570\u503C",
+              "\u975E\u6CD5\u5BBD\u5EA6\u548C\u7EB9\u7406\u8F93\u5165\u62D2\u7EDD"
+            ]
+          },
+          {
+            "id": "noise-fbm",
+            "title": "\u786E\u5B9A\u6027\u566A\u58F0\u4E0E\u5206\u5C42\u7D2F\u52A0",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5148\u5185\u8054\u539F hash/value-noise\uFF0C\u518D\u5C55\u5F00\u56FA\u5B9A octave\u3002\u4E0D\u80FD\u628A\u4E0D\u540C hash \u6216 value noise \u66FF\u6362\u6210 ASE \u7684 Simplex Noise\u3002",
+            "nativeNodes": [
+              "FractNode",
+              "FloorOpNode",
+              "DotProductOpNode",
+              "LerpOp",
+              "SimpleMultiplyOpNode"
+            ],
+            "preserve": [
+              "hash \u5E38\u6570\u548C\u8F93\u5165\u7A7A\u95F4",
+              "\u63D2\u503C\u66F2\u7EBF",
+              "\u6BCF\u5C42\u9891\u7387\u3001\u632F\u5E45\u4E0E\u7D2F\u8BA1\u987A\u5E8F",
+              "\u65F6\u95F4\u5206\u91CF"
+            ],
+            "validation": [
+              "\u6574\u6570\u6676\u683C\u53CA\u8FB9\u754C",
+              "\u8D1F\u5750\u6807",
+              "\u591A\u4E2A\u52A8\u753B\u65F6\u523B",
+              "\u50CF\u7D20\u6BD4\u8F83"
+            ]
+          },
+          {
+            "id": "fresnel-space",
+            "title": "Fresnel\u3001\u89C6\u7EBF\u4E0E\u5F69\u819C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4FDD\u7559\u6CD5\u7EBF\u548C\u89C6\u7EBF\u7684\u5750\u6807\u7A7A\u95F4\u3001\u9876\u70B9\u63D2\u503C\u4E0E\u7247\u5143\u5F52\u4E00\u5316\u987A\u5E8F\uFF1Bdot\u2192saturate\u21921-x\u2192pow\u3002\u4F59\u5F26\u5F69\u819C\u4F7F\u7528\u539F\u76F8\u4F4D\u548C\u9891\u7387\u3002",
+            "nativeNodes": [
+              "NormalizeNode",
+              "DotProductOpNode",
+              "SaturateNode",
+              "OneMinusNode",
+              "PowerNode",
+              "CosOpNode"
+            ],
+            "preserve": [
+              "\u6B63\u53CD\u9762\u6CD5\u7EBF\u7B26\u53F7",
+              "\u89C6\u7EBF\u65B9\u5411",
+              "\u4E58\u8272\u3001\u5F3A\u5EA6\u548C Alpha",
+              "\u4E0D\u63D0\u524D\u5728\u9876\u70B9\u5F52\u4E00\u5316"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u7F29\u653E",
+              "\u6B63\u53CD\u9762",
+              "\u63A0\u5C04\u89D2",
+              "\u4E0D\u540C\u76F8\u673A\u4F4D\u7F6E"
+            ]
+          },
+          {
+            "id": "ordered-passes",
+            "title": "\u591A Pass\u3001\u900F\u660E\u6DF7\u5408\u4E0E\u56DE\u9000",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4E3A\u6BCF\u4E2A Pass \u5206\u522B\u8BB0\u5F55\u9876\u70B9/\u7247\u5143\u8F93\u51FA\u3001Cull\u3001Blend\u3001\u6DF1\u5EA6\u548C\u961F\u5217\uFF0C\u5E76\u4FDD\u7559\u6267\u884C\u987A\u5E8F\u4E0E Fallback\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u5185\u58C1\u5148\u3001\u5916\u58C1\u540E",
+              "Pass \u6570\u91CF\u4E0E\u987A\u5E8F",
+              "\u72EC\u7ACB Cull",
+              "\u6DF7\u5408\u548C\u6DF1\u5EA6",
+              "Fallback"
+            ],
+            "validation": [
+              "\u9010 Pass \u7F16\u8BD1",
+              "\u6B63\u53CD\u7ED5\u5E8F",
+              "\u900F\u660E\u91CD\u53E0",
+              "\u56DE\u9000\u8D44\u6E90\u5B58\u5728"
+            ]
+          },
+          {
+            "id": "vertex-transform",
+            "title": "\u516C\u544A\u677F\u3001\u9876\u70B9\u4F4D\u79FB\u4E0E\u63D2\u503C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u9876\u70B9\u53D8\u6362\u9700\u8981\u72EC\u7ACB\u9636\u6BB5\u8BA1\u5212\uFF1B\u7269\u4F53\u539F\u70B9\u3001\u7F29\u653E\u3001\u76F8\u673A\u65B9\u5411\u3001\u53C9\u79EF\u548C\u8F74\u5411\u7EA6\u675F\u4E0D\u5F97\u6539\u6210\u7247\u5143\u8BA1\u7B97\u3002",
+            "nativeNodes": [
+              "PositionNode",
+              "ObjectPositionNode",
+              "ObjectScaleNode",
+              "WorldSpaceCameraPos",
+              "CrossProductOpNode"
+            ],
+            "preserve": [
+              "\u5C40\u90E8/\u4E16\u754C/\u88C1\u526A\u7A7A\u95F4",
+              "\u53D8\u5F62\u987A\u5E8F",
+              "\u7C92\u5B50\u81EA\u5B9A\u4E49\u6570\u636E",
+              "ShadowCaster \u4E0E\u4E3B Pass \u540C\u6B65"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u548C\u8D1F\u7F29\u653E",
+              "\u4E0D\u540C\u76F8\u673A\u59FF\u6001",
+              "\u9634\u5F71",
+              "\u6279\u5904\u7406\u4E0E\u5B9E\u4F8B\u5316"
+            ]
+          },
+          {
+            "id": "performance-evidence",
+            "title": "\u753B\u8D28\u4E0E GPU \u6210\u672C\u8BC4\u4F30",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5148\u4FDD\u6301\u884C\u4E3A\uFF0C\u518D\u6309\u76EE\u6807\u8BBE\u5907\u6D4B GPU \u65F6\u95F4\u3001\u5E26\u5BBD\u3001overdraw\u3001\u53D8\u4F53\u548C\u753B\u8D28\u8BEF\u5DEE\uFF1B\u9759\u6001\u6E90\u7801\u53EA\u80FD\u63D0\u793A\u6210\u672C\uFF0C\u4E0D\u80FD\u7ED9\u51FA\u6027\u80FD\u4F18\u80DC\u7ED3\u8BBA\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u91C7\u6837\u8C03\u7528\u4F4D\u7F6E\u4E0D\u7B49\u4E8E\u6BCF\u50CF\u7D20\u91C7\u6837\u6B21\u6570",
+              "include\u3001\u5FAA\u73AF\u4E0E\u5206\u652F\u4F1A\u6539\u53D8\u5DE5\u4F5C\u91CF",
+              "Register/Get \u6574\u7406\u8FDE\u7EBF\u4E0D\u4FDD\u8BC1\u51CF\u5C11 GPU \u6307\u4EE4",
+              "\u907F\u514D\u7528\u672A\u7ECF\u6BD4\u8F83\u7684\u4FBF\u5B9C\u7B97\u6CD5\u66FF\u6362\u539F\u6548\u679C"
+            ],
+            "validation": [
+              "\u56FA\u5B9A\u573A\u666F\u548C\u5206\u8FA8\u7387",
+              "GPU \u578B\u53F7/API/\u7BA1\u7EBF",
+              "GPU \u4E2D\u4F4D\u6570\u4E0E\u9AD8\u5206\u4F4D\u65F6\u95F4",
+              "\u79FB\u52A8\u7AEF\u70ED\u7A33\u5B9A",
+              "\u6750\u8D28\u753B\u9762\u5BF9\u6BD4"
+            ]
+          }
+        ],
+        "notes": [
+          "\u5DF2\u8BB0\u5F55\u7684\u8BED\u4E49\u65B9\u6848\u4E0D\u7B49\u4E8E\u81EA\u52A8\u652F\u6301\uFF1B\u672A\u5B9E\u73B0\u7684\u6A21\u677F\u3001\u9636\u6BB5\u4E0E\u72B6\u6001\u4ECD\u7531\u539F\u5206\u6790\u5668\u963B\u585E\u3002"
+        ],
+        "materialCategories": [],
+        "performance": {
+          "status": "NotBenchmarked",
+          "directTextureSampleSites": 0,
+          "loopSites": 1,
+          "explicitPasses": 2,
+          "includesMayAddWork": true,
+          "observations": [
+            "\u9759\u6001\u8C03\u7528\u4F4D\u7F6E\u4E0D\u662F\u8FD0\u884C\u6B21\u6570\uFF1Binclude\u3001\u5FAA\u73AF\u3001\u5B8F\u548C\u5206\u652F\u672A\u7ECF\u5C55\u5F00\u3002\u6027\u80FD\u5C1A\u672A\u5728\u76EE\u6807 GPU \u4E0A\u6D4B\u91CF\u3002",
+            "\u5FAA\u73AF\u5C55\u5F00\u53EF\u80FD\u589E\u52A0\u6307\u4EE4\u548C\u56FE\u89C4\u6A21\uFF1B\u52A8\u6001\u8FED\u4EE3\u9700\u72EC\u7ACB\u6210\u672C\u4E0E\u8BED\u4E49\u5BA1\u67E5\u3002",
+            "\u5B58\u5728\u6DF7\u5408\u72B6\u6001\uFF1A\u900F\u660E\u8986\u76D6\u5C42\u6570\u548C\u5E26\u5BBD\u53EF\u80FD\u6BD4\u8282\u70B9\u6570\u66F4\u5F71\u54CD\u6027\u80FD\u3002"
+          ]
+        }
+      }
+    },
+    {
+      "repository": "user-reference",
+      "path": "Custom2TexStencilmask.shader",
+      "commit": "",
+      "url": "",
+      "license": "Private/read-only; not distributed",
+      "sha256": "5e456840533a4d86e593040a23c3c08061f7d8966d34cd13ee901421cbeab7ef",
+      "sourceUnchanged": true,
+      "status": "ExistingAseGraph",
+      "canPlan": false,
+      "planNodeCount": 0,
+      "planErrors": [],
+      "blockers": [],
+      "warnings": [
+        "The input already contains an ASE graph. Open/migrate it with the installed ASE; do not reconstruct it from generated HLSL."
+      ],
+      "includes": [
+        "UnityCG.cginc",
+        "UnityShaderVariables.cginc"
+      ],
+      "helperDefinitions": [
+        "ComputeClipSpacePosition"
+      ],
+      "overloadedHelperNames": [],
+      "knowledge": {
+        "libraryVersion": "0.2.5",
+        "classification": "ExistingAseGraph",
+        "sourceSignature": "e6d13de5d1ebbf70c97b83dcd84f734e779a3f8fb2d06e8cd47158b58a48aa83",
+        "referenceFile": "Custom2TexStencilmask.shader",
+        "referenceNotes": "ASE 19908\uFF1B158 \u8282\u70B9\u3002\u4FDD\u7559 Stencil\u3001\u7C92\u5B50\u6570\u636E\u3001\u52A8\u753B\u3001\u6DF7\u5408\u548C\u5168\u90E8 Pass\u3002",
+        "explicitPassCount": 1,
+        "surfaceShader": false,
+        "graph": {
+          "present": true,
+          "complete": true,
+          "version": "19908",
+          "nodeCount": 158,
+          "wireCount": 129,
+          "customExpressionCount": 0,
+          "nodeTypes": [
+            "AmplifyShaderEditor.BreakToComponentsNode",
+            "AmplifyShaderEditor.ColorNode",
+            "AmplifyShaderEditor.CommentaryNode",
+            "AmplifyShaderEditor.DynamicAppendNode",
+            "AmplifyShaderEditor.GetLocalVarNode",
+            "AmplifyShaderEditor.LerpOp",
+            "AmplifyShaderEditor.NoiseGeneratorNode",
+            "AmplifyShaderEditor.OneMinusNode",
+            "AmplifyShaderEditor.PannerNode",
+            "AmplifyShaderEditor.PosVertexDataNode",
+            "AmplifyShaderEditor.PowerNode",
+            "AmplifyShaderEditor.RangedFloatNode",
+            "AmplifyShaderEditor.RegisterLocalVarNode",
+            "AmplifyShaderEditor.SamplerNode",
+            "AmplifyShaderEditor.SaturateNode",
+            "AmplifyShaderEditor.SimpleAddOpNode",
+            "AmplifyShaderEditor.SimpleMultiplyOpNode",
+            "AmplifyShaderEditor.SimpleTimeNode",
+            "AmplifyShaderEditor.SinOpNode",
+            "AmplifyShaderEditor.SmoothstepOpNode",
+            "AmplifyShaderEditor.StepOpNode",
+            "AmplifyShaderEditor.SwizzleNode",
+            "AmplifyShaderEditor.TemplateMultiPassMasterNode",
+            "AmplifyShaderEditor.TexCoordVertexDataNode",
+            "AmplifyShaderEditor.TextureCoordinatesNode",
+            "AmplifyShaderEditor.Vector2Node",
+            "AmplifyShaderEditor.Vector3Node",
+            "AmplifyShaderEditor.VertexColorNode"
+          ],
+          "templateGuids": [
+            "0770190933193b94aaa3065e307002fa"
+          ],
+          "functionGuids": []
+        },
+        "rules": [
+          {
+            "id": "ase-migration",
+            "title": "\u5DF2\u6709 ASE \u56FE\u4E0E\u4F9D\u8D56",
+            "implementation": "AseMigration",
+            "recipe": "\u7531 ASE \u6253\u5F00\u5E76\u8FC1\u79FB\u5B8C\u6574\u56FE\uFF1B\u5206\u6790\u5143\u6570\u636E\u53EA\u7528\u4E8E\u6E05\u70B9\uFF0C\u4E0D\u91CD\u5EFA\u751F\u6210\u7684 HLSL\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u56FE\u7248\u672C",
+              "\u5168\u90E8 Master \u548C Pass",
+              "Function \u5B50\u56FE GUID",
+              "\u6A21\u677F GUID",
+              "\u8282\u70B9\u8BBE\u7F6E\u548C\u539F\u6709\u8FDE\u7EBF"
+            ],
+            "validation": [
+              "\u76EE\u6807 ASE \u80FD\u52A0\u8F7D\u5168\u90E8\u8282\u70B9\u548C\u4F9D\u8D56",
+              "\u4FDD\u5B58\u91CD\u8F7D",
+              "\u7F16\u8BD1\u5404 Pass",
+              "\u573A\u666F\u6BD4\u8F83"
+            ]
+          },
+          {
+            "id": "pure-functions",
+            "title": "\u7EAF\u6570\u5B66\u8F85\u52A9\u51FD\u6570",
+            "implementation": "NativePlanner",
+            "recipe": "\u6309\u503C\u7ED1\u5B9A\u53C2\u6570\u3001\u9694\u79BB\u5C40\u90E8\u4F5C\u7528\u57DF\uFF0C\u5C06\u53EF\u89E3\u6790\u7684\u51FD\u6570\u4F53\u5185\u8054\u4E3A\u539F\u751F\u6570\u5B66\u8282\u70B9\uFF1B\u4E0D\u6309\u6587\u4EF6\u540D\u6216\u6E90\u7801\u7B7E\u540D\u6388\u6743\u3002",
+            "nativeNodes": [
+              "SimpleAddOpNode",
+              "SimpleMultiplyOpNode",
+              "DotProductOpNode",
+              "FractNode",
+              "LerpOp",
+              "CosOpNode"
+            ],
+            "preserve": [
+              "\u53C2\u6570\u7C7B\u578B\u4E0E\u8FD4\u56DE\u5BBD\u5EA6",
+              "\u53EA\u5141\u8BB8\u5C40\u90E8\u8D4B\u503C",
+              "\u62D2\u7EDD\u9012\u5F52\u548C\u91CD\u8F7D",
+              "\u62D2\u7EDD\u9690\u85CF\u91C7\u6837\u4E0E\u5168\u5C40\u5199\u5165",
+              "\u539F\u6709\u6E32\u67D3\u548C\u9876\u70B9\u68C0\u67E5\u7EE7\u7EED\u6267\u884C"
+            ],
+            "validation": [
+              "\u8C03\u7528\u4E0E\u624B\u52A8\u5185\u8054\u7684\u6570\u503C\u7ED3\u679C\u4E00\u81F4",
+              "\u4E0D\u540C\u51FD\u6570\u540D\u548C\u53C2\u6570\u540D",
+              "\u53C2\u6570\u4F5C\u7528\u57DF\u4E92\u4E0D\u6C61\u67D3",
+              "\u6076\u610F\u6216\u4E0D\u652F\u6301\u7684\u51FD\u6570\u4ECD\u963B\u585E"
+            ]
+          },
+          {
+            "id": "unity-globals-distance",
+            "title": "\u65F6\u95F4\u3001\u76F8\u673A\u4F4D\u7F6E\u4E0E\u8DDD\u79BB",
+            "implementation": "NativePlanner",
+            "recipe": "_Time \u6620\u5C04\u5B8C\u6574\u56DB\u5206\u91CF Time \u8282\u70B9\uFF1B_WorldSpaceCameraPos \u6620\u5C04\u4E16\u754C\u76F8\u673A\u4F4D\u7F6E\uFF1Blength/distance \u4F7F\u7528\u5BF9\u5E94\u539F\u751F\u8282\u70B9\u3002",
+            "nativeNodes": [
+              "TimeNode",
+              "WorldSpaceCameraPos",
+              "LengthOpNode",
+              "DistanceOpNode"
+            ],
+            "preserve": [
+              "_Time.x=t/20\u3001y=t\u3001z=2t\u3001w=3t",
+              "\u5750\u6807\u7A7A\u95F4\u7531\u539F\u8868\u8FBE\u5F0F\u51B3\u5B9A",
+              "distance \u4E24\u7AEF\u5BBD\u5EA6\u4E00\u81F4"
+            ],
+            "validation": [
+              "\u65F6\u95F4\u5206\u91CF\u4E0D\u4E92\u6362",
+              "\u8DDD\u79BB\u6570\u503C",
+              "\u975E\u6CD5\u5BBD\u5EA6\u548C\u7EB9\u7406\u8F93\u5165\u62D2\u7EDD"
+            ]
+          },
+          {
+            "id": "stencil-state",
+            "title": "Stencil \u4E0E\u6750\u8D28\u7ED1\u5B9A\u72B6\u6001",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u901A\u8FC7\u6A21\u677F\u660E\u786E\u7ED1\u5B9A Ref/Comp/Pass/ReadMask/WriteMask\uFF0C\u4E0D\u80FD\u53EA\u590D\u5236\u989C\u8272\u56FE\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "Stencil \u7684\u4F5C\u7528\u8303\u56F4",
+              "\u52A8\u6001\u5C5E\u6027\u7ED1\u5B9A",
+              "Blend\u3001ColorMask\u3001ZWrite\u3001ZTest",
+              "\u6750\u8D28\u5C5E\u6027\u7279\u6027"
+            ],
+            "validation": [
+              "\u906E\u7F69\u5185\u5916",
+              "\u8BFB\u5199\u63A9\u7801",
+              "\u72B6\u6001\u52A8\u6001\u4FEE\u6539"
+            ]
+          },
+          {
+            "id": "vertex-transform",
+            "title": "\u516C\u544A\u677F\u3001\u9876\u70B9\u4F4D\u79FB\u4E0E\u63D2\u503C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u9876\u70B9\u53D8\u6362\u9700\u8981\u72EC\u7ACB\u9636\u6BB5\u8BA1\u5212\uFF1B\u7269\u4F53\u539F\u70B9\u3001\u7F29\u653E\u3001\u76F8\u673A\u65B9\u5411\u3001\u53C9\u79EF\u548C\u8F74\u5411\u7EA6\u675F\u4E0D\u5F97\u6539\u6210\u7247\u5143\u8BA1\u7B97\u3002",
+            "nativeNodes": [
+              "PositionNode",
+              "ObjectPositionNode",
+              "ObjectScaleNode",
+              "WorldSpaceCameraPos",
+              "CrossProductOpNode"
+            ],
+            "preserve": [
+              "\u5C40\u90E8/\u4E16\u754C/\u88C1\u526A\u7A7A\u95F4",
+              "\u53D8\u5F62\u987A\u5E8F",
+              "\u7C92\u5B50\u81EA\u5B9A\u4E49\u6570\u636E",
+              "ShadowCaster \u4E0E\u4E3B Pass \u540C\u6B65"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u548C\u8D1F\u7F29\u653E",
+              "\u4E0D\u540C\u76F8\u673A\u59FF\u6001",
+              "\u9634\u5F71",
+              "\u6279\u5904\u7406\u4E0E\u5B9E\u4F8B\u5316"
+            ]
+          },
+          {
+            "id": "dissolve-alpha",
+            "title": "\u6EB6\u89E3\u3001\u7C92\u5B50\u4E0E\u6E10\u9690",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u628A\u566A\u58F0\u3001\u9608\u503C\u3001Smoothstep \u4E0E\u8FB9\u7F18\u989C\u8272\u62C6\u4E3A\u539F\u751F\u8282\u70B9\uFF0C\u5E76\u5206\u522B\u6620\u5C04 Alpha\u3001\u88C1\u526A\u548C\u6DF7\u5408\u3002",
+            "nativeNodes": [
+              "SamplerNode",
+              "SmoothstepOpNode",
+              "LerpOp",
+              "VertexColorNode",
+              "PannerNode"
+            ],
+            "preserve": [
+              "\u52A0\u6CD5\u6216\u76F4\u901A Alpha \u6DF7\u5408",
+              "\u9876\u70B9\u8272\u548C\u7C92\u5B50\u6570\u636E",
+              "UV \u52A8\u753B",
+              "\u88C1\u526A\u9608\u503C",
+              "\u9634\u5F71 Pass"
+            ],
+            "validation": [
+              "\u6EB6\u89E3 0/\u8FB9\u754C/1",
+              "\u9876\u70B9\u8272 Alpha",
+              "\u900F\u660E\u91CD\u53E0",
+              "\u88C1\u526A\u9634\u5F71"
+            ]
+          },
+          {
+            "id": "keyword-binding",
+            "title": "\u5173\u952E\u8BCD\u3001\u5C5E\u6027\u4E0E\u7F16\u8BD1\u53D8\u4F53",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u8BB0\u5F55\u5C5E\u6027 Toggle \u6D3E\u751F\u5173\u952E\u8BCD\u3001pragma \u7684 global/local \u5173\u952E\u8BCD\u53CA\u6761\u4EF6\u5206\u652F\uFF1B\u540D\u79F0\u4E0D\u4E00\u81F4\u65F6\u62A5\u544A\uFF0C\u4E0D\u80FD\u81EA\u52A8\u6539\u540D\u7ED1\u5B9A\u3002",
+            "nativeNodes": [
+              "StaticSwitch",
+              "KeywordSwitchNode"
+            ],
+            "preserve": [
+              "global/local \u4F5C\u7528\u57DF",
+              "\u9ED8\u8BA4\u5206\u652F",
+              "\u5B8F\u4E0E\u5173\u952E\u8BCD\u539F\u540D",
+              "\u591A Pass \u53D8\u4F53",
+              "\u5B9E\u4F8B\u5316\u4E0E stereo"
+            ],
+            "validation": [
+              "\u6BCF\u79CD\u5173\u952E\u8BCD\u7EC4\u5408",
+              "\u6750\u8D28\u6570\u503C\u4E0E\u5173\u952E\u8BCD\u72EC\u7ACB\u53D8\u5316",
+              "\u76EE\u6807\u56FE\u5F62 API"
+            ]
+          },
+          {
+            "id": "screen-depth",
+            "title": "\u5C4F\u5E55\u3001\u6DF1\u5EA6\u4E0E\u540E\u5904\u7406",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u6620\u5C04\u5C4F\u5E55/\u6295\u5F71\u5750\u6807\u3001\u6DF1\u5EA6\u91C7\u6837\u548C\u8FD8\u539F\u3001\u5168\u5C4F Blit \u53CA\u76F8\u5173\u76F8\u673A\u8F93\u5165\uFF1B\u7981\u6B62\u7528\u666E\u901A UV \u91C7\u6837\u4EE3\u66FF\u3002",
+            "nativeNodes": [
+              "GrabScreenPosition",
+              "ScreenDepthNode",
+              "CameraDepthFade"
+            ],
+            "preserve": [
+              "\u900F\u89C6\u9664\u6CD5",
+              "\u7EBF\u6027/\u539F\u59CB\u6DF1\u5EA6",
+              "\u53CD\u5411 Z",
+              "\u76F8\u673A\u6DF1\u5EA6\u7EB9\u7406\u4F9D\u8D56",
+              "\u5E73\u53F0 Y \u7FFB\u8F6C"
+            ],
+            "validation": [
+              "\u900F\u89C6/\u6B63\u4EA4\u76F8\u673A",
+              "\u524D\u540E\u88C1\u526A\u9762",
+              "\u4E0D\u540C\u6E32\u67D3 API"
+            ]
+          },
+          {
+            "id": "performance-evidence",
+            "title": "\u753B\u8D28\u4E0E GPU \u6210\u672C\u8BC4\u4F30",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5148\u4FDD\u6301\u884C\u4E3A\uFF0C\u518D\u6309\u76EE\u6807\u8BBE\u5907\u6D4B GPU \u65F6\u95F4\u3001\u5E26\u5BBD\u3001overdraw\u3001\u53D8\u4F53\u548C\u753B\u8D28\u8BEF\u5DEE\uFF1B\u9759\u6001\u6E90\u7801\u53EA\u80FD\u63D0\u793A\u6210\u672C\uFF0C\u4E0D\u80FD\u7ED9\u51FA\u6027\u80FD\u4F18\u80DC\u7ED3\u8BBA\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u91C7\u6837\u8C03\u7528\u4F4D\u7F6E\u4E0D\u7B49\u4E8E\u6BCF\u50CF\u7D20\u91C7\u6837\u6B21\u6570",
+              "include\u3001\u5FAA\u73AF\u4E0E\u5206\u652F\u4F1A\u6539\u53D8\u5DE5\u4F5C\u91CF",
+              "Register/Get \u6574\u7406\u8FDE\u7EBF\u4E0D\u4FDD\u8BC1\u51CF\u5C11 GPU \u6307\u4EE4",
+              "\u907F\u514D\u7528\u672A\u7ECF\u6BD4\u8F83\u7684\u4FBF\u5B9C\u7B97\u6CD5\u66FF\u6362\u539F\u6548\u679C"
+            ],
+            "validation": [
+              "\u56FA\u5B9A\u573A\u666F\u548C\u5206\u8FA8\u7387",
+              "GPU \u578B\u53F7/API/\u7BA1\u7EBF",
+              "GPU \u4E2D\u4F4D\u6570\u4E0E\u9AD8\u5206\u4F4D\u65F6\u95F4",
+              "\u79FB\u52A8\u7AEF\u70ED\u7A33\u5B9A",
+              "\u6750\u8D28\u753B\u9762\u5BF9\u6BD4"
+            ]
+          }
+        ],
+        "notes": [
+          "\u5DF2\u8BB0\u5F55\u7684\u8BED\u4E49\u65B9\u6848\u4E0D\u7B49\u4E8E\u81EA\u52A8\u652F\u6301\uFF1B\u672A\u5B9E\u73B0\u7684\u6A21\u677F\u3001\u9636\u6BB5\u4E0E\u72B6\u6001\u4ECD\u7531\u539F\u5206\u6790\u5668\u963B\u585E\u3002"
+        ],
+        "materialCategories": [],
+        "performance": {
+          "status": "NotBenchmarked",
+          "directTextureSampleSites": 5,
+          "loopSites": 0,
+          "explicitPasses": 1,
+          "includesMayAddWork": true,
+          "observations": [
+            "\u9759\u6001\u8C03\u7528\u4F4D\u7F6E\u4E0D\u662F\u8FD0\u884C\u6B21\u6570\uFF1Binclude\u3001\u5FAA\u73AF\u3001\u5B8F\u548C\u5206\u652F\u672A\u7ECF\u5C55\u5F00\u3002\u6027\u80FD\u5C1A\u672A\u5728\u76EE\u6807 GPU \u4E0A\u6D4B\u91CF\u3002",
+            "\u5B58\u5728\u6DF7\u5408\u72B6\u6001\uFF1A\u900F\u660E\u8986\u76D6\u5C42\u6570\u548C\u5E26\u5BBD\u53EF\u80FD\u6BD4\u8282\u70B9\u6570\u66F4\u5F71\u54CD\u6027\u80FD\u3002"
+          ]
+        }
+      }
+    },
+    {
+      "repository": "user-reference",
+      "path": "Custom2TexV2.shader",
+      "commit": "",
+      "url": "",
+      "license": "Private/read-only; not distributed",
+      "sha256": "3ea45205cd6d18b707bc4ab80751e31c30ccf737a21d4cd6bfa5b7b232315b5d",
+      "sourceUnchanged": true,
+      "status": "ExistingAseGraph",
+      "canPlan": false,
+      "planNodeCount": 0,
+      "planErrors": [],
+      "blockers": [],
+      "warnings": [
+        "The input already contains an ASE graph. Open/migrate it with the installed ASE; do not reconstruct it from generated HLSL."
+      ],
+      "includes": [
+        "UnityCG.cginc",
+        "UnityShaderVariables.cginc",
+        "HLSLSupport.cginc",
+        "Lighting.cginc",
+        "UnityPBSLighting.cginc"
+      ],
+      "helperDefinitions": [
+        "ComputeClipSpacePosition"
+      ],
+      "overloadedHelperNames": [],
+      "knowledge": {
+        "libraryVersion": "0.2.5",
+        "classification": "ExistingAseGraph",
+        "sourceSignature": "d2ff75658d9996133f640da6af9d1532fe4daf30bf3f730bcb6369cc76ec378c",
+        "referenceFile": "Custom2TexV2.shader",
+        "referenceNotes": "ASE 19908\uFF1B121 \u8282\u70B9\u3002\u4FDD\u7559\u53CC\u7EB9\u7406\u52A8\u753B\u3001\u8DDD\u79BB\u6E10\u9690\u3001\u9876\u70B9\u8272\u548C\u7C92\u5B50\u6570\u636E\u3002",
+        "explicitPassCount": 2,
+        "surfaceShader": false,
+        "graph": {
+          "present": true,
+          "complete": true,
+          "version": "19908",
+          "nodeCount": 121,
+          "wireCount": 108,
+          "customExpressionCount": 0,
+          "nodeTypes": [
+            "AmplifyShaderEditor.BreakToComponentsNode",
+            "AmplifyShaderEditor.ClampOpNode",
+            "AmplifyShaderEditor.ColorNode",
+            "AmplifyShaderEditor.CommentaryNode",
+            "AmplifyShaderEditor.DistanceOpNode",
+            "AmplifyShaderEditor.DynamicAppendNode",
+            "AmplifyShaderEditor.GetLocalVarNode",
+            "AmplifyShaderEditor.LerpOp",
+            "AmplifyShaderEditor.PannerNode",
+            "AmplifyShaderEditor.PowerNode",
+            "AmplifyShaderEditor.RangedFloatNode",
+            "AmplifyShaderEditor.RegisterLocalVarNode",
+            "AmplifyShaderEditor.SamplerNode",
+            "AmplifyShaderEditor.SimpleAddOpNode",
+            "AmplifyShaderEditor.SimpleDivideOpNode",
+            "AmplifyShaderEditor.SimpleMultiplyOpNode",
+            "AmplifyShaderEditor.SimpleSubtractOpNode",
+            "AmplifyShaderEditor.SmoothstepOpNode",
+            "AmplifyShaderEditor.StepOpNode",
+            "AmplifyShaderEditor.SwizzleNode",
+            "AmplifyShaderEditor.TemplateMultiPassMasterNode",
+            "AmplifyShaderEditor.TextureCoordinatesNode",
+            "AmplifyShaderEditor.Vector2Node",
+            "AmplifyShaderEditor.VertexColorNode",
+            "AmplifyShaderEditor.WorldPosInputsNode",
+            "AmplifyShaderEditor.WorldSpaceCameraPos"
+          ],
+          "templateGuids": [
+            "0770190933193b94aaa3065e307002fa"
+          ],
+          "functionGuids": []
+        },
+        "rules": [
+          {
+            "id": "ase-migration",
+            "title": "\u5DF2\u6709 ASE \u56FE\u4E0E\u4F9D\u8D56",
+            "implementation": "AseMigration",
+            "recipe": "\u7531 ASE \u6253\u5F00\u5E76\u8FC1\u79FB\u5B8C\u6574\u56FE\uFF1B\u5206\u6790\u5143\u6570\u636E\u53EA\u7528\u4E8E\u6E05\u70B9\uFF0C\u4E0D\u91CD\u5EFA\u751F\u6210\u7684 HLSL\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u56FE\u7248\u672C",
+              "\u5168\u90E8 Master \u548C Pass",
+              "Function \u5B50\u56FE GUID",
+              "\u6A21\u677F GUID",
+              "\u8282\u70B9\u8BBE\u7F6E\u548C\u539F\u6709\u8FDE\u7EBF"
+            ],
+            "validation": [
+              "\u76EE\u6807 ASE \u80FD\u52A0\u8F7D\u5168\u90E8\u8282\u70B9\u548C\u4F9D\u8D56",
+              "\u4FDD\u5B58\u91CD\u8F7D",
+              "\u7F16\u8BD1\u5404 Pass",
+              "\u573A\u666F\u6BD4\u8F83"
+            ]
+          },
+          {
+            "id": "pure-functions",
+            "title": "\u7EAF\u6570\u5B66\u8F85\u52A9\u51FD\u6570",
+            "implementation": "NativePlanner",
+            "recipe": "\u6309\u503C\u7ED1\u5B9A\u53C2\u6570\u3001\u9694\u79BB\u5C40\u90E8\u4F5C\u7528\u57DF\uFF0C\u5C06\u53EF\u89E3\u6790\u7684\u51FD\u6570\u4F53\u5185\u8054\u4E3A\u539F\u751F\u6570\u5B66\u8282\u70B9\uFF1B\u4E0D\u6309\u6587\u4EF6\u540D\u6216\u6E90\u7801\u7B7E\u540D\u6388\u6743\u3002",
+            "nativeNodes": [
+              "SimpleAddOpNode",
+              "SimpleMultiplyOpNode",
+              "DotProductOpNode",
+              "FractNode",
+              "LerpOp",
+              "CosOpNode"
+            ],
+            "preserve": [
+              "\u53C2\u6570\u7C7B\u578B\u4E0E\u8FD4\u56DE\u5BBD\u5EA6",
+              "\u53EA\u5141\u8BB8\u5C40\u90E8\u8D4B\u503C",
+              "\u62D2\u7EDD\u9012\u5F52\u548C\u91CD\u8F7D",
+              "\u62D2\u7EDD\u9690\u85CF\u91C7\u6837\u4E0E\u5168\u5C40\u5199\u5165",
+              "\u539F\u6709\u6E32\u67D3\u548C\u9876\u70B9\u68C0\u67E5\u7EE7\u7EED\u6267\u884C"
+            ],
+            "validation": [
+              "\u8C03\u7528\u4E0E\u624B\u52A8\u5185\u8054\u7684\u6570\u503C\u7ED3\u679C\u4E00\u81F4",
+              "\u4E0D\u540C\u51FD\u6570\u540D\u548C\u53C2\u6570\u540D",
+              "\u53C2\u6570\u4F5C\u7528\u57DF\u4E92\u4E0D\u6C61\u67D3",
+              "\u6076\u610F\u6216\u4E0D\u652F\u6301\u7684\u51FD\u6570\u4ECD\u963B\u585E"
+            ]
+          },
+          {
+            "id": "unity-globals-distance",
+            "title": "\u65F6\u95F4\u3001\u76F8\u673A\u4F4D\u7F6E\u4E0E\u8DDD\u79BB",
+            "implementation": "NativePlanner",
+            "recipe": "_Time \u6620\u5C04\u5B8C\u6574\u56DB\u5206\u91CF Time \u8282\u70B9\uFF1B_WorldSpaceCameraPos \u6620\u5C04\u4E16\u754C\u76F8\u673A\u4F4D\u7F6E\uFF1Blength/distance \u4F7F\u7528\u5BF9\u5E94\u539F\u751F\u8282\u70B9\u3002",
+            "nativeNodes": [
+              "TimeNode",
+              "WorldSpaceCameraPos",
+              "LengthOpNode",
+              "DistanceOpNode"
+            ],
+            "preserve": [
+              "_Time.x=t/20\u3001y=t\u3001z=2t\u3001w=3t",
+              "\u5750\u6807\u7A7A\u95F4\u7531\u539F\u8868\u8FBE\u5F0F\u51B3\u5B9A",
+              "distance \u4E24\u7AEF\u5BBD\u5EA6\u4E00\u81F4"
+            ],
+            "validation": [
+              "\u65F6\u95F4\u5206\u91CF\u4E0D\u4E92\u6362",
+              "\u8DDD\u79BB\u6570\u503C",
+              "\u975E\u6CD5\u5BBD\u5EA6\u548C\u7EB9\u7406\u8F93\u5165\u62D2\u7EDD"
+            ]
+          },
+          {
+            "id": "ordered-passes",
+            "title": "\u591A Pass\u3001\u900F\u660E\u6DF7\u5408\u4E0E\u56DE\u9000",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4E3A\u6BCF\u4E2A Pass \u5206\u522B\u8BB0\u5F55\u9876\u70B9/\u7247\u5143\u8F93\u51FA\u3001Cull\u3001Blend\u3001\u6DF1\u5EA6\u548C\u961F\u5217\uFF0C\u5E76\u4FDD\u7559\u6267\u884C\u987A\u5E8F\u4E0E Fallback\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u5185\u58C1\u5148\u3001\u5916\u58C1\u540E",
+              "Pass \u6570\u91CF\u4E0E\u987A\u5E8F",
+              "\u72EC\u7ACB Cull",
+              "\u6DF7\u5408\u548C\u6DF1\u5EA6",
+              "Fallback"
+            ],
+            "validation": [
+              "\u9010 Pass \u7F16\u8BD1",
+              "\u6B63\u53CD\u7ED5\u5E8F",
+              "\u900F\u660E\u91CD\u53E0",
+              "\u56DE\u9000\u8D44\u6E90\u5B58\u5728"
+            ]
+          },
+          {
+            "id": "vertex-transform",
+            "title": "\u516C\u544A\u677F\u3001\u9876\u70B9\u4F4D\u79FB\u4E0E\u63D2\u503C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u9876\u70B9\u53D8\u6362\u9700\u8981\u72EC\u7ACB\u9636\u6BB5\u8BA1\u5212\uFF1B\u7269\u4F53\u539F\u70B9\u3001\u7F29\u653E\u3001\u76F8\u673A\u65B9\u5411\u3001\u53C9\u79EF\u548C\u8F74\u5411\u7EA6\u675F\u4E0D\u5F97\u6539\u6210\u7247\u5143\u8BA1\u7B97\u3002",
+            "nativeNodes": [
+              "PositionNode",
+              "ObjectPositionNode",
+              "ObjectScaleNode",
+              "WorldSpaceCameraPos",
+              "CrossProductOpNode"
+            ],
+            "preserve": [
+              "\u5C40\u90E8/\u4E16\u754C/\u88C1\u526A\u7A7A\u95F4",
+              "\u53D8\u5F62\u987A\u5E8F",
+              "\u7C92\u5B50\u81EA\u5B9A\u4E49\u6570\u636E",
+              "ShadowCaster \u4E0E\u4E3B Pass \u540C\u6B65"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u548C\u8D1F\u7F29\u653E",
+              "\u4E0D\u540C\u76F8\u673A\u59FF\u6001",
+              "\u9634\u5F71",
+              "\u6279\u5904\u7406\u4E0E\u5B9E\u4F8B\u5316"
+            ]
+          },
+          {
+            "id": "pbr-outline",
+            "title": "PBR \u6750\u8D28\u8F93\u51FA\u4E0E\u63CF\u8FB9",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4F7F\u7528\u5BF9\u5E94 Lit/Surface Master \u7684\u5B8C\u6574\u6750\u8D28\u8F93\u51FA\uFF1B\u63CF\u8FB9\u4E3A\u72EC\u7ACB Pass\uFF0C\u4FDD\u7559\u81A8\u80C0\u65B9\u5F0F\u548C\u5168\u90E8\u706F\u5149/\u9634\u5F71\u7B49\u8F85\u52A9 Pass\u3002",
+            "nativeNodes": [
+              "FresnelNode",
+              "TransformDirectionNode",
+              "UnpackScaleNormalNode"
+            ],
+            "preserve": [
+              "\u91D1\u5C5E/\u9AD8\u5149\u5DE5\u4F5C\u6D41",
+              "\u6CD5\u7EBF\u7A7A\u95F4",
+              "\u900F\u660E\u4E0E\u88C1\u526A",
+              "\u5B50\u56FE\u4F9D\u8D56",
+              "\u63CF\u8FB9 Cull/\u6DF1\u5EA6/Pass \u987A\u5E8F"
+            ],
+            "validation": [
+              "\u5149\u7167\u548C\u53CD\u5C04",
+              "\u9634\u5F71\u4E0E\u70D8\u7119",
+              "\u63CF\u8FB9\u539A\u5EA6",
+              "\u6240\u6709\u6750\u8D28\u8F93\u51FA"
+            ]
+          },
+          {
+            "id": "dissolve-alpha",
+            "title": "\u6EB6\u89E3\u3001\u7C92\u5B50\u4E0E\u6E10\u9690",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u628A\u566A\u58F0\u3001\u9608\u503C\u3001Smoothstep \u4E0E\u8FB9\u7F18\u989C\u8272\u62C6\u4E3A\u539F\u751F\u8282\u70B9\uFF0C\u5E76\u5206\u522B\u6620\u5C04 Alpha\u3001\u88C1\u526A\u548C\u6DF7\u5408\u3002",
+            "nativeNodes": [
+              "SamplerNode",
+              "SmoothstepOpNode",
+              "LerpOp",
+              "VertexColorNode",
+              "PannerNode"
+            ],
+            "preserve": [
+              "\u52A0\u6CD5\u6216\u76F4\u901A Alpha \u6DF7\u5408",
+              "\u9876\u70B9\u8272\u548C\u7C92\u5B50\u6570\u636E",
+              "UV \u52A8\u753B",
+              "\u88C1\u526A\u9608\u503C",
+              "\u9634\u5F71 Pass"
+            ],
+            "validation": [
+              "\u6EB6\u89E3 0/\u8FB9\u754C/1",
+              "\u9876\u70B9\u8272 Alpha",
+              "\u900F\u660E\u91CD\u53E0",
+              "\u88C1\u526A\u9634\u5F71"
+            ]
+          },
+          {
+            "id": "keyword-binding",
+            "title": "\u5173\u952E\u8BCD\u3001\u5C5E\u6027\u4E0E\u7F16\u8BD1\u53D8\u4F53",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u8BB0\u5F55\u5C5E\u6027 Toggle \u6D3E\u751F\u5173\u952E\u8BCD\u3001pragma \u7684 global/local \u5173\u952E\u8BCD\u53CA\u6761\u4EF6\u5206\u652F\uFF1B\u540D\u79F0\u4E0D\u4E00\u81F4\u65F6\u62A5\u544A\uFF0C\u4E0D\u80FD\u81EA\u52A8\u6539\u540D\u7ED1\u5B9A\u3002",
+            "nativeNodes": [
+              "StaticSwitch",
+              "KeywordSwitchNode"
+            ],
+            "preserve": [
+              "global/local \u4F5C\u7528\u57DF",
+              "\u9ED8\u8BA4\u5206\u652F",
+              "\u5B8F\u4E0E\u5173\u952E\u8BCD\u539F\u540D",
+              "\u591A Pass \u53D8\u4F53",
+              "\u5B9E\u4F8B\u5316\u4E0E stereo"
+            ],
+            "validation": [
+              "\u6BCF\u79CD\u5173\u952E\u8BCD\u7EC4\u5408",
+              "\u6750\u8D28\u6570\u503C\u4E0E\u5173\u952E\u8BCD\u72EC\u7ACB\u53D8\u5316",
+              "\u76EE\u6807\u56FE\u5F62 API"
+            ]
+          },
+          {
+            "id": "screen-depth",
+            "title": "\u5C4F\u5E55\u3001\u6DF1\u5EA6\u4E0E\u540E\u5904\u7406",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u6620\u5C04\u5C4F\u5E55/\u6295\u5F71\u5750\u6807\u3001\u6DF1\u5EA6\u91C7\u6837\u548C\u8FD8\u539F\u3001\u5168\u5C4F Blit \u53CA\u76F8\u5173\u76F8\u673A\u8F93\u5165\uFF1B\u7981\u6B62\u7528\u666E\u901A UV \u91C7\u6837\u4EE3\u66FF\u3002",
+            "nativeNodes": [
+              "GrabScreenPosition",
+              "ScreenDepthNode",
+              "CameraDepthFade"
+            ],
+            "preserve": [
+              "\u900F\u89C6\u9664\u6CD5",
+              "\u7EBF\u6027/\u539F\u59CB\u6DF1\u5EA6",
+              "\u53CD\u5411 Z",
+              "\u76F8\u673A\u6DF1\u5EA6\u7EB9\u7406\u4F9D\u8D56",
+              "\u5E73\u53F0 Y \u7FFB\u8F6C"
+            ],
+            "validation": [
+              "\u900F\u89C6/\u6B63\u4EA4\u76F8\u673A",
+              "\u524D\u540E\u88C1\u526A\u9762",
+              "\u4E0D\u540C\u6E32\u67D3 API"
+            ]
+          },
+          {
+            "id": "performance-evidence",
+            "title": "\u753B\u8D28\u4E0E GPU \u6210\u672C\u8BC4\u4F30",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5148\u4FDD\u6301\u884C\u4E3A\uFF0C\u518D\u6309\u76EE\u6807\u8BBE\u5907\u6D4B GPU \u65F6\u95F4\u3001\u5E26\u5BBD\u3001overdraw\u3001\u53D8\u4F53\u548C\u753B\u8D28\u8BEF\u5DEE\uFF1B\u9759\u6001\u6E90\u7801\u53EA\u80FD\u63D0\u793A\u6210\u672C\uFF0C\u4E0D\u80FD\u7ED9\u51FA\u6027\u80FD\u4F18\u80DC\u7ED3\u8BBA\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u91C7\u6837\u8C03\u7528\u4F4D\u7F6E\u4E0D\u7B49\u4E8E\u6BCF\u50CF\u7D20\u91C7\u6837\u6B21\u6570",
+              "include\u3001\u5FAA\u73AF\u4E0E\u5206\u652F\u4F1A\u6539\u53D8\u5DE5\u4F5C\u91CF",
+              "Register/Get \u6574\u7406\u8FDE\u7EBF\u4E0D\u4FDD\u8BC1\u51CF\u5C11 GPU \u6307\u4EE4",
+              "\u907F\u514D\u7528\u672A\u7ECF\u6BD4\u8F83\u7684\u4FBF\u5B9C\u7B97\u6CD5\u66FF\u6362\u539F\u6548\u679C"
+            ],
+            "validation": [
+              "\u56FA\u5B9A\u573A\u666F\u548C\u5206\u8FA8\u7387",
+              "GPU \u578B\u53F7/API/\u7BA1\u7EBF",
+              "GPU \u4E2D\u4F4D\u6570\u4E0E\u9AD8\u5206\u4F4D\u65F6\u95F4",
+              "\u79FB\u52A8\u7AEF\u70ED\u7A33\u5B9A",
+              "\u6750\u8D28\u753B\u9762\u5BF9\u6BD4"
+            ]
+          }
+        ],
+        "notes": [
+          "\u5DF2\u8BB0\u5F55\u7684\u8BED\u4E49\u65B9\u6848\u4E0D\u7B49\u4E8E\u81EA\u52A8\u652F\u6301\uFF1B\u672A\u5B9E\u73B0\u7684\u6A21\u677F\u3001\u9636\u6BB5\u4E0E\u72B6\u6001\u4ECD\u7531\u539F\u5206\u6790\u5668\u963B\u585E\u3002"
+        ],
+        "materialCategories": [],
+        "performance": {
+          "status": "NotBenchmarked",
+          "directTextureSampleSites": 6,
+          "loopSites": 0,
+          "explicitPasses": 2,
+          "includesMayAddWork": true,
+          "observations": [
+            "\u9759\u6001\u8C03\u7528\u4F4D\u7F6E\u4E0D\u662F\u8FD0\u884C\u6B21\u6570\uFF1Binclude\u3001\u5FAA\u73AF\u3001\u5B8F\u548C\u5206\u652F\u672A\u7ECF\u5C55\u5F00\u3002\u6027\u80FD\u5C1A\u672A\u5728\u76EE\u6807 GPU \u4E0A\u6D4B\u91CF\u3002",
+            "\u5B58\u5728\u6DF7\u5408\u72B6\u6001\uFF1A\u900F\u660E\u8986\u76D6\u5C42\u6570\u548C\u5E26\u5BBD\u53EF\u80FD\u6BD4\u8282\u70B9\u6570\u66F4\u5F71\u54CD\u6027\u80FD\u3002"
+          ]
+        }
+      }
+    },
+    {
+      "repository": "user-reference",
+      "path": "Dissolve_add.shader",
+      "commit": "",
+      "url": "",
+      "license": "Private/read-only; not distributed",
+      "sha256": "1cbe7d8c0ac77e759218b5241badad36af1d92af7983f43e4c0c20140cb6228d",
+      "sourceUnchanged": true,
+      "status": "ExistingAseGraph",
+      "canPlan": false,
+      "planNodeCount": 0,
+      "planErrors": [],
+      "blockers": [],
+      "warnings": [
+        "The input already contains an ASE graph. Open/migrate it with the installed ASE; do not reconstruct it from generated HLSL."
+      ],
+      "includes": [
+        "UnityCG.cginc",
+        "HLSLSupport.cginc",
+        "UnityShaderVariables.cginc",
+        "Lighting.cginc",
+        "UnityPBSLighting.cginc"
+      ],
+      "helperDefinitions": [
+        "ComputeClipSpacePosition"
+      ],
+      "overloadedHelperNames": [],
+      "knowledge": {
+        "libraryVersion": "0.2.5",
+        "classification": "ExistingAseGraph",
+        "sourceSignature": "4e0f69b11883c9c1670b2e8669078d808e9b753c2bc24441950c38412bd5fc60",
+        "referenceFile": "Dissolve_add.shader",
+        "referenceNotes": "ASE 19908\uFF1B36 \u8282\u70B9\u3002\u4FDD\u7559\u6EB6\u89E3\u8FB9\u7F18\u3001Fresnel\u3001\u52A0\u6CD5\u6DF7\u5408\u548C Alpha\u3002",
+        "explicitPassCount": 2,
+        "surfaceShader": false,
+        "graph": {
+          "present": true,
+          "complete": true,
+          "version": "19908",
+          "nodeCount": 36,
+          "wireCount": 36,
+          "customExpressionCount": 0,
+          "nodeTypes": [
+            "AmplifyShaderEditor.ColorNode",
+            "AmplifyShaderEditor.CommentaryNode",
+            "AmplifyShaderEditor.ComponentMaskNode",
+            "AmplifyShaderEditor.DynamicAppendNode",
+            "AmplifyShaderEditor.FresnelNode",
+            "AmplifyShaderEditor.LerpOp",
+            "AmplifyShaderEditor.RangedFloatNode",
+            "AmplifyShaderEditor.SamplerNode",
+            "AmplifyShaderEditor.SaturateNode",
+            "AmplifyShaderEditor.SimpleAddOpNode",
+            "AmplifyShaderEditor.SimpleMultiplyOpNode",
+            "AmplifyShaderEditor.SmoothstepOpNode",
+            "AmplifyShaderEditor.TemplateMultiPassMasterNode"
+          ],
+          "templateGuids": [
+            "0770190933193b94aaa3065e307002fa"
+          ],
+          "functionGuids": []
+        },
+        "rules": [
+          {
+            "id": "ase-migration",
+            "title": "\u5DF2\u6709 ASE \u56FE\u4E0E\u4F9D\u8D56",
+            "implementation": "AseMigration",
+            "recipe": "\u7531 ASE \u6253\u5F00\u5E76\u8FC1\u79FB\u5B8C\u6574\u56FE\uFF1B\u5206\u6790\u5143\u6570\u636E\u53EA\u7528\u4E8E\u6E05\u70B9\uFF0C\u4E0D\u91CD\u5EFA\u751F\u6210\u7684 HLSL\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u56FE\u7248\u672C",
+              "\u5168\u90E8 Master \u548C Pass",
+              "Function \u5B50\u56FE GUID",
+              "\u6A21\u677F GUID",
+              "\u8282\u70B9\u8BBE\u7F6E\u548C\u539F\u6709\u8FDE\u7EBF"
+            ],
+            "validation": [
+              "\u76EE\u6807 ASE \u80FD\u52A0\u8F7D\u5168\u90E8\u8282\u70B9\u548C\u4F9D\u8D56",
+              "\u4FDD\u5B58\u91CD\u8F7D",
+              "\u7F16\u8BD1\u5404 Pass",
+              "\u573A\u666F\u6BD4\u8F83"
+            ]
+          },
+          {
+            "id": "pure-functions",
+            "title": "\u7EAF\u6570\u5B66\u8F85\u52A9\u51FD\u6570",
+            "implementation": "NativePlanner",
+            "recipe": "\u6309\u503C\u7ED1\u5B9A\u53C2\u6570\u3001\u9694\u79BB\u5C40\u90E8\u4F5C\u7528\u57DF\uFF0C\u5C06\u53EF\u89E3\u6790\u7684\u51FD\u6570\u4F53\u5185\u8054\u4E3A\u539F\u751F\u6570\u5B66\u8282\u70B9\uFF1B\u4E0D\u6309\u6587\u4EF6\u540D\u6216\u6E90\u7801\u7B7E\u540D\u6388\u6743\u3002",
+            "nativeNodes": [
+              "SimpleAddOpNode",
+              "SimpleMultiplyOpNode",
+              "DotProductOpNode",
+              "FractNode",
+              "LerpOp",
+              "CosOpNode"
+            ],
+            "preserve": [
+              "\u53C2\u6570\u7C7B\u578B\u4E0E\u8FD4\u56DE\u5BBD\u5EA6",
+              "\u53EA\u5141\u8BB8\u5C40\u90E8\u8D4B\u503C",
+              "\u62D2\u7EDD\u9012\u5F52\u548C\u91CD\u8F7D",
+              "\u62D2\u7EDD\u9690\u85CF\u91C7\u6837\u4E0E\u5168\u5C40\u5199\u5165",
+              "\u539F\u6709\u6E32\u67D3\u548C\u9876\u70B9\u68C0\u67E5\u7EE7\u7EED\u6267\u884C"
+            ],
+            "validation": [
+              "\u8C03\u7528\u4E0E\u624B\u52A8\u5185\u8054\u7684\u6570\u503C\u7ED3\u679C\u4E00\u81F4",
+              "\u4E0D\u540C\u51FD\u6570\u540D\u548C\u53C2\u6570\u540D",
+              "\u53C2\u6570\u4F5C\u7528\u57DF\u4E92\u4E0D\u6C61\u67D3",
+              "\u6076\u610F\u6216\u4E0D\u652F\u6301\u7684\u51FD\u6570\u4ECD\u963B\u585E"
+            ]
+          },
+          {
+            "id": "unity-globals-distance",
+            "title": "\u65F6\u95F4\u3001\u76F8\u673A\u4F4D\u7F6E\u4E0E\u8DDD\u79BB",
+            "implementation": "NativePlanner",
+            "recipe": "_Time \u6620\u5C04\u5B8C\u6574\u56DB\u5206\u91CF Time \u8282\u70B9\uFF1B_WorldSpaceCameraPos \u6620\u5C04\u4E16\u754C\u76F8\u673A\u4F4D\u7F6E\uFF1Blength/distance \u4F7F\u7528\u5BF9\u5E94\u539F\u751F\u8282\u70B9\u3002",
+            "nativeNodes": [
+              "TimeNode",
+              "WorldSpaceCameraPos",
+              "LengthOpNode",
+              "DistanceOpNode"
+            ],
+            "preserve": [
+              "_Time.x=t/20\u3001y=t\u3001z=2t\u3001w=3t",
+              "\u5750\u6807\u7A7A\u95F4\u7531\u539F\u8868\u8FBE\u5F0F\u51B3\u5B9A",
+              "distance \u4E24\u7AEF\u5BBD\u5EA6\u4E00\u81F4"
+            ],
+            "validation": [
+              "\u65F6\u95F4\u5206\u91CF\u4E0D\u4E92\u6362",
+              "\u8DDD\u79BB\u6570\u503C",
+              "\u975E\u6CD5\u5BBD\u5EA6\u548C\u7EB9\u7406\u8F93\u5165\u62D2\u7EDD"
+            ]
+          },
+          {
+            "id": "fresnel-space",
+            "title": "Fresnel\u3001\u89C6\u7EBF\u4E0E\u5F69\u819C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4FDD\u7559\u6CD5\u7EBF\u548C\u89C6\u7EBF\u7684\u5750\u6807\u7A7A\u95F4\u3001\u9876\u70B9\u63D2\u503C\u4E0E\u7247\u5143\u5F52\u4E00\u5316\u987A\u5E8F\uFF1Bdot\u2192saturate\u21921-x\u2192pow\u3002\u4F59\u5F26\u5F69\u819C\u4F7F\u7528\u539F\u76F8\u4F4D\u548C\u9891\u7387\u3002",
+            "nativeNodes": [
+              "NormalizeNode",
+              "DotProductOpNode",
+              "SaturateNode",
+              "OneMinusNode",
+              "PowerNode",
+              "CosOpNode"
+            ],
+            "preserve": [
+              "\u6B63\u53CD\u9762\u6CD5\u7EBF\u7B26\u53F7",
+              "\u89C6\u7EBF\u65B9\u5411",
+              "\u4E58\u8272\u3001\u5F3A\u5EA6\u548C Alpha",
+              "\u4E0D\u63D0\u524D\u5728\u9876\u70B9\u5F52\u4E00\u5316"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u7F29\u653E",
+              "\u6B63\u53CD\u9762",
+              "\u63A0\u5C04\u89D2",
+              "\u4E0D\u540C\u76F8\u673A\u4F4D\u7F6E"
+            ]
+          },
+          {
+            "id": "ordered-passes",
+            "title": "\u591A Pass\u3001\u900F\u660E\u6DF7\u5408\u4E0E\u56DE\u9000",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4E3A\u6BCF\u4E2A Pass \u5206\u522B\u8BB0\u5F55\u9876\u70B9/\u7247\u5143\u8F93\u51FA\u3001Cull\u3001Blend\u3001\u6DF1\u5EA6\u548C\u961F\u5217\uFF0C\u5E76\u4FDD\u7559\u6267\u884C\u987A\u5E8F\u4E0E Fallback\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u5185\u58C1\u5148\u3001\u5916\u58C1\u540E",
+              "Pass \u6570\u91CF\u4E0E\u987A\u5E8F",
+              "\u72EC\u7ACB Cull",
+              "\u6DF7\u5408\u548C\u6DF1\u5EA6",
+              "Fallback"
+            ],
+            "validation": [
+              "\u9010 Pass \u7F16\u8BD1",
+              "\u6B63\u53CD\u7ED5\u5E8F",
+              "\u900F\u660E\u91CD\u53E0",
+              "\u56DE\u9000\u8D44\u6E90\u5B58\u5728"
+            ]
+          },
+          {
+            "id": "vertex-transform",
+            "title": "\u516C\u544A\u677F\u3001\u9876\u70B9\u4F4D\u79FB\u4E0E\u63D2\u503C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u9876\u70B9\u53D8\u6362\u9700\u8981\u72EC\u7ACB\u9636\u6BB5\u8BA1\u5212\uFF1B\u7269\u4F53\u539F\u70B9\u3001\u7F29\u653E\u3001\u76F8\u673A\u65B9\u5411\u3001\u53C9\u79EF\u548C\u8F74\u5411\u7EA6\u675F\u4E0D\u5F97\u6539\u6210\u7247\u5143\u8BA1\u7B97\u3002",
+            "nativeNodes": [
+              "PositionNode",
+              "ObjectPositionNode",
+              "ObjectScaleNode",
+              "WorldSpaceCameraPos",
+              "CrossProductOpNode"
+            ],
+            "preserve": [
+              "\u5C40\u90E8/\u4E16\u754C/\u88C1\u526A\u7A7A\u95F4",
+              "\u53D8\u5F62\u987A\u5E8F",
+              "\u7C92\u5B50\u81EA\u5B9A\u4E49\u6570\u636E",
+              "ShadowCaster \u4E0E\u4E3B Pass \u540C\u6B65"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u548C\u8D1F\u7F29\u653E",
+              "\u4E0D\u540C\u76F8\u673A\u59FF\u6001",
+              "\u9634\u5F71",
+              "\u6279\u5904\u7406\u4E0E\u5B9E\u4F8B\u5316"
+            ]
+          },
+          {
+            "id": "pbr-outline",
+            "title": "PBR \u6750\u8D28\u8F93\u51FA\u4E0E\u63CF\u8FB9",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4F7F\u7528\u5BF9\u5E94 Lit/Surface Master \u7684\u5B8C\u6574\u6750\u8D28\u8F93\u51FA\uFF1B\u63CF\u8FB9\u4E3A\u72EC\u7ACB Pass\uFF0C\u4FDD\u7559\u81A8\u80C0\u65B9\u5F0F\u548C\u5168\u90E8\u706F\u5149/\u9634\u5F71\u7B49\u8F85\u52A9 Pass\u3002",
+            "nativeNodes": [
+              "FresnelNode",
+              "TransformDirectionNode",
+              "UnpackScaleNormalNode"
+            ],
+            "preserve": [
+              "\u91D1\u5C5E/\u9AD8\u5149\u5DE5\u4F5C\u6D41",
+              "\u6CD5\u7EBF\u7A7A\u95F4",
+              "\u900F\u660E\u4E0E\u88C1\u526A",
+              "\u5B50\u56FE\u4F9D\u8D56",
+              "\u63CF\u8FB9 Cull/\u6DF1\u5EA6/Pass \u987A\u5E8F"
+            ],
+            "validation": [
+              "\u5149\u7167\u548C\u53CD\u5C04",
+              "\u9634\u5F71\u4E0E\u70D8\u7119",
+              "\u63CF\u8FB9\u539A\u5EA6",
+              "\u6240\u6709\u6750\u8D28\u8F93\u51FA"
+            ]
+          },
+          {
+            "id": "dissolve-alpha",
+            "title": "\u6EB6\u89E3\u3001\u7C92\u5B50\u4E0E\u6E10\u9690",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u628A\u566A\u58F0\u3001\u9608\u503C\u3001Smoothstep \u4E0E\u8FB9\u7F18\u989C\u8272\u62C6\u4E3A\u539F\u751F\u8282\u70B9\uFF0C\u5E76\u5206\u522B\u6620\u5C04 Alpha\u3001\u88C1\u526A\u548C\u6DF7\u5408\u3002",
+            "nativeNodes": [
+              "SamplerNode",
+              "SmoothstepOpNode",
+              "LerpOp",
+              "VertexColorNode",
+              "PannerNode"
+            ],
+            "preserve": [
+              "\u52A0\u6CD5\u6216\u76F4\u901A Alpha \u6DF7\u5408",
+              "\u9876\u70B9\u8272\u548C\u7C92\u5B50\u6570\u636E",
+              "UV \u52A8\u753B",
+              "\u88C1\u526A\u9608\u503C",
+              "\u9634\u5F71 Pass"
+            ],
+            "validation": [
+              "\u6EB6\u89E3 0/\u8FB9\u754C/1",
+              "\u9876\u70B9\u8272 Alpha",
+              "\u900F\u660E\u91CD\u53E0",
+              "\u88C1\u526A\u9634\u5F71"
+            ]
+          },
+          {
+            "id": "keyword-binding",
+            "title": "\u5173\u952E\u8BCD\u3001\u5C5E\u6027\u4E0E\u7F16\u8BD1\u53D8\u4F53",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u8BB0\u5F55\u5C5E\u6027 Toggle \u6D3E\u751F\u5173\u952E\u8BCD\u3001pragma \u7684 global/local \u5173\u952E\u8BCD\u53CA\u6761\u4EF6\u5206\u652F\uFF1B\u540D\u79F0\u4E0D\u4E00\u81F4\u65F6\u62A5\u544A\uFF0C\u4E0D\u80FD\u81EA\u52A8\u6539\u540D\u7ED1\u5B9A\u3002",
+            "nativeNodes": [
+              "StaticSwitch",
+              "KeywordSwitchNode"
+            ],
+            "preserve": [
+              "global/local \u4F5C\u7528\u57DF",
+              "\u9ED8\u8BA4\u5206\u652F",
+              "\u5B8F\u4E0E\u5173\u952E\u8BCD\u539F\u540D",
+              "\u591A Pass \u53D8\u4F53",
+              "\u5B9E\u4F8B\u5316\u4E0E stereo"
+            ],
+            "validation": [
+              "\u6BCF\u79CD\u5173\u952E\u8BCD\u7EC4\u5408",
+              "\u6750\u8D28\u6570\u503C\u4E0E\u5173\u952E\u8BCD\u72EC\u7ACB\u53D8\u5316",
+              "\u76EE\u6807\u56FE\u5F62 API"
+            ]
+          },
+          {
+            "id": "screen-depth",
+            "title": "\u5C4F\u5E55\u3001\u6DF1\u5EA6\u4E0E\u540E\u5904\u7406",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u6620\u5C04\u5C4F\u5E55/\u6295\u5F71\u5750\u6807\u3001\u6DF1\u5EA6\u91C7\u6837\u548C\u8FD8\u539F\u3001\u5168\u5C4F Blit \u53CA\u76F8\u5173\u76F8\u673A\u8F93\u5165\uFF1B\u7981\u6B62\u7528\u666E\u901A UV \u91C7\u6837\u4EE3\u66FF\u3002",
+            "nativeNodes": [
+              "GrabScreenPosition",
+              "ScreenDepthNode",
+              "CameraDepthFade"
+            ],
+            "preserve": [
+              "\u900F\u89C6\u9664\u6CD5",
+              "\u7EBF\u6027/\u539F\u59CB\u6DF1\u5EA6",
+              "\u53CD\u5411 Z",
+              "\u76F8\u673A\u6DF1\u5EA6\u7EB9\u7406\u4F9D\u8D56",
+              "\u5E73\u53F0 Y \u7FFB\u8F6C"
+            ],
+            "validation": [
+              "\u900F\u89C6/\u6B63\u4EA4\u76F8\u673A",
+              "\u524D\u540E\u88C1\u526A\u9762",
+              "\u4E0D\u540C\u6E32\u67D3 API"
+            ]
+          },
+          {
+            "id": "performance-evidence",
+            "title": "\u753B\u8D28\u4E0E GPU \u6210\u672C\u8BC4\u4F30",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5148\u4FDD\u6301\u884C\u4E3A\uFF0C\u518D\u6309\u76EE\u6807\u8BBE\u5907\u6D4B GPU \u65F6\u95F4\u3001\u5E26\u5BBD\u3001overdraw\u3001\u53D8\u4F53\u548C\u753B\u8D28\u8BEF\u5DEE\uFF1B\u9759\u6001\u6E90\u7801\u53EA\u80FD\u63D0\u793A\u6210\u672C\uFF0C\u4E0D\u80FD\u7ED9\u51FA\u6027\u80FD\u4F18\u80DC\u7ED3\u8BBA\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u91C7\u6837\u8C03\u7528\u4F4D\u7F6E\u4E0D\u7B49\u4E8E\u6BCF\u50CF\u7D20\u91C7\u6837\u6B21\u6570",
+              "include\u3001\u5FAA\u73AF\u4E0E\u5206\u652F\u4F1A\u6539\u53D8\u5DE5\u4F5C\u91CF",
+              "Register/Get \u6574\u7406\u8FDE\u7EBF\u4E0D\u4FDD\u8BC1\u51CF\u5C11 GPU \u6307\u4EE4",
+              "\u907F\u514D\u7528\u672A\u7ECF\u6BD4\u8F83\u7684\u4FBF\u5B9C\u7B97\u6CD5\u66FF\u6362\u539F\u6548\u679C"
+            ],
+            "validation": [
+              "\u56FA\u5B9A\u573A\u666F\u548C\u5206\u8FA8\u7387",
+              "GPU \u578B\u53F7/API/\u7BA1\u7EBF",
+              "GPU \u4E2D\u4F4D\u6570\u4E0E\u9AD8\u5206\u4F4D\u65F6\u95F4",
+              "\u79FB\u52A8\u7AEF\u70ED\u7A33\u5B9A",
+              "\u6750\u8D28\u753B\u9762\u5BF9\u6BD4"
+            ]
+          }
+        ],
+        "notes": [
+          "\u5DF2\u8BB0\u5F55\u7684\u8BED\u4E49\u65B9\u6848\u4E0D\u7B49\u4E8E\u81EA\u52A8\u652F\u6301\uFF1B\u672A\u5B9E\u73B0\u7684\u6A21\u677F\u3001\u9636\u6BB5\u4E0E\u72B6\u6001\u4ECD\u7531\u539F\u5206\u6790\u5668\u963B\u585E\u3002"
+        ],
+        "materialCategories": [],
+        "performance": {
+          "status": "NotBenchmarked",
+          "directTextureSampleSites": 3,
+          "loopSites": 0,
+          "explicitPasses": 2,
+          "includesMayAddWork": true,
+          "observations": [
+            "\u9759\u6001\u8C03\u7528\u4F4D\u7F6E\u4E0D\u662F\u8FD0\u884C\u6B21\u6570\uFF1Binclude\u3001\u5FAA\u73AF\u3001\u5B8F\u548C\u5206\u652F\u672A\u7ECF\u5C55\u5F00\u3002\u6027\u80FD\u5C1A\u672A\u5728\u76EE\u6807 GPU \u4E0A\u6D4B\u91CF\u3002",
+            "\u5B58\u5728\u6DF7\u5408\u72B6\u6001\uFF1A\u900F\u660E\u8986\u76D6\u5C42\u6570\u548C\u5E26\u5BBD\u53EF\u80FD\u6BD4\u8282\u70B9\u6570\u66F4\u5F71\u54CD\u6027\u80FD\u3002"
+          ]
+        }
+      }
+    },
+    {
+      "repository": "user-reference",
+      "path": "Fresnel_A.shader",
+      "commit": "",
+      "url": "",
+      "license": "Private/read-only; not distributed",
+      "sha256": "734f030561445802a4e5e59ace22641fef5b932b4ebbf594018f7071361f7ed6",
+      "sourceUnchanged": true,
+      "status": "ExistingAseGraph",
+      "canPlan": false,
+      "planNodeCount": 0,
+      "planErrors": [],
+      "blockers": [],
+      "warnings": [
+        "The input already contains an ASE graph. Open/migrate it with the installed ASE; do not reconstruct it from generated HLSL."
+      ],
+      "includes": [
+        "UnityCG.cginc",
+        "HLSLSupport.cginc",
+        "UnityShaderVariables.cginc",
+        "Lighting.cginc",
+        "UnityPBSLighting.cginc"
+      ],
+      "helperDefinitions": [
+        "ComputeClipSpacePosition"
+      ],
+      "overloadedHelperNames": [],
+      "knowledge": {
+        "libraryVersion": "0.2.5",
+        "classification": "ExistingAseGraph",
+        "sourceSignature": "6adbc342a5e4e5c096e418bd04f0ef5b51cf325badf05b496f7ed622fff60564",
+        "referenceFile": "Fresnel_A.shader",
+        "referenceNotes": "ASE 19908\uFF1B17 \u8282\u70B9\u3002\u4FDD\u7559\u6CD5\u7EBF\u548C\u89C6\u7EBF\u53D8\u6362\u3001Fresnel \u53C2\u6570\u53CA Alpha\u3002",
+        "explicitPassCount": 2,
+        "surfaceShader": false,
+        "graph": {
+          "present": true,
+          "complete": true,
+          "version": "19908",
+          "nodeCount": 17,
+          "wireCount": 12,
+          "customExpressionCount": 0,
+          "nodeTypes": [
+            "AmplifyShaderEditor.ColorNode",
+            "AmplifyShaderEditor.CommentaryNode",
+            "AmplifyShaderEditor.FresnelNode",
+            "AmplifyShaderEditor.NormalizeNode",
+            "AmplifyShaderEditor.RangedFloatNode",
+            "AmplifyShaderEditor.SamplerNode",
+            "AmplifyShaderEditor.SimpleAddOpNode",
+            "AmplifyShaderEditor.SimpleMultiplyOpNode",
+            "AmplifyShaderEditor.TemplateMultiPassMasterNode",
+            "AmplifyShaderEditor.TextureCoordinatesNode",
+            "AmplifyShaderEditor.TransformDirectionNode"
+          ],
+          "templateGuids": [
+            "0770190933193b94aaa3065e307002fa"
+          ],
+          "functionGuids": []
+        },
+        "rules": [
+          {
+            "id": "ase-migration",
+            "title": "\u5DF2\u6709 ASE \u56FE\u4E0E\u4F9D\u8D56",
+            "implementation": "AseMigration",
+            "recipe": "\u7531 ASE \u6253\u5F00\u5E76\u8FC1\u79FB\u5B8C\u6574\u56FE\uFF1B\u5206\u6790\u5143\u6570\u636E\u53EA\u7528\u4E8E\u6E05\u70B9\uFF0C\u4E0D\u91CD\u5EFA\u751F\u6210\u7684 HLSL\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u56FE\u7248\u672C",
+              "\u5168\u90E8 Master \u548C Pass",
+              "Function \u5B50\u56FE GUID",
+              "\u6A21\u677F GUID",
+              "\u8282\u70B9\u8BBE\u7F6E\u548C\u539F\u6709\u8FDE\u7EBF"
+            ],
+            "validation": [
+              "\u76EE\u6807 ASE \u80FD\u52A0\u8F7D\u5168\u90E8\u8282\u70B9\u548C\u4F9D\u8D56",
+              "\u4FDD\u5B58\u91CD\u8F7D",
+              "\u7F16\u8BD1\u5404 Pass",
+              "\u573A\u666F\u6BD4\u8F83"
+            ]
+          },
+          {
+            "id": "pure-functions",
+            "title": "\u7EAF\u6570\u5B66\u8F85\u52A9\u51FD\u6570",
+            "implementation": "NativePlanner",
+            "recipe": "\u6309\u503C\u7ED1\u5B9A\u53C2\u6570\u3001\u9694\u79BB\u5C40\u90E8\u4F5C\u7528\u57DF\uFF0C\u5C06\u53EF\u89E3\u6790\u7684\u51FD\u6570\u4F53\u5185\u8054\u4E3A\u539F\u751F\u6570\u5B66\u8282\u70B9\uFF1B\u4E0D\u6309\u6587\u4EF6\u540D\u6216\u6E90\u7801\u7B7E\u540D\u6388\u6743\u3002",
+            "nativeNodes": [
+              "SimpleAddOpNode",
+              "SimpleMultiplyOpNode",
+              "DotProductOpNode",
+              "FractNode",
+              "LerpOp",
+              "CosOpNode"
+            ],
+            "preserve": [
+              "\u53C2\u6570\u7C7B\u578B\u4E0E\u8FD4\u56DE\u5BBD\u5EA6",
+              "\u53EA\u5141\u8BB8\u5C40\u90E8\u8D4B\u503C",
+              "\u62D2\u7EDD\u9012\u5F52\u548C\u91CD\u8F7D",
+              "\u62D2\u7EDD\u9690\u85CF\u91C7\u6837\u4E0E\u5168\u5C40\u5199\u5165",
+              "\u539F\u6709\u6E32\u67D3\u548C\u9876\u70B9\u68C0\u67E5\u7EE7\u7EED\u6267\u884C"
+            ],
+            "validation": [
+              "\u8C03\u7528\u4E0E\u624B\u52A8\u5185\u8054\u7684\u6570\u503C\u7ED3\u679C\u4E00\u81F4",
+              "\u4E0D\u540C\u51FD\u6570\u540D\u548C\u53C2\u6570\u540D",
+              "\u53C2\u6570\u4F5C\u7528\u57DF\u4E92\u4E0D\u6C61\u67D3",
+              "\u6076\u610F\u6216\u4E0D\u652F\u6301\u7684\u51FD\u6570\u4ECD\u963B\u585E"
+            ]
+          },
+          {
+            "id": "unity-globals-distance",
+            "title": "\u65F6\u95F4\u3001\u76F8\u673A\u4F4D\u7F6E\u4E0E\u8DDD\u79BB",
+            "implementation": "NativePlanner",
+            "recipe": "_Time \u6620\u5C04\u5B8C\u6574\u56DB\u5206\u91CF Time \u8282\u70B9\uFF1B_WorldSpaceCameraPos \u6620\u5C04\u4E16\u754C\u76F8\u673A\u4F4D\u7F6E\uFF1Blength/distance \u4F7F\u7528\u5BF9\u5E94\u539F\u751F\u8282\u70B9\u3002",
+            "nativeNodes": [
+              "TimeNode",
+              "WorldSpaceCameraPos",
+              "LengthOpNode",
+              "DistanceOpNode"
+            ],
+            "preserve": [
+              "_Time.x=t/20\u3001y=t\u3001z=2t\u3001w=3t",
+              "\u5750\u6807\u7A7A\u95F4\u7531\u539F\u8868\u8FBE\u5F0F\u51B3\u5B9A",
+              "distance \u4E24\u7AEF\u5BBD\u5EA6\u4E00\u81F4"
+            ],
+            "validation": [
+              "\u65F6\u95F4\u5206\u91CF\u4E0D\u4E92\u6362",
+              "\u8DDD\u79BB\u6570\u503C",
+              "\u975E\u6CD5\u5BBD\u5EA6\u548C\u7EB9\u7406\u8F93\u5165\u62D2\u7EDD"
+            ]
+          },
+          {
+            "id": "fresnel-space",
+            "title": "Fresnel\u3001\u89C6\u7EBF\u4E0E\u5F69\u819C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4FDD\u7559\u6CD5\u7EBF\u548C\u89C6\u7EBF\u7684\u5750\u6807\u7A7A\u95F4\u3001\u9876\u70B9\u63D2\u503C\u4E0E\u7247\u5143\u5F52\u4E00\u5316\u987A\u5E8F\uFF1Bdot\u2192saturate\u21921-x\u2192pow\u3002\u4F59\u5F26\u5F69\u819C\u4F7F\u7528\u539F\u76F8\u4F4D\u548C\u9891\u7387\u3002",
+            "nativeNodes": [
+              "NormalizeNode",
+              "DotProductOpNode",
+              "SaturateNode",
+              "OneMinusNode",
+              "PowerNode",
+              "CosOpNode"
+            ],
+            "preserve": [
+              "\u6B63\u53CD\u9762\u6CD5\u7EBF\u7B26\u53F7",
+              "\u89C6\u7EBF\u65B9\u5411",
+              "\u4E58\u8272\u3001\u5F3A\u5EA6\u548C Alpha",
+              "\u4E0D\u63D0\u524D\u5728\u9876\u70B9\u5F52\u4E00\u5316"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u7F29\u653E",
+              "\u6B63\u53CD\u9762",
+              "\u63A0\u5C04\u89D2",
+              "\u4E0D\u540C\u76F8\u673A\u4F4D\u7F6E"
+            ]
+          },
+          {
+            "id": "ordered-passes",
+            "title": "\u591A Pass\u3001\u900F\u660E\u6DF7\u5408\u4E0E\u56DE\u9000",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4E3A\u6BCF\u4E2A Pass \u5206\u522B\u8BB0\u5F55\u9876\u70B9/\u7247\u5143\u8F93\u51FA\u3001Cull\u3001Blend\u3001\u6DF1\u5EA6\u548C\u961F\u5217\uFF0C\u5E76\u4FDD\u7559\u6267\u884C\u987A\u5E8F\u4E0E Fallback\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u5185\u58C1\u5148\u3001\u5916\u58C1\u540E",
+              "Pass \u6570\u91CF\u4E0E\u987A\u5E8F",
+              "\u72EC\u7ACB Cull",
+              "\u6DF7\u5408\u548C\u6DF1\u5EA6",
+              "Fallback"
+            ],
+            "validation": [
+              "\u9010 Pass \u7F16\u8BD1",
+              "\u6B63\u53CD\u7ED5\u5E8F",
+              "\u900F\u660E\u91CD\u53E0",
+              "\u56DE\u9000\u8D44\u6E90\u5B58\u5728"
+            ]
+          },
+          {
+            "id": "vertex-transform",
+            "title": "\u516C\u544A\u677F\u3001\u9876\u70B9\u4F4D\u79FB\u4E0E\u63D2\u503C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u9876\u70B9\u53D8\u6362\u9700\u8981\u72EC\u7ACB\u9636\u6BB5\u8BA1\u5212\uFF1B\u7269\u4F53\u539F\u70B9\u3001\u7F29\u653E\u3001\u76F8\u673A\u65B9\u5411\u3001\u53C9\u79EF\u548C\u8F74\u5411\u7EA6\u675F\u4E0D\u5F97\u6539\u6210\u7247\u5143\u8BA1\u7B97\u3002",
+            "nativeNodes": [
+              "PositionNode",
+              "ObjectPositionNode",
+              "ObjectScaleNode",
+              "WorldSpaceCameraPos",
+              "CrossProductOpNode"
+            ],
+            "preserve": [
+              "\u5C40\u90E8/\u4E16\u754C/\u88C1\u526A\u7A7A\u95F4",
+              "\u53D8\u5F62\u987A\u5E8F",
+              "\u7C92\u5B50\u81EA\u5B9A\u4E49\u6570\u636E",
+              "ShadowCaster \u4E0E\u4E3B Pass \u540C\u6B65"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u548C\u8D1F\u7F29\u653E",
+              "\u4E0D\u540C\u76F8\u673A\u59FF\u6001",
+              "\u9634\u5F71",
+              "\u6279\u5904\u7406\u4E0E\u5B9E\u4F8B\u5316"
+            ]
+          },
+          {
+            "id": "pbr-outline",
+            "title": "PBR \u6750\u8D28\u8F93\u51FA\u4E0E\u63CF\u8FB9",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4F7F\u7528\u5BF9\u5E94 Lit/Surface Master \u7684\u5B8C\u6574\u6750\u8D28\u8F93\u51FA\uFF1B\u63CF\u8FB9\u4E3A\u72EC\u7ACB Pass\uFF0C\u4FDD\u7559\u81A8\u80C0\u65B9\u5F0F\u548C\u5168\u90E8\u706F\u5149/\u9634\u5F71\u7B49\u8F85\u52A9 Pass\u3002",
+            "nativeNodes": [
+              "FresnelNode",
+              "TransformDirectionNode",
+              "UnpackScaleNormalNode"
+            ],
+            "preserve": [
+              "\u91D1\u5C5E/\u9AD8\u5149\u5DE5\u4F5C\u6D41",
+              "\u6CD5\u7EBF\u7A7A\u95F4",
+              "\u900F\u660E\u4E0E\u88C1\u526A",
+              "\u5B50\u56FE\u4F9D\u8D56",
+              "\u63CF\u8FB9 Cull/\u6DF1\u5EA6/Pass \u987A\u5E8F"
+            ],
+            "validation": [
+              "\u5149\u7167\u548C\u53CD\u5C04",
+              "\u9634\u5F71\u4E0E\u70D8\u7119",
+              "\u63CF\u8FB9\u539A\u5EA6",
+              "\u6240\u6709\u6750\u8D28\u8F93\u51FA"
+            ]
+          },
+          {
+            "id": "keyword-binding",
+            "title": "\u5173\u952E\u8BCD\u3001\u5C5E\u6027\u4E0E\u7F16\u8BD1\u53D8\u4F53",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u8BB0\u5F55\u5C5E\u6027 Toggle \u6D3E\u751F\u5173\u952E\u8BCD\u3001pragma \u7684 global/local \u5173\u952E\u8BCD\u53CA\u6761\u4EF6\u5206\u652F\uFF1B\u540D\u79F0\u4E0D\u4E00\u81F4\u65F6\u62A5\u544A\uFF0C\u4E0D\u80FD\u81EA\u52A8\u6539\u540D\u7ED1\u5B9A\u3002",
+            "nativeNodes": [
+              "StaticSwitch",
+              "KeywordSwitchNode"
+            ],
+            "preserve": [
+              "global/local \u4F5C\u7528\u57DF",
+              "\u9ED8\u8BA4\u5206\u652F",
+              "\u5B8F\u4E0E\u5173\u952E\u8BCD\u539F\u540D",
+              "\u591A Pass \u53D8\u4F53",
+              "\u5B9E\u4F8B\u5316\u4E0E stereo"
+            ],
+            "validation": [
+              "\u6BCF\u79CD\u5173\u952E\u8BCD\u7EC4\u5408",
+              "\u6750\u8D28\u6570\u503C\u4E0E\u5173\u952E\u8BCD\u72EC\u7ACB\u53D8\u5316",
+              "\u76EE\u6807\u56FE\u5F62 API"
+            ]
+          },
+          {
+            "id": "screen-depth",
+            "title": "\u5C4F\u5E55\u3001\u6DF1\u5EA6\u4E0E\u540E\u5904\u7406",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u6620\u5C04\u5C4F\u5E55/\u6295\u5F71\u5750\u6807\u3001\u6DF1\u5EA6\u91C7\u6837\u548C\u8FD8\u539F\u3001\u5168\u5C4F Blit \u53CA\u76F8\u5173\u76F8\u673A\u8F93\u5165\uFF1B\u7981\u6B62\u7528\u666E\u901A UV \u91C7\u6837\u4EE3\u66FF\u3002",
+            "nativeNodes": [
+              "GrabScreenPosition",
+              "ScreenDepthNode",
+              "CameraDepthFade"
+            ],
+            "preserve": [
+              "\u900F\u89C6\u9664\u6CD5",
+              "\u7EBF\u6027/\u539F\u59CB\u6DF1\u5EA6",
+              "\u53CD\u5411 Z",
+              "\u76F8\u673A\u6DF1\u5EA6\u7EB9\u7406\u4F9D\u8D56",
+              "\u5E73\u53F0 Y \u7FFB\u8F6C"
+            ],
+            "validation": [
+              "\u900F\u89C6/\u6B63\u4EA4\u76F8\u673A",
+              "\u524D\u540E\u88C1\u526A\u9762",
+              "\u4E0D\u540C\u6E32\u67D3 API"
+            ]
+          },
+          {
+            "id": "performance-evidence",
+            "title": "\u753B\u8D28\u4E0E GPU \u6210\u672C\u8BC4\u4F30",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5148\u4FDD\u6301\u884C\u4E3A\uFF0C\u518D\u6309\u76EE\u6807\u8BBE\u5907\u6D4B GPU \u65F6\u95F4\u3001\u5E26\u5BBD\u3001overdraw\u3001\u53D8\u4F53\u548C\u753B\u8D28\u8BEF\u5DEE\uFF1B\u9759\u6001\u6E90\u7801\u53EA\u80FD\u63D0\u793A\u6210\u672C\uFF0C\u4E0D\u80FD\u7ED9\u51FA\u6027\u80FD\u4F18\u80DC\u7ED3\u8BBA\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u91C7\u6837\u8C03\u7528\u4F4D\u7F6E\u4E0D\u7B49\u4E8E\u6BCF\u50CF\u7D20\u91C7\u6837\u6B21\u6570",
+              "include\u3001\u5FAA\u73AF\u4E0E\u5206\u652F\u4F1A\u6539\u53D8\u5DE5\u4F5C\u91CF",
+              "Register/Get \u6574\u7406\u8FDE\u7EBF\u4E0D\u4FDD\u8BC1\u51CF\u5C11 GPU \u6307\u4EE4",
+              "\u907F\u514D\u7528\u672A\u7ECF\u6BD4\u8F83\u7684\u4FBF\u5B9C\u7B97\u6CD5\u66FF\u6362\u539F\u6548\u679C"
+            ],
+            "validation": [
+              "\u56FA\u5B9A\u573A\u666F\u548C\u5206\u8FA8\u7387",
+              "GPU \u578B\u53F7/API/\u7BA1\u7EBF",
+              "GPU \u4E2D\u4F4D\u6570\u4E0E\u9AD8\u5206\u4F4D\u65F6\u95F4",
+              "\u79FB\u52A8\u7AEF\u70ED\u7A33\u5B9A",
+              "\u6750\u8D28\u753B\u9762\u5BF9\u6BD4"
+            ]
+          }
+        ],
+        "notes": [
+          "\u5DF2\u8BB0\u5F55\u7684\u8BED\u4E49\u65B9\u6848\u4E0D\u7B49\u4E8E\u81EA\u52A8\u652F\u6301\uFF1B\u672A\u5B9E\u73B0\u7684\u6A21\u677F\u3001\u9636\u6BB5\u4E0E\u72B6\u6001\u4ECD\u7531\u539F\u5206\u6790\u5668\u963B\u585E\u3002"
+        ],
+        "materialCategories": [],
+        "performance": {
+          "status": "NotBenchmarked",
+          "directTextureSampleSites": 2,
+          "loopSites": 0,
+          "explicitPasses": 2,
+          "includesMayAddWork": true,
+          "observations": [
+            "\u9759\u6001\u8C03\u7528\u4F4D\u7F6E\u4E0D\u662F\u8FD0\u884C\u6B21\u6570\uFF1Binclude\u3001\u5FAA\u73AF\u3001\u5B8F\u548C\u5206\u652F\u672A\u7ECF\u5C55\u5F00\u3002\u6027\u80FD\u5C1A\u672A\u5728\u76EE\u6807 GPU \u4E0A\u6D4B\u91CF\u3002",
+            "\u5B58\u5728\u6DF7\u5408\u72B6\u6001\uFF1A\u900F\u660E\u8986\u76D6\u5C42\u6570\u548C\u5E26\u5BBD\u53EF\u80FD\u6BD4\u8282\u70B9\u6570\u66F4\u5F71\u54CD\u6027\u80FD\u3002"
+          ]
+        }
+      }
+    },
+    {
+      "repository": "user-reference",
+      "path": "PBR.shader",
+      "commit": "",
+      "url": "",
+      "license": "Private/read-only; not distributed",
+      "sha256": "3e6d8db58b4716c3bd89193e53ce359aa455398e16b411fd51a2bc644dd47e48",
+      "sourceUnchanged": true,
+      "status": "ExistingAseGraph",
+      "canPlan": false,
+      "planNodeCount": 0,
+      "planErrors": [],
+      "blockers": [],
+      "warnings": [
+        "The input already contains an ASE graph. Open/migrate it with the installed ASE; do not reconstruct it from generated HLSL."
+      ],
+      "includes": [
+        "UnityShaderVariables.cginc",
+        "UnityPBSLighting.cginc",
+        "Lighting.cginc",
+        "HLSLSupport.cginc",
+        "UnityCG.cginc"
+      ],
+      "helperDefinitions": [],
+      "overloadedHelperNames": [],
+      "knowledge": {
+        "libraryVersion": "0.2.5",
+        "classification": "ExistingAseGraph",
+        "sourceSignature": "e0ab06712280325c00af603753e3de0b2f564ccda0b9831c9a12f15f0766df3a",
+        "referenceFile": "PBR.shader",
+        "referenceNotes": "ASE 19908\uFF1B151 \u8282\u70B9\u3002Standard Surface \u8F93\u51FA\uFF0C\u4F9D\u8D56 Square Wave \u5B50\u56FE GUID 6f8df4c09ccca5d42b0d3d422aad9cbd\u3002",
+        "explicitPassCount": 1,
+        "surfaceShader": true,
+        "graph": {
+          "present": true,
+          "complete": true,
+          "version": "19908",
+          "nodeCount": 151,
+          "wireCount": 137,
+          "customExpressionCount": 0,
+          "nodeTypes": [
+            "AmplifyShaderEditor.BreakToComponentsNode",
+            "AmplifyShaderEditor.ColorNode",
+            "AmplifyShaderEditor.CommentaryNode",
+            "AmplifyShaderEditor.ComponentMaskNode",
+            "AmplifyShaderEditor.DistanceOpNode",
+            "AmplifyShaderEditor.DotProductOpNode",
+            "AmplifyShaderEditor.DynamicAppendNode",
+            "AmplifyShaderEditor.FresnelNode",
+            "AmplifyShaderEditor.FunctionNode",
+            "AmplifyShaderEditor.GetLocalVarNode",
+            "AmplifyShaderEditor.LerpOp",
+            "AmplifyShaderEditor.NormalizeNode",
+            "AmplifyShaderEditor.OneMinusNode",
+            "AmplifyShaderEditor.PositionNode",
+            "AmplifyShaderEditor.PowerNode",
+            "AmplifyShaderEditor.RangedFloatNode",
+            "AmplifyShaderEditor.RegisterLocalVarNode",
+            "AmplifyShaderEditor.SamplerNode",
+            "AmplifyShaderEditor.SaturateNode",
+            "AmplifyShaderEditor.SimpleAddOpNode",
+            "AmplifyShaderEditor.SimpleMaxOpNode",
+            "AmplifyShaderEditor.SimpleMultiplyOpNode",
+            "AmplifyShaderEditor.SmoothstepOpNode",
+            "AmplifyShaderEditor.StandardSurfaceOutputNode",
+            "AmplifyShaderEditor.SwitchByFaceNode",
+            "AmplifyShaderEditor.TFHCRemapNode",
+            "AmplifyShaderEditor.TransformDirectionNode",
+            "AmplifyShaderEditor.TransformPositionNode",
+            "AmplifyShaderEditor.Vector3Node",
+            "AmplifyShaderEditor.Vector4Node",
+            "AmplifyShaderEditor.WorldNormalVector",
+            "AmplifyShaderEditor.WorldSpaceCameraPos"
+          ],
+          "templateGuids": [],
+          "functionGuids": [
+            "6f8df4c09ccca5d42b0d3d422aad9cbd"
+          ]
+        },
+        "rules": [
+          {
+            "id": "ase-migration",
+            "title": "\u5DF2\u6709 ASE \u56FE\u4E0E\u4F9D\u8D56",
+            "implementation": "AseMigration",
+            "recipe": "\u7531 ASE \u6253\u5F00\u5E76\u8FC1\u79FB\u5B8C\u6574\u56FE\uFF1B\u5206\u6790\u5143\u6570\u636E\u53EA\u7528\u4E8E\u6E05\u70B9\uFF0C\u4E0D\u91CD\u5EFA\u751F\u6210\u7684 HLSL\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u56FE\u7248\u672C",
+              "\u5168\u90E8 Master \u548C Pass",
+              "Function \u5B50\u56FE GUID",
+              "\u6A21\u677F GUID",
+              "\u8282\u70B9\u8BBE\u7F6E\u548C\u539F\u6709\u8FDE\u7EBF"
+            ],
+            "validation": [
+              "\u76EE\u6807 ASE \u80FD\u52A0\u8F7D\u5168\u90E8\u8282\u70B9\u548C\u4F9D\u8D56",
+              "\u4FDD\u5B58\u91CD\u8F7D",
+              "\u7F16\u8BD1\u5404 Pass",
+              "\u573A\u666F\u6BD4\u8F83"
+            ]
+          },
+          {
+            "id": "unity-globals-distance",
+            "title": "\u65F6\u95F4\u3001\u76F8\u673A\u4F4D\u7F6E\u4E0E\u8DDD\u79BB",
+            "implementation": "NativePlanner",
+            "recipe": "_Time \u6620\u5C04\u5B8C\u6574\u56DB\u5206\u91CF Time \u8282\u70B9\uFF1B_WorldSpaceCameraPos \u6620\u5C04\u4E16\u754C\u76F8\u673A\u4F4D\u7F6E\uFF1Blength/distance \u4F7F\u7528\u5BF9\u5E94\u539F\u751F\u8282\u70B9\u3002",
+            "nativeNodes": [
+              "TimeNode",
+              "WorldSpaceCameraPos",
+              "LengthOpNode",
+              "DistanceOpNode"
+            ],
+            "preserve": [
+              "_Time.x=t/20\u3001y=t\u3001z=2t\u3001w=3t",
+              "\u5750\u6807\u7A7A\u95F4\u7531\u539F\u8868\u8FBE\u5F0F\u51B3\u5B9A",
+              "distance \u4E24\u7AEF\u5BBD\u5EA6\u4E00\u81F4"
+            ],
+            "validation": [
+              "\u65F6\u95F4\u5206\u91CF\u4E0D\u4E92\u6362",
+              "\u8DDD\u79BB\u6570\u503C",
+              "\u975E\u6CD5\u5BBD\u5EA6\u548C\u7EB9\u7406\u8F93\u5165\u62D2\u7EDD"
+            ]
+          },
+          {
+            "id": "fresnel-space",
+            "title": "Fresnel\u3001\u89C6\u7EBF\u4E0E\u5F69\u819C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4FDD\u7559\u6CD5\u7EBF\u548C\u89C6\u7EBF\u7684\u5750\u6807\u7A7A\u95F4\u3001\u9876\u70B9\u63D2\u503C\u4E0E\u7247\u5143\u5F52\u4E00\u5316\u987A\u5E8F\uFF1Bdot\u2192saturate\u21921-x\u2192pow\u3002\u4F59\u5F26\u5F69\u819C\u4F7F\u7528\u539F\u76F8\u4F4D\u548C\u9891\u7387\u3002",
+            "nativeNodes": [
+              "NormalizeNode",
+              "DotProductOpNode",
+              "SaturateNode",
+              "OneMinusNode",
+              "PowerNode",
+              "CosOpNode"
+            ],
+            "preserve": [
+              "\u6B63\u53CD\u9762\u6CD5\u7EBF\u7B26\u53F7",
+              "\u89C6\u7EBF\u65B9\u5411",
+              "\u4E58\u8272\u3001\u5F3A\u5EA6\u548C Alpha",
+              "\u4E0D\u63D0\u524D\u5728\u9876\u70B9\u5F52\u4E00\u5316"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u7F29\u653E",
+              "\u6B63\u53CD\u9762",
+              "\u63A0\u5C04\u89D2",
+              "\u4E0D\u540C\u76F8\u673A\u4F4D\u7F6E"
+            ]
+          },
+          {
+            "id": "vertex-transform",
+            "title": "\u516C\u544A\u677F\u3001\u9876\u70B9\u4F4D\u79FB\u4E0E\u63D2\u503C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u9876\u70B9\u53D8\u6362\u9700\u8981\u72EC\u7ACB\u9636\u6BB5\u8BA1\u5212\uFF1B\u7269\u4F53\u539F\u70B9\u3001\u7F29\u653E\u3001\u76F8\u673A\u65B9\u5411\u3001\u53C9\u79EF\u548C\u8F74\u5411\u7EA6\u675F\u4E0D\u5F97\u6539\u6210\u7247\u5143\u8BA1\u7B97\u3002",
+            "nativeNodes": [
+              "PositionNode",
+              "ObjectPositionNode",
+              "ObjectScaleNode",
+              "WorldSpaceCameraPos",
+              "CrossProductOpNode"
+            ],
+            "preserve": [
+              "\u5C40\u90E8/\u4E16\u754C/\u88C1\u526A\u7A7A\u95F4",
+              "\u53D8\u5F62\u987A\u5E8F",
+              "\u7C92\u5B50\u81EA\u5B9A\u4E49\u6570\u636E",
+              "ShadowCaster \u4E0E\u4E3B Pass \u540C\u6B65"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u548C\u8D1F\u7F29\u653E",
+              "\u4E0D\u540C\u76F8\u673A\u59FF\u6001",
+              "\u9634\u5F71",
+              "\u6279\u5904\u7406\u4E0E\u5B9E\u4F8B\u5316"
+            ]
+          },
+          {
+            "id": "pbr-outline",
+            "title": "PBR \u6750\u8D28\u8F93\u51FA\u4E0E\u63CF\u8FB9",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4F7F\u7528\u5BF9\u5E94 Lit/Surface Master \u7684\u5B8C\u6574\u6750\u8D28\u8F93\u51FA\uFF1B\u63CF\u8FB9\u4E3A\u72EC\u7ACB Pass\uFF0C\u4FDD\u7559\u81A8\u80C0\u65B9\u5F0F\u548C\u5168\u90E8\u706F\u5149/\u9634\u5F71\u7B49\u8F85\u52A9 Pass\u3002",
+            "nativeNodes": [
+              "FresnelNode",
+              "TransformDirectionNode",
+              "UnpackScaleNormalNode"
+            ],
+            "preserve": [
+              "\u91D1\u5C5E/\u9AD8\u5149\u5DE5\u4F5C\u6D41",
+              "\u6CD5\u7EBF\u7A7A\u95F4",
+              "\u900F\u660E\u4E0E\u88C1\u526A",
+              "\u5B50\u56FE\u4F9D\u8D56",
+              "\u63CF\u8FB9 Cull/\u6DF1\u5EA6/Pass \u987A\u5E8F"
+            ],
+            "validation": [
+              "\u5149\u7167\u548C\u53CD\u5C04",
+              "\u9634\u5F71\u4E0E\u70D8\u7119",
+              "\u63CF\u8FB9\u539A\u5EA6",
+              "\u6240\u6709\u6750\u8D28\u8F93\u51FA"
+            ]
+          },
+          {
+            "id": "keyword-binding",
+            "title": "\u5173\u952E\u8BCD\u3001\u5C5E\u6027\u4E0E\u7F16\u8BD1\u53D8\u4F53",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u8BB0\u5F55\u5C5E\u6027 Toggle \u6D3E\u751F\u5173\u952E\u8BCD\u3001pragma \u7684 global/local \u5173\u952E\u8BCD\u53CA\u6761\u4EF6\u5206\u652F\uFF1B\u540D\u79F0\u4E0D\u4E00\u81F4\u65F6\u62A5\u544A\uFF0C\u4E0D\u80FD\u81EA\u52A8\u6539\u540D\u7ED1\u5B9A\u3002",
+            "nativeNodes": [
+              "StaticSwitch",
+              "KeywordSwitchNode"
+            ],
+            "preserve": [
+              "global/local \u4F5C\u7528\u57DF",
+              "\u9ED8\u8BA4\u5206\u652F",
+              "\u5B8F\u4E0E\u5173\u952E\u8BCD\u539F\u540D",
+              "\u591A Pass \u53D8\u4F53",
+              "\u5B9E\u4F8B\u5316\u4E0E stereo"
+            ],
+            "validation": [
+              "\u6BCF\u79CD\u5173\u952E\u8BCD\u7EC4\u5408",
+              "\u6750\u8D28\u6570\u503C\u4E0E\u5173\u952E\u8BCD\u72EC\u7ACB\u53D8\u5316",
+              "\u76EE\u6807\u56FE\u5F62 API"
+            ]
+          },
+          {
+            "id": "performance-evidence",
+            "title": "\u753B\u8D28\u4E0E GPU \u6210\u672C\u8BC4\u4F30",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5148\u4FDD\u6301\u884C\u4E3A\uFF0C\u518D\u6309\u76EE\u6807\u8BBE\u5907\u6D4B GPU \u65F6\u95F4\u3001\u5E26\u5BBD\u3001overdraw\u3001\u53D8\u4F53\u548C\u753B\u8D28\u8BEF\u5DEE\uFF1B\u9759\u6001\u6E90\u7801\u53EA\u80FD\u63D0\u793A\u6210\u672C\uFF0C\u4E0D\u80FD\u7ED9\u51FA\u6027\u80FD\u4F18\u80DC\u7ED3\u8BBA\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u91C7\u6837\u8C03\u7528\u4F4D\u7F6E\u4E0D\u7B49\u4E8E\u6BCF\u50CF\u7D20\u91C7\u6837\u6B21\u6570",
+              "include\u3001\u5FAA\u73AF\u4E0E\u5206\u652F\u4F1A\u6539\u53D8\u5DE5\u4F5C\u91CF",
+              "Register/Get \u6574\u7406\u8FDE\u7EBF\u4E0D\u4FDD\u8BC1\u51CF\u5C11 GPU \u6307\u4EE4",
+              "\u907F\u514D\u7528\u672A\u7ECF\u6BD4\u8F83\u7684\u4FBF\u5B9C\u7B97\u6CD5\u66FF\u6362\u539F\u6548\u679C"
+            ],
+            "validation": [
+              "\u56FA\u5B9A\u573A\u666F\u548C\u5206\u8FA8\u7387",
+              "GPU \u578B\u53F7/API/\u7BA1\u7EBF",
+              "GPU \u4E2D\u4F4D\u6570\u4E0E\u9AD8\u5206\u4F4D\u65F6\u95F4",
+              "\u79FB\u52A8\u7AEF\u70ED\u7A33\u5B9A",
+              "\u6750\u8D28\u753B\u9762\u5BF9\u6BD4"
+            ]
+          },
+          {
+            "id": "metal-stone-pbr",
+            "title": "\u91D1\u5C5E\u3001\u77F3\u5934\u4E0E\u7EB9\u7406\u6620\u5C04",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u8BB0\u5F55\u91D1\u5C5E/\u7C97\u7CD9\u5EA6\u6216\u9AD8\u5149\u5DE5\u4F5C\u6D41\uFF1B\u77F3\u5934\u5E38\u7528\u591A\u5C3A\u5EA6\u6CD5\u7EBF\u3001\u906E\u853D\u3001\u7EC6\u8282\u548C\u4E09\u5E73\u9762\u6620\u5C04\uFF0C\u4E0D\u4F9D\u636E\u540D\u79F0\u81EA\u52A8\u6539\u5199\u6750\u8D28\u3002",
+            "nativeNodes": [
+              "SamplerNode",
+              "TransformDirectionNode",
+              "LerpOp"
+            ],
+            "preserve": [
+              "\u7EBF\u6027/\u989C\u8272\u7EB9\u7406\u7A7A\u95F4",
+              "\u91D1\u5C5E\u53CD\u5C04\u4E0E\u73AF\u5883",
+              "\u6CD5\u7EBF\u5408\u6210",
+              "AO \u4F5C\u7528\u4F4D\u7F6E",
+              "\u4E09\u5E73\u9762\u6743\u91CD\u548C\u8D1F\u7F29\u653E",
+              "\u89C6\u5DEE\u6210\u672C"
+            ],
+            "validation": [
+              "HDR \u5149\u7167\u548C\u53CD\u5C04\u63A2\u9488",
+              "\u4E0D\u540C\u7C97\u7CD9\u5EA6",
+              "\u975E\u5747\u5300\u7F29\u653E",
+              "\u7EB9\u7406\u63A5\u7F1D",
+              "\u8DDD\u79BB\u548C mip"
+            ]
+          }
+        ],
+        "notes": [
+          "\u56FE\u4F9D\u8D56\u5916\u90E8 ASE Function \u8D44\u4EA7\uFF1B\u8FC1\u79FB\u524D\u68C0\u67E5\u8FD9\u4E9B GUID \u5728\u76EE\u6807\u9879\u76EE\u4E2D\u53EF\u89E3\u6790\u3002",
+          "\u5DF2\u8BB0\u5F55\u7684\u8BED\u4E49\u65B9\u6848\u4E0D\u7B49\u4E8E\u81EA\u52A8\u652F\u6301\uFF1B\u672A\u5B9E\u73B0\u7684\u6A21\u677F\u3001\u9636\u6BB5\u4E0E\u72B6\u6001\u4ECD\u7531\u539F\u5206\u6790\u5668\u963B\u585E\u3002"
+        ],
+        "materialCategories": [
+          "Metal"
+        ],
+        "performance": {
+          "status": "NotBenchmarked",
+          "directTextureSampleSites": 5,
+          "loopSites": 0,
+          "explicitPasses": 1,
+          "includesMayAddWork": true,
+          "observations": [
+            "\u9759\u6001\u8C03\u7528\u4F4D\u7F6E\u4E0D\u662F\u8FD0\u884C\u6B21\u6570\uFF1Binclude\u3001\u5FAA\u73AF\u3001\u5B8F\u548C\u5206\u652F\u672A\u7ECF\u5C55\u5F00\u3002\u6027\u80FD\u5C1A\u672A\u5728\u76EE\u6807 GPU \u4E0A\u6D4B\u91CF\u3002"
+          ]
+        }
+      }
+    },
+    {
+      "repository": "user-reference",
+      "path": "PBR_OutLine.shader",
+      "commit": "",
+      "url": "",
+      "license": "Private/read-only; not distributed",
+      "sha256": "e720e2c9ece4d95d23b9bae0df6f5ff2a144fdce993257d3d0fdae76b26a8352",
+      "sourceUnchanged": true,
+      "status": "ExistingAseGraph",
+      "canPlan": false,
+      "planNodeCount": 0,
+      "planErrors": [],
+      "blockers": [],
+      "warnings": [
+        "The input already contains an ASE graph. Open/migrate it with the installed ASE; do not reconstruct it from generated HLSL."
+      ],
+      "includes": [
+        "HLSLSupport.cginc",
+        "UnityShaderVariables.cginc",
+        "UnityCG.cginc",
+        "Lighting.cginc",
+        "UnityPBSLighting.cginc",
+        "AutoLight.cginc",
+        "UnityMetaPass.cginc"
+      ],
+      "helperDefinitions": [
+        "FixedTess",
+        "CalcDistanceTessFactor",
+        "CalcTriEdgeTessFactors",
+        "CalcEdgeTessFactor",
+        "DistanceFromPlane",
+        "DistanceBasedTess",
+        "EdgeLengthBasedTess",
+        "EdgeLengthBasedTessCull",
+        "ComputeClipSpacePosition"
+      ],
+      "overloadedHelperNames": [],
+      "knowledge": {
+        "libraryVersion": "0.2.5",
+        "classification": "ExistingAseGraph",
+        "sourceSignature": "48f3727d0c9b2fba00f8ae1f0ab8ab12315a78a9363e772dc4695c7ffb2815ef",
+        "referenceFile": "PBR_OutLine.shader",
+        "referenceNotes": "ASE 19908\uFF1B178 \u8282\u70B9\u3002Lit \u6A21\u677F\u548C\u72EC\u7ACB OutLinePass\uFF1B\u4FDD\u7559 7 \u4E2A\u663E\u5F0F Pass\uFF0C\u4F9D\u8D56\u540C\u4E00 Square Wave \u5B50\u56FE\u3002",
+        "explicitPassCount": 7,
+        "surfaceShader": false,
+        "graph": {
+          "present": true,
+          "complete": true,
+          "version": "19908",
+          "nodeCount": 178,
+          "wireCount": 158,
+          "customExpressionCount": 0,
+          "nodeTypes": [
+            "AmplifyShaderEditor.BreakToComponentsNode",
+            "AmplifyShaderEditor.ColorNode",
+            "AmplifyShaderEditor.CommentaryNode",
+            "AmplifyShaderEditor.ComponentMaskNode",
+            "AmplifyShaderEditor.DistanceOpNode",
+            "AmplifyShaderEditor.DotProductOpNode",
+            "AmplifyShaderEditor.DynamicAppendNode",
+            "AmplifyShaderEditor.FresnelNode",
+            "AmplifyShaderEditor.FunctionNode",
+            "AmplifyShaderEditor.GetLocalVarNode",
+            "AmplifyShaderEditor.LerpOp",
+            "AmplifyShaderEditor.NormalVertexDataNode",
+            "AmplifyShaderEditor.NormalizeNode",
+            "AmplifyShaderEditor.OneMinusNode",
+            "AmplifyShaderEditor.PositionNode",
+            "AmplifyShaderEditor.PowerNode",
+            "AmplifyShaderEditor.RangedFloatNode",
+            "AmplifyShaderEditor.RegisterLocalVarNode",
+            "AmplifyShaderEditor.SamplerNode",
+            "AmplifyShaderEditor.SaturateNode",
+            "AmplifyShaderEditor.SimpleAddOpNode",
+            "AmplifyShaderEditor.SimpleMaxOpNode",
+            "AmplifyShaderEditor.SimpleMultiplyOpNode",
+            "AmplifyShaderEditor.SmoothstepOpNode",
+            "AmplifyShaderEditor.SwitchByFaceNode",
+            "AmplifyShaderEditor.TFHCRemapNode",
+            "AmplifyShaderEditor.TemplateMultiPassMasterNode",
+            "AmplifyShaderEditor.TransformDirectionNode",
+            "AmplifyShaderEditor.TransformPositionNode",
+            "AmplifyShaderEditor.Vector3Node",
+            "AmplifyShaderEditor.Vector4Node",
+            "AmplifyShaderEditor.WorldNormalVector",
+            "AmplifyShaderEditor.WorldSpaceCameraPos"
+          ],
+          "templateGuids": [
+            "ed95fe726fd7b4644bb42f4d1ddd2bcd"
+          ],
+          "functionGuids": [
+            "6f8df4c09ccca5d42b0d3d422aad9cbd"
+          ]
+        },
+        "rules": [
+          {
+            "id": "ase-migration",
+            "title": "\u5DF2\u6709 ASE \u56FE\u4E0E\u4F9D\u8D56",
+            "implementation": "AseMigration",
+            "recipe": "\u7531 ASE \u6253\u5F00\u5E76\u8FC1\u79FB\u5B8C\u6574\u56FE\uFF1B\u5206\u6790\u5143\u6570\u636E\u53EA\u7528\u4E8E\u6E05\u70B9\uFF0C\u4E0D\u91CD\u5EFA\u751F\u6210\u7684 HLSL\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u56FE\u7248\u672C",
+              "\u5168\u90E8 Master \u548C Pass",
+              "Function \u5B50\u56FE GUID",
+              "\u6A21\u677F GUID",
+              "\u8282\u70B9\u8BBE\u7F6E\u548C\u539F\u6709\u8FDE\u7EBF"
+            ],
+            "validation": [
+              "\u76EE\u6807 ASE \u80FD\u52A0\u8F7D\u5168\u90E8\u8282\u70B9\u548C\u4F9D\u8D56",
+              "\u4FDD\u5B58\u91CD\u8F7D",
+              "\u7F16\u8BD1\u5404 Pass",
+              "\u573A\u666F\u6BD4\u8F83"
+            ]
+          },
+          {
+            "id": "pure-functions",
+            "title": "\u7EAF\u6570\u5B66\u8F85\u52A9\u51FD\u6570",
+            "implementation": "NativePlanner",
+            "recipe": "\u6309\u503C\u7ED1\u5B9A\u53C2\u6570\u3001\u9694\u79BB\u5C40\u90E8\u4F5C\u7528\u57DF\uFF0C\u5C06\u53EF\u89E3\u6790\u7684\u51FD\u6570\u4F53\u5185\u8054\u4E3A\u539F\u751F\u6570\u5B66\u8282\u70B9\uFF1B\u4E0D\u6309\u6587\u4EF6\u540D\u6216\u6E90\u7801\u7B7E\u540D\u6388\u6743\u3002",
+            "nativeNodes": [
+              "SimpleAddOpNode",
+              "SimpleMultiplyOpNode",
+              "DotProductOpNode",
+              "FractNode",
+              "LerpOp",
+              "CosOpNode"
+            ],
+            "preserve": [
+              "\u53C2\u6570\u7C7B\u578B\u4E0E\u8FD4\u56DE\u5BBD\u5EA6",
+              "\u53EA\u5141\u8BB8\u5C40\u90E8\u8D4B\u503C",
+              "\u62D2\u7EDD\u9012\u5F52\u548C\u91CD\u8F7D",
+              "\u62D2\u7EDD\u9690\u85CF\u91C7\u6837\u4E0E\u5168\u5C40\u5199\u5165",
+              "\u539F\u6709\u6E32\u67D3\u548C\u9876\u70B9\u68C0\u67E5\u7EE7\u7EED\u6267\u884C"
+            ],
+            "validation": [
+              "\u8C03\u7528\u4E0E\u624B\u52A8\u5185\u8054\u7684\u6570\u503C\u7ED3\u679C\u4E00\u81F4",
+              "\u4E0D\u540C\u51FD\u6570\u540D\u548C\u53C2\u6570\u540D",
+              "\u53C2\u6570\u4F5C\u7528\u57DF\u4E92\u4E0D\u6C61\u67D3",
+              "\u6076\u610F\u6216\u4E0D\u652F\u6301\u7684\u51FD\u6570\u4ECD\u963B\u585E"
+            ]
+          },
+          {
+            "id": "bounded-loops",
+            "title": "\u56FA\u5B9A\u6B21\u6570\u7684\u7B97\u672F\u7D2F\u52A0\u5FAA\u73AF",
+            "implementation": "NativePlanner",
+            "recipe": "\u5C55\u5F00 for(int k=N; k\u003CM; k\u002B\u002B) \u7684\u7B97\u672F\u7D2F\u52A0\uFF0C\u6700\u591A 16 \u6B21\uFF1B\u5FAA\u73AF\u4F53\u4E0D\u8BFB\u53D6\u8BA1\u6570\u5668\u3001\u4E0D\u58F0\u660E\u5C40\u90E8\u4F5C\u7528\u57DF\u3001\u4E0D\u91C7\u6837\u3001\u4E0D\u8DF3\u8F6C\u3002",
+            "nativeNodes": [
+              "SimpleAddOpNode",
+              "SimpleMultiplyOpNode"
+            ],
+            "preserve": [
+              "\u539F\u59CB\u8FD0\u7B97\u987A\u5E8F",
+              "\u6BCF\u8F6E\u7D2F\u52A0\u548C\u9891\u7387/\u632F\u5E45\u66F4\u65B0",
+              "\u52A8\u6001\u5FAA\u73AF\u7EE7\u7EED\u963B\u585E",
+              "\u96F6\u6B21\u5FAA\u73AF\u4ECD\u5BA1\u67E5\u526F\u4F5C\u7528"
+            ],
+            "validation": [
+              "0/1/3/16 \u6B21\u8FB9\u754C",
+              "17 \u6B21\u62D2\u7EDD",
+              "\u52A8\u6001\u754C\u9650\u62D2\u7EDD",
+              "break\u3001\u8BA1\u6570\u5668\u8BFB\u53D6\u548C\u7EB9\u7406\u91C7\u6837\u62D2\u7EDD"
+            ]
+          },
+          {
+            "id": "unity-globals-distance",
+            "title": "\u65F6\u95F4\u3001\u76F8\u673A\u4F4D\u7F6E\u4E0E\u8DDD\u79BB",
+            "implementation": "NativePlanner",
+            "recipe": "_Time \u6620\u5C04\u5B8C\u6574\u56DB\u5206\u91CF Time \u8282\u70B9\uFF1B_WorldSpaceCameraPos \u6620\u5C04\u4E16\u754C\u76F8\u673A\u4F4D\u7F6E\uFF1Blength/distance \u4F7F\u7528\u5BF9\u5E94\u539F\u751F\u8282\u70B9\u3002",
+            "nativeNodes": [
+              "TimeNode",
+              "WorldSpaceCameraPos",
+              "LengthOpNode",
+              "DistanceOpNode"
+            ],
+            "preserve": [
+              "_Time.x=t/20\u3001y=t\u3001z=2t\u3001w=3t",
+              "\u5750\u6807\u7A7A\u95F4\u7531\u539F\u8868\u8FBE\u5F0F\u51B3\u5B9A",
+              "distance \u4E24\u7AEF\u5BBD\u5EA6\u4E00\u81F4"
+            ],
+            "validation": [
+              "\u65F6\u95F4\u5206\u91CF\u4E0D\u4E92\u6362",
+              "\u8DDD\u79BB\u6570\u503C",
+              "\u975E\u6CD5\u5BBD\u5EA6\u548C\u7EB9\u7406\u8F93\u5165\u62D2\u7EDD"
+            ]
+          },
+          {
+            "id": "fresnel-space",
+            "title": "Fresnel\u3001\u89C6\u7EBF\u4E0E\u5F69\u819C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4FDD\u7559\u6CD5\u7EBF\u548C\u89C6\u7EBF\u7684\u5750\u6807\u7A7A\u95F4\u3001\u9876\u70B9\u63D2\u503C\u4E0E\u7247\u5143\u5F52\u4E00\u5316\u987A\u5E8F\uFF1Bdot\u2192saturate\u21921-x\u2192pow\u3002\u4F59\u5F26\u5F69\u819C\u4F7F\u7528\u539F\u76F8\u4F4D\u548C\u9891\u7387\u3002",
+            "nativeNodes": [
+              "NormalizeNode",
+              "DotProductOpNode",
+              "SaturateNode",
+              "OneMinusNode",
+              "PowerNode",
+              "CosOpNode"
+            ],
+            "preserve": [
+              "\u6B63\u53CD\u9762\u6CD5\u7EBF\u7B26\u53F7",
+              "\u89C6\u7EBF\u65B9\u5411",
+              "\u4E58\u8272\u3001\u5F3A\u5EA6\u548C Alpha",
+              "\u4E0D\u63D0\u524D\u5728\u9876\u70B9\u5F52\u4E00\u5316"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u7F29\u653E",
+              "\u6B63\u53CD\u9762",
+              "\u63A0\u5C04\u89D2",
+              "\u4E0D\u540C\u76F8\u673A\u4F4D\u7F6E"
+            ]
+          },
+          {
+            "id": "ordered-passes",
+            "title": "\u591A Pass\u3001\u900F\u660E\u6DF7\u5408\u4E0E\u56DE\u9000",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4E3A\u6BCF\u4E2A Pass \u5206\u522B\u8BB0\u5F55\u9876\u70B9/\u7247\u5143\u8F93\u51FA\u3001Cull\u3001Blend\u3001\u6DF1\u5EA6\u548C\u961F\u5217\uFF0C\u5E76\u4FDD\u7559\u6267\u884C\u987A\u5E8F\u4E0E Fallback\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u5185\u58C1\u5148\u3001\u5916\u58C1\u540E",
+              "Pass \u6570\u91CF\u4E0E\u987A\u5E8F",
+              "\u72EC\u7ACB Cull",
+              "\u6DF7\u5408\u548C\u6DF1\u5EA6",
+              "Fallback"
+            ],
+            "validation": [
+              "\u9010 Pass \u7F16\u8BD1",
+              "\u6B63\u53CD\u7ED5\u5E8F",
+              "\u900F\u660E\u91CD\u53E0",
+              "\u56DE\u9000\u8D44\u6E90\u5B58\u5728"
+            ]
+          },
+          {
+            "id": "vertex-transform",
+            "title": "\u516C\u544A\u677F\u3001\u9876\u70B9\u4F4D\u79FB\u4E0E\u63D2\u503C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u9876\u70B9\u53D8\u6362\u9700\u8981\u72EC\u7ACB\u9636\u6BB5\u8BA1\u5212\uFF1B\u7269\u4F53\u539F\u70B9\u3001\u7F29\u653E\u3001\u76F8\u673A\u65B9\u5411\u3001\u53C9\u79EF\u548C\u8F74\u5411\u7EA6\u675F\u4E0D\u5F97\u6539\u6210\u7247\u5143\u8BA1\u7B97\u3002",
+            "nativeNodes": [
+              "PositionNode",
+              "ObjectPositionNode",
+              "ObjectScaleNode",
+              "WorldSpaceCameraPos",
+              "CrossProductOpNode"
+            ],
+            "preserve": [
+              "\u5C40\u90E8/\u4E16\u754C/\u88C1\u526A\u7A7A\u95F4",
+              "\u53D8\u5F62\u987A\u5E8F",
+              "\u7C92\u5B50\u81EA\u5B9A\u4E49\u6570\u636E",
+              "ShadowCaster \u4E0E\u4E3B Pass \u540C\u6B65"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u548C\u8D1F\u7F29\u653E",
+              "\u4E0D\u540C\u76F8\u673A\u59FF\u6001",
+              "\u9634\u5F71",
+              "\u6279\u5904\u7406\u4E0E\u5B9E\u4F8B\u5316"
+            ]
+          },
+          {
+            "id": "pbr-outline",
+            "title": "PBR \u6750\u8D28\u8F93\u51FA\u4E0E\u63CF\u8FB9",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4F7F\u7528\u5BF9\u5E94 Lit/Surface Master \u7684\u5B8C\u6574\u6750\u8D28\u8F93\u51FA\uFF1B\u63CF\u8FB9\u4E3A\u72EC\u7ACB Pass\uFF0C\u4FDD\u7559\u81A8\u80C0\u65B9\u5F0F\u548C\u5168\u90E8\u706F\u5149/\u9634\u5F71\u7B49\u8F85\u52A9 Pass\u3002",
+            "nativeNodes": [
+              "FresnelNode",
+              "TransformDirectionNode",
+              "UnpackScaleNormalNode"
+            ],
+            "preserve": [
+              "\u91D1\u5C5E/\u9AD8\u5149\u5DE5\u4F5C\u6D41",
+              "\u6CD5\u7EBF\u7A7A\u95F4",
+              "\u900F\u660E\u4E0E\u88C1\u526A",
+              "\u5B50\u56FE\u4F9D\u8D56",
+              "\u63CF\u8FB9 Cull/\u6DF1\u5EA6/Pass \u987A\u5E8F"
+            ],
+            "validation": [
+              "\u5149\u7167\u548C\u53CD\u5C04",
+              "\u9634\u5F71\u4E0E\u70D8\u7119",
+              "\u63CF\u8FB9\u539A\u5EA6",
+              "\u6240\u6709\u6750\u8D28\u8F93\u51FA"
+            ]
+          },
+          {
+            "id": "keyword-binding",
+            "title": "\u5173\u952E\u8BCD\u3001\u5C5E\u6027\u4E0E\u7F16\u8BD1\u53D8\u4F53",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u8BB0\u5F55\u5C5E\u6027 Toggle \u6D3E\u751F\u5173\u952E\u8BCD\u3001pragma \u7684 global/local \u5173\u952E\u8BCD\u53CA\u6761\u4EF6\u5206\u652F\uFF1B\u540D\u79F0\u4E0D\u4E00\u81F4\u65F6\u62A5\u544A\uFF0C\u4E0D\u80FD\u81EA\u52A8\u6539\u540D\u7ED1\u5B9A\u3002",
+            "nativeNodes": [
+              "StaticSwitch",
+              "KeywordSwitchNode"
+            ],
+            "preserve": [
+              "global/local \u4F5C\u7528\u57DF",
+              "\u9ED8\u8BA4\u5206\u652F",
+              "\u5B8F\u4E0E\u5173\u952E\u8BCD\u539F\u540D",
+              "\u591A Pass \u53D8\u4F53",
+              "\u5B9E\u4F8B\u5316\u4E0E stereo"
+            ],
+            "validation": [
+              "\u6BCF\u79CD\u5173\u952E\u8BCD\u7EC4\u5408",
+              "\u6750\u8D28\u6570\u503C\u4E0E\u5173\u952E\u8BCD\u72EC\u7ACB\u53D8\u5316",
+              "\u76EE\u6807\u56FE\u5F62 API"
+            ]
+          },
+          {
+            "id": "screen-depth",
+            "title": "\u5C4F\u5E55\u3001\u6DF1\u5EA6\u4E0E\u540E\u5904\u7406",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u6620\u5C04\u5C4F\u5E55/\u6295\u5F71\u5750\u6807\u3001\u6DF1\u5EA6\u91C7\u6837\u548C\u8FD8\u539F\u3001\u5168\u5C4F Blit \u53CA\u76F8\u5173\u76F8\u673A\u8F93\u5165\uFF1B\u7981\u6B62\u7528\u666E\u901A UV \u91C7\u6837\u4EE3\u66FF\u3002",
+            "nativeNodes": [
+              "GrabScreenPosition",
+              "ScreenDepthNode",
+              "CameraDepthFade"
+            ],
+            "preserve": [
+              "\u900F\u89C6\u9664\u6CD5",
+              "\u7EBF\u6027/\u539F\u59CB\u6DF1\u5EA6",
+              "\u53CD\u5411 Z",
+              "\u76F8\u673A\u6DF1\u5EA6\u7EB9\u7406\u4F9D\u8D56",
+              "\u5E73\u53F0 Y \u7FFB\u8F6C"
+            ],
+            "validation": [
+              "\u900F\u89C6/\u6B63\u4EA4\u76F8\u673A",
+              "\u524D\u540E\u88C1\u526A\u9762",
+              "\u4E0D\u540C\u6E32\u67D3 API"
+            ]
+          },
+          {
+            "id": "performance-evidence",
+            "title": "\u753B\u8D28\u4E0E GPU \u6210\u672C\u8BC4\u4F30",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5148\u4FDD\u6301\u884C\u4E3A\uFF0C\u518D\u6309\u76EE\u6807\u8BBE\u5907\u6D4B GPU \u65F6\u95F4\u3001\u5E26\u5BBD\u3001overdraw\u3001\u53D8\u4F53\u548C\u753B\u8D28\u8BEF\u5DEE\uFF1B\u9759\u6001\u6E90\u7801\u53EA\u80FD\u63D0\u793A\u6210\u672C\uFF0C\u4E0D\u80FD\u7ED9\u51FA\u6027\u80FD\u4F18\u80DC\u7ED3\u8BBA\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u91C7\u6837\u8C03\u7528\u4F4D\u7F6E\u4E0D\u7B49\u4E8E\u6BCF\u50CF\u7D20\u91C7\u6837\u6B21\u6570",
+              "include\u3001\u5FAA\u73AF\u4E0E\u5206\u652F\u4F1A\u6539\u53D8\u5DE5\u4F5C\u91CF",
+              "Register/Get \u6574\u7406\u8FDE\u7EBF\u4E0D\u4FDD\u8BC1\u51CF\u5C11 GPU \u6307\u4EE4",
+              "\u907F\u514D\u7528\u672A\u7ECF\u6BD4\u8F83\u7684\u4FBF\u5B9C\u7B97\u6CD5\u66FF\u6362\u539F\u6548\u679C"
+            ],
+            "validation": [
+              "\u56FA\u5B9A\u573A\u666F\u548C\u5206\u8FA8\u7387",
+              "GPU \u578B\u53F7/API/\u7BA1\u7EBF",
+              "GPU \u4E2D\u4F4D\u6570\u4E0E\u9AD8\u5206\u4F4D\u65F6\u95F4",
+              "\u79FB\u52A8\u7AEF\u70ED\u7A33\u5B9A",
+              "\u6750\u8D28\u753B\u9762\u5BF9\u6BD4"
+            ]
+          },
+          {
+            "id": "metal-stone-pbr",
+            "title": "\u91D1\u5C5E\u3001\u77F3\u5934\u4E0E\u7EB9\u7406\u6620\u5C04",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u8BB0\u5F55\u91D1\u5C5E/\u7C97\u7CD9\u5EA6\u6216\u9AD8\u5149\u5DE5\u4F5C\u6D41\uFF1B\u77F3\u5934\u5E38\u7528\u591A\u5C3A\u5EA6\u6CD5\u7EBF\u3001\u906E\u853D\u3001\u7EC6\u8282\u548C\u4E09\u5E73\u9762\u6620\u5C04\uFF0C\u4E0D\u4F9D\u636E\u540D\u79F0\u81EA\u52A8\u6539\u5199\u6750\u8D28\u3002",
+            "nativeNodes": [
+              "SamplerNode",
+              "TransformDirectionNode",
+              "LerpOp"
+            ],
+            "preserve": [
+              "\u7EBF\u6027/\u989C\u8272\u7EB9\u7406\u7A7A\u95F4",
+              "\u91D1\u5C5E\u53CD\u5C04\u4E0E\u73AF\u5883",
+              "\u6CD5\u7EBF\u5408\u6210",
+              "AO \u4F5C\u7528\u4F4D\u7F6E",
+              "\u4E09\u5E73\u9762\u6743\u91CD\u548C\u8D1F\u7F29\u653E",
+              "\u89C6\u5DEE\u6210\u672C"
+            ],
+            "validation": [
+              "HDR \u5149\u7167\u548C\u53CD\u5C04\u63A2\u9488",
+              "\u4E0D\u540C\u7C97\u7CD9\u5EA6",
+              "\u975E\u5747\u5300\u7F29\u653E",
+              "\u7EB9\u7406\u63A5\u7F1D",
+              "\u8DDD\u79BB\u548C mip"
+            ]
+          }
+        ],
+        "notes": [
+          "\u56FE\u4F9D\u8D56\u5916\u90E8 ASE Function \u8D44\u4EA7\uFF1B\u8FC1\u79FB\u524D\u68C0\u67E5\u8FD9\u4E9B GUID \u5728\u76EE\u6807\u9879\u76EE\u4E2D\u53EF\u89E3\u6790\u3002",
+          "\u5DF2\u8BB0\u5F55\u7684\u8BED\u4E49\u65B9\u6848\u4E0D\u7B49\u4E8E\u81EA\u52A8\u652F\u6301\uFF1B\u672A\u5B9E\u73B0\u7684\u6A21\u677F\u3001\u9636\u6BB5\u4E0E\u72B6\u6001\u4ECD\u7531\u539F\u5206\u6790\u5668\u963B\u585E\u3002"
+        ],
+        "materialCategories": [
+          "Metal"
+        ],
+        "performance": {
+          "status": "NotBenchmarked",
+          "directTextureSampleSites": 24,
+          "loopSites": 7,
+          "explicitPasses": 7,
+          "includesMayAddWork": true,
+          "observations": [
+            "\u9759\u6001\u8C03\u7528\u4F4D\u7F6E\u4E0D\u662F\u8FD0\u884C\u6B21\u6570\uFF1Binclude\u3001\u5FAA\u73AF\u3001\u5B8F\u548C\u5206\u652F\u672A\u7ECF\u5C55\u5F00\u3002\u6027\u80FD\u5C1A\u672A\u5728\u76EE\u6807 GPU \u4E0A\u6D4B\u91CF\u3002",
+            "\u5FAA\u73AF\u5C55\u5F00\u53EF\u80FD\u589E\u52A0\u6307\u4EE4\u548C\u56FE\u89C4\u6A21\uFF1B\u52A8\u6001\u8FED\u4EE3\u9700\u72EC\u7ACB\u6210\u672C\u4E0E\u8BED\u4E49\u5BA1\u67E5\u3002",
+            "\u5B58\u5728\u6DF7\u5408\u72B6\u6001\uFF1A\u900F\u660E\u8986\u76D6\u5C42\u6570\u548C\u5E26\u5BBD\u53EF\u80FD\u6BD4\u8282\u70B9\u6570\u66F4\u5F71\u54CD\u6027\u80FD\u3002"
+          ]
+        }
+      }
+    },
+    {
+      "repository": "user-reference",
+      "path": "RotateAroundCenter.shader",
+      "commit": "",
+      "url": "",
+      "license": "Private/read-only; not distributed",
+      "sha256": "d595fa57d0dc2e53973e9716afa9800348110682e1926f31900d13b644d94a8b",
+      "sourceUnchanged": true,
+      "status": "NeedsAgent",
+      "canPlan": false,
+      "planNodeCount": 0,
+      "planErrors": [],
+      "blockers": [
+        "Property attributes need explicit ASE mapping: _Src [Enum(UnityEngine.Rendering.BlendMode)]",
+        "Property attributes need explicit ASE mapping: _Dst [Enum(UnityEngine.Rendering.BlendMode)]",
+        "Property attributes need explicit ASE mapping: _CullMode [Enum(UnityEngine.Rendering.CullMode)]",
+        "Property attributes need explicit ASE mapping: _IsFadeByDis [Toggle(_True)]",
+        "Property attributes need explicit ASE mapping: _IsFadeOffset [Toggle(_True)]",
+        "Property attributes need explicit ASE mapping: _FadeAxis [IntRange][Enum(Vertical,0,Horizontal,1)]",
+        "Render state needs ASE mapping: Blend SrcAlpha OneMinusSrcAlpha",
+        "Render state needs ASE mapping: Blend [_Src] [_Dst]",
+        "Render state needs ASE mapping: Cull [_CullMode]",
+        "Render state needs ASE mapping: ZWrite OFF",
+        "Transparency/queue/alpha clipping needs explicit template options and Alpha output.",
+        "Tag needs explicit template mapping: \u0022Queue\u0022 = \u0022Transparent\u0022",
+        "Tag needs explicit template mapping: \u0022RenderType\u0022 = \u0022Transparent\u0022",
+        "Fragment output semantic must be SV_Target or SV_Target0; other render targets require explicit mapping.",
+        "Vertex structs require explicit position/interpolator semantics."
+      ],
+      "warnings": [
+        "A plan is not a validated ASE shader. Generate and reload it in the target Unity/ASE environment, then compare rendering with the source."
+      ],
+      "includes": [
+        "UnityCG.cginc"
+      ],
+      "helperDefinitions": [],
+      "overloadedHelperNames": [],
+      "knowledge": {
+        "libraryVersion": "0.2.5",
+        "classification": "Handwritten",
+        "sourceSignature": "f7eac528ee3581ceea8ba3549d17dcd7da2c30ec1eaadaada620bf39fe11413e",
+        "referenceFile": "RotateAroundCenter.shader",
+        "referenceNotes": "14 \u5C5E\u6027\u3002_Color.a \u7684\u8D4B\u503C\u9700\u5728\u56FE\u4E2D\u6539\u4E3A\u7B49\u4EF7\u5C40\u90E8\u503C\uFF0C\u4E0D\u80FD\u4FEE\u6539\u5168\u5C40\u5C5E\u6027\u3002\u4FDD\u7559\u4E24\u6B21\u987A\u5E8F\u66F4\u65B0\u548C\u5E73\u65B9\u9879\uFF1B_MinValue \u539F\u672C\u672A\u4F7F\u7528\uFF0C\u4E0D\u5E94\u64C5\u81EA\u63A5\u7EBF\u3002\u4E24\u4E2A Toggle(_True) \u4E0D\u4EE3\u8868\u4E24\u4E2A\u6570\u503C\u53C2\u6570\u76F8\u4E92\u8054\u52A8\u3002\u6A21\u677F\u7ED1\u5B9A Blend [_Src] [_Dst]\u3001Cull [_CullMode]\uFF1B\u9636\u6BB5\u548C\u72B6\u6001\u9002\u914D\u4ECD\u5F85\u9A8C\u8BC1\u3002",
+        "explicitPassCount": 1,
+        "surfaceShader": false,
+        "graph": {
+          "present": false,
+          "complete": false,
+          "version": "",
+          "nodeCount": 0,
+          "wireCount": 0,
+          "customExpressionCount": 0,
+          "nodeTypes": [],
+          "templateGuids": [],
+          "functionGuids": []
+        },
+        "rules": [
+          {
+            "id": "unity-globals-distance",
+            "title": "\u65F6\u95F4\u3001\u76F8\u673A\u4F4D\u7F6E\u4E0E\u8DDD\u79BB",
+            "implementation": "NativePlanner",
+            "recipe": "_Time \u6620\u5C04\u5B8C\u6574\u56DB\u5206\u91CF Time \u8282\u70B9\uFF1B_WorldSpaceCameraPos \u6620\u5C04\u4E16\u754C\u76F8\u673A\u4F4D\u7F6E\uFF1Blength/distance \u4F7F\u7528\u5BF9\u5E94\u539F\u751F\u8282\u70B9\u3002",
+            "nativeNodes": [
+              "TimeNode",
+              "WorldSpaceCameraPos",
+              "LengthOpNode",
+              "DistanceOpNode"
+            ],
+            "preserve": [
+              "_Time.x=t/20\u3001y=t\u3001z=2t\u3001w=3t",
+              "\u5750\u6807\u7A7A\u95F4\u7531\u539F\u8868\u8FBE\u5F0F\u51B3\u5B9A",
+              "distance \u4E24\u7AEF\u5BBD\u5EA6\u4E00\u81F4"
+            ],
+            "validation": [
+              "\u65F6\u95F4\u5206\u91CF\u4E0D\u4E92\u6362",
+              "\u8DDD\u79BB\u6570\u503C",
+              "\u975E\u6CD5\u5BBD\u5EA6\u548C\u7EB9\u7406\u8F93\u5165\u62D2\u7EDD"
+            ]
+          },
+          {
+            "id": "vertex-transform",
+            "title": "\u516C\u544A\u677F\u3001\u9876\u70B9\u4F4D\u79FB\u4E0E\u63D2\u503C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u9876\u70B9\u53D8\u6362\u9700\u8981\u72EC\u7ACB\u9636\u6BB5\u8BA1\u5212\uFF1B\u7269\u4F53\u539F\u70B9\u3001\u7F29\u653E\u3001\u76F8\u673A\u65B9\u5411\u3001\u53C9\u79EF\u548C\u8F74\u5411\u7EA6\u675F\u4E0D\u5F97\u6539\u6210\u7247\u5143\u8BA1\u7B97\u3002",
+            "nativeNodes": [
+              "PositionNode",
+              "ObjectPositionNode",
+              "ObjectScaleNode",
+              "WorldSpaceCameraPos",
+              "CrossProductOpNode"
+            ],
+            "preserve": [
+              "\u5C40\u90E8/\u4E16\u754C/\u88C1\u526A\u7A7A\u95F4",
+              "\u53D8\u5F62\u987A\u5E8F",
+              "\u7C92\u5B50\u81EA\u5B9A\u4E49\u6570\u636E",
+              "ShadowCaster \u4E0E\u4E3B Pass \u540C\u6B65"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u548C\u8D1F\u7F29\u653E",
+              "\u4E0D\u540C\u76F8\u673A\u59FF\u6001",
+              "\u9634\u5F71",
+              "\u6279\u5904\u7406\u4E0E\u5B9E\u4F8B\u5316"
+            ]
+          },
+          {
+            "id": "uv-rotate-fade",
+            "title": "\u4E2D\u5FC3\u65CB\u8F6C\u4E0E\u7269\u4F53\u8DDD\u79BB\u6E10\u9690",
+            "implementation": "RecipeRecorded",
+            "recipe": "UV \u51CF\u4E2D\u5FC3\u2192\u6309\u539F\u65F6\u95F4\u5206\u91CF\u505A\u6B63\u5F26/\u4F59\u5F26\u65CB\u8F6C\u2192\u52A0\u56DE\u4E2D\u5FC3\u3002\u8DDD\u79BB\u4F7F\u7528\u7269\u4F53\u539F\u70B9\uFF1B\u8F74\u5411\u5750\u6807\u5728\u9876\u70B9\u9636\u6BB5\u9009\u62E9\u540E\u63D2\u503C\u3002",
+            "nativeNodes": [
+              "TextureCoordinatesNode",
+              "SinOpNode",
+              "CosOpNode",
+              "SimpleMultiplyOpNode",
+              "LerpOp",
+              "ConditionalIfNode"
+            ],
+            "preserve": [
+              "_Time.x \u662F t/20",
+              "\u534A\u5F84 0.51 \u5916\u8FD4\u56DE\u96F6 RGBA\uFF0C\u4E0D\u80FD\u66FF\u6362\u6210 clip",
+              "\u52A8\u6001 Blend/Cull",
+              "\u8FDE\u7EED\u4E24\u6B21 Alpha \u66F4\u65B0\u548C\u672A\u94B3\u5236 lerp",
+              "\u672A\u4F7F\u7528\u7684 _MinValue \u4ECD\u4FDD\u7559\u5C5E\u6027",
+              "\u4E0D\u51ED\u7A7A\u6DFB\u52A0\u7EB9\u7406 ST"
+            ],
+            "validation": [
+              "\u65CB\u8F6C\u6B63\u8D1F\u901F\u5EA6",
+              "\u534A\u5F84\u8FB9\u754C",
+              "\u8DDD\u79BB\u4E0A\u4E0B\u754C\u53CA\u76F8\u7B49",
+              "\u4E24\u79CD\u8F74",
+              "\u5404\u79CD\u6DF7\u5408\u6A21\u5F0F"
+            ]
+          },
+          {
+            "id": "keyword-binding",
+            "title": "\u5173\u952E\u8BCD\u3001\u5C5E\u6027\u4E0E\u7F16\u8BD1\u53D8\u4F53",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u8BB0\u5F55\u5C5E\u6027 Toggle \u6D3E\u751F\u5173\u952E\u8BCD\u3001pragma \u7684 global/local \u5173\u952E\u8BCD\u53CA\u6761\u4EF6\u5206\u652F\uFF1B\u540D\u79F0\u4E0D\u4E00\u81F4\u65F6\u62A5\u544A\uFF0C\u4E0D\u80FD\u81EA\u52A8\u6539\u540D\u7ED1\u5B9A\u3002",
+            "nativeNodes": [
+              "StaticSwitch",
+              "KeywordSwitchNode"
+            ],
+            "preserve": [
+              "global/local \u4F5C\u7528\u57DF",
+              "\u9ED8\u8BA4\u5206\u652F",
+              "\u5B8F\u4E0E\u5173\u952E\u8BCD\u539F\u540D",
+              "\u591A Pass \u53D8\u4F53",
+              "\u5B9E\u4F8B\u5316\u4E0E stereo"
+            ],
+            "validation": [
+              "\u6BCF\u79CD\u5173\u952E\u8BCD\u7EC4\u5408",
+              "\u6750\u8D28\u6570\u503C\u4E0E\u5173\u952E\u8BCD\u72EC\u7ACB\u53D8\u5316",
+              "\u76EE\u6807\u56FE\u5F62 API"
+            ]
+          },
+          {
+            "id": "performance-evidence",
+            "title": "\u753B\u8D28\u4E0E GPU \u6210\u672C\u8BC4\u4F30",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5148\u4FDD\u6301\u884C\u4E3A\uFF0C\u518D\u6309\u76EE\u6807\u8BBE\u5907\u6D4B GPU \u65F6\u95F4\u3001\u5E26\u5BBD\u3001overdraw\u3001\u53D8\u4F53\u548C\u753B\u8D28\u8BEF\u5DEE\uFF1B\u9759\u6001\u6E90\u7801\u53EA\u80FD\u63D0\u793A\u6210\u672C\uFF0C\u4E0D\u80FD\u7ED9\u51FA\u6027\u80FD\u4F18\u80DC\u7ED3\u8BBA\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u91C7\u6837\u8C03\u7528\u4F4D\u7F6E\u4E0D\u7B49\u4E8E\u6BCF\u50CF\u7D20\u91C7\u6837\u6B21\u6570",
+              "include\u3001\u5FAA\u73AF\u4E0E\u5206\u652F\u4F1A\u6539\u53D8\u5DE5\u4F5C\u91CF",
+              "Register/Get \u6574\u7406\u8FDE\u7EBF\u4E0D\u4FDD\u8BC1\u51CF\u5C11 GPU \u6307\u4EE4",
+              "\u907F\u514D\u7528\u672A\u7ECF\u6BD4\u8F83\u7684\u4FBF\u5B9C\u7B97\u6CD5\u66FF\u6362\u539F\u6548\u679C"
+            ],
+            "validation": [
+              "\u56FA\u5B9A\u573A\u666F\u548C\u5206\u8FA8\u7387",
+              "GPU \u578B\u53F7/API/\u7BA1\u7EBF",
+              "GPU \u4E2D\u4F4D\u6570\u4E0E\u9AD8\u5206\u4F4D\u65F6\u95F4",
+              "\u79FB\u52A8\u7AEF\u70ED\u7A33\u5B9A",
+              "\u6750\u8D28\u753B\u9762\u5BF9\u6BD4"
+            ]
+          }
+        ],
+        "notes": [
+          "\u5DF2\u8BB0\u5F55\u7684\u8BED\u4E49\u65B9\u6848\u4E0D\u7B49\u4E8E\u81EA\u52A8\u652F\u6301\uFF1B\u672A\u5B9E\u73B0\u7684\u6A21\u677F\u3001\u9636\u6BB5\u4E0E\u72B6\u6001\u4ECD\u7531\u539F\u5206\u6790\u5668\u963B\u585E\u3002"
+        ],
+        "materialCategories": [],
+        "performance": {
+          "status": "NotBenchmarked",
+          "directTextureSampleSites": 1,
+          "loopSites": 0,
+          "explicitPasses": 1,
+          "includesMayAddWork": true,
+          "observations": [
+            "\u9759\u6001\u8C03\u7528\u4F4D\u7F6E\u4E0D\u662F\u8FD0\u884C\u6B21\u6570\uFF1Binclude\u3001\u5FAA\u73AF\u3001\u5B8F\u548C\u5206\u652F\u672A\u7ECF\u5C55\u5F00\u3002\u6027\u80FD\u5C1A\u672A\u5728\u76EE\u6807 GPU \u4E0A\u6D4B\u91CF\u3002",
+            "\u5B58\u5728\u6DF7\u5408\u72B6\u6001\uFF1A\u900F\u660E\u8986\u76D6\u5C42\u6570\u548C\u5E26\u5BBD\u53EF\u80FD\u6BD4\u8282\u70B9\u6570\u66F4\u5F71\u54CD\u6027\u80FD\u3002"
+          ]
+        }
+      }
+    },
+    {
+      "repository": "user-reference",
+      "path": "TransMovie.shader",
+      "commit": "",
+      "url": "",
+      "license": "Private/read-only; not distributed",
+      "sha256": "b84c01cf42e8524364ee9211195b4434c2b82ff3cfc7224827bc1ba0c731c0c5",
+      "sourceUnchanged": true,
+      "status": "NeedsAgent",
+      "canPlan": false,
+      "planNodeCount": 0,
+      "planErrors": [],
+      "blockers": [
+        "Render state needs ASE mapping: Blend SrcAlpha OneMinusSrcAlpha",
+        "Render state needs ASE mapping: ZWrite Off",
+        "Render state needs ASE mapping: Cull Off",
+        "Preprocessor branches and macros require explicit agent mapping.",
+        "Preprocessor directive requires explicit mapping: #ifdef",
+        "Preprocessor directive requires explicit mapping: #else",
+        "Preprocessor directive requires explicit mapping: #endif",
+        "Pragma requires explicit ASE mapping: #pragma multi_compile_local",
+        "Tag needs explicit template mapping: \u0022Queue\u0022 = \u0022Transparent\u002B1\u0022",
+        "Vertex modifications/varyings need explicit ASE mapping: UNITY_SETUP_INSTANCE_ID(v);\r\n                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);"
+      ],
+      "warnings": [
+        "A plan is not a validated ASE shader. Generate and reload it in the target Unity/ASE environment, then compare rendering with the source."
+      ],
+      "includes": [
+        "UnityCG.cginc"
+      ],
+      "helperDefinitions": [
+        "ComputeMask"
+      ],
+      "overloadedHelperNames": [],
+      "knowledge": {
+        "libraryVersion": "0.2.5",
+        "classification": "Handwritten",
+        "sourceSignature": "a0228a509ba72606798bb04d5870efcc2f917b002794c8eca7cc2441348b2ea3",
+        "referenceFile": "TransMovie.shader",
+        "referenceNotes": "10 \u5C5E\u6027\u3002Queue Transparent\u002B1\u3001Cull Off\u3001ZWrite Off\u3001SrcAlpha \u6DF7\u5408\u3002_HighQualityFeather \u7684\u666E\u901A Toggle \u6D3E\u751F _HIGHQUALITYFEATHER_ON\uFF0C\u4E0E pragma multi_compile_local _ _HIGH_QUALITY_FEATHER \u4E0D\u540C\uFF1B\u4E0D\u5F97\u81EA\u52A8\u4FEE\u6B63\u3002\u4ECD\u9700\u5C40\u90E8\u5173\u952E\u8BCD\u3001\u91C7\u6837\u5206\u652F\u3001half \u7CBE\u5EA6\u4E0E stereo \u6A21\u677F\u9002\u914D\u9A8C\u8BC1\u3002",
+        "explicitPassCount": 1,
+        "surfaceShader": false,
+        "graph": {
+          "present": false,
+          "complete": false,
+          "version": "",
+          "nodeCount": 0,
+          "wireCount": 0,
+          "customExpressionCount": 0,
+          "nodeTypes": [],
+          "templateGuids": [],
+          "functionGuids": []
+        },
+        "rules": [
+          {
+            "id": "pure-functions",
+            "title": "\u7EAF\u6570\u5B66\u8F85\u52A9\u51FD\u6570",
+            "implementation": "NativePlanner",
+            "recipe": "\u6309\u503C\u7ED1\u5B9A\u53C2\u6570\u3001\u9694\u79BB\u5C40\u90E8\u4F5C\u7528\u57DF\uFF0C\u5C06\u53EF\u89E3\u6790\u7684\u51FD\u6570\u4F53\u5185\u8054\u4E3A\u539F\u751F\u6570\u5B66\u8282\u70B9\uFF1B\u4E0D\u6309\u6587\u4EF6\u540D\u6216\u6E90\u7801\u7B7E\u540D\u6388\u6743\u3002",
+            "nativeNodes": [
+              "SimpleAddOpNode",
+              "SimpleMultiplyOpNode",
+              "DotProductOpNode",
+              "FractNode",
+              "LerpOp",
+              "CosOpNode"
+            ],
+            "preserve": [
+              "\u53C2\u6570\u7C7B\u578B\u4E0E\u8FD4\u56DE\u5BBD\u5EA6",
+              "\u53EA\u5141\u8BB8\u5C40\u90E8\u8D4B\u503C",
+              "\u62D2\u7EDD\u9012\u5F52\u548C\u91CD\u8F7D",
+              "\u62D2\u7EDD\u9690\u85CF\u91C7\u6837\u4E0E\u5168\u5C40\u5199\u5165",
+              "\u539F\u6709\u6E32\u67D3\u548C\u9876\u70B9\u68C0\u67E5\u7EE7\u7EED\u6267\u884C"
+            ],
+            "validation": [
+              "\u8C03\u7528\u4E0E\u624B\u52A8\u5185\u8054\u7684\u6570\u503C\u7ED3\u679C\u4E00\u81F4",
+              "\u4E0D\u540C\u51FD\u6570\u540D\u548C\u53C2\u6570\u540D",
+              "\u53C2\u6570\u4F5C\u7528\u57DF\u4E92\u4E0D\u6C61\u67D3",
+              "\u6076\u610F\u6216\u4E0D\u652F\u6301\u7684\u51FD\u6570\u4ECD\u963B\u585E"
+            ]
+          },
+          {
+            "id": "vertex-texture-st",
+            "title": "\u9876\u70B9\u7EB9\u7406 Tiling/Offset",
+            "implementation": "NativePlanner",
+            "recipe": "\u6309 TEXCOORD \u8BED\u4E49\u6620\u5C04 TRANSFORM_TEX\uFF0C\u5C06\u7EB9\u7406\u5C5E\u6027\u63A5\u5230 UV \u8282\u70B9 Tex \u7AEF\uFF0C\u518D\u7ECF Vertex To Fragment \u4FDD\u7559\u9876\u70B9\u8BA1\u7B97\u548C\u63D2\u503C\u3002",
+            "nativeNodes": [
+              "TexturePropertyNode",
+              "TextureCoordinatesNode",
+              "VertexToFragmentNode"
+            ],
+            "preserve": [
+              "\u6E90 UV \u901A\u9053",
+              "\u5B9E\u9645\u7EB9\u7406 ST",
+              "\u539F\u9876\u70B9\u9636\u6BB5",
+              "\u65E0 ST \u7684\u91C7\u6837\u4E0D\u5F97\u81EA\u52A8\u52A0 ST",
+              "\u91CD\u590D\u5199\u5165\u7EE7\u7EED\u963B\u585E"
+            ],
+            "validation": [
+              "\u4E0D\u540C\u5C5E\u6027\u548C UV \u901A\u9053",
+              "Tex \u8FDE\u7EBF",
+              "\u9636\u6BB5\u8282\u70B9",
+              "\u91CD\u590D\u5199\u5165\u548C\u975E\u6CD5\u8BED\u4E49\u62D2\u7EDD"
+            ]
+          },
+          {
+            "id": "chroma-key",
+            "title": "YCbCr \u89C6\u9891\u62A0\u50CF\u4E0E\u7FBD\u5316",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u6309\u539F Cb/Cr \u7CFB\u6570\u8BA1\u7B97\u8272\u5EA6\u8DDD\u79BB\u5E73\u65B9\uFF0C\u4F7F\u7528\u5E73\u65B9\u9608\u503C\u6C42\u906E\u7F69\uFF1B\u4FDD\u7559 4/8 \u90BB\u57DF\u3001\u5BF9\u89D2\u6743\u91CD\u3001\u8FB9\u7F18\u5206\u652F\u3001\u53BB\u6EA2\u8272\u548C\u4EAE\u5EA6\u8865\u507F\u3002",
+            "nativeNodes": [
+              "DotProductOpNode",
+              "SimpleSubtractOpNode",
+              "SaturateNode",
+              "SamplerNode",
+              "SmoothstepOpNode",
+              "LerpOp",
+              "SimpleMinOpNode"
+            ],
+            "preserve": [
+              "4 \u90BB\u57DF\u7CFB\u6570 0.2",
+              "8 \u90BB\u57DF\u5BF9\u89D2 0.707\u3001\u603B\u7CFB\u6570 0.12774655",
+              "\u539F half \u7CBE\u5EA6",
+              "TexelSize \u4E0E\u9876\u70B9 ST",
+              "\u6700\u7EC8 Alpha \u6765\u81EA smoothedMask*TInt.a\uFF0C\u4E0D\u4E58\u6E90 Alpha",
+              "\u4E0D\u64C5\u52A0\u9664\u96F6 epsilon"
+            ],
+            "validation": [
+              "\u7EAF\u80CC\u666F/\u524D\u666F/\u8FB9\u7F18",
+              "\u9608\u503C\u76F8\u7B49\u65F6\u7684\u539F\u884C\u4E3A",
+              "\u4E0D\u540C\u5206\u8FA8\u7387\u4E0E ST",
+              "\u4F4E/\u9AD8\u8D28\u91CF\u5173\u952E\u8BCD\u5206\u522B\u9A8C\u8BC1",
+              "\u534A\u7CBE\u5EA6\u548C\u5206\u652F\u5185\u5BFC\u6570"
+            ]
+          },
+          {
+            "id": "keyword-binding",
+            "title": "\u5173\u952E\u8BCD\u3001\u5C5E\u6027\u4E0E\u7F16\u8BD1\u53D8\u4F53",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u8BB0\u5F55\u5C5E\u6027 Toggle \u6D3E\u751F\u5173\u952E\u8BCD\u3001pragma \u7684 global/local \u5173\u952E\u8BCD\u53CA\u6761\u4EF6\u5206\u652F\uFF1B\u540D\u79F0\u4E0D\u4E00\u81F4\u65F6\u62A5\u544A\uFF0C\u4E0D\u80FD\u81EA\u52A8\u6539\u540D\u7ED1\u5B9A\u3002",
+            "nativeNodes": [
+              "StaticSwitch",
+              "KeywordSwitchNode"
+            ],
+            "preserve": [
+              "global/local \u4F5C\u7528\u57DF",
+              "\u9ED8\u8BA4\u5206\u652F",
+              "\u5B8F\u4E0E\u5173\u952E\u8BCD\u539F\u540D",
+              "\u591A Pass \u53D8\u4F53",
+              "\u5B9E\u4F8B\u5316\u4E0E stereo"
+            ],
+            "validation": [
+              "\u6BCF\u79CD\u5173\u952E\u8BCD\u7EC4\u5408",
+              "\u6750\u8D28\u6570\u503C\u4E0E\u5173\u952E\u8BCD\u72EC\u7ACB\u53D8\u5316",
+              "\u76EE\u6807\u56FE\u5F62 API"
+            ]
+          },
+          {
+            "id": "performance-evidence",
+            "title": "\u753B\u8D28\u4E0E GPU \u6210\u672C\u8BC4\u4F30",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5148\u4FDD\u6301\u884C\u4E3A\uFF0C\u518D\u6309\u76EE\u6807\u8BBE\u5907\u6D4B GPU \u65F6\u95F4\u3001\u5E26\u5BBD\u3001overdraw\u3001\u53D8\u4F53\u548C\u753B\u8D28\u8BEF\u5DEE\uFF1B\u9759\u6001\u6E90\u7801\u53EA\u80FD\u63D0\u793A\u6210\u672C\uFF0C\u4E0D\u80FD\u7ED9\u51FA\u6027\u80FD\u4F18\u80DC\u7ED3\u8BBA\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u91C7\u6837\u8C03\u7528\u4F4D\u7F6E\u4E0D\u7B49\u4E8E\u6BCF\u50CF\u7D20\u91C7\u6837\u6B21\u6570",
+              "include\u3001\u5FAA\u73AF\u4E0E\u5206\u652F\u4F1A\u6539\u53D8\u5DE5\u4F5C\u91CF",
+              "Register/Get \u6574\u7406\u8FDE\u7EBF\u4E0D\u4FDD\u8BC1\u51CF\u5C11 GPU \u6307\u4EE4",
+              "\u907F\u514D\u7528\u672A\u7ECF\u6BD4\u8F83\u7684\u4FBF\u5B9C\u7B97\u6CD5\u66FF\u6362\u539F\u6548\u679C"
+            ],
+            "validation": [
+              "\u56FA\u5B9A\u573A\u666F\u548C\u5206\u8FA8\u7387",
+              "GPU \u578B\u53F7/API/\u7BA1\u7EBF",
+              "GPU \u4E2D\u4F4D\u6570\u4E0E\u9AD8\u5206\u4F4D\u65F6\u95F4",
+              "\u79FB\u52A8\u7AEF\u70ED\u7A33\u5B9A",
+              "\u6750\u8D28\u753B\u9762\u5BF9\u6BD4"
+            ]
+          }
+        ],
+        "notes": [
+          "\u5DF2\u8BB0\u5F55\u7684\u8BED\u4E49\u65B9\u6848\u4E0D\u7B49\u4E8E\u81EA\u52A8\u652F\u6301\uFF1B\u672A\u5B9E\u73B0\u7684\u6A21\u677F\u3001\u9636\u6BB5\u4E0E\u72B6\u6001\u4ECD\u7531\u539F\u5206\u6790\u5668\u963B\u585E\u3002"
+        ],
+        "materialCategories": [],
+        "performance": {
+          "status": "NotBenchmarked",
+          "directTextureSampleSites": 13,
+          "loopSites": 0,
+          "explicitPasses": 1,
+          "includesMayAddWork": true,
+          "observations": [
+            "\u9759\u6001\u8C03\u7528\u4F4D\u7F6E\u4E0D\u662F\u8FD0\u884C\u6B21\u6570\uFF1Binclude\u3001\u5FAA\u73AF\u3001\u5B8F\u548C\u5206\u652F\u672A\u7ECF\u5C55\u5F00\u3002\u6027\u80FD\u5C1A\u672A\u5728\u76EE\u6807 GPU \u4E0A\u6D4B\u91CF\u3002",
+            "\u5B58\u5728\u6DF7\u5408\u72B6\u6001\uFF1A\u900F\u660E\u8986\u76D6\u5C42\u6570\u548C\u5E26\u5BBD\u53EF\u80FD\u6BD4\u8282\u70B9\u6570\u66F4\u5F71\u54CD\u6027\u80FD\u3002"
+          ]
+        }
+      }
+    },
+    {
+      "repository": "user-reference",
+      "path": "Vertex offset.shader",
+      "commit": "",
+      "url": "",
+      "license": "Private/read-only; not distributed",
+      "sha256": "f16a7aeb1457b4ef92685117858002fe40b90734347b6be52601ec870a9a6218",
+      "sourceUnchanged": true,
+      "status": "ExistingAseGraph",
+      "canPlan": false,
+      "planNodeCount": 0,
+      "planErrors": [],
+      "blockers": [],
+      "warnings": [
+        "The input already contains an ASE graph. Open/migrate it with the installed ASE; do not reconstruct it from generated HLSL."
+      ],
+      "includes": [
+        "UnityCG.cginc",
+        "UnityShaderVariables.cginc",
+        "HLSLSupport.cginc",
+        "Lighting.cginc",
+        "UnityPBSLighting.cginc"
+      ],
+      "helperDefinitions": [
+        "ComputeClipSpacePosition"
+      ],
+      "overloadedHelperNames": [],
+      "knowledge": {
+        "libraryVersion": "0.2.5",
+        "classification": "ExistingAseGraph",
+        "sourceSignature": "7bffb2ee1f0ee766ff62b3362ef9a9af074940647f054e59c9876eb81536fc9a",
+        "referenceFile": "Vertex offset.shader",
+        "referenceNotes": "ASE 19908\uFF1B53 \u8282\u70B9\u3002\u4FDD\u7559\u9876\u70B9\u4F4D\u79FB\u3001\u65F6\u95F4\u52A8\u753B\u53CA ShadowCaster\u3002",
+        "explicitPassCount": 2,
+        "surfaceShader": false,
+        "graph": {
+          "present": true,
+          "complete": true,
+          "version": "19908",
+          "nodeCount": 53,
+          "wireCount": 45,
+          "customExpressionCount": 0,
+          "nodeTypes": [
+            "AmplifyShaderEditor.ColorNode",
+            "AmplifyShaderEditor.CommentaryNode",
+            "AmplifyShaderEditor.ComponentMaskNode",
+            "AmplifyShaderEditor.DistanceOpNode",
+            "AmplifyShaderEditor.DotProductOpNode",
+            "AmplifyShaderEditor.DynamicAppendNode",
+            "AmplifyShaderEditor.GetLocalVarNode",
+            "AmplifyShaderEditor.LerpOp",
+            "AmplifyShaderEditor.PannerNode",
+            "AmplifyShaderEditor.PositionNode",
+            "AmplifyShaderEditor.RangedFloatNode",
+            "AmplifyShaderEditor.RegisterLocalVarNode",
+            "AmplifyShaderEditor.SamplerNode",
+            "AmplifyShaderEditor.SimpleAddOpNode",
+            "AmplifyShaderEditor.SimpleMultiplyOpNode",
+            "AmplifyShaderEditor.SmoothstepOpNode",
+            "AmplifyShaderEditor.TemplateMultiPassMasterNode",
+            "AmplifyShaderEditor.TexCoordVertexDataNode",
+            "AmplifyShaderEditor.TextureCoordinatesNode",
+            "AmplifyShaderEditor.Vector2Node",
+            "AmplifyShaderEditor.Vector3Node",
+            "AmplifyShaderEditor.Vector4Node",
+            "AmplifyShaderEditor.VertexColorNode",
+            "AmplifyShaderEditor.WorldSpaceCameraPos"
+          ],
+          "templateGuids": [
+            "0770190933193b94aaa3065e307002fa"
+          ],
+          "functionGuids": []
+        },
+        "rules": [
+          {
+            "id": "ase-migration",
+            "title": "\u5DF2\u6709 ASE \u56FE\u4E0E\u4F9D\u8D56",
+            "implementation": "AseMigration",
+            "recipe": "\u7531 ASE \u6253\u5F00\u5E76\u8FC1\u79FB\u5B8C\u6574\u56FE\uFF1B\u5206\u6790\u5143\u6570\u636E\u53EA\u7528\u4E8E\u6E05\u70B9\uFF0C\u4E0D\u91CD\u5EFA\u751F\u6210\u7684 HLSL\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u56FE\u7248\u672C",
+              "\u5168\u90E8 Master \u548C Pass",
+              "Function \u5B50\u56FE GUID",
+              "\u6A21\u677F GUID",
+              "\u8282\u70B9\u8BBE\u7F6E\u548C\u539F\u6709\u8FDE\u7EBF"
+            ],
+            "validation": [
+              "\u76EE\u6807 ASE \u80FD\u52A0\u8F7D\u5168\u90E8\u8282\u70B9\u548C\u4F9D\u8D56",
+              "\u4FDD\u5B58\u91CD\u8F7D",
+              "\u7F16\u8BD1\u5404 Pass",
+              "\u573A\u666F\u6BD4\u8F83"
+            ]
+          },
+          {
+            "id": "pure-functions",
+            "title": "\u7EAF\u6570\u5B66\u8F85\u52A9\u51FD\u6570",
+            "implementation": "NativePlanner",
+            "recipe": "\u6309\u503C\u7ED1\u5B9A\u53C2\u6570\u3001\u9694\u79BB\u5C40\u90E8\u4F5C\u7528\u57DF\uFF0C\u5C06\u53EF\u89E3\u6790\u7684\u51FD\u6570\u4F53\u5185\u8054\u4E3A\u539F\u751F\u6570\u5B66\u8282\u70B9\uFF1B\u4E0D\u6309\u6587\u4EF6\u540D\u6216\u6E90\u7801\u7B7E\u540D\u6388\u6743\u3002",
+            "nativeNodes": [
+              "SimpleAddOpNode",
+              "SimpleMultiplyOpNode",
+              "DotProductOpNode",
+              "FractNode",
+              "LerpOp",
+              "CosOpNode"
+            ],
+            "preserve": [
+              "\u53C2\u6570\u7C7B\u578B\u4E0E\u8FD4\u56DE\u5BBD\u5EA6",
+              "\u53EA\u5141\u8BB8\u5C40\u90E8\u8D4B\u503C",
+              "\u62D2\u7EDD\u9012\u5F52\u548C\u91CD\u8F7D",
+              "\u62D2\u7EDD\u9690\u85CF\u91C7\u6837\u4E0E\u5168\u5C40\u5199\u5165",
+              "\u539F\u6709\u6E32\u67D3\u548C\u9876\u70B9\u68C0\u67E5\u7EE7\u7EED\u6267\u884C"
+            ],
+            "validation": [
+              "\u8C03\u7528\u4E0E\u624B\u52A8\u5185\u8054\u7684\u6570\u503C\u7ED3\u679C\u4E00\u81F4",
+              "\u4E0D\u540C\u51FD\u6570\u540D\u548C\u53C2\u6570\u540D",
+              "\u53C2\u6570\u4F5C\u7528\u57DF\u4E92\u4E0D\u6C61\u67D3",
+              "\u6076\u610F\u6216\u4E0D\u652F\u6301\u7684\u51FD\u6570\u4ECD\u963B\u585E"
+            ]
+          },
+          {
+            "id": "unity-globals-distance",
+            "title": "\u65F6\u95F4\u3001\u76F8\u673A\u4F4D\u7F6E\u4E0E\u8DDD\u79BB",
+            "implementation": "NativePlanner",
+            "recipe": "_Time \u6620\u5C04\u5B8C\u6574\u56DB\u5206\u91CF Time \u8282\u70B9\uFF1B_WorldSpaceCameraPos \u6620\u5C04\u4E16\u754C\u76F8\u673A\u4F4D\u7F6E\uFF1Blength/distance \u4F7F\u7528\u5BF9\u5E94\u539F\u751F\u8282\u70B9\u3002",
+            "nativeNodes": [
+              "TimeNode",
+              "WorldSpaceCameraPos",
+              "LengthOpNode",
+              "DistanceOpNode"
+            ],
+            "preserve": [
+              "_Time.x=t/20\u3001y=t\u3001z=2t\u3001w=3t",
+              "\u5750\u6807\u7A7A\u95F4\u7531\u539F\u8868\u8FBE\u5F0F\u51B3\u5B9A",
+              "distance \u4E24\u7AEF\u5BBD\u5EA6\u4E00\u81F4"
+            ],
+            "validation": [
+              "\u65F6\u95F4\u5206\u91CF\u4E0D\u4E92\u6362",
+              "\u8DDD\u79BB\u6570\u503C",
+              "\u975E\u6CD5\u5BBD\u5EA6\u548C\u7EB9\u7406\u8F93\u5165\u62D2\u7EDD"
+            ]
+          },
+          {
+            "id": "ordered-passes",
+            "title": "\u591A Pass\u3001\u900F\u660E\u6DF7\u5408\u4E0E\u56DE\u9000",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4E3A\u6BCF\u4E2A Pass \u5206\u522B\u8BB0\u5F55\u9876\u70B9/\u7247\u5143\u8F93\u51FA\u3001Cull\u3001Blend\u3001\u6DF1\u5EA6\u548C\u961F\u5217\uFF0C\u5E76\u4FDD\u7559\u6267\u884C\u987A\u5E8F\u4E0E Fallback\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u5185\u58C1\u5148\u3001\u5916\u58C1\u540E",
+              "Pass \u6570\u91CF\u4E0E\u987A\u5E8F",
+              "\u72EC\u7ACB Cull",
+              "\u6DF7\u5408\u548C\u6DF1\u5EA6",
+              "Fallback"
+            ],
+            "validation": [
+              "\u9010 Pass \u7F16\u8BD1",
+              "\u6B63\u53CD\u7ED5\u5E8F",
+              "\u900F\u660E\u91CD\u53E0",
+              "\u56DE\u9000\u8D44\u6E90\u5B58\u5728"
+            ]
+          },
+          {
+            "id": "vertex-transform",
+            "title": "\u516C\u544A\u677F\u3001\u9876\u70B9\u4F4D\u79FB\u4E0E\u63D2\u503C",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u9876\u70B9\u53D8\u6362\u9700\u8981\u72EC\u7ACB\u9636\u6BB5\u8BA1\u5212\uFF1B\u7269\u4F53\u539F\u70B9\u3001\u7F29\u653E\u3001\u76F8\u673A\u65B9\u5411\u3001\u53C9\u79EF\u548C\u8F74\u5411\u7EA6\u675F\u4E0D\u5F97\u6539\u6210\u7247\u5143\u8BA1\u7B97\u3002",
+            "nativeNodes": [
+              "PositionNode",
+              "ObjectPositionNode",
+              "ObjectScaleNode",
+              "WorldSpaceCameraPos",
+              "CrossProductOpNode"
+            ],
+            "preserve": [
+              "\u5C40\u90E8/\u4E16\u754C/\u88C1\u526A\u7A7A\u95F4",
+              "\u53D8\u5F62\u987A\u5E8F",
+              "\u7C92\u5B50\u81EA\u5B9A\u4E49\u6570\u636E",
+              "ShadowCaster \u4E0E\u4E3B Pass \u540C\u6B65"
+            ],
+            "validation": [
+              "\u975E\u5747\u5300\u548C\u8D1F\u7F29\u653E",
+              "\u4E0D\u540C\u76F8\u673A\u59FF\u6001",
+              "\u9634\u5F71",
+              "\u6279\u5904\u7406\u4E0E\u5B9E\u4F8B\u5316"
+            ]
+          },
+          {
+            "id": "pbr-outline",
+            "title": "PBR \u6750\u8D28\u8F93\u51FA\u4E0E\u63CF\u8FB9",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u4F7F\u7528\u5BF9\u5E94 Lit/Surface Master \u7684\u5B8C\u6574\u6750\u8D28\u8F93\u51FA\uFF1B\u63CF\u8FB9\u4E3A\u72EC\u7ACB Pass\uFF0C\u4FDD\u7559\u81A8\u80C0\u65B9\u5F0F\u548C\u5168\u90E8\u706F\u5149/\u9634\u5F71\u7B49\u8F85\u52A9 Pass\u3002",
+            "nativeNodes": [
+              "FresnelNode",
+              "TransformDirectionNode",
+              "UnpackScaleNormalNode"
+            ],
+            "preserve": [
+              "\u91D1\u5C5E/\u9AD8\u5149\u5DE5\u4F5C\u6D41",
+              "\u6CD5\u7EBF\u7A7A\u95F4",
+              "\u900F\u660E\u4E0E\u88C1\u526A",
+              "\u5B50\u56FE\u4F9D\u8D56",
+              "\u63CF\u8FB9 Cull/\u6DF1\u5EA6/Pass \u987A\u5E8F"
+            ],
+            "validation": [
+              "\u5149\u7167\u548C\u53CD\u5C04",
+              "\u9634\u5F71\u4E0E\u70D8\u7119",
+              "\u63CF\u8FB9\u539A\u5EA6",
+              "\u6240\u6709\u6750\u8D28\u8F93\u51FA"
+            ]
+          },
+          {
+            "id": "dissolve-alpha",
+            "title": "\u6EB6\u89E3\u3001\u7C92\u5B50\u4E0E\u6E10\u9690",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u628A\u566A\u58F0\u3001\u9608\u503C\u3001Smoothstep \u4E0E\u8FB9\u7F18\u989C\u8272\u62C6\u4E3A\u539F\u751F\u8282\u70B9\uFF0C\u5E76\u5206\u522B\u6620\u5C04 Alpha\u3001\u88C1\u526A\u548C\u6DF7\u5408\u3002",
+            "nativeNodes": [
+              "SamplerNode",
+              "SmoothstepOpNode",
+              "LerpOp",
+              "VertexColorNode",
+              "PannerNode"
+            ],
+            "preserve": [
+              "\u52A0\u6CD5\u6216\u76F4\u901A Alpha \u6DF7\u5408",
+              "\u9876\u70B9\u8272\u548C\u7C92\u5B50\u6570\u636E",
+              "UV \u52A8\u753B",
+              "\u88C1\u526A\u9608\u503C",
+              "\u9634\u5F71 Pass"
+            ],
+            "validation": [
+              "\u6EB6\u89E3 0/\u8FB9\u754C/1",
+              "\u9876\u70B9\u8272 Alpha",
+              "\u900F\u660E\u91CD\u53E0",
+              "\u88C1\u526A\u9634\u5F71"
+            ]
+          },
+          {
+            "id": "keyword-binding",
+            "title": "\u5173\u952E\u8BCD\u3001\u5C5E\u6027\u4E0E\u7F16\u8BD1\u53D8\u4F53",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u8BB0\u5F55\u5C5E\u6027 Toggle \u6D3E\u751F\u5173\u952E\u8BCD\u3001pragma \u7684 global/local \u5173\u952E\u8BCD\u53CA\u6761\u4EF6\u5206\u652F\uFF1B\u540D\u79F0\u4E0D\u4E00\u81F4\u65F6\u62A5\u544A\uFF0C\u4E0D\u80FD\u81EA\u52A8\u6539\u540D\u7ED1\u5B9A\u3002",
+            "nativeNodes": [
+              "StaticSwitch",
+              "KeywordSwitchNode"
+            ],
+            "preserve": [
+              "global/local \u4F5C\u7528\u57DF",
+              "\u9ED8\u8BA4\u5206\u652F",
+              "\u5B8F\u4E0E\u5173\u952E\u8BCD\u539F\u540D",
+              "\u591A Pass \u53D8\u4F53",
+              "\u5B9E\u4F8B\u5316\u4E0E stereo"
+            ],
+            "validation": [
+              "\u6BCF\u79CD\u5173\u952E\u8BCD\u7EC4\u5408",
+              "\u6750\u8D28\u6570\u503C\u4E0E\u5173\u952E\u8BCD\u72EC\u7ACB\u53D8\u5316",
+              "\u76EE\u6807\u56FE\u5F62 API"
+            ]
+          },
+          {
+            "id": "screen-depth",
+            "title": "\u5C4F\u5E55\u3001\u6DF1\u5EA6\u4E0E\u540E\u5904\u7406",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5206\u522B\u6620\u5C04\u5C4F\u5E55/\u6295\u5F71\u5750\u6807\u3001\u6DF1\u5EA6\u91C7\u6837\u548C\u8FD8\u539F\u3001\u5168\u5C4F Blit \u53CA\u76F8\u5173\u76F8\u673A\u8F93\u5165\uFF1B\u7981\u6B62\u7528\u666E\u901A UV \u91C7\u6837\u4EE3\u66FF\u3002",
+            "nativeNodes": [
+              "GrabScreenPosition",
+              "ScreenDepthNode",
+              "CameraDepthFade"
+            ],
+            "preserve": [
+              "\u900F\u89C6\u9664\u6CD5",
+              "\u7EBF\u6027/\u539F\u59CB\u6DF1\u5EA6",
+              "\u53CD\u5411 Z",
+              "\u76F8\u673A\u6DF1\u5EA6\u7EB9\u7406\u4F9D\u8D56",
+              "\u5E73\u53F0 Y \u7FFB\u8F6C"
+            ],
+            "validation": [
+              "\u900F\u89C6/\u6B63\u4EA4\u76F8\u673A",
+              "\u524D\u540E\u88C1\u526A\u9762",
+              "\u4E0D\u540C\u6E32\u67D3 API"
+            ]
+          },
+          {
+            "id": "performance-evidence",
+            "title": "\u753B\u8D28\u4E0E GPU \u6210\u672C\u8BC4\u4F30",
+            "implementation": "RecipeRecorded",
+            "recipe": "\u5148\u4FDD\u6301\u884C\u4E3A\uFF0C\u518D\u6309\u76EE\u6807\u8BBE\u5907\u6D4B GPU \u65F6\u95F4\u3001\u5E26\u5BBD\u3001overdraw\u3001\u53D8\u4F53\u548C\u753B\u8D28\u8BEF\u5DEE\uFF1B\u9759\u6001\u6E90\u7801\u53EA\u80FD\u63D0\u793A\u6210\u672C\uFF0C\u4E0D\u80FD\u7ED9\u51FA\u6027\u80FD\u4F18\u80DC\u7ED3\u8BBA\u3002",
+            "nativeNodes": [],
+            "preserve": [
+              "\u91C7\u6837\u8C03\u7528\u4F4D\u7F6E\u4E0D\u7B49\u4E8E\u6BCF\u50CF\u7D20\u91C7\u6837\u6B21\u6570",
+              "include\u3001\u5FAA\u73AF\u4E0E\u5206\u652F\u4F1A\u6539\u53D8\u5DE5\u4F5C\u91CF",
+              "Register/Get \u6574\u7406\u8FDE\u7EBF\u4E0D\u4FDD\u8BC1\u51CF\u5C11 GPU \u6307\u4EE4",
+              "\u907F\u514D\u7528\u672A\u7ECF\u6BD4\u8F83\u7684\u4FBF\u5B9C\u7B97\u6CD5\u66FF\u6362\u539F\u6548\u679C"
+            ],
+            "validation": [
+              "\u56FA\u5B9A\u573A\u666F\u548C\u5206\u8FA8\u7387",
+              "GPU \u578B\u53F7/API/\u7BA1\u7EBF",
+              "GPU \u4E2D\u4F4D\u6570\u4E0E\u9AD8\u5206\u4F4D\u65F6\u95F4",
+              "\u79FB\u52A8\u7AEF\u70ED\u7A33\u5B9A",
+              "\u6750\u8D28\u753B\u9762\u5BF9\u6BD4"
+            ]
+          }
+        ],
+        "notes": [
+          "\u5DF2\u8BB0\u5F55\u7684\u8BED\u4E49\u65B9\u6848\u4E0D\u7B49\u4E8E\u81EA\u52A8\u652F\u6301\uFF1B\u672A\u5B9E\u73B0\u7684\u6A21\u677F\u3001\u9636\u6BB5\u4E0E\u72B6\u6001\u4ECD\u7531\u539F\u5206\u6790\u5668\u963B\u585E\u3002"
+        ],
+        "materialCategories": [],
+        "performance": {
+          "status": "NotBenchmarked",
+          "directTextureSampleSites": 5,
+          "loopSites": 0,
+          "explicitPasses": 2,
+          "includesMayAddWork": true,
+          "observations": [
+            "\u9759\u6001\u8C03\u7528\u4F4D\u7F6E\u4E0D\u662F\u8FD0\u884C\u6B21\u6570\uFF1Binclude\u3001\u5FAA\u73AF\u3001\u5B8F\u548C\u5206\u652F\u672A\u7ECF\u5C55\u5F00\u3002\u6027\u80FD\u5C1A\u672A\u5728\u76EE\u6807 GPU \u4E0A\u6D4B\u91CF\u3002",
+            "\u5B58\u5728\u6DF7\u5408\u72B6\u6001\uFF1A\u900F\u660E\u8986\u76D6\u5C42\u6570\u548C\u5E26\u5BBD\u53EF\u80FD\u6BD4\u8282\u70B9\u6570\u66F4\u5F71\u54CD\u6027\u80FD\u3002"
+          ]
+        }
+      }
+    }
+  ]
+}

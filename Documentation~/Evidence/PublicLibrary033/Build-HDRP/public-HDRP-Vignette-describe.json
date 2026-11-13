@@ -1,0 +1,628 @@
+{
+    "schemaVersion": 1,
+    "success": true,
+    "error": "",
+    "environment": {
+        "unityVersion": "",
+        "aseVersion": "",
+        "activePipeline": "",
+        "templates": [],
+        "errors": []
+    },
+    "description": {
+        "masters": [
+            {
+                "type": "TemplateMultiPassMasterNode",
+                "pass": "Unlit",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "Color",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Offset",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "type": "TextureCoordinatesNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 2,
+                        "name": "Tex",
+                        "type": "SAMPLER2D",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 0,
+                        "name": "Tiling",
+                        "type": "FLOAT2",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Offset",
+                        "type": "FLOAT2",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "UV",
+                        "type": "FLOAT2",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "U",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "V",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "W",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "T",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "Vector4Node",
+                "pass": "",
+                "inputs": [],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "XYZW",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "X",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Y",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Z",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "W",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "SwizzleNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "SimpleSubtractOpNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "A",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "B",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "SimpleMultiplyOpNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "A",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "B",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "RangedFloatNode",
+                "pass": "",
+                "inputs": [],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "LengthOpNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "SimpleAddOpNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "A",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "B",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "SimpleDivideOpNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "A",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "B",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "TexturePropertyNode",
+                "pass": "",
+                "inputs": [],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "Tex",
+                        "type": "SAMPLER2D",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "SS",
+                        "type": "SAMPLERSTATE",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "SamplerNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "Tex",
+                        "type": "SAMPLER2D",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "UV",
+                        "type": "FLOAT2",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Level",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "DDX",
+                        "type": "FLOAT2",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "DDY",
+                        "type": "FLOAT2",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 5,
+                        "name": "Scale",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 6,
+                        "name": "Index",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 7,
+                        "name": "SS",
+                        "type": "SAMPLERSTATE",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "RGBA",
+                        "type": "COLOR",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "R",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "G",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "B",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "A",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 5,
+                        "name": "RGB",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "DynamicAppendNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "X",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Y",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Z",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "W",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            }
+        ],
+        "options": []
+    },
+    "analysis": {
+        "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+                "autoLayout": true,
+                "addComments": true,
+                "useRegisters": true,
+                "longWireDistance": 1800.0,
+                "maxRegisters": 24
+            },
+            "comments": []
+        },
+        "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+        },
+        "knowledge": {
+            "libraryVersion": "0.3.3",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+                "present": false,
+                "complete": false,
+                "version": "",
+                "nodeCount": 0,
+                "wireCount": 0,
+                "customExpressionCount": 0,
+                "nodeTypes": [],
+                "templateGuids": [],
+                "functionGuids": []
+            },
+            "sourceGraph": {
+                "format": "",
+                "status": "AnalysisOnly",
+                "target": "",
+                "sourcePipeline": "Unknown",
+                "nodeCount": 0,
+                "edgeCount": 0,
+                "keywordCount": 0,
+                "groupCount": 0,
+                "noteCount": 0,
+                "properties": [],
+                "blocks": [],
+                "nodeTypes": [],
+                "dependencies": [],
+                "targetSettings": [],
+                "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+                "status": "NotBenchmarked",
+                "directTextureSampleSites": 0,
+                "loopSites": 0,
+                "explicitPasses": 0,
+                "includesMayAddWork": false,
+                "observations": []
+            }
+        }
+    },
+    "report": {
+        "status": "Planned",
+        "sourcePath": "",
+        "outputPath": "",
+        "shaderName": "",
+        "pipeline": "",
+        "unityVersion": "",
+        "aseVersion": "",
+        "templateGuid": "",
+        "sourcePipeline": "",
+        "crossPipeline": false,
+        "existingAseGraph": false,
+        "aseRoundTripPassed": false,
+        "shaderCompiled": false,
+        "visualComparisonPassed": false,
+        "nativeNodeCount": 0,
+        "customExpressionCount": 0,
+        "propertyCount": 0,
+        "layoutApplied": false,
+        "commentCount": 0,
+        "registerNodeCount": 0,
+        "getNodeCount": 0,
+        "nativeMappings": [],
+        "fallbackReasons": [],
+        "blockers": [],
+        "warnings": []
+    },
+    "ruleLibrary": {
+        "version": "0.3.3",
+        "rules": [],
+        "references": [],
+        "publicSources": [],
+        "categories": [],
+        "characterProfiles": []
+    },
+    "shaderLibrary": {
+        "version": "0.3.3",
+        "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+        "entries": [],
+        "research": [],
+        "familyContracts": []
+    },
+    "targetAnalyses": []
+}

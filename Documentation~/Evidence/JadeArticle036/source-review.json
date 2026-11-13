@@ -1,0 +1,19 @@
+{
+  "title": "Unity移动端高性能玉石材质",
+  "author": "方木君",
+  "url": "https://mp.weixin.qq.com/s/fzxGFhe5DofKpyauJSPypg",
+  "sourceKind": "ArticleCoreFunctionOnly",
+  "codeSha256": "a9cc314b7587c26e32c17e12fd87f0a8dffb19447ad5528a1522e33dac99993f",
+  "articleHtmlSha256": "e62e703e209d5b7b2d1344aaa8842f22d97434803b461d04c1a12d54b6b650be",
+  "license": "No explicit open-source license found in article; attributed technique reimplemented as native nodes; source text/images are excluded from distribution.",
+  "formulaPreserved": true,
+  "fullOriginalMaterialAvailable": false,
+  "originalSceneEquivalent": false,
+  "limitations": [
+    "No original complete Shader, parameter defaults, mesh, textures or lighting setup supplied.",
+    "Logical distance is a geometric approximation, not measured thickness or physical volume transport.",
+    "DepthDistance + LightDistance must be positive, MaxDist > MinDist, Pow > 0, nonzero light direction, invertible model transform.",
+    "Core is independent of light color, intensity, shadows and normal, as in the published function. Lit integration is newly authored.",
+    "No mobile/Pad/GPU benchmarks; article title is not performance evidence."
+  ]
+}

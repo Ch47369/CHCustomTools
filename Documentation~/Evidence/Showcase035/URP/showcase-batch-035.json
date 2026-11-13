@@ -1,0 +1,29 @@
+{
+    "pipeline": "URP",
+    "error": "",
+    "finishedUtc": "2026-10-23T02:50:19.2179450Z",
+    "success": true,
+    "apiLoaded": true,
+    "windowOpened": true,
+    "editsPreserved": true,
+    "shaderPreserved": true,
+    "sourceHashPreserved": true,
+    "textureChecks": 5,
+    "presetChecks": 3,
+    "installed": {
+        "id": "showcase-URP-LayeredParallaxGlitter",
+        "shaderPath": "Assets/ASEShaderLibrary/VFX/URP/LayeredParallaxGlitter_ASE.shader",
+        "materialPath": "Assets/ASEShaderLibrary/VFX/URP/LayeredParallaxGlitter_ASE.mat",
+        "error": "",
+        "success": true,
+        "materialReused": false
+    },
+    "reused": {
+        "id": "showcase-URP-LayeredParallaxGlitter",
+        "shaderPath": "Assets/ASEShaderLibrary/VFX/URP/LayeredParallaxGlitter_ASE.shader",
+        "materialPath": "Assets/ASEShaderLibrary/VFX/URP/LayeredParallaxGlitter_ASE.mat",
+        "error": "",
+        "success": true,
+        "materialReused": true
+    }
+}

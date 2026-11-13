@@ -1,0 +1,167 @@
+{
+    "pipeline": "URP",
+    "completed": true,
+    "rows": [
+        {
+            "id": "DeepWater-URP",
+            "output": "",
+            "response": {
+                "schemaVersion": 1,
+                "success": false,
+                "error": "",
+                "environment": {
+                    "unityVersion": "",
+                    "aseVersion": "",
+                    "activePipeline": "",
+                    "templates": [],
+                    "errors": []
+                },
+                "description": {
+                    "masters": [],
+                    "options": []
+                },
+                "analysis": {
+                    "plan": {
+                        "schemaVersion": 1,
+                        "shaderName": "",
+                        "pipeline": "Auto",
+                        "surface": "Unlit",
+                        "templateGuid": "",
+                        "nodes": [],
+                        "wires": [],
+                        "outputs": [],
+                        "masterSettings": [],
+                        "presentation": {
+                            "autoLayout": true,
+                            "addComments": true,
+                            "useRegisters": true,
+                            "longWireDistance": 1800.0,
+                            "maxRegisters": 24
+                        },
+                        "comments": []
+                    },
+                    "report": {
+                        "status": "Planned",
+                        "sourcePath": "",
+                        "outputPath": "",
+                        "shaderName": "",
+                        "pipeline": "",
+                        "unityVersion": "",
+                        "aseVersion": "",
+                        "templateGuid": "",
+                        "sourcePipeline": "",
+                        "crossPipeline": false,
+                        "existingAseGraph": false,
+                        "aseRoundTripPassed": false,
+                        "shaderCompiled": false,
+                        "visualComparisonPassed": false,
+                        "nativeNodeCount": 0,
+                        "customExpressionCount": 0,
+                        "propertyCount": 0,
+                        "layoutApplied": false,
+                        "commentCount": 0,
+                        "registerNodeCount": 0,
+                        "getNodeCount": 0,
+                        "nativeMappings": [],
+                        "fallbackReasons": [],
+                        "blockers": [],
+                        "warnings": []
+                    },
+                    "knowledge": {
+                        "libraryVersion": "0.3.0",
+                        "classification": "Handwritten",
+                        "sourceSignature": "",
+                        "referenceFile": "",
+                        "referenceNotes": "",
+                        "explicitPassCount": 0,
+                        "surfaceShader": false,
+                        "graph": {
+                            "present": false,
+                            "complete": false,
+                            "version": "",
+                            "nodeCount": 0,
+                            "wireCount": 0,
+                            "customExpressionCount": 0,
+                            "nodeTypes": [],
+                            "templateGuids": [],
+                            "functionGuids": []
+                        },
+                        "sourceGraph": {
+                            "format": "",
+                            "status": "AnalysisOnly",
+                            "target": "",
+                            "sourcePipeline": "Unknown",
+                            "nodeCount": 0,
+                            "edgeCount": 0,
+                            "keywordCount": 0,
+                            "groupCount": 0,
+                            "noteCount": 0,
+                            "properties": [],
+                            "blocks": [],
+                            "nodeTypes": [],
+                            "dependencies": [],
+                            "targetSettings": [],
+                            "blockers": []
+                        },
+                        "rules": [],
+                        "notes": [],
+                        "materialCategories": [],
+                        "characterMaterials": [],
+                        "performance": {
+                            "status": "NotBenchmarked",
+                            "directTextureSampleSites": 0,
+                            "loopSites": 0,
+                            "explicitPasses": 0,
+                            "includesMayAddWork": false,
+                            "observations": []
+                        }
+                    }
+                },
+                "report": {
+                    "status": "GenerationFailed",
+                    "sourcePath": "",
+                    "outputPath": "",
+                    "shaderName": "Water/DeepWater_URP_ASE",
+                    "pipeline": "URP",
+                    "unityVersion": "2022.3.10f1",
+                    "aseVersion": "1.9.9.13",
+                    "templateGuid": "94348b07e5e8bab40bd6c8a1e3df54cd",
+                    "sourcePipeline": "",
+                    "crossPipeline": false,
+                    "existingAseGraph": false,
+                    "aseRoundTripPassed": false,
+                    "shaderCompiled": false,
+                    "visualComparisonPassed": false,
+                    "nativeNodeCount": 0,
+                    "customExpressionCount": 0,
+                    "propertyCount": 0,
+                    "layoutApplied": false,
+                    "commentCount": 0,
+                    "registerNodeCount": 0,
+                    "getNodeCount": 0,
+                    "nativeMappings": [],
+                    "fallbackReasons": [],
+                    "blockers": [
+                        "Master output missing or ambiguous; specify the pass: Normal"
+                    ],
+                    "warnings": []
+                },
+                "ruleLibrary": {
+                    "version": "0.3.0",
+                    "rules": [],
+                    "references": [],
+                    "publicSources": [],
+                    "categories": [],
+                    "characterProfiles": []
+                },
+                "shaderLibrary": {
+                    "version": "0.3.1",
+                    "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+                    "entries": [],
+                    "research": []
+                },
+                "targetAnalyses": []
+            }
+        }
+    ]
+}

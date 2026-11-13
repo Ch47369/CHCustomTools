@@ -1,0 +1,151 @@
+{
+  "success": true,
+  "version": "0.4.0",
+  "attempt": ".build~/GraphInterop040/Attempts/20261113012941234",
+  "unityVersion": "2022.3.10f1",
+  "shaderGraphVersion": "14.0.8",
+  "urpVersion": "14.0.8",
+  "coreChecks": 570,
+  "editorCompile": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "integrationChecks": 65,
+  "sourceShaderComparisonStates": 35,
+  "formulaComparisonStates": 4,
+  "maxChannelError": 0.0,
+  "comparisonScope": "Synthetic fixtures, one center pixel per state, Linear Windows D3D11; no source host or original scene equivalence",
+  "enumKeywordChecks": {
+    "generated": true,
+    "shaderGraphRoundTripPassed": true,
+    "shaderCompiled": true,
+    "keywordNodeMapped": true,
+    "entries": [
+      "Base",
+      "Detail"
+    ],
+    "variantBranchesValidated": true,
+    "materialEnumDrawerValidated": true,
+    "keywordReference": "_MODE",
+    "nonAsciiLabelAdaptationReported": true,
+    "continuousLerpPreserved": true,
+    "multiEntryBlocked": true
+  },
+  "graphs": [
+    {
+      "evidence": "agent-plan.json",
+      "outputPath": "Assets/GraphInterop040/20261113012941283/Agent.shadergraph",
+      "nativeNodes": 1,
+      "sha256": "2958f95f55766599e6960272994b655fd3f16a3ec4d6730eb9e85235fc739497",
+      "bytes": 6523
+    },
+    {
+      "evidence": "enum-keyword.json",
+      "outputPath": "Assets/GraphInterop040/20261113012941283/Enum.shadergraph",
+      "nativeNodes": 22,
+      "sha256": "660d4b45a91188ffbdafe8553a4e4c3467dd96c4291fe25a480c9db35aeb38c7",
+      "bytes": 59815
+    },
+    {
+      "evidence": "fixture-0.json",
+      "outputPath": "Assets/GraphInterop040/20261113012941283/Fixture0.shadergraph",
+      "nativeNodes": 11,
+      "sha256": "8a69eec5d5dd6168d86efa3f8495d4d264206e211b0b1958feccb3cf058ecb43",
+      "bytes": 29927
+    },
+    {
+      "evidence": "fixture-1.json",
+      "outputPath": "Assets/GraphInterop040/20261113012941283/Fixture1.shadergraph",
+      "nativeNodes": 12,
+      "sha256": "5f42b418a7eff44463222d3653c1f1ee8c3e83bd782f614dfea561da354f192d",
+      "bytes": 32824
+    },
+    {
+      "evidence": "fixture-2.json",
+      "outputPath": "Assets/GraphInterop040/20261113012941283/Fixture2.shadergraph",
+      "nativeNodes": 12,
+      "sha256": "b67f0cad7ee6cc46a65700b9d65163d4c8fda768ab0a7e3efd0d315fa28fd242",
+      "bytes": 32866
+    },
+    {
+      "evidence": "fixture-3.json",
+      "outputPath": "Assets/GraphInterop040/20261113012941283/Fixture3.shadergraph",
+      "nativeNodes": 15,
+      "sha256": "6793125a687aaa8e4240beab8b6bcca11269b5f0090af4cfd4f173e6bdd3715c",
+      "bytes": 40748
+    },
+    {
+      "evidence": "fixture-4.json",
+      "outputPath": "Assets/GraphInterop040/20261113012941283/Fixture4.shadergraph",
+      "nativeNodes": 16,
+      "sha256": "e43dc7e992c4c28b2905dc2ce17bbc93508f1aad3726458caa5991febd064ac5",
+      "bytes": 43558
+    },
+    {
+      "evidence": "fixture-5.json",
+      "outputPath": "Assets/GraphInterop040/20261113012941283/Fixture5.shadergraph",
+      "nativeNodes": 12,
+      "sha256": "eee4187587dbf82f45a194d421dc27bcdbd3d1354290a133c364ead563897683",
+      "bytes": 32139
+    },
+    {
+      "evidence": "fixture-6.json",
+      "outputPath": "Assets/GraphInterop040/20261113012941283/Fixture6.shadergraph",
+      "nativeNodes": 15,
+      "sha256": "b401da2b81de867427dee07684bd9e09887b0a9ecab44e1d5d3e5b61f1d7f326",
+      "bytes": 45172
+    },
+    {
+      "evidence": "handwritten.json",
+      "outputPath": "Assets/GraphInterop040/20261113012941283/Handwritten.shadergraph",
+      "nativeNodes": 13,
+      "sha256": "fdaca01738c338055cb93a496649aa84d23ed7972ab0476931b0893ded91c6e5",
+      "bytes": 35871
+    },
+    {
+      "evidence": "packaged-sample.json",
+      "outputPath": "Assets/GraphInterop040/20261113012941283/PackagedSample.shadergraph",
+      "nativeNodes": 3,
+      "sha256": "ac9484ee8738364df8ec549b8d801850900def8e26a8c03c95c59b22f4066175",
+      "bytes": 13375
+    }
+  ],
+  "standardTargetAdaptation": true,
+  "visualComparisonPassed": false,
+  "genericGraphInterconversionImplemented": false,
+  "protectedBaseline": "0.3.7",
+  "protectedLibraryFilesUnchanged": 337,
+  "libraryShaderCount": 293,
+  "inboxLogicUnchangedExceptMenu": true,
+  "sourceHashes": {
+    "Runtime/ASEShaderConversionCore.cs": "22a7535261118e6c8611a307ee4f2c049d3cae88f7238995a2e1335a7ae6c120",
+    "Runtime/CharacterMaterialLibrary.cs": "1ddadc3f63bebeb919e7fa34e674fae807f6ed84c3829f3edb6e495aa5185a23",
+    "Runtime/HlslExpressions.cs": "606663a10475e78a35001b3c080a0f3f0724c334d7c733cab7f83f78d1a5dc64",
+    "Runtime/HlslFunctionLibrary.cs": "fee078460858275557b69822cd1433e08f01f8e3d7fd1d5f68d4456281639b25",
+    "Runtime/ReviewedNormal360Profile.cs": "893fbe477f18d7c1db4889729d773faf070392111f2aff3571911cc1f2fa2afc",
+    "Runtime/ReviewedUiProfile.cs": "a1a8e893576571ba789f6243c4f3daf3ae92cbe6f18e8510f2ebc87f7856ff9f",
+    "Runtime/ShaderGraphLayout.cs": "43103cf3cfb72db97bb5db91a55d0338b11dc80fc67e898c8b03dae5cd1f90ff",
+    "Runtime/ShaderGraphNativePlan.cs": "23b1e67af84c322e84f181bb1586f64609fc2bade5c3b725f38e42dfd019d2b5",
+    "Runtime/ShaderGraphSource.cs": "b64e38d674a7de71f8ff27e3a77d69a554d371dc44b8997d0225cdcc0c5b1c96",
+    "Runtime/ShaderGraphValidator.cs": "43440ebe6496539438cee9f03d2daf8aaba7e39d22305b05b0232247b9a72111",
+    "Runtime/ShaderLibraryCatalog.cs": "51420bb7af30f90292132a0960adcdcc9649462b3f1732f165ad65102481802d",
+    "Runtime/ShaderLibraryQuery.cs": "b8a973b76b522286cf59023fb1e49e05f3c734581d6adf874360a6d0aacc3c62",
+    "Runtime/ShaderRuleLibrary.cs": "cd49f5171bc271da655edd17c9a3fb4bcdb1efd6f87021fede8210e4dcee0b03",
+    "Editor/AseEditorBridge.cs": "b5035f862cb6fd22a5e77b412c70229beb0c9d71c176c6ea8ca063b153268db8",
+    "Editor/AseGraphPresentation.cs": "4d6733e7ed4389ec96198923e8344494fb2e2e262ebd00fe9dfe2b638a4fced8",
+    "Editor/AseNodeAdapters.cs": "c120271368b5124a0fbaa90d07bd5828b148beb1dc9ebbc38220624a084061c9",
+    "Editor/AseReflection.cs": "b8f43a52a76b1741cb8a227c8258fe68c7c7016c662046a05cead8feb9670196",
+    "Editor/ASEShaderConverterWindow.cs": "f4105f0f5b0e5ad60228cc26cd6757deace83b3fc3586a2fb843272b60c20948",
+    "Editor/CharacterMaterialWindow.cs": "a4ac9f80a84d660328f240bbe55fc0b8538b8e285947d9fa1afcbcaa90fc9b4a",
+    "Editor/ShaderAgentInbox.cs": "97facd207bdb038a4c59e9748d213d9e2db3fda66d0011bfc6b95e5a8c100fc0",
+    "Editor/ShaderConverterApi.cs": "103fe6ea7523744ad109b3984001248c4d6a141e49ee984923680a5b034df5ec",
+    "Editor/ShaderConverterMessages.cs": "93f1a9ce2f1167e4ca4726bb47f786d3dddbc320d662c7825eecc3b2878a420c",
+    "Editor/ShaderGraphEditorBridge.cs": "05d6461b0160fb3dcefafce33b4a80196a638a54c4d621b3cbb2399bce5ed433",
+    "Editor/ShaderLibraryBatch.cs": "e914ac430a5fa84b7fe1fab92dff62f76a031b37e4e8332deff15c93a890cdcb",
+    "Editor/ShaderLibraryBrowser.cs": "8b1c2da427b849faca372c016995815e8cf16a0d73295441203541d4ece0fb79",
+    "Editor/ShaderLibraryMaterialDefaults.cs": "38c659cf088f516f7e5a260caf79580754f0a92e1beb150e3167892e2fbb8808",
+    "Editor/ShaderLibrarySampleTextures.cs": "9d46875061a1900bffb285a93485253d5bc06cc3babd4af99ddfb5bbd2262a8b",
+    "Editor/ShaderLibraryWindow.cs": "4f9db19f6b073c75303d0732dc8549b3e80e389d77e44162e1ccad8c38716226",
+    "Editor/ShowcaseMaterialPresets.cs": "73513c8a77f2ab532322941dc06936da4a9c113933226515945021abdc8ec2d5"
+  }
+}

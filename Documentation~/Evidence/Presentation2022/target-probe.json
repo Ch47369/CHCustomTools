@@ -1,0 +1,156 @@
+{
+    "schemaVersion": 1,
+    "success": true,
+    "error": "",
+    "environment": {
+        "unityVersion": "2022.3.10f1",
+        "aseVersion": "1.9.9.13",
+        "activePipeline": "BuiltIn",
+        "templates": [
+            {
+                "guid": "0f8ba0101102bb14ebf021ddadce9b49",
+                "name": "Built-In/Default Sprites",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Sprites-Default.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "c71b220b631b6344493ea3cf87110c93",
+                "name": "Built-In/Image Effect",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/PostProcess.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "ed95fe726fd7b4644bb42f4d1ddd2bcd",
+                "name": "Built-In/Lit",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Lit.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "e1de45c0d41f68c41b2cc20c8b9c05ef",
+                "name": "Built-In/Multi Pass Unlit",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/MultiPassUnlit.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "0b6a9f8b4f707c74ca64c0be8e590de0",
+                "name": "Built-In/Particles Alpha Blended",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Particle Alpha Blend.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "32139be9c1eb75640a847f011acf3bcf",
+                "name": "Built-In/Post-Processing Stack",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/PPStack.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "0770190933193b94aaa3065e307002fa",
+                "name": "Built-In/Unlit",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Unlit.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "899e609c083c74c4ca567477c39edef0",
+                "name": "Built-In/Unlit Lightmap",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/UnlitLightmap.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "45bf09b07249a46489d5200e9ba4d9f1",
+                "name": "Built-In/Wireframe",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Wireframe.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "6ce779933eb99f049b78d6163735e06f",
+                "name": "Custom Render Texture/Initialize",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/CustomRT/CustomRTInit.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "32120270d1b3a8746af2aca8bc749736",
+                "name": "Custom Render Texture/Update",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/CustomRT/CustomRTUpdate.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "5056123faa0c79b47ab6ad7e8bf059a4",
+                "name": "UI/Default",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/UI/UI-Default.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            }
+        ],
+        "errors": []
+    },
+    "description": {
+        "masters": [],
+        "options": []
+    },
+    "analysis": {
+        "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": []
+        },
+        "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+        }
+    },
+    "report": {
+        "status": "Planned",
+        "sourcePath": "",
+        "outputPath": "",
+        "shaderName": "",
+        "pipeline": "",
+        "unityVersion": "",
+        "aseVersion": "",
+        "templateGuid": "",
+        "existingAseGraph": false,
+        "aseRoundTripPassed": false,
+        "shaderCompiled": false,
+        "visualComparisonPassed": false,
+        "nativeNodeCount": 0,
+        "customExpressionCount": 0,
+        "propertyCount": 0,
+        "nativeMappings": [],
+        "fallbackReasons": [],
+        "blockers": [],
+        "warnings": []
+    }
+}

@@ -1,0 +1,94 @@
+{
+  "pipeline": "BuiltIn",
+  "success": true,
+  "windowCreated": true,
+  "apiLoaded": true,
+  "pathEscapeRejected": true,
+  "pipelineMismatchRejected": true,
+  "rows": [
+    {
+      "id": "original-BuiltIn-Skin",
+      "path": "Assets/ASEShaderLibrary/Skin/BuiltIn/original-BuiltIn-Skin.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-BuiltIn-Hair",
+      "path": "Assets/ASEShaderLibrary/Hair/BuiltIn/original-BuiltIn-Hair.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-BuiltIn-Eye",
+      "path": "Assets/ASEShaderLibrary/Eye/BuiltIn/original-BuiltIn-Eye.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-BuiltIn-Fabric",
+      "path": "Assets/ASEShaderLibrary/Fabric/BuiltIn/original-BuiltIn-Fabric.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-BuiltIn-Hosiery",
+      "path": "Assets/ASEShaderLibrary/Hosiery/BuiltIn/original-BuiltIn-Hosiery.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-BuiltIn-Water",
+      "path": "Assets/ASEShaderLibrary/Water/BuiltIn/original-BuiltIn-Water.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-BuiltIn-Metal",
+      "path": "Assets/ASEShaderLibrary/Metal/BuiltIn/original-BuiltIn-Metal.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-BuiltIn-Stone",
+      "path": "Assets/ASEShaderLibrary/Stone/BuiltIn/original-BuiltIn-Stone.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-BuiltIn-Jade",
+      "path": "Assets/ASEShaderLibrary/Jade/BuiltIn/original-BuiltIn-Jade.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-BuiltIn-UI",
+      "path": "Assets/ASEShaderLibrary/UI/BuiltIn/original-BuiltIn-UI.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-BuiltIn-UIEffects",
+      "path": "Assets/ASEShaderLibrary/UIEffects/BuiltIn/original-BuiltIn-UIEffects.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-BuiltIn-VFX",
+      "path": "Assets/ASEShaderLibrary/VFX/BuiltIn/original-BuiltIn-VFX.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-BuiltIn-UVAnimation",
+      "path": "Assets/ASEShaderLibrary/UVAnimation/BuiltIn/original-BuiltIn-UVAnimation.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-BuiltIn-VertexAnimation",
+      "path": "Assets/ASEShaderLibrary/VertexAnimation/BuiltIn/original-BuiltIn-VertexAnimation.shader",
+      "error": "",
+      "compiled": true
+    }
+  ]
+}

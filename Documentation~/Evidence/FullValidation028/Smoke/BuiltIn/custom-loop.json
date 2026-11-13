@@ -1,0 +1,32 @@
+{
+    "status": "Generated",
+    "sourcePath": "",
+    "outputPath": "Assets/CustomLoop_ASE 3.shader",
+    "shaderName": "ConverterSamples/TintedTexture_ASE_CustomLoop",
+    "pipeline": "BuiltIn",
+    "unityVersion": "2022.3.10f1",
+    "aseVersion": "1.9.9.13",
+    "templateGuid": "0770190933193b94aaa3065e307002fa",
+    "sourcePipeline": "",
+    "crossPipeline": false,
+    "existingAseGraph": false,
+    "aseRoundTripPassed": true,
+    "shaderCompiled": true,
+    "visualComparisonPassed": true,
+    "nativeNodeCount": 11,
+    "customExpressionCount": 1,
+    "propertyCount": 3,
+    "layoutApplied": true,
+    "commentCount": 4,
+    "registerNodeCount": 1,
+    "getNodeCount": 1,
+    "nativeMappings": [],
+    "fallbackReasons": [
+        "The input-dependent loop needs code; ASE's standard math nodes do not represent a loop with a variable iteration count."
+    ],
+    "blockers": [],
+    "warnings": [
+        "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline.",
+        "Pixel comparison passed for this fixture and the material settings in UnitySmoke only."
+    ]
+}

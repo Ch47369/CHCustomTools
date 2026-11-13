@@ -1,0 +1,6 @@
+array-4x2-flip0: 128x64 RGBA max error=0
+array-4x2-flip0.5: 128x64 RGBA max error=0
+array-4x2-flip1: 128x64 RGBA max error=0
+array-3x3-flip0: 128x64 RGBA max error=0
+array-3x3-flip0.5: 128x64 RGBA max error=0
+array-3x3-flip1: 128x64 RGBA max error=0

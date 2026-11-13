@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "visualComparisonPassed": false,
+    "checks": 65,
+    "renderStates": 35,
+    "maxError": 0.0,
+    "outputDirectory": "Assets/GraphInterop040/20261113012941283",
+    "scope": "URP standard Unlit native subset; synthetic float fixtures only"
+}

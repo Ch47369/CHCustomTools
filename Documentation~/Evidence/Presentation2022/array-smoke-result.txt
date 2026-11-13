@@ -1,0 +1,1 @@
+PASS: 34 checks; six synthetic image cases and culling; source/generated images in this project; original user scene not compared.

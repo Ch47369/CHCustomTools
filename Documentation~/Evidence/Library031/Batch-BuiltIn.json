@@ -1,0 +1,699 @@
+{
+  "pipeline": "BuiltIn",
+  "error": "",
+  "success": true,
+  "windowCreated": true,
+  "apiLoaded": true,
+  "checksumRejected": true,
+  "pathRejected": true,
+  "pipelineRejected": true,
+  "materialEditsPreserved": true,
+  "cancelled": true,
+  "originalExamplesBound": true,
+  "materialStatesInitialized": true,
+  "sampleTextureBindings": 34,
+  "transparentMaterialChecks": 0,
+  "hairClipChecks": 0,
+  "rows": [
+    {
+      "id": "original-BuiltIn-Skin",
+      "shaderPath": "Assets/ASEShaderLibrary/Skin/BuiltIn/original-BuiltIn-Skin.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Skin/BuiltIn/original-BuiltIn-Skin.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "original-BuiltIn-Hair",
+      "shaderPath": "Assets/ASEShaderLibrary/Hair/BuiltIn/original-BuiltIn-Hair.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Hair/BuiltIn/original-BuiltIn-Hair.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "original-BuiltIn-Eye",
+      "shaderPath": "Assets/ASEShaderLibrary/Eye/BuiltIn/original-BuiltIn-Eye.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Eye/BuiltIn/original-BuiltIn-Eye.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "original-BuiltIn-Fabric",
+      "shaderPath": "Assets/ASEShaderLibrary/Fabric/BuiltIn/original-BuiltIn-Fabric.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Fabric/BuiltIn/original-BuiltIn-Fabric.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "original-BuiltIn-Hosiery",
+      "shaderPath": "Assets/ASEShaderLibrary/Hosiery/BuiltIn/original-BuiltIn-Hosiery.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Hosiery/BuiltIn/original-BuiltIn-Hosiery.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "original-BuiltIn-Water",
+      "shaderPath": "Assets/ASEShaderLibrary/Water/BuiltIn/original-BuiltIn-Water.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Water/BuiltIn/original-BuiltIn-Water.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "original-BuiltIn-Metal",
+      "shaderPath": "Assets/ASEShaderLibrary/Metal/BuiltIn/original-BuiltIn-Metal.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Metal/BuiltIn/original-BuiltIn-Metal.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "original-BuiltIn-Stone",
+      "shaderPath": "Assets/ASEShaderLibrary/Stone/BuiltIn/original-BuiltIn-Stone.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Stone/BuiltIn/original-BuiltIn-Stone.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "original-BuiltIn-Jade",
+      "shaderPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/original-BuiltIn-Jade.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/original-BuiltIn-Jade.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "original-BuiltIn-UI",
+      "shaderPath": "Assets/ASEShaderLibrary/UI/BuiltIn/original-BuiltIn-UI.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UI/BuiltIn/original-BuiltIn-UI.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "original-BuiltIn-UIEffects",
+      "shaderPath": "Assets/ASEShaderLibrary/UIEffects/BuiltIn/original-BuiltIn-UIEffects.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UIEffects/BuiltIn/original-BuiltIn-UIEffects.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "original-BuiltIn-VFX",
+      "shaderPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/original-BuiltIn-VFX.shader",
+      "materialPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/original-BuiltIn-VFX.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "original-BuiltIn-UVAnimation",
+      "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/BuiltIn/original-BuiltIn-UVAnimation.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UVAnimation/BuiltIn/original-BuiltIn-UVAnimation.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "original-BuiltIn-VertexAnimation",
+      "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/BuiltIn/original-BuiltIn-VertexAnimation.shader",
+      "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/BuiltIn/original-BuiltIn-VertexAnimation.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "original-BuiltIn-DeepWater",
+      "shaderPath": "Assets/ASEShaderLibrary/Water/BuiltIn/original-BuiltIn-DeepWater.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Water/BuiltIn/original-BuiltIn-DeepWater.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Skin-Freckles",
+      "shaderPath": "Assets/ASEShaderLibrary/Skin/BuiltIn/effect-BuiltIn-Skin-Freckles.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Skin/BuiltIn/effect-BuiltIn-Skin-Freckles.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Skin-Blush",
+      "shaderPath": "Assets/ASEShaderLibrary/Skin/BuiltIn/effect-BuiltIn-Skin-Blush.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Skin/BuiltIn/effect-BuiltIn-Skin-Blush.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Skin-Tan",
+      "shaderPath": "Assets/ASEShaderLibrary/Skin/BuiltIn/effect-BuiltIn-Skin-Tan.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Skin/BuiltIn/effect-BuiltIn-Skin-Tan.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Skin-OilMask",
+      "shaderPath": "Assets/ASEShaderLibrary/Skin/BuiltIn/effect-BuiltIn-Skin-OilMask.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Skin/BuiltIn/effect-BuiltIn-Skin-OilMask.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Skin-Dust",
+      "shaderPath": "Assets/ASEShaderLibrary/Skin/BuiltIn/effect-BuiltIn-Skin-Dust.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Skin/BuiltIn/effect-BuiltIn-Skin-Dust.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Hair-RootTip",
+      "shaderPath": "Assets/ASEShaderLibrary/Hair/BuiltIn/effect-BuiltIn-Hair-RootTip.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Hair/BuiltIn/effect-BuiltIn-Hair-RootTip.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Hair-Streaks",
+      "shaderPath": "Assets/ASEShaderLibrary/Hair/BuiltIn/effect-BuiltIn-Hair-Streaks.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Hair/BuiltIn/effect-BuiltIn-Hair-Streaks.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Hair-VertexDye",
+      "shaderPath": "Assets/ASEShaderLibrary/Hair/BuiltIn/effect-BuiltIn-Hair-VertexDye.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Hair/BuiltIn/effect-BuiltIn-Hair-VertexDye.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Hair-DyeMask",
+      "shaderPath": "Assets/ASEShaderLibrary/Hair/BuiltIn/effect-BuiltIn-Hair-DyeMask.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Hair/BuiltIn/effect-BuiltIn-Hair-DyeMask.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Hair-TipFade",
+      "shaderPath": "Assets/ASEShaderLibrary/Hair/BuiltIn/effect-BuiltIn-Hair-TipFade.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Hair/BuiltIn/effect-BuiltIn-Hair-TipFade.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Eye-LimbalRing",
+      "shaderPath": "Assets/ASEShaderLibrary/Eye/BuiltIn/effect-BuiltIn-Eye-LimbalRing.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Eye/BuiltIn/effect-BuiltIn-Eye-LimbalRing.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Eye-IrisBands",
+      "shaderPath": "Assets/ASEShaderLibrary/Eye/BuiltIn/effect-BuiltIn-Eye-IrisBands.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Eye/BuiltIn/effect-BuiltIn-Eye-IrisBands.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Eye-IrisMask",
+      "shaderPath": "Assets/ASEShaderLibrary/Eye/BuiltIn/effect-BuiltIn-Eye-IrisMask.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Eye/BuiltIn/effect-BuiltIn-Eye-IrisMask.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Eye-ScleraTint",
+      "shaderPath": "Assets/ASEShaderLibrary/Eye/BuiltIn/effect-BuiltIn-Eye-ScleraTint.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Eye/BuiltIn/effect-BuiltIn-Eye-ScleraTint.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Eye-IrisSpeckles",
+      "shaderPath": "Assets/ASEShaderLibrary/Eye/BuiltIn/effect-BuiltIn-Eye-IrisSpeckles.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Eye/BuiltIn/effect-BuiltIn-Eye-IrisSpeckles.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-Checks",
+      "shaderPath": "Assets/ASEShaderLibrary/Fabric/BuiltIn/effect-BuiltIn-Fabric-Checks.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Fabric/BuiltIn/effect-BuiltIn-Fabric-Checks.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-Stripes",
+      "shaderPath": "Assets/ASEShaderLibrary/Fabric/BuiltIn/effect-BuiltIn-Fabric-Stripes.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Fabric/BuiltIn/effect-BuiltIn-Fabric-Stripes.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-CrossWeave",
+      "shaderPath": "Assets/ASEShaderLibrary/Fabric/BuiltIn/effect-BuiltIn-Fabric-CrossWeave.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Fabric/BuiltIn/effect-BuiltIn-Fabric-CrossWeave.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-Print",
+      "shaderPath": "Assets/ASEShaderLibrary/Fabric/BuiltIn/effect-BuiltIn-Fabric-Print.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Fabric/BuiltIn/effect-BuiltIn-Fabric-Print.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-VertexDye",
+      "shaderPath": "Assets/ASEShaderLibrary/Fabric/BuiltIn/effect-BuiltIn-Fabric-VertexDye.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Fabric/BuiltIn/effect-BuiltIn-Fabric-VertexDye.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Dots",
+      "shaderPath": "Assets/ASEShaderLibrary/Hosiery/BuiltIn/effect-BuiltIn-Hosiery-Dots.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Hosiery/BuiltIn/effect-BuiltIn-Hosiery-Dots.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Rib",
+      "shaderPath": "Assets/ASEShaderLibrary/Hosiery/BuiltIn/effect-BuiltIn-Hosiery-Rib.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Hosiery/BuiltIn/effect-BuiltIn-Hosiery-Rib.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Lace",
+      "shaderPath": "Assets/ASEShaderLibrary/Hosiery/BuiltIn/effect-BuiltIn-Hosiery-Lace.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Hosiery/BuiltIn/effect-BuiltIn-Hosiery-Lace.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Gradient",
+      "shaderPath": "Assets/ASEShaderLibrary/Hosiery/BuiltIn/effect-BuiltIn-Hosiery-Gradient.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Hosiery/BuiltIn/effect-BuiltIn-Hosiery-Gradient.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Diamond",
+      "shaderPath": "Assets/ASEShaderLibrary/Hosiery/BuiltIn/effect-BuiltIn-Hosiery-Diamond.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Hosiery/BuiltIn/effect-BuiltIn-Hosiery-Diamond.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Water-Foam",
+      "shaderPath": "Assets/ASEShaderLibrary/Water/BuiltIn/effect-BuiltIn-Water-Foam.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Water/BuiltIn/effect-BuiltIn-Water-Foam.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Water-Ripples",
+      "shaderPath": "Assets/ASEShaderLibrary/Water/BuiltIn/effect-BuiltIn-Water-Ripples.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Water/BuiltIn/effect-BuiltIn-Water-Ripples.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Water-RimTint",
+      "shaderPath": "Assets/ASEShaderLibrary/Water/BuiltIn/effect-BuiltIn-Water-RimTint.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Water/BuiltIn/effect-BuiltIn-Water-RimTint.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Water-VertexWave",
+      "shaderPath": "Assets/ASEShaderLibrary/Water/BuiltIn/effect-BuiltIn-Water-VertexWave.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Water/BuiltIn/effect-BuiltIn-Water-VertexWave.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Water-DualNormal",
+      "shaderPath": "Assets/ASEShaderLibrary/Water/BuiltIn/effect-BuiltIn-Water-DualNormal.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Water/BuiltIn/effect-BuiltIn-Water-DualNormal.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Metal-Brushed",
+      "shaderPath": "Assets/ASEShaderLibrary/Metal/BuiltIn/effect-BuiltIn-Metal-Brushed.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Metal/BuiltIn/effect-BuiltIn-Metal-Brushed.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Metal-Oxidized",
+      "shaderPath": "Assets/ASEShaderLibrary/Metal/BuiltIn/effect-BuiltIn-Metal-Oxidized.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Metal/BuiltIn/effect-BuiltIn-Metal-Oxidized.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Metal-Scratches",
+      "shaderPath": "Assets/ASEShaderLibrary/Metal/BuiltIn/effect-BuiltIn-Metal-Scratches.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Metal/BuiltIn/effect-BuiltIn-Metal-Scratches.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Metal-HeatTint",
+      "shaderPath": "Assets/ASEShaderLibrary/Metal/BuiltIn/effect-BuiltIn-Metal-HeatTint.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Metal/BuiltIn/effect-BuiltIn-Metal-HeatTint.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Metal-Panels",
+      "shaderPath": "Assets/ASEShaderLibrary/Metal/BuiltIn/effect-BuiltIn-Metal-Panels.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Metal/BuiltIn/effect-BuiltIn-Metal-Panels.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Stone-MossMask",
+      "shaderPath": "Assets/ASEShaderLibrary/Stone/BuiltIn/effect-BuiltIn-Stone-MossMask.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Stone/BuiltIn/effect-BuiltIn-Stone-MossMask.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Stone-Strata",
+      "shaderPath": "Assets/ASEShaderLibrary/Stone/BuiltIn/effect-BuiltIn-Stone-Strata.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Stone/BuiltIn/effect-BuiltIn-Stone-Strata.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Stone-Cracks",
+      "shaderPath": "Assets/ASEShaderLibrary/Stone/BuiltIn/effect-BuiltIn-Stone-Cracks.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Stone/BuiltIn/effect-BuiltIn-Stone-Cracks.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Stone-Wet",
+      "shaderPath": "Assets/ASEShaderLibrary/Stone/BuiltIn/effect-BuiltIn-Stone-Wet.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Stone/BuiltIn/effect-BuiltIn-Stone-Wet.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Stone-VertexPaint",
+      "shaderPath": "Assets/ASEShaderLibrary/Stone/BuiltIn/effect-BuiltIn-Stone-VertexPaint.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Stone/BuiltIn/effect-BuiltIn-Stone-VertexPaint.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Veins",
+      "shaderPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/effect-BuiltIn-Jade-Veins.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/effect-BuiltIn-Jade-Veins.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Clouds",
+      "shaderPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/effect-BuiltIn-Jade-Clouds.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/effect-BuiltIn-Jade-Clouds.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Gradient",
+      "shaderPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/effect-BuiltIn-Jade-Gradient.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/effect-BuiltIn-Jade-Gradient.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Speckles",
+      "shaderPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/effect-BuiltIn-Jade-Speckles.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/effect-BuiltIn-Jade-Speckles.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Rind",
+      "shaderPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/effect-BuiltIn-Jade-Rind.shader",
+      "materialPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/effect-BuiltIn-Jade-Rind.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UI-Gradient",
+      "shaderPath": "Assets/ASEShaderLibrary/UI/BuiltIn/effect-BuiltIn-UI-Gradient.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UI/BuiltIn/effect-BuiltIn-UI-Gradient.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UI-RadialMask",
+      "shaderPath": "Assets/ASEShaderLibrary/UI/BuiltIn/effect-BuiltIn-UI-RadialMask.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UI/BuiltIn/effect-BuiltIn-UI-RadialMask.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UI-Frame",
+      "shaderPath": "Assets/ASEShaderLibrary/UI/BuiltIn/effect-BuiltIn-UI-Frame.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UI/BuiltIn/effect-BuiltIn-UI-Frame.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UI-Scanline",
+      "shaderPath": "Assets/ASEShaderLibrary/UI/BuiltIn/effect-BuiltIn-UI-Scanline.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UI/BuiltIn/effect-BuiltIn-UI-Scanline.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UI-MaskTint",
+      "shaderPath": "Assets/ASEShaderLibrary/UI/BuiltIn/effect-BuiltIn-UI-MaskTint.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UI/BuiltIn/effect-BuiltIn-UI-MaskTint.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-ScanPulse",
+      "shaderPath": "Assets/ASEShaderLibrary/UIEffects/BuiltIn/effect-BuiltIn-UIEffects-ScanPulse.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UIEffects/BuiltIn/effect-BuiltIn-UIEffects-ScanPulse.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-Pulse",
+      "shaderPath": "Assets/ASEShaderLibrary/UIEffects/BuiltIn/effect-BuiltIn-UIEffects-Pulse.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UIEffects/BuiltIn/effect-BuiltIn-UIEffects-Pulse.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-Wipe",
+      "shaderPath": "Assets/ASEShaderLibrary/UIEffects/BuiltIn/effect-BuiltIn-UIEffects-Wipe.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UIEffects/BuiltIn/effect-BuiltIn-UIEffects-Wipe.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-Grid",
+      "shaderPath": "Assets/ASEShaderLibrary/UIEffects/BuiltIn/effect-BuiltIn-UIEffects-Grid 1.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UIEffects/BuiltIn/effect-BuiltIn-UIEffects-Grid 1.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-RingPulse",
+      "shaderPath": "Assets/ASEShaderLibrary/UIEffects/BuiltIn/effect-BuiltIn-UIEffects-RingPulse.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UIEffects/BuiltIn/effect-BuiltIn-UIEffects-RingPulse.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-VFX-Ring",
+      "shaderPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/effect-BuiltIn-VFX-Ring.shader",
+      "materialPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/effect-BuiltIn-VFX-Ring.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-VFX-Beam",
+      "shaderPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/effect-BuiltIn-VFX-Beam.shader",
+      "materialPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/effect-BuiltIn-VFX-Beam.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-VFX-SoftDisc",
+      "shaderPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/effect-BuiltIn-VFX-SoftDisc.shader",
+      "materialPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/effect-BuiltIn-VFX-SoftDisc.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-VFX-Scan",
+      "shaderPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/effect-BuiltIn-VFX-Scan.shader",
+      "materialPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/effect-BuiltIn-VFX-Scan.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-VFX-Pulse",
+      "shaderPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/effect-BuiltIn-VFX-Pulse.shader",
+      "materialPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/effect-BuiltIn-VFX-Pulse.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-LayerRotate",
+      "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/BuiltIn/effect-BuiltIn-UVAnimation-LayerRotate.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UVAnimation/BuiltIn/effect-BuiltIn-UVAnimation-LayerRotate.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-FlowMask",
+      "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/BuiltIn/effect-BuiltIn-UVAnimation-FlowMask.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UVAnimation/BuiltIn/effect-BuiltIn-UVAnimation-FlowMask.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-Distortion",
+      "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/BuiltIn/effect-BuiltIn-UVAnimation-Distortion.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UVAnimation/BuiltIn/effect-BuiltIn-UVAnimation-Distortion.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-Flipbook",
+      "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/BuiltIn/effect-BuiltIn-UVAnimation-Flipbook.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UVAnimation/BuiltIn/effect-BuiltIn-UVAnimation-Flipbook.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-PingPong",
+      "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/BuiltIn/effect-BuiltIn-UVAnimation-PingPong.shader",
+      "materialPath": "Assets/ASEShaderLibrary/UVAnimation/BuiltIn/effect-BuiltIn-UVAnimation-PingPong.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-Flutter",
+      "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/BuiltIn/effect-BuiltIn-VertexAnimation-Flutter.shader",
+      "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/BuiltIn/effect-BuiltIn-VertexAnimation-Flutter.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-Ripple",
+      "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/BuiltIn/effect-BuiltIn-VertexAnimation-Ripple.shader",
+      "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/BuiltIn/effect-BuiltIn-VertexAnimation-Ripple.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-Bob",
+      "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/BuiltIn/effect-BuiltIn-VertexAnimation-Bob.shader",
+      "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/BuiltIn/effect-BuiltIn-VertexAnimation-Bob.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-Bend",
+      "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/BuiltIn/effect-BuiltIn-VertexAnimation-Bend.shader",
+      "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/BuiltIn/effect-BuiltIn-VertexAnimation-Bend.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-CrossWind",
+      "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/BuiltIn/effect-BuiltIn-VertexAnimation-CrossWind.shader",
+      "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/BuiltIn/effect-BuiltIn-VertexAnimation-CrossWind.mat",
+      "error": "",
+      "success": true,
+      "materialReused": true
+    }
+  ]
+}

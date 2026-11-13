@@ -1,0 +1,330 @@
+{
+    "pipeline": "HDRP",
+    "completed": true,
+    "rows": [
+        {
+            "id": "jade-article-HDRP",
+            "output": "Assets/JadeArticle036/HDRP/LogicalLight_ASE 2.shader",
+            "response": {
+                "schemaVersion": 1,
+                "success": true,
+                "error": "",
+                "environment": {
+                    "unityVersion": "",
+                    "aseVersion": "",
+                    "activePipeline": "",
+                    "templates": [],
+                    "errors": []
+                },
+                "description": {
+                    "masters": [],
+                    "options": []
+                },
+                "analysis": {
+                    "plan": {
+                        "schemaVersion": 1,
+                        "shaderName": "",
+                        "pipeline": "Auto",
+                        "surface": "Unlit",
+                        "templateGuid": "",
+                        "nodes": [],
+                        "wires": [],
+                        "outputs": [],
+                        "masterSettings": [],
+                        "presentation": {
+                            "autoLayout": true,
+                            "addComments": true,
+                            "useRegisters": true,
+                            "longWireDistance": 1800.0,
+                            "maxRegisters": 24
+                        },
+                        "comments": []
+                    },
+                    "report": {
+                        "status": "Planned",
+                        "sourcePath": "",
+                        "outputPath": "",
+                        "shaderName": "",
+                        "pipeline": "",
+                        "unityVersion": "",
+                        "aseVersion": "",
+                        "templateGuid": "",
+                        "sourcePipeline": "",
+                        "crossPipeline": false,
+                        "existingAseGraph": false,
+                        "aseRoundTripPassed": false,
+                        "shaderCompiled": false,
+                        "visualComparisonPassed": false,
+                        "nativeNodeCount": 0,
+                        "customExpressionCount": 0,
+                        "propertyCount": 0,
+                        "layoutApplied": false,
+                        "commentCount": 0,
+                        "registerNodeCount": 0,
+                        "getNodeCount": 0,
+                        "nativeMappings": [],
+                        "fallbackReasons": [],
+                        "blockers": [],
+                        "warnings": []
+                    },
+                    "knowledge": {
+                        "libraryVersion": "0.3.5",
+                        "classification": "Handwritten",
+                        "sourceSignature": "",
+                        "referenceFile": "",
+                        "referenceNotes": "",
+                        "explicitPassCount": 0,
+                        "surfaceShader": false,
+                        "graph": {
+                            "present": false,
+                            "complete": false,
+                            "version": "",
+                            "nodeCount": 0,
+                            "wireCount": 0,
+                            "customExpressionCount": 0,
+                            "nodeTypes": [],
+                            "templateGuids": [],
+                            "functionGuids": []
+                        },
+                        "sourceGraph": {
+                            "format": "",
+                            "status": "AnalysisOnly",
+                            "target": "",
+                            "sourcePipeline": "Unknown",
+                            "nodeCount": 0,
+                            "edgeCount": 0,
+                            "keywordCount": 0,
+                            "groupCount": 0,
+                            "noteCount": 0,
+                            "properties": [],
+                            "blocks": [],
+                            "nodeTypes": [],
+                            "dependencies": [],
+                            "targetSettings": [],
+                            "blockers": []
+                        },
+                        "rules": [],
+                        "notes": [],
+                        "materialCategories": [],
+                        "characterMaterials": [],
+                        "performance": {
+                            "status": "NotBenchmarked",
+                            "directTextureSampleSites": 0,
+                            "loopSites": 0,
+                            "explicitPasses": 0,
+                            "includesMayAddWork": false,
+                            "observations": []
+                        }
+                    }
+                },
+                "report": {
+                    "status": "Generated",
+                    "sourcePath": "",
+                    "outputPath": "Assets/JadeArticle036/HDRP/LogicalLight_ASE 2.shader",
+                    "shaderName": "ASELibrary/HDRP/Jade/FangmuLogicalLight",
+                    "pipeline": "HDRP",
+                    "unityVersion": "2022.3.10f1",
+                    "aseVersion": "1.9.9.13",
+                    "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+                    "sourcePipeline": "",
+                    "crossPipeline": false,
+                    "existingAseGraph": false,
+                    "aseRoundTripPassed": true,
+                    "shaderCompiled": true,
+                    "visualComparisonPassed": false,
+                    "nativeNodeCount": 50,
+                    "customExpressionCount": 0,
+                    "propertyCount": 59,
+                    "layoutApplied": true,
+                    "commentCount": 5,
+                    "registerNodeCount": 7,
+                    "getNodeCount": 9,
+                    "nativeMappings": [],
+                    "fallbackReasons": [],
+                    "blockers": [],
+                    "warnings": [
+                        "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+                    ]
+                },
+                "ruleLibrary": {
+                    "version": "0.3.5",
+                    "rules": [],
+                    "references": [],
+                    "publicSources": [],
+                    "categories": [],
+                    "characterProfiles": []
+                },
+                "shaderLibrary": {
+                    "version": "0.3.5",
+                    "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+                    "entries": [],
+                    "research": [],
+                    "familyContracts": []
+                },
+                "targetAnalyses": []
+            }
+        },
+        {
+            "id": "jade-article-HDRP-fixture",
+            "output": "Assets/JadeArticle036/HDRP/LogicalLightFixture_ASE 2.shader",
+            "response": {
+                "schemaVersion": 1,
+                "success": true,
+                "error": "",
+                "environment": {
+                    "unityVersion": "",
+                    "aseVersion": "",
+                    "activePipeline": "",
+                    "templates": [],
+                    "errors": []
+                },
+                "description": {
+                    "masters": [],
+                    "options": []
+                },
+                "analysis": {
+                    "plan": {
+                        "schemaVersion": 1,
+                        "shaderName": "",
+                        "pipeline": "Auto",
+                        "surface": "Unlit",
+                        "templateGuid": "",
+                        "nodes": [],
+                        "wires": [],
+                        "outputs": [],
+                        "masterSettings": [],
+                        "presentation": {
+                            "autoLayout": true,
+                            "addComments": true,
+                            "useRegisters": true,
+                            "longWireDistance": 1800.0,
+                            "maxRegisters": 24
+                        },
+                        "comments": []
+                    },
+                    "report": {
+                        "status": "Planned",
+                        "sourcePath": "",
+                        "outputPath": "",
+                        "shaderName": "",
+                        "pipeline": "",
+                        "unityVersion": "",
+                        "aseVersion": "",
+                        "templateGuid": "",
+                        "sourcePipeline": "",
+                        "crossPipeline": false,
+                        "existingAseGraph": false,
+                        "aseRoundTripPassed": false,
+                        "shaderCompiled": false,
+                        "visualComparisonPassed": false,
+                        "nativeNodeCount": 0,
+                        "customExpressionCount": 0,
+                        "propertyCount": 0,
+                        "layoutApplied": false,
+                        "commentCount": 0,
+                        "registerNodeCount": 0,
+                        "getNodeCount": 0,
+                        "nativeMappings": [],
+                        "fallbackReasons": [],
+                        "blockers": [],
+                        "warnings": []
+                    },
+                    "knowledge": {
+                        "libraryVersion": "0.3.5",
+                        "classification": "Handwritten",
+                        "sourceSignature": "",
+                        "referenceFile": "",
+                        "referenceNotes": "",
+                        "explicitPassCount": 0,
+                        "surfaceShader": false,
+                        "graph": {
+                            "present": false,
+                            "complete": false,
+                            "version": "",
+                            "nodeCount": 0,
+                            "wireCount": 0,
+                            "customExpressionCount": 0,
+                            "nodeTypes": [],
+                            "templateGuids": [],
+                            "functionGuids": []
+                        },
+                        "sourceGraph": {
+                            "format": "",
+                            "status": "AnalysisOnly",
+                            "target": "",
+                            "sourcePipeline": "Unknown",
+                            "nodeCount": 0,
+                            "edgeCount": 0,
+                            "keywordCount": 0,
+                            "groupCount": 0,
+                            "noteCount": 0,
+                            "properties": [],
+                            "blocks": [],
+                            "nodeTypes": [],
+                            "dependencies": [],
+                            "targetSettings": [],
+                            "blockers": []
+                        },
+                        "rules": [],
+                        "notes": [],
+                        "materialCategories": [],
+                        "characterMaterials": [],
+                        "performance": {
+                            "status": "NotBenchmarked",
+                            "directTextureSampleSites": 0,
+                            "loopSites": 0,
+                            "explicitPasses": 0,
+                            "includesMayAddWork": false,
+                            "observations": []
+                        }
+                    }
+                },
+                "report": {
+                    "status": "Generated",
+                    "sourcePath": "",
+                    "outputPath": "Assets/JadeArticle036/HDRP/LogicalLightFixture_ASE 2.shader",
+                    "shaderName": "ASELibrary/HDRP/Jade/FangmuLogicalLightFixture",
+                    "pipeline": "HDRP",
+                    "unityVersion": "2022.3.10f1",
+                    "aseVersion": "1.9.9.13",
+                    "templateGuid": "ec526564a3db4b2183618ca6785c19c0",
+                    "sourcePipeline": "",
+                    "crossPipeline": false,
+                    "existingAseGraph": false,
+                    "aseRoundTripPassed": true,
+                    "shaderCompiled": true,
+                    "visualComparisonPassed": false,
+                    "nativeNodeCount": 43,
+                    "customExpressionCount": 0,
+                    "propertyCount": 8,
+                    "layoutApplied": true,
+                    "commentCount": 5,
+                    "registerNodeCount": 6,
+                    "getNodeCount": 7,
+                    "nativeMappings": [],
+                    "fallbackReasons": [],
+                    "blockers": [],
+                    "warnings": [
+                        "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+                    ]
+                },
+                "ruleLibrary": {
+                    "version": "0.3.5",
+                    "rules": [],
+                    "references": [],
+                    "publicSources": [],
+                    "categories": [],
+                    "characterProfiles": []
+                },
+                "shaderLibrary": {
+                    "version": "0.3.5",
+                    "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+                    "entries": [],
+                    "research": [],
+                    "familyContracts": []
+                },
+                "targetAnalyses": []
+            }
+        }
+    ]
+}

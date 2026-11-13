@@ -1,0 +1,43 @@
+{
+    "checkedUtc":  "2026-10-22T04:24:45.3918038+00:00",
+    "scope":  "Read-only inspection of saved external scene/material; all reproduction output under workspace .validation. Live unsaved scene and camera depth texture not inspected.",
+    "sources":  [
+                    {
+                        "sha256":  "aa70250f1c2739d1150b64441e83a61407f29d8616ad8a8c9265452d49676be3",
+                        "path":  "F:/BingMaYongPhoto/Assets/Art/CC.unity"
+                    },
+                    {
+                        "sha256":  "4189a2103d79577f81abd10d6852f315c476d6c0e28c375d01760e87de642ba8",
+                        "path":  "F:/BingMaYongPhoto/Assets/Shaders/Water_DeepWater_ASE.mat"
+                    },
+                    {
+                        "sha256":  "bd4c00bf1c8ea6cc35e4f71393147f2aef9d5e2e9b9148ec4b52aa3bb983a249",
+                        "path":  "F:/BingMaYongPhoto/Assets/Shaders/DeepWater_ASE.shader"
+                    }
+                ],
+    "observations":  {
+                         "depthHelperGuid":  "e144897241ff19f478b2f4813aebe6eb",
+                         "keywords":  "All eight water feature keywords enabled",
+                         "deepDistance":  5,
+                         "mainOutputAlpha":  1,
+                         "waterY":  20.04,
+                         "blend":  "One Zero",
+                         "colorAlphaConnected":  false,
+                         "depthHelperPresentInSavedScene":  false,
+                         "savedScene":  "Assets/Art/CC.unity",
+                         "material":  "Assets/Shaders/Water_DeepWater_ASE.mat",
+                         "bedY":  19.69,
+                         "savedMainCameraY":  1,
+                         "waterGameObject":  "Plane",
+                         "density":  0.7,
+                         "cull":  "Back",
+                         "verticalGapMeters":  0.35
+                     },
+    "compiledHarnessSha256":  "c5ae4e1eda5eb7dbd0c6eb8b099edb1d9d15fbefdd9dc4cd70ed58057a20e280",
+    "maintainedHarnessSha256":  "306d5177342bcb1703e6f1a140c1fd237b5f20bb2555814c52fab69c2fe3c634",
+    "log":  {
+                "marker":  "ASE_WATER_APPEARANCE_DIAGNOSTIC_PASS",
+                "path":  ".build~/ValidationRuns/Water-appearance.log",
+                "sha256":  "1e63806606b9fb5fcf633694e07907823428f5809cb0e29886177de3fb64a9cb"
+            }
+}

@@ -1,0 +1,23 @@
+{
+    "status": "Generated",
+    "sourcePath": "",
+    "outputPath": "Assets/NativePipeline_ASE 6.shader",
+    "shaderName": "Smoke/NativeURP",
+    "pipeline": "URP",
+    "unityVersion": "2022.3.10f1",
+    "aseVersion": "1.9.9.13",
+    "templateGuid": "2992e84f91cbeb14eab234972e07ea9d",
+    "existingAseGraph": false,
+    "aseRoundTripPassed": true,
+    "shaderCompiled": true,
+    "visualComparisonPassed": false,
+    "nativeNodeCount": 3,
+    "customExpressionCount": 0,
+    "propertyCount": 0,
+    "nativeMappings": [],
+    "fallbackReasons": [],
+    "blockers": [],
+    "warnings": [
+        "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+    ]
+}

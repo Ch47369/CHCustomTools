@@ -1,0 +1,14 @@
+{
+  "artifacts": 275,
+  "families": 105,
+  "threeArtifactFamilies": 85,
+  "threeMappedTargetFamilies": 60,
+  "targetStates": {
+    "Mapped": 226,
+    "FeatureGap": 49,
+    "RequiresAdapter": 40
+  },
+  "visualEquivalenceFamilies": 0,
+  "originalLocalGraphsStillBlocked": 80,
+  "researchRecordsAreNotGeneratedShaders": 1042
+}

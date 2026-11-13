@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "success": true,
+  "error": "",
+  "environment": {
+    "unityVersion": "",
+    "aseVersion": "",
+    "activePipeline": "",
+    "templates": [],
+    "errors": []
+  },
+  "description": {
+    "masters": [],
+    "options": []
+  },
+  "analysis": {
+    "plan": {
+      "schemaVersion": 1,
+      "shaderName": "",
+      "pipeline": "Auto",
+      "surface": "Unlit",
+      "templateGuid": "",
+      "nodes": [],
+      "wires": [],
+      "outputs": [],
+      "masterSettings": [],
+      "presentation": {
+        "autoLayout": true,
+        "addComments": true,
+        "useRegisters": true,
+        "longWireDistance": 1800.0,
+        "maxRegisters": 24
+      },
+      "comments": []
+    },
+    "report": {
+      "status": "Planned",
+      "sourcePath": "",
+      "outputPath": "",
+      "shaderName": "",
+      "pipeline": "",
+      "unityVersion": "",
+      "aseVersion": "",
+      "templateGuid": "",
+      "sourcePipeline": "",
+      "crossPipeline": false,
+      "existingAseGraph": false,
+      "aseRoundTripPassed": false,
+      "shaderCompiled": false,
+      "visualComparisonPassed": false,
+      "nativeNodeCount": 0,
+      "customExpressionCount": 0,
+      "propertyCount": 0,
+      "layoutApplied": false,
+      "commentCount": 0,
+      "registerNodeCount": 0,
+      "getNodeCount": 0,
+      "nativeMappings": [],
+      "fallbackReasons": [],
+      "blockers": [],
+      "warnings": []
+    },
+    "knowledge": {
+      "libraryVersion": "0.2.7",
+      "classification": "Handwritten",
+      "sourceSignature": "",
+      "referenceFile": "",
+      "referenceNotes": "",
+      "explicitPassCount": 0,
+      "surfaceShader": false,
+      "graph": {
+        "present": false,
+        "complete": false,
+        "version": "",
+        "nodeCount": 0,
+        "wireCount": 0,
+        "customExpressionCount": 0,
+        "nodeTypes": [],
+        "templateGuids": [],
+        "functionGuids": []
+      },
+      "rules": [],
+      "notes": [],
+      "materialCategories": [],
+      "performance": {
+        "status": "NotBenchmarked",
+        "directTextureSampleSites": 0,
+        "loopSites": 0,
+        "explicitPasses": 0,
+        "includesMayAddWork": false,
+        "observations": []
+      }
+    }
+  },
+  "report": {
+    "status": "Generated",
+    "sourcePath": "",
+    "outputPath": "Assets/Shaders/DeepWater/DeepWater_Review4.shader",
+    "shaderName": "Water/DeepWater_ASE",
+    "pipeline": "BuiltIn",
+    "unityVersion": "2022.3.10f1",
+    "aseVersion": "1.9.9.13",
+    "templateGuid": "ed95fe726fd7b4644bb42f4d1ddd2bcd",
+    "sourcePipeline": "",
+    "crossPipeline": false,
+    "existingAseGraph": false,
+    "aseRoundTripPassed": true,
+    "shaderCompiled": true,
+    "visualComparisonPassed": false,
+    "nativeNodeCount": 294,
+    "customExpressionCount": 0,
+    "propertyCount": 18,
+    "layoutApplied": true,
+    "commentCount": 9,
+    "registerNodeCount": 25,
+    "getNodeCount": 49,
+    "nativeMappings": [],
+    "fallbackReasons": [],
+    "blockers": [],
+    "warnings": [
+      "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+    ]
+  },
+  "ruleLibrary": {
+    "version": "0.2.7",
+    "rules": [],
+    "references": [],
+    "publicSources": [],
+    "categories": []
+  },
+  "targetAnalyses": []
+}

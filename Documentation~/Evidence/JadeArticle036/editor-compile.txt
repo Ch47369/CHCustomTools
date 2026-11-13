@@ -1,0 +1,8 @@
+  ASEShaderConverter.Core -> F:\ASEShader\.build~\ASEShaderConverter.Core\bin\Debug\net8.0\ASEShaderConverter.Core.dll
+  EditorCompile -> F:\ASEShader\.build~\EditorCompile\bin\Debug\net8.0\EditorCompile.dll
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:02.57

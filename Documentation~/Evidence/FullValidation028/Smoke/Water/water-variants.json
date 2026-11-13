@@ -1,0 +1,337 @@
+{
+    "success": true,
+    "compiled": true,
+    "error": "",
+    "shader": "Assets/Shaders/DeepWater_ASE.shader",
+    "material": "",
+    "prefab": "",
+    "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/AllOn.png",
+    "graphicsApi": "Direct3D11",
+    "mainPass": "ForwardBase",
+    "shaderPasses": 4,
+    "mainPassIndex": 1,
+    "vertices": 0,
+    "triangles": 0,
+    "propertyCount": 34,
+    "compilerMessages": [],
+    "materialKeywords": [
+        "_WATER_CAUSTICS_ON",
+        "_WATER_DEPTH_ON",
+        "_WATER_FOAM_ON",
+        "_WATER_FRESNEL_ON",
+        "_WATER_REFRACTION_ON",
+        "_WATER_RIPPLES_ON",
+        "_WATER_SCATTER_ON",
+        "_WATER_WAVES_ON"
+    ],
+    "variants": [
+        {
+            "name": "AllOn",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/AllOn.png",
+            "keywords": [
+                "_WATER_CAUSTICS_ON",
+                "_WATER_DEPTH_ON",
+                "_WATER_FOAM_ON",
+                "_WATER_FRESNEL_ON",
+                "_WATER_REFRACTION_ON",
+                "_WATER_RIPPLES_ON",
+                "_WATER_SCATTER_ON",
+                "_WATER_WAVES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 0,
+            "meanAbsoluteDifference": 0.0
+        },
+        {
+            "name": "Without_WAVES",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Without_WAVES.png",
+            "keywords": [
+                "_WATER_CAUSTICS_ON",
+                "_WATER_DEPTH_ON",
+                "_WATER_FOAM_ON",
+                "_WATER_FRESNEL_ON",
+                "_WATER_REFRACTION_ON",
+                "_WATER_RIPPLES_ON",
+                "_WATER_SCATTER_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 166891,
+            "meanAbsoluteDifference": 0.010537277907133103
+        },
+        {
+            "name": "Without_RIPPLES",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Without_RIPPLES.png",
+            "keywords": [
+                "_WATER_CAUSTICS_ON",
+                "_WATER_DEPTH_ON",
+                "_WATER_FOAM_ON",
+                "_WATER_FRESNEL_ON",
+                "_WATER_REFRACTION_ON",
+                "_WATER_SCATTER_ON",
+                "_WATER_WAVES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 81651,
+            "meanAbsoluteDifference": 0.004447478801012039
+        },
+        {
+            "name": "Without_FRESNEL",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Without_FRESNEL.png",
+            "keywords": [
+                "_WATER_CAUSTICS_ON",
+                "_WATER_DEPTH_ON",
+                "_WATER_FOAM_ON",
+                "_WATER_REFRACTION_ON",
+                "_WATER_RIPPLES_ON",
+                "_WATER_SCATTER_ON",
+                "_WATER_WAVES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 256177,
+            "meanAbsoluteDifference": 0.010907543823122979
+        },
+        {
+            "name": "Without_DEPTH",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Without_DEPTH.png",
+            "keywords": [
+                "_WATER_CAUSTICS_ON",
+                "_WATER_FOAM_ON",
+                "_WATER_FRESNEL_ON",
+                "_WATER_REFRACTION_ON",
+                "_WATER_RIPPLES_ON",
+                "_WATER_SCATTER_ON",
+                "_WATER_WAVES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 259414,
+            "meanAbsoluteDifference": 0.09933246672153473
+        },
+        {
+            "name": "Without_FOAM",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Without_FOAM.png",
+            "keywords": [
+                "_WATER_CAUSTICS_ON",
+                "_WATER_DEPTH_ON",
+                "_WATER_FRESNEL_ON",
+                "_WATER_REFRACTION_ON",
+                "_WATER_RIPPLES_ON",
+                "_WATER_SCATTER_ON",
+                "_WATER_WAVES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 15806,
+            "meanAbsoluteDifference": 0.001521652564406395
+        },
+        {
+            "name": "Without_CAUSTICS",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Without_CAUSTICS.png",
+            "keywords": [
+                "_WATER_DEPTH_ON",
+                "_WATER_FOAM_ON",
+                "_WATER_FRESNEL_ON",
+                "_WATER_REFRACTION_ON",
+                "_WATER_RIPPLES_ON",
+                "_WATER_SCATTER_ON",
+                "_WATER_WAVES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 44677,
+            "meanAbsoluteDifference": 0.008911482989788056
+        },
+        {
+            "name": "Without_SCATTER",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Without_SCATTER.png",
+            "keywords": [
+                "_WATER_CAUSTICS_ON",
+                "_WATER_DEPTH_ON",
+                "_WATER_FOAM_ON",
+                "_WATER_FRESNEL_ON",
+                "_WATER_REFRACTION_ON",
+                "_WATER_RIPPLES_ON",
+                "_WATER_WAVES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 252820,
+            "meanAbsoluteDifference": 0.023906176909804345
+        },
+        {
+            "name": "Without_REFRACTION",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Without_REFRACTION.png",
+            "keywords": [
+                "_WATER_CAUSTICS_ON",
+                "_WATER_DEPTH_ON",
+                "_WATER_FOAM_ON",
+                "_WATER_FRESNEL_ON",
+                "_WATER_RIPPLES_ON",
+                "_WATER_SCATTER_ON",
+                "_WATER_WAVES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 273323,
+            "meanAbsoluteDifference": 0.06365963071584702
+        },
+        {
+            "name": "Without_SPECULAR",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Without_SPECULAR.png",
+            "keywords": [
+                "_SPECULARHIGHLIGHTS_OFF",
+                "_WATER_CAUSTICS_ON",
+                "_WATER_DEPTH_ON",
+                "_WATER_FOAM_ON",
+                "_WATER_FRESNEL_ON",
+                "_WATER_REFRACTION_ON",
+                "_WATER_RIPPLES_ON",
+                "_WATER_SCATTER_ON",
+                "_WATER_WAVES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 0,
+            "meanAbsoluteDifference": 0.00009131490514846519
+        },
+        {
+            "name": "Without_REFLECTION",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Without_REFLECTION.png",
+            "keywords": [
+                "_GLOSSYREFLECTIONS_OFF",
+                "_WATER_CAUSTICS_ON",
+                "_WATER_DEPTH_ON",
+                "_WATER_FOAM_ON",
+                "_WATER_FRESNEL_ON",
+                "_WATER_REFRACTION_ON",
+                "_WATER_RIPPLES_ON",
+                "_WATER_SCATTER_ON",
+                "_WATER_WAVES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 189880,
+            "meanAbsoluteDifference": 0.015544398687779904
+        },
+        {
+            "name": "Only_WAVES",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Only_WAVES.png",
+            "keywords": [
+                "_GLOSSYREFLECTIONS_OFF",
+                "_SPECULARHIGHLIGHTS_OFF",
+                "_WATER_WAVES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 273774,
+            "meanAbsoluteDifference": 0.0703059583902359
+        },
+        {
+            "name": "Only_RIPPLES",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Only_RIPPLES.png",
+            "keywords": [
+                "_GLOSSYREFLECTIONS_OFF",
+                "_SPECULARHIGHLIGHTS_OFF",
+                "_WATER_RIPPLES_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 283409,
+            "meanAbsoluteDifference": 0.07408607751131058
+        },
+        {
+            "name": "Only_FRESNEL",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Only_FRESNEL.png",
+            "keywords": [
+                "_GLOSSYREFLECTIONS_OFF",
+                "_SPECULARHIGHLIGHTS_OFF",
+                "_WATER_FRESNEL_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 283409,
+            "meanAbsoluteDifference": 0.0692230835556984
+        },
+        {
+            "name": "Only_DEPTH",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Only_DEPTH.png",
+            "keywords": [
+                "_GLOSSYREFLECTIONS_OFF",
+                "_SPECULARHIGHLIGHTS_OFF",
+                "_WATER_DEPTH_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 280035,
+            "meanAbsoluteDifference": 0.07715722918510437
+        },
+        {
+            "name": "Only_FOAM",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Only_FOAM.png",
+            "keywords": [
+                "_GLOSSYREFLECTIONS_OFF",
+                "_SPECULARHIGHLIGHTS_OFF",
+                "_WATER_FOAM_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 283409,
+            "meanAbsoluteDifference": 0.07170075178146362
+        },
+        {
+            "name": "Only_CAUSTICS",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Only_CAUSTICS.png",
+            "keywords": [
+                "_GLOSSYREFLECTIONS_OFF",
+                "_SPECULARHIGHLIGHTS_OFF",
+                "_WATER_CAUSTICS_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 283409,
+            "meanAbsoluteDifference": 0.07408607751131058
+        },
+        {
+            "name": "Only_SCATTER",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Only_SCATTER.png",
+            "keywords": [
+                "_GLOSSYREFLECTIONS_OFF",
+                "_SPECULARHIGHLIGHTS_OFF",
+                "_WATER_SCATTER_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 283409,
+            "meanAbsoluteDifference": 0.07408607751131058
+        },
+        {
+            "name": "Only_REFRACTION",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Only_REFRACTION.png",
+            "keywords": [
+                "_GLOSSYREFLECTIONS_OFF",
+                "_SPECULARHIGHLIGHTS_OFF",
+                "_WATER_REFRACTION_ON"
+            ],
+            "compiled": true,
+            "changedPixels": 273984,
+            "meanAbsoluteDifference": 0.10945790261030197
+        },
+        {
+            "name": "Only_SPECULAR",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Only_SPECULAR.png",
+            "keywords": [
+                "_GLOSSYREFLECTIONS_OFF"
+            ],
+            "compiled": true,
+            "changedPixels": 283409,
+            "meanAbsoluteDifference": 0.07408607751131058
+        },
+        {
+            "name": "Only_REFLECTION",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/Only_REFLECTION.png",
+            "keywords": [
+                "_SPECULARHIGHLIGHTS_OFF"
+            ],
+            "compiled": true,
+            "changedPixels": 283409,
+            "meanAbsoluteDifference": 0.08083206415176392
+        },
+        {
+            "name": "AllOff",
+            "preview": "Library/ASEShaderConverter/WaterDelivery/Validation/AllOff.png",
+            "keywords": [
+                "_GLOSSYREFLECTIONS_OFF",
+                "_SPECULARHIGHLIGHTS_OFF"
+            ],
+            "compiled": true,
+            "changedPixels": 0,
+            "meanAbsoluteDifference": 0.0
+        }
+    ]
+}

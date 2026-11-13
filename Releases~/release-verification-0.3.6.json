@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "version": "0.3.6",
+  "archives": [
+    {
+      "file": "com.aseshader.handwritten-converter-0.3.6.tgz",
+      "bytes": 14982148,
+      "sha256": "a8b329a09aa185cb34c844a051c0f6028e651689facd3b74ef9e16809f1f4ec2",
+      "packagedVerifiedGraphs": 293,
+      "newJadeGraphs": 3,
+      "excludedReferenceAndDiagnosticData": true
+    },
+    {
+      "file": "ASEShaderConverter-0.3.6.zip",
+      "bytes": 17414347,
+      "sha256": "5560684f4f7d554d8b6f51daea294a93f14e19f7dcc37568e6e4173f4b33805a",
+      "packagedVerifiedGraphs": 293,
+      "newJadeGraphs": 3,
+      "excludedReferenceAndDiagnosticData": true
+    }
+  ],
+  "originalSceneEquivalent": false,
+  "sourceArticleOnlyContainsCoreFunction": true
+}

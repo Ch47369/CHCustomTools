@@ -1,0 +1,1894 @@
+{
+  "contracts": [
+    {
+      "id": "effect-BuiltIn-Skin-Freckles",
+      "familyId": "Skin-Freckles",
+      "recipe": "dots",
+      "planSha256": "17ee17622ed15b4a50886e5bc63620de79b497a16e5cfa1ac7bf3a6374fc251e",
+      "plannedNodes": 46,
+      "plannedComments": 5,
+      "outputSha256": "0e3d1b7d6304a00f12e59d739e443acceb5f786e32731eb23d4996708baec3b0"
+    },
+    {
+      "id": "effect-BuiltIn-Skin-Blush",
+      "familyId": "Skin-Blush",
+      "recipe": "vertex",
+      "planSha256": "93138c2752e06e5bb1f2e98289b12357d0a517a8bc931be8cac413bb5c2ec5c8",
+      "plannedNodes": 36,
+      "plannedComments": 5,
+      "outputSha256": "a3a2f24a1ed0fb3d06bcf13a9b514e3be869d37c2f844cb161bc637865fa239c"
+    },
+    {
+      "id": "effect-BuiltIn-Skin-Tan",
+      "familyId": "Skin-Tan",
+      "recipe": "gradient",
+      "planSha256": "ee439ca1af09106241d000f85742c9d79f4aa61528ee0ad029f09c6b46b3b8c9",
+      "plannedNodes": 37,
+      "plannedComments": 5,
+      "outputSha256": "cec15c253ee9a7c653b13b244aebe2dcbe7aeefb1bc4ee38a7bcdc2fdb99a1ea"
+    },
+    {
+      "id": "effect-BuiltIn-Skin-OilMask",
+      "familyId": "Skin-OilMask",
+      "recipe": "smoothmask",
+      "planSha256": "6349ea63c2bf284a597a1a06700796eed236d30780effd7d2e5df9e8ac0281b8",
+      "plannedNodes": 32,
+      "plannedComments": 5,
+      "outputSha256": "e9a6bdc3aa604116ec461602c9c6b7af1d0d8bc3ffaa40d30af249d6d3e7cc6e"
+    },
+    {
+      "id": "effect-BuiltIn-Skin-Dust",
+      "familyId": "Skin-Dust",
+      "recipe": "mask",
+      "planSha256": "a17654ee22f379891dfc46b35223760931ef29b9ebf41a8fe4d2cf77e6806e82",
+      "plannedNodes": 37,
+      "plannedComments": 5,
+      "outputSha256": "b5d7092f7e5d1627bf83e31404f65d22b2fd24525dcd5688a604337643e7c8b7"
+    },
+    {
+      "id": "effect-BuiltIn-Hair-RootTip",
+      "familyId": "Hair-RootTip",
+      "recipe": "gradient",
+      "planSha256": "542ed27de1400ebfd84e81c0e1393a74594a46d75a5f922dbf25b6c327fd2abd",
+      "plannedNodes": 31,
+      "plannedComments": 5,
+      "outputSha256": "147df6bca27d61d760fd724ded8775d6bc3b52d4b083312d84eaf2cf6b2fa095"
+    },
+    {
+      "id": "effect-BuiltIn-Hair-Streaks",
+      "familyId": "Hair-Streaks",
+      "recipe": "stripes",
+      "planSha256": "f0b403254c84834421fad22033c4ffa7de3219490d70128ea2f8b1ad94c48c3d",
+      "plannedNodes": 35,
+      "plannedComments": 5,
+      "outputSha256": "81a91d6452fe2bc063f4f6910617c37e0142b9bf9f6533dcb5dd968844326977"
+    },
+    {
+      "id": "effect-BuiltIn-Hair-VertexDye",
+      "familyId": "Hair-VertexDye",
+      "recipe": "vertex",
+      "planSha256": "fd140badceddfa672a1141c9d5e0af8311794d5095e05f6c7c2d56849aef3185",
+      "plannedNodes": 30,
+      "plannedComments": 5,
+      "outputSha256": "09da529d76ed05b2301aa29175da5900a60cffc7b4fa49f999f469801e300aee"
+    },
+    {
+      "id": "effect-BuiltIn-Hair-DyeMask",
+      "familyId": "Hair-DyeMask",
+      "recipe": "mask",
+      "planSha256": "511c8dfa7bbd83b193717e56f0fc7691fb568a17ab5d713e0084c2d61c508118",
+      "plannedNodes": 31,
+      "plannedComments": 5,
+      "outputSha256": "3c69ee16f5dcf490d853653d32990e8d2412890628549acee7e8de785f159219"
+    },
+    {
+      "id": "effect-BuiltIn-Hair-TipFade",
+      "familyId": "Hair-TipFade",
+      "recipe": "coverage",
+      "planSha256": "2a1a64aa01ca23f461a6e973ab4c52140029ba4695c07d8ae6713fe9e75aac88",
+      "plannedNodes": 26,
+      "plannedComments": 5,
+      "outputSha256": "0ffa40f737f5afd814b9214191b8bb44487d0d9812f8cb01bc6f86f7d062094a"
+    },
+    {
+      "id": "effect-BuiltIn-Eye-LimbalRing",
+      "familyId": "Eye-LimbalRing",
+      "recipe": "ringtint",
+      "planSha256": "f9d5a83a63b74649364041b237db3908f844fe33811ef574dfa6b872763c4541",
+      "plannedNodes": 63,
+      "plannedComments": 5,
+      "outputSha256": "5fb2fc56e1215641af533ff80ab017f02f0fc43b277a717711c2f97f0530b405"
+    },
+    {
+      "id": "effect-BuiltIn-Eye-IrisBands",
+      "familyId": "Eye-IrisBands",
+      "recipe": "radialbands",
+      "planSha256": "61efb375bc94aa75a3874bc16499ab2da4298fbb4f906369e160590d9d718ffc",
+      "plannedNodes": 62,
+      "plannedComments": 5,
+      "outputSha256": "0b9104f89cf9d4e1fb1c776fccb6418830f56539261b9e3eb803b8140b3c0580"
+    },
+    {
+      "id": "effect-BuiltIn-Eye-IrisMask",
+      "familyId": "Eye-IrisMask",
+      "recipe": "mask",
+      "planSha256": "884bcaddfaf7fe4bc6202e71ed25977279133e50356ad20b59496f08417be5a1",
+      "plannedNodes": 54,
+      "plannedComments": 5,
+      "outputSha256": "50292c48733130efc53311f7477ff331051736165fb2d8296cda7729b352a8af"
+    },
+    {
+      "id": "effect-BuiltIn-Eye-ScleraTint",
+      "familyId": "Eye-ScleraTint",
+      "recipe": "vertex",
+      "planSha256": "73d2bbe673fab4265ecfcc50178e3eb20b11c887cdcbeb893904e429ebca159a",
+      "plannedNodes": 53,
+      "plannedComments": 5,
+      "outputSha256": "f3375fd5c9ae4ca47da330e568e342429025454e071553d2e682d109cbbb708f"
+    },
+    {
+      "id": "effect-BuiltIn-Eye-IrisSpeckles",
+      "familyId": "Eye-IrisSpeckles",
+      "recipe": "dots",
+      "planSha256": "79cbbf99c3d0d05d8d32f506070a884ec12355437c35584f5733ef6b19fe81dd",
+      "plannedNodes": 63,
+      "plannedComments": 5,
+      "outputSha256": "7840266bd1a36c32793153bd214a65b2465cb7f86f1008f45fa57af8bb25a85d"
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-Checks",
+      "familyId": "Fabric-Checks",
+      "recipe": "checker",
+      "planSha256": "ef2d89f510acd9601c596b3172f9e14f5215f45ef097c5a848a17acfe7274e29",
+      "plannedNodes": 41,
+      "plannedComments": 5,
+      "outputSha256": "3f6db0c865f3e78e053c3ed65397402ac0ccd798242677607b12fc3e28a2d2e4"
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-Stripes",
+      "familyId": "Fabric-Stripes",
+      "recipe": "stripes",
+      "planSha256": "9b39a1045045e33f2f85ba548ad894bbeae60c862a0971dab119b8489d6c6246",
+      "plannedNodes": 41,
+      "plannedComments": 5,
+      "outputSha256": "aa4580cc6cfb149a973fa16d6c7d5532465a6bbb819e2000d1dac382e0755610"
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-CrossWeave",
+      "familyId": "Fabric-CrossWeave",
+      "recipe": "cross",
+      "planSha256": "538ac6471272c3ca91c8b3b09bbc0bfcede8a884902829947c8931c80eca8167",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "637d70a8ff4a5c4688bddb3a5d2e8a9223db2998613421f1f19df94d6373912c"
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-Print",
+      "familyId": "Fabric-Print",
+      "recipe": "mask",
+      "planSha256": "c2c6f3dfd7d809136f6e045796f77932e4502d8dcdbfb7808d42c425c814eb25",
+      "plannedNodes": 37,
+      "plannedComments": 5,
+      "outputSha256": "8d838ffa7d36848e7179958c84c89948e0af76acc75369b8fcbb21da764a8c33"
+    },
+    {
+      "id": "effect-BuiltIn-Fabric-VertexDye",
+      "familyId": "Fabric-VertexDye",
+      "recipe": "vertex",
+      "planSha256": "ebf172434bc7a51f6e1006dcbf869b3f06aa1ace094e4c591d886dc19dbe21a7",
+      "plannedNodes": 36,
+      "plannedComments": 5,
+      "outputSha256": "8b7d888c3528f5aa0e9e151c1c78c476d64c0378eec07eb4bfe338b1d75feec2"
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Dots",
+      "familyId": "Hosiery-Dots",
+      "recipe": "dotcoverage",
+      "planSha256": "757eb54dbf21ff40419824db52b12844f3b839adb8be590ffc6f22749da677b2",
+      "plannedNodes": 64,
+      "plannedComments": 6,
+      "outputSha256": "d0627401a47463070648c30621e064a1a4bcbbf76852e51cdb8cea8e35cceb80"
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Rib",
+      "familyId": "Hosiery-Rib",
+      "recipe": "stripecoverage",
+      "planSha256": "82471b1b99b3db596fece86e52a53ee3fefadfb7c4ccc48cc7fc15a178b16564",
+      "plannedNodes": 59,
+      "plannedComments": 6,
+      "outputSha256": "aaae62f8a5557fa8a6ea2479f5828817f77fd82a524d40c4a12861388422c6e5"
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Lace",
+      "familyId": "Hosiery-Lace",
+      "recipe": "maskcoverage",
+      "planSha256": "d0ba213161aaf5dac4bab4c16ee193d861084de05fc1996e7107a3a18790a922",
+      "plannedNodes": 53,
+      "plannedComments": 6,
+      "outputSha256": "5a01975e2f5d445860ed2843ff3fdbe45cc1f877b2746ea3c8a7012c86fca4dd"
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Gradient",
+      "familyId": "Hosiery-Gradient",
+      "recipe": "coverage",
+      "planSha256": "a26bad4a5ead640ef4b7cfad42685b67a317ba62ed865951022b9e769e299a4a",
+      "plannedNodes": 53,
+      "plannedComments": 6,
+      "outputSha256": "0b1a8bc348aadba763b13ea371bc9cb3035e9f8c4aaebbd439c7a52ce1e48e8b"
+    },
+    {
+      "id": "effect-BuiltIn-Hosiery-Diamond",
+      "familyId": "Hosiery-Diamond",
+      "recipe": "diamondcoverage",
+      "planSha256": "bc5ef01f60ee93a2fa94f4b62ced5bd411f40beab4ed698c467295b6c61a005d",
+      "plannedNodes": 63,
+      "plannedComments": 6,
+      "outputSha256": "5b77fd895c61fd5ed1373eb7438a5057266aee3724e14c671e179ce15a373b31"
+    },
+    {
+      "id": "effect-BuiltIn-Water-Foam",
+      "familyId": "Water-Foam",
+      "recipe": "flowmask",
+      "planSha256": "e8ae8d5ca904fa66958a8ecafefc80e224a563aa856a5372f9b1cfa8f31d313e",
+      "plannedNodes": 48,
+      "plannedComments": 5,
+      "outputSha256": "43107cbc80cf4535cb276d07bba893c8dd0ff18a6010f001c676e57816a676e8"
+    },
+    {
+      "id": "effect-BuiltIn-Water-Ripples",
+      "familyId": "Water-Ripples",
+      "recipe": "radialbands",
+      "planSha256": "2bf40913aae0e63ca3bddcde7b167723f7c15f9e377e0e0bbd8ec598a8c2255f",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "4e054dc39e793604eb0b8b9572578ec5158ef3b60265b877d83ffaa90873e710"
+    },
+    {
+      "id": "effect-BuiltIn-Water-RimTint",
+      "familyId": "Water-RimTint",
+      "recipe": "fresneltint",
+      "planSha256": "ff2f513c8e423d010352b2318e58a130147d00d8fc46502b8fdad02dce35313b",
+      "plannedNodes": 40,
+      "plannedComments": 5,
+      "outputSha256": "dbe42ee2836aaa0a7643b3dcd89528deab2e9352828550556a880f3a32cab516"
+    },
+    {
+      "id": "effect-BuiltIn-Water-VertexWave",
+      "familyId": "Water-VertexWave",
+      "recipe": "ripplevertex",
+      "planSha256": "0ff7675bda222967400199a4439dd15c5e2ae7dcdc35bb5103326d89a8aaf0de",
+      "plannedNodes": 48,
+      "plannedComments": 5,
+      "outputSha256": "2157c740b2380764e4fd1910f70b686bc8eae8562ee42456c90180d6439dad9d"
+    },
+    {
+      "id": "effect-BuiltIn-Water-DualNormal",
+      "familyId": "Water-DualNormal",
+      "recipe": "flownormal",
+      "planSha256": "e6060f70aab72c7a5a93a1f22e19ef81df298404baf243982bbb6a585174fd24",
+      "plannedNodes": 46,
+      "plannedComments": 5,
+      "outputSha256": "7d15196d1db69254602682e0f21ed5e236bd510fc8925015c843152eb51373bd"
+    },
+    {
+      "id": "effect-BuiltIn-Metal-Brushed",
+      "familyId": "Metal-Brushed",
+      "recipe": "detailnormal",
+      "planSha256": "7951384fb9a510914c3d001e6fd3c61464a048e96dea2a599a542d075cafb2cc",
+      "plannedNodes": 28,
+      "plannedComments": 5,
+      "outputSha256": "470e3f545be83b9893de8815120668f05691f6b4eccb4e12eba181763d6a027a"
+    },
+    {
+      "id": "effect-BuiltIn-Metal-Oxidized",
+      "familyId": "Metal-Oxidized",
+      "recipe": "mask",
+      "planSha256": "9b20256c75c294efb2627136ac1e5eb458c08dde3ea7c31683bf9a630ffec8b5",
+      "plannedNodes": 30,
+      "plannedComments": 5,
+      "outputSha256": "1a033759de00a9c61f458d923447c82b4632ba06082c2384b40f8dcc9436d954"
+    },
+    {
+      "id": "effect-BuiltIn-Metal-Scratches",
+      "familyId": "Metal-Scratches",
+      "recipe": "smoothmask",
+      "planSha256": "fddfa8a320e589b724daa2227bb31c753aade7ad6a7ea0c6fe3104b23814a60c",
+      "plannedNodes": 25,
+      "plannedComments": 5,
+      "outputSha256": "52e09088c55404fd849b15299c027298234813aa5ef98f6d3252758aa362e6bb"
+    },
+    {
+      "id": "effect-BuiltIn-Metal-HeatTint",
+      "familyId": "Metal-HeatTint",
+      "recipe": "gradient",
+      "planSha256": "68b6d833868532529a99acb5d5b805b9f684d65e4311dc4f27a8ba341e50dd53",
+      "plannedNodes": 30,
+      "plannedComments": 5,
+      "outputSha256": "e685bc62bc933b3359f20e373148e2b4c1b4702251266609f3e57872dc3b93a9"
+    },
+    {
+      "id": "effect-BuiltIn-Metal-Panels",
+      "familyId": "Metal-Panels",
+      "recipe": "checker",
+      "planSha256": "2604ac5a642e0f0adca806a262fdc82431d507d18ffbe06b02ab8863a1a4cc55",
+      "plannedNodes": 34,
+      "plannedComments": 5,
+      "outputSha256": "2718a817af8169b60b08fc945758c76391fb0a9b045bc4016a41a901c8b9e3e4"
+    },
+    {
+      "id": "effect-BuiltIn-Stone-MossMask",
+      "familyId": "Stone-MossMask",
+      "recipe": "mask",
+      "planSha256": "07419368e0990b48cfce6fa8f3435f672779fc7dc7de7f0c12976599cdc9bbb0",
+      "plannedNodes": 38,
+      "plannedComments": 5,
+      "outputSha256": "10e84f0dc027eb985743ae4cf82f3ef5c38b15032c6a97194b6485c94fa7b757"
+    },
+    {
+      "id": "effect-BuiltIn-Stone-Strata",
+      "familyId": "Stone-Strata",
+      "recipe": "stripes",
+      "planSha256": "7151bf55572dab1139d76bdba7b71acefec03664fd737ada18dc64daed436ef0",
+      "plannedNodes": 42,
+      "plannedComments": 5,
+      "outputSha256": "4cc0672192d54be00b9291177a1683c9057eddc99d2b308d85bd32ae861e0536"
+    },
+    {
+      "id": "effect-BuiltIn-Stone-Cracks",
+      "familyId": "Stone-Cracks",
+      "recipe": "cracks",
+      "planSha256": "8d7014de50615b9e9ca79b51214e23edcc83ade0eacc5851fc4b4a74ec753730",
+      "plannedNodes": 42,
+      "plannedComments": 5,
+      "outputSha256": "090d3364272b3553b4271af1b7b3ec170cf1132db488c29d728709544036a1ed"
+    },
+    {
+      "id": "effect-BuiltIn-Stone-Wet",
+      "familyId": "Stone-Wet",
+      "recipe": "smoothmask",
+      "planSha256": "447aca7f14039d381c461e38869559b5a622c1594b70d4264f075d4203727ab0",
+      "plannedNodes": 33,
+      "plannedComments": 5,
+      "outputSha256": "64c69ff9a8ddded7acf6addf6a3a5ae405db507703ddb2d2ab88842fe4a7f5ab"
+    },
+    {
+      "id": "effect-BuiltIn-Stone-VertexPaint",
+      "familyId": "Stone-VertexPaint",
+      "recipe": "vertex",
+      "planSha256": "6fb8ce8348142ae84e178da486600cd81ae3065a6e2d934094a32f6353afec51",
+      "plannedNodes": 37,
+      "plannedComments": 5,
+      "outputSha256": "53cfe3af65932c95cb456e041ccf9f9b8fcfbe986477b0cc56277c34daa2da23"
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Veins",
+      "familyId": "Jade-Veins",
+      "recipe": "cross",
+      "planSha256": "017dcd627a3a6d7ace51aa1fccebea6c24a96cdf41eea848674e2e3331a68fa6",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "ec224953afbd45493a62b12d9bf0c8d80ae6407a92db706e005a4afb745d023c"
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Clouds",
+      "familyId": "Jade-Clouds",
+      "recipe": "mask",
+      "planSha256": "713132d46001eb40d4bb260f9c5d1a3cf1dc9be9fbb611eb5622c8b7290aa8f5",
+      "plannedNodes": 37,
+      "plannedComments": 5,
+      "outputSha256": "7f18b780fb250c52d3aaf95346218eb61b58da9e913ffeb02cb54ba526580eb4"
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Gradient",
+      "familyId": "Jade-Gradient",
+      "recipe": "gradient",
+      "planSha256": "744331ebad1b097e2cf852e5f932be663746e7c44881e8d7739238f3cc35098d",
+      "plannedNodes": 37,
+      "plannedComments": 5,
+      "outputSha256": "72eaf76df118a79001709ffffbe5cb7655d5ed06e668b073fb7f93e2ec7fea03"
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Speckles",
+      "familyId": "Jade-Speckles",
+      "recipe": "dots",
+      "planSha256": "53cbd53287180be319636cee3d9fc17e1b05f4c1aea1fb9d86733deb656ae43a",
+      "plannedNodes": 46,
+      "plannedComments": 5,
+      "outputSha256": "d01ff631258e8b5fd7d9d99cad338cc99da33c81696e3dd198feb72e6a6a3abe"
+    },
+    {
+      "id": "effect-BuiltIn-Jade-Rind",
+      "familyId": "Jade-Rind",
+      "recipe": "ringtint",
+      "planSha256": "60dc96ddacab43813036543f4e8f015839f25e0be29984ea4a0a3c37ccc761ae",
+      "plannedNodes": 46,
+      "plannedComments": 5,
+      "outputSha256": "3ebf75e90c9c31d5bae105f2a97416b34f5b1d1c1d0630455f07d0d12d8f8991"
+    },
+    {
+      "id": "effect-BuiltIn-UI-Gradient",
+      "familyId": "UI-Gradient",
+      "recipe": "gradient",
+      "planSha256": "287da77e8d01561b9380e82f958586bc96f745bfa730eaf2e50bdaaaefbccc62",
+      "plannedNodes": 19,
+      "plannedComments": 2,
+      "outputSha256": "f3c9ddcdb0b72b9b8ea25b1ac009a5b013db5d5aca164350c57675e08c3a7adb"
+    },
+    {
+      "id": "effect-BuiltIn-UI-RadialMask",
+      "familyId": "UI-RadialMask",
+      "recipe": "radialcoverage",
+      "planSha256": "f8a29c928053ce3836ddf0f11b242e175faa4ed84847154260ad7aa39496e0ae",
+      "plannedNodes": 27,
+      "plannedComments": 2,
+      "outputSha256": "3e4290545b144498f0564b0f83a029689f649069340a097b7285e0d1ce970f47"
+    },
+    {
+      "id": "effect-BuiltIn-UI-Frame",
+      "familyId": "UI-Frame",
+      "recipe": "framecoverage",
+      "planSha256": "c07fa8f607ecd4bdbb21e198d0d4b458783dd2da1f639a7b0c2bcc0e3d809a97",
+      "plannedNodes": 33,
+      "plannedComments": 2,
+      "outputSha256": "1b90c66278dfe9f15816626c04ccfd5aebd65a9d5c1d6edcce52d4e76461c35d"
+    },
+    {
+      "id": "effect-BuiltIn-UI-Scanline",
+      "familyId": "UI-Scanline",
+      "recipe": "stripes",
+      "planSha256": "35f03b1bbf292139a09b04518f3cc4b8ed362db1bb00eeb82dbc339e491ea909",
+      "plannedNodes": 23,
+      "plannedComments": 2,
+      "outputSha256": "29b795fd8f6717c7cb95b8a40738bfe3fd6dc3234defa34d5920b57ec502112f"
+    },
+    {
+      "id": "effect-BuiltIn-UI-MaskTint",
+      "familyId": "UI-MaskTint",
+      "recipe": "mask",
+      "planSha256": "9c2553ae7d397dc5f244ca31f912f2cc500e0529b4a378cc4ac64caf76d92c30",
+      "plannedNodes": 19,
+      "plannedComments": 2,
+      "outputSha256": "613c24e644d2ce0d046c6e64665e7ecee5d6f788f10cf971e0e812d5368303ff"
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-ScanPulse",
+      "familyId": "UIEffects-ScanPulse",
+      "recipe": "pulsestripe",
+      "planSha256": "26240f8f5d57a572f780c6285d455e69c5f0ab8727ecbeb69bee3edf6d1f3efb",
+      "plannedNodes": 47,
+      "plannedComments": 3,
+      "outputSha256": "0b79378b8072f77ece3a3ba838a0433451ffd5d8e25b9843b7f8b257387f7020"
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-Pulse",
+      "familyId": "UIEffects-Pulse",
+      "recipe": "pulse",
+      "planSha256": "9411c79d5ece6e4bf9c7003f3cba93d4c5e3315fb2060fdc58ab18b4f4df56cf",
+      "plannedNodes": 39,
+      "plannedComments": 3,
+      "outputSha256": "9b59bfa3b3b1b410b7830337840da2428fea9a7d450e70d9390fed638778a919"
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-Wipe",
+      "familyId": "UIEffects-Wipe",
+      "recipe": "wipecoverage",
+      "planSha256": "a5538216844b7bff7ccda529fd65f754350a1cb29cdb66001fe9be7af083af17",
+      "plannedNodes": 38,
+      "plannedComments": 3,
+      "outputSha256": "e4af159cbf0ad15bb3929812443b3458c2da3c74348151ddfc3de6ecf333df9a"
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-Grid",
+      "familyId": "UIEffects-Grid",
+      "recipe": "flowgrid",
+      "planSha256": "aff54bfd01b6c6a40023ba9e7332574857c9842d760ab15cd56e9082c81bcd8a",
+      "plannedNodes": 49,
+      "plannedComments": 3,
+      "outputSha256": "0c20427d163889865e551c617f7416def270fbd9fe20489853439769a760d24c"
+    },
+    {
+      "id": "effect-BuiltIn-UIEffects-RingPulse",
+      "familyId": "UIEffects-RingPulse",
+      "recipe": "pulsering",
+      "planSha256": "3df0336b78893f2e6b307943249c9c3784d1ac970239ff1be35e4f277202dc33",
+      "plannedNodes": 46,
+      "plannedComments": 3,
+      "outputSha256": "6020ed7755c85e6e0bed3e2b6140606f202a1ac21540a1f1cba5ea56c29070d7"
+    },
+    {
+      "id": "effect-BuiltIn-VFX-Ring",
+      "familyId": "VFX-Ring",
+      "recipe": "radialcoverage",
+      "planSha256": "6a39122939267ec4451c69b9eebca68f2d1afc42db9044bfdd0d3e4ad6eb54ca",
+      "plannedNodes": 48,
+      "plannedComments": 5,
+      "outputSha256": "f9811fbf6ddbc0700f49e82380a983074d64e965ac40a7eab23d9399c3632ce2"
+    },
+    {
+      "id": "effect-BuiltIn-VFX-Beam",
+      "familyId": "VFX-Beam",
+      "recipe": "beamcoverage",
+      "planSha256": "14d73bbf62b0fa38f57c9773577cc48920792e0487467ccfbae38ad9b39ac663",
+      "plannedNodes": 43,
+      "plannedComments": 5,
+      "outputSha256": "10611a36752cf9c18e5d0e8e3f6ff958883cd7fb45c96c3b7060c78baff590c1"
+    },
+    {
+      "id": "effect-BuiltIn-VFX-SoftDisc",
+      "familyId": "VFX-SoftDisc",
+      "recipe": "softcoverage",
+      "planSha256": "1c08ff75289984a4e92d1a6f33430be6ffff98ecfcc9bdfe8a54ce7979829bd2",
+      "plannedNodes": 44,
+      "plannedComments": 5,
+      "outputSha256": "cf2073dd426f4318d0311d65c4c4c61807fb91a9bff8eb1383184ad7cc3882e9"
+    },
+    {
+      "id": "effect-BuiltIn-VFX-Scan",
+      "familyId": "VFX-Scan",
+      "recipe": "stripecoverage",
+      "planSha256": "ccf0fc489545d99b518ef02ca4af5326892be53464a0b7a0a19f1c14daa5c401",
+      "plannedNodes": 45,
+      "plannedComments": 5,
+      "outputSha256": "38cdadc336d18d8931ed5ef5fef155f4b5a71f886bf9501957eb2170395eb2b9"
+    },
+    {
+      "id": "effect-BuiltIn-VFX-Pulse",
+      "familyId": "VFX-Pulse",
+      "recipe": "pulse",
+      "planSha256": "c8868ca9ce8553740ee40804c8c353232d8bd1813eed458ac444219005532d93",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "7395c97e0bb1b9f27073bd8eefbceec73823d7a450678f30a3ccc6bc0c3f6dbe"
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-LayerRotate",
+      "familyId": "UVAnimation-LayerRotate",
+      "recipe": "rotatelayer",
+      "planSha256": "cdb0f21a776a6968ab3cd853554f4fe47a48b9b2800297163107b5473d40e7ad",
+      "plannedNodes": 63,
+      "plannedComments": 5,
+      "outputSha256": "4a96a36b60e2aafd743b4436e5f2aa02376e4a3bc4c7db9854d4c8b835e9a88e"
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-FlowMask",
+      "familyId": "UVAnimation-FlowMask",
+      "recipe": "flowmask",
+      "planSha256": "68147204d95cd5a971a3c25bd94b378fde254ccbf081d04fa0f5b24a42c4fa7a",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "32d1685c8f0f840af32af0be43df5f40b625f70d76a64330787f15491d82c82c"
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-Distortion",
+      "familyId": "UVAnimation-Distortion",
+      "recipe": "distortlayer",
+      "planSha256": "b1603de12c9e66332ee6206ae73f84ec1857a7f1b17c332a4508d6c29a6acb4c",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "3f5353ae8e8af7a14fd142b16767df49996a3d00763b3e1c58b20329001bde33"
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-Flipbook",
+      "familyId": "UVAnimation-Flipbook",
+      "recipe": "flipbook",
+      "planSha256": "6f90962343c60f956bfe41d6d1460cec555e8ef605efbb243bfcd440c4be3363",
+      "plannedNodes": 60,
+      "plannedComments": 5,
+      "outputSha256": "639ba318f65247b93339b711a041170064717ed7acb03f6458c8fdd1d2d58e14"
+    },
+    {
+      "id": "effect-BuiltIn-UVAnimation-PingPong",
+      "familyId": "UVAnimation-PingPong",
+      "recipe": "pingpong",
+      "planSha256": "9c9332212decfdca514030bdca3a21bc86e3c5bd1cb43cb7702a7cd314687aac",
+      "plannedNodes": 45,
+      "plannedComments": 5,
+      "outputSha256": "d7dad0f8351dfa48cbb2869b4d57c71b0ece099f91db95339eb8761d894afb6b"
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-Flutter",
+      "familyId": "VertexAnimation-Flutter",
+      "recipe": "fluttervertex",
+      "planSha256": "786d82b8a814fff1ae37e2ce991b8784250058eb799ba1c974265be5f04bb0ee",
+      "plannedNodes": 52,
+      "plannedComments": 6,
+      "outputSha256": "2d1b08fef19ca8f0c70179f26563c2131df8997d8dd55f0e965040fa8d565ffe"
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-Ripple",
+      "familyId": "VertexAnimation-Ripple",
+      "recipe": "ripplevertex",
+      "planSha256": "d14e6da419dfaf5941adb9244c51cc335a9057f4f0cc251ff3ee8aaddbc3871e",
+      "plannedNodes": 52,
+      "plannedComments": 6,
+      "outputSha256": "ceed7fdf7427a40d57fd472f9311a0a5bc090e6b43740c4a1d5b15a2db1455da"
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-Bob",
+      "familyId": "VertexAnimation-Bob",
+      "recipe": "bobvertex",
+      "planSha256": "12148ba86273f23d48f0918659496603d4d76001dd3b2a8116dd4986f7ec8e4d",
+      "plannedNodes": 47,
+      "plannedComments": 6,
+      "outputSha256": "0c8fe82b68f90007c599978776550adf900b23283072268498da4d225ac6d392"
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-Bend",
+      "familyId": "VertexAnimation-Bend",
+      "recipe": "bendvertex",
+      "planSha256": "17e080da4d4c6ab0d1709ec346a4add61fc6204273d5cbefd42a26696b27af63",
+      "plannedNodes": 51,
+      "plannedComments": 6,
+      "outputSha256": "3f873cc720ef63821f77ba4fb038d46b627b6a8afd7a8e456453e1f0cf2861bf"
+    },
+    {
+      "id": "effect-BuiltIn-VertexAnimation-CrossWind",
+      "familyId": "VertexAnimation-CrossWind",
+      "recipe": "crossvertex",
+      "planSha256": "2959aa36328d5672e5be42e95c9587fc7d87d7c0100139b58999ef05f85750b5",
+      "plannedNodes": 50,
+      "plannedComments": 6,
+      "outputSha256": "68953ec4888189d91de5f2af47a3668346f61929d5c7abe5c22e98c89777f0cf"
+    },
+    {
+      "id": "effect-URP-Skin-Freckles",
+      "familyId": "Skin-Freckles",
+      "recipe": "dots",
+      "planSha256": "bc0d08cd5b62d445fa1817cf5536378ab1e6b7102dc960bef3ace85fe619caa9",
+      "plannedNodes": 46,
+      "plannedComments": 5,
+      "outputSha256": "ae93be86a676c0571ed2f79d17200ba70226c8bdbd01e25ca4192db833eebe77"
+    },
+    {
+      "id": "effect-URP-Skin-Blush",
+      "familyId": "Skin-Blush",
+      "recipe": "vertex",
+      "planSha256": "efe820231c9f8bd6f32a77c6f4f23da3d593e8cded739b9909c05d09f5137bcc",
+      "plannedNodes": 36,
+      "plannedComments": 5,
+      "outputSha256": "a1440f2b01f03580a9253f628f94c6a50ef5cb1994baba0d9f9f85d57b99d346"
+    },
+    {
+      "id": "effect-URP-Skin-Tan",
+      "familyId": "Skin-Tan",
+      "recipe": "gradient",
+      "planSha256": "5ac1da074b6eb16931a669b85d1604606da26a58d3379bebaef690388f8f15c1",
+      "plannedNodes": 37,
+      "plannedComments": 5,
+      "outputSha256": "3aa1a4318dd794f432cea1e35415252aacbdc23eea759bf9ea0574f887ee348d"
+    },
+    {
+      "id": "effect-URP-Skin-OilMask",
+      "familyId": "Skin-OilMask",
+      "recipe": "smoothmask",
+      "planSha256": "065e519155dc76677a6ae775109184ab2534310e64f21988dd163cb6720aeb0a",
+      "plannedNodes": 32,
+      "plannedComments": 5,
+      "outputSha256": "90c45a7ced8095c370197d589b2a3181db444b19796f8f61d4b3440769b1bbf3"
+    },
+    {
+      "id": "effect-URP-Skin-Dust",
+      "familyId": "Skin-Dust",
+      "recipe": "mask",
+      "planSha256": "97270d0b51d3e09cfa68e1903e117b26f3b32398b8efa3be57dee105bcbc8adf",
+      "plannedNodes": 37,
+      "plannedComments": 5,
+      "outputSha256": "86c77e0d056bbfe2ac302315454b9cac6df2adb77f84a48b3c359b83fbfcaa6a"
+    },
+    {
+      "id": "effect-URP-Hair-RootTip",
+      "familyId": "Hair-RootTip",
+      "recipe": "gradient",
+      "planSha256": "e4e14b4d9fdf10925ce6f3ea90ae9c18001892fcc393b86e703aac8dd2fc0b12",
+      "plannedNodes": 31,
+      "plannedComments": 5,
+      "outputSha256": "0f52c086d8cdb8ae1d8d9da52638e4eed2e01c8251110b31a3c642b9d5bf454e"
+    },
+    {
+      "id": "effect-URP-Hair-Streaks",
+      "familyId": "Hair-Streaks",
+      "recipe": "stripes",
+      "planSha256": "fe753d1e5897a7869c18475f8682ab8337257c0185418fc828fb81230b1bea57",
+      "plannedNodes": 35,
+      "plannedComments": 5,
+      "outputSha256": "7a03490223b47e0c8dc75ec3e55361aad4f7934a6dd3a30753d9c71094d75cfe"
+    },
+    {
+      "id": "effect-URP-Hair-VertexDye",
+      "familyId": "Hair-VertexDye",
+      "recipe": "vertex",
+      "planSha256": "023a9c14f7bee56444f492a35a20d666159c48be5764a8d13d3884ba19a1a876",
+      "plannedNodes": 30,
+      "plannedComments": 5,
+      "outputSha256": "bbbe2bc9a1300df63c978e8a74563d48a6970ce6fc853d6d0e8871c92b018d25"
+    },
+    {
+      "id": "effect-URP-Hair-DyeMask",
+      "familyId": "Hair-DyeMask",
+      "recipe": "mask",
+      "planSha256": "d9bbf6c32232128766e9bf75f5d962f51cf1b1588a6b853e33bff8587a21d746",
+      "plannedNodes": 31,
+      "plannedComments": 5,
+      "outputSha256": "22b5b7dd7c3a3685447b6605fae0dc534d34c613f0bbf2505bef2627666e3afd"
+    },
+    {
+      "id": "effect-URP-Hair-TipFade",
+      "familyId": "Hair-TipFade",
+      "recipe": "coverage",
+      "planSha256": "70bd55dbb9a153ac05b777946c52ce53aba07b9cf1ed55846b73e90884084ae0",
+      "plannedNodes": 26,
+      "plannedComments": 5,
+      "outputSha256": "e7eb59b75816fab77a6015e9223068ddcc58721774998431ac8feaafbb968aef"
+    },
+    {
+      "id": "effect-URP-Eye-LimbalRing",
+      "familyId": "Eye-LimbalRing",
+      "recipe": "ringtint",
+      "planSha256": "d2deb46dfb10aa397747908a9f3a5b9117db297071ce89e9ebc47846125e0656",
+      "plannedNodes": 63,
+      "plannedComments": 5,
+      "outputSha256": "ce607f233abbb4b0f40e2644f42e8da293e58a195b8bbd0c0e9aed786197ea0c"
+    },
+    {
+      "id": "effect-URP-Eye-IrisBands",
+      "familyId": "Eye-IrisBands",
+      "recipe": "radialbands",
+      "planSha256": "601e5025c2581da235abc225cfd460285b64c8a60298e7322ea7b06397231da1",
+      "plannedNodes": 62,
+      "plannedComments": 5,
+      "outputSha256": "75e8f00b8237679f31bab6795d0e0fee589cf79cb26239abaffac7892b948a8b"
+    },
+    {
+      "id": "effect-URP-Eye-IrisMask",
+      "familyId": "Eye-IrisMask",
+      "recipe": "mask",
+      "planSha256": "a0d7dbaf3b86b496bd8bf4582a15474d63d9c96c4747edfb4f09089e241ab970",
+      "plannedNodes": 54,
+      "plannedComments": 5,
+      "outputSha256": "ef542cec4f0e56d37ca2e0f12b9b293d7886d6b0a6b11263331208230538dff8"
+    },
+    {
+      "id": "effect-URP-Eye-ScleraTint",
+      "familyId": "Eye-ScleraTint",
+      "recipe": "vertex",
+      "planSha256": "dd7416ca10a14fcecd0fcff883b9c2ccf84c5898d22b208f50c6b41a8a9067e2",
+      "plannedNodes": 53,
+      "plannedComments": 5,
+      "outputSha256": "a7fdf0977277c11ae9b6ef96c7f3208e606a6d3bdcbf6a7aa296799a323e9403"
+    },
+    {
+      "id": "effect-URP-Eye-IrisSpeckles",
+      "familyId": "Eye-IrisSpeckles",
+      "recipe": "dots",
+      "planSha256": "8851808beaab223544b28cd41c3d795ba290652b0d79ed5888b466b2fb89ea14",
+      "plannedNodes": 63,
+      "plannedComments": 5,
+      "outputSha256": "7f0df0ff21b114350a67db5f563d09cfd00efda6f15949539f7ffe44dccd9c39"
+    },
+    {
+      "id": "effect-URP-Fabric-Checks",
+      "familyId": "Fabric-Checks",
+      "recipe": "checker",
+      "planSha256": "822eab8b245a95657f0b14a5b0be031daa37d3b33143e95eecff95043b339c88",
+      "plannedNodes": 41,
+      "plannedComments": 5,
+      "outputSha256": "46741ca748e07f85239f5b2062d815502d25c8d058cf937b6ddbdf064934a7d1"
+    },
+    {
+      "id": "effect-URP-Fabric-Stripes",
+      "familyId": "Fabric-Stripes",
+      "recipe": "stripes",
+      "planSha256": "dfd5fd081bc6a7369407466aecfa68634de256b75c0cd429fb4102a01101276f",
+      "plannedNodes": 41,
+      "plannedComments": 5,
+      "outputSha256": "f35a265678d9c1839eea7e7e707accea15240227ab11dcb3d07f4707efcd78b0"
+    },
+    {
+      "id": "effect-URP-Fabric-CrossWeave",
+      "familyId": "Fabric-CrossWeave",
+      "recipe": "cross",
+      "planSha256": "1d505f4fd878bd7332cfcffa33a50b42e0e56adc266bb79c5be9cc3a39717cf9",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "2f6213c615e7fb2f6e2924901a1d610a2172110be7ef211d7bcee76ee84ecc04"
+    },
+    {
+      "id": "effect-URP-Fabric-Print",
+      "familyId": "Fabric-Print",
+      "recipe": "mask",
+      "planSha256": "f928100f38a768d31f8d7d1a93470ead82f919e4fdc670819ce9d1b35b6cc984",
+      "plannedNodes": 37,
+      "plannedComments": 5,
+      "outputSha256": "cde4eb5d67a1430d7de3c51bc639895629ccc3fd8c012dc08742ad753c1ef3fb"
+    },
+    {
+      "id": "effect-URP-Fabric-VertexDye",
+      "familyId": "Fabric-VertexDye",
+      "recipe": "vertex",
+      "planSha256": "bd7f5b8c4bebf6f1155e5b8f47663fff62fd11fde51693c09475b45751364796",
+      "plannedNodes": 36,
+      "plannedComments": 5,
+      "outputSha256": "eee85b69bab6ecc5eb7b8dc26757aade25b529893fd702858cf45bf08404294b"
+    },
+    {
+      "id": "effect-URP-Hosiery-Dots",
+      "familyId": "Hosiery-Dots",
+      "recipe": "dotcoverage",
+      "planSha256": "d894dca99489a12f99756b3d4892a0c31204915d0851ff5c9adce1026515c9c9",
+      "plannedNodes": 64,
+      "plannedComments": 6,
+      "outputSha256": "bf8024ed1b3907927127f346995fc501e0a206f9cdd4e22d1b2f6b740ad3ed71"
+    },
+    {
+      "id": "effect-URP-Hosiery-Rib",
+      "familyId": "Hosiery-Rib",
+      "recipe": "stripecoverage",
+      "planSha256": "5309eaea9ebdd0bd1b14b57c718ce3ef08b07841559307de7f6c4111f933463e",
+      "plannedNodes": 59,
+      "plannedComments": 6,
+      "outputSha256": "4c49aa3895f2d1bdeb5ee09b45f24f47f263abd0f07e59b5601ed7a7fb82b9da"
+    },
+    {
+      "id": "effect-URP-Hosiery-Lace",
+      "familyId": "Hosiery-Lace",
+      "recipe": "maskcoverage",
+      "planSha256": "4d11fcaf1a54d1f201f628c7bfb4260356766e62512f71099f01e1d474413afd",
+      "plannedNodes": 53,
+      "plannedComments": 6,
+      "outputSha256": "29b1b66112e47c987d991273a1d46cf7036a9a452158832b7a2689296ba19448"
+    },
+    {
+      "id": "effect-URP-Hosiery-Gradient",
+      "familyId": "Hosiery-Gradient",
+      "recipe": "coverage",
+      "planSha256": "fbb952c7e64ad56f8a88d0a7024b2303208d22a49ab7a7d0a01062a9bf5efed5",
+      "plannedNodes": 53,
+      "plannedComments": 6,
+      "outputSha256": "4f6307cef5a79fb951659f5d6cb50a4b200a940830c26ed7337b088bf13ad79c"
+    },
+    {
+      "id": "effect-URP-Hosiery-Diamond",
+      "familyId": "Hosiery-Diamond",
+      "recipe": "diamondcoverage",
+      "planSha256": "081d3de4e3e2820c75f851e91e8d7129d106766c4f1225f05fd51002f0060553",
+      "plannedNodes": 63,
+      "plannedComments": 6,
+      "outputSha256": "234b5dc4eef24eccce74b9ccca197e1e4b4a46674399fb58fe8c79623d0de3ea"
+    },
+    {
+      "id": "effect-URP-Water-Foam",
+      "familyId": "Water-Foam",
+      "recipe": "flowmask",
+      "planSha256": "8a78c304969517841fc6235b346d7aa31e9dc636b8f21412ed6b91babba7b197",
+      "plannedNodes": 48,
+      "plannedComments": 5,
+      "outputSha256": "cad2acb604f43764f88133e5c226db9a5146cbbd35b9f9ad7feeb5ec38a5cf6d"
+    },
+    {
+      "id": "effect-URP-Water-Ripples",
+      "familyId": "Water-Ripples",
+      "recipe": "radialbands",
+      "planSha256": "d43aedc741624fa67045d0971ae8bea5f5bda17e1f873ff28c0c40ad83668b80",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "12f23dba9aa345b9f2a9db828d9a2c7c9f40e41adefcd423eb5068d3d7a0f72c"
+    },
+    {
+      "id": "effect-URP-Water-RimTint",
+      "familyId": "Water-RimTint",
+      "recipe": "fresneltint",
+      "planSha256": "ff20d296299ee434247eb84b39f9c7f0f8435b4d328238c4c39a9a3cb758cef0",
+      "plannedNodes": 40,
+      "plannedComments": 5,
+      "outputSha256": "7e78d5d13f18be9cf8581ba04f5de5d6e6287bf8d74b9666c292e8f433a9aef0"
+    },
+    {
+      "id": "effect-URP-Water-VertexWave",
+      "familyId": "Water-VertexWave",
+      "recipe": "ripplevertex",
+      "planSha256": "d518a02214c918ebdab000c2f8f84fa78a86ac5cc02a175ed7c5811d2f03d4d7",
+      "plannedNodes": 48,
+      "plannedComments": 5,
+      "outputSha256": "ca3cb69a70312d0aa8dad20e1b4b7ddff91305d4086e6de08da2043db6adff68"
+    },
+    {
+      "id": "effect-URP-Water-DualNormal",
+      "familyId": "Water-DualNormal",
+      "recipe": "flownormal",
+      "planSha256": "fce45c95b54bd45839f511de1db28d49bae974700a2089cdb33b88969704271a",
+      "plannedNodes": 46,
+      "plannedComments": 5,
+      "outputSha256": "2d2c97de4e1645826cb2588d23e694cc47985e5b548574ad33e05df511aaaec8"
+    },
+    {
+      "id": "effect-URP-Metal-Brushed",
+      "familyId": "Metal-Brushed",
+      "recipe": "detailnormal",
+      "planSha256": "7a894785583a873c5c7b0e97b037e4f297aa0056c5ea5dcfbd658ee01784e69c",
+      "plannedNodes": 28,
+      "plannedComments": 5,
+      "outputSha256": "479fe11274c14af465863cc8ec815b725a5c675b1986dc9cc4673ca5b4977def"
+    },
+    {
+      "id": "effect-URP-Metal-Oxidized",
+      "familyId": "Metal-Oxidized",
+      "recipe": "mask",
+      "planSha256": "1d8ab9c300b0c5cae2f391c953445e5550c9b694e259b6f6bed897a3a12c8693",
+      "plannedNodes": 30,
+      "plannedComments": 5,
+      "outputSha256": "f6a3ac894379fb9d4420263d5db7dc53c33a1d0014c909d863790b78aa5346c3"
+    },
+    {
+      "id": "effect-URP-Metal-Scratches",
+      "familyId": "Metal-Scratches",
+      "recipe": "smoothmask",
+      "planSha256": "f6c81c2472adc836de3c7c5b0203cd6996e8a7644af3b9e7fb58cd4283f7c04e",
+      "plannedNodes": 25,
+      "plannedComments": 5,
+      "outputSha256": "4b7668ef7d9e3d48787baa3f2d507e87a36134ad70709b95b612a45727898669"
+    },
+    {
+      "id": "effect-URP-Metal-HeatTint",
+      "familyId": "Metal-HeatTint",
+      "recipe": "gradient",
+      "planSha256": "caa1b6b4956c7c73a2471c51c29802d778f10fa2f5c736681dbfcf2c3ecd3ebb",
+      "plannedNodes": 30,
+      "plannedComments": 5,
+      "outputSha256": "1f61cf88073a2aaf6397c07a63ac70d31660b3bafde2968469071782dcf462d2"
+    },
+    {
+      "id": "effect-URP-Metal-Panels",
+      "familyId": "Metal-Panels",
+      "recipe": "checker",
+      "planSha256": "fe54f557142ffb348b9275426be86c66ac8f1ba4c16d634d8c547421acad8262",
+      "plannedNodes": 34,
+      "plannedComments": 5,
+      "outputSha256": "d24b6750ebd9665ec0576610402054373cb8f856b04054e682d723502a89901f"
+    },
+    {
+      "id": "effect-URP-Stone-MossMask",
+      "familyId": "Stone-MossMask",
+      "recipe": "mask",
+      "planSha256": "49e2ec3f937d4d8edceb02e3fda2a44d9d5dfdc84631b9d35dff47fb4da0dd39",
+      "plannedNodes": 38,
+      "plannedComments": 5,
+      "outputSha256": "472965ebda9dd1fd37d3f3ef8a02a82a2dd77c63b29f49b17cdaea13d35acdcb"
+    },
+    {
+      "id": "effect-URP-Stone-Strata",
+      "familyId": "Stone-Strata",
+      "recipe": "stripes",
+      "planSha256": "3bc3ae1576fee4a1a23db8a3df02d7f35696f455df155e108a47c4fefad551ce",
+      "plannedNodes": 42,
+      "plannedComments": 5,
+      "outputSha256": "862e3e8f94b1b67d909c80f20ef98f859b31b83423a03e4af50241a2b4bb8ae5"
+    },
+    {
+      "id": "effect-URP-Stone-Cracks",
+      "familyId": "Stone-Cracks",
+      "recipe": "cracks",
+      "planSha256": "5b84e76bf617f508e7bca018c11f044a3c35cd3b8dcf52decd07b5fb7b5ed4ea",
+      "plannedNodes": 42,
+      "plannedComments": 5,
+      "outputSha256": "41fdfeb1a9f32c32bb3dad9b0f863a192d5b9e343f997e5dfa0118df544065b4"
+    },
+    {
+      "id": "effect-URP-Stone-Wet",
+      "familyId": "Stone-Wet",
+      "recipe": "smoothmask",
+      "planSha256": "afae948c93bd48c4ae52bc53fc5f845d878ffea781dff97fbaac8cdb87259ab9",
+      "plannedNodes": 33,
+      "plannedComments": 5,
+      "outputSha256": "44ae6a6c0992f4ac877ed6c477966e054249b7149b843fb42857ac5866468818"
+    },
+    {
+      "id": "effect-URP-Stone-VertexPaint",
+      "familyId": "Stone-VertexPaint",
+      "recipe": "vertex",
+      "planSha256": "5bc7d89d5b44e08ec68e9747310f5e531dcc7b4456ee9844c03013139bc12f05",
+      "plannedNodes": 37,
+      "plannedComments": 5,
+      "outputSha256": "4e4d1bb099f0a995562282a772851e617c90f0e8fa6a7be6ae8caea691e489be"
+    },
+    {
+      "id": "effect-URP-Jade-Veins",
+      "familyId": "Jade-Veins",
+      "recipe": "cross",
+      "planSha256": "a1363d8ced0cacbd4df40973658fd34ecc5163cc9e73b484429d6ecaaeeac6c6",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "01a6795fefe61c7ffb83ff0973c5ce2a8a6df359da268e4c6bf1ac99e15bed60"
+    },
+    {
+      "id": "effect-URP-Jade-Clouds",
+      "familyId": "Jade-Clouds",
+      "recipe": "mask",
+      "planSha256": "98f506b1b466893c9dd8ef14f40fe1d3f09396d9051308a3c368d74b5f657c8b",
+      "plannedNodes": 37,
+      "plannedComments": 5,
+      "outputSha256": "7f2dc3e0ffba639063f34b50a49ff8f5ec48ca368166b9d1a812f8dced456af7"
+    },
+    {
+      "id": "effect-URP-Jade-Gradient",
+      "familyId": "Jade-Gradient",
+      "recipe": "gradient",
+      "planSha256": "9353b5f6327755e89d1525ee91c9f417b8c76a01d0d5bcc7f72892104d6de91e",
+      "plannedNodes": 37,
+      "plannedComments": 5,
+      "outputSha256": "5a5eda2c16f76c63bdbb8232a8873315f4f2bed92540ee120017f991e9a79e19"
+    },
+    {
+      "id": "effect-URP-Jade-Speckles",
+      "familyId": "Jade-Speckles",
+      "recipe": "dots",
+      "planSha256": "1d974052ff5f4d1656489f34ed5e855304ca0345c9685289932d32cc45ad59f3",
+      "plannedNodes": 46,
+      "plannedComments": 5,
+      "outputSha256": "f48117b6914ed271959387c18e70ae77ed7050c193b8d150c4eac5c9f76431e3"
+    },
+    {
+      "id": "effect-URP-Jade-Rind",
+      "familyId": "Jade-Rind",
+      "recipe": "ringtint",
+      "planSha256": "1d7c1290449c735a47f5c5ee643f4e1ab86f066965dcc3b26e6461e8b9eaeb8b",
+      "plannedNodes": 46,
+      "plannedComments": 5,
+      "outputSha256": "8e885209b4b6b5273175a9339b19c202df1c1ed69abfad48600db749e0456aac"
+    },
+    {
+      "id": "effect-URP-UI-Gradient",
+      "familyId": "UI-Gradient",
+      "recipe": "gradient",
+      "planSha256": "6c64c94098b8b2f2cc5d2f7ca7bbe939b47eaee9ba1ff58f6283fc19a3bf2e6f",
+      "plannedNodes": 19,
+      "plannedComments": 2,
+      "outputSha256": "0b66e27712c251e76480260262d1492c397ec6ae7d84ea8487518f04fc1c369c"
+    },
+    {
+      "id": "effect-URP-UI-RadialMask",
+      "familyId": "UI-RadialMask",
+      "recipe": "radialcoverage",
+      "planSha256": "714f1a2c544151ff1a59d4ae35d788a92e47c04ec7441eed486f0110bb3269dd",
+      "plannedNodes": 27,
+      "plannedComments": 2,
+      "outputSha256": "2422be437fe1e6e109e4efc0c8e16ca78d02043ec29ebe9907584ba76bfd2e88"
+    },
+    {
+      "id": "effect-URP-UI-Frame",
+      "familyId": "UI-Frame",
+      "recipe": "framecoverage",
+      "planSha256": "f58cacb664fb379d5bf8a7d238a943b116f5f1fd38f3252b9ecc6acd0b778654",
+      "plannedNodes": 33,
+      "plannedComments": 2,
+      "outputSha256": "61a1ea18557f0fb79328920f7ec9b4b0ae4372f470b819b98adffc0293210532"
+    },
+    {
+      "id": "effect-URP-UI-Scanline",
+      "familyId": "UI-Scanline",
+      "recipe": "stripes",
+      "planSha256": "2246c5d4cde22027f02298872c321b2682ab245c0356203bfce2cf80df6dc00a",
+      "plannedNodes": 23,
+      "plannedComments": 2,
+      "outputSha256": "d111158533a46457b5a60b114ea7b22e2d8a04a7cc054faa62449f968dd94f7b"
+    },
+    {
+      "id": "effect-URP-UI-MaskTint",
+      "familyId": "UI-MaskTint",
+      "recipe": "mask",
+      "planSha256": "a924c7ce05027a079b31d876cf8fbb801af38a2b183beade35a50aaf4bd274ce",
+      "plannedNodes": 19,
+      "plannedComments": 2,
+      "outputSha256": "acb193f6b62f35d6754e222c301866ff8b5cc4cdd6907eb7e1519c5ac33aa411"
+    },
+    {
+      "id": "effect-URP-UIEffects-ScanPulse",
+      "familyId": "UIEffects-ScanPulse",
+      "recipe": "pulsestripe",
+      "planSha256": "3f572c8eb9b74b80390e302b62f0556beaf8ffe46ec116e81130c9f394739c49",
+      "plannedNodes": 47,
+      "plannedComments": 3,
+      "outputSha256": "0d13c1919f30e6bfad0ffa8300c1ca4ee8c7c368f5d1a9aeb0af5d659c076d1c"
+    },
+    {
+      "id": "effect-URP-UIEffects-Pulse",
+      "familyId": "UIEffects-Pulse",
+      "recipe": "pulse",
+      "planSha256": "503e6145f336f1708768de7991991f805b08b8d3dd42eb06e2f3f38aa9563322",
+      "plannedNodes": 39,
+      "plannedComments": 3,
+      "outputSha256": "e0e49e78549885304335a5c0cac4e17c2e0107558f7b073ab944a015ee005949"
+    },
+    {
+      "id": "effect-URP-UIEffects-Wipe",
+      "familyId": "UIEffects-Wipe",
+      "recipe": "wipecoverage",
+      "planSha256": "3fab28170ff434c04a1ab14a19c806f147cebfdfc8db427ddfa7a428b7e9ec62",
+      "plannedNodes": 38,
+      "plannedComments": 3,
+      "outputSha256": "163796687fd6d1e97f19284c835526d805891c437358b79ce2782635f8262289"
+    },
+    {
+      "id": "effect-URP-UIEffects-Grid",
+      "familyId": "UIEffects-Grid",
+      "recipe": "flowgrid",
+      "planSha256": "336a3cabc1e9153297a43d1a1e5c887bbf119fe2f95eda4b0b9fd7de293e224e",
+      "plannedNodes": 49,
+      "plannedComments": 3,
+      "outputSha256": "d5ccefc942d99ff96ced0a31dd3ed5d19f74fd623ee6f63d53005038bae64fb2"
+    },
+    {
+      "id": "effect-URP-UIEffects-RingPulse",
+      "familyId": "UIEffects-RingPulse",
+      "recipe": "pulsering",
+      "planSha256": "2f30cdc0e8b2a5864a9e689543e472c170475df1a5158fcd45e2547eb40a9eca",
+      "plannedNodes": 46,
+      "plannedComments": 3,
+      "outputSha256": "2c93321404082ad67b103005868bb3fe13cc0e4d8e12d83e6a3cf2659a7707e1"
+    },
+    {
+      "id": "effect-URP-VFX-Ring",
+      "familyId": "VFX-Ring",
+      "recipe": "radialcoverage",
+      "planSha256": "535030cc4f26b892e8b5e72de6fcbf1ffdc024b15002f064480cb7520c00c50f",
+      "plannedNodes": 48,
+      "plannedComments": 5,
+      "outputSha256": "e7b7bbf4d98fb368923509441bcabff74c041d0bd23a4570cd76a9ca42f7521c"
+    },
+    {
+      "id": "effect-URP-VFX-Beam",
+      "familyId": "VFX-Beam",
+      "recipe": "beamcoverage",
+      "planSha256": "53c4dcb169b5346c00109e601ab820720e50157d5fddbf197d5456397156a459",
+      "plannedNodes": 43,
+      "plannedComments": 5,
+      "outputSha256": "32696fd6f0da7ebf7ad221a7f84a5e1e5acbdb060fa35a022751b717a6e95fbc"
+    },
+    {
+      "id": "effect-URP-VFX-SoftDisc",
+      "familyId": "VFX-SoftDisc",
+      "recipe": "softcoverage",
+      "planSha256": "90b974ff387c11eb33ca98cceaa5ca745b306392e5ddd73a38db5cf11c6d74d4",
+      "plannedNodes": 44,
+      "plannedComments": 5,
+      "outputSha256": "08693859c2d2d8127c74f9e15b389c20ff8ef8c51727ff9ff05148cd8aa9287e"
+    },
+    {
+      "id": "effect-URP-VFX-Scan",
+      "familyId": "VFX-Scan",
+      "recipe": "stripecoverage",
+      "planSha256": "24fd576f1951fcb8301ae9ba527054f6fba3ba920cb6e1a1267bdad7e70c1aeb",
+      "plannedNodes": 45,
+      "plannedComments": 5,
+      "outputSha256": "c4a9af00aa260baa998c64a82580e79c373da80823e117c13275350bb55c824c"
+    },
+    {
+      "id": "effect-URP-VFX-Pulse",
+      "familyId": "VFX-Pulse",
+      "recipe": "pulse",
+      "planSha256": "83e8121cd234bfaf00da1b4373e4136519cb3e67bfd8225b5471c90a8f17a165",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "05aa510de9926082f87cb2bc2dffbbeeffa49cff7d6e9149d461fd84744e0d9c"
+    },
+    {
+      "id": "effect-URP-UVAnimation-LayerRotate",
+      "familyId": "UVAnimation-LayerRotate",
+      "recipe": "rotatelayer",
+      "planSha256": "1d6ad9ac99ae1e8d1c5ebe0cf8ba4cbde37a209b224e6a59f0a1d1e69d47b9ef",
+      "plannedNodes": 63,
+      "plannedComments": 5,
+      "outputSha256": "de536dca1a31b88fc5650ba7c4d9b7d5ea9be2b02a61a1d7073009457f4d4e92"
+    },
+    {
+      "id": "effect-URP-UVAnimation-FlowMask",
+      "familyId": "UVAnimation-FlowMask",
+      "recipe": "flowmask",
+      "planSha256": "c766b75d71de0f16e5bcdb28710b0620364211e48a13e1a4fe89ef5504d2bfa3",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "6c3d2f433e649d6797e04c3a87649092ba9d02463050999c7273ec00f8626686"
+    },
+    {
+      "id": "effect-URP-UVAnimation-Distortion",
+      "familyId": "UVAnimation-Distortion",
+      "recipe": "distortlayer",
+      "planSha256": "8928976285443dde7e5b1fc0695f626e60b06bbef264ee98277dc858096aef12",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "1297840d72ac18998499b661fa0190811430b857839ff05ee5ab7d72f626e340"
+    },
+    {
+      "id": "effect-URP-UVAnimation-Flipbook",
+      "familyId": "UVAnimation-Flipbook",
+      "recipe": "flipbook",
+      "planSha256": "f9077085e4452f34cf8559014229c0cd2ec6e0f347a087c9230c3bacdf0af747",
+      "plannedNodes": 60,
+      "plannedComments": 5,
+      "outputSha256": "dfeef0cfe11177afd9558ef4f5681ddc052efedb747214d8f6f0f1a56f4ad9dc"
+    },
+    {
+      "id": "effect-URP-UVAnimation-PingPong",
+      "familyId": "UVAnimation-PingPong",
+      "recipe": "pingpong",
+      "planSha256": "515c5c9fc4bfa6e2c92573db726c2cdf54be4bb66584f0abd73c84fc92349257",
+      "plannedNodes": 45,
+      "plannedComments": 5,
+      "outputSha256": "24edf740099c81797df5776654808ce4533d5d17e2481f7a17c9f17267bad5c4"
+    },
+    {
+      "id": "effect-URP-VertexAnimation-Flutter",
+      "familyId": "VertexAnimation-Flutter",
+      "recipe": "fluttervertex",
+      "planSha256": "36aeec4ab4788568f00bf26ce1562cc2c4deef3b8239f4950184fe8b234bc09a",
+      "plannedNodes": 52,
+      "plannedComments": 6,
+      "outputSha256": "e5a43411ef8b27eed35663c873a38642ea1a858e11b18e6ce516698f29e6ac41"
+    },
+    {
+      "id": "effect-URP-VertexAnimation-Ripple",
+      "familyId": "VertexAnimation-Ripple",
+      "recipe": "ripplevertex",
+      "planSha256": "de47f55e7e1774fd6b56ef8f16ca1a5d91d0a55201125093e890c00b61edb88f",
+      "plannedNodes": 52,
+      "plannedComments": 6,
+      "outputSha256": "35718fbde4dcb69125e3578812489b57332fef5f99f23f88e22b3660938e55a1"
+    },
+    {
+      "id": "effect-URP-VertexAnimation-Bob",
+      "familyId": "VertexAnimation-Bob",
+      "recipe": "bobvertex",
+      "planSha256": "76cb6c11050acff82fc7e53c0e2d280a477978e962624be23ef000445c4d023a",
+      "plannedNodes": 47,
+      "plannedComments": 6,
+      "outputSha256": "ebd3b0360db1d539270ad76bc015a08a8762133814aa7e2d4bfeb0e5d31aa64c"
+    },
+    {
+      "id": "effect-URP-VertexAnimation-Bend",
+      "familyId": "VertexAnimation-Bend",
+      "recipe": "bendvertex",
+      "planSha256": "594f4d51912e32bc0f5ed9ddc537481a175bf33e9d2f4958a023144378d3c426",
+      "plannedNodes": 51,
+      "plannedComments": 6,
+      "outputSha256": "c6dff9179a43b3c035b3df28bb3537a5230266857967d1b0578d92d4f9817df1"
+    },
+    {
+      "id": "effect-URP-VertexAnimation-CrossWind",
+      "familyId": "VertexAnimation-CrossWind",
+      "recipe": "crossvertex",
+      "planSha256": "3947c27061c6ee52c816f2de610f85f05cfea6b8883ec7909b7962a3f266c36f",
+      "plannedNodes": 50,
+      "plannedComments": 6,
+      "outputSha256": "2e39cb64a564882065391c69b054064341f30af420bd4a00601ff621f2345ba0"
+    },
+    {
+      "id": "effect-HDRP-Skin-Freckles",
+      "familyId": "Skin-Freckles",
+      "recipe": "dots",
+      "planSha256": "da5c609ec732e82152eb03c34d231964cfb980bc39362182a7c31a674fd7f1db",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "dde59ea587ba6c65ef7439fdfc035552c17cbe634ea22ebf1be66fc64c661122"
+    },
+    {
+      "id": "effect-HDRP-Skin-Blush",
+      "familyId": "Skin-Blush",
+      "recipe": "vertex",
+      "planSha256": "4cd966b4a741506db18cf4a8d5d7055506fcd41813b37010355e021ee22e7bdf",
+      "plannedNodes": 39,
+      "plannedComments": 5,
+      "outputSha256": "d14a39150a91fe6a0d808280b0985180dcb0dd5c23f84cfe4545f4726c49bd89"
+    },
+    {
+      "id": "effect-HDRP-Skin-Tan",
+      "familyId": "Skin-Tan",
+      "recipe": "gradient",
+      "planSha256": "eb327eeb8d25fc9fd558338095b21dcad1ddc3857f8fe339b3fc98e2f17e7ae6",
+      "plannedNodes": 40,
+      "plannedComments": 5,
+      "outputSha256": "21bc58dbdfee1f93967fa6399bf64935377857356cae03e4ab4ba2ff2230a681"
+    },
+    {
+      "id": "effect-HDRP-Skin-OilMask",
+      "familyId": "Skin-OilMask",
+      "recipe": "smoothmask",
+      "planSha256": "5aedf56d540b1fb826aaabb71a1a2cb058a6eaa9f511ff137dd2d6455d8f01f4",
+      "plannedNodes": 35,
+      "plannedComments": 5,
+      "outputSha256": "674033f574294fbb12022aec9ba9d5bc331fe77fb6a9d097d9d050c1762d8e53"
+    },
+    {
+      "id": "effect-HDRP-Skin-Dust",
+      "familyId": "Skin-Dust",
+      "recipe": "mask",
+      "planSha256": "f2327eb918e58641f5bd5c227d92da5a2178240482016c7212a55312940166d3",
+      "plannedNodes": 40,
+      "plannedComments": 5,
+      "outputSha256": "3fed3aae06804f73731224a75a98bb6beda9e79b0da11a964f006bb7d63e92c3"
+    },
+    {
+      "id": "effect-HDRP-Hair-RootTip",
+      "familyId": "Hair-RootTip",
+      "recipe": "gradient",
+      "planSha256": "9adaceae27ada8416e6ce14e3e24be03092d1db1e45415f5e476a513d869de9a",
+      "plannedNodes": 32,
+      "plannedComments": 5,
+      "outputSha256": "0c83ad0b1f7aa59342d329c191419413276c34b8583a7b1875332051b8f1dae9"
+    },
+    {
+      "id": "effect-HDRP-Hair-Streaks",
+      "familyId": "Hair-Streaks",
+      "recipe": "stripes",
+      "planSha256": "69e24425733225e29024ab67a55e58519787e7e122437426df07c8c000d0ff89",
+      "plannedNodes": 36,
+      "plannedComments": 5,
+      "outputSha256": "0807300f8c8b6a8c6c00893baa6153d67651112f653def38e5347d9f813d721c"
+    },
+    {
+      "id": "effect-HDRP-Hair-VertexDye",
+      "familyId": "Hair-VertexDye",
+      "recipe": "vertex",
+      "planSha256": "b3623e0057f29eeb583366c7bba98600fc0b621a4788c0316445ce03b9d42bb7",
+      "plannedNodes": 31,
+      "plannedComments": 5,
+      "outputSha256": "3ae57a1db89ee0e93d70719caa49f098eb78685ecbb129fbe81cdc9580877e49"
+    },
+    {
+      "id": "effect-HDRP-Hair-DyeMask",
+      "familyId": "Hair-DyeMask",
+      "recipe": "mask",
+      "planSha256": "85fa6c38f1293c1da4ca28e1defd85597cf81ae9ce4a23d0a36d6f4467152b62",
+      "plannedNodes": 32,
+      "plannedComments": 5,
+      "outputSha256": "6991c8f987917a019f7caab215d0e6cfe31706a97cdc81a037c9d954372b4236"
+    },
+    {
+      "id": "effect-HDRP-Hair-TipFade",
+      "familyId": "Hair-TipFade",
+      "recipe": "coverage",
+      "planSha256": "89c2d62162eeb8d60476a220c20528d34a04bdea76b4153fe222d091a6ae49e1",
+      "plannedNodes": 27,
+      "plannedComments": 5,
+      "outputSha256": "68b5a3cc0adc20f2a60daf4f012dc1b5c9561108057c0f9f7e09a99c40131fe1"
+    },
+    {
+      "id": "effect-HDRP-Eye-LimbalRing",
+      "familyId": "Eye-LimbalRing",
+      "recipe": "ringtint",
+      "planSha256": "1b4960835f88a0a27914286ea61e3345fd532dc5be287e3792d2f9b8f3118a4a",
+      "plannedNodes": 63,
+      "plannedComments": 5,
+      "outputSha256": "ade1b0c7891b91644da7733a0654f403e5a574c121b9808f894c03170e818b0d"
+    },
+    {
+      "id": "effect-HDRP-Eye-IrisBands",
+      "familyId": "Eye-IrisBands",
+      "recipe": "radialbands",
+      "planSha256": "295b4301ff9224f73fe25ee5ba0c7426bb36fb6d3cd76dc1af6f61259bc08fdc",
+      "plannedNodes": 62,
+      "plannedComments": 5,
+      "outputSha256": "457d0fa3dbb38717209b6236c8dae168becd0e1d137911bc91e5790db42f1a90"
+    },
+    {
+      "id": "effect-HDRP-Eye-IrisMask",
+      "familyId": "Eye-IrisMask",
+      "recipe": "mask",
+      "planSha256": "98aea5e256f8f06e038689086573707b4105a4ee449f62188e4144359a394257",
+      "plannedNodes": 54,
+      "plannedComments": 5,
+      "outputSha256": "5e072539119a3d75b44de430464c76eedc4a26f4961cd3dd00b834f338b9f577"
+    },
+    {
+      "id": "effect-HDRP-Eye-ScleraTint",
+      "familyId": "Eye-ScleraTint",
+      "recipe": "vertex",
+      "planSha256": "4a90316b7da5cf72876ec4886ce7dc13e0789e946876a8931ca80676a34b71e0",
+      "plannedNodes": 53,
+      "plannedComments": 5,
+      "outputSha256": "e9d7f7f78f02229fc39ac77f03973924f0031d5dd94b9bfbc04e51fd5b818209"
+    },
+    {
+      "id": "effect-HDRP-Eye-IrisSpeckles",
+      "familyId": "Eye-IrisSpeckles",
+      "recipe": "dots",
+      "planSha256": "36d81f4e88823661d92416680a96b4765aec5ee295bfbd2fbaa5a73a1b33076e",
+      "plannedNodes": 63,
+      "plannedComments": 5,
+      "outputSha256": "02c501353c9c19fbd360dc6ae8f859595fbc2635cc9ca349b66225f61f7ec970"
+    },
+    {
+      "id": "effect-HDRP-Fabric-Checks",
+      "familyId": "Fabric-Checks",
+      "recipe": "checker",
+      "planSha256": "ca2c4c37a4a0d419f1eebdfbceaf11c5d3d8fecd31991f93af344d908f865ff9",
+      "plannedNodes": 41,
+      "plannedComments": 5,
+      "outputSha256": "a3370f219118fbc85f1aa1f14fa5913a24bae36da425e02a8ee4296e0a4d89ba"
+    },
+    {
+      "id": "effect-HDRP-Fabric-Stripes",
+      "familyId": "Fabric-Stripes",
+      "recipe": "stripes",
+      "planSha256": "b52f4ed060ad712d716fdfd28d3f904410014811d29b26359377cc07d0895c7c",
+      "plannedNodes": 41,
+      "plannedComments": 5,
+      "outputSha256": "251d4bb87578b9d1864398ca57ed0ee6b34944e674f4efb61dbc3d25e7b79af7"
+    },
+    {
+      "id": "effect-HDRP-Fabric-CrossWeave",
+      "familyId": "Fabric-CrossWeave",
+      "recipe": "cross",
+      "planSha256": "83f24b5ac05e911e01657b30fe9603e2515fd03239e742f97000cdc6fa774d15",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "e9fbf2202c8bc4cabd7c10b049405d0f7ffd57d40d58be619bd4b3c50b7628b3"
+    },
+    {
+      "id": "effect-HDRP-Fabric-Print",
+      "familyId": "Fabric-Print",
+      "recipe": "mask",
+      "planSha256": "f6b3a9e20f9f8cbd73fe093277fba66919134228ce7c8d41635bb258e3cce8a7",
+      "plannedNodes": 37,
+      "plannedComments": 5,
+      "outputSha256": "e7ead061581a2571ac30c1f3482629d4e62563cb76f49f8d92e9c4d61a1e4b8d"
+    },
+    {
+      "id": "effect-HDRP-Fabric-VertexDye",
+      "familyId": "Fabric-VertexDye",
+      "recipe": "vertex",
+      "planSha256": "10867e78df27c481545dff0d5c1ba84fa8d6b21e47cc1af61fdbfa764610ce77",
+      "plannedNodes": 36,
+      "plannedComments": 5,
+      "outputSha256": "8c70beceb552e6801fc6f4846f4be93d8c4b7bc1684cd6f625ffdcd66f252f39"
+    },
+    {
+      "id": "effect-HDRP-Hosiery-Dots",
+      "familyId": "Hosiery-Dots",
+      "recipe": "dotcoverage",
+      "planSha256": "8eac762320242c758d1d1ac5b9672b5094901e0fc7f2a609ee125d0dd42641ea",
+      "plannedNodes": 64,
+      "plannedComments": 6,
+      "outputSha256": "5df499d5687575fb8e78a93a0ca2e41da244228f6e5bbc55d4de2c58e5309259"
+    },
+    {
+      "id": "effect-HDRP-Hosiery-Rib",
+      "familyId": "Hosiery-Rib",
+      "recipe": "stripecoverage",
+      "planSha256": "c16a10ad8fa7d2793fd6453261353d7310a1729af3b1f28ab86ba5cab35ff5b8",
+      "plannedNodes": 59,
+      "plannedComments": 6,
+      "outputSha256": "54cd68ec03f9e73711ca0bb8db3a56d74ab00cdf1d97b859d9ec6524e08c3e95"
+    },
+    {
+      "id": "effect-HDRP-Hosiery-Lace",
+      "familyId": "Hosiery-Lace",
+      "recipe": "maskcoverage",
+      "planSha256": "ee2f39cbfab4ee0c9571300d1bd8c21ca8cc2d6c35c91a7f19002ebd61d789c9",
+      "plannedNodes": 53,
+      "plannedComments": 6,
+      "outputSha256": "1aa9bf552c98542e38a6135b01951b6846238f3bcef3862cb37b2f2389847c28"
+    },
+    {
+      "id": "effect-HDRP-Hosiery-Gradient",
+      "familyId": "Hosiery-Gradient",
+      "recipe": "coverage",
+      "planSha256": "6628072613027e137e101afff5664144e2131538ff62d2114be6a4adaf721893",
+      "plannedNodes": 53,
+      "plannedComments": 6,
+      "outputSha256": "e1247149fe6404ca1e617c7409e00665a4e4d22246ade6417841dced3409b468"
+    },
+    {
+      "id": "effect-HDRP-Hosiery-Diamond",
+      "familyId": "Hosiery-Diamond",
+      "recipe": "diamondcoverage",
+      "planSha256": "d782afd7bc28da1b37059449868717b36b9d683246c0d821129f514d910aa0db",
+      "plannedNodes": 63,
+      "plannedComments": 6,
+      "outputSha256": "9edb97645dca668b6efd5bbd53260ccdc35f276c358ab006a115aea5b7346f04"
+    },
+    {
+      "id": "effect-HDRP-Water-Foam",
+      "familyId": "Water-Foam",
+      "recipe": "flowmask",
+      "planSha256": "ddc589fe0c89eff31a645ef724655da86821cd8c9fdfbaf8786c561b22ad4905",
+      "plannedNodes": 48,
+      "plannedComments": 5,
+      "outputSha256": "37cc1677b073e9d99bc504de19af0bf855b34853197378ec68e9d52be14724a6"
+    },
+    {
+      "id": "effect-HDRP-Water-Ripples",
+      "familyId": "Water-Ripples",
+      "recipe": "radialbands",
+      "planSha256": "4e6e55165d014960a36404d4d3fa6856545d231da8acc7b1a4e9a77213932e4d",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "fc377f9767a69ddb6665245cd1e64a22184c0bc8e1e5601895ffee735548ecfe"
+    },
+    {
+      "id": "effect-HDRP-Water-RimTint",
+      "familyId": "Water-RimTint",
+      "recipe": "fresneltint",
+      "planSha256": "23085204fd5af61ecd9004f77c6bd306a5d3acf62fdcc3e118b80ec436483a03",
+      "plannedNodes": 40,
+      "plannedComments": 5,
+      "outputSha256": "09290e01c6963d8ee8d13370523fb161533a7b61de8c24677ca0ee1680ee1a7c"
+    },
+    {
+      "id": "effect-HDRP-Water-VertexWave",
+      "familyId": "Water-VertexWave",
+      "recipe": "ripplevertex",
+      "planSha256": "ab3e886df159f1f27c7367986fdef172e980c19732e8dce39ffb2ad813d43a8f",
+      "plannedNodes": 48,
+      "plannedComments": 5,
+      "outputSha256": "ddd76c2f8a3676e47aa62d96a54c27ad5ed0d5e7236036e3757ddf63e14b196b"
+    },
+    {
+      "id": "effect-HDRP-Water-DualNormal",
+      "familyId": "Water-DualNormal",
+      "recipe": "flownormal",
+      "planSha256": "493c4d9f00e80c37347b39322df179a20d9de36621e45bb45e7151028ac651fc",
+      "plannedNodes": 46,
+      "plannedComments": 5,
+      "outputSha256": "3506faae3a77e3e23e0b03830370ec0f947d9da5ec008b7c8848ddf630170c5d"
+    },
+    {
+      "id": "effect-HDRP-Metal-Brushed",
+      "familyId": "Metal-Brushed",
+      "recipe": "detailnormal",
+      "planSha256": "04b8fff09611de124b43d5b2f68ee721d96bac7cd94b1fdc674fe7e401d36093",
+      "plannedNodes": 28,
+      "plannedComments": 5,
+      "outputSha256": "7fb518d0d436dd0071947fc1e1742e75577ce8d659518dec8167c06486b2e57f"
+    },
+    {
+      "id": "effect-HDRP-Metal-Oxidized",
+      "familyId": "Metal-Oxidized",
+      "recipe": "mask",
+      "planSha256": "b899730aee7a67d72302ca4cd3e9a72967a231fc2533403e4884796cd6b3000f",
+      "plannedNodes": 30,
+      "plannedComments": 5,
+      "outputSha256": "97a5cdb9e566d68383da07df4592b726c8efc196ebfa9db0c9eb9d6dd1bc1890"
+    },
+    {
+      "id": "effect-HDRP-Metal-Scratches",
+      "familyId": "Metal-Scratches",
+      "recipe": "smoothmask",
+      "planSha256": "3988c5a2197184ffebf7d758ae549d10c6cbccf5db9dde2f93e715fb837725eb",
+      "plannedNodes": 25,
+      "plannedComments": 5,
+      "outputSha256": "dcc557d1b7d8139a6bb1cf36dc2cc36678061d391bec1c778a0c7f205f7e3e22"
+    },
+    {
+      "id": "effect-HDRP-Metal-HeatTint",
+      "familyId": "Metal-HeatTint",
+      "recipe": "gradient",
+      "planSha256": "0ca423bf11d724205e311e2638b9e9e449073e0b31f787a8b0613ccddf02fbd8",
+      "plannedNodes": 30,
+      "plannedComments": 5,
+      "outputSha256": "e2aac153ebc1e5af75bc52a4f68d31a96c3bfb5b0c0828b45f4a58fb108afee2"
+    },
+    {
+      "id": "effect-HDRP-Metal-Panels",
+      "familyId": "Metal-Panels",
+      "recipe": "checker",
+      "planSha256": "456aff8d47243a286ccc7c217f276f37c62aff646088e82cb06b8963c36202f9",
+      "plannedNodes": 34,
+      "plannedComments": 5,
+      "outputSha256": "27c0bc1b761b54183df149c7087f8013cc9f5146cd9a530e8ea95d0a8817ea90"
+    },
+    {
+      "id": "effect-HDRP-Stone-MossMask",
+      "familyId": "Stone-MossMask",
+      "recipe": "mask",
+      "planSha256": "bc1051a24403798cd1d3d402dc715db73625dcdf65921b38762a729dcf871f3d",
+      "plannedNodes": 38,
+      "plannedComments": 5,
+      "outputSha256": "7d884afee4b987f9fb9e69c09fb1099577af070753318ec93ddfe92ec1ef19ea"
+    },
+    {
+      "id": "effect-HDRP-Stone-Strata",
+      "familyId": "Stone-Strata",
+      "recipe": "stripes",
+      "planSha256": "2a3f0e67c54517f27d4006ed2b4d303c6d14a3bec7f3dc40ac88e641b7dee803",
+      "plannedNodes": 42,
+      "plannedComments": 5,
+      "outputSha256": "8823904046975258b7408530ab5bf920914623ad3112912f0e2f028aaa168519"
+    },
+    {
+      "id": "effect-HDRP-Stone-Cracks",
+      "familyId": "Stone-Cracks",
+      "recipe": "cracks",
+      "planSha256": "6c0146e0f8beca1f0c5980bef5a47b07b2f3d57f04e62bf7fa8b7b3480d27f65",
+      "plannedNodes": 42,
+      "plannedComments": 5,
+      "outputSha256": "520fe6d3c43ddff07767bcf5308381f5cc55a9b464032665140a9ec3966d5e3e"
+    },
+    {
+      "id": "effect-HDRP-Stone-Wet",
+      "familyId": "Stone-Wet",
+      "recipe": "smoothmask",
+      "planSha256": "a7d7d0f0f503691dc0aa777acd3e871c88c182829ef578c978cadf0f34e0a9f5",
+      "plannedNodes": 33,
+      "plannedComments": 5,
+      "outputSha256": "9b87d1d8679e9126be6eec1290b66bbbbfc17bd68a36673de5f1751fbcbf86bd"
+    },
+    {
+      "id": "effect-HDRP-Stone-VertexPaint",
+      "familyId": "Stone-VertexPaint",
+      "recipe": "vertex",
+      "planSha256": "72f7a3ab71cf60d277872f56aae6d120c202ede518ef8bec88cfd20fa502fded",
+      "plannedNodes": 37,
+      "plannedComments": 5,
+      "outputSha256": "2ac91e95e393f4be9d79887de463a8c8ca7dcd7771032e898f9a084cf60d32ee"
+    },
+    {
+      "id": "effect-HDRP-Jade-Veins",
+      "familyId": "Jade-Veins",
+      "recipe": "cross",
+      "planSha256": "2d6b66a4f681832cb4e8957ae3928870dd874c41af013c38b734263f4ab2a439",
+      "plannedNodes": 52,
+      "plannedComments": 5,
+      "outputSha256": "797ba26af00d326c6f2ad5d9614a6969451ef29019cd5a85fe17dfebb36518f7"
+    },
+    {
+      "id": "effect-HDRP-Jade-Clouds",
+      "familyId": "Jade-Clouds",
+      "recipe": "mask",
+      "planSha256": "259f3c94cd79981b0ea6572eac4135ec507a3943c31e6aac6d784fe24ef2675b",
+      "plannedNodes": 40,
+      "plannedComments": 5,
+      "outputSha256": "719df31cdacc50cc2faf71058123516b0e6ac2cbcd09e1998fa48cfe54706022"
+    },
+    {
+      "id": "effect-HDRP-Jade-Gradient",
+      "familyId": "Jade-Gradient",
+      "recipe": "gradient",
+      "planSha256": "b5b47675f558c06ba0133ff6fcb513574683900e06e914e02d96027100d54d8e",
+      "plannedNodes": 40,
+      "plannedComments": 5,
+      "outputSha256": "13f651f2e2790f2971e0f3c0080730477cf7a34409966e453a5b39de52b257fc"
+    },
+    {
+      "id": "effect-HDRP-Jade-Speckles",
+      "familyId": "Jade-Speckles",
+      "recipe": "dots",
+      "planSha256": "ca5c7ddd47c61596f6456468e4d1f3f6dd5b1696e421acc9ab096867d188fbfa",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "fc7b922b7f52c2e0ad3503a75ccebdd93e637922d9be2cc7bdf067f16bf2e0e7"
+    },
+    {
+      "id": "effect-HDRP-Jade-Rind",
+      "familyId": "Jade-Rind",
+      "recipe": "ringtint",
+      "planSha256": "ed9756e46c3102bfd007b4a71788326ef0d98467af540cc2dcab34a7d9f626ab",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "b9424b1efeba497d27bbfa70c852f46ca9d7615c28f236f884aabc8fa9d3a0f0"
+    },
+    {
+      "id": "effect-HDRP-UI-Gradient",
+      "familyId": "UI-Gradient",
+      "recipe": "gradient",
+      "planSha256": "d216961ed6de946deddb81130ef2e5a2ded44485368b07c4751e7b588849cb9f",
+      "plannedNodes": 19,
+      "plannedComments": 2,
+      "outputSha256": "a9c54443cd83fa54283d4a30d1dd01a743117d280ac083fa28be9c0269f78b41"
+    },
+    {
+      "id": "effect-HDRP-UI-RadialMask",
+      "familyId": "UI-RadialMask",
+      "recipe": "radialcoverage",
+      "planSha256": "e2642fb4b0338fe5267dc9fe9288e537d4b5e3288743dc39ee14788ebd201eea",
+      "plannedNodes": 27,
+      "plannedComments": 2,
+      "outputSha256": "5f059b4a4c8407b79a4bf830b06a3a32edad31a07bd483ab45d18758c54a7242"
+    },
+    {
+      "id": "effect-HDRP-UI-Frame",
+      "familyId": "UI-Frame",
+      "recipe": "framecoverage",
+      "planSha256": "7587875ebd0f1ef5731d4c38f58cd02b9b9a83cbaf3b09d1a5d981dffc68973e",
+      "plannedNodes": 33,
+      "plannedComments": 2,
+      "outputSha256": "7edbd9463a828a93d78b8ff09a5b240c91994911cb2c2389f9e0402b93845199"
+    },
+    {
+      "id": "effect-HDRP-UI-Scanline",
+      "familyId": "UI-Scanline",
+      "recipe": "stripes",
+      "planSha256": "aabbb65358af0714d361738aab89adf6c9151f0d20405d643379baaefb7bdb85",
+      "plannedNodes": 23,
+      "plannedComments": 2,
+      "outputSha256": "7363a3daa041640a32522fa46ae66353471eeab63e135daed7b1b8bda42a086d"
+    },
+    {
+      "id": "effect-HDRP-UI-MaskTint",
+      "familyId": "UI-MaskTint",
+      "recipe": "mask",
+      "planSha256": "196a81e4e0457805d4205b5b3cb177a7e4b1050ed761337e2eecc425b9dc17c5",
+      "plannedNodes": 19,
+      "plannedComments": 2,
+      "outputSha256": "ef2e2801c9e6315962fef77628a8ba25ac69780d07d919727d88602fdc97b040"
+    },
+    {
+      "id": "effect-HDRP-UIEffects-ScanPulse",
+      "familyId": "UIEffects-ScanPulse",
+      "recipe": "pulsestripe",
+      "planSha256": "901201471d5bec5e872dacc92f4792d22c998edfe9563cb7071575465c2d1ebc",
+      "plannedNodes": 47,
+      "plannedComments": 3,
+      "outputSha256": "b704253fc68ea53b0b4192a1f7f8a46a1a64dd207a3317862269d01812eb70f1"
+    },
+    {
+      "id": "effect-HDRP-UIEffects-Pulse",
+      "familyId": "UIEffects-Pulse",
+      "recipe": "pulse",
+      "planSha256": "dc85227162ddd6460c1462ba14633ecba78b6d70d3318d87943981cfd102a48e",
+      "plannedNodes": 39,
+      "plannedComments": 3,
+      "outputSha256": "8c6b896c4bd6da0f96d4a15f2f23d28ae057489a54fd795905b3cad8924bbc4c"
+    },
+    {
+      "id": "effect-HDRP-UIEffects-Wipe",
+      "familyId": "UIEffects-Wipe",
+      "recipe": "wipecoverage",
+      "planSha256": "8adc62fa9767dd3384c3b2bd22e7515f86826d4fc96d682a092be75d807cd545",
+      "plannedNodes": 38,
+      "plannedComments": 3,
+      "outputSha256": "080e3910c2334eb7b19baa707d1b1a430e0c8d329fc33e8a548db72094eccb83"
+    },
+    {
+      "id": "effect-HDRP-UIEffects-Grid",
+      "familyId": "UIEffects-Grid",
+      "recipe": "flowgrid",
+      "planSha256": "1010f926ae2361f769974465d3070a9421bf40d858d0083724e220e929df0c8e",
+      "plannedNodes": 49,
+      "plannedComments": 3,
+      "outputSha256": "4f396db5203d52c269818b30eb8914a0ab00a2355258b74c89039c7a3f8c5889"
+    },
+    {
+      "id": "effect-HDRP-UIEffects-RingPulse",
+      "familyId": "UIEffects-RingPulse",
+      "recipe": "pulsering",
+      "planSha256": "4823b8f11158500eae6dfe6711fba03fbde809501ea2b30d61765edb1827b2db",
+      "plannedNodes": 46,
+      "plannedComments": 3,
+      "outputSha256": "809bff19ead40d7555ce387885faac09b5790224146d13f1555e1b951ac2b80f"
+    },
+    {
+      "id": "effect-HDRP-VFX-Ring",
+      "familyId": "VFX-Ring",
+      "recipe": "radialcoverage",
+      "planSha256": "c82ab8d06cdd6630aaef229a692226cd2834c72a0410b6c56080b3b98e572458",
+      "plannedNodes": 48,
+      "plannedComments": 5,
+      "outputSha256": "80ce6d4d47062ff36bb040321b76ff2d60aae211016fee4d311b00aeb67a3254"
+    },
+    {
+      "id": "effect-HDRP-VFX-Beam",
+      "familyId": "VFX-Beam",
+      "recipe": "beamcoverage",
+      "planSha256": "46a2fa42c4e89b28ea422688c42c765db73295a1b1abb256c258392b5625c208",
+      "plannedNodes": 43,
+      "plannedComments": 5,
+      "outputSha256": "1eb525dbc369f5c578b5b5ab3f224d438b9e970e8a843f86841668b4eef36dfa"
+    },
+    {
+      "id": "effect-HDRP-VFX-SoftDisc",
+      "familyId": "VFX-SoftDisc",
+      "recipe": "softcoverage",
+      "planSha256": "429f5b653955cb793a3dae5a5a44cf3fd7d94f243a68fe4f7b7fd2e360a7c8c4",
+      "plannedNodes": 44,
+      "plannedComments": 5,
+      "outputSha256": "d1126672b965e0e70d5803e7313d459a4ffc831f88890e2ce4df0501b6d6f404"
+    },
+    {
+      "id": "effect-HDRP-VFX-Scan",
+      "familyId": "VFX-Scan",
+      "recipe": "stripecoverage",
+      "planSha256": "7ad882b49a88795b69a50e22b684863b36a47598aae961a2ee410d9354a7bafb",
+      "plannedNodes": 45,
+      "plannedComments": 5,
+      "outputSha256": "0515f6360808814eba9184a4dc16d78f9b2913b4d103a86fe49a6040dd98f3ad"
+    },
+    {
+      "id": "effect-HDRP-VFX-Pulse",
+      "familyId": "VFX-Pulse",
+      "recipe": "pulse",
+      "planSha256": "668be9e96687a23abb09ca45698a0e1c0f8aed707699665e1a64ded9db5fffc4",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "6ef638b715ea664e25ff9f31eab8405622609c2b2a47de95704b189d88c8ad64"
+    },
+    {
+      "id": "effect-HDRP-UVAnimation-LayerRotate",
+      "familyId": "UVAnimation-LayerRotate",
+      "recipe": "rotatelayer",
+      "planSha256": "b28c43601cf2908f776091983b97af44920f19c2872b856eec5abf830a275afb",
+      "plannedNodes": 63,
+      "plannedComments": 5,
+      "outputSha256": "aaf7a73a3613f2990cbdec63a561780ff7cdd8691ee66ed44b01498c2449967b"
+    },
+    {
+      "id": "effect-HDRP-UVAnimation-FlowMask",
+      "familyId": "UVAnimation-FlowMask",
+      "recipe": "flowmask",
+      "planSha256": "cdcae48d7cb608bc1db293934bcbd0ab5926cc46c296e9672f828762c4b5b48a",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "e93aa3eaf969ad2879414a54ebb3172367e9c25abe5999a532daa91c7e4cf022"
+    },
+    {
+      "id": "effect-HDRP-UVAnimation-Distortion",
+      "familyId": "UVAnimation-Distortion",
+      "recipe": "distortlayer",
+      "planSha256": "b72a02302549e479e55f7dd6db8cc53105d4cf95b7611b98954096e6fedac3e3",
+      "plannedNodes": 49,
+      "plannedComments": 5,
+      "outputSha256": "f2bb8dbd238b13c2fb082211171cccc3acc390220a6a89800452730dbd1b2763"
+    },
+    {
+      "id": "effect-HDRP-UVAnimation-Flipbook",
+      "familyId": "UVAnimation-Flipbook",
+      "recipe": "flipbook",
+      "planSha256": "610544d2091dff83b87eb81a12d7d511b2a4c45edcd02052b9f13d7a05b44239",
+      "plannedNodes": 60,
+      "plannedComments": 5,
+      "outputSha256": "eafc2ba7c6a40ee33009ba08a4dcf6e986da770b42743c9fbb44e29204fc309b"
+    },
+    {
+      "id": "effect-HDRP-UVAnimation-PingPong",
+      "familyId": "UVAnimation-PingPong",
+      "recipe": "pingpong",
+      "planSha256": "0a718519288be7b255b7202f113e82d889ef59dae5431f6ff310b574d655cf62",
+      "plannedNodes": 45,
+      "plannedComments": 5,
+      "outputSha256": "3999fae80855ddc99d7b3884ebd26f3a54b34183273a9cc3424d2065da9fb1c0"
+    },
+    {
+      "id": "effect-HDRP-VertexAnimation-Flutter",
+      "familyId": "VertexAnimation-Flutter",
+      "recipe": "fluttervertex",
+      "planSha256": "637427106bd68cec65c6a21ca4d3dd1e4679129caeec0b9c67ec21bdd9849781",
+      "plannedNodes": 52,
+      "plannedComments": 6,
+      "outputSha256": "482fc12eac2f6068a5034b298981e377d09c19107684f6ad98e341c4a31cf30a"
+    },
+    {
+      "id": "effect-HDRP-VertexAnimation-Ripple",
+      "familyId": "VertexAnimation-Ripple",
+      "recipe": "ripplevertex",
+      "planSha256": "efd5997e55f41785470d7039b82e718a331960f1441225ebbcc3aade7b140fc2",
+      "plannedNodes": 52,
+      "plannedComments": 6,
+      "outputSha256": "b9c7e6a38cfae113f5011440a4047ea9bf8b43d0e3fedfd0d2b168c31662b16d"
+    },
+    {
+      "id": "effect-HDRP-VertexAnimation-Bob",
+      "familyId": "VertexAnimation-Bob",
+      "recipe": "bobvertex",
+      "planSha256": "62c6b1d5f87117eea8411b3788948a479aa2a04b0c67aa90ec9cae4b96feea77",
+      "plannedNodes": 47,
+      "plannedComments": 6,
+      "outputSha256": "b2ea2729a4f50d07b9d98d987edc246355d74bed2b907c8246ee4032e5726ed1"
+    },
+    {
+      "id": "effect-HDRP-VertexAnimation-Bend",
+      "familyId": "VertexAnimation-Bend",
+      "recipe": "bendvertex",
+      "planSha256": "098d28ecdfac8ec9d6510d3187be2c538f29be8d120a6fbfafc063bc3a2822c2",
+      "plannedNodes": 51,
+      "plannedComments": 6,
+      "outputSha256": "d63de83271da1f49b8850982b51d27ab6eaf265fac6b3f5db36dcc7c5be98fca"
+    },
+    {
+      "id": "effect-HDRP-VertexAnimation-CrossWind",
+      "familyId": "VertexAnimation-CrossWind",
+      "recipe": "crossvertex",
+      "planSha256": "977a7cbb75f09ce334979f5f320d535935e85ad2d16c3a1caac02df722043f6a",
+      "plannedNodes": 50,
+      "plannedComments": 6,
+      "outputSha256": "52cce54f4c504d82ddfadf41bb20af2588515db45cae8c90f7aa434be9e3be3a"
+    }
+  ]
+}

@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 1,
+  "checkedUtc": "2026-10-22T04:48:38.985360+00:00",
+  "purpose": "Character source research. Cached sources never executed, imported or distributed.",
+  "repositories": [
+    {
+      "repository": "Unity-Technologies/Graphics",
+      "selectionSubtree": "Packages/com.unity.render-pipelines.high-definition/Runtime/Material",
+      "success": false,
+      "error": "Git source read failed: fatal: unable to access 'https://github.com/Unity-Technologies/Graphics.git/': Connection timed out after 300058 milliseconds\nfatal: could not fetch 8cc9908c0715ba281f056f0d7f2445bb5a1697d8 from promisor remote"
+    },
+    {
+      "repository": "leonardo-domingues/skin-shader-unity",
+      "url": "https://github.com/leonardo-domingues/skin-shader-unity",
+      "commit": "80e8c17424dd2d541922b7af227768f94fd30b6d",
+      "license": "MIT",
+      "licenseFile": "LICENSE",
+      "selectionSubtree": "",
+      "eligibleFiles": 12,
+      "selectionCapped": false,
+      "files": [
+        {
+          "path": "Skin/Assets/Shaders/Skin_GPUGems3-14.shader",
+          "url": "https://raw.githubusercontent.com/leonardo-domingues/skin-shader-unity/80e8c17424dd2d541922b7af227768f94fd30b6d/Skin/Assets/Shaders/Skin_GPUGems3-14.shader",
+          "sha256": "7f76adef314857a51e0c9ce71d471b93559c1a890e5d8e9d212edd1b66b86839",
+          "bytes": 7494
+        },
+        {
+          "path": "Skin/Assets/Shaders/Skin_GPUGems3-14/ApplyShadowsToIrradiance.shader",
+          "url": "https://raw.githubusercontent.com/leonardo-domingues/skin-shader-unity/80e8c17424dd2d541922b7af227768f94fd30b6d/Skin/Assets/Shaders/Skin_GPUGems3-14/ApplyShadowsToIrradiance.shader",
+          "sha256": "a416c94f0f5f437251dbc5263670aa8f33bf44cb7adb5cb8669c1bff045fe3a4",
+          "bytes": 1038
+        },
+        {
+          "path": "Skin/Assets/Shaders/Skin_GPUGems3-14/BRDF.cginc",
+          "url": "https://raw.githubusercontent.com/leonardo-domingues/skin-shader-unity/80e8c17424dd2d541922b7af227768f94fd30b6d/Skin/Assets/Shaders/Skin_GPUGems3-14/BRDF.cginc",
+          "sha256": "09b0a1e964bdbb8127a74cb85045dea218bb7aaa3934b6931d10f9a9f973e378",
+          "bytes": 1015
+        },
+        {
+          "path": "Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeAlphaMask.shader",
+          "url": "https://raw.githubusercontent.com/leonardo-domingues/skin-shader-unity/80e8c17424dd2d541922b7af227768f94fd30b6d/Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeAlphaMask.shader",
+          "sha256": "8ae2451892a892dc37d58f18b6bb6f82dd91530d5944b1f866bd7aba548a6777",
+          "bytes": 1694
+        },
+        {
+          "path": "Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeAttenuation.shader",
+          "url": "https://raw.githubusercontent.com/leonardo-domingues/skin-shader-unity/80e8c17424dd2d541922b7af227768f94fd30b6d/Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeAttenuation.shader",
+          "sha256": "ed6075cfd81470a7a0059b4ac1e3e4b3c2306517aa23e5574f80a862eb72f83c",
+          "bytes": 2199
+        },
+        {
+          "path": "Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeBeckmann.shader",
+          "url": "https://raw.githubusercontent.com/leonardo-domingues/skin-shader-unity/80e8c17424dd2d541922b7af227768f94fd30b6d/Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeBeckmann.shader",
+          "sha256": "3c5f610305291e039fae69a563f54444c31d367e2f1b9ccc894f642638248f18",
+          "bytes": 867
+        },
+        {
+          "path": "Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeIrradiance.shader",
+          "url": "https://raw.githubusercontent.com/leonardo-domingues/skin-shader-unity/80e8c17424dd2d541922b7af227768f94fd30b6d/Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeIrradiance.shader",
+          "sha256": "187158f735a25c07960bb3e9d6da5481c2a6425f9f6c2e44d94200398f1badab",
+          "bytes": 3498
+        },
+        {
+          "path": "Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeShadow.shader",
+          "url": "https://raw.githubusercontent.com/leonardo-domingues/skin-shader-unity/80e8c17424dd2d541922b7af227768f94fd30b6d/Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeShadow.shader",
+          "sha256": "f02574d982d4c5877a3c2adad36c9e80bf52f5f98fe1d2eafdc4be96e7062d01",
+          "bytes": 2503
+        },
+        {
+          "path": "Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeStretchMaps.shader",
+          "url": "https://raw.githubusercontent.com/leonardo-domingues/skin-shader-unity/80e8c17424dd2d541922b7af227768f94fd30b6d/Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeStretchMaps.shader",
+          "sha256": "45513dc27ea2e5519c2be07f0f8b1181432bd33e8cc76f95966db8aa089364d4",
+          "bytes": 940
+        },
+        {
+          "path": "Skin/Assets/Shaders/Skin_GPUGems3-14/GaussianConvolution_U.shader",
+          "url": "https://raw.githubusercontent.com/leonardo-domingues/skin-shader-unity/80e8c17424dd2d541922b7af227768f94fd30b6d/Skin/Assets/Shaders/Skin_GPUGems3-14/GaussianConvolution_U.shader",
+          "sha256": "a6d90b5095c6287740cd13922add7f4402485a3930324fa41bb34732116383b6",
+          "bytes": 1274
+        },
+        {
+          "path": "Skin/Assets/Shaders/Skin_GPUGems3-14/GaussianConvolution_V.shader",
+          "url": "https://raw.githubusercontent.com/leonardo-domingues/skin-shader-unity/80e8c17424dd2d541922b7af227768f94fd30b6d/Skin/Assets/Shaders/Skin_GPUGems3-14/GaussianConvolution_V.shader",
+          "sha256": "c2732dda51c44a1d46c5fc341d085b03ec7493d6132e9e751b457d950cd71ae5",
+          "bytes": 1274
+        },
+        {
+          "path": "Skin/Assets/Shaders/Skin_GPUGems3-14/TSM.shader",
+          "url": "https://raw.githubusercontent.com/leonardo-domingues/skin-shader-unity/80e8c17424dd2d541922b7af227768f94fd30b6d/Skin/Assets/Shaders/Skin_GPUGems3-14/TSM.shader",
+          "sha256": "45f8c0b7124eab0d7b0c78aa397318fb4e5dbc1067d72abf14e501a7c1c2208d",
+          "bytes": 768
+        }
+      ],
+      "success": true,
+      "transport": "Git sparse data checkout; source never executed",
+      "evaluationRole": "CharacterResearch"
+    },
+    {
+      "repository": "itsFulcrum/Unity-URP-Hair-Shader",
+      "url": "https://github.com/itsFulcrum/Unity-URP-Hair-Shader",
+      "commit": "ffdb2a6549859c0387ea595bbb1e735ddcb95b32",
+      "license": "Public-domain/CC0 text; check root license",
+      "licenseFile": "LICENSE",
+      "selectionSubtree": "",
+      "eligibleFiles": 7,
+      "selectionCapped": false,
+      "files": [
+        {
+          "path": "FulcrumHairShader/Hair.shader",
+          "url": "https://raw.githubusercontent.com/itsFulcrum/Unity-URP-Hair-Shader/ffdb2a6549859c0387ea595bbb1e735ddcb95b32/FulcrumHairShader/Hair.shader",
+          "sha256": "f8f895cb922208351f55891f18fccfa08c3d31e2fc5cd8e8d5ab7b699f48c604",
+          "bytes": 14131
+        },
+        {
+          "path": "FulcrumHairShader/HairLighting.hlsl",
+          "url": "https://raw.githubusercontent.com/itsFulcrum/Unity-URP-Hair-Shader/ffdb2a6549859c0387ea595bbb1e735ddcb95b32/FulcrumHairShader/HairLighting.hlsl",
+          "sha256": "123eb604de03b8053f8722965a2950471c42b9b8c3202b8b6b5fb5e77d745b2e",
+          "bytes": 9663
+        },
+        {
+          "path": "FulcrumHairShader/HairLitForwardPass.hlsl",
+          "url": "https://raw.githubusercontent.com/itsFulcrum/Unity-URP-Hair-Shader/ffdb2a6549859c0387ea595bbb1e735ddcb95b32/FulcrumHairShader/HairLitForwardPass.hlsl",
+          "sha256": "37ad0cacbac71759ca4b9b5f88a0bdcd6e9b577863e85e745bf6334c44351ebb",
+          "bytes": 7141
+        },
+        {
+          "path": "FulcrumHairShader/HairLitGBuffer.hlsl",
+          "url": "https://raw.githubusercontent.com/itsFulcrum/Unity-URP-Hair-Shader/ffdb2a6549859c0387ea595bbb1e735ddcb95b32/FulcrumHairShader/HairLitGBuffer.hlsl",
+          "sha256": "e281059698c57fedf2c339b8a5f13998b9b0d19a2ff3e2dcd95b11f268e4b79a",
+          "bytes": 8550
+        },
+        {
+          "path": "FulcrumHairShader/HairLitInput.hlsl",
+          "url": "https://raw.githubusercontent.com/itsFulcrum/Unity-URP-Hair-Shader/ffdb2a6549859c0387ea595bbb1e735ddcb95b32/FulcrumHairShader/HairLitInput.hlsl",
+          "sha256": "8b2080c0ff06fd8af0529091ec4237e083b40b597c6e69de78b35c07d444f74c",
+          "bytes": 5976
+        },
+        {
+          "path": "FulcrumHairShader/HairSurfaceData.hlsl",
+          "url": "https://raw.githubusercontent.com/itsFulcrum/Unity-URP-Hair-Shader/ffdb2a6549859c0387ea595bbb1e735ddcb95b32/FulcrumHairShader/HairSurfaceData.hlsl",
+          "sha256": "da8486d2ac59188a0cfe5272e44c275ac1434697ef0a67908e3b2361e98025ce",
+          "bytes": 270
+        },
+        {
+          "path": "FulcrumHairShader/MathFunc.hlsl",
+          "url": "https://raw.githubusercontent.com/itsFulcrum/Unity-URP-Hair-Shader/ffdb2a6549859c0387ea595bbb1e735ddcb95b32/FulcrumHairShader/MathFunc.hlsl",
+          "sha256": "53026d0e885877598ba94957606d7049fa76efca300176650a185be4ef9360ec",
+          "bytes": 2100
+        }
+      ],
+      "success": true,
+      "transport": "Git sparse data checkout; source never executed",
+      "evaluationRole": "CharacterResearch"
+    },
+    {
+      "repository": "Unity-Technologies/Graphics",
+      "commit": "",
+      "package": "com.unity.render-pipelines.high-definition",
+      "packageVersion": "14.0.8",
+      "license": "Unity Companion License",
+      "licenseSha256": "238e38409a2e1c94c04cf2b89677334b6067fcb77857b162233675c0aeb0c626",
+      "packageJsonSha256": "0ec95c096cd72fd8e6ed5a636da50270b74dbb6f0809753debc2cae5a4b38907",
+      "success": true,
+      "transport": "Read-only installed official Unity package snapshot; no Git commit asserted",
+      "evaluationRole": "InstalledVersionReference",
+      "files": [
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/Eye/Eye.hlsl",
+          "sha256": "6450bc206d2dc85a8df17d3c4e739bfd38aa5373b5c354662f310a67a16497ef",
+          "bytes": 38715,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/Eye/Eye.hlsl",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/Eye/Eye.cs.hlsl",
+          "sha256": "fc86e8570d1d4b02da75e5f61c7e0fef265b07ea5ebaffde6d22cea86cadf047",
+          "bytes": 10312,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/Eye/Eye.cs.hlsl",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/Eye/EyeUtils.hlsl",
+          "sha256": "44c184dfb7cf24c95ac43962f584221fddb3ab4d475465471e8e9bc625d1085b",
+          "bytes": 6233,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/Eye/EyeUtils.hlsl",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/Eye/EyeCausticLUT.hlsl",
+          "sha256": "df8e9edcf3fc34ab38f02dd63e350b227a69c5b7f7ff5f1d2e82af125f08ce82",
+          "bytes": 2021,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/Eye/EyeCausticLUT.hlsl",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/Hair/Hair.hlsl",
+          "sha256": "8dbfb5779fb763e4163a8c45251b9aee457247e1e6605cf8f368ba64ecb21320",
+          "bytes": 62569,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/Hair/Hair.hlsl",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/Hair/Hair.cs.hlsl",
+          "sha256": "e203c6f98f8a80ce76c4906c791f9023de2f5f04ff3fe43c719aaac8e7f33ada",
+          "bytes": 15377,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/Hair/Hair.cs.hlsl",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/Hair/PreIntegratedAzimuthalScattering.hlsl",
+          "sha256": "e0e6050db3ace7a818c3e068be3404d36e5ec7572a9f3d8bd4f4cb46fb94692c",
+          "bytes": 590,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/Hair/PreIntegratedAzimuthalScattering.hlsl",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/Fabric/Fabric.hlsl",
+          "sha256": "957e9f15302350f23472839aca470be7818c2eee0063fd5d3bf5f85fcc4253dd",
+          "bytes": 39735,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/Fabric/Fabric.hlsl",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/Fabric/Fabric.cs.hlsl",
+          "sha256": "3dee793bedc5612687e63326a1de31914785549223b2a75159e8e86ef2f40e15",
+          "bytes": 9427,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/Fabric/Fabric.cs.hlsl",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/Fabric/FabricReference.hlsl",
+          "sha256": "1f621739bcc63706658507ab53239e3039aacbba7444be20aafff7c37191ffa1",
+          "bytes": 3360,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/Fabric/FabricReference.hlsl",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/Fabric/CharlieConvolve.shader",
+          "sha256": "19652ec288b2952008c67ece6593034372cd6c9e21e17b043bd19f8a0ca58e30",
+          "bytes": 2402,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/Fabric/CharlieConvolve.shader",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/Lit/Lit.hlsl",
+          "sha256": "fc9fdd91e7692f1ac4e86a6c86d53b41d26ca8bdba5357b5818590a377a79801",
+          "bytes": 110757,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/Lit/Lit.hlsl",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/Lit/LitData.hlsl",
+          "sha256": "3daa97676877fa34efc4986a58d7e0c949abd009dd54e253b97894bcfd140cee",
+          "bytes": 14675,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/Lit/LitData.hlsl",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/Lit/Lit.shader",
+          "sha256": "5fee66297814045f186ee595b309f2a19d6c339fa7f4c91264e3fed610665eb4",
+          "bytes": 68203,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/Lit/Lit.shader",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/SubsurfaceScattering/SubsurfaceScattering.hlsl",
+          "sha256": "cc9c636806bad4f88c5b64e09ad4dfd9136f9e68dae2509ab872fa4c91796365",
+          "bytes": 11192,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/SubsurfaceScattering/SubsurfaceScattering.hlsl",
+          "origin": "Installed official package; not fetched Git HEAD"
+        },
+        {
+          "path": "InstalledHDRP14.0.8/Runtime/Material/SubsurfaceScattering/CombineLighting.shader",
+          "sha256": "49ef882eeede0413db0ec4a590949e916abe154126a03e51dfc690fe3b01e800",
+          "bytes": 2673,
+          "url": "https://packages.unity.com/com.unity.render-pipelines.high-definition/-/com.unity.render-pipelines.high-definition-14.0.8.tgz",
+          "archiveMember": "Runtime/Material/SubsurfaceScattering/CombineLighting.shader",
+          "origin": "Installed official package; not fetched Git HEAD"
+        }
+      ]
+    }
+  ]
+}

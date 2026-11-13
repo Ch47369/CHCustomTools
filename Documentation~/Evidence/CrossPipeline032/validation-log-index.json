@@ -1,0 +1,154 @@
+[
+  {
+    "path": ".build~/CrossPipeline032/batch-Unity2022.log",
+    "sha256": "1031f3a2d561a2299b520c0db0c4b77b9d38a71a91396a48a3190f33bc7fef95",
+    "markers": [
+      "ASE_LIBRARY_BATCH_SMOKE BuiltIn True 85"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/batch-UnityHDRP.log",
+    "sha256": "e5071def72ae30a84cca9b4a559f4e9861571488bc6d51b9779f975782bf2ef7",
+    "markers": [
+      "ASE_LIBRARY_BATCH_SMOKE HDRP True 105"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/batch-UnityURP.log",
+    "sha256": "260d321eb75a30fb8a6fec08ec2a56287501f1bb7132ca982ee20042a5b986b6",
+    "markers": [
+      "ASE_LIBRARY_BATCH_SMOKE URP True 85"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/build-HDRP.log",
+    "sha256": "5fa4adb95e9c91a8079f576423dbb0664f4a547e35a9d72a6cb4128ae3d2606d",
+    "markers": [
+      "ASE_LIBRARY_JOB DeepWater-HDRP False ",
+      "ASE_LIBRARY_BUILD_COMPLETE HDRP"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/build-URP.log",
+    "sha256": "9d0a178aa7fb027af53f57a256d9c66a8a753eb22a8e693955285618a0842232",
+    "markers": [
+      "ASE_LIBRARY_JOB DeepWater-URP False ",
+      "ASE_LIBRARY_BUILD_COMPLETE URP"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/build2-HDRP.log",
+    "sha256": "12fefa027721055da159a8cb8eda5e9931e4d3936d8e02a7c71dee2cfccd7c95",
+    "markers": [
+      "ASE_LIBRARY_JOB DeepWater-HDRP True ",
+      "ASE_LIBRARY_BUILD_COMPLETE HDRP"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/build2-URP.log",
+    "sha256": "a6fb32a51ced889a9a7f72b97a89f7e181436cce39c83ffbcb834c990be6c4cc",
+    "markers": [
+      "ASE_LIBRARY_JOB DeepWater-URP True ",
+      "ASE_LIBRARY_BUILD_COMPLETE URP"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/smoke-final-HDRP.log",
+    "sha256": "a8def20002c2d48d62c691a27fe37cc8a1afabe940d93f4825dd34f5d066a41d",
+    "markers": [
+      "ASE_WATER_SRP_SMOKE HDRP True"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/smoke-final-URP.log",
+    "sha256": "9b95826d5dea5e2a278d0a14fa4ff6051d337a73075c8c4abdc599090556a605",
+    "markers": [
+      "ASE_WATER_SRP_SMOKE URP False"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/smoke-final2-URP.log",
+    "sha256": "b93416ca448b8e033c8c8184ddd11b6698220f5225cde616e91aad93287dd334",
+    "markers": [
+      "ASE_WATER_SRP_SMOKE URP False"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/smoke-final3-URP.log",
+    "sha256": "963d57810bea541a530200df677e7d26c579d542d3c8ff2dee6e39b623a8206a",
+    "markers": [],
+    "licensingFailure": true
+  },
+  {
+    "path": ".build~/CrossPipeline032/smoke-final4-URP.log",
+    "sha256": "a69700a352a38dd69021d57137a948bfa569aaee8d1006d532d834588c0e14f6",
+    "markers": [
+      "ASE_WATER_SRP_SMOKE URP True"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/smoke-HDRP.log",
+    "sha256": "864a79bc1d522ca5a0838ebfb38f30f0465715432ffae3bae94a0605b560981d",
+    "markers": [
+      "ASE_WATER_SRP_SMOKE HDRP True"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/smoke-linear-HDRP.log",
+    "sha256": "78f410b8589fec952135a9daadb657af4a4649dec9268cbae23ad991e6f40676",
+    "markers": [
+      "ASE_WATER_SRP_SMOKE HDRP False"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/smoke-linear-URP.log",
+    "sha256": "ad8010ff63e884b175f44a4d4d317bd0340cbcafe46b67d53044b55d3eb9af1b",
+    "markers": [
+      "ASE_WATER_SRP_SMOKE URP False"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/smoke-linear2-HDRP.log",
+    "sha256": "20914452db097c46c215c939da2f911bf9f9eea8ee6e0f24933de5c1bef489b2",
+    "markers": [
+      "ASE_WATER_SRP_SMOKE HDRP True"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/smoke-linear2-URP.log",
+    "sha256": "7849ec1837399812f63fd3ae88b932412c18bc1c0ff7819ba341ff7a4353a95f",
+    "markers": [],
+    "licensingFailure": true
+  },
+  {
+    "path": ".build~/CrossPipeline032/smoke-linear3-URP.log",
+    "sha256": "77add29e4a16246518e9c916a179d211de47cc57fd22c8be57f550ab58199fb5",
+    "markers": [
+      "ASE_WATER_SRP_SMOKE URP False"
+    ],
+    "licensingFailure": false
+  },
+  {
+    "path": ".build~/CrossPipeline032/smoke-URP.log",
+    "sha256": "fb181fd14f06fa7d13ef928df0d05e37a45aeb577c74b59b41a2208a39f92b56",
+    "markers": [
+      "ASE_WATER_SRP_SMOKE URP True"
+    ],
+    "licensingFailure": false
+  }
+]

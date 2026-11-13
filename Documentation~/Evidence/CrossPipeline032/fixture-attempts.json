@@ -1,0 +1,58 @@
+[
+  {
+    "attempt": "GameFixture-URP-DepthAfterTransparents",
+    "pipeline": "URP",
+    "successReportedAtAttempt": false,
+    "acceptedForFinalEvidence": false,
+    "reason": "System.Exception: Density did not affect the opaque-bed fixture; scene depth/color host requires investigation\r\n  at UnityCrossPipelineWaterSmoke.Run () [0x00848] in F:\\ASEShader\\.validation\\UnityURP\\Assets\\Editor\\UnityCrossPipelineWaterSmoke.cs:78 "
+  },
+  {
+    "attempt": "GameFixture-URP-GrazingReflection",
+    "pipeline": "URP",
+    "successReportedAtAttempt": false,
+    "acceptedForFinalEvidence": false,
+    "reason": "System.Exception: Unabsorbed scene-color transmission differs from opaque bed; color copy or exposure mapping is invalid\r\n  at UnityCrossPipelineWaterSmoke.Run () [0x009bb] in F:\\ASEShader\\.validation\\UnityURP\\Assets\\Editor\\UnityCrossPipelineWaterSmoke.cs:88 "
+  },
+  {
+    "attempt": "GammaFixture-HDRP",
+    "pipeline": "HDRP",
+    "successReportedAtAttempt": true,
+    "acceptedForFinalEvidence": false,
+    "reason": "Gamma or superseded fixture; see final Linear Game-camera evidence."
+  },
+  {
+    "attempt": "GammaFixture-URP",
+    "pipeline": "URP",
+    "successReportedAtAttempt": true,
+    "acceptedForFinalEvidence": false,
+    "reason": "Gamma or superseded fixture; see final Linear Game-camera evidence."
+  },
+  {
+    "attempt": "LinearFixture1-HDRP",
+    "pipeline": "HDRP",
+    "successReportedAtAttempt": false,
+    "acceptedForFinalEvidence": false,
+    "reason": "System.Exception: Unabsorbed scene-color transmission differs from opaque bed; color copy or exposure mapping is invalid\r\n  at UnityCrossPipelineWaterSmoke.Run () [0x007c7] in F:\\ASEShader\\.validation\\UnityHDRP\\Assets\\Editor\\UnityCrossPipelineWaterSmoke.cs:72 "
+  },
+  {
+    "attempt": "LinearFixture1-URP",
+    "pipeline": "URP",
+    "successReportedAtAttempt": false,
+    "acceptedForFinalEvidence": false,
+    "reason": "System.Exception: Density did not affect the opaque-bed fixture; scene depth/color host requires investigation\r\n  at UnityCrossPipelineWaterSmoke.Run () [0x0068e] in F:\\ASEShader\\.validation\\UnityURP\\Assets\\Editor\\UnityCrossPipelineWaterSmoke.cs:63 "
+  },
+  {
+    "attempt": "LinearFixture2-HDRP",
+    "pipeline": "HDRP",
+    "successReportedAtAttempt": true,
+    "acceptedForFinalEvidence": false,
+    "reason": "Gamma or superseded fixture; see final Linear Game-camera evidence."
+  },
+  {
+    "attempt": "LinearFixture2-URP",
+    "pipeline": "URP",
+    "successReportedAtAttempt": false,
+    "acceptedForFinalEvidence": false,
+    "reason": "System.Exception: Unabsorbed scene-color transmission differs from opaque bed; color copy or exposure mapping is invalid\r\n  at UnityCrossPipelineWaterSmoke.Run () [0x009d1] in F:\\ASEShader\\.validation\\UnityURP\\Assets\\Editor\\UnityCrossPipelineWaterSmoke.cs:86 "
+  }
+]

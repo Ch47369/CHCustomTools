@@ -1,0 +1,735 @@
+{
+    "pipeline": "URP",
+    "error": "",
+    "success": true,
+    "windowCreated": true,
+    "apiLoaded": true,
+    "checksumRejected": true,
+    "pathRejected": true,
+    "pipelineRejected": true,
+    "materialEditsPreserved": true,
+    "cancelled": true,
+    "originalExamplesBound": true,
+    "materialStatesInitialized": true,
+    "sampleTextureBindings": 34,
+    "transparentMaterialChecks": 0,
+    "hairClipChecks": 6,
+    "waterKeywordChecks": 8,
+    "waterTextureBindings": 2,
+    "correspondenceContractCount": 109,
+    "mappedFamilyCount": 64,
+    "rows": [
+        {
+            "id": "original-URP-Skin",
+            "shaderPath": "Assets/ASEShaderLibrary/Skin/URP/original-URP-Skin.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Skin/URP/original-URP-Skin.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Hair",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/URP/original-URP-Hair.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/URP/original-URP-Hair.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Eye",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/URP/original-URP-Eye.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/URP/original-URP-Eye.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Fabric",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/URP/original-URP-Fabric.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/URP/original-URP-Fabric.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Hosiery",
+            "shaderPath": "Assets/ASEShaderLibrary/Hosiery/URP/original-URP-Hosiery.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hosiery/URP/original-URP-Hosiery.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Water",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/URP/original-URP-Water.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/URP/original-URP-Water.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Metal",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/URP/original-URP-Metal.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/URP/original-URP-Metal.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Stone",
+            "shaderPath": "Assets/ASEShaderLibrary/Stone/URP/original-URP-Stone.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Stone/URP/original-URP-Stone.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-Jade",
+            "shaderPath": "Assets/ASEShaderLibrary/Jade/URP/original-URP-Jade.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Jade/URP/original-URP-Jade.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-UI",
+            "shaderPath": "Assets/ASEShaderLibrary/UI/URP/original-URP-UI.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UI/URP/original-URP-UI.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-UIEffects",
+            "shaderPath": "Assets/ASEShaderLibrary/UIEffects/URP/original-URP-UIEffects.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UIEffects/URP/original-URP-UIEffects.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-VFX",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/URP/original-URP-VFX.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/URP/original-URP-VFX.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-UVAnimation",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/URP/original-URP-UVAnimation.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/URP/original-URP-UVAnimation.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-VertexAnimation",
+            "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/URP/original-URP-VertexAnimation.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/URP/original-URP-VertexAnimation.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Skin-Freckles",
+            "shaderPath": "Assets/ASEShaderLibrary/Skin/URP/effect-URP-Skin-Freckles.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Skin/URP/effect-URP-Skin-Freckles.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Skin-Blush",
+            "shaderPath": "Assets/ASEShaderLibrary/Skin/URP/effect-URP-Skin-Blush.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Skin/URP/effect-URP-Skin-Blush.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Skin-Tan",
+            "shaderPath": "Assets/ASEShaderLibrary/Skin/URP/effect-URP-Skin-Tan.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Skin/URP/effect-URP-Skin-Tan.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Skin-OilMask",
+            "shaderPath": "Assets/ASEShaderLibrary/Skin/URP/effect-URP-Skin-OilMask.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Skin/URP/effect-URP-Skin-OilMask.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Skin-Dust",
+            "shaderPath": "Assets/ASEShaderLibrary/Skin/URP/effect-URP-Skin-Dust.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Skin/URP/effect-URP-Skin-Dust.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Hair-RootTip",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/URP/effect-URP-Hair-RootTip.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/URP/effect-URP-Hair-RootTip.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Hair-Streaks",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/URP/effect-URP-Hair-Streaks.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/URP/effect-URP-Hair-Streaks.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Hair-VertexDye",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/URP/effect-URP-Hair-VertexDye.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/URP/effect-URP-Hair-VertexDye.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Hair-DyeMask",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/URP/effect-URP-Hair-DyeMask.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/URP/effect-URP-Hair-DyeMask.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Hair-TipFade",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/URP/effect-URP-Hair-TipFade.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/URP/effect-URP-Hair-TipFade.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Eye-LimbalRing",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/URP/effect-URP-Eye-LimbalRing.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/URP/effect-URP-Eye-LimbalRing.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Eye-IrisBands",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/URP/effect-URP-Eye-IrisBands.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/URP/effect-URP-Eye-IrisBands.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Eye-IrisMask",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/URP/effect-URP-Eye-IrisMask.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/URP/effect-URP-Eye-IrisMask.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Eye-ScleraTint",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/URP/effect-URP-Eye-ScleraTint.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/URP/effect-URP-Eye-ScleraTint.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Eye-IrisSpeckles",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/URP/effect-URP-Eye-IrisSpeckles.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/URP/effect-URP-Eye-IrisSpeckles.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Fabric-Checks",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/URP/effect-URP-Fabric-Checks.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/URP/effect-URP-Fabric-Checks.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Fabric-Stripes",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/URP/effect-URP-Fabric-Stripes.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/URP/effect-URP-Fabric-Stripes.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Fabric-CrossWeave",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/URP/effect-URP-Fabric-CrossWeave.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/URP/effect-URP-Fabric-CrossWeave.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Fabric-Print",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/URP/effect-URP-Fabric-Print.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/URP/effect-URP-Fabric-Print.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Fabric-VertexDye",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/URP/effect-URP-Fabric-VertexDye.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/URP/effect-URP-Fabric-VertexDye.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Hosiery-Dots",
+            "shaderPath": "Assets/ASEShaderLibrary/Hosiery/URP/effect-URP-Hosiery-Dots.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hosiery/URP/effect-URP-Hosiery-Dots.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Hosiery-Rib",
+            "shaderPath": "Assets/ASEShaderLibrary/Hosiery/URP/effect-URP-Hosiery-Rib.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hosiery/URP/effect-URP-Hosiery-Rib.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Hosiery-Lace",
+            "shaderPath": "Assets/ASEShaderLibrary/Hosiery/URP/effect-URP-Hosiery-Lace.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hosiery/URP/effect-URP-Hosiery-Lace.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Hosiery-Gradient",
+            "shaderPath": "Assets/ASEShaderLibrary/Hosiery/URP/effect-URP-Hosiery-Gradient.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hosiery/URP/effect-URP-Hosiery-Gradient.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Hosiery-Diamond",
+            "shaderPath": "Assets/ASEShaderLibrary/Hosiery/URP/effect-URP-Hosiery-Diamond.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hosiery/URP/effect-URP-Hosiery-Diamond.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Water-Foam",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/URP/effect-URP-Water-Foam.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/URP/effect-URP-Water-Foam.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Water-Ripples",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/URP/effect-URP-Water-Ripples.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/URP/effect-URP-Water-Ripples.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Water-RimTint",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/URP/effect-URP-Water-RimTint.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/URP/effect-URP-Water-RimTint.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Water-VertexWave",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/URP/effect-URP-Water-VertexWave.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/URP/effect-URP-Water-VertexWave.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Water-DualNormal",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/URP/effect-URP-Water-DualNormal.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/URP/effect-URP-Water-DualNormal.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Metal-Brushed",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/URP/effect-URP-Metal-Brushed.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/URP/effect-URP-Metal-Brushed.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Metal-Oxidized",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/URP/effect-URP-Metal-Oxidized.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/URP/effect-URP-Metal-Oxidized.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Metal-Scratches",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/URP/effect-URP-Metal-Scratches.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/URP/effect-URP-Metal-Scratches.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Metal-HeatTint",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/URP/effect-URP-Metal-HeatTint.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/URP/effect-URP-Metal-HeatTint.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Metal-Panels",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/URP/effect-URP-Metal-Panels.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/URP/effect-URP-Metal-Panels.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Stone-MossMask",
+            "shaderPath": "Assets/ASEShaderLibrary/Stone/URP/effect-URP-Stone-MossMask.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Stone/URP/effect-URP-Stone-MossMask.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Stone-Strata",
+            "shaderPath": "Assets/ASEShaderLibrary/Stone/URP/effect-URP-Stone-Strata.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Stone/URP/effect-URP-Stone-Strata.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Stone-Cracks",
+            "shaderPath": "Assets/ASEShaderLibrary/Stone/URP/effect-URP-Stone-Cracks.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Stone/URP/effect-URP-Stone-Cracks.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Stone-Wet",
+            "shaderPath": "Assets/ASEShaderLibrary/Stone/URP/effect-URP-Stone-Wet.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Stone/URP/effect-URP-Stone-Wet.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Stone-VertexPaint",
+            "shaderPath": "Assets/ASEShaderLibrary/Stone/URP/effect-URP-Stone-VertexPaint.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Stone/URP/effect-URP-Stone-VertexPaint.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Jade-Veins",
+            "shaderPath": "Assets/ASEShaderLibrary/Jade/URP/effect-URP-Jade-Veins.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Jade/URP/effect-URP-Jade-Veins.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Jade-Clouds",
+            "shaderPath": "Assets/ASEShaderLibrary/Jade/URP/effect-URP-Jade-Clouds.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Jade/URP/effect-URP-Jade-Clouds.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Jade-Gradient",
+            "shaderPath": "Assets/ASEShaderLibrary/Jade/URP/effect-URP-Jade-Gradient.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Jade/URP/effect-URP-Jade-Gradient.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Jade-Speckles",
+            "shaderPath": "Assets/ASEShaderLibrary/Jade/URP/effect-URP-Jade-Speckles.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Jade/URP/effect-URP-Jade-Speckles.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-Jade-Rind",
+            "shaderPath": "Assets/ASEShaderLibrary/Jade/URP/effect-URP-Jade-Rind.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Jade/URP/effect-URP-Jade-Rind.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UI-Gradient",
+            "shaderPath": "Assets/ASEShaderLibrary/UI/URP/effect-URP-UI-Gradient.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UI/URP/effect-URP-UI-Gradient.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UI-RadialMask",
+            "shaderPath": "Assets/ASEShaderLibrary/UI/URP/effect-URP-UI-RadialMask.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UI/URP/effect-URP-UI-RadialMask.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UI-Frame",
+            "shaderPath": "Assets/ASEShaderLibrary/UI/URP/effect-URP-UI-Frame.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UI/URP/effect-URP-UI-Frame.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UI-Scanline",
+            "shaderPath": "Assets/ASEShaderLibrary/UI/URP/effect-URP-UI-Scanline.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UI/URP/effect-URP-UI-Scanline.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UI-MaskTint",
+            "shaderPath": "Assets/ASEShaderLibrary/UI/URP/effect-URP-UI-MaskTint.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UI/URP/effect-URP-UI-MaskTint.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UIEffects-ScanPulse",
+            "shaderPath": "Assets/ASEShaderLibrary/UIEffects/URP/effect-URP-UIEffects-ScanPulse.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UIEffects/URP/effect-URP-UIEffects-ScanPulse.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UIEffects-Pulse",
+            "shaderPath": "Assets/ASEShaderLibrary/UIEffects/URP/effect-URP-UIEffects-Pulse.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UIEffects/URP/effect-URP-UIEffects-Pulse.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UIEffects-Wipe",
+            "shaderPath": "Assets/ASEShaderLibrary/UIEffects/URP/effect-URP-UIEffects-Wipe.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UIEffects/URP/effect-URP-UIEffects-Wipe.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UIEffects-Grid",
+            "shaderPath": "Assets/ASEShaderLibrary/UIEffects/URP/effect-URP-UIEffects-Grid.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UIEffects/URP/effect-URP-UIEffects-Grid.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UIEffects-RingPulse",
+            "shaderPath": "Assets/ASEShaderLibrary/UIEffects/URP/effect-URP-UIEffects-RingPulse.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UIEffects/URP/effect-URP-UIEffects-RingPulse.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-VFX-Ring",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/URP/effect-URP-VFX-Ring.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/URP/effect-URP-VFX-Ring.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-VFX-Beam",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/URP/effect-URP-VFX-Beam.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/URP/effect-URP-VFX-Beam.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-VFX-SoftDisc",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/URP/effect-URP-VFX-SoftDisc.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/URP/effect-URP-VFX-SoftDisc.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-VFX-Scan",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/URP/effect-URP-VFX-Scan.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/URP/effect-URP-VFX-Scan.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-VFX-Pulse",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/URP/effect-URP-VFX-Pulse.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/URP/effect-URP-VFX-Pulse.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UVAnimation-LayerRotate",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/URP/effect-URP-UVAnimation-LayerRotate.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/URP/effect-URP-UVAnimation-LayerRotate.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UVAnimation-FlowMask",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/URP/effect-URP-UVAnimation-FlowMask.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/URP/effect-URP-UVAnimation-FlowMask.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UVAnimation-Distortion",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/URP/effect-URP-UVAnimation-Distortion.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/URP/effect-URP-UVAnimation-Distortion.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UVAnimation-Flipbook",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/URP/effect-URP-UVAnimation-Flipbook.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/URP/effect-URP-UVAnimation-Flipbook.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-UVAnimation-PingPong",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/URP/effect-URP-UVAnimation-PingPong.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/URP/effect-URP-UVAnimation-PingPong.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-VertexAnimation-Flutter",
+            "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/URP/effect-URP-VertexAnimation-Flutter.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/URP/effect-URP-VertexAnimation-Flutter.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-VertexAnimation-Ripple",
+            "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/URP/effect-URP-VertexAnimation-Ripple.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/URP/effect-URP-VertexAnimation-Ripple.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-VertexAnimation-Bob",
+            "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/URP/effect-URP-VertexAnimation-Bob.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/URP/effect-URP-VertexAnimation-Bob.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-VertexAnimation-Bend",
+            "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/URP/effect-URP-VertexAnimation-Bend.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/URP/effect-URP-VertexAnimation-Bend.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-URP-VertexAnimation-CrossWind",
+            "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/URP/effect-URP-VertexAnimation-CrossWind.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/URP/effect-URP-VertexAnimation-CrossWind.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-URP-DeepWater",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/URP/original-URP-DeepWater.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/URP/original-URP-DeepWater.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "public-URP-Vignette",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/URP/public-URP-Vignette.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/URP/public-URP-Vignette.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "public-URP-AnalogGlitch",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/URP/public-URP-AnalogGlitch.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/URP/public-URP-AnalogGlitch.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "public-URP-DigitalGlitch",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/URP/public-URP-DigitalGlitch.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/URP/public-URP-DigitalGlitch.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "public-URP-Mirror",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/URP/public-URP-Mirror.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/URP/public-URP-Mirror.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        }
+    ]
+}

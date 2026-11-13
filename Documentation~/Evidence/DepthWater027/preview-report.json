@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "compiled": true,
+    "error": "",
+    "shader": "Assets/Shaders/DeepWater_ASE.shader",
+    "material": "Assets/Shaders/DeepWater/DeepWater.mat",
+    "prefab": "Assets/Shaders/DeepWater/DeepWater.prefab",
+    "preview": "Assets/Shaders/DeepWater/DeepWater_Preview.png",
+    "graphicsApi": "Direct3D11",
+    "mainPass": "ForwardBase",
+    "shaderPasses": 4,
+    "mainPassIndex": 1,
+    "vertices": 16641,
+    "triangles": 32768,
+    "compilerMessages": []
+}

@@ -1,0 +1,115 @@
+{
+    "pipeline": "HDRP",
+    "error": "System.Exception: Material forward pass failed: original-HDRP-VFX\r\n  at UnityLibraryBatchSmoke.Tick () [0x001cd] in F:\\ASEShader\\.validation\\UnityHDRP\\Assets\\Editor\\UnityLibraryBatchSmoke.cs:55 ",
+    "success": false,
+    "windowCreated": true,
+    "apiLoaded": true,
+    "checksumRejected": true,
+    "pathRejected": true,
+    "pipelineRejected": true,
+    "materialEditsPreserved": false,
+    "cancelled": false,
+    "originalExamplesBound": true,
+    "materialStatesInitialized": true,
+    "sampleTextureBindings": 0,
+    "transparentMaterialChecks": 2,
+    "hairClipChecks": 1,
+    "rows": [
+        {
+            "id": "original-HDRP-Skin",
+            "shaderPath": "Assets/ASEShaderLibrary/Skin/HDRP/original-HDRP-Skin.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Skin/HDRP/original-HDRP-Skin.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Hair",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/HDRP/original-HDRP-Hair.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/HDRP/original-HDRP-Hair.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Eye",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/HDRP/original-HDRP-Eye.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/HDRP/original-HDRP-Eye.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Fabric",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/HDRP/original-HDRP-Fabric.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/HDRP/original-HDRP-Fabric.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Hosiery",
+            "shaderPath": "Assets/ASEShaderLibrary/Hosiery/HDRP/original-HDRP-Hosiery.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hosiery/HDRP/original-HDRP-Hosiery.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Water",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/HDRP/original-HDRP-Water.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/HDRP/original-HDRP-Water.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Metal",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/HDRP/original-HDRP-Metal.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/HDRP/original-HDRP-Metal.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Stone",
+            "shaderPath": "Assets/ASEShaderLibrary/Stone/HDRP/original-HDRP-Stone.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Stone/HDRP/original-HDRP-Stone.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Jade",
+            "shaderPath": "Assets/ASEShaderLibrary/Jade/HDRP/original-HDRP-Jade.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Jade/HDRP/original-HDRP-Jade.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-UI",
+            "shaderPath": "Assets/ASEShaderLibrary/UI/HDRP/original-HDRP-UI.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UI/HDRP/original-HDRP-UI.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-UIEffects",
+            "shaderPath": "Assets/ASEShaderLibrary/UIEffects/HDRP/original-HDRP-UIEffects.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UIEffects/HDRP/original-HDRP-UIEffects.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-VFX",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/HDRP/original-HDRP-VFX.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/HDRP/original-HDRP-VFX.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        }
+    ]
+}

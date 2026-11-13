@@ -1,0 +1,82 @@
+{
+  "success": true,
+  "version": "0.3.3",
+  "artifacts": 287,
+  "families": 109,
+  "threeArtifactFamilies": 89,
+  "threeMappedTargetFamilies": 64,
+  "crossPipelineVisualEquivalenceProven": false,
+  "batchChecks": [
+    {
+      "pipeline": "BuiltIn",
+      "materials": 89,
+      "waterKeywords": 8,
+      "waterTextures": 2
+    },
+    {
+      "pipeline": "URP",
+      "materials": 89,
+      "waterKeywords": 8,
+      "waterTextures": 2
+    },
+    {
+      "pipeline": "HDRP",
+      "materials": 109,
+      "waterKeywords": 8,
+      "waterTextures": 2
+    }
+  ],
+  "waterFixtureChecks": [
+    {
+      "pipeline": "URP",
+      "states": 13,
+      "sceneTransmissionMeanDifference": 0.0,
+      "depthAndDensityVisible": true
+    },
+    {
+      "pipeline": "HDRP",
+      "states": 13,
+      "sceneTransmissionMeanDifference": 0.0,
+      "depthAndDensityVisible": true
+    }
+  ],
+  "coreChecks": 523,
+  "editorCompile": "0 warnings / 0 errors",
+  "pythonCorrespondenceTests": 6,
+  "allArtifactHashesAndContractsVerified": true,
+  "sourceProjectsModified": false,
+  "remaining": {
+    "missingPipelineVersions": 40,
+    "existingVersionsWithKnownFeatureGaps": 49,
+    "localSourceGraphsStillBlocked": 80
+  },
+  "publicFilterChecks": [
+    {
+      "pipeline": "BuiltIn",
+      "states": 13,
+      "oracleStates": 12,
+      "maxMeanError": 4.4703170942739234e-08,
+      "globalKeywordValidated": true
+    },
+    {
+      "pipeline": "URP",
+      "states": 13,
+      "oracleStates": 12,
+      "maxMeanError": 4.4703170942739234e-08,
+      "globalKeywordValidated": true
+    },
+    {
+      "pipeline": "HDRP",
+      "states": 13,
+      "oracleStates": 12,
+      "maxMeanError": 4.4703170942739234e-08,
+      "globalKeywordValidated": true
+    }
+  ],
+  "newDownloadedFiles": 41,
+  "newResearchIdentities": 37,
+  "newSourceFamilies": 4,
+  "newGeneratedArtifacts": 12,
+  "newSourcesRequiringAdapter": 37,
+  "waterChecksAreHistorical032": true
+}

@@ -1,0 +1,29 @@
+{
+    "pipeline": "BuiltIn",
+    "error": "",
+    "finishedUtc": "2026-10-23T02:51:25.5021847Z",
+    "success": true,
+    "apiLoaded": true,
+    "windowOpened": true,
+    "editsPreserved": true,
+    "shaderPreserved": true,
+    "sourceHashPreserved": true,
+    "textureChecks": 5,
+    "presetChecks": 3,
+    "installed": {
+        "id": "showcase-BuiltIn-LayeredParallaxGlitter",
+        "shaderPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/LayeredParallaxGlitter_ASE.shader",
+        "materialPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/LayeredParallaxGlitter_ASE.mat",
+        "error": "",
+        "success": true,
+        "materialReused": false
+    },
+    "reused": {
+        "id": "showcase-BuiltIn-LayeredParallaxGlitter",
+        "shaderPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/LayeredParallaxGlitter_ASE.shader",
+        "materialPath": "Assets/ASEShaderLibrary/VFX/BuiltIn/LayeredParallaxGlitter_ASE.mat",
+        "error": "",
+        "success": true,
+        "materialReused": true
+    }
+}

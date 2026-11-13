@@ -1,0 +1,16 @@
+﻿{
+    "packageVersion":  "0.2.2",
+    "archiveFilesMatchWorkspace":  true,
+    "fileCount":  133,
+    "forbiddenFileCount":  0,
+    "coreChecks":  48,
+    "unityArrayChecks":  34,
+    "aseRoundTripPassed":  true,
+    "shaderCompiled":  true,
+    "fixtureImageCases":  6,
+    "fixtureMaxRgbaError":  0,
+    "targetSceneComparisonPassed":  false,
+    "shaderPath":  "Releases~/Converted/DeepZoomPageTable360/DeepZoomPageTable360_ASE.shader",
+    "shaderSha256":  "5c4d4efe2f2f16352517f2e54ee23f3158e1b5fc92ef31e2479b7a0ddf345802",
+    "packageSha256":  "b922af478ce7b96418583e1eeb3d4e397f6c080dcc7def61f51637021b48cff1"
+}

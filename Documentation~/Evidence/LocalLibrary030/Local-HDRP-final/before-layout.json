@@ -1,0 +1,3226 @@
+{
+  "pipeline": "HDRP",
+  "completed": true,
+  "rows": [
+    {
+      "id": "local-HDRP-0b09e8a8e8b4",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/SF_Base_0b09e8a8_ASE.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/SF_Base_0b09e8a8_ASE.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/SF_Base_0b09e8a8",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 70,
+          "customExpressionCount": 0,
+          "propertyCount": 60,
+          "layoutApplied": true,
+          "commentCount": 3,
+          "registerNodeCount": 5,
+          "getNodeCount": 5,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-044b7612c112",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/SF_BaseTransparentGlass_044b7612_ASE.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/SF_BaseTransparentGlass_044b7612_ASE.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/SF_BaseTransparentGlass_044b7612",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 76,
+          "customExpressionCount": 0,
+          "propertyCount": 63,
+          "layoutApplied": true,
+          "commentCount": 3,
+          "registerNodeCount": 5,
+          "getNodeCount": 5,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-2a377100bd62",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/SF_Pipe_01_2a377100_ASE 2.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/SF_Pipe_01_2a377100_ASE 2.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/SF_Pipe_01_2a377100",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 26,
+          "customExpressionCount": 0,
+          "propertyCount": 48,
+          "layoutApplied": true,
+          "commentCount": 3,
+          "registerNodeCount": 4,
+          "getNodeCount": 4,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-5f1acba57c6f",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/Girl_Hair_5f1acba5_ASE 1.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/Girl_Hair_5f1acba5_ASE 1.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/Girl_Hair_5f1acba5",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "e4fe21624ace6de4b9fbaabdda0c51de",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 137,
+          "customExpressionCount": 0,
+          "propertyCount": 75,
+          "layoutApplied": true,
+          "commentCount": 73,
+          "registerNodeCount": 32,
+          "getNodeCount": 33,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-91b14ee430f3",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/Unlit_Graph_91b14ee4_ASE 2.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/Unlit_Graph_91b14ee4_ASE 2.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/Unlit_Graph_91b14ee4",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "7f5cb9c3ea6481f469fdd856555439ef",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 3,
+          "customExpressionCount": 0,
+          "propertyCount": 47,
+          "layoutApplied": true,
+          "commentCount": 1,
+          "registerNodeCount": 0,
+          "getNodeCount": 0,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-efb1bec0bd9d",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/Fabric_Trans_efb1bec0_ASE 2.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/Fabric_Trans_efb1bec0_ASE 2.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/Fabric_Trans_efb1bec0",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "41e04be03f2c20941bc749271be1c937",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 118,
+          "customExpressionCount": 0,
+          "propertyCount": 66,
+          "layoutApplied": true,
+          "commentCount": 3,
+          "registerNodeCount": 10,
+          "getNodeCount": 10,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-18acaa20c040",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/RGB_18acaa20_ASE.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/RGB_18acaa20_ASE.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/RGB_18acaa20",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 81,
+          "customExpressionCount": 0,
+          "propertyCount": 57,
+          "layoutApplied": true,
+          "commentCount": 3,
+          "registerNodeCount": 8,
+          "getNodeCount": 8,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-b22f3d64654c",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/Eye_b22f3d64_ASE.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/Eye_b22f3d64_ASE.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/Eye_b22f3d64",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 370,
+          "customExpressionCount": 0,
+          "propertyCount": 68,
+          "layoutApplied": true,
+          "commentCount": 300,
+          "registerNodeCount": 32,
+          "getNodeCount": 38,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-bf1acc8b5350",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/Girl_Hair_bf1acc8b_ASE 1.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/Girl_Hair_bf1acc8b_ASE 1.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/Girl_Hair_bf1acc8b",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "e4fe21624ace6de4b9fbaabdda0c51de",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 137,
+          "customExpressionCount": 0,
+          "propertyCount": 75,
+          "layoutApplied": true,
+          "commentCount": 73,
+          "registerNodeCount": 32,
+          "getNodeCount": 33,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-4e9932aa7d81",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/SRP_4e9932aa_ASE 2.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/SRP_4e9932aa_ASE 2.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/SRP_4e9932aa",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 9,
+          "customExpressionCount": 0,
+          "propertyCount": 49,
+          "layoutApplied": true,
+          "commentCount": 2,
+          "registerNodeCount": 0,
+          "getNodeCount": 0,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-6dec954b5a2e",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/Eye_6dec954b_ASE.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/Eye_6dec954b_ASE.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/Eye_6dec954b",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 375,
+          "customExpressionCount": 0,
+          "propertyCount": 68,
+          "layoutApplied": true,
+          "commentCount": 305,
+          "registerNodeCount": 32,
+          "getNodeCount": 38,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-bc4aa57b1388",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/SF_Base_bc4aa57b_ASE.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/SF_Base_bc4aa57b_ASE.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/SF_Base_bc4aa57b",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 85,
+          "customExpressionCount": 0,
+          "propertyCount": 63,
+          "layoutApplied": true,
+          "commentCount": 3,
+          "registerNodeCount": 5,
+          "getNodeCount": 5,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-8cb1136f317e",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/SF_BaseMasked_8cb1136f_ASE.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/SF_BaseMasked_8cb1136f_ASE.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/SF_BaseMasked_8cb1136f",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 80,
+          "customExpressionCount": 0,
+          "propertyCount": 62,
+          "layoutApplied": true,
+          "commentCount": 3,
+          "registerNodeCount": 6,
+          "getNodeCount": 6,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-98503c7606a4",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/SF_BaseMaskedTranslucent_98503c76_ASE.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/SF_BaseMaskedTranslucent_98503c76_ASE.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/SF_BaseMaskedTranslucent_98503c76",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 77,
+          "customExpressionCount": 0,
+          "propertyCount": 62,
+          "layoutApplied": true,
+          "commentCount": 3,
+          "registerNodeCount": 5,
+          "getNodeCount": 5,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-4a617f9c3b5d",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/SF_Base_VertexPaint_4a617f9c_ASE.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/SF_Base_VertexPaint_4a617f9c_ASE.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/SF_Base_VertexPaint_4a617f9c",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 133,
+          "customExpressionCount": 0,
+          "propertyCount": 66,
+          "layoutApplied": true,
+          "commentCount": 3,
+          "registerNodeCount": 9,
+          "getNodeCount": 9,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-e604d2baf899",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/Unlit Shadow_e604d2ba_ASE 2.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/Unlit Shadow_e604d2ba_ASE 2.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/Unlit Shadow_e604d2ba",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 9,
+          "customExpressionCount": 0,
+          "propertyCount": 48,
+          "layoutApplied": true,
+          "commentCount": 2,
+          "registerNodeCount": 0,
+          "getNodeCount": 0,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-8b2f70979b9e",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/Girl_Hair_8b2f7097_ASE.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/Girl_Hair_8b2f7097_ASE.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/Girl_Hair_8b2f7097",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "e4fe21624ace6de4b9fbaabdda0c51de",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 137,
+          "customExpressionCount": 0,
+          "propertyCount": 75,
+          "layoutApplied": true,
+          "commentCount": 73,
+          "registerNodeCount": 32,
+          "getNodeCount": 33,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-1e59d2455441",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/Eye_1e59d245_ASE.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/Eye_1e59d245_ASE.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/Eye_1e59d245",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 375,
+          "customExpressionCount": 0,
+          "propertyCount": 68,
+          "layoutApplied": true,
+          "commentCount": 305,
+          "registerNodeCount": 32,
+          "getNodeCount": 38,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-1ddc5d05b394",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/Shader_Golem_Basic_1ddc5d05_ASE 2.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/Shader_Golem_Basic_1ddc5d05_ASE 2.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/Shader_Golem_Basic_1ddc5d05",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 29,
+          "customExpressionCount": 0,
+          "propertyCount": 55,
+          "layoutApplied": true,
+          "commentCount": 1,
+          "registerNodeCount": 0,
+          "getNodeCount": 0,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    },
+    {
+      "id": "local-HDRP-aaace4303347",
+      "output": "Assets/ASELibrary030/LocalAdaptations/HDRP/Fabric_aaace430_ASE.shader",
+      "response": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+          "unityVersion": "",
+          "aseVersion": "",
+          "activePipeline": "",
+          "templates": [],
+          "errors": []
+        },
+        "description": {
+          "masters": [],
+          "options": []
+        },
+        "analysis": {
+          "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+              "autoLayout": true,
+              "addComments": true,
+              "useRegisters": true,
+              "longWireDistance": 1800.0,
+              "maxRegisters": 24
+            },
+            "comments": []
+          },
+          "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+          },
+          "knowledge": {
+            "libraryVersion": "0.3.0",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+              "present": false,
+              "complete": false,
+              "version": "",
+              "nodeCount": 0,
+              "wireCount": 0,
+              "customExpressionCount": 0,
+              "nodeTypes": [],
+              "templateGuids": [],
+              "functionGuids": []
+            },
+            "sourceGraph": {
+              "format": "",
+              "status": "AnalysisOnly",
+              "target": "",
+              "sourcePipeline": "Unknown",
+              "nodeCount": 0,
+              "edgeCount": 0,
+              "keywordCount": 0,
+              "groupCount": 0,
+              "noteCount": 0,
+              "properties": [],
+              "blocks": [],
+              "nodeTypes": [],
+              "dependencies": [],
+              "targetSettings": [],
+              "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+              "status": "NotBenchmarked",
+              "directTextureSampleSites": 0,
+              "loopSites": 0,
+              "explicitPasses": 0,
+              "includesMayAddWork": false,
+              "observations": []
+            }
+          }
+        },
+        "report": {
+          "status": "Generated",
+          "sourcePath": "",
+          "outputPath": "Assets/ASELibrary030/LocalAdaptations/HDRP/Fabric_aaace430_ASE.shader",
+          "shaderName": "ASELibrary/HDRP/LocalAdaptations/Fabric_aaace430",
+          "pipeline": "HDRP",
+          "unityVersion": "2022.3.10f1",
+          "aseVersion": "1.9.9.13",
+          "templateGuid": "41e04be03f2c20941bc749271be1c937",
+          "sourcePipeline": "",
+          "crossPipeline": false,
+          "existingAseGraph": false,
+          "aseRoundTripPassed": true,
+          "shaderCompiled": true,
+          "visualComparisonPassed": false,
+          "nativeNodeCount": 116,
+          "customExpressionCount": 0,
+          "propertyCount": 66,
+          "layoutApplied": true,
+          "commentCount": 3,
+          "registerNodeCount": 9,
+          "getNodeCount": 9,
+          "nativeMappings": [],
+          "fallbackReasons": [],
+          "blockers": [],
+          "warnings": [
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+          ]
+        },
+        "ruleLibrary": {
+          "version": "0.3.0",
+          "rules": [],
+          "references": [],
+          "publicSources": [],
+          "categories": [],
+          "characterProfiles": []
+        },
+        "shaderLibrary": {
+          "version": "0.3.0",
+          "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+          "entries": [],
+          "research": []
+        },
+        "targetAnalyses": []
+      }
+    }
+  ]
+}

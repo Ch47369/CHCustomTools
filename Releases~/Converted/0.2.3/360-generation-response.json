@@ -1,0 +1,90 @@
+{
+    "schemaVersion": 1,
+    "success": true,
+    "error": "",
+    "environment": {
+        "unityVersion": "",
+        "aseVersion": "",
+        "activePipeline": "",
+        "templates": [],
+        "errors": []
+    },
+    "description": {
+        "masters": [],
+        "options": []
+    },
+    "analysis": {
+        "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+                "autoLayout": true,
+                "addComments": true,
+                "useRegisters": true,
+                "longWireDistance": 1800.0,
+                "maxRegisters": 24
+            },
+            "comments": []
+        },
+        "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+        }
+    },
+    "report": {
+        "status": "Generated",
+        "sourcePath": "",
+        "outputPath": "Assets/Generated/DeepZoomPageTable360_ASE 4.shader",
+        "shaderName": "DeepZoom/DeepZoomPageTable360_ASE_Organized",
+        "pipeline": "BuiltIn",
+        "unityVersion": "2022.3.10f1",
+        "aseVersion": "1.9.9.13",
+        "templateGuid": "0770190933193b94aaa3065e307002fa",
+        "existingAseGraph": false,
+        "aseRoundTripPassed": true,
+        "shaderCompiled": true,
+        "visualComparisonPassed": false,
+        "nativeNodeCount": 99,
+        "customExpressionCount": 0,
+        "propertyCount": 6,
+        "layoutApplied": true,
+        "commentCount": 13,
+        "registerNodeCount": 9,
+        "getNodeCount": 11,
+        "nativeMappings": [],
+        "fallbackReasons": [],
+        "blockers": [],
+        "warnings": [
+            "ASE 1.9.9.13 serializes the empty 2DArray default as the token white. No default array asset is assigned; the source default token remains recorded in the plan. Validate unassigned textures separately.",
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+        ]
+    }
+}

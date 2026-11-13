@@ -1,0 +1,670 @@
+{
+    "masters": [
+        {
+            "type": "TemplateMultiPassMasterNode",
+            "pass": "Forward Unlit",
+            "inputs": [
+                {
+                    "id": 0,
+                    "name": "Color",
+                    "type": "FLOAT3",
+                    "visible": true,
+                    "locked": false
+                },
+                {
+                    "id": 1,
+                    "name": "Emission",
+                    "type": "FLOAT3",
+                    "visible": true,
+                    "locked": false
+                },
+                {
+                    "id": 2,
+                    "name": "Alpha",
+                    "type": "FLOAT",
+                    "visible": true,
+                    "locked": false
+                },
+                {
+                    "id": 3,
+                    "name": "Alpha Clip Threshold",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 30,
+                    "name": "Alpha Clip Threshold Shadow",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 8,
+                    "name": "Shadow Tint",
+                    "type": "FLOAT4",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 4,
+                    "name": "Distortion",
+                    "type": "FLOAT2",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 5,
+                    "name": "Distortion Blur",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 28,
+                    "name": "Depth",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 26,
+                    "name": "Depth Offset",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 6,
+                    "name": "Vertex Offset",
+                    "type": "FLOAT3",
+                    "visible": true,
+                    "locked": false
+                },
+                {
+                    "id": 7,
+                    "name": "Vertex Normal",
+                    "type": "FLOAT3",
+                    "visible": true,
+                    "locked": false
+                },
+                {
+                    "id": 21,
+                    "name": "Velocity",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "type": "TemplateMultiPassMasterNode",
+            "pass": "ShadowCaster",
+            "inputs": [
+                {
+                    "id": 2,
+                    "name": "Alpha",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 3,
+                    "name": "Alpha Clip Threshold",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 30,
+                    "name": "Alpha Clip Threshold Shadow",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 28,
+                    "name": "Depth",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 26,
+                    "name": "Depth Offset",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 6,
+                    "name": "Vertex Offset",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 7,
+                    "name": "Vertex Normal",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 21,
+                    "name": "Velocity",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "type": "TemplateMultiPassMasterNode",
+            "pass": "META",
+            "inputs": [
+                {
+                    "id": 0,
+                    "name": "Color",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 1,
+                    "name": "Emission",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 2,
+                    "name": "Alpha",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 3,
+                    "name": "Alpha Clip Threshold",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 6,
+                    "name": "Vertex Offset",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 7,
+                    "name": "Vertex Normal",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "type": "TemplateMultiPassMasterNode",
+            "pass": "SceneSelectionPass",
+            "inputs": [
+                {
+                    "id": 2,
+                    "name": "Alpha",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 3,
+                    "name": "Alpha Clip Threshold",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 28,
+                    "name": "Depth",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 26,
+                    "name": "Depth Offset",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 6,
+                    "name": "Vertex Offset",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 7,
+                    "name": "Vertex Normal",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 21,
+                    "name": "Velocity",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "type": "TemplateMultiPassMasterNode",
+            "pass": "DepthForwardOnly",
+            "inputs": [
+                {
+                    "id": 2,
+                    "name": "Alpha",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 3,
+                    "name": "Alpha Clip Threshold",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 28,
+                    "name": "Depth",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 26,
+                    "name": "Depth Offset",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 6,
+                    "name": "Vertex Offset",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 7,
+                    "name": "Vertex Normal",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 21,
+                    "name": "Velocity",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "type": "TemplateMultiPassMasterNode",
+            "pass": "MotionVectors",
+            "inputs": [
+                {
+                    "id": 2,
+                    "name": "Alpha",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 3,
+                    "name": "Alpha Clip Threshold",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 28,
+                    "name": "Depth",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 26,
+                    "name": "Depth Offset",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 6,
+                    "name": "Vertex Offset",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 7,
+                    "name": "Vertex Normal",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 21,
+                    "name": "Velocity",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "type": "TemplateMultiPassMasterNode",
+            "pass": "DistortionVectors",
+            "inputs": [
+                {
+                    "id": 2,
+                    "name": "Alpha",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 3,
+                    "name": "Alpha Clip Threshold",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 4,
+                    "name": "Distortion",
+                    "type": "FLOAT2",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 5,
+                    "name": "Distortion Blur",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 6,
+                    "name": "Vertex Offset",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 7,
+                    "name": "Vertex Normal",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 21,
+                    "name": "Velocity",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "type": "TemplateMultiPassMasterNode",
+            "pass": "ScenePickingPass",
+            "inputs": [
+                {
+                    "id": 2,
+                    "name": "Alpha",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 3,
+                    "name": "Alpha Clip Threshold",
+                    "type": "FLOAT",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 6,
+                    "name": "Vertex Offset",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 7,
+                    "name": "Vertex Normal",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                },
+                {
+                    "id": 21,
+                    "name": "Velocity",
+                    "type": "FLOAT3",
+                    "visible": false,
+                    "locked": false
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "type": "SwizzleNode",
+            "pass": "",
+            "inputs": [
+                {
+                    "id": 0,
+                    "name": "  ",
+                    "type": "FLOAT4",
+                    "visible": true,
+                    "locked": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 0,
+                    "name": "  ",
+                    "type": "FLOAT4",
+                    "visible": true,
+                    "locked": false
+                }
+            ]
+        },
+        {
+            "type": "CustomExpressionNode",
+            "pass": "",
+            "inputs": [
+                {
+                    "id": 0,
+                    "name": "In0",
+                    "type": "FLOAT",
+                    "visible": true,
+                    "locked": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 0,
+                    "name": "Out",
+                    "type": "FLOAT",
+                    "visible": true,
+                    "locked": false
+                }
+            ]
+        }
+    ],
+    "options": [
+        {
+            "name": "option:Surface Type",
+            "value": "Opaque|Transparent|disable"
+        },
+        {
+            "name": "option:  Rendering Pass ",
+            "value": "Default|After Post-Process|disable"
+        },
+        {
+            "name": "option:  Rendering Pass",
+            "value": "Before Refraction|Default|Low Resolution|After Post-Process|disable"
+        },
+        {
+            "name": "option:  Blending Mode",
+            "value": "Alpha|Premultiply|Additive|disable"
+        },
+        {
+            "name": "option:  Receive Fog",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:  Distortion",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:    Distortion Mode",
+            "value": "Add|Multiply|Replace|disable"
+        },
+        {
+            "name": "option:    Distortion Depth Test",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:    Distortion Only",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:  Depth Write",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:  Cull Mode",
+            "value": "Back|Front|disable"
+        },
+        {
+            "name": "option:  Depth Test",
+            "value": "Disabled|Never|Less|Equal|Less Equal|Greater|Not Equal|Greater Equal|Always|disable"
+        },
+        {
+            "name": "option:Double-Sided",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:Alpha Clipping",
+            "value": "Force Off|Material Toggle|Keyword Only|disable"
+        },
+        {
+            "name": "option:  Use Shadow Threshold",
+            "value": "Force Off|Material Toggle|disable"
+        },
+        {
+            "name": "option:Receive Decals",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:Motion Vectors",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:  Add Precomputed Velocity",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:  Add Custom Velocity",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:Shadow Matte",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:Cast Shadows",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:Write Depth",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:  Depth Offset",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:  Conservative",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:GPU Instancing",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:Tessellation",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:  Phong",
+            "value": "false|true|disable"
+        },
+        {
+            "name": "option:  Strength",
+            "value": "Change|Inline|disable"
+        },
+        {
+            "name": "option:  Type",
+            "value": "Fixed|Distance Based|Edge Length|Edge Length Cull|disable"
+        },
+        {
+            "name": "option:  Tess",
+            "value": "Change|Inline|disable"
+        },
+        {
+            "name": "option:  Min",
+            "value": "Change|Inline|disable"
+        },
+        {
+            "name": "option:  Max",
+            "value": "Change|Inline|disable"
+        },
+        {
+            "name": "option:  Edge Length",
+            "value": "Change|Inline|disable"
+        },
+        {
+            "name": "option:  Max Displacement",
+            "value": "Change|Inline|disable"
+        },
+        {
+            "name": "option:Vertex Position",
+            "value": "Absolute|Relative|disable"
+        },
+        {
+            "name": "option:LOD CrossFade",
+            "value": "false|true|disable"
+        }
+    ]
+}

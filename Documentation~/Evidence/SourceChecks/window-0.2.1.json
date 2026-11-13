@@ -1,0 +1,25 @@
+{
+  "packageVersion": "0.2.1",
+  "recordDate": "2026-10-21",
+  "coreChecks": { "passed": true, "count": 38 },
+  "editorReferenceCompile": { "passed": true, "unityVersion": "2022.3.10f1", "warnings": 0, "errors": 0 },
+  "windowChecks": {
+    "passed": true,
+    "count": 20,
+    "unityVersion": "2022.3.10f1",
+    "aseVersion": "1.9.9.13",
+    "pipeline": "BuiltIn",
+    "passMarker": "ASE_CONVERTER_WINDOW_SMOKE_PASS: 20",
+    "checks": [
+      "Imported Shader object and external file drag payloads",
+      "Reject multiple, non-Shader, or missing inputs",
+      "Normalize Assets paths and resolve Package Manager virtual paths",
+      "Suggest new output paths inside Assets",
+      "Clear previous analysis when input changes",
+      "Keep unsupported semantics blocked and preserve original diagnostics",
+      "Keep actual validation failures at error severity"
+    ],
+    "mouseGestureReplay": false,
+    "visualComparisonPassed": false
+  }
+}

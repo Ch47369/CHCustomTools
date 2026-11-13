@@ -1,0 +1,6 @@
+﻿ConverterSamples/TintedTexture: 0/1 <Unnamed Pass 0>
+ConverterSamples/TintedTexture_ASE: 0/1 Unlit
+ConverterSamples/MathSource: 0/1 <Unnamed Pass 0>
+ConverterSamples/TintedTexture_ASE_Math: 0/1 Unlit
+ConverterSamples/LoopSource: 0/1 <Unnamed Pass 0>
+ConverterSamples/TintedTexture_ASE_CustomLoop: 0/1 Unlit

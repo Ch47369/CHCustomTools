@@ -1,0 +1,72 @@
+{
+  "sameReachableComputation": true,
+  "outputs": {
+    "BuiltIn": {
+      "Base Color": {
+        "port": "0",
+        "hash": "3b14f7c0624c23591db35ac9360f1701193e6861489d7a0f8a9316f06c2a5c39"
+      },
+      "Metallic": {
+        "port": "0",
+        "hash": "76f3a1e8a9c60c4c8c08ded2d01c8c322324f21c0eca5d048cae2b8e8854ab93"
+      },
+      "Smoothness": {
+        "port": "0",
+        "hash": "7cf8258a98a447c5bb79fb16f51b2542258dc1f88fa1a93e4102be307da709ee"
+      },
+      "Emission": {
+        "port": "0",
+        "hash": "986e062b031a751a4feeb5cea879e3841f7b3028e773cbc1b38dd8e7ca59ec24"
+      },
+      "Alpha": {
+        "port": "0",
+        "hash": "496b75a1d33dbc092882e82ebc79e6c0a4f2688ef3aec913384a875607b60efc"
+      }
+    },
+    "URP": {
+      "Base Color": {
+        "port": "0",
+        "hash": "3b14f7c0624c23591db35ac9360f1701193e6861489d7a0f8a9316f06c2a5c39"
+      },
+      "Metallic": {
+        "port": "0",
+        "hash": "76f3a1e8a9c60c4c8c08ded2d01c8c322324f21c0eca5d048cae2b8e8854ab93"
+      },
+      "Smoothness": {
+        "port": "0",
+        "hash": "7cf8258a98a447c5bb79fb16f51b2542258dc1f88fa1a93e4102be307da709ee"
+      },
+      "Emission": {
+        "port": "0",
+        "hash": "986e062b031a751a4feeb5cea879e3841f7b3028e773cbc1b38dd8e7ca59ec24"
+      },
+      "Alpha": {
+        "port": "0",
+        "hash": "496b75a1d33dbc092882e82ebc79e6c0a4f2688ef3aec913384a875607b60efc"
+      }
+    },
+    "HDRP": {
+      "Base Color": {
+        "port": "0",
+        "hash": "3b14f7c0624c23591db35ac9360f1701193e6861489d7a0f8a9316f06c2a5c39"
+      },
+      "Metallic": {
+        "port": "0",
+        "hash": "76f3a1e8a9c60c4c8c08ded2d01c8c322324f21c0eca5d048cae2b8e8854ab93"
+      },
+      "Smoothness": {
+        "port": "0",
+        "hash": "7cf8258a98a447c5bb79fb16f51b2542258dc1f88fa1a93e4102be307da709ee"
+      },
+      "Emission": {
+        "port": "0",
+        "hash": "986e062b031a751a4feeb5cea879e3841f7b3028e773cbc1b38dd8e7ca59ec24"
+      },
+      "Alpha": {
+        "port": "0",
+        "hash": "496b75a1d33dbc092882e82ebc79e6c0a4f2688ef3aec913384a875607b60efc"
+      }
+    }
+  },
+  "scope": "Same explicit graph math; standard Lit BSDFs may differ."
+}

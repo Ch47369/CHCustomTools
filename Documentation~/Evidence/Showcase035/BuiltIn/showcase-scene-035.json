@@ -1,0 +1,19 @@
+{
+    "pipeline": "BuiltIn",
+    "error": "",
+    "finishedUtc": "2026-10-23T02:55:54.3321608Z",
+    "colorSpace": "Linear",
+    "success": true,
+    "realPipelineCamera": true,
+    "originalSceneEquivalence": false,
+    "materialChangedPixels": 24750,
+    "translatedCameraMeanError": 0.0,
+    "images": [
+        "LibraryBuildEvidence/Showcase035/Scene/StationaryCamera.png",
+        "LibraryBuildEvidence/Showcase035/Scene/TranslatedCamera.png",
+        "LibraryBuildEvidence/Showcase035/Scene/BlueCyan.png",
+        "LibraryBuildEvidence/Showcase035/Scene/GoldOrange.png",
+        "LibraryBuildEvidence/Showcase035/Scene/Purple.png",
+        "LibraryBuildEvidence/Showcase035/Scene/BlackControl.png"
+    ]
+}

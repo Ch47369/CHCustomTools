@@ -1,0 +1,2289 @@
+{
+  "inputs": [
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/001-004_basic_unlit/basic_unlit.shader",
+      "group": "PublicCorpus",
+      "sha256": "9090d99ccc480179323546a4a5764dfeaa3bddc3cdd17920b38bf0b415616ae5"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/005_Surface_Basics/simple_surface.shader",
+      "group": "PublicCorpus",
+      "sha256": "381e288e5fe6d314c5af40a907906a8b6a3bcc5dd505b437081dae3f39495000"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/006_Transparency/transparent.shader",
+      "group": "PublicCorpus",
+      "sha256": "6a4c8ac62cb0d9dba161d983aa0ffb3573e43e712de74d2aa414173e5a5534b2"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/007_Sprites/sprite.shader",
+      "group": "PublicCorpus",
+      "sha256": "2395929b8d05b69fe46f138d1b0b7c778b88957f502f637e6ce269ded6136c96"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/008_Planar_Mapping/planar_mapping.shader",
+      "group": "PublicCorpus",
+      "sha256": "5eaa0adb4d1ba7f0ffafa86c4fb4b26517c7cce9e0b5d9fd66a5259a9965ca72"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/009_Color_Blending/ColorBlending_Plain.shader",
+      "group": "PublicCorpus",
+      "sha256": "bec77f492b0960bbe09689d9176abb560621c6dd0f8e85f323ad7cdaa2dfadab"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/009_Color_Blending/ColorBlending_Texture.shader",
+      "group": "PublicCorpus",
+      "sha256": "464443c666e067054166ca45158bdd7a93c185ab64d9711152853243380c710d"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/009_Color_Blending/ColorBlending_TextureBasedBlending.shader",
+      "group": "PublicCorpus",
+      "sha256": "754cd9e0ba470edd43c189e82181bfce502a8953d316a763b1bb3f853be58db4"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/010_Triplanar_Mapping/triplanar_mapping.shader",
+      "group": "PublicCorpus",
+      "sha256": "df7efe8ff921543e3fd02de5c1a8dcf77cea1822e7772080ebc34fb127ec6be3"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/011_ChessBoard/Chessboard.shader",
+      "group": "PublicCorpus",
+      "sha256": "43eab239e91c3a619b7ae29adccfeb16cc745b974d768eaa33a6f9b487884e5a"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/012_Fresnel/Fresnel.shader",
+      "group": "PublicCorpus",
+      "sha256": "630716d01ba4802786a56481d69cca730b89ca28831eede3f2bc1bd6e1364df0"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/013_CustomSurfaceLighting/CustomLighting.shader",
+      "group": "PublicCorpus",
+      "sha256": "b00f41fe845831bf7980b5b242f4560f43415f3136bf5d91b590c6ee65b3addb"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/013_CustomSurfaceLighting/CustomLightingGradient.shader",
+      "group": "PublicCorpus",
+      "sha256": "40d561d9ece61ed423820e7d80f654ada85bbe9fcdc57ba50e25131c64adca94"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/014_Polygon/Polygon.shader",
+      "group": "PublicCorpus",
+      "sha256": "5502da7c9746e9c9c06ad6b059752c7f20f336ea653776c3d5273f0bf5229d22"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/015_VertexManipulation/vertexmanipulation.shader",
+      "group": "PublicCorpus",
+      "sha256": "430402ac016390dbd0ab1790c337156ad65e81f063a779ba45f906711ce6939f"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/016_Postprocessing/Postprocessing.shader",
+      "group": "PublicCorpus",
+      "sha256": "fc71fb4c0307b3c335fe8f8479c75158510f9fc2380d547584a5684a0d2370af"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/017_DepthPostprocessing/DepthPostprocessing.shader",
+      "group": "PublicCorpus",
+      "sha256": "bed182674ae8eeb41d2e746f196a1a8b02046ec8692ab01d4e7e2f543b45e7f6"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/018_NormalPostprocessing/NormalPostprocessing.shader",
+      "group": "PublicCorpus",
+      "sha256": "9a0210511078eedd34584494c92c21c680be87bbd95cf6c4bf3033d8d60a8cdf"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/019_OutlinesPostprocessed/OutlinesPostprocessed.shader",
+      "group": "PublicCorpus",
+      "sha256": "ee4eff3348b09fffeeeee6ba8246bfca6c294ae5679d35350bc61de8ec198afa"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/020_Inverted_Hull/SurfaceOutlines.shader",
+      "group": "PublicCorpus",
+      "sha256": "f8e926cac219e0e6fce8fa56d0823d139475121ebdc9f9bff93a76b14f2b52e9"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/020_Inverted_Hull/UnlitOutlines.shader",
+      "group": "PublicCorpus",
+      "sha256": "a3739f917a60f38a4e5b6da7a17c530f487be255419baedf0450ab6520898701"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/021_Clipping_Plane/ClippingPlane.shader",
+      "group": "PublicCorpus",
+      "sha256": "f057da778f4e491f26d3d22a664901459a733636c275d8478b4e06709729b9ec"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/022_Stencil_Buffer/stencil_read.shader",
+      "group": "PublicCorpus",
+      "sha256": "037a4120c88924d374b44931c1ceeb20cd843c6004366b7b779d823ef9977188"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/022_Stencil_Buffer/stencil_write.shader",
+      "group": "PublicCorpus",
+      "sha256": "2452934b9056e46874d93e86d96d2a55c01d897002c05282c04aab5ec436d046"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/023_PostprocessingBlur/PostprocessingBlur.shader",
+      "group": "PublicCorpus",
+      "sha256": "03abc3a897c5f525374cc9e6b9108ce9fe118322a922f663146bdacdc2a19910"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/024_White_Noise/white_noise_cells.shader",
+      "group": "PublicCorpus",
+      "sha256": "5d1588bff738a88918a49e894eddd4ca275d60afec6202a7775f5997c60ccb94"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/024_White_Noise/white_noise_random.shader",
+      "group": "PublicCorpus",
+      "sha256": "fea8f5e85c375fc19a4d2dd3fb0847e11419da70a54b27f112b4a6f7826d487b"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/025_Value_Noise/value_noise_1d.shader",
+      "group": "PublicCorpus",
+      "sha256": "ea13b41450e9ccad5a95ce906cf02b259745d4f9521e1df1c43e8ae9f4904176"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/025_Value_Noise/value_noise_2d.shader",
+      "group": "PublicCorpus",
+      "sha256": "4d52fd8f1d9ad09aa537d6785ea261b52651c86f493c96ec978234e7d473fc9d"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/025_Value_Noise/value_noise_3d.shader",
+      "group": "PublicCorpus",
+      "sha256": "bf7bb71fbed3b1f1941615b5c212a80c0490f514d6ebf73df7955927ae0b5f64"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/026_Perlin_Noise/perlin_noise_1d.shader",
+      "group": "PublicCorpus",
+      "sha256": "33d9137993f70a7e5d75b5fcc140be80603a9f331170728ac5df7c4179852814"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/026_Perlin_Noise/perlin_noise_2d.shader",
+      "group": "PublicCorpus",
+      "sha256": "439a74595cab646d3c9eba6aaaa2ae4d4ee957d7f3ec298b203cb9c2154f5ef3"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/026_Perlin_Noise/perlin_noise_3d.shader",
+      "group": "PublicCorpus",
+      "sha256": "74f72da135d2d66014e23a7bbbd110174dbca9e65b972fae5a6fcd4cb214d7ba"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/026_Perlin_Noise/perlin_noise_special.shader",
+      "group": "PublicCorpus",
+      "sha256": "44b32ebcc61c917bc9ff03542bf5d81f743c2ffd2b7c7d8671840aa81c6709c6"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/027_Layered_Noise/layered_noise_special.shader",
+      "group": "PublicCorpus",
+      "sha256": "7d8b45f1f706e8f4526451d48fecab3ee0ccc67348add26f654e0accb325eda8"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/027_Layered_Noise/layered_perlin_noise_1d.shader",
+      "group": "PublicCorpus",
+      "sha256": "2808aa7c4ca860a921513ed72a6be5d0a64503726d2fb865a026871538c12edf"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/027_Layered_Noise/layered_perlin_noise_2d.shader",
+      "group": "PublicCorpus",
+      "sha256": "db17ba6ab27e3291bb06facbfa1d7cef18beb25ed0ac7647db68cb60e136d996"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/027_Layered_Noise/layered_perlin_noise_3d.shader",
+      "group": "PublicCorpus",
+      "sha256": "f8c12ccb0d8114e3ab8d7e568281f8305ab550628f7d3185995cffd7f0611f6f"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/028_Voronoi_Noise/voronoi_noise_2d.shader",
+      "group": "PublicCorpus",
+      "sha256": "f6923b11360ade4fa5f2de193204b1c8079213ca21176a3dd9eb3a1079893665"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/028_Voronoi_Noise/voronoi_noise_3d.shader",
+      "group": "PublicCorpus",
+      "sha256": "46c1258b7ddd1d368e7700b26e2c3620fd81ab49dd3987e9ca64ce92ef827eb1"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/028_Voronoi_Noise/voronoi_noise_scrolling.shader",
+      "group": "PublicCorpus",
+      "sha256": "70deafe26ae3af9d2f5012c12e40be630555c916d37f2710df1348a3d91f141f"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/029_Tiling_Noise/2d_layered.shader",
+      "group": "PublicCorpus",
+      "sha256": "29519beff86200eb824431b3316eff7710bec68d2ffe5132fedd9e5c74ca8ecd"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/029_Tiling_Noise/3d_voronoi.shader",
+      "group": "PublicCorpus",
+      "sha256": "8fa57e888d192f54b500429996688d65e8564a14ac2240a89bed42dd1659fceb"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/030_Bake_Material/Read3dTexture.shader",
+      "group": "PublicCorpus",
+      "sha256": "f5ff26ece95e170930f7138277a6b90c4bb7b0c1009eadfdffbfe83a4aa2f0e4"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/031_StepToon/SteppedToonLighting.shader",
+      "group": "PublicCorpus",
+      "sha256": "b64946f1471568ed5d98c1c5882c17d4be3903f9bc2832445598dc1949a90693"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/032_ImprovedToon/ImprovedToonLighting.shader",
+      "group": "PublicCorpus",
+      "sha256": "48160d60be6a3a91dd1687953584b0681b4a10494750122f499926350157d531"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/033_River/FlowingRiver.shader",
+      "group": "PublicCorpus",
+      "sha256": "b4a461e23bc94618e60bc082ecc87f4a741f961483fd4166d20c7911c1f79ac5"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/034_2D_SDF/Circle.shader",
+      "group": "PublicCorpus",
+      "sha256": "c810923c51a89e305d41e305771156ca12ef1a789009fa915888c091c9763992"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/034_2D_SDF/Cutoff.shader",
+      "group": "PublicCorpus",
+      "sha256": "2c54ad60c17a2d308ca66655fdf3e30c9c7dfa4196ab6ce1784065bb4b6879e6"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/034_2D_SDF/DistanceLines.shader",
+      "group": "PublicCorpus",
+      "sha256": "0ec8b8e98ad298f2055fa474a2d862afd1f7230ae77b1d9bb384c7deeb71652a"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/034_2D_SDF/Rectangle.shader",
+      "group": "PublicCorpus",
+      "sha256": "72bbb1a39e3825923ed55c4f5021f351c0b39ce747188c3ae7f545b248f36870"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/035_SDF_combining_repeating/Fancy/sdf_border_intersection.shader",
+      "group": "PublicCorpus",
+      "sha256": "448137e3627e4dfa9cd30d161c43b31ab3448d7bffab894366c427bf897db7bd"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/035_SDF_combining_repeating/Fancy/sdf_champfer.shader",
+      "group": "PublicCorpus",
+      "sha256": "a00c402874dc912df12a13328e4dcb296fdbf4c286364962bfa72f61b598c79d"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/035_SDF_combining_repeating/Fancy/sdf_groove.shader",
+      "group": "PublicCorpus",
+      "sha256": "779aa33876afe53867e375725d4fa729ade2735f5b174e0c1d5df7ec29b8bc44"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/035_SDF_combining_repeating/Fancy/sdf_round.shader",
+      "group": "PublicCorpus",
+      "sha256": "cba04107e86ea713b317e5d806f4d461fdd909fb2c0d9dfdd0ed5da3c599b704"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/035_SDF_combining_repeating/Simple/sdf_interpolate.shader",
+      "group": "PublicCorpus",
+      "sha256": "9fbfc5f465d351f87555b5783e2f87c26f76efd327761db7eb5ddb6e0d44d558"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/035_SDF_combining_repeating/Simple/sdf_intersect.shader",
+      "group": "PublicCorpus",
+      "sha256": "16c0bdd095243023952696a85c250ecb0faabf64d7a3ddd29478ab53db70d6ee"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/035_SDF_combining_repeating/Simple/sdf_subtract.shader",
+      "group": "PublicCorpus",
+      "sha256": "fa9a5bbd264c40916a8c31d8d8aa1f8a7daae5751b3df67750d9abec10dded7a"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/035_SDF_combining_repeating/Simple/sdf_union.shader",
+      "group": "PublicCorpus",
+      "sha256": "ee70daab8c798f6d14a84e86477f17c2bdd097e7eba142a5c3b2ba348e655aba"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/036_SDF_space_manipulation/sdf_cells.shader",
+      "group": "PublicCorpus",
+      "sha256": "3c4402d7b418439829dc0ebc7341d182019e5f1dac21c3fb73b6f5113e4b3aa0"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/036_SDF_space_manipulation/sdf_mirror.shader",
+      "group": "PublicCorpus",
+      "sha256": "6db1b12b177439499706604f1af57dcbe33666777b4964cf1438be603bd5c1de"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/036_SDF_space_manipulation/sdf_radial_symmetry.shader",
+      "group": "PublicCorpus",
+      "sha256": "3241ff44775d8123da39c939c3bfb52c80a34009e43c9f1932bd80a792aecb25"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/036_SDF_space_manipulation/sdf_wobble.shader",
+      "group": "PublicCorpus",
+      "sha256": "15b7aca67b13fd2ad68dbe25137d4c1d96d3dc1d317f7dd53c48df38b44ad677"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/037_SDF_2D_Shadows/2D_SDF_Shadows.shader",
+      "group": "PublicCorpus",
+      "sha256": "22d2f2c4102c20cf224e746dbd41851d1bd740d9b4d6de4a3f192561d6167a5b"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/038_Dissolve/Dissolve.shader",
+      "group": "PublicCorpus",
+      "sha256": "f04dceabed5757c190ae756166b0fe86486ddf0b81011782b011213379dcf71f"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/039_Screenspace_Textures/SurfaceScreenspaceTexture.shader",
+      "group": "PublicCorpus",
+      "sha256": "ec7591c0ad2ddbc7cec6298471141079a00d8343d3207051b44c16803a7c0127"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/039_Screenspace_Textures/UnlitScreenspaceTextures.shader",
+      "group": "PublicCorpus",
+      "sha256": "90c2693ef54c266e397c554e0911b5daef275eb2d9bfa593ef0801702e2858e2"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/040_Halftone_Lighting/HalftoneShading.shader",
+      "group": "PublicCorpus",
+      "sha256": "114769dc9bc72eb9215143afeac59c8b40faf635b46107cbd2b53588e384bb45"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/041_HSV_Colorspace/HSVAdjust.shader",
+      "group": "PublicCorpus",
+      "sha256": "dd187989d7baa334bc48443d06cd81c389c146dec54a60ce0764d0000bfcf036"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/041_HSV_Colorspace/HueCycle.shader",
+      "group": "PublicCorpus",
+      "sha256": "6e7f2b2044aa9ce19f3f3e5b2a4000345e86c1d25c700cc9f72f5518ddfa05d6"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/041_HSV_Colorspace/HueTest.shader",
+      "group": "PublicCorpus",
+      "sha256": "a9d217ca9b45b0ae20614a5cc897a6ddf74cd25f6058ff6290280fe1a0d0ea48"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/042_Dithering/BW_Dithering.shader",
+      "group": "PublicCorpus",
+      "sha256": "ab2644adead1fae69862b0021631182cc042def22649358d7d0fc52dc1225ff5"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/042_Dithering/DistanceFade.shader",
+      "group": "PublicCorpus",
+      "sha256": "8d0da43fae1f0c61228a32594a44c8476a0a50f0e1946fd629cc71ae04baf224"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/043_SphereTracingBasics/SphereTracingBasics.shader",
+      "group": "PublicCorpus",
+      "sha256": "ed84ecaddf0aaa91d5a6b0d10d33491dc73a2ccf0a9730164869ffc940f7842c"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/044_SphereTracingShading/SphereTracingShading.shader",
+      "group": "PublicCorpus",
+      "sha256": "f6205abb878e0a1fee15df505fa57e55595c22e814fe8fc5b07a6a95bea54434"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/045_SphereTracingDepth/SphereTracingDepth.shader",
+      "group": "PublicCorpus",
+      "sha256": "70d3c2e12e4702aaf1a76f454fb2e0f9557591bfc6bc8d8b285eab8663c26167"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/046_Partial_Derivatives/aa_step.shader",
+      "group": "PublicCorpus",
+      "sha256": "5b62e73071b35994567e72030ac74f7866e6124744974ac2fc473afb7be45ad9"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/046_Partial_Derivatives/Fire.shader",
+      "group": "PublicCorpus",
+      "sha256": "78ee9bcaba34e5aaefa760cf64b878925f94240e871a03fb2c5479cab61fea03"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/046_Partial_Derivatives/step.shader",
+      "group": "PublicCorpus",
+      "sha256": "b045ac083dc8da829ed1613e048683d13fcc3a74ba9bf98ae71bc2e0a92f8d28"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/046_Partial_Derivatives/testing.shader",
+      "group": "PublicCorpus",
+      "sha256": "ea4895fe56eb7dc43038c58f4eb1f3f2a6a99cb65df1bf7431045e8349cb44ea"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/046_Partial_Derivatives/uv.shader",
+      "group": "PublicCorpus",
+      "sha256": "1d892c0107069ee7bfa9db8ff002b5ddf3a01035cd855d68d08b6434029c7ac0"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/047_InverseInterpolationAndRemap/InvLerp.shader",
+      "group": "PublicCorpus",
+      "sha256": "09067ebf1d0528bbf07ec5bdb173a5770968fee1d27bbd84f36d5602fefec5f8"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/047_InverseInterpolationAndRemap/Lerp.shader",
+      "group": "PublicCorpus",
+      "sha256": "70c662e26cd5d802fecc7e874c63abf412778e029df22a311a66104ab370706f"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/047_InverseInterpolationAndRemap/Remap.shader",
+      "group": "PublicCorpus",
+      "sha256": "2384493991b8adf33e5fb6a3f1d5e1d6087b7b7692f32b602d2811904ab3e944"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/048_Instancing/MPBShader.shader",
+      "group": "PublicCorpus",
+      "sha256": "8f04c380e84b654495a2e623f9983828da0ffd5cda2afef6f4e931b3bbe8109a"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/049_Sprite_Outline/SpriteOutline.shader",
+      "group": "PublicCorpus",
+      "sha256": "befc59b12f6da3fa28c4f473b6920154aa47093829c6950593728027259f6b3f"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/051_DrawProcedural/ProceduralSpheres.shader",
+      "group": "PublicCorpus",
+      "sha256": "e2c77e16da274c01e8a86c58e3fd05e6c0b849258ed93fc81d47b24cf9031d91"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/052_Object_Outline/ApplyOutline.shader",
+      "group": "PublicCorpus",
+      "sha256": "492205f38f6d9e25c70c90cd45b7bcffe59e84bbfb27fe8616c7fc73afbd70f8"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/053_Polar_Coordinates/PolarManipulation1.shader",
+      "group": "PublicCorpus",
+      "sha256": "969625eaf2d0a453adc2a665003bc715a03155e6b15fbd3570f1dc85c336be13"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/053_Polar_Coordinates/PolarManipulation2.shader",
+      "group": "PublicCorpus",
+      "sha256": "8775b6fa1558a411ff470d0f77be4c4d8a58e8350aa71b1cc67eafc7ea265647"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/053_Polar_Coordinates/PolarUVs.shader",
+      "group": "PublicCorpus",
+      "sha256": "1e6afb37bc8d790ff5bcf4e81e842043f7a4fa0f17f31ea96c1ac07be782c0c5"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/054_Unlit_Decals/UnlitDynamicDecal.shader",
+      "group": "PublicCorpus",
+      "sha256": "d402e32ccea905496d40388253f0414ab9869d2d2539d96eb6641eb6fc4138f6"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/999_SDF_2D_AmbientOcclusion/2D_SDF_Ambient.shader",
+      "group": "PublicCorpus",
+      "sha256": "7451cee19f016a7b3c3009bdea8c9b4077afb5288a275144b098ac703cbaafea"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/Assets/Models/FightingUnityChan_FreeAsset/FightingUnityChan_FreeAsset/Models/UnityChanShader/Shader/Unitychan_chara_akarami_blend.shader",
+      "group": "PublicCorpus",
+      "sha256": "bdb9cb22d0be0646e5e49130ff71462e910cbfb34c1f09eb95387738b3a7b0ef"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/Assets/Models/FightingUnityChan_FreeAsset/FightingUnityChan_FreeAsset/Models/UnityChanShader/Shader/Unitychan_chara_eye.shader",
+      "group": "PublicCorpus",
+      "sha256": "8c8c0317a857a67b18efb3c6b830405534e71831833b27322c3cf00e700609c4"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/Assets/Models/FightingUnityChan_FreeAsset/FightingUnityChan_FreeAsset/Models/UnityChanShader/Shader/Unitychan_chara_eyelash_blend.shader",
+      "group": "PublicCorpus",
+      "sha256": "f7aef91460bf62d8faaebc952037a2fc792f50b869c57d80ccc6fea2fc449f40"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/Assets/Models/FightingUnityChan_FreeAsset/FightingUnityChan_FreeAsset/Models/UnityChanShader/Shader/Unitychan_chara_eye_blend.shader",
+      "group": "PublicCorpus",
+      "sha256": "965a10ce3f193ef03409cec424ef1c3b23a897768350d1ff4d14cc9a69139f82"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/Assets/Models/FightingUnityChan_FreeAsset/FightingUnityChan_FreeAsset/Models/UnityChanShader/Shader/Unitychan_chara_fuku.shader",
+      "group": "PublicCorpus",
+      "sha256": "c0a9a24375dbe0296a41fe78ba58da3d4e5e2bd860c6feeae4ec1ca3b080daba"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/Assets/Models/FightingUnityChan_FreeAsset/FightingUnityChan_FreeAsset/Models/UnityChanShader/Shader/Unitychan_chara_fuku_ds.shader",
+      "group": "PublicCorpus",
+      "sha256": "701f11c8dc82dd4ee26c656354c08ea4fbe098d8f882ea67ebe0680f3bb7e526"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/Assets/Models/FightingUnityChan_FreeAsset/FightingUnityChan_FreeAsset/Models/UnityChanShader/Shader/Unitychan_chara_hada_blend.shader",
+      "group": "PublicCorpus",
+      "sha256": "f27a3a55e407f3c46806a53b0daefaaea9dba06e76029e9c0b1f30d9b92570db"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/Assets/Models/FightingUnityChan_FreeAsset/FightingUnityChan_FreeAsset/Models/UnityChanShader/Shader/Unitychan_chara_hair.shader",
+      "group": "PublicCorpus",
+      "sha256": "9a5aec3389e7594dfe777b16105f750f7d824b6ccf60493b042891d47f5ced87"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/Assets/Models/FightingUnityChan_FreeAsset/FightingUnityChan_FreeAsset/Models/UnityChanShader/Shader/Unitychan_chara_hair_ds.shader",
+      "group": "PublicCorpus",
+      "sha256": "ac6eede55de3f72751da48f6a8a367fb53b131badf36f540d01431e935a3913d"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/GlassRefraction/Shaders/GlassStainedBumpDistort.shader",
+      "group": "PublicCorpus",
+      "sha256": "16eaf0fea8fdd2ea84e8355f2bdd41bd46b06e0ef4d8804a5df9063c76587fee"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/BlendModesOverlay.shader",
+      "group": "PublicCorpus",
+      "sha256": "cfa8f3b7e21d2ab3e14cc5e28e8e9bd154677801113a3c37745f64454bbe32f5"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/BlurEffectConeTaps.shader",
+      "group": "PublicCorpus",
+      "sha256": "745dd7bd3b62ad0f19e3e8eb66f6ff277b811c0324f23a60e0d098b8c57da41c"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/CameraMotionBlur.shader",
+      "group": "PublicCorpus",
+      "sha256": "a663807569c291ed73b5d01c419138b87b7076897a45f3f124b50179beb53808"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/CameraMotionBlurDX11.shader",
+      "group": "PublicCorpus",
+      "sha256": "0ae19c911976478a9c421206a9a60af0e712d048c718917738795ef071db5e5c"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/ChromaticAberrationShader.shader",
+      "group": "PublicCorpus",
+      "sha256": "7f78ad003ab5fc1bc8960be75d04f790362595b516cdf76cc0dc540029eb74cb"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/ColorCorrection3DLut.shader",
+      "group": "PublicCorpus",
+      "sha256": "cd65bf53404ee9756ec73a560b3a20493600ee81269d1513031707f4ad985241"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/ColorCorrectionCurves.shader",
+      "group": "PublicCorpus",
+      "sha256": "3dec8eaf02122f7e0b5d754389454b7170d4e2f621ce501d566fa8301e86161e"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/ColorCorrectionCurvesSimple.shader",
+      "group": "PublicCorpus",
+      "sha256": "08a3542a6eef4d661196d7ee770fb519cc946c6b694852e770f5271c152258db"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/ColorCorrectionEffect.shader",
+      "group": "PublicCorpus",
+      "sha256": "8ae97d48f66e838c36dfc0cffcff53341e33973f3896d57cb945d9579c18cf85"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/ColorCorrectionSelective.shader",
+      "group": "PublicCorpus",
+      "sha256": "8325153908a588c73b897dd50e228c7b87f249b45c562e25864383e197c1f3d8"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/ContrastComposite.shader",
+      "group": "PublicCorpus",
+      "sha256": "bc6b456c4b583a1c4d14b4dc6008fdd09e069c53afdef4c06b89f1793f3f372d"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/ConvertDepth.shader",
+      "group": "PublicCorpus",
+      "sha256": "fd9f76707d460b7f33d5f3dabef9a091af6a1b3ea12fbad36a2f40d8301130bf"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/CreaseApply.shader",
+      "group": "PublicCorpus",
+      "sha256": "5c7a24248f52d812cd56f5cb4a48b9b4f5e1670ab5070867ca85d0b80cfd8dd6"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/EdgeDetectNormals.shader",
+      "group": "PublicCorpus",
+      "sha256": "6fed51b8ebc25ce7f8a0a03876a8fedba4d4f6729c4196a85f0a8fbc1946706d"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/FisheyeShader.shader",
+      "group": "PublicCorpus",
+      "sha256": "ba878aa8f2ee46df954955e222b30aea4cf581b4ac4c805d5bc3852a0a53847c"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/GlobalFog.shader",
+      "group": "PublicCorpus",
+      "sha256": "25858874e5b4d077096b193827bf9ce15b977a246625a138bb025c6520c27614"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/GrayscaleEffect.shader",
+      "group": "PublicCorpus",
+      "sha256": "67af3aa6ae0055c63a648a972d9b6334a55f641cabec20282f2723a5e5619b84"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/MotionBlur.shader",
+      "group": "PublicCorpus",
+      "sha256": "1e8ebb02d7ab3df13e98947205ac5a35786b455e4ac17a0a1848f33a353b7ac0"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/MotionBlurClear.shader",
+      "group": "PublicCorpus",
+      "sha256": "5d4f3983a62c8ed825912f6b5c2e81c5bccbb38a5f47024ea795601295b99371"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/NoiseAndGrain.shader",
+      "group": "PublicCorpus",
+      "sha256": "1446c591653d59bcac1a1631bd9537f48161b60e5b27fd98ad806823050e0ee2"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/NoiseAndGrainDX11.shader",
+      "group": "PublicCorpus",
+      "sha256": "86d6fc93b550371892efa936af71fb9b7debfbbbda8a7cc4073d0e7bb07af1a1"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/NoiseEffectShaderRGB.shader",
+      "group": "PublicCorpus",
+      "sha256": "b41ceddfbf4db2fb6f78bc16f9909a392ace1a6921b104eb692f77b5617e5441"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/NoiseEffectShaderYUV.shader",
+      "group": "PublicCorpus",
+      "sha256": "ac94bd2f071ae6da6165cb3e1e96f3183eca465958eda33cf0cc6e8eb4d4ea61"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/RadialBlur.shader",
+      "group": "PublicCorpus",
+      "sha256": "adaaf9efe7741bd781befdc159c5987692025f613d1c4dc0b83a60c7ec05d9ac"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/ScreenSpaceAmbientObscurance.shader",
+      "group": "PublicCorpus",
+      "sha256": "3e68aaa328f603781b75dccd2125982705a29d1b31745322096e5ceabf3644de"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/SepiaToneEffect.shader",
+      "group": "PublicCorpus",
+      "sha256": "176f534543b768c4566bd81b8e825727f15c2a6c822a849aef8c8b4763d9eff8"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/ShowAlphaChannel.shader",
+      "group": "PublicCorpus",
+      "sha256": "7b1839b905a637cadb87d5137987d4afa23fd9f9440488ca8d4230a37f026c77"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/SimpleClear.shader",
+      "group": "PublicCorpus",
+      "sha256": "69063c45cd79ad77fbee53e7f73dee632d3666cbb40b535d658973bd6061dc3b"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/SSAOShader.shader",
+      "group": "PublicCorpus",
+      "sha256": "ed092b0403d65bff2260d0c09f0bbf7d89f56437bcf118da2f7a612925749ae7"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/SunShaftsComposite.shader",
+      "group": "PublicCorpus",
+      "sha256": "201ac754cb54e180f84a6c906ef3557401b535eafa70da7d8550004769047853"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/Tonemapper.shader",
+      "group": "PublicCorpus",
+      "sha256": "7e536bcc3c91c08363d977e0b4b0e11c6cbc4db402c3291e527905e120127129"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/TwirlEffect.shader",
+      "group": "PublicCorpus",
+      "sha256": "6fdde241eb659a85484ed65e240aa993b9b88003f1123d03068c520f6243cbce"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/VignettingShader.shader",
+      "group": "PublicCorpus",
+      "sha256": "08ff7ff276c56d89f5c8636097f8216a94835a7b9732015abf74d2fcf1f5be19"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/VortexEffect.shader",
+      "group": "PublicCorpus",
+      "sha256": "d2c2c687325defb97ddf373f8c53af17afc8db1247cbb1c671734cc65cd9b83d"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/Contrast Stretch/Adaptation.shader",
+      "group": "PublicCorpus",
+      "sha256": "d2921d9b458c88bf05978c49514500bb51e0726720472e6f5c0155e4a5953909"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/Contrast Stretch/Apply.shader",
+      "group": "PublicCorpus",
+      "sha256": "4e0962e2af35d737b75b144c744648b103236f98c4cd625aa0e771068e926c80"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/Contrast Stretch/Luminance.shader",
+      "group": "PublicCorpus",
+      "sha256": "6c14fe1a692b045ed3807a2b6382f0bd43bb33220d0ab005abb14d11174884c1"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_Antialiasing/DLAA.shader",
+      "group": "PublicCorpus",
+      "sha256": "8a3cf1d45c5a59184e4a6ebed49994bba756c5b972a394d7d3294e945558b606"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_Antialiasing/FXAA2.shader",
+      "group": "PublicCorpus",
+      "sha256": "27711d4aceb8ac8fa14c9db8ab079e36c0f693fae009f1335980af05d91cebac"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_Antialiasing/FXAA3Console.shader",
+      "group": "PublicCorpus",
+      "sha256": "60b67044d136de62f7641f56c3c362ee18b3f1ac168112bb6925190a12faf5ed"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_Antialiasing/FXAAPreset2.shader",
+      "group": "PublicCorpus",
+      "sha256": "12c4369d55b84685d9c0ffaa017bb0aa9efa56182236c18a67cfb2a170ca4dd3"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_Antialiasing/FXAAPreset3.shader",
+      "group": "PublicCorpus",
+      "sha256": "5791a1dd10d6a7f49c8c123f35c9c38000b27501720a7bac7690a35d7073ba83"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_Antialiasing/NFAA.shader",
+      "group": "PublicCorpus",
+      "sha256": "791f0f10e3402ceed877372895fed723d39d6aee2c5315a894a37b1f6d253a5d"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_Antialiasing/SSAA.shader",
+      "group": "PublicCorpus",
+      "sha256": "520b8523dea73ac013944fcb8ea53f6c9ada7efaa3829df182c7d804e0489a7f"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_BloomAndFlares/Blend.shader",
+      "group": "PublicCorpus",
+      "sha256": "e48dd5eb83e3941cd2f56239c0e8620935b4703ed574f9b4f2ea893b4f1af2fb"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_BloomAndFlares/BlendForBloom.shader",
+      "group": "PublicCorpus",
+      "sha256": "d22461e93e8d3bd6801fe12a8ea8a12632d870fd54afc4d34dca839337838abf"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_BloomAndFlares/BlendOneOne.shader",
+      "group": "PublicCorpus",
+      "sha256": "41bc41baafeaadf522f09e29c154e57214127bc32028abee6c5d279b07fcbb14"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_BloomAndFlares/BrightPassFilter.shader",
+      "group": "PublicCorpus",
+      "sha256": "be2bb8a54b42e51572f19e8c0671631e65e840696e70fe4db5e5cd03571528aa"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_BloomAndFlares/BrightPassFilter2.shader",
+      "group": "PublicCorpus",
+      "sha256": "8a19269566f8fd692a44eb607c44f114abbc0a555d11c06995de22e2112e8dc1"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_BloomAndFlares/LensFlareCreate.shader",
+      "group": "PublicCorpus",
+      "sha256": "3e96df71a8c07803d1864f41c9c930bbfe0752bbee87d3f61e1513a1c53c5d0b"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_BloomAndFlares/MobileBloom.shader",
+      "group": "PublicCorpus",
+      "sha256": "a15628288df000ec5541bd0c55a562ae8cc921c8b24856a87a1d4331cdc86528"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_BloomAndFlares/MobileBlur.shader",
+      "group": "PublicCorpus",
+      "sha256": "7439ce53767b19919a3537acbd5e95e1e64cd61fa2c4c57813512df5539a1ebf"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_BloomAndFlares/MultiPassHollywoodFlares.shader",
+      "group": "PublicCorpus",
+      "sha256": "b12fb8f7a933e8fbe11ce0c527f6aa739e9191afb656179db9bbf493c9d0d503"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_BloomAndFlares/SeparableBlurPlus.shader",
+      "group": "PublicCorpus",
+      "sha256": "a5af54c6d86343e9ba74c1ba46e90bc1f8391b792c58a7173be499a76aa399e1"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_BloomAndFlares/VignetteShader.shader",
+      "group": "PublicCorpus",
+      "sha256": "71f876faf62d9bf3aaef281fc384983cd2ed16fb30cc0f377b6ae14533ded95c"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_DepthOfField/Bokeh34.shader",
+      "group": "PublicCorpus",
+      "sha256": "b1bb2c7060412530336b396b9fa94bfbe44b18cb381c4bdc31aeb5d0926df5ca"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_DepthOfField/DepthOfField34.shader",
+      "group": "PublicCorpus",
+      "sha256": "420a6c3a302eedb6301cd2fb5f7854618aaf064673940e48d0e01b07b0c73066"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_DepthOfField/DepthOfFieldDX11.shader",
+      "group": "PublicCorpus",
+      "sha256": "78647433b978cc11dbcf5501a27aab398726e077dbda59d1209b6a3cfd711037"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_DepthOfField/DepthOfFieldScatter.shader",
+      "group": "PublicCorpus",
+      "sha256": "fd72900d4b1f08b1644fe0b299d4a82addc141f8fa143b9eedbef5c555089404"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_DepthOfField/SeparableBlur.shader",
+      "group": "PublicCorpus",
+      "sha256": "43a3fe5b3d00b9bf9873d7df92f08c896f89bafdcc22188d35cc87be1d5ab637"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Shaders/_DepthOfField/SeparableWeightedBlurDof34.shader",
+      "group": "PublicCorpus",
+      "sha256": "b70bfe07fc1f05e8fbc3f6bc8e845aac683637a73bdd7611231819b71901d2bc"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/Projectors/Shaders/ProjectorLight.shader",
+      "group": "PublicCorpus",
+      "sha256": "e5c4d223edca62cafc73d0f6eca1384d19b806c7c967f5a0f0aa227f85c9b014"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/Projectors/Shaders/ProjectorMultiply.shader",
+      "group": "PublicCorpus",
+      "sha256": "c6cca1482f64ff4ad8788fafb1e98e6c734e09521a937c079cc12a7338872205"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/TessellationShaders/Shaders/BumpedSpecularDisplacement.shader",
+      "group": "PublicCorpus",
+      "sha256": "bcf0e5667da1ed4afa8adb935522e10d58a74dd2663198fdab6f2119e6aa010c"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ToonShading/Shaders/ToonBasic.shader",
+      "group": "PublicCorpus",
+      "sha256": "a61ada68e98c125aa4cf921e7db16ca4a7ec9af82e734021a3b6a904e6fb8235"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ToonShading/Shaders/ToonBasicOutline.shader",
+      "group": "PublicCorpus",
+      "sha256": "d1bfb7f4462ea7885366e9ae46891209a38e8148ae14a0c7f4617eb2965f93db"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ToonShading/Shaders/ToonLit.shader",
+      "group": "PublicCorpus",
+      "sha256": "78c81129aeab5d04cf9daa082fb7b42fc1a5b4861b7da99ada029824934a975d"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/NatureStarterKit2/Standard Assets/Effects/ToonShading/Shaders/ToonLitOutline.shader",
+      "group": "PublicCorpus",
+      "sha256": "beadac2a86e1cec4d5fbcbe9401df856b002fff4330fe51f8ab757fa435c7fe2"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/testing/AfterImage/AfterImage.shader",
+      "group": "PublicCorpus",
+      "sha256": "c1cd7bf577555cabe6e9503fddf9c57566841bc696ad5a039340b97b2cf4a860"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/testing/AfterImage/AfterImageSurface.shader",
+      "group": "PublicCorpus",
+      "sha256": "1dcf3f949fbbfc146e7609af449846547062f3d819fcf97085f6fa8b81ede9a1"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/testing/AfterImage/DrawCaster.shader",
+      "group": "PublicCorpus",
+      "sha256": "ead488976893f4fb4acc9135847c0be26940f2effaf6543d206f6be063a178d8"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/testing/AfterImage/Fade.shader",
+      "group": "PublicCorpus",
+      "sha256": "3ceb778fc7beac3f977afb42215f3e1cf27e4fa5a1fb6882df56a9256c10fffb"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/testing/AfterImage/OnlyDepth.shader",
+      "group": "PublicCorpus",
+      "sha256": "e2769ce05b864093e44f6822fc4ba1b72a7838e593135a07ef6bdfd0d2e58bfa"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/testing/Matrix/Matrix.shader",
+      "group": "PublicCorpus",
+      "sha256": "ccead34284a6ce7b45d036f66e6eccf56bc12f7ac438d9db67a10ebfb258acf2"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/testing/Metaballs/Metaballs.shader",
+      "group": "PublicCorpus",
+      "sha256": "f3d03d3bde5614e8984a08f4e35aa6c07bec6078685528de3739c6973d305652"
+    },
+    {
+      "id": "ronja-tutorials/ShaderTutorials:Assets/testing/QuadUV/QuadUV.shader",
+      "group": "PublicCorpus",
+      "sha256": "bf1d5ab9d26dca13db2e2eb00e2ab361f1d48a2c708cc71dd6d832b304f7df8e"
+    },
+    {
+      "id": "keijiro/KinoBloom:Assets/Kino/Bloom/Shader/Bloom.shader",
+      "group": "PublicCorpus",
+      "sha256": "e56eee2a704d89fddfe1b9006ea14bcfafbbb3a6e9fb8b91eff0e32b7c724877"
+    },
+    {
+      "id": "keijiro/KinoBloom:Assets/SkyboxPlus/Cubemap.shader",
+      "group": "PublicCorpus",
+      "sha256": "168c6901bee22b33d72f617d4c24e1aeb0be32849b48a43c523f1e4cee96d75d"
+    },
+    {
+      "id": "keijiro/KinoBloom:Assets/SkyboxPlus/Gradients.shader",
+      "group": "PublicCorpus",
+      "sha256": "96958121b4c4b1661cde6e058ada9bbe7dfc1a3e80fa12d6ab60068229837bc3"
+    },
+    {
+      "id": "keijiro/KinoBloom:Assets/SkyboxPlus/Hemisphere.shader",
+      "group": "PublicCorpus",
+      "sha256": "b9578cc33a1dc009f7b674a392bec6b0efe29d946aec3e0d0075ffb7c3b5358f"
+    },
+    {
+      "id": "Cyanilux/URP_ShaderCodeTemplates:URP_DiffuseLitTemplate.shader",
+      "group": "PublicCorpus",
+      "sha256": "6fba3f87aac08ed80380e344d54cf9c7c21a3a27bc65e996e7ae5e5a49236038"
+    },
+    {
+      "id": "Cyanilux/URP_ShaderCodeTemplates:URP_PBRLitTemplate.shader",
+      "group": "PublicCorpus",
+      "sha256": "ff0315f601d0d5e80e423202442a8b3126e0a87deaa6f3fa87ce85fa1df4ac6f"
+    },
+    {
+      "id": "Cyanilux/URP_ShaderCodeTemplates:URP_SimpleLitTemplate.shader",
+      "group": "PublicCorpus",
+      "sha256": "ad9e5f017fb58d6c22a33504c5348fd5d25f9b579ab156d941be57cfc73b9273"
+    },
+    {
+      "id": "Cyanilux/URP_ShaderCodeTemplates:URP_TransparentUnlitTemplate.shader",
+      "group": "PublicCorpus",
+      "sha256": "9833b228945af0f396720ebbcbb85b684ac11978e017e0056085b37725753654"
+    },
+    {
+      "id": "Cyanilux/URP_ShaderCodeTemplates:URP_Unlit+Template.shader",
+      "group": "PublicCorpus",
+      "sha256": "58fd11609c28f1a911bc44f11219327e989bb9da2bd784e27b5a4003b4cadb6a"
+    },
+    {
+      "id": "Cyanilux/URP_ShaderCodeTemplates:URP_UnlitTemplate.shader",
+      "group": "PublicCorpus",
+      "sha256": "fb901349bd80c7a454021524be1b8e5b3b3bda901c341c0ce9ae45309de9b6e6"
+    },
+    {
+      "id": "keijiro/KinoGlitch:Assets/Kino/Glitch/Shader/AnalogGlitch.shader",
+      "group": "PublicCorpus",
+      "sha256": "c1b87c7900a9851890ad859fd67a2d55f2a837729bd3d67ba1fbc74f1a3448f8"
+    },
+    {
+      "id": "keijiro/KinoGlitch:Assets/Kino/Glitch/Shader/DigitalGlitch.shader",
+      "group": "PublicCorpus",
+      "sha256": "ef529f7b8c93c28da3a78a7fac24cb094bf341b6b849e1204ee94123947e43ad"
+    },
+    {
+      "id": "keijiro/KinoMotion:Assets/ColorSuite/Shader/ColorSuite.shader",
+      "group": "PublicCorpus",
+      "sha256": "5875484d71bdda9fdc68e3ce6836014773cbb80d0af30dcce52524631078f1f5"
+    },
+    {
+      "id": "keijiro/KinoMotion:Assets/Kino/Motion/Shader/FrameBlending.shader",
+      "group": "PublicCorpus",
+      "sha256": "87f82128aa0277382b81da12abe763aa3ce716c4a31ea5cee370275cb18fc0d4"
+    },
+    {
+      "id": "keijiro/KinoMotion:Assets/Kino/Motion/Shader/Reconstruction.shader",
+      "group": "PublicCorpus",
+      "sha256": "f5afd39bfd265982a3ba2847678d4fa205eb68c67a5140246945fd927d0a4dec"
+    },
+    {
+      "id": "keijiro/KinoMotion:Assets/Kino Imported/Obscurance/Shader/Obscurance.shader",
+      "group": "PublicCorpus",
+      "sha256": "99614e510867bfabf6b5539f350b3de9b2fd7ed440eca5878deb9b4450a4f8b3"
+    },
+    {
+      "id": "keijiro/KinoMotion:Assets/Kino Imported/Vignette/Shader/Vignette.shader",
+      "group": "PublicCorpus",
+      "sha256": "8c720c4921f159e66fe246358d6bc26802e8d3a8f0b5a6ad0f0065072c0a770e"
+    },
+    {
+      "id": "keijiro/KinoMotion:Assets/Test/Material/Background.shader",
+      "group": "PublicCorpus",
+      "sha256": "7dcf981c696340150bcb62cdc4f542c97272ffec6e5a098976bad80a23880b6a"
+    },
+    {
+      "id": "keijiro/KinoFog:Assets/Kino/Fog/Shader/Fog.shader",
+      "group": "PublicCorpus",
+      "sha256": "d81b7874e310eb852fef8a2f14e101ff35e324873443f5817f5da3e7926e0b0a"
+    },
+    {
+      "id": "keijiro/KinoFog:Assets/Standard Assets/Effects/ImageEffects/Shaders/GlobalFog.shader",
+      "group": "PublicCorpus",
+      "sha256": "3b8a297ebc11eac710ddb7bc80a2b589c443498e5d437ec2255272da1f3b4f9e"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/BakedLit.shader",
+      "group": "PublicCorpus",
+      "sha256": "5c0333524fce891dd0186b290549b0ce0a571b5caa2addc02e665b9004560b62"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/BRGPicking.shader",
+      "group": "PublicCorpus",
+      "sha256": "4b7a6fcf9c2d9be931c89d05a5c654ee3486e1a7e59cb9d83d3557d39aae28d5"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/CameraMotionVectors.shader",
+      "group": "PublicCorpus",
+      "sha256": "d0e1927c83b413aafbab771e3ab910c19755449fadd0f5ae7b67cae7d2979ba8"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/ComplexLit.shader",
+      "group": "PublicCorpus",
+      "sha256": "d5ca7bdf3cc3f8e622c04ad9a58afff1aad76ee2a93fa3b083343569a6e759dd"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader",
+      "group": "PublicCorpus",
+      "sha256": "1ec00dad6eb08102ef586e693a5cad6f27443143a0c881667e6305e61bb08628"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/ObjectMotionVectorFallback.shader",
+      "group": "PublicCorpus",
+      "sha256": "43f8270dee0c34ab90482483cd8e85166f15d20764be72bda50a006ba4cd929d"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/SimpleLit.shader",
+      "group": "PublicCorpus",
+      "sha256": "bce3447308d150b8560d603576607413f76a14b7745354c259f59fc7fce4a875"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/SpatialMappingOcclusion.shader",
+      "group": "PublicCorpus",
+      "sha256": "cfc04b16430f4ff4d695b6d26b768e6f601d1756577807e542ebfa4c2d762b34"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Unlit.shader",
+      "group": "PublicCorpus",
+      "sha256": "98f30b86307dea8275a104ae756a87186d94ddd9cb41f6931a3a37be5bf9878a"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/2D/Light2D.shader",
+      "group": "PublicCorpus",
+      "sha256": "c876d16c3a40b48eaed0d81c087ca889f99dfdd4f79b95d7a1f8b5c1fdfacf1f"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/2D/Mesh2D-Lit-Default.shader",
+      "group": "PublicCorpus",
+      "sha256": "921924ef2c2774c7e30fcb21adb5cfb0963227aa08a38034333eee088dfc0a39"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/2D/Mesh2D-Unlit-Default.shader",
+      "group": "PublicCorpus",
+      "sha256": "98d759e9b913baf3e4cb200876619ab2164e10920e45289424520d976f173b1f"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/2D/RenderAs2D-Flattening.shader",
+      "group": "PublicCorpus",
+      "sha256": "175264451553fd4003875bfc9399d75ea6f62438c88633275af1d58564e22ece"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/2D/Shadow2D-Projected.shader",
+      "group": "PublicCorpus",
+      "sha256": "7b284f48ca4158eb0a6b00808ed881af4b9d2e3420dde25d49991f931556cd94"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/2D/Shadow2D-Shadow-Geometry.shader",
+      "group": "PublicCorpus",
+      "sha256": "6e43a4908976c9488075ef24a6105b24b42f7f53eb7b989319cc256543a1e754"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/2D/Shadow2D-Shadow-Sprite.shader",
+      "group": "PublicCorpus",
+      "sha256": "51cc1d078b8303ad36fe4cd0467d4f37c80cf4eb94a59ce124cc8b095372e10e"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/2D/Shadow2D-Unshadow-Sprite.shader",
+      "group": "PublicCorpus",
+      "sha256": "74f1f9096f0843ab92471a3589d9420905b427bf9cf58b117f950fb29d4950cd"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/2D/Sprite-Lit-Default.shader",
+      "group": "PublicCorpus",
+      "sha256": "1429736dff787ea67213a3fa96225eac12e516a5cb67e4d7f97162c8ce1bac52"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/2D/Sprite-Mask.shader",
+      "group": "PublicCorpus",
+      "sha256": "893a09f1e6d1b9293b0424aef69ae6cb7c04f2ef4fba33d2a0acf89871c8e204"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/2D/Sprite-Unlit-Default.shader",
+      "group": "PublicCorpus",
+      "sha256": "d19a2caaab6f79f79e949b2a07f5495f1831fb589537c069d6fd670f47a46c9d"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Debug/DebugReplacement.shader",
+      "group": "PublicCorpus",
+      "sha256": "87aa9907968957814bd7fea5c0954afe73e3b5be5a9883b670f0f2cf89753ff3"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Debug/HDRDebugView.shader",
+      "group": "PublicCorpus",
+      "sha256": "b6bf1c24c3522ca660981312bbf6184d0ca7269d0e4f36988c294b124cecf696"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Nature/SpeedTree7.shader",
+      "group": "PublicCorpus",
+      "sha256": "c40b7291450bf493177cfdc5e3c1f6cf43d7cf43487742ad1859964f1c6ae74b"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Nature/SpeedTree7Billboard.shader",
+      "group": "PublicCorpus",
+      "sha256": "275fae02a759fcc002d43813ae02b4e074649140c7bcbfd9ffc3909783ba8881"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Nature/SpeedTree8.shader",
+      "group": "PublicCorpus",
+      "sha256": "41e9c2f55c0d553c02a39a40103355389bf7a75e8b59da6df8adfc1ab5ae0f99"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Particles/ParticlesLit.shader",
+      "group": "PublicCorpus",
+      "sha256": "8f3ad21cf7e1f1e5d7911940056df17ae286664ae1b9983e35fe93283a8d1d34"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Particles/ParticlesSimpleLit.shader",
+      "group": "PublicCorpus",
+      "sha256": "6e13b3e3c478b9a1dad75a7ee6bee6a695eb1c1f85ccdaddd63abc890b3f5f74"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Particles/ParticlesUnlit.shader",
+      "group": "PublicCorpus",
+      "sha256": "1cd8356cf8cb67f065b7d2f67b071190a675a98c8cdea5a45028c0cb3c9e1e18"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Bloom.shader",
+      "group": "PublicCorpus",
+      "sha256": "7c0fe7d6e3e79ecce5ddd0de29574298723789c650f4db60940b6fe2e4ca1942"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/BokehDepthOfField.shader",
+      "group": "PublicCorpus",
+      "sha256": "0832e88938830e8e08613830643ef0b48572408e40fc4540de7e702731b1e233"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/CameraMotionBlur.shader",
+      "group": "PublicCorpus",
+      "sha256": "60555b5c91155f7f6a32f9abac04faa62a78a9a3d58034882aff7b6440644780"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/EdgeAdaptiveSpatialUpsampling.shader",
+      "group": "PublicCorpus",
+      "sha256": "8c00ba6f3465720e9295e7335c2e6958b3000d5cefd1363ea876fc4c6d917ecd"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/FinalPost.shader",
+      "group": "PublicCorpus",
+      "sha256": "31347fbb2cc8a479818684ce6419e77e5a26c8ece8e8d215820813b3fc343f47"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/GaussianDepthOfField.shader",
+      "group": "PublicCorpus",
+      "sha256": "daf1449bbd23d14eba8381cba415b2fae995ea7a1f0ab279d1731e40f3537735"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/LensFlareScreenSpace.shader",
+      "group": "PublicCorpus",
+      "sha256": "3cd6c18348914be6627c4c82888328503f855b624da6ff931c648a86231624a2"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/LutBuilderHdr.shader",
+      "group": "PublicCorpus",
+      "sha256": "9aaa902e8d6b47f9fd9a96b6d52fe0c677cb98204fa8e0f96a7995dc8b711f9a"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/LutBuilderLdr.shader",
+      "group": "PublicCorpus",
+      "sha256": "e858546a45890d9b45f3d83f289ced7ab28a594c6bbfaa76e484f2b954e34f4a"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/PaniniProjection.shader",
+      "group": "PublicCorpus",
+      "sha256": "e9d728d3e795e1b551f0acc73b69717cc1d10754ec6f7712266977e80918bb1d"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/ScalingSetup.shader",
+      "group": "PublicCorpus",
+      "sha256": "9e3ce9bc1d27d9d39496c023c1d3bf208f4e253295a2fcee2e1dc7391521008b"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/StopNaN.shader",
+      "group": "PublicCorpus",
+      "sha256": "157731dfb02a03e11525737375c1872296eb0e1e301cac9ab56edb97162ff489"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/SubpixelMorphologicalAntialiasing.shader",
+      "group": "PublicCorpus",
+      "sha256": "84d602c0d79abaadda480ab88b28b324529d50c8bd1d02d80f9fa1fb25da6372"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/UberPost.shader",
+      "group": "PublicCorpus",
+      "sha256": "45844e94306f54d05090a75a7c12faa262dc552fbe02dff89cf4e747c33f3685"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Terrain/TerrainDetailLit.shader",
+      "group": "PublicCorpus",
+      "sha256": "98ebda6601233e87ca9406d95e858c288131b6df80e2bd3ed6681ab09be31eb4"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Terrain/TerrainLit.shader",
+      "group": "PublicCorpus",
+      "sha256": "2580f9167eb447bc3e52875ac54d6fe50b72e0c209f10e66c3f2bc13e73c607a"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Terrain/TerrainLitAdd.shader",
+      "group": "PublicCorpus",
+      "sha256": "9a5a3d8e43d7875e7d0f8066d96ba7e001a3906246e854edc5c5999d2a1eccda"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Terrain/TerrainLitBase.shader",
+      "group": "PublicCorpus",
+      "sha256": "fe377dbc7133a58205d4649d052486dbb74f892b0b6c96fbf76b481b5aaa09e6"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Terrain/TerrainLitBasemapGen.shader",
+      "group": "PublicCorpus",
+      "sha256": "49ddcc8f1a65f6132e6372e6e33c61ee226a0991a041e7cf22c6e517d637bda0"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Terrain/WavingGrass.shader",
+      "group": "PublicCorpus",
+      "sha256": "78eb8c543a3c501272e2c3ffb7dae75fd5f8abeb07e0c643854a78c9086f9dda"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Terrain/WavingGrassBillboard.shader",
+      "group": "PublicCorpus",
+      "sha256": "4d5786de577584e3feb2fe52da8456e39c8fae687b51305f1eb59bd3e03f25ef"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Utils/Blit.shader",
+      "group": "PublicCorpus",
+      "sha256": "a2cca82e05b2c2b50e700c8e8b017d7f6b720e1d64ed0619b753675bed38748b"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Utils/BlitFullPrecision.shader",
+      "group": "PublicCorpus",
+      "sha256": "6a102e440592e12a27c3b842eeba48eaa66c6d16e9b09aa8f8194019dcb94b6b"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Utils/BlitHDROverlay.shader",
+      "group": "PublicCorpus",
+      "sha256": "30e8725cf1c0f59b03e0299475e0519d9c582e3e1ce87c2acea7b3c468bea346"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Utils/ClusterDeferred.shader",
+      "group": "PublicCorpus",
+      "sha256": "3c3cc5fa0fa33d0091fae03ac9498554ec5ef9cec6dd7cc81b7f4a59dae2dc86"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Utils/ComputeScreenSpaceReflection.shader",
+      "group": "PublicCorpus",
+      "sha256": "8675f5200b58cfaf861bbb645cf48595db394477cad234aaaa5f3a3acb5755f6"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Utils/CoreBlit.shader",
+      "group": "PublicCorpus",
+      "sha256": "111adb36a08142215867771ad85487ce6aae4880e08e54569ac7d90996519067"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Utils/CoreBlitColorAndDepth.shader",
+      "group": "PublicCorpus",
+      "sha256": "6b1fdb6e02f6e5b85564c623a90ed715a5a738818f4957b59c466c60258778be"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Utils/FallbackError.shader",
+      "group": "PublicCorpus",
+      "sha256": "6bdb875dc44fdbdd5ea2a92b3c9bd7aaf9ac9e7650c62bd9e77d0332d048418e"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Utils/FallbackLoading.shader",
+      "group": "PublicCorpus",
+      "sha256": "8ff806d54958ab7a333f8c96598685b2160cb94f1f85abad2bfd5314be8662e6"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Utils/MaterialError.shader",
+      "group": "PublicCorpus",
+      "sha256": "27c150efff8baee9e8787d44dc5a32d9b8e352c7651485fc10f96477dd5a83bb"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Utils/Sampling.shader",
+      "group": "PublicCorpus",
+      "sha256": "097d0523ccfe54bcd351ff5273840ed5a84dc1ee3ae9fa91bd230003b611c968"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Utils/ScreenSpaceAmbientOcclusion.shader",
+      "group": "PublicCorpus",
+      "sha256": "b558931cc3184f16298512576d7c301333024cf84d2220f01dcc6090c64c719e"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Utils/StencilDeferred.shader",
+      "group": "PublicCorpus",
+      "sha256": "928a21b169a352607cc6bb1ffb1cef1be4008110855cd74813923d6e4ca1ad89"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/Utils/StencilDitherMaskSeed.shader",
+      "group": "PublicCorpus",
+      "sha256": "67bc96547bd5c010b2137f95caf7e70606e56859785874b321282af8dc883465"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/XR/XRMirrorView.shader",
+      "group": "PublicCorpus",
+      "sha256": "287ab3e36dd6fdda72dd57c1cc6d83929b4d3a48da1d5967597a06e7094ed0bf"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/XR/XRMotionVector.shader",
+      "group": "PublicCorpus",
+      "sha256": "8645c172aa9b3c604e9f936934b753623d03b9e1179c07791a084d858f455fe0"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.universal/Shaders/XR/XROcclusionMesh.shader",
+      "group": "PublicCorpus",
+      "sha256": "80860c6d286be30fbe4157923a403fbcc4d5f424c0fa316c31d9d8fb25c41b9a"
+    },
+    {
+      "id": "danielshervheim/unity-stylized-water:Assets/Stylized Water/Shaders/Stylized Water.shader",
+      "group": "PublicCorpus",
+      "sha256": "5f6d68632e370d48d54275204ceac276b8c751422913b93eccdb05a4a0a9952a"
+    },
+    {
+      "id": "IronWarrior/ToonWaterShader:Assets/Shaders/HiddenNormalsTexture.shader",
+      "group": "PublicCorpus",
+      "sha256": "4f275288fc3de565e09a480a1dbbe0a211f704b3f0633f1535cbe8aacbd7b9b5"
+    },
+    {
+      "id": "IronWarrior/ToonWaterShader:Assets/Shaders/ToonLit.shader",
+      "group": "PublicCorpus",
+      "sha256": "2bd24433359e8c8497107b8ccb9fbcb4fa21cb151f425d7a5c4bab7f6a13a087"
+    },
+    {
+      "id": "IronWarrior/ToonWaterShader:Assets/Shaders/ToonWater.shader",
+      "group": "PublicCorpus",
+      "sha256": "d1291374b9bad6a7a418689604bd2b9e6e10cca5530050aedb3e297f38d2defd"
+    },
+    {
+      "id": "IronWarrior/ToonWaterShader:Assets/Shaders/UnlitShadowCaster.shader",
+      "group": "PublicCorpus",
+      "sha256": "3f554867631d27a73c0fb59af374d48a2aeb088988721227a2596c6fc584fbee"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/#NVJOB Simple Water Shaders/Water Specular.shader",
+      "group": "PublicCorpus",
+      "sha256": "8b83691f9788b7071079d0c7b437469ac8f8ed5500024ee602474f3f159d5b97"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/#NVJOB Simple Water Shaders/Water Surface.shader",
+      "group": "PublicCorpus",
+      "sha256": "5a00e3f47abd5bfad5b5b14de3e841e7f8b63bca959e38eea81098c089f82e07"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/Environment/#NVJOB Assets/Dynamic Sky (For Demo)/Dynamic Sky (For Demo).shader",
+      "group": "PublicCorpus",
+      "sha256": "240e0e5aaca329feb9f2edbc2118ceadd2af538eb55fd3fd310a85fad047725e"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/Environment/Flag/Materials/Flag.shader",
+      "group": "PublicCorpus",
+      "sha256": "3d9d2eaa77c8062edb76efce5a9ac20a9ec377d72d9425e98838b5c9c8a8cbdd"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/Environment/Palm Trees/Materials/Standard 2-Sided.shader",
+      "group": "PublicCorpus",
+      "sha256": "56c164c5ea95371a972acbb005c54604802a605b3d0291539980a393922b2944"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Editor Resources/Monitors/HistogramRender.shader",
+      "group": "PublicCorpus",
+      "sha256": "0a1bdbdbec21046ecc2e679c1a89bdabdd346ec0100df3fbe1e3e528ef13eea3"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Editor Resources/Monitors/ParadeRender.shader",
+      "group": "PublicCorpus",
+      "sha256": "88082a2580a3deed221b4ca4dd02936f3d574affd2cc6e733b295107d063c83f"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Editor Resources/Monitors/VectorscopeRender.shader",
+      "group": "PublicCorpus",
+      "sha256": "1767ede5349685c20100e5586d00cf6493c63900e42039d8ab2f38786833cfea"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Editor Resources/Monitors/WaveformRender.shader",
+      "group": "PublicCorpus",
+      "sha256": "a0bca2402b4beebc077108198bec12b1a6a1ff57603099003166a8017165e23e"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Editor Resources/UI/CurveBackground.shader",
+      "group": "PublicCorpus",
+      "sha256": "2a49989e3d7539daeb24dba8ed42978ff22ebf7be2400b1e7d0d2ba668ffe33d"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Editor Resources/UI/Trackball.shader",
+      "group": "PublicCorpus",
+      "sha256": "73be1b731a3344f919ccf470a8b76d8b6595b2648db73207dbc8b9a09fac8b33"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Resources/Shaders/AmbientOcclusion.shader",
+      "group": "PublicCorpus",
+      "sha256": "60c6ee54913215c41a760e3b1695cabc683113ed3ba90a062aabec59e92c2297"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Resources/Shaders/Blit.shader",
+      "group": "PublicCorpus",
+      "sha256": "8bdff8c1b70579ae28d103250ad1adf5e6b3fe4229882002a0f38fa23da5aef4"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Resources/Shaders/Bloom.shader",
+      "group": "PublicCorpus",
+      "sha256": "c91b0c6d43ae8040c4ed4b1695b0466eb89e9cde3cdcb3e3b396d921514250bc"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Resources/Shaders/BuiltinDebugViews.shader",
+      "group": "PublicCorpus",
+      "sha256": "9b3f45114a85e31c45c694c0218ea588c8393359c92f160086d16efc7b08f170"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Resources/Shaders/DepthOfField.shader",
+      "group": "PublicCorpus",
+      "sha256": "0d1eb2f3fac3b69854c20c5b5e4559be718081c2ea377f5c7486dea2eee96a99"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Resources/Shaders/EyeAdaptation.shader",
+      "group": "PublicCorpus",
+      "sha256": "0386eb8b69e40c4361a4aa053c816195cf4eda0d4cd327f39cb0cab9a210a061"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Resources/Shaders/Fog.shader",
+      "group": "PublicCorpus",
+      "sha256": "6563f17dbfedb52e804f1ff150b43dc9dd8a5b26cdd0592734076d00a6aef36e"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Resources/Shaders/FXAA.shader",
+      "group": "PublicCorpus",
+      "sha256": "3748b8bfffb30b9fc1601cdf84800087be8bf5791fa4ba6b82451ea4bf88ba1f"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Resources/Shaders/GrainGen.shader",
+      "group": "PublicCorpus",
+      "sha256": "1bd8247e25f50f23f5165c1a930c58cb7b52a16a678285928fe8288473a74dac"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Resources/Shaders/LutGen.shader",
+      "group": "PublicCorpus",
+      "sha256": "91ecc86cd513b3f0dbdaaaeea4d2f147515668a43e76bf218253b49f75519762"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Resources/Shaders/MotionBlur.shader",
+      "group": "PublicCorpus",
+      "sha256": "4b8d30c28b8c8111835fdd11304e79e5db8b043a50f6873dbe048ab1604abf4a"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Resources/Shaders/ScreenSpaceReflection.shader",
+      "group": "PublicCorpus",
+      "sha256": "0729f4bfca8a175e8240791f73014eaec4459407d4ef6efc5482b25c44987d55"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Resources/Shaders/TAA.shader",
+      "group": "PublicCorpus",
+      "sha256": "da68925de1178b420da744424d4ef36a5ed6065c972daa2fff8da40dff1c3eb5"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Resources/Shaders/Uber.shader",
+      "group": "PublicCorpus",
+      "sha256": "625f71bc66fcc22933c9b4dff2ab0a75fc21c8045ad3ba54f06965fece6ba931"
+    },
+    {
+      "id": "nvjob/nvjob-water-shader-simple-and-fast:Assets/#NVJOB Simple Water Shaders/Example Scenes/PostProcessing/Utilities/CustomMotionTexture/Shaders/CustomMotionVectorTexture.shader",
+      "group": "PublicCorpus",
+      "sha256": "0c56853e0f174eeef043d6bd98ea102d954ded3cdca2f4af658d210a30f185b0"
+    },
+    {
+      "id": "leonardo-domingues/skin-shader-unity:Skin/Assets/Shaders/Skin_GPUGems3-14.shader",
+      "group": "PublicCorpus",
+      "sha256": "7f76adef314857a51e0c9ce71d471b93559c1a890e5d8e9d212edd1b66b86839"
+    },
+    {
+      "id": "leonardo-domingues/skin-shader-unity:Skin/Assets/Shaders/Skin_GPUGems3-14/ApplyShadowsToIrradiance.shader",
+      "group": "PublicCorpus",
+      "sha256": "a416c94f0f5f437251dbc5263670aa8f33bf44cb7adb5cb8669c1bff045fe3a4"
+    },
+    {
+      "id": "leonardo-domingues/skin-shader-unity:Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeAlphaMask.shader",
+      "group": "PublicCorpus",
+      "sha256": "8ae2451892a892dc37d58f18b6bb6f82dd91530d5944b1f866bd7aba548a6777"
+    },
+    {
+      "id": "leonardo-domingues/skin-shader-unity:Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeAttenuation.shader",
+      "group": "PublicCorpus",
+      "sha256": "ed6075cfd81470a7a0059b4ac1e3e4b3c2306517aa23e5574f80a862eb72f83c"
+    },
+    {
+      "id": "leonardo-domingues/skin-shader-unity:Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeBeckmann.shader",
+      "group": "PublicCorpus",
+      "sha256": "3c5f610305291e039fae69a563f54444c31d367e2f1b9ccc894f642638248f18"
+    },
+    {
+      "id": "leonardo-domingues/skin-shader-unity:Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeIrradiance.shader",
+      "group": "PublicCorpus",
+      "sha256": "187158f735a25c07960bb3e9d6da5481c2a6425f9f6c2e44d94200398f1badab"
+    },
+    {
+      "id": "leonardo-domingues/skin-shader-unity:Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeShadow.shader",
+      "group": "PublicCorpus",
+      "sha256": "f02574d982d4c5877a3c2adad36c9e80bf52f5f98fe1d2eafdc4be96e7062d01"
+    },
+    {
+      "id": "leonardo-domingues/skin-shader-unity:Skin/Assets/Shaders/Skin_GPUGems3-14/ComputeStretchMaps.shader",
+      "group": "PublicCorpus",
+      "sha256": "45513dc27ea2e5519c2be07f0f8b1181432bd33e8cc76f95966db8aa089364d4"
+    },
+    {
+      "id": "leonardo-domingues/skin-shader-unity:Skin/Assets/Shaders/Skin_GPUGems3-14/GaussianConvolution_U.shader",
+      "group": "PublicCorpus",
+      "sha256": "a6d90b5095c6287740cd13922add7f4402485a3930324fa41bb34732116383b6"
+    },
+    {
+      "id": "leonardo-domingues/skin-shader-unity:Skin/Assets/Shaders/Skin_GPUGems3-14/GaussianConvolution_V.shader",
+      "group": "PublicCorpus",
+      "sha256": "c2732dda51c44a1d46c5fc341d085b03ec7493d6132e9e751b457d950cd71ae5"
+    },
+    {
+      "id": "leonardo-domingues/skin-shader-unity:Skin/Assets/Shaders/Skin_GPUGems3-14/TSM.shader",
+      "group": "PublicCorpus",
+      "sha256": "45f8c0b7124eab0d7b0c78aa397318fb4e5dbc1067d72abf14e501a7c1c2208d"
+    },
+    {
+      "id": "itsFulcrum/Unity-URP-Hair-Shader:FulcrumHairShader/Hair.shader",
+      "group": "PublicCorpus",
+      "sha256": "f8f895cb922208351f55891f18fccfa08c3d31e2fc5cd8e8d5ab7b699f48c604"
+    },
+    {
+      "id": "radiatoryang/unity-triplanar-terrain-cliff-shader:Terrain-TriplanarStandard-FirstPass.shader",
+      "group": "PublicCorpus",
+      "sha256": "d1410166a9139b8023d8693b97543265b74b8cda63262340ccc0ff9c853399bf"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Fog/Fog/Fog/DepthFogShader.shader",
+      "group": "PublicCorpus",
+      "sha256": "c8c5b3916f346388064550801cdf1906a138e9986ef4f1b1945be2e20b82edfa"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Fog/Fog/Height-Fog/HeightFog.shader",
+      "group": "PublicCorpus",
+      "sha256": "93983841fae5a96fa1cd8171d1bd17fa4c0c62a0da44e09c46ec3185ed76fb40"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Fog/Fog/Post-Fog/FogWithDepthTexture.shader",
+      "group": "PublicCorpus",
+      "sha256": "81100eb33f50f22f2e85ec87e379133758d6cb7e77d1739070621c0c8b3a76a7"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Grass/Grass/Grass.shader",
+      "group": "PublicCorpus",
+      "sha256": "f1a91fb753a807fd43eaa6a603c4d99fcbd7429c32260b883cae0fd276a8ba54"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Grass/Grass/Shaders/Grass.shader",
+      "group": "PublicCorpus",
+      "sha256": "000d817231d8c46f8d9f532c856d20b1ae96ec3a5b7c168c83f9cc70eb25f9f0"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Grass/Grass/Shaders/GrassZone.shader",
+      "group": "PublicCorpus",
+      "sha256": "a78d2ab9d4df5322a11b4a6d15c7fc27514bc091f747b44756ab6f2631ffc5de"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Grass/Grass/Shaders/Tess.shader",
+      "group": "PublicCorpus",
+      "sha256": "7a4ea1f9743628621292d12d6b65c08d2d02cb4089a17910b3d06c6d784afd74"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Grass/Grass/Shaders/TessellationExample.shader",
+      "group": "PublicCorpus",
+      "sha256": "b43480f1bdb3761fc5192effdb570693a9e82171cf7e2abcc42aff91978f0229"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Grass/Grass/URPGrass/GeometryGrass.shader",
+      "group": "PublicCorpus",
+      "sha256": "c6f8e1c7369b6a8e9f57ed621d7e4ca473a80f4e8dd7ea648131d6b3f2c78864"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Liquid/NS/Assets/Shader/NS_Fluid_Plane.shader",
+      "group": "PublicCorpus",
+      "sha256": "1f9d09efc6c9a24021791650fe068886c515576b09265b755ea29ccc0e318889"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Liquid/NS/Assets/Shader/NS_Fluid_Sim.shader",
+      "group": "PublicCorpus",
+      "sha256": "9bd660e3ae22ae125c781ef01547800a072dde25d3c96f2556687d5fc1db6949"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Sand/SandRendering/Shader/SandFog.shader",
+      "group": "PublicCorpus",
+      "sha256": "9ce704160824ee785dc25a209acf686836db30ffb2e0537413d8002d0577f4e9"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Sand/SandRendering/Shader/SandRenderingShader.shader",
+      "group": "PublicCorpus",
+      "sha256": "43570ea19757470e0118ebd45988186d19475e1ec0a0430ba4c1b136a800e190"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Sand/SandRendering/Shader/Sky.shader",
+      "group": "PublicCorpus",
+      "sha256": "95bc43ad7f1bcc97e5a320e4a05fe0ca8dacdc32df54eb462dec17e6cf34e41d"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Silk/Silk.shader",
+      "group": "PublicCorpus",
+      "sha256": "515a78b861063352390d36ef3e8cb7a65fa07fd4f105d67766622088e49ab0ea"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Skybox/Procedural/Skybox/Meteor/Meteor.shader",
+      "group": "PublicCorpus",
+      "sha256": "f1b48d79674c5a986c762b5012fe71048e49965f889d57b8b82b1ceb788c7603"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Skybox/Procedural/Skybox/Meteor/NewUnlitShader.shader",
+      "group": "PublicCorpus",
+      "sha256": "56efc7bbfe7671f11bdf7fe256c78b6ebace777adac79fd25935ce0fa8916ab9"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Skybox/Procedural/Skybox/UniverseSkybox.shader",
+      "group": "PublicCorpus",
+      "sha256": "5dc30752171749a0f3446c8ab207635888f98cf2545a3696518cb777d6659c11"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Skybox/Procedural/ToonSkybox/SKY/Cloud.shader",
+      "group": "PublicCorpus",
+      "sha256": "8ea5a2b2545746eda3ef6b7ba2a302fd428c63cd3b8a9aa5f3f9eadc73038da1"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Skybox/Procedural/ToonSkybox/SKY/GENSHINSKY 1.shader",
+      "group": "PublicCorpus",
+      "sha256": "454d4afa5f0bdc2d432a2bddb11312fffaea2b1443af9d733c3b73640412e7ef"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/Skybox/Procedural/ToonSkybox/SKY/GENSHINSKY.shader",
+      "group": "PublicCorpus",
+      "sha256": "3b71e66e7288fd4221e04a144a602daf0d94ae73a94f5e79b038944fb4beb03f"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/SnowAndIce/Snow_Tessellation/Shders/DrawTracks.shader",
+      "group": "PublicCorpus",
+      "sha256": "0849f8f8a0ece595aed27841977c41138f8c676bbaeca01c268690a35fa7064d"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/SnowAndIce/Snow_Tessellation/Shders/ImpressionsShader.shader",
+      "group": "PublicCorpus",
+      "sha256": "6d93c0ad2e1fd9eddf2bb999e51ec21b2d304c88d51ab98787745c43a243cf5b"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/SnowAndIce/Snow_Tessellation/Shders/SnowAccumulation.shader",
+      "group": "PublicCorpus",
+      "sha256": "e45e8ae447599e088fe41a6b5f06c0b98632eca3c0a2edf94fa72378a1388077"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/SnowAndIce/Snow_Tessellation/Shders/SnowShader.shader",
+      "group": "PublicCorpus",
+      "sha256": "d6124204af893c80aeded477d7f46f02b218c485cca5bee31085724c9c4222ad"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/SSPR/ScreenSpacePlaneReflectionShader.shader",
+      "group": "PublicCorpus",
+      "sha256": "654f7b341ff73ce76bc38ef67f3f608bba90496592818a9a67f006b8b4942372"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/StarNoise/starnoiseBg.shader",
+      "group": "PublicCorpus",
+      "sha256": "0c5138a402bc6806a449b01f6451f8178901010743af06196d8f302dfeb240cd"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Cases/流麻/流麻flow.shader",
+      "group": "PublicCorpus",
+      "sha256": "ceb4795f177903e42c4d3ab0e85d6ce3f741750a988346be488f17ff0926252f"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/NPRLibrary/Cartoon/StylizedHighLight.shader",
+      "group": "PublicCorpus",
+      "sha256": "7055beed1e64643ef28412e84dc42aa9f3f6cfa1e694774989672e0631697831"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/NPRLibrary/Cartoon/ToneBasedShading_ver0.shader",
+      "group": "PublicCorpus",
+      "sha256": "edae332f2beb2dff3072d0268bfc49051aaa2de42c2986888760776cd42cd9ac"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/NPRLibrary/Cartoon/ToneBasedShading_ver1.shader",
+      "group": "PublicCorpus",
+      "sha256": "213c87fdcd77dbe6a94c0fbb46b8104a7a8eb126297dee0a8a8d4fb8cb3dede4"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/NPRLibrary/Cartoon/Toon.shader",
+      "group": "PublicCorpus",
+      "sha256": "d9715e3cda1a0e6f98809519b2e04c88c98f31a8d228f2975e2108f25eb31edd"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/NPRLibrary/CharacterShader/Aspect_NPR_Character.shader",
+      "group": "PublicCorpus",
+      "sha256": "3cf8e5d0b585857ac5fb6c100b6b42e116052c2bd2bbcbb2809b75b8c6276b70"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/NPRLibrary/CharacterShader/NPR_PBR/CharacterEyeBlend.shader",
+      "group": "PublicCorpus",
+      "sha256": "337c93928f40470729afc53819ad9c1798fd36caa9afb1a9343214fbf12bd6ef"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/NPRLibrary/CharacterShader/NPR_PBR/CharacterHair.shader",
+      "group": "PublicCorpus",
+      "sha256": "52625598bff099f6aed2b92dde184a8aac094c91149125868f9d61bda77c6f51"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/NPRLibrary/CharacterShader/NPR_PBR/NPBR.shader",
+      "group": "PublicCorpus",
+      "sha256": "1a0cd586fdde3ef49eb340290a74e7ed3b94829004f55101ade068370960cda7"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/NPRLibrary/CharacterShader/NPR_PBR_NewVersion/CharacterEyeBlend.shader",
+      "group": "PublicCorpus",
+      "sha256": "337c93928f40470729afc53819ad9c1798fd36caa9afb1a9343214fbf12bd6ef"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/NPRLibrary/CharacterShader/NPR_PBR_NewVersion/CharacterHair.shader",
+      "group": "PublicCorpus",
+      "sha256": "52625598bff099f6aed2b92dde184a8aac094c91149125868f9d61bda77c6f51"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/NPRLibrary/CharacterShader/NPR_PBR_NewVersion/NPBR.shader",
+      "group": "PublicCorpus",
+      "sha256": "9268c13f19e9b0a14b2efe6f2d0635ee65f8069dbf8c5762fad3f2c22f8defdc"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/NPRLibrary/CharacterShader/URP_Genshin_Fake_ver0.shader",
+      "group": "PublicCorpus",
+      "sha256": "8d6ec860212a3c1675e6d7abf8e2cefe4bce002e2e67609b924667ec4c3ea53d"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/NPRLibrary/CharacterShader/URP_Genshin_Fake_ver1.shader",
+      "group": "PublicCorpus",
+      "sha256": "735a04ef1cd06d7c9da23b93423959cefe3290c01879a829bd6fee3f19a54aaa"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/PBRLibrary/Cloud/01.shader",
+      "group": "PublicCorpus",
+      "sha256": "cf7bb86c622876040e9b000fd4af3b540fc6af33c819064adad915a7c5f35cfb"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/PBRLibrary/Fur/Fur.shader",
+      "group": "PublicCorpus",
+      "sha256": "451ee9c5a8fcb4d96e3f3be709dbc1fb85ea04aaf5447efa4d7303fcf03b8c4f"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/PBRLibrary/PBRShader/CustomPBR.shader",
+      "group": "PublicCorpus",
+      "sha256": "64b4bc373412260d4e5b9eafb49e785ba615e26feb2262488ef6274578b9af00"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/PBRLibrary/PBRShader/Test/PBR2.shader",
+      "group": "PublicCorpus",
+      "sha256": "ab0a4aa4ee9d86f15364c680c1ac6b813d928f93cb63d8ed4386a35de88e3de7"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/PBRLibrary/RayTracing/AddShader.shader",
+      "group": "PublicCorpus",
+      "sha256": "a7e414a6051be8b08dd5ef52e94b247311c5bff6940f012d851a60fb20ce52d8"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/PBRLibrary/SSS/Fake_BSSRDF/Fake_BSSRDF.shader",
+      "group": "PublicCorpus",
+      "sha256": "ef49e5a5bd11214acde8f7b22a450564dec82db26d94856dbcd71b85a1aede53"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/PBRLibrary/SSS/PreIntegrateSkin/Skin.shader",
+      "group": "PublicCorpus",
+      "sha256": "c69aba89845a69f5b8fdf12c176cbf537f93fd3a81352fc3b8e10f43f7dda7a7"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/PBRLibrary/SSS/WrapLighting/Depth_Jade.shader",
+      "group": "PublicCorpus",
+      "sha256": "9e6f3f05e18fa457f2f454202a189589e5a0dda0c89628ccb9ad3f0178472dcb"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/PBRLibrary/SSS/WrapLighting/SubsurfaceScattering.shader",
+      "group": "PublicCorpus",
+      "sha256": "c8ee755ef8f1d606edcae3bc2d7e5bdb6d30e7889fbd1e8a6a01adee784e41f7"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Shared/Shader/CameraHeight.shader",
+      "group": "PublicCorpus",
+      "sha256": "c60b2db7627ace7e24901308c71f61f387d007329ecdb20f6a02ba7d9f41bd4f"
+    },
+    {
+      "id": "aspect-ux/AspectURP:Assets/Shared/Shader/DepthShow.shader",
+      "group": "PublicCorpus",
+      "sha256": "db4e0ea90fa8da73b13f62560b191f65685e8790648deb42785117c0c28aa666"
+    },
+    {
+      "id": "blurfeng/blur-toon-urp:Assets/PluginsDeveloper/BlurToonURP/Core/Shaders/Lit.shader",
+      "group": "PublicCorpus",
+      "sha256": "4cc6cc7937b28646eebcf5a79d0bd7728027639e846df76fe67b02ed5eeae363"
+    },
+    {
+      "id": "blurfeng/blur-toon-urp:Assets/PluginsDeveloper/SmoothNormalGenerator/Editor/Shader/Outline.shader",
+      "group": "PublicCorpus",
+      "sha256": "bec5eddd51a270f3cd7e6e925168801eb830651f5b2b5a964f1e07bd72643a62"
+    },
+    {
+      "id": "blurfeng/blur-toon-urp:Assets/PluginsDeveloper/SmoothNormalGenerator/Editor/Shader/OutlinePreview.shader",
+      "group": "PublicCorpus",
+      "sha256": "45d945b0d1ffffa93b3a21427d7ece4dc3d5d37ec582e195fb1c2a68972fd86d"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.high-definition/Runtime/Material/AxF/AxF.shader",
+      "group": "PublicCorpus",
+      "sha256": "8a85af70b9bbbb3ff4d73ced99ea6202808a1f587984ff7809efb02324990148"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.high-definition/Runtime/Material/AxF/PreIntegratedFGD_CookTorrance.shader",
+      "group": "PublicCorpus",
+      "sha256": "d03b1a1b86c7326024ddee3f36497b471d86d632aed8df5200105d9f769fda87"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.high-definition/Runtime/Material/AxF/PreIntegratedFGD_Ward.shader",
+      "group": "PublicCorpus",
+      "sha256": "f2552fda9265bea2c577a6788b381db1cb36c94e44a972af04fa2530f7350cbd"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Fabric/CharlieConvolve.shader",
+      "group": "PublicCorpus",
+      "sha256": "b460a9a69ea1c7419071fe22191d85b2f3e96e2401b22f8c2c5d074e7e19dedd"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Lit/Lit.shader",
+      "group": "PublicCorpus",
+      "sha256": "4a6b2d015906b5682bb6cf4091fefa4dfa7d4b612dec2ba6f738905c9b4e1a3a"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Lit/LitTessellation.shader",
+      "group": "PublicCorpus",
+      "sha256": "43ab7a38d7c1bfdca7211925d8eb2f374fbcbbca997f614db80738024e683720"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.high-definition/Runtime/Water/Shaders/WaterCaustics.shader",
+      "group": "PublicCorpus",
+      "sha256": "7e2db969ac137382b19533329c640d0faf8ad449d0d36e25940d5511ebaebe31"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.high-definition/Runtime/Water/Shaders/WaterDecal.shader",
+      "group": "PublicCorpus",
+      "sha256": "109858941c7ec495a15a6bc95dbc51efedefab7690aa904fae0915bf356d2693"
+    },
+    {
+      "id": "Unity-Technologies/Graphics:Packages/com.unity.render-pipelines.high-definition/Runtime/Water/Shaders/WaterExclusion.shader",
+      "group": "PublicCorpus",
+      "sha256": "3f14b3749f274298a316e68595ca0e12b8b250cc461559922736e1f2135f1392"
+    },
+    {
+      "id": "hecomi/UnityFurURP:Assets/Fur/Shaders/Fin/Lit.shader",
+      "group": "PublicCorpus",
+      "sha256": "df3993d79f8d8f6454fc6808fd2ed89f06de159d577cc80e9d2ee245ff6fda9b"
+    },
+    {
+      "id": "hecomi/UnityFurURP:Assets/Fur/Shaders/Fin/Unlit.shader",
+      "group": "PublicCorpus",
+      "sha256": "c98481be3359310fcabf96d080979b165f1215f5354c78f379199fbdb3eac753"
+    },
+    {
+      "id": "hecomi/UnityFurURP:Assets/Fur/Shaders/Geometry/Lit.shader",
+      "group": "PublicCorpus",
+      "sha256": "77439689cab4b0588d4ca5f1ba09dd68c3056ac58bc727580a49e591270cd3ae"
+    },
+    {
+      "id": "hecomi/UnityFurURP:Assets/Fur/Shaders/Geometry/Unlit.shader",
+      "group": "PublicCorpus",
+      "sha256": "77ab5b8578bd1876b4dc8a363a4cfd709aefa96db8494fcacca367bd9b39054e"
+    },
+    {
+      "id": "hecomi/UnityFurURP:Assets/Fur/Shaders/Shell/Lit.shader",
+      "group": "PublicCorpus",
+      "sha256": "ecac0534a7bbfe6448c3a33941f70ba600c414f1c099d3d7d8f20a96da05ddcc"
+    },
+    {
+      "id": "hecomi/UnityFurURP:Assets/Fur/Shaders/Shell/Unlit.shader",
+      "group": "PublicCorpus",
+      "sha256": "d1e8657f5d9260bef14733fa946cc62b474d83647cb629a6bc99b65613c2d04d"
+    },
+    {
+      "id": "ColinLeung-NiloCat/UnityURPToonLitShaderExample:SimpleURPToonLitOutlineExample.shader",
+      "group": "PublicCorpus",
+      "sha256": "7c6eb64bdcff897b37fca080eaa0b0d5c18e334430cfe85e8e852a82a0ea7fa1"
+    },
+    {
+      "id": "keijiro/KinoVignette:Assets/Kino/Vignette/Shader/Vignette.shader",
+      "group": "PublicCorpus",
+      "sha256": "6a8ef66c578993921d7fd2741b8c1d5e5f26493216b4f8a68e4b89cdb52625d3"
+    },
+    {
+      "id": "keijiro/KinoMirror:Assets/Kino/Mirror/Shader/Mirror.shader",
+      "group": "PublicCorpus",
+      "sha256": "3ba817620d5eff6f2885b0e3afa7fad339109f4a7a89020bf758b2e4edba2256"
+    },
+    {
+      "id": "keijiro/KinoMirror:Assets/Shaders/ImageEffects/Bloom_V2/VideoBloom.shader",
+      "group": "PublicCorpus",
+      "sha256": "662306fa82baddd04e04c9b376af79d6f435ad6c411cb61ad85ec3c1d0192442"
+    },
+    {
+      "id": "keijiro/KinoContour:Assets/Kino/Contour/Shader/Contour.shader",
+      "group": "PublicCorpus",
+      "sha256": "318743a5bb4ec490d94d5e794049b28f3c745066878e84d26de6a2bf85242963"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader",
+      "group": "PublicCorpus",
+      "sha256": "c28c901dcfd36dc281a1328e5481a9339a473ae6bcac0a1e26fd1cb5527c45af"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader",
+      "group": "PublicCorpus",
+      "sha256": "906059fb8e3c2c3e0c24ff5d90723ec36b9c3b22e51b7d098d38d9997f104b26"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader",
+      "group": "PublicCorpus",
+      "sha256": "df460d71d48e25554babfe3bfc29f6b76a85e5fed40463bb1c3e95b853008aa9"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader",
+      "group": "PublicCorpus",
+      "sha256": "02fe226b660522fbf4ccdb371bea79b1d5dd2ee3a41f64e4d3fe991c7468d113"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader",
+      "group": "PublicCorpus",
+      "sha256": "c1dd1eecca9c652bfefa1e3450a7c2901cc1da497dec7ceeb96386f0619ec6ff"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Assets/TextMesh Pro/Shaders/TMP_SDF.shader",
+      "group": "PublicCorpus",
+      "sha256": "21b8ea81bb6e3ef203d329f6c81afd9e4751684245d85c9b477010a157d01929"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader",
+      "group": "PublicCorpus",
+      "sha256": "e95ff9dea7544bdf73d98052323940eba990de239cde6caed9680af2510aa2a5"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader",
+      "group": "PublicCorpus",
+      "sha256": "25935596a6d82ff5e0ac57a8e333101b5ce23281500cea414c317d930d6d9cfd"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader",
+      "group": "PublicCorpus",
+      "sha256": "7adb4d1c6f4e92b0cfcab7d7227b05b84ceb4edb729e24b7ad73e26cbd87fd76"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader",
+      "group": "PublicCorpus",
+      "sha256": "5678d5bcbba60a5a43b0934d0dbdaea674f8693268d3d296da18cbc9423a7c06"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader",
+      "group": "PublicCorpus",
+      "sha256": "999b03ac7a8541b8d9cb92c245d0c617b2864a8e32be6b7b5f632770e7ca9825"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader",
+      "group": "PublicCorpus",
+      "sha256": "c19c10ae779577538e6d77fb16cb21318dde35903f0deda7feb3ad9257c8e2a4"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Assets/TextMesh Pro/Shaders/TMP_Sprite.shader",
+      "group": "PublicCorpus",
+      "sha256": "adf8fb15e0d3e2da4191100210d803dcdb4c04dd981b2edfccb42f4ed721ad41"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support (Unity 6)~/Hidden-TMP_Bitmap-Mobile-UIEffect-Unity6.shader",
+      "group": "PublicCorpus",
+      "sha256": "3361fd2a2fe63829e2193ee155b74b268e3e146fe9fd195251cd9f42b755a3ca"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support (Unity 6)~/Hidden-TMP_Bitmap-UIEffect-Unity6.shader",
+      "group": "PublicCorpus",
+      "sha256": "8541ad164b2d5f4cb6c01d20a618549f92579d4ab478a42dec971c05296668c9"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support (Unity 6)~/Hidden-TMP_SDF Overlay-UIEffect-Unity6.shader",
+      "group": "PublicCorpus",
+      "sha256": "19a6ef0f8b12e3cb699d945f1927ea81b637486d964109ae7d94c6e2335f33f2"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support (Unity 6)~/Hidden-TMP_SDF SSD-UIEffect-Unity6.shader",
+      "group": "PublicCorpus",
+      "sha256": "f23e2ca94875d7581a9fa6e6d4b43422232d132e68560289ec15097af0c74f47"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support (Unity 6)~/Hidden-TMP_SDF-Mobile Overlay-UIEffect-Unity6.shader",
+      "group": "PublicCorpus",
+      "sha256": "65a45b7ffb09cc1708fde79a1e4b65aae69d484344b24c659762512aae7bc415"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support (Unity 6)~/Hidden-TMP_SDF-Mobile SSD-UIEffect-Unity6.shader",
+      "group": "PublicCorpus",
+      "sha256": "5d0ca8db99ce062128e75f89cac9e9d39bb3e005b3b1154d687a9e52a50c8421"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support (Unity 6)~/Hidden-TMP_SDF-Mobile-UIEffect-Unity6.shader",
+      "group": "PublicCorpus",
+      "sha256": "b917e05274455bb5b8ce08ac72bb7ec595936c7935055ad12166edd0b3310598"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support (Unity 6)~/Hidden-TMP_SDF-UIEffect-Unity6.shader",
+      "group": "PublicCorpus",
+      "sha256": "63964c81ca2a8b202c8707434c8f90ea2977c09e946135b38052797fb1a0aa7e"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support~/Hidden-TMP_Bitmap-Mobile-UIEffect.shader",
+      "group": "PublicCorpus",
+      "sha256": "a282b64a55d68bc64c7d73d82f32fce5ace01707a79569b409e3c3f0b56930bf"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support~/Hidden-TMP_Bitmap-UIEffect.shader",
+      "group": "PublicCorpus",
+      "sha256": "d53daf4321d202fe8b50ccd8667044b36e772a7e7bdebbc7d334f81da379822e"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support~/Hidden-TMP_SDF Overlay-UIEffect.shader",
+      "group": "PublicCorpus",
+      "sha256": "3d586c31f20004bda0786ba44f38dc23552877e52e906b7e9914f088ff370776"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support~/Hidden-TMP_SDF SSD-UIEffect.shader",
+      "group": "PublicCorpus",
+      "sha256": "52a98bae94273951f787b1ff1a7fdf1c8dfda7632055c44aa9df73a58ea46da4"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support~/Hidden-TMP_SDF-Mobile Overlay-UIEffect.shader",
+      "group": "PublicCorpus",
+      "sha256": "e6aa4f73f5eb262dcc4d0f5b7f6be324f4fbcd6a2e45795bcc7759bdd3a01c5e"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support~/Hidden-TMP_SDF-Mobile SSD-UIEffect.shader",
+      "group": "PublicCorpus",
+      "sha256": "6062bbde48f65023c94c87ded3896292b4571ebbea58fa852a42cee333aac4fc"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support~/Hidden-TMP_SDF-Mobile-UIEffect.shader",
+      "group": "PublicCorpus",
+      "sha256": "41864bd679ad843d76389247bf74e4b91bbcdcf2f2f364e449800bf407de07e0"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Samples~/TextMeshPro Support~/Hidden-TMP_SDF-UIEffect.shader",
+      "group": "PublicCorpus",
+      "sha256": "54b2c2eed07f8a527d631108eca5f205c80e400f373110be922d2524faec2b6b"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/Shaders/UIEffect.shader",
+      "group": "PublicCorpus",
+      "sha256": "5d8cb3fa1e4a7bb41bccd7abe3f9f3396d0061867fcc6d8bab92d4af27f03ff8"
+    },
+    {
+      "id": "mob-sakai/UIEffect:Packages/src/UIEffectPresets/Textures/CustomRenderTexture-UIEffect-Multiply (Alpha).shader",
+      "group": "PublicCorpus",
+      "sha256": "143e7b4ba4db354c086299dac9b84003392d2eccf7e0bdab344e3ebf8f42cd8a"
+    },
+    {
+      "id": "mob-sakai/UIEffect:UIEffectURP/Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader",
+      "group": "PublicCorpus",
+      "sha256": "1d88cbc0fd9f6d1189e6883b6a41433397a8d7fa2c6c267664af89f87687f050"
+    },
+    {
+      "id": "mob-sakai/UIEffect:UIEffectURP/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader",
+      "group": "PublicCorpus",
+      "sha256": "4fde41f9b01df2f31d54c5ddfa7703ca63ec89bba6615ea439c63e76f84f7b4b"
+    },
+    {
+      "id": "mob-sakai/UIEffect:UIEffectURP/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader",
+      "group": "PublicCorpus",
+      "sha256": "d90e395a82303e7c048fe708f8cc76d2c4b304d723c942e8c1c85c30a28acdff"
+    },
+    {
+      "id": "mob-sakai/UIEffect:UIEffectURP/Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader",
+      "group": "PublicCorpus",
+      "sha256": "09602d3dd3834e7495fa233ee09a32c0af2e072db6f832b882c2b72014c56d6d"
+    },
+    {
+      "id": "mob-sakai/UIEffect:UIEffectURP/Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader",
+      "group": "PublicCorpus",
+      "sha256": "02651d722125000a33ef3eedb32773038f878f6d8563b3e2b45af1e38859cdf4"
+    },
+    {
+      "id": "mob-sakai/UIEffect:UIEffectURP/Assets/TextMesh Pro/Shaders/TMP_SDF.shader",
+      "group": "PublicCorpus",
+      "sha256": "142c6e313f6731976cad18cfb5b283b3942cce97dd6345ac4fe5a7cf572e7fd5"
+    },
+    {
+      "id": "mob-sakai/UIEffect:UIEffectURP/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader",
+      "group": "PublicCorpus",
+      "sha256": "b3eae5be517f376299ed9152d78fbd6879e2c9a8f35a4b9a133b65bb9254ce18"
+    },
+    {
+      "id": "mob-sakai/UIEffect:UIEffectURP/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader",
+      "group": "PublicCorpus",
+      "sha256": "2ab40b8067e36d4b6f262bb3485203788b6b0e9c7521bae69cc47b2a05fb2b0a"
+    },
+    {
+      "id": "mob-sakai/UIEffect:UIEffectURP/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader",
+      "group": "PublicCorpus",
+      "sha256": "c8de13a7886eddfc4f6994ea40b4042721f1238eee89a0ff4c29e32d33faefa2"
+    },
+    {
+      "id": "mob-sakai/UIEffect:UIEffectURP/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader",
+      "group": "PublicCorpus",
+      "sha256": "ea5bb3f5540de2fba59704d7f31382cf884595980e0b99c05a083873b9e26e3b"
+    },
+    {
+      "id": "mob-sakai/UIEffect:UIEffectURP/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile-2-Pass.shader",
+      "group": "PublicCorpus",
+      "sha256": "58f1ba5a662fc0f432e4bcdea9e1656a80352c5613f3339d4a8d3dab0003aeb8"
+    },
+    {
+      "id": "mob-sakai/UIEffect:UIEffectURP/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader",
+      "group": "PublicCorpus",
+      "sha256": "f10ece0fce4433a45f601fd84b79b74ae82b275910be8d9aa7c09390aa58a668"
+    },
+    {
+      "id": "mob-sakai/UIEffect:UIEffectURP/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader",
+      "group": "PublicCorpus",
+      "sha256": "0c2db2ea36e79e533e52ab847bc39bebab06285246955a4b2ff6ea546ee7a1b3"
+    },
+    {
+      "id": "mob-sakai/UIEffect:UIEffectURP/Assets/TextMesh Pro/Shaders/TMP_Sprite.shader",
+      "group": "PublicCorpus",
+      "sha256": "b8606378647fc693029a0ad8ea7c3d162e1bfe1ff54f2f53f4ab158c9ddb6199"
+    },
+    {
+      "id": "mob-sakai/ParticleEffectForUGUI:Samples~/Demo/Materials/UIAdditive+Color.shader",
+      "group": "PublicCorpus",
+      "sha256": "5f7d406ad0f664dd2a2afa74ef6c0cae8763e899a36a878067432edfc827e7b1"
+    },
+    {
+      "id": "mob-sakai/ParticleEffectForUGUI:Shaders/UIAdditive.shader",
+      "group": "PublicCorpus",
+      "sha256": "a82f68a718bb32b3fbf282aaa6501a607712ed634c988f84bdc9a4a6f16962fa"
+    },
+    {
+      "id": "keijiro/KvantSwarm:Assets/ColorSuite/Shader/ColorSuite.shader",
+      "group": "PublicCorpus",
+      "sha256": "a0386107a353be6ae9939c1f383b7385cb60a8dde4a065c4326aa664a8e13489"
+    },
+    {
+      "id": "keijiro/KvantSwarm:Assets/DeferredAO/Shader/DeferredAO.shader",
+      "group": "PublicCorpus",
+      "sha256": "1cabb463a966700358880077ac4ed34f50f158db58ee5810148d72beaaf22ec2"
+    },
+    {
+      "id": "keijiro/KvantSwarm:Assets/Kino/Vignette/Shader/Vignette.shader",
+      "group": "PublicCorpus",
+      "sha256": "6a8ef66c578993921d7fd2741b8c1d5e5f26493216b4f8a68e4b89cdb52625d3"
+    },
+    {
+      "id": "keijiro/KvantSwarm:Assets/Kvant/Swarm/Shaders/Kernel.shader",
+      "group": "PublicCorpus",
+      "sha256": "9eb6f862edfa1f222c87e2e69b4f04abc56b42e3080cc836b466514582381ebc"
+    },
+    {
+      "id": "keijiro/KvantSwarm:Assets/Kvant/Swarm/Shaders/Surface.shader",
+      "group": "PublicCorpus",
+      "sha256": "af396cd2d94601ea6b02b0d586cf18fc228ae1c835db23aefb8d26fc6b196d2c"
+    },
+    {
+      "id": "UserReference:BillBordScale.shader",
+      "group": "UserReference",
+      "sha256": "e1fd8f3a1b4ce59a7c882679b75adf692e20e2fd8c46e8d12a6cfa9c9a1a1e94"
+    },
+    {
+      "id": "UserReference:bubble.shader",
+      "group": "UserReference",
+      "sha256": "134d9ac3245dbe68f50fa1baf71d69fc7ecb523f2fc3c29d539c20d1b905705b"
+    },
+    {
+      "id": "UserReference:Custom2TexStencilmask.shader",
+      "group": "UserReference",
+      "sha256": "5e456840533a4d86e593040a23c3c08061f7d8966d34cd13ee901421cbeab7ef"
+    },
+    {
+      "id": "UserReference:Custom2TexV2.shader",
+      "group": "UserReference",
+      "sha256": "3ea45205cd6d18b707bc4ab80751e31c30ccf737a21d4cd6bfa5b7b232315b5d"
+    },
+    {
+      "id": "UserReference:Dissolve_add.shader",
+      "group": "UserReference",
+      "sha256": "1cbe7d8c0ac77e759218b5241badad36af1d92af7983f43e4c0c20140cb6228d"
+    },
+    {
+      "id": "UserReference:Fresnel_A.shader",
+      "group": "UserReference",
+      "sha256": "734f030561445802a4e5e59ace22641fef5b932b4ebbf594018f7071361f7ed6"
+    },
+    {
+      "id": "UserReference:PBR.shader",
+      "group": "UserReference",
+      "sha256": "3e6d8db58b4716c3bd89193e53ce359aa455398e16b411fd51a2bc644dd47e48"
+    },
+    {
+      "id": "UserReference:PBR_OutLine.shader",
+      "group": "UserReference",
+      "sha256": "e720e2c9ece4d95d23b9bae0df6f5ff2a144fdce993257d3d0fdae76b26a8352"
+    },
+    {
+      "id": "UserReference:RotateAroundCenter.shader",
+      "group": "UserReference",
+      "sha256": "d595fa57d0dc2e53973e9716afa9800348110682e1926f31900d13b644d94a8b"
+    },
+    {
+      "id": "UserReference:TransMovie.shader",
+      "group": "UserReference",
+      "sha256": "b84c01cf42e8524364ee9211195b4434c2b82ff3cfc7224827bc1ba0c731c0c5"
+    },
+    {
+      "id": "UserReference:Vertex offset.shader",
+      "group": "UserReference",
+      "sha256": "f16a7aeb1457b4ef92685117858002fe40b90734347b6be52601ec870a9a6218"
+    },
+    {
+      "id": "Sample:ArrayLookup.shader",
+      "group": "PackageSample",
+      "sha256": "a8ef342459bc9ce90eec4e497240de54e2fa4f85ef58dc93944df59da21237b1"
+    },
+    {
+      "id": "Sample:CustomLoop.shader",
+      "group": "PackageSample",
+      "sha256": "8052b58eeef290e09c08ced92fb80bebb3c15800cf85ee58ea8f3cf8faa7b49f"
+    },
+    {
+      "id": "Sample:HighDefinitionColor.shader",
+      "group": "PackageSample",
+      "sha256": "72a238d779668cf4e4f596948ab52175f5cb0524e5a083223e10c5951c29351f"
+    },
+    {
+      "id": "Sample:NativeMath.shader",
+      "group": "PackageSample",
+      "sha256": "25f627790729d37eae73c6f620088e8e22e125193300e22e046434982f4c4ab7"
+    },
+    {
+      "id": "Sample:TintedTexture.shader",
+      "group": "PackageSample",
+      "sha256": "be6de9e4b63776e9a4d983b8aa7688fa30d6f8dd465c275d9237ec49c3bc3b5f"
+    },
+    {
+      "id": "Sample:UniversalTexture.shader",
+      "group": "PackageSample",
+      "sha256": "1d62facf79125b5b551ff2624a9f9bd48cff6e0390a5fc2563bc3a22f7e126f8"
+    },
+    {
+      "id": "ReviewedInput:DeepZoomPageTable360.shader",
+      "group": "ReviewedInput",
+      "sha256": "69f2ebdea4fb87f9ea69e887f36dbcd9ab8ddf73f9f857465e99e80aaf1c9728"
+    },
+    {
+      "id": "ReviewedInput:DeepZoomPageTableUI.shader",
+      "group": "ReviewedInput",
+      "sha256": "10e54427cb68d922ab0cb4a5669d0ce05cd7cf835c6ec473285c7e950e009257"
+    },
+    {
+      "id": "ReviewedInput:Normal360.shader",
+      "group": "ReviewedInput",
+      "sha256": "d4fb551ede54ce5080c483fff24dcb8b19d430b2583835e055f49fa62746c53f"
+    },
+    {
+      "id": "ReviewedInput:NormalImagePanZoom.shader",
+      "group": "ReviewedInput",
+      "sha256": "a49293c055e60f121f220b1fb033b31a19bc5e5cd3b062d81d5fa32ba0b0f9e0"
+    }
+  ]
+}

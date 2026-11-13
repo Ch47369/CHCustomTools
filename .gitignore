@@ -1,0 +1,13 @@
+bin/
+obj/
+.validation/
+.build~/
+bin~/
+obj~/
+*.user
+__pycache__/
+*.pyc
+.vs/
+Releases~/*.tgz
+Releases~/*.zip
+Releases~/History/

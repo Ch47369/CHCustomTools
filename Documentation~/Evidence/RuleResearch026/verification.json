@@ -1,0 +1,186 @@
+{
+    "version":  "0.2.6",
+    "checkedUtc":  "2026-10-21T11:56:59.9503113+00:00",
+    "coreChecks":  {
+                       "command":  "dotnet run --project Tests/CoreChecks.csproj --no-restore",
+                       "passed":  303,
+                       "exitCode":  0
+                   },
+    "editorCompile":  {
+                          "command":  "dotnet build Tests/EditorCompile.csproj --no-restore",
+                          "unityReferences":  "2022.3.10f1",
+                          "warnings":  0,
+                          "errors":  0,
+                          "exitCode":  0
+                      },
+    "corpus":  {
+                   "repositories":  24,
+                   "files":  760,
+                   "shaderFiles":  436,
+                   "includeFiles":  324,
+                   "analysisErrors":  0,
+                   "allSourceHashesVerified":  true,
+                   "userReferences":  11,
+                   "userReferenceHashesUnchanged":  true,
+                   "targetPipelineEvaluations":  1308,
+                   "holdoutShaderFiles":  3,
+                   "holdoutPlanned":  0
+               },
+    "functionOnly":  {
+                         "probes":  19,
+                         "plannedBefore":  3,
+                         "plannedAfter":  19,
+                         "numericalReferenceChecksAfter":  19,
+                         "scope":  "Double-precision .NET dataflow; does not model half/fixed GPU quantization"
+                     },
+    "generatedShaderCount":  0,
+    "aseSaveReloadPerformed":  false,
+    "unityShaderCompilationPerformed":  false,
+    "visualComparisonPerformed":  false,
+    "gpuBenchmarkPerformed":  false,
+    "userUnityProjectsModified":  false,
+    "limitations":  [
+                        "Arbitrary cross-pipeline conversion is not implemented.",
+                        "3/436 full public inputs plan for BuiltIn and URP; HDRP remains explicit review.",
+                        "Recorded material/UI/animation recipes are not complete executable adapters.",
+                        "New graph settings require actual ASE save/reload, compilation and rendering before validation claims."
+                    ],
+    "sourceHashes":  [
+                         {
+                             "path":  "Runtime/ASEShaderConversionCore.cs",
+                             "sha256":  "d20ef5cd506afb5b9206d4f524f72b7f7e565098eb5e5832d2f563459b583adf"
+                         },
+                         {
+                             "path":  "Runtime/HlslExpressions.cs",
+                             "sha256":  "606663a10475e78a35001b3c080a0f3f0724c334d7c733cab7f83f78d1a5dc64"
+                         },
+                         {
+                             "path":  "Runtime/HlslFunctionLibrary.cs",
+                             "sha256":  "cff089e0f1c47ad7b049c33ec70fb7d176bd6d86cba7cdce038f648f97e6f180"
+                         },
+                         {
+                             "path":  "Runtime/ReviewedNormal360Profile.cs",
+                             "sha256":  "893fbe477f18d7c1db4889729d773faf070392111f2aff3571911cc1f2fa2afc"
+                         },
+                         {
+                             "path":  "Runtime/ReviewedUiProfile.cs",
+                             "sha256":  "a1a8e893576571ba789f6243c4f3daf3ae92cbe6f18e8510f2ebc87f7856ff9f"
+                         },
+                         {
+                             "path":  "Runtime/ShaderGraphLayout.cs",
+                             "sha256":  "b6fb1bb8504a31914984d629ed7a76eb080a9c04df49a4d6f83f1cc1a1128cfc"
+                         },
+                         {
+                             "path":  "Runtime/ShaderGraphValidator.cs",
+                             "sha256":  "8ae2574410a312d67e3432d56ea8f719f122e20a7685e8612200ff6d868ffd59"
+                         },
+                         {
+                             "path":  "Runtime/ShaderRuleLibrary.cs",
+                             "sha256":  "200e9ab4187d92e7885a7aa754441ad867bfd843812c0b369940c7fd9e43f189"
+                         },
+                         {
+                             "path":  "Editor/AseEditorBridge.cs",
+                             "sha256":  "5101bfe9523229867f0c0cadc7030f07b799e1b1306b8fcb2a267d660a68162a"
+                         },
+                         {
+                             "path":  "Editor/AseGraphPresentation.cs",
+                             "sha256":  "cdbe3b5f0de5366ec275dff07e1d5c0827feaf46f30253e0e1cd22ec828a6259"
+                         },
+                         {
+                             "path":  "Editor/AseNodeAdapters.cs",
+                             "sha256":  "5b5b98e4510c82a2f52f0ffa3b9316f79d8a36acdbf244d310d35aff993f4bd0"
+                         },
+                         {
+                             "path":  "Editor/AseReflection.cs",
+                             "sha256":  "b8f43a52a76b1741cb8a227c8258fe68c7c7016c662046a05cead8feb9670196"
+                         },
+                         {
+                             "path":  "Editor/ASEShaderConverterWindow.cs",
+                             "sha256":  "b1a0c1c0c561419629dfcc855d5d297ce358a2054e1f42fc3beb6054b64da1a5"
+                         },
+                         {
+                             "path":  "Editor/ShaderAgentInbox.cs",
+                             "sha256":  "9b54cdc9b500fe2a0595a49172f2ecaada90fadc6363a623421587105274429b"
+                         },
+                         {
+                             "path":  "Editor/ShaderConverterApi.cs",
+                             "sha256":  "43afe4f6da0275ffdeca7cfbf43282fdeeb5bd5a8b5b413634e04f24fe49dd0d"
+                         },
+                         {
+                             "path":  "Editor/ShaderConverterMessages.cs",
+                             "sha256":  "1ea9fbbd968c899f750dce6e57f872525d7f75f0fb21ef9af8409eceeb972514"
+                         },
+                         {
+                             "path":  "Tests/CoreChecks.cs",
+                             "sha256":  "687b3b96715d3239243d345f31bab3a6d92c57eaff1f61d346d19a1a5854394a"
+                         },
+                         {
+                             "path":  "Tests/CoreChecks.csproj",
+                             "sha256":  "c115c089add9d4b8e3e7fac81a3fc1232708ef4e338b1049a90e5b21962e94cc"
+                         },
+                         {
+                             "path":  "Tests/CorpusResearch.cs",
+                             "sha256":  "2f5b603ce4c18f928622f57e52cbf4c417b29e3de8244b233618f59441d528ad"
+                         },
+                         {
+                             "path":  "Tests/CorpusResearch.csproj",
+                             "sha256":  "876a176a31cbd1202dac0d3a12c8524de0f75b69715f6203edad123854979d81"
+                         },
+                         {
+                             "path":  "Tests/EditorCompile.csproj",
+                             "sha256":  "b187cb89852af9259b0699728018ed23d637bece4cf764b3bb8083bf01db03ee"
+                         },
+                         {
+                             "path":  "Tests/FunctionCorpusResearch.cs",
+                             "sha256":  "282a0454daef2b676bd69a1f4c52f79dd578f4f54a021f93a69ec6d6a6ec1e55"
+                         },
+                         {
+                             "path":  "Tests/ReusableRuleChecks.cs",
+                             "sha256":  "31201e8d84a503058bbe8ecf49bd78ef6aa75c454a1b248ae72df08a74f3bed6"
+                         },
+                         {
+                             "path":  "Tests/UnityAgentSmoke.cs",
+                             "sha256":  "81f537f82fa27a2a13a44f40f2490e9d1929619404c7f0c785ba350f0cf17a8c"
+                         },
+                         {
+                             "path":  "Tests/UnityArraySmoke.cs",
+                             "sha256":  "81684bcc0d36116cfe27ea6baba257a380359a8e07da62eeea62ffaf2443784d"
+                         },
+                         {
+                             "path":  "Tests/UnityNormalSmoke.cs",
+                             "sha256":  "67c04a334abd8a0dc4ec0bd5bad9b0ec24a58698a5bca4dae89b53be78529694"
+                         },
+                         {
+                             "path":  "Tests/UnityPresentationSmoke.cs",
+                             "sha256":  "e671d6b57315878f088e57d159ebf271469d246d4793c4ff8858aff60956dab4"
+                         },
+                         {
+                             "path":  "Tests/UnitySmoke.cs",
+                             "sha256":  "560c6d9f377082d102d7f15213ccb0c1145242e3ab3f884a7e5ca527bc3c016f"
+                         },
+                         {
+                             "path":  "Tests/UnitySrpSmoke.cs",
+                             "sha256":  "7a62b9b51b999fe796d64448ea16a3f3e2962b59db8c9b756265f1fa6267bac8"
+                         },
+                         {
+                             "path":  "Tests/UnityWindowSmoke.cs",
+                             "sha256":  "d8730b2bec3e9ad3db93bba28cafecfb2b36238d5443f03d879c5383e0cc39b1"
+                         },
+                         {
+                             "path":  "Tools~/Build-Release.ps1",
+                             "sha256":  "d6c50357f1d0f4f9abb0e6afbaf6cdb29327ec1e854cc92cfb8b016718a4e3d9"
+                         },
+                         {
+                             "path":  "Tools~/Compare-ShaderResearch.ps1",
+                             "sha256":  "8f90ec25ed30634b2de435d688f0989bb901a3427c9fa5b3eccd8f02f73991d2"
+                         },
+                         {
+                             "path":  "Tools~/Prepare-Validation.ps1",
+                             "sha256":  "52721dd538bf98b95ba134b4fc4b2230f06f29f591fc5d6169dad78a996a3345"
+                         },
+                         {
+                             "path":  "Tools~/Update-ShaderCorpus.ps1",
+                             "sha256":  "61bca819080c8ce7e183a77a84a3e232673a0d8475db26904750283f5084b4de"
+                         }
+                     ]
+}

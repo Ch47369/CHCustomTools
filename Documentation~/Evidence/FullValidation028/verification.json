@@ -1,0 +1,256 @@
+{
+  "checkedUtc": "2026-10-22T01:51:36.318324+00:00",
+  "sourceHashesMatched": 457,
+  "targetAssessments": 1371,
+  "unity": "2022.3.10f1",
+  "ase": "1.9.9.13",
+  "srp": "14.0.8",
+  "graphicsApi": "Direct3D11",
+  "logMarkers": [
+    {
+      "log": ".build~\\ValidationRuns\\Unity2022.log",
+      "sha256": "e104f70927564fef964d64846ca962f5195d8459434ba591c7c4b34267a1b1de",
+      "marker": "ASE_CONVERTER_SMOKE_PASS"
+    },
+    {
+      "log": ".build~\\ValidationRuns\\UnityURP-current.log",
+      "sha256": "8f35444e3d6344186e1d6aacd4dc2dd41647e4a2737cf23de5872b88d9a0e9ec",
+      "marker": "ASE_CONVERTER_SRP_SMOKE_PASS: URP"
+    },
+    {
+      "log": ".build~\\ValidationRuns\\UnityHDRP-current.log",
+      "sha256": "4a8f65f861d6fdbbde279318c4c93d2f2767bd9fd3a41c2c2817bd4f00fc54a8",
+      "marker": "ASE_CONVERTER_SRP_SMOKE_PASS: HDRP"
+    },
+    {
+      "log": ".build~\\ValidationRuns\\Normal-retry.log",
+      "sha256": "088b5682e3598fb8087c3eec4b7f1796e1b43ac1f2ff397b1ba2cea285aca5dd",
+      "marker": "ASE_NORMAL_SMOKE_PASS: 258; cases=49"
+    },
+    {
+      "log": ".build~\\ValidationRuns\\Array-current.log",
+      "sha256": "86d07ec758a824e1ec58800602703ee49086fae7d80845d1dfd71d32cd5e9a26",
+      "marker": "ASE_ARRAY_SMOKE_PASS: 34"
+    },
+    {
+      "log": ".build~\\ValidationRuns\\Presentation-current.log",
+      "sha256": "1d84810799c98a3a19eaf44d0eec72929778bf5dfe922761a3e1a2bdf49fd8eb",
+      "marker": "ASE_PRESENTATION_SMOKE_PASS: 139"
+    },
+    {
+      "log": ".build~\\ValidationRuns\\Water-final.log",
+      "sha256": "7dc2f1287d7d91bcfca1444d7d6361abe5cfdee2337051d8158d0d1e76391783",
+      "marker": "ASE_WATER_VALIDATION_PASS: 22"
+    },
+    {
+      "log": ".build~\\ValidationRuns\\BuiltIn-full-complete.log",
+      "sha256": "d522f4d2baa0298325126cbd1d3d004d68b7363e912cd1e350ddcf6f2602deaf",
+      "marker": "ASE_FULL_VALIDATION_COMPLETE: BuiltIn rows=457"
+    },
+    {
+      "log": ".build~\\ValidationRuns\\URP-full-complete.log",
+      "sha256": "70aa65bad3b6479354c266e478d819f63bf58173e5a07a1bd19e400ed3c6dda8",
+      "marker": "ASE_FULL_VALIDATION_COMPLETE: URP rows=457"
+    },
+    {
+      "log": ".build~\\ValidationRuns\\HDRP-full-complete.log",
+      "sha256": "0632633ede408e575242c6f964a8af3fd2d5c83ed2301850314efb5775ea66ac",
+      "marker": "ASE_FULL_VALIDATION_COMPLETE: HDRP rows=457"
+    }
+  ],
+  "smokeArtifacts": [
+    {
+      "file": "Smoke\\BuiltIn\\environment.json",
+      "sha256": "7054256a5bc5b63ac6f6ce3581b874084145ab04e138d108ad2265cf207341f4",
+      "sourceModifiedUtc": "2026-10-22T01:23:15.683373+00:00"
+    },
+    {
+      "file": "Smoke\\BuiltIn\\template.json",
+      "sha256": "b4b34f8e9f9f355df2dd56c336b5b2ef7622cf3777e5a4533e34912d23391716",
+      "sourceModifiedUtc": "2026-10-22T01:23:17.207557+00:00"
+    },
+    {
+      "file": "Smoke\\BuiltIn\\conversion.json",
+      "sha256": "371ac03a126d923302e13ca811cbfa32e13a05966895d8b0f4235f32ade94d2d",
+      "sourceModifiedUtc": "2026-10-22T01:23:18.482064+00:00"
+    },
+    {
+      "file": "Smoke\\BuiltIn\\native-math.json",
+      "sha256": "c2a030b8caabc137bd06f4510109f4cde3948fdcd73e7c1cb396ba26c1f5e34b",
+      "sourceModifiedUtc": "2026-10-22T01:23:19.761128+00:00"
+    },
+    {
+      "file": "Smoke\\BuiltIn\\custom-loop.json",
+      "sha256": "2cb76d61b62c7da4997d864f73c2f4d07a2331577a84ea64f5a9e35b4680e1be",
+      "sourceModifiedUtc": "2026-10-22T01:23:20.940302+00:00"
+    },
+    {
+      "file": "Smoke\\BuiltIn\\texture-pixel-comparison.txt",
+      "sha256": "08c55a6e98e071f0c9a173bc1177845507d8ffa81428d95de8cda7b73f65fa7a",
+      "sourceModifiedUtc": "2026-10-22T01:23:18.481546+00:00"
+    },
+    {
+      "file": "Smoke\\BuiltIn\\math-pixel-comparison.txt",
+      "sha256": "08c55a6e98e071f0c9a173bc1177845507d8ffa81428d95de8cda7b73f65fa7a",
+      "sourceModifiedUtc": "2026-10-22T01:23:19.759627+00:00"
+    },
+    {
+      "file": "Smoke\\BuiltIn\\loop-pixel-comparison.txt",
+      "sha256": "08c55a6e98e071f0c9a173bc1177845507d8ffa81428d95de8cda7b73f65fa7a",
+      "sourceModifiedUtc": "2026-10-22T01:23:20.940302+00:00"
+    },
+    {
+      "file": "Smoke\\URP\\conversion.json",
+      "sha256": "9b384d37433dc555daba9389388303fe89a79e4039cfb14b1195bd6574519008",
+      "sourceModifiedUtc": "2026-10-22T01:32:54.593011+00:00"
+    },
+    {
+      "file": "Smoke\\URP\\automatic.json",
+      "sha256": "9befc1d96187b5f36c95c9259decb30e10bf24b9f449934e36e81f8632a7f0aa",
+      "sourceModifiedUtc": "2026-10-22T01:32:56.962341+00:00"
+    },
+    {
+      "file": "Smoke\\URP\\environment.json",
+      "sha256": "01c49cb146fd176e8593132e1fc14fa228859672f7ccdbcc1a387199ca050439",
+      "sourceModifiedUtc": "2026-10-22T01:32:51.306187+00:00"
+    },
+    {
+      "file": "Smoke\\URP\\template.json",
+      "sha256": "0116bccef8de53b18fb5f46b97faffbf409a93fc2042bc984b87762d68d109f5",
+      "sourceModifiedUtc": "2026-10-22T01:32:52.306791+00:00"
+    },
+    {
+      "file": "Smoke\\URP\\urp-texture-pixel-comparison.txt",
+      "sha256": "08c55a6e98e071f0c9a173bc1177845507d8ffa81428d95de8cda7b73f65fa7a",
+      "sourceModifiedUtc": "2026-10-22T01:32:56.960835+00:00"
+    },
+    {
+      "file": "Smoke\\HDRP\\conversion.json",
+      "sha256": "8918ea5bb87a3db5d05766cd68e88f9655d88188fcdd84a6bba5b26987b670f7",
+      "sourceModifiedUtc": "2026-10-22T01:32:55.475121+00:00"
+    },
+    {
+      "file": "Smoke\\HDRP\\environment.json",
+      "sha256": "cbc3d6466e1c5faeef8329276ca372cebd9536574c687d05bd18f29ec6121d15",
+      "sourceModifiedUtc": "2026-10-22T01:32:51.888757+00:00"
+    },
+    {
+      "file": "Smoke\\HDRP\\template.json",
+      "sha256": "2c0dd01e88427746ad59239366d3656add610a1118cd5833835181f87cb7cddd",
+      "sourceModifiedUtc": "2026-10-22T01:32:53.022216+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\normal-environment.json",
+      "sha256": "6d78d736f266cf4a1595e512f374406bc4cb99ec8c0d89b8fe278a6232923042",
+      "sourceModifiedUtc": "2026-10-22T01:35:49.067237+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\normal-Normal360-conversion.json",
+      "sha256": "1de1ccf756e0b4ed7365b636388113572b75dc0da171645298977a233568cbea",
+      "sourceModifiedUtc": "2026-10-22T01:35:50.955152+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\normal-NormalImagePanZoom-conversion.json",
+      "sha256": "ba96cfa7fb887711e4afe4468fdfbf2b6a47b88350e16e4d10551ff6f3696cfd",
+      "sourceModifiedUtc": "2026-10-22T01:35:51.652890+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\normal-pixels.txt",
+      "sha256": "b94145d300761eda8b7fe1cd97b27568b0753dbebfeffec1c6f5b69884a882b6",
+      "sourceModifiedUtc": "2026-10-22T01:35:52.288688+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\normal-smoke-result.txt",
+      "sha256": "94ed93a09a427fcded8df4a8e90be75975f8faf36337e8587e0ca6fd01bb2277",
+      "sourceModifiedUtc": "2026-10-22T01:35:52.290190+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\array-environment.json",
+      "sha256": "6d78d736f266cf4a1595e512f374406bc4cb99ec8c0d89b8fe278a6232923042",
+      "sourceModifiedUtc": "2026-10-22T01:40:40.169361+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\array-conversion.json",
+      "sha256": "74a9fdaf8451d5068b0cb0d569e3f486331e0006ec7607a1585ede8bb08c380c",
+      "sourceModifiedUtc": "2026-10-22T01:40:42.118634+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\array-pixels.txt",
+      "sha256": "1e626bc10d3ac9ef70890954d867f3b9b015af57d69426a870b02b0e8ff03d58",
+      "sourceModifiedUtc": "2026-10-22T01:40:42.283296+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\array-smoke-result.txt",
+      "sha256": "ac29cb9226606fd253d23d2185107602d9bfe6e7ce8ef310406704eef3ed171a",
+      "sourceModifiedUtc": "2026-10-22T01:40:42.951761+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\ui-environment.json",
+      "sha256": "6d78d736f266cf4a1595e512f374406bc4cb99ec8c0d89b8fe278a6232923042",
+      "sourceModifiedUtc": "2026-10-22T01:43:24.506919+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\ui-template.json",
+      "sha256": "07b28cfe319b3157a9621fb57460379d92f03f849a30bd92bedb0c5f3a744ed9",
+      "sourceModifiedUtc": "2026-10-22T01:43:25.428006+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\ui-conversion.json",
+      "sha256": "dfe3a37cf0b97d85d43c2403f68d052bde19046934157e64db6abb447c1bb3c4",
+      "sourceModifiedUtc": "2026-10-22T01:43:26.807079+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\ui-no-presentation.json",
+      "sha256": "50acec6b28e4b86beceef3dcbfbab5e483e2fb6ce0d53d30126ade0ecda78e8d",
+      "sourceModifiedUtc": "2026-10-22T01:43:28.099930+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\ui-pixels.txt",
+      "sha256": "2992b26d07923f4193b149a9e1a667d17964a302a54cd8fc000c3d7d3cbea7cb",
+      "sourceModifiedUtc": "2026-10-22T01:43:27.114952+00:00"
+    },
+    {
+      "file": "Smoke\\Reviewed\\presentation-smoke-result.txt",
+      "sha256": "92b4a95eba41de690eca2b1d702e8e6816c0c10524227a4700ccdc4457131081",
+      "sourceModifiedUtc": "2026-10-22T01:43:28.099930+00:00"
+    },
+    {
+      "file": "Smoke\\Water\\water-environment.json",
+      "sha256": "6d78d736f266cf4a1595e512f374406bc4cb99ec8c0d89b8fe278a6232923042",
+      "sourceModifiedUtc": "2026-10-22T01:47:26.939466+00:00"
+    },
+    {
+      "file": "Smoke\\Water\\water-template.json",
+      "sha256": "3c3aafa9fb7aea59d9ab4f8494348174197dbbecad50fa077c4a14f77b8ab05f",
+      "sourceModifiedUtc": "2026-10-22T01:47:28.448720+00:00"
+    },
+    {
+      "file": "Smoke\\Water\\water-conversion.json",
+      "sha256": "fa60e44912797c5348f40870fd8211d7ba7be8a6a49e053d0a4b181caa495b5c",
+      "sourceModifiedUtc": "2026-10-22T01:47:32.485816+00:00"
+    },
+    {
+      "file": "Smoke\\Water\\water-assets.json",
+      "sha256": "8d3157d39a8d91cbb802bb1442e9008545b535d46b8479179796ce584c085555",
+      "sourceModifiedUtc": "2026-10-22T01:47:35.025993+00:00"
+    },
+    {
+      "file": "Smoke\\Water\\water-variants.json",
+      "sha256": "c09f98171d83b2aa4768c46863ec4c6f3b6c9426227bbbdc9f3964b35003cd8b",
+      "sourceModifiedUtc": "2026-10-22T01:47:41.448998+00:00"
+    },
+    {
+      "file": "Smoke\\Water\\water-validation-result.txt",
+      "sha256": "496a717213c377bf415a0e60240a0e2f9e05c02fc7ea7269d797497fac0f4083",
+      "sourceModifiedUtc": "2026-10-22T01:47:41.448998+00:00"
+    }
+  ],
+  "harnessSha256": "a38e88a34b8df68f8099c0ca7bbbafb75a0460ab8175c94059da637f8d867f5b",
+  "waterHarnessSha256": "077af52e98b5f32ec4ab4afac5dd356ccd71fcb6b60623328eeedc3b12790e6b",
+  "limits": [
+    "Blocked inputs were not generated.",
+    "Existing ASE graphs are migration, not handwritten conversion.",
+    "Fixtures do not prove original-scene, all-keyword, all-platform equivalence.",
+    "No GPU performance benchmark or new release tarball."
+  ]
+}

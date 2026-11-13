@@ -1,0 +1,283 @@
+{
+    "schemaVersion": 1,
+    "success": true,
+    "error": "",
+    "environment": {
+        "unityVersion": "2022.3.10f1",
+        "aseVersion": "1.9.9.13",
+        "activePipeline": "BuiltIn",
+        "templates": [
+            {
+                "guid": "b9e3bd2247b04c12ac193aa10cb6ed01",
+                "name": "ASE Converter/Image Filter BuiltIn",
+                "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/ImageFilterBuiltIn.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "b9e3bd2247b04c12ac193aa10cb6ed03",
+                "name": "ASE Converter/Image Filter HDRP",
+                "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/ImageFilterHDRP.shader",
+                "pipeline": "HDRP",
+                "ready": true
+            },
+            {
+                "guid": "b9e3bd2247b04c12ac193aa10cb6ed02",
+                "name": "ASE Converter/Image Filter URP",
+                "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/ImageFilterURP.shader",
+                "pipeline": "URP",
+                "ready": true
+            },
+            {
+                "guid": "a99d644facf4442398d54acf418923b9",
+                "name": "ASE Converter/Two Sided Texture Fog",
+                "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/Normal360Fog.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "c08fd7d51a79449e86b199a5bb4a5724",
+                "name": "ASE Converter/UI Pan Zoom",
+                "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/UiPanZoom.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "eab467e6cd0b4d27ab8e9e434d8c30e3",
+                "name": "ASE Converter/UI Straight Alpha",
+                "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/UiStraightAlpha.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "0f8ba0101102bb14ebf021ddadce9b49",
+                "name": "Built-In/Default Sprites",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Sprites-Default.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "c71b220b631b6344493ea3cf87110c93",
+                "name": "Built-In/Image Effect",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/PostProcess.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "ed95fe726fd7b4644bb42f4d1ddd2bcd",
+                "name": "Built-In/Lit",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Lit.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "e1de45c0d41f68c41b2cc20c8b9c05ef",
+                "name": "Built-In/Multi Pass Unlit",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/MultiPassUnlit.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "0b6a9f8b4f707c74ca64c0be8e590de0",
+                "name": "Built-In/Particles Alpha Blended",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Particle Alpha Blend.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "32139be9c1eb75640a847f011acf3bcf",
+                "name": "Built-In/Post-Processing Stack",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/PPStack.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "0770190933193b94aaa3065e307002fa",
+                "name": "Built-In/Unlit",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Unlit.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "899e609c083c74c4ca567477c39edef0",
+                "name": "Built-In/Unlit Lightmap",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/UnlitLightmap.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "45bf09b07249a46489d5200e9ba4d9f1",
+                "name": "Built-In/Wireframe",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Wireframe.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "6ce779933eb99f049b78d6163735e06f",
+                "name": "Custom Render Texture/Initialize",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/CustomRT/CustomRTInit.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "32120270d1b3a8746af2aca8bc749736",
+                "name": "Custom Render Texture/Update",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/CustomRT/CustomRTUpdate.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            },
+            {
+                "guid": "5056123faa0c79b47ab6ad7e8bf059a4",
+                "name": "UI/Default",
+                "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/UI/UI-Default.shader",
+                "pipeline": "BuiltIn",
+                "ready": true
+            }
+        ],
+        "errors": []
+    },
+    "description": {
+        "masters": [],
+        "options": []
+    },
+    "analysis": {
+        "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+                "autoLayout": true,
+                "addComments": true,
+                "useRegisters": true,
+                "longWireDistance": 1800.0,
+                "maxRegisters": 24
+            },
+            "comments": []
+        },
+        "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+        },
+        "knowledge": {
+            "libraryVersion": "0.3.3",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+                "present": false,
+                "complete": false,
+                "version": "",
+                "nodeCount": 0,
+                "wireCount": 0,
+                "customExpressionCount": 0,
+                "nodeTypes": [],
+                "templateGuids": [],
+                "functionGuids": []
+            },
+            "sourceGraph": {
+                "format": "",
+                "status": "AnalysisOnly",
+                "target": "",
+                "sourcePipeline": "Unknown",
+                "nodeCount": 0,
+                "edgeCount": 0,
+                "keywordCount": 0,
+                "groupCount": 0,
+                "noteCount": 0,
+                "properties": [],
+                "blocks": [],
+                "nodeTypes": [],
+                "dependencies": [],
+                "targetSettings": [],
+                "blockers": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+                "status": "NotBenchmarked",
+                "directTextureSampleSites": 0,
+                "loopSites": 0,
+                "explicitPasses": 0,
+                "includesMayAddWork": false,
+                "observations": []
+            }
+        }
+    },
+    "report": {
+        "status": "Planned",
+        "sourcePath": "",
+        "outputPath": "",
+        "shaderName": "",
+        "pipeline": "",
+        "unityVersion": "",
+        "aseVersion": "",
+        "templateGuid": "",
+        "sourcePipeline": "",
+        "crossPipeline": false,
+        "existingAseGraph": false,
+        "aseRoundTripPassed": false,
+        "shaderCompiled": false,
+        "visualComparisonPassed": false,
+        "nativeNodeCount": 0,
+        "customExpressionCount": 0,
+        "propertyCount": 0,
+        "layoutApplied": false,
+        "commentCount": 0,
+        "registerNodeCount": 0,
+        "getNodeCount": 0,
+        "nativeMappings": [],
+        "fallbackReasons": [],
+        "blockers": [],
+        "warnings": []
+    },
+    "ruleLibrary": {
+        "version": "0.3.3",
+        "rules": [],
+        "references": [],
+        "publicSources": [],
+        "categories": [],
+        "characterProfiles": []
+    },
+    "shaderLibrary": {
+        "version": "0.3.3",
+        "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+        "entries": [],
+        "research": [],
+        "familyContracts": []
+    },
+    "targetAnalyses": []
+}

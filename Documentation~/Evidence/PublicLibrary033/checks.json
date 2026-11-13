@@ -1,0 +1,22 @@
+{
+  "coreChecks": 523,
+  "editorCompile": {
+    "warnings": 0,
+    "errors": 0
+  },
+  "pythonCorrespondenceTests": 6,
+  "logs": [
+    {
+      "path": ".build~/PublicLibrary033/core-checks.log",
+      "sha256": "172b4f0abde1d258b974bada80ceec71edd7be8d501f1fc69bceb7e1ecc1eb26"
+    },
+    {
+      "path": ".build~/PublicLibrary033/editor-compile.log",
+      "sha256": "a15e04ae6af3e69addc745ebb7473e87b854cd2ceeb0640aa1070bf8a949f353"
+    },
+    {
+      "path": ".build~/PublicLibrary033/python-checks.log",
+      "sha256": "608b28fccd475453fe4454c4db9ca86c5445ea804fef0fcd63924edd36c45922"
+    }
+  ]
+}

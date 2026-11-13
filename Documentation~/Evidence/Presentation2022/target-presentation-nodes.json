@@ -1,0 +1,338 @@
+{
+    "schemaVersion": 1,
+    "success": true,
+    "error": "",
+    "environment": {
+        "unityVersion": "",
+        "aseVersion": "",
+        "activePipeline": "",
+        "templates": [],
+        "errors": []
+    },
+    "description": {
+        "masters": [
+            {
+                "type": "TemplateMultiPassMasterNode",
+                "pass": "ExtraPrePass",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "Color",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Alpha",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Alpha Clip Threshold",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 28,
+                        "name": "Depth",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Vertex Offset",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "Vertex Normal",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 5,
+                        "name": "Vertex Tangent",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "type": "TemplateMultiPassMasterNode",
+                "pass": "Unlit",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "Color",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 7,
+                        "name": "Alpha",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 8,
+                        "name": "Alpha Clip Threshold",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 9,
+                        "name": "Alpha Clip Threshold Shadow",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 28,
+                        "name": "Depth",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 15,
+                        "name": "Vertex Offset",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 16,
+                        "name": "Vertex Normal",
+                        "type": "FLOAT3",
+                        "visible": true,
+                        "locked": false
+                    },
+                    {
+                        "id": 17,
+                        "name": "Vertex Tangent",
+                        "type": "FLOAT4",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "type": "TemplateMultiPassMasterNode",
+                "pass": "ShadowCaster",
+                "inputs": [
+                    {
+                        "id": 7,
+                        "name": "Alpha",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 8,
+                        "name": "Alpha Clip Threshold",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 9,
+                        "name": "Alpha Clip Threshold Shadow",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 28,
+                        "name": "Depth",
+                        "type": "FLOAT",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 15,
+                        "name": "Vertex Offset",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 16,
+                        "name": "Vertex Normal",
+                        "type": "FLOAT3",
+                        "visible": false,
+                        "locked": false
+                    },
+                    {
+                        "id": 17,
+                        "name": "Vertex Tangent",
+                        "type": "FLOAT4",
+                        "visible": false,
+                        "locked": false
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "type": "CommentaryNode",
+                "pass": "",
+                "inputs": [],
+                "outputs": []
+            },
+            {
+                "type": "RegisterLocalVarNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "FLOAT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            },
+            {
+                "type": "GetLocalVarNode",
+                "pass": "",
+                "inputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "OBJECT",
+                        "visible": false,
+                        "locked": false
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": 0,
+                        "name": "  ",
+                        "type": "OBJECT",
+                        "visible": true,
+                        "locked": false
+                    }
+                ]
+            }
+        ],
+        "options": [
+            {
+                "name": "option:Surface",
+                "value": "Opaque|Transparent|disable"
+            },
+            {
+                "name": "option:  Keep Alpha",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:  Blend",
+                "value": "Alpha|Premultiply|Additive|Multiply|Custom|disable"
+            },
+            {
+                "name": "option:Alpha Clipping",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:  Use Shadow Threshold",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Cast Shadows",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Write Depth",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:  Conservative",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Extra Pre Pass",
+                "value": "false|true|disable"
+            },
+            {
+                "name": "option:Vertex Position",
+                "value": "Absolute|Relative|disable"
+            }
+        ]
+    },
+    "analysis": {
+        "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": []
+        },
+        "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+        }
+    },
+    "report": {
+        "status": "Planned",
+        "sourcePath": "",
+        "outputPath": "",
+        "shaderName": "",
+        "pipeline": "",
+        "unityVersion": "",
+        "aseVersion": "",
+        "templateGuid": "",
+        "existingAseGraph": false,
+        "aseRoundTripPassed": false,
+        "shaderCompiled": false,
+        "visualComparisonPassed": false,
+        "nativeNodeCount": 0,
+        "customExpressionCount": 0,
+        "propertyCount": 0,
+        "nativeMappings": [],
+        "fallbackReasons": [],
+        "blockers": [],
+        "warnings": []
+    }
+}

@@ -1,0 +1,301 @@
+{
+  "images": [
+    {
+      "pipeline": "BuiltIn",
+      "id": "public-BuiltIn-Vignette",
+      "state": "Falloff0",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-BuiltIn/public-BuiltIn-Vignette-Falloff0.png",
+      "sha256": "590d5758d34de33ec31ed97d97fc4625511b6b00c1eca5b76eb9e16cca39b59e"
+    },
+    {
+      "pipeline": "BuiltIn",
+      "id": "public-BuiltIn-Vignette",
+      "state": "Falloff0.5",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-BuiltIn/public-BuiltIn-Vignette-Falloff0.5.png",
+      "sha256": "bbf3aebb642565964174b96f35233c849ca4d38cde503e20c996a50e4aa490bb"
+    },
+    {
+      "pipeline": "BuiltIn",
+      "id": "public-BuiltIn-Vignette",
+      "state": "Falloff1.2",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-BuiltIn/public-BuiltIn-Vignette-Falloff1.2.png",
+      "sha256": "10a1b8e2dd4c64404d0ed0af1ccd8b1f214a8619f8dabaaa230c83027c40dec6"
+    },
+    {
+      "pipeline": "BuiltIn",
+      "id": "public-BuiltIn-AnalogGlitch",
+      "state": "Identity",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-BuiltIn/public-BuiltIn-AnalogGlitch-Identity.png",
+      "sha256": "6c8df68191befa4447ae64be2fac1280828e58a5523c0d1bc90df682134adaf8"
+    },
+    {
+      "pipeline": "BuiltIn",
+      "id": "public-BuiltIn-AnalogGlitch",
+      "state": "JumpDrift0.3",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-BuiltIn/public-BuiltIn-AnalogGlitch-JumpDrift0.3.png",
+      "sha256": "18c3d465f76d32c4deea4cb23b9ff10ffe01d6a3b38a5b36b2c33c0ebd17d45c"
+    },
+    {
+      "pipeline": "BuiltIn",
+      "id": "public-BuiltIn-AnalogGlitch",
+      "state": "JumpDrift0.7",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-BuiltIn/public-BuiltIn-AnalogGlitch-JumpDrift0.7.png",
+      "sha256": "621466fc7170054b98e6f7a0a6067a3fd0cff2edf267b9e22471a5347aec7d16"
+    },
+    {
+      "pipeline": "BuiltIn",
+      "id": "public-BuiltIn-AnalogGlitch",
+      "state": "ScanlineAndShake",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-BuiltIn/public-BuiltIn-AnalogGlitch-ScanlineAndShake.png",
+      "sha256": "8c6de6891fa8f1c8efd3824cca4184805612641c83818a4b58c34bcc825a1d01"
+    },
+    {
+      "pipeline": "BuiltIn",
+      "id": "public-BuiltIn-DigitalGlitch",
+      "state": "Intensity0",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-BuiltIn/public-BuiltIn-DigitalGlitch-Intensity0.png",
+      "sha256": "590d5758d34de33ec31ed97d97fc4625511b6b00c1eca5b76eb9e16cca39b59e"
+    },
+    {
+      "pipeline": "BuiltIn",
+      "id": "public-BuiltIn-DigitalGlitch",
+      "state": "Intensity0.3",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-BuiltIn/public-BuiltIn-DigitalGlitch-Intensity0.3.png",
+      "sha256": "e3bc957f2922ca780883f0891666c07e6bcb750c9d0439fe82747f990fbe83fc"
+    },
+    {
+      "pipeline": "BuiltIn",
+      "id": "public-BuiltIn-DigitalGlitch",
+      "state": "Intensity0.6",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-BuiltIn/public-BuiltIn-DigitalGlitch-Intensity0.6.png",
+      "sha256": "2706876b044b4a1f4c818a558c0a6951dade2197147ce195f25880b5a73aeef8"
+    },
+    {
+      "pipeline": "BuiltIn",
+      "id": "public-BuiltIn-DigitalGlitch",
+      "state": "Intensity1",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-BuiltIn/public-BuiltIn-DigitalGlitch-Intensity1.png",
+      "sha256": "ac82ac8bc463e0cc6e403cf217494adb5dc6b0e815f73b3580d2f3e0e682e1cd"
+    },
+    {
+      "pipeline": "BuiltIn",
+      "id": "public-BuiltIn-Mirror",
+      "state": "GlobalSymmetryFalse",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-BuiltIn/public-BuiltIn-Mirror-GlobalSymmetryFalse.png",
+      "sha256": "f721a4e5b5f0624bc89a336b862901d8e1615912b0ccaba20c72f95d9e523887"
+    },
+    {
+      "pipeline": "BuiltIn",
+      "id": "public-BuiltIn-Mirror",
+      "state": "GlobalSymmetryTrue",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-BuiltIn/public-BuiltIn-Mirror-GlobalSymmetryTrue.png",
+      "sha256": "8d273d6e28ab6aaf5d96afb697c9dd7e3ac1680fe222eb229f8939c3410ec937"
+    },
+    {
+      "pipeline": "URP",
+      "id": "public-URP-Vignette",
+      "state": "Falloff0",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-URP/public-URP-Vignette-Falloff0.png",
+      "sha256": "590d5758d34de33ec31ed97d97fc4625511b6b00c1eca5b76eb9e16cca39b59e"
+    },
+    {
+      "pipeline": "URP",
+      "id": "public-URP-Vignette",
+      "state": "Falloff0.5",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-URP/public-URP-Vignette-Falloff0.5.png",
+      "sha256": "bbf3aebb642565964174b96f35233c849ca4d38cde503e20c996a50e4aa490bb"
+    },
+    {
+      "pipeline": "URP",
+      "id": "public-URP-Vignette",
+      "state": "Falloff1.2",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-URP/public-URP-Vignette-Falloff1.2.png",
+      "sha256": "10a1b8e2dd4c64404d0ed0af1ccd8b1f214a8619f8dabaaa230c83027c40dec6"
+    },
+    {
+      "pipeline": "URP",
+      "id": "public-URP-AnalogGlitch",
+      "state": "Identity",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-URP/public-URP-AnalogGlitch-Identity.png",
+      "sha256": "6c8df68191befa4447ae64be2fac1280828e58a5523c0d1bc90df682134adaf8"
+    },
+    {
+      "pipeline": "URP",
+      "id": "public-URP-AnalogGlitch",
+      "state": "JumpDrift0.3",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-URP/public-URP-AnalogGlitch-JumpDrift0.3.png",
+      "sha256": "18c3d465f76d32c4deea4cb23b9ff10ffe01d6a3b38a5b36b2c33c0ebd17d45c"
+    },
+    {
+      "pipeline": "URP",
+      "id": "public-URP-AnalogGlitch",
+      "state": "JumpDrift0.7",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-URP/public-URP-AnalogGlitch-JumpDrift0.7.png",
+      "sha256": "621466fc7170054b98e6f7a0a6067a3fd0cff2edf267b9e22471a5347aec7d16"
+    },
+    {
+      "pipeline": "URP",
+      "id": "public-URP-AnalogGlitch",
+      "state": "ScanlineAndShake",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-URP/public-URP-AnalogGlitch-ScanlineAndShake.png",
+      "sha256": "8c6de6891fa8f1c8efd3824cca4184805612641c83818a4b58c34bcc825a1d01"
+    },
+    {
+      "pipeline": "URP",
+      "id": "public-URP-DigitalGlitch",
+      "state": "Intensity0",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-URP/public-URP-DigitalGlitch-Intensity0.png",
+      "sha256": "590d5758d34de33ec31ed97d97fc4625511b6b00c1eca5b76eb9e16cca39b59e"
+    },
+    {
+      "pipeline": "URP",
+      "id": "public-URP-DigitalGlitch",
+      "state": "Intensity0.3",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-URP/public-URP-DigitalGlitch-Intensity0.3.png",
+      "sha256": "e3bc957f2922ca780883f0891666c07e6bcb750c9d0439fe82747f990fbe83fc"
+    },
+    {
+      "pipeline": "URP",
+      "id": "public-URP-DigitalGlitch",
+      "state": "Intensity0.6",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-URP/public-URP-DigitalGlitch-Intensity0.6.png",
+      "sha256": "2706876b044b4a1f4c818a558c0a6951dade2197147ce195f25880b5a73aeef8"
+    },
+    {
+      "pipeline": "URP",
+      "id": "public-URP-DigitalGlitch",
+      "state": "Intensity1",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-URP/public-URP-DigitalGlitch-Intensity1.png",
+      "sha256": "ac82ac8bc463e0cc6e403cf217494adb5dc6b0e815f73b3580d2f3e0e682e1cd"
+    },
+    {
+      "pipeline": "URP",
+      "id": "public-URP-Mirror",
+      "state": "GlobalSymmetryFalse",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-URP/public-URP-Mirror-GlobalSymmetryFalse.png",
+      "sha256": "f721a4e5b5f0624bc89a336b862901d8e1615912b0ccaba20c72f95d9e523887"
+    },
+    {
+      "pipeline": "URP",
+      "id": "public-URP-Mirror",
+      "state": "GlobalSymmetryTrue",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-URP/public-URP-Mirror-GlobalSymmetryTrue.png",
+      "sha256": "8d273d6e28ab6aaf5d96afb697c9dd7e3ac1680fe222eb229f8939c3410ec937"
+    },
+    {
+      "pipeline": "HDRP",
+      "id": "public-HDRP-Vignette",
+      "state": "Falloff0",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-HDRP/public-HDRP-Vignette-Falloff0.png",
+      "sha256": "590d5758d34de33ec31ed97d97fc4625511b6b00c1eca5b76eb9e16cca39b59e"
+    },
+    {
+      "pipeline": "HDRP",
+      "id": "public-HDRP-Vignette",
+      "state": "Falloff0.5",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-HDRP/public-HDRP-Vignette-Falloff0.5.png",
+      "sha256": "bbf3aebb642565964174b96f35233c849ca4d38cde503e20c996a50e4aa490bb"
+    },
+    {
+      "pipeline": "HDRP",
+      "id": "public-HDRP-Vignette",
+      "state": "Falloff1.2",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-HDRP/public-HDRP-Vignette-Falloff1.2.png",
+      "sha256": "10a1b8e2dd4c64404d0ed0af1ccd8b1f214a8619f8dabaaa230c83027c40dec6"
+    },
+    {
+      "pipeline": "HDRP",
+      "id": "public-HDRP-AnalogGlitch",
+      "state": "Identity",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-HDRP/public-HDRP-AnalogGlitch-Identity.png",
+      "sha256": "6c8df68191befa4447ae64be2fac1280828e58a5523c0d1bc90df682134adaf8"
+    },
+    {
+      "pipeline": "HDRP",
+      "id": "public-HDRP-AnalogGlitch",
+      "state": "JumpDrift0.3",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-HDRP/public-HDRP-AnalogGlitch-JumpDrift0.3.png",
+      "sha256": "18c3d465f76d32c4deea4cb23b9ff10ffe01d6a3b38a5b36b2c33c0ebd17d45c"
+    },
+    {
+      "pipeline": "HDRP",
+      "id": "public-HDRP-AnalogGlitch",
+      "state": "JumpDrift0.7",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-HDRP/public-HDRP-AnalogGlitch-JumpDrift0.7.png",
+      "sha256": "621466fc7170054b98e6f7a0a6067a3fd0cff2edf267b9e22471a5347aec7d16"
+    },
+    {
+      "pipeline": "HDRP",
+      "id": "public-HDRP-AnalogGlitch",
+      "state": "ScanlineAndShake",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-HDRP/public-HDRP-AnalogGlitch-ScanlineAndShake.png",
+      "sha256": "8c6de6891fa8f1c8efd3824cca4184805612641c83818a4b58c34bcc825a1d01"
+    },
+    {
+      "pipeline": "HDRP",
+      "id": "public-HDRP-DigitalGlitch",
+      "state": "Intensity0",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-HDRP/public-HDRP-DigitalGlitch-Intensity0.png",
+      "sha256": "590d5758d34de33ec31ed97d97fc4625511b6b00c1eca5b76eb9e16cca39b59e"
+    },
+    {
+      "pipeline": "HDRP",
+      "id": "public-HDRP-DigitalGlitch",
+      "state": "Intensity0.3",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-HDRP/public-HDRP-DigitalGlitch-Intensity0.3.png",
+      "sha256": "e3bc957f2922ca780883f0891666c07e6bcb750c9d0439fe82747f990fbe83fc"
+    },
+    {
+      "pipeline": "HDRP",
+      "id": "public-HDRP-DigitalGlitch",
+      "state": "Intensity0.6",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-HDRP/public-HDRP-DigitalGlitch-Intensity0.6.png",
+      "sha256": "2706876b044b4a1f4c818a558c0a6951dade2197147ce195f25880b5a73aeef8"
+    },
+    {
+      "pipeline": "HDRP",
+      "id": "public-HDRP-DigitalGlitch",
+      "state": "Intensity1",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-HDRP/public-HDRP-DigitalGlitch-Intensity1.png",
+      "sha256": "ac82ac8bc463e0cc6e403cf217494adb5dc6b0e815f73b3580d2f3e0e682e1cd"
+    },
+    {
+      "pipeline": "HDRP",
+      "id": "public-HDRP-Mirror",
+      "state": "GlobalSymmetryFalse",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-HDRP/public-HDRP-Mirror-GlobalSymmetryFalse.png",
+      "sha256": "f721a4e5b5f0624bc89a336b862901d8e1615912b0ccaba20c72f95d9e523887"
+    },
+    {
+      "pipeline": "HDRP",
+      "id": "public-HDRP-Mirror",
+      "state": "GlobalSymmetryTrue",
+      "path": "Documentation~/Evidence/PublicLibrary033/Filters-HDRP/public-HDRP-Mirror-GlobalSymmetryTrue.png",
+      "sha256": "8d273d6e28ab6aaf5d96afb697c9dd7e3ac1680fe222eb229f8939c3410ec937"
+    }
+  ],
+  "checks": [
+    {
+      "pipeline": "BuiltIn",
+      "states": 13,
+      "oracleStates": 12,
+      "maximumMeanError": 4.4703170942739234e-08,
+      "sameShaderIdentity": true
+    },
+    {
+      "pipeline": "URP",
+      "states": 13,
+      "oracleStates": 12,
+      "maximumMeanError": 4.4703170942739234e-08,
+      "sameShaderIdentity": true
+    },
+    {
+      "pipeline": "HDRP",
+      "states": 13,
+      "oracleStates": 12,
+      "maximumMeanError": 4.4703170942739234e-08,
+      "sameShaderIdentity": true
+    }
+  ],
+  "scope": "Explicit textures and raw floating RT readback. No camera injection, actual history capture, mobile benchmark, or original-scene equivalence."
+}

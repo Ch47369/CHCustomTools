@@ -1,0 +1,26 @@
+{
+  "pipeline": "BuiltIn",
+  "error": "",
+  "finishedUtc": "2026-11-02T03:03:02.9841611Z",
+  "success": true,
+  "apiLoaded": true,
+  "windowOpened": true,
+  "editsPreserved": true,
+  "keywordInitialized": true,
+  "installed": {
+    "id": "jade-article-BuiltIn",
+    "shaderPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/FangmuLogicalLight_ASE.shader",
+    "materialPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/FangmuLogicalLight_ASE.mat",
+    "error": "",
+    "success": true,
+    "materialReused": false
+  },
+  "reused": {
+    "id": "jade-article-BuiltIn",
+    "shaderPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/FangmuLogicalLight_ASE.shader",
+    "materialPath": "Assets/ASEShaderLibrary/Jade/BuiltIn/FangmuLogicalLight_ASE.mat",
+    "error": "",
+    "success": true,
+    "materialReused": true
+  }
+}

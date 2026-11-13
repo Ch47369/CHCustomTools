@@ -1,0 +1,6 @@
+{
+  "name": "ASEShaderConverter.NonUnityChecks",
+  "includePlatforms": ["Editor"],
+  "defineConstraints": ["ASE_CONVERTER_DOTNET_CHECKS_ONLY"],
+  "autoReferenced": false
+}

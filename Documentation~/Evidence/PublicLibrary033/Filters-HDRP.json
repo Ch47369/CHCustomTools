@@ -1,0 +1,140 @@
+{
+    "pipeline": "HDRP",
+    "error": "",
+    "graphicsApi": "Direct3D11",
+    "success": true,
+    "cameraIntegration": false,
+    "crossPipelineVisualEquivalence": false,
+    "checks": [
+        {
+            "id": "public-HDRP-Vignette",
+            "state": "Falloff0",
+            "image": "LibraryBuildEvidence/PublicFilters033/public-HDRP-Vignette-Falloff0.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 0,
+            "compiled": true,
+            "oracleCompared": true
+        },
+        {
+            "id": "public-HDRP-Vignette",
+            "state": "Falloff0.5",
+            "image": "LibraryBuildEvidence/PublicFilters033/public-HDRP-Vignette-Falloff0.5.png",
+            "meanError": 3.094100620160134e-8,
+            "maxError": 1.7881393432617188e-7,
+            "changedPixels": 1494,
+            "compiled": true,
+            "oracleCompared": true
+        },
+        {
+            "id": "public-HDRP-Vignette",
+            "state": "Falloff1.2",
+            "image": "LibraryBuildEvidence/PublicFilters033/public-HDRP-Vignette-Falloff1.2.png",
+            "meanError": 1.8037239257751027e-8,
+            "maxError": 2.086162567138672e-7,
+            "changedPixels": 1528,
+            "compiled": true,
+            "oracleCompared": true
+        },
+        {
+            "id": "public-HDRP-AnalogGlitch",
+            "state": "Identity",
+            "image": "LibraryBuildEvidence/PublicFilters033/public-HDRP-AnalogGlitch-Identity.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 0,
+            "compiled": true,
+            "oracleCompared": true
+        },
+        {
+            "id": "public-HDRP-AnalogGlitch",
+            "state": "JumpDrift0.3",
+            "image": "LibraryBuildEvidence/PublicFilters033/public-HDRP-AnalogGlitch-JumpDrift0.3.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 864,
+            "compiled": true,
+            "oracleCompared": true
+        },
+        {
+            "id": "public-HDRP-AnalogGlitch",
+            "state": "JumpDrift0.7",
+            "image": "LibraryBuildEvidence/PublicFilters033/public-HDRP-AnalogGlitch-JumpDrift0.7.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 1536,
+            "compiled": true,
+            "oracleCompared": true
+        },
+        {
+            "id": "public-HDRP-AnalogGlitch",
+            "state": "ScanlineAndShake",
+            "image": "LibraryBuildEvidence/PublicFilters033/public-HDRP-AnalogGlitch-ScanlineAndShake.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 1536,
+            "compiled": true,
+            "oracleCompared": false
+        },
+        {
+            "id": "public-HDRP-DigitalGlitch",
+            "state": "Intensity0",
+            "image": "LibraryBuildEvidence/PublicFilters033/public-HDRP-DigitalGlitch-Intensity0.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 0,
+            "compiled": true,
+            "oracleCompared": true
+        },
+        {
+            "id": "public-HDRP-DigitalGlitch",
+            "state": "Intensity0.3",
+            "image": "LibraryBuildEvidence/PublicFilters033/public-HDRP-DigitalGlitch-Intensity0.3.png",
+            "meanError": 7.4505348557352139e-9,
+            "maxError": 1.4901161193847657e-8,
+            "changedPixels": 1536,
+            "compiled": true,
+            "oracleCompared": true
+        },
+        {
+            "id": "public-HDRP-DigitalGlitch",
+            "state": "Intensity0.6",
+            "image": "LibraryBuildEvidence/PublicFilters033/public-HDRP-DigitalGlitch-Intensity0.6.png",
+            "meanError": 7.4505348557352139e-9,
+            "maxError": 1.4901161193847657e-8,
+            "changedPixels": 1536,
+            "compiled": true,
+            "oracleCompared": true
+        },
+        {
+            "id": "public-HDRP-DigitalGlitch",
+            "state": "Intensity1",
+            "image": "LibraryBuildEvidence/PublicFilters033/public-HDRP-DigitalGlitch-Intensity1.png",
+            "meanError": 4.4703170942739237e-8,
+            "maxError": 5.960464477539063e-8,
+            "changedPixels": 1536,
+            "compiled": true,
+            "oracleCompared": true
+        },
+        {
+            "id": "public-HDRP-Mirror",
+            "state": "GlobalSymmetryFalse",
+            "image": "LibraryBuildEvidence/PublicFilters033/public-HDRP-Mirror-GlobalSymmetryFalse.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 0,
+            "compiled": true,
+            "oracleCompared": true
+        },
+        {
+            "id": "public-HDRP-Mirror",
+            "state": "GlobalSymmetryTrue",
+            "image": "LibraryBuildEvidence/PublicFilters033/public-HDRP-Mirror-GlobalSymmetryTrue.png",
+            "meanError": 0.0,
+            "maxError": 0.0,
+            "changedPixels": 776,
+            "compiled": true,
+            "oracleCompared": true
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "status": "Generated",
+    "sourcePath": "",
+    "outputPath": "Assets/NativePipeline_ASE 2.shader",
+    "shaderName": "Smoke/NativeHDRP",
+    "pipeline": "HDRP",
+    "unityVersion": "2022.3.10f1",
+    "aseVersion": "1.9.9.13",
+    "templateGuid": "7f5cb9c3ea6481f469fdd856555439ef",
+    "sourcePipeline": "",
+    "crossPipeline": false,
+    "existingAseGraph": false,
+    "aseRoundTripPassed": true,
+    "shaderCompiled": true,
+    "visualComparisonPassed": false,
+    "nativeNodeCount": 3,
+    "customExpressionCount": 0,
+    "propertyCount": 44,
+    "layoutApplied": true,
+    "commentCount": 1,
+    "registerNodeCount": 0,
+    "getNodeCount": 0,
+    "nativeMappings": [],
+    "fallbackReasons": [],
+    "blockers": [],
+    "warnings": [
+        "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+    ]
+}

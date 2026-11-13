@@ -1,0 +1,895 @@
+{
+    "pipeline": "HDRP",
+    "error": "",
+    "success": true,
+    "windowCreated": true,
+    "apiLoaded": true,
+    "checksumRejected": true,
+    "pathRejected": true,
+    "pipelineRejected": true,
+    "materialEditsPreserved": true,
+    "cancelled": true,
+    "originalExamplesBound": true,
+    "materialStatesInitialized": true,
+    "sampleTextureBindings": 34,
+    "transparentMaterialChecks": 25,
+    "hairClipChecks": 6,
+    "waterKeywordChecks": 8,
+    "waterTextureBindings": 2,
+    "correspondenceContractCount": 109,
+    "mappedFamilyCount": 64,
+    "rows": [
+        {
+            "id": "original-HDRP-Skin",
+            "shaderPath": "Assets/ASEShaderLibrary/Skin/HDRP/original-HDRP-Skin.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Skin/HDRP/original-HDRP-Skin.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Hair",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/HDRP/original-HDRP-Hair.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/HDRP/original-HDRP-Hair.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Eye",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/HDRP/original-HDRP-Eye.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/HDRP/original-HDRP-Eye.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Fabric",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/HDRP/original-HDRP-Fabric.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/HDRP/original-HDRP-Fabric.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Hosiery",
+            "shaderPath": "Assets/ASEShaderLibrary/Hosiery/HDRP/original-HDRP-Hosiery.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hosiery/HDRP/original-HDRP-Hosiery.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Water",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/HDRP/original-HDRP-Water.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/HDRP/original-HDRP-Water.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Metal",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/HDRP/original-HDRP-Metal.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/HDRP/original-HDRP-Metal.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Stone",
+            "shaderPath": "Assets/ASEShaderLibrary/Stone/HDRP/original-HDRP-Stone.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Stone/HDRP/original-HDRP-Stone.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-Jade",
+            "shaderPath": "Assets/ASEShaderLibrary/Jade/HDRP/original-HDRP-Jade.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Jade/HDRP/original-HDRP-Jade.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-UI",
+            "shaderPath": "Assets/ASEShaderLibrary/UI/HDRP/original-HDRP-UI.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UI/HDRP/original-HDRP-UI.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-UIEffects",
+            "shaderPath": "Assets/ASEShaderLibrary/UIEffects/HDRP/original-HDRP-UIEffects.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UIEffects/HDRP/original-HDRP-UIEffects.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-VFX",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/HDRP/original-HDRP-VFX.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/HDRP/original-HDRP-VFX.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-UVAnimation",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/original-HDRP-UVAnimation.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/original-HDRP-UVAnimation.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-VertexAnimation",
+            "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/HDRP/original-HDRP-VertexAnimation.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/HDRP/original-HDRP-VertexAnimation.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-0b09e8a8e8b4",
+            "shaderPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-0b09e8a8e8b4 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-0b09e8a8e8b4 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-044b7612c112",
+            "shaderPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-044b7612c112 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-044b7612c112 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-2a377100bd62",
+            "shaderPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-2a377100bd62 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-2a377100bd62 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-5f1acba57c6f",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/HDRP/local-HDRP-5f1acba57c6f 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/HDRP/local-HDRP-5f1acba57c6f 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-91b14ee430f3",
+            "shaderPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-91b14ee430f3.shader",
+            "materialPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-91b14ee430f3.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-efb1bec0bd9d",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/HDRP/local-HDRP-efb1bec0bd9d 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/HDRP/local-HDRP-efb1bec0bd9d 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-18acaa20c040",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/local-HDRP-18acaa20c040 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/local-HDRP-18acaa20c040 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-b22f3d64654c",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/HDRP/local-HDRP-b22f3d64654c 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/HDRP/local-HDRP-b22f3d64654c 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-bf1acc8b5350",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/HDRP/local-HDRP-bf1acc8b5350 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/HDRP/local-HDRP-bf1acc8b5350 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-4e9932aa7d81",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/HDRP/local-HDRP-4e9932aa7d81.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/HDRP/local-HDRP-4e9932aa7d81.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-6dec954b5a2e",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/HDRP/local-HDRP-6dec954b5a2e 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/HDRP/local-HDRP-6dec954b5a2e 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-bc4aa57b1388",
+            "shaderPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-bc4aa57b1388 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-bc4aa57b1388 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-8cb1136f317e",
+            "shaderPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-8cb1136f317e 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-8cb1136f317e 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-98503c7606a4",
+            "shaderPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-98503c7606a4 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-98503c7606a4 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-4a617f9c3b5d",
+            "shaderPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-4a617f9c3b5d 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-4a617f9c3b5d 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-e604d2baf899",
+            "shaderPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-e604d2baf899.shader",
+            "materialPath": "Assets/ASEShaderLibrary/General/HDRP/local-HDRP-e604d2baf899.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-8b2f70979b9e",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/HDRP/local-HDRP-8b2f70979b9e 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/HDRP/local-HDRP-8b2f70979b9e 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-1e59d2455441",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/HDRP/local-HDRP-1e59d2455441 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/HDRP/local-HDRP-1e59d2455441 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-1ddc5d05b394",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/HDRP/local-HDRP-1ddc5d05b394 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/HDRP/local-HDRP-1ddc5d05b394 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "local-HDRP-aaace4303347",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/HDRP/local-HDRP-aaace4303347 1.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/HDRP/local-HDRP-aaace4303347 1.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Skin-Freckles",
+            "shaderPath": "Assets/ASEShaderLibrary/Skin/HDRP/effect-HDRP-Skin-Freckles.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Skin/HDRP/effect-HDRP-Skin-Freckles.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Skin-Blush",
+            "shaderPath": "Assets/ASEShaderLibrary/Skin/HDRP/effect-HDRP-Skin-Blush.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Skin/HDRP/effect-HDRP-Skin-Blush.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Skin-Tan",
+            "shaderPath": "Assets/ASEShaderLibrary/Skin/HDRP/effect-HDRP-Skin-Tan.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Skin/HDRP/effect-HDRP-Skin-Tan.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Skin-OilMask",
+            "shaderPath": "Assets/ASEShaderLibrary/Skin/HDRP/effect-HDRP-Skin-OilMask.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Skin/HDRP/effect-HDRP-Skin-OilMask.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Skin-Dust",
+            "shaderPath": "Assets/ASEShaderLibrary/Skin/HDRP/effect-HDRP-Skin-Dust.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Skin/HDRP/effect-HDRP-Skin-Dust.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Hair-RootTip",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/HDRP/effect-HDRP-Hair-RootTip.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/HDRP/effect-HDRP-Hair-RootTip.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Hair-Streaks",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/HDRP/effect-HDRP-Hair-Streaks.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/HDRP/effect-HDRP-Hair-Streaks.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Hair-VertexDye",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/HDRP/effect-HDRP-Hair-VertexDye.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/HDRP/effect-HDRP-Hair-VertexDye.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Hair-DyeMask",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/HDRP/effect-HDRP-Hair-DyeMask.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/HDRP/effect-HDRP-Hair-DyeMask.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Hair-TipFade",
+            "shaderPath": "Assets/ASEShaderLibrary/Hair/HDRP/effect-HDRP-Hair-TipFade.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hair/HDRP/effect-HDRP-Hair-TipFade.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Eye-LimbalRing",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/HDRP/effect-HDRP-Eye-LimbalRing.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/HDRP/effect-HDRP-Eye-LimbalRing.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Eye-IrisBands",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/HDRP/effect-HDRP-Eye-IrisBands.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/HDRP/effect-HDRP-Eye-IrisBands.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Eye-IrisMask",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/HDRP/effect-HDRP-Eye-IrisMask.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/HDRP/effect-HDRP-Eye-IrisMask.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Eye-ScleraTint",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/HDRP/effect-HDRP-Eye-ScleraTint.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/HDRP/effect-HDRP-Eye-ScleraTint.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Eye-IrisSpeckles",
+            "shaderPath": "Assets/ASEShaderLibrary/Eye/HDRP/effect-HDRP-Eye-IrisSpeckles.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Eye/HDRP/effect-HDRP-Eye-IrisSpeckles.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Fabric-Checks",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/HDRP/effect-HDRP-Fabric-Checks.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/HDRP/effect-HDRP-Fabric-Checks.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Fabric-Stripes",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/HDRP/effect-HDRP-Fabric-Stripes.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/HDRP/effect-HDRP-Fabric-Stripes.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Fabric-CrossWeave",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/HDRP/effect-HDRP-Fabric-CrossWeave.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/HDRP/effect-HDRP-Fabric-CrossWeave.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Fabric-Print",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/HDRP/effect-HDRP-Fabric-Print.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/HDRP/effect-HDRP-Fabric-Print.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Fabric-VertexDye",
+            "shaderPath": "Assets/ASEShaderLibrary/Fabric/HDRP/effect-HDRP-Fabric-VertexDye.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Fabric/HDRP/effect-HDRP-Fabric-VertexDye.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Hosiery-Dots",
+            "shaderPath": "Assets/ASEShaderLibrary/Hosiery/HDRP/effect-HDRP-Hosiery-Dots.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hosiery/HDRP/effect-HDRP-Hosiery-Dots.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Hosiery-Rib",
+            "shaderPath": "Assets/ASEShaderLibrary/Hosiery/HDRP/effect-HDRP-Hosiery-Rib.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hosiery/HDRP/effect-HDRP-Hosiery-Rib.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Hosiery-Lace",
+            "shaderPath": "Assets/ASEShaderLibrary/Hosiery/HDRP/effect-HDRP-Hosiery-Lace.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hosiery/HDRP/effect-HDRP-Hosiery-Lace.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Hosiery-Gradient",
+            "shaderPath": "Assets/ASEShaderLibrary/Hosiery/HDRP/effect-HDRP-Hosiery-Gradient.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hosiery/HDRP/effect-HDRP-Hosiery-Gradient.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Hosiery-Diamond",
+            "shaderPath": "Assets/ASEShaderLibrary/Hosiery/HDRP/effect-HDRP-Hosiery-Diamond.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Hosiery/HDRP/effect-HDRP-Hosiery-Diamond.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Water-Foam",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/HDRP/effect-HDRP-Water-Foam.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/HDRP/effect-HDRP-Water-Foam.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Water-Ripples",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/HDRP/effect-HDRP-Water-Ripples.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/HDRP/effect-HDRP-Water-Ripples.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Water-RimTint",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/HDRP/effect-HDRP-Water-RimTint.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/HDRP/effect-HDRP-Water-RimTint.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Water-VertexWave",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/HDRP/effect-HDRP-Water-VertexWave.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/HDRP/effect-HDRP-Water-VertexWave.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Water-DualNormal",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/HDRP/effect-HDRP-Water-DualNormal.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/HDRP/effect-HDRP-Water-DualNormal.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Metal-Brushed",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/HDRP/effect-HDRP-Metal-Brushed.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/HDRP/effect-HDRP-Metal-Brushed.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Metal-Oxidized",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/HDRP/effect-HDRP-Metal-Oxidized.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/HDRP/effect-HDRP-Metal-Oxidized.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Metal-Scratches",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/HDRP/effect-HDRP-Metal-Scratches.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/HDRP/effect-HDRP-Metal-Scratches.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Metal-HeatTint",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/HDRP/effect-HDRP-Metal-HeatTint.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/HDRP/effect-HDRP-Metal-HeatTint.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Metal-Panels",
+            "shaderPath": "Assets/ASEShaderLibrary/Metal/HDRP/effect-HDRP-Metal-Panels.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Metal/HDRP/effect-HDRP-Metal-Panels.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Stone-MossMask",
+            "shaderPath": "Assets/ASEShaderLibrary/Stone/HDRP/effect-HDRP-Stone-MossMask.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Stone/HDRP/effect-HDRP-Stone-MossMask.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Stone-Strata",
+            "shaderPath": "Assets/ASEShaderLibrary/Stone/HDRP/effect-HDRP-Stone-Strata.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Stone/HDRP/effect-HDRP-Stone-Strata.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Stone-Cracks",
+            "shaderPath": "Assets/ASEShaderLibrary/Stone/HDRP/effect-HDRP-Stone-Cracks.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Stone/HDRP/effect-HDRP-Stone-Cracks.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Stone-Wet",
+            "shaderPath": "Assets/ASEShaderLibrary/Stone/HDRP/effect-HDRP-Stone-Wet.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Stone/HDRP/effect-HDRP-Stone-Wet.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Stone-VertexPaint",
+            "shaderPath": "Assets/ASEShaderLibrary/Stone/HDRP/effect-HDRP-Stone-VertexPaint.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Stone/HDRP/effect-HDRP-Stone-VertexPaint.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Jade-Veins",
+            "shaderPath": "Assets/ASEShaderLibrary/Jade/HDRP/effect-HDRP-Jade-Veins.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Jade/HDRP/effect-HDRP-Jade-Veins.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Jade-Clouds",
+            "shaderPath": "Assets/ASEShaderLibrary/Jade/HDRP/effect-HDRP-Jade-Clouds.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Jade/HDRP/effect-HDRP-Jade-Clouds.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Jade-Gradient",
+            "shaderPath": "Assets/ASEShaderLibrary/Jade/HDRP/effect-HDRP-Jade-Gradient.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Jade/HDRP/effect-HDRP-Jade-Gradient.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Jade-Speckles",
+            "shaderPath": "Assets/ASEShaderLibrary/Jade/HDRP/effect-HDRP-Jade-Speckles.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Jade/HDRP/effect-HDRP-Jade-Speckles.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-Jade-Rind",
+            "shaderPath": "Assets/ASEShaderLibrary/Jade/HDRP/effect-HDRP-Jade-Rind.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Jade/HDRP/effect-HDRP-Jade-Rind.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UI-Gradient",
+            "shaderPath": "Assets/ASEShaderLibrary/UI/HDRP/effect-HDRP-UI-Gradient.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UI/HDRP/effect-HDRP-UI-Gradient.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UI-RadialMask",
+            "shaderPath": "Assets/ASEShaderLibrary/UI/HDRP/effect-HDRP-UI-RadialMask.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UI/HDRP/effect-HDRP-UI-RadialMask.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UI-Frame",
+            "shaderPath": "Assets/ASEShaderLibrary/UI/HDRP/effect-HDRP-UI-Frame.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UI/HDRP/effect-HDRP-UI-Frame.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UI-Scanline",
+            "shaderPath": "Assets/ASEShaderLibrary/UI/HDRP/effect-HDRP-UI-Scanline.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UI/HDRP/effect-HDRP-UI-Scanline.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UI-MaskTint",
+            "shaderPath": "Assets/ASEShaderLibrary/UI/HDRP/effect-HDRP-UI-MaskTint.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UI/HDRP/effect-HDRP-UI-MaskTint.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UIEffects-ScanPulse",
+            "shaderPath": "Assets/ASEShaderLibrary/UIEffects/HDRP/effect-HDRP-UIEffects-ScanPulse.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UIEffects/HDRP/effect-HDRP-UIEffects-ScanPulse.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UIEffects-Pulse",
+            "shaderPath": "Assets/ASEShaderLibrary/UIEffects/HDRP/effect-HDRP-UIEffects-Pulse.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UIEffects/HDRP/effect-HDRP-UIEffects-Pulse.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UIEffects-Wipe",
+            "shaderPath": "Assets/ASEShaderLibrary/UIEffects/HDRP/effect-HDRP-UIEffects-Wipe.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UIEffects/HDRP/effect-HDRP-UIEffects-Wipe.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UIEffects-Grid",
+            "shaderPath": "Assets/ASEShaderLibrary/UIEffects/HDRP/effect-HDRP-UIEffects-Grid.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UIEffects/HDRP/effect-HDRP-UIEffects-Grid.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UIEffects-RingPulse",
+            "shaderPath": "Assets/ASEShaderLibrary/UIEffects/HDRP/effect-HDRP-UIEffects-RingPulse.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UIEffects/HDRP/effect-HDRP-UIEffects-RingPulse.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-VFX-Ring",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/HDRP/effect-HDRP-VFX-Ring.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/HDRP/effect-HDRP-VFX-Ring.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-VFX-Beam",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/HDRP/effect-HDRP-VFX-Beam.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/HDRP/effect-HDRP-VFX-Beam.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-VFX-SoftDisc",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/HDRP/effect-HDRP-VFX-SoftDisc.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/HDRP/effect-HDRP-VFX-SoftDisc.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-VFX-Scan",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/HDRP/effect-HDRP-VFX-Scan.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/HDRP/effect-HDRP-VFX-Scan.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-VFX-Pulse",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/HDRP/effect-HDRP-VFX-Pulse.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/HDRP/effect-HDRP-VFX-Pulse.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UVAnimation-LayerRotate",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/effect-HDRP-UVAnimation-LayerRotate.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/effect-HDRP-UVAnimation-LayerRotate.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UVAnimation-FlowMask",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/effect-HDRP-UVAnimation-FlowMask.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/effect-HDRP-UVAnimation-FlowMask.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UVAnimation-Distortion",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/effect-HDRP-UVAnimation-Distortion.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/effect-HDRP-UVAnimation-Distortion.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UVAnimation-Flipbook",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/effect-HDRP-UVAnimation-Flipbook.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/effect-HDRP-UVAnimation-Flipbook.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-UVAnimation-PingPong",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/effect-HDRP-UVAnimation-PingPong.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/effect-HDRP-UVAnimation-PingPong.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-VertexAnimation-Flutter",
+            "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/HDRP/effect-HDRP-VertexAnimation-Flutter.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/HDRP/effect-HDRP-VertexAnimation-Flutter.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-VertexAnimation-Ripple",
+            "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/HDRP/effect-HDRP-VertexAnimation-Ripple.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/HDRP/effect-HDRP-VertexAnimation-Ripple.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-VertexAnimation-Bob",
+            "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/HDRP/effect-HDRP-VertexAnimation-Bob.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/HDRP/effect-HDRP-VertexAnimation-Bob.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-VertexAnimation-Bend",
+            "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/HDRP/effect-HDRP-VertexAnimation-Bend.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/HDRP/effect-HDRP-VertexAnimation-Bend.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "effect-HDRP-VertexAnimation-CrossWind",
+            "shaderPath": "Assets/ASEShaderLibrary/VertexAnimation/HDRP/effect-HDRP-VertexAnimation-CrossWind.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VertexAnimation/HDRP/effect-HDRP-VertexAnimation-CrossWind.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "original-HDRP-DeepWater",
+            "shaderPath": "Assets/ASEShaderLibrary/Water/HDRP/original-HDRP-DeepWater.shader",
+            "materialPath": "Assets/ASEShaderLibrary/Water/HDRP/original-HDRP-DeepWater.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "public-HDRP-Vignette",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/HDRP/public-HDRP-Vignette.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/HDRP/public-HDRP-Vignette.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "public-HDRP-AnalogGlitch",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/HDRP/public-HDRP-AnalogGlitch.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/HDRP/public-HDRP-AnalogGlitch.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "public-HDRP-DigitalGlitch",
+            "shaderPath": "Assets/ASEShaderLibrary/VFX/HDRP/public-HDRP-DigitalGlitch.shader",
+            "materialPath": "Assets/ASEShaderLibrary/VFX/HDRP/public-HDRP-DigitalGlitch.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        },
+        {
+            "id": "public-HDRP-Mirror",
+            "shaderPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/public-HDRP-Mirror.shader",
+            "materialPath": "Assets/ASEShaderLibrary/UVAnimation/HDRP/public-HDRP-Mirror.mat",
+            "error": "",
+            "success": true,
+            "materialReused": true
+        }
+    ]
+}

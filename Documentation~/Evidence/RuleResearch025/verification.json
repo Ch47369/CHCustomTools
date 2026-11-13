@@ -1,0 +1,29 @@
+﻿{
+    "packageVersion":  "0.2.5",
+    "checkedUtc":  "2026-10-21T11:17:02.1531358+00:00",
+    "coreChecks":  {
+                       "command":  "dotnet run --project Tests/CoreChecks.csproj --no-restore",
+                       "passed":  135
+                   },
+    "editorCompile":  {
+                          "unityReferences":  "2022.3.10f1",
+                          "command":  "dotnet build Tests/EditorCompile.csproj --no-restore",
+                          "errors":  0,
+                          "warnings":  0,
+                          "success":  true
+                      },
+    "publicSources":  654,
+    "publicShaders":  373,
+    "publicIncludes":  281,
+    "originalUserHashesMatched":  11,
+    "generatedShaders":  0,
+    "aseRoundTripPerformed":  false,
+    "shaderCompilationPerformed":  false,
+    "visualComparisonPerformed":  false,
+    "gpuBenchmarkPerformed":  false,
+    "knownLimitations":  [
+                             "All 373 complete public Shader inputs retain explicit semantic/template blockers.",
+                             "Jade has scattering references; no complete specialist jade shader has been validated.",
+                             "Internet collection is finite; later network refresh failed and cached pinned sources were retained."
+                         ]
+}

@@ -1,0 +1,69 @@
+{
+  "packageVersion": "0.2.7",
+  "generationRequestId": "water-f120be0273844c0a94a4a6ca5b6b3693",
+  "candidatePath": "Assets/Shaders/DeepWater/DeepWater_Review4.shader",
+  "finalPath": "Assets/Shaders/DeepWater_ASE.shader",
+  "publication": "Exact validated ASE output bytes copied to the existing deliverable; its Unity .meta/GUID was preserved and the final path reimported.",
+  "environment": {
+    "unity": "2022.3.10f1",
+    "ase": "1.9.9.13",
+    "pipeline": "BuiltIn",
+    "graphicsApi": "Direct3D11"
+  },
+  "visualComparisonPassed": false,
+  "gpuBenchmark": false,
+  "tests": {
+    "coreChecks": 306,
+    "editorCompile": "passed",
+    "waterAssetsCompile": "passed"
+  },
+  "assets": [
+    {
+      "path": "Assets/Shaders/DeepWater_ASE.shader",
+      "bytes": 139328,
+      "sha256": "6e44b70d2d342b804cc5e877a77e84478d1efede0e94dc909b991a55db8bbb2d"
+    },
+    {
+      "path": "Assets/Shaders/DeepWater/DeepWater.mat",
+      "bytes": 1431,
+      "sha256": "d8d82cf4dc9639a400c335d946c80b1418c877ef389dda5669495566f8e253a8"
+    },
+    {
+      "path": "Assets/Shaders/DeepWater/DeepWater.prefab",
+      "bytes": 4747,
+      "sha256": "e3197749e08a3e9755bf0c249ae7e3d8299baf91e93deea2c9b5bc108d6f6191"
+    },
+    {
+      "path": "Assets/Shaders/DeepWater/RippleSlope.png",
+      "bytes": 421806,
+      "sha256": "aa617384ea078cf0546bc8a015e96513da989f70cebc5b71c4722afa8e12c4a4"
+    },
+    {
+      "path": "Assets/Shaders/DeepWater/WaterGrid.asset",
+      "bytes": 1993875,
+      "sha256": "fc5ddf14c8469c5ee5b544202a75252a6eb60b8533f0822cabc096ec42587df8"
+    },
+    {
+      "path": "Assets/Shaders/DeepWater/WaterSky.cubemap",
+      "bytes": 2098318,
+      "sha256": "0c0adfc070cd6f060bc1af060695744ec07629bc7a072bd8356ddfbd915e8e41"
+    },
+    {
+      "path": "Assets/Shaders/DeepWater/DepthWaterSurface.cs",
+      "bytes": 1073,
+      "sha256": "5db2c90e4bc6e5e30b963f08004cf958552e4f889f28a0043d10b0bb9a79009f"
+    },
+    {
+      "path": "Assets/Shaders/DeepWater/Editor/DepthWaterAuthoring.cs",
+      "bytes": 18748,
+      "sha256": "75c76dd5a34a920e07664e72f081e54d8e593cf54beee0f870aa0c9fe56ca26b"
+    },
+    {
+      "path": "Assets/Shaders/DeepWater/DeepWater_Preview.png",
+      "bytes": 1579760,
+      "sha256": "92f79201ca921b3342cc0da48268669f4bd0c11c9f0d7631081d88861fea37d0"
+    }
+  ],
+  "commentFrameCount": 9,
+  "commentFrameOverlaps": 0
+}

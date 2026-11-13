@@ -1,0 +1,100 @@
+{
+    "pipeline": "HDRP",
+    "error": "",
+    "graphicsApi": "Direct3D11",
+    "success": true,
+    "visualEquivalence": false,
+    "checks": [
+        {
+            "name": "AllOn",
+            "image": "LibraryBuildEvidence/Water032/AllOn.png",
+            "compiled": true,
+            "changedPixels": 0,
+            "meanDifference": 0.0
+        },
+        {
+            "name": "Without_WAVES",
+            "image": "LibraryBuildEvidence/Water032/Without_WAVES.png",
+            "compiled": true,
+            "changedPixels": 9221,
+            "meanDifference": 0.00780620938166976
+        },
+        {
+            "name": "Without_RIPPLES",
+            "image": "LibraryBuildEvidence/Water032/Without_RIPPLES.png",
+            "compiled": true,
+            "changedPixels": 2405,
+            "meanDifference": 0.0006153322174213827
+        },
+        {
+            "name": "Without_FRESNEL",
+            "image": "LibraryBuildEvidence/Water032/Without_FRESNEL.png",
+            "compiled": true,
+            "changedPixels": 130,
+            "meanDifference": 0.00004216593879391439
+        },
+        {
+            "name": "Without_DEPTH",
+            "image": "LibraryBuildEvidence/Water032/Without_DEPTH.png",
+            "compiled": true,
+            "changedPixels": 56503,
+            "meanDifference": 0.14174960553646089
+        },
+        {
+            "name": "Without_FOAM",
+            "image": "LibraryBuildEvidence/Water032/Without_FOAM.png",
+            "compiled": true,
+            "changedPixels": 1711,
+            "meanDifference": 0.0010565269039943815
+        },
+        {
+            "name": "Without_CAUSTICS",
+            "image": "LibraryBuildEvidence/Water032/Without_CAUSTICS.png",
+            "compiled": true,
+            "changedPixels": 77,
+            "meanDifference": 0.000018836237359209917
+        },
+        {
+            "name": "Without_SCATTER",
+            "image": "LibraryBuildEvidence/Water032/Without_SCATTER.png",
+            "compiled": true,
+            "changedPixels": 56507,
+            "meanDifference": 0.22313639521598817
+        },
+        {
+            "name": "Without_REFRACTION",
+            "image": "LibraryBuildEvidence/Water032/Without_REFRACTION.png",
+            "compiled": true,
+            "changedPixels": 1833,
+            "meanDifference": 0.0012989107053726912
+        },
+        {
+            "name": "DensityLow",
+            "image": "LibraryBuildEvidence/Water032/DensityLow.png",
+            "compiled": true,
+            "changedPixels": 0,
+            "meanDifference": 0.0
+        },
+        {
+            "name": "DensityHigh",
+            "image": "LibraryBuildEvidence/Water032/DensityHigh.png",
+            "compiled": true,
+            "changedPixels": 34071,
+            "meanDifference": 0.019683143123984338
+        },
+        {
+            "name": "ClearTransmission",
+            "image": "LibraryBuildEvidence/Water032/ClearTransmission.png",
+            "compiled": true,
+            "changedPixels": 0,
+            "meanDifference": 0.0
+        },
+        {
+            "name": "OpaqueBedReference",
+            "image": "LibraryBuildEvidence/Water032/OpaqueBedReference.png",
+            "compiled": true,
+            "changedPixels": 0,
+            "meanDifference": 0.0
+        }
+    ]
+}

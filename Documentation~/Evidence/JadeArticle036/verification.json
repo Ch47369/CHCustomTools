@@ -1,0 +1,52 @@
+{
+  "success": true,
+  "version": "0.3.6",
+  "source": "https://mp.weixin.qq.com/s/fzxGFhe5DofKpyauJSPypg",
+  "scope": "Article core function plus newly authored Lit integration; fixed formula fixture comparisons and actual-camera behavior. No original complete material/scene equivalence or benchmark claim.",
+  "originalSceneEquivalent": false,
+  "originalCompleteShaderAvailable": false,
+  "rows": [
+    {
+      "pipeline": "BuiltIn",
+      "nativeNodes": 50,
+      "comments": 5,
+      "formulaStates": 14,
+      "maxFormulaError": 4.875659942626953e-05,
+      "realCameraPassed": true,
+      "sceneChangedPixels": 53761,
+      "sceneLightChangedPixels": 52251,
+      "installAndReusePassed": true
+    },
+    {
+      "pipeline": "URP",
+      "nativeNodes": 50,
+      "comments": 5,
+      "formulaStates": 14,
+      "maxFormulaError": 4.875659942626953e-05,
+      "realCameraPassed": true,
+      "sceneChangedPixels": 53732,
+      "sceneLightChangedPixels": 51984,
+      "installAndReusePassed": true
+    },
+    {
+      "pipeline": "HDRP",
+      "nativeNodes": 50,
+      "comments": 5,
+      "formulaStates": 14,
+      "maxFormulaError": 4.875659942626953e-05,
+      "realCameraPassed": true,
+      "sceneChangedPixels": 53800,
+      "sceneLightChangedPixels": 39400,
+      "installAndReusePassed": true
+    }
+  ],
+  "maxFormulaError": 4.875659942626953e-05,
+  "crossPipelineFormulaPairs": 28,
+  "crossPipelineFormulaMaxDifference": 0.0,
+  "oldArtifactsUnchanged": 290,
+  "baselineReleaseSha256": "9ef6ba50880083f80b1f89a357f793d39752614e227b62622f8c15fedb2f2941",
+  "oldContractsAndResearchPreserved": true,
+  "coreChecks": 540,
+  "editorCompileWarnings": 0,
+  "editorCompileErrors": 0
+}

@@ -1,0 +1,22 @@
+{
+  "version": "0.3.6",
+  "artifacts": 293,
+  "families": 111,
+  "pipelines": {
+    "BuiltIn": 91,
+    "URP": 91,
+    "HDRP": 111
+  },
+  "threeArtifactFamilies": 91,
+  "threeMappedTargetFamilies": 66,
+  "targetStates": {
+    "Mapped": 244,
+    "FeatureGap": 49,
+    "RequiresAdapter": 40
+  },
+  "researchRecords": 1080,
+  "oldArtifactsUnchanged": 290,
+  "oldGraphBlockers": 80,
+  "newIndependentEffects": 1,
+  "newArtifacts": 3
+}

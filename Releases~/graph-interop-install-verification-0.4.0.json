@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "version": "0.4.0",
+  "tarball": "com.aseshader.handwritten-converter-0.4.0.tgz",
+  "sha256": "3489ab5d5bf3cead93a76f1761e5ea92160e095fe447d173bff0d63889239a02",
+  "bytes": 15045837,
+  "installedVia": "UPM tarball dependency in isolated URP project without ASE",
+  "packageRoot": "F:\\ASEShader\\.validation\\UnityShaderGraph040\\Library\\PackageCache\\com.aseshader.handwritten-converter@2df8a32c61f1",
+  "packedFilesComparedByteForByte": 1126,
+  "aseInstalled": false,
+  "integrationChecks": 65,
+  "sourceShaderComparisonStates": 35,
+  "maxChannelError": 0.0,
+  "shaderGraphRoundTripPassed": true,
+  "shaderCompiled": true,
+  "materialEnumDrawerValidated": true,
+  "visualComparisonPassed": false,
+  "standardTargetAdaptation": true,
+  "result": ".build~/GraphInterop040/Attempts/20261113013144166/result.json",
+  "log": ".build~/GraphInterop040/Install/editor-tarball-20261113.log",
+  "evidence": "Releases~/Verification/GraphInterop040/Installed",
+  "userProjectModified": false
+}

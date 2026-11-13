@@ -1,0 +1,89 @@
+{
+    "checkedUtc":  "2026-10-22T00:21:45.9344300+00:00",
+    "clientDate":  "2026-10-22",
+    "libraryVersion":  "0.2.8",
+    "coreChecks":  {
+                       "command":  "dotnet run --project Tests/CoreChecks.csproj --no-restore",
+                       "beforePassed":  310,
+                       "afterPassed":  427,
+                       "exitCode":  0
+                   },
+    "editorCompile":  {
+                          "command":  "dotnet build Tests/EditorCompile.csproj --no-restore",
+                          "unityReferences":  "2022.3.10f1",
+                          "warnings":  0,
+                          "errors":  0,
+                          "exitCode":  0
+                      },
+    "corpus":  {
+                   "manifest":  ".build~/ShaderCorpus/manifest-research026.json",
+                   "manifestSha256":  "a37474c9c35d8e1ecaef8e63818371d9c69fa6b3c43af5013fb7953c4c2c1d9a",
+                   "files":  760,
+                   "shaderFiles":  436,
+                   "includeFiles":  324,
+                   "targetEvaluations":  1308,
+                   "analysisErrors":  0,
+                   "allSourceHashesVerified":  true
+               },
+    "semantic":  {
+                     "probes":  39,
+                     "targets":  117,
+                     "beforePassed":  65,
+                     "afterPassed":  117,
+                     "falseReadyBefore":  32,
+                     "falseReadyAfter":  0,
+                     "baselineCoreSha256":  "276be9a8666dc8b0076ed9ea14ac9a332a91fcc49d265e25def093dfdc4a1d69",
+                     "sameFinalHarnessAndInputs":  true
+                 },
+    "functions":  {
+                      "probes":  19,
+                      "planned":  19,
+                      "numericalChecks":  19
+                  },
+    "generatedShaders":  0,
+    "aseSaveReloadPerformed":  false,
+    "unityShaderCompilationPerformed":  false,
+    "visualComparisonPerformed":  false,
+    "gpuBenchmarkPerformed":  false,
+    "userProjectRequestsSubmitted":  false,
+    "userProjectAssetsWritten":  false,
+    "releasePackageRebuilt":  false,
+    "sourceHashes":  [
+                         {
+                             "path":  "Runtime/ASEShaderConversionCore.cs",
+                             "sha256":  "6477d6ba23ecca66cb9e416a815ffda9b610a334a9c91e2cf17134fa81ae1641"
+                         },
+                         {
+                             "path":  "Runtime/HlslFunctionLibrary.cs",
+                             "sha256":  "fee078460858275557b69822cd1433e08f01f8e3d7fd1d5f68d4456281639b25"
+                         },
+                         {
+                             "path":  "Runtime/ShaderRuleLibrary.cs",
+                             "sha256":  "e34fb615bc8e39823fc046209c070f5498c385535ae18e0aa10f423c055523cd"
+                         },
+                         {
+                             "path":  "Tests/SemanticCompletenessChecks.cs",
+                             "sha256":  "b971ffd0eab470622589d57fac6cb3ff89dd829ca2639f9de742c240b7b4d687"
+                         },
+                         {
+                             "path":  "Tests/CoreChecks.cs",
+                             "sha256":  "dacda13fec060b676bcea06daeee172e7ef8627aa5323cd64534e2690f7f6191"
+                         },
+                         {
+                             "path":  "Tests/CoreChecks.csproj",
+                             "sha256":  "31518e070ba138d4b47a713d5a2bab79e8f0cea03c3df28fc959ffa6873df697"
+                         },
+                         {
+                             "path":  "Tests/CorpusResearch.cs",
+                             "sha256":  "44b153e507996cf0e446780258c94102b0f82978f8f001953fcbd534c41538a8"
+                         },
+                         {
+                             "path":  "Tests/CorpusResearch.csproj",
+                             "sha256":  "6a693c2389b7ae41ac70e938cca7fea028e42e8af0abda94648d3d69459ee063"
+                         },
+                         {
+                             "path":  "Tools~/Compare-CompletenessAudit.ps1",
+                             "sha256":  "c4122ece4077992be5a37de9088b099cad77804bbeec51bbcb3572ab46ca0c36"
+                         }
+                     ]
+}

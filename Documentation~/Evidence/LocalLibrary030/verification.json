@@ -1,0 +1,124 @@
+{
+  "version": "0.3.0",
+  "checkedUtc": "2026-10-22T13:56:06.436238+00:00",
+  "artifacts": 63,
+  "byPipeline": {
+    "BuiltIn": 15,
+    "URP": 14,
+    "HDRP": 34
+  },
+  "byCategory": {
+    "Skin": 3,
+    "Hair": 7,
+    "Eye": 6,
+    "Fabric": 5,
+    "Hosiery": 3,
+    "Water": 4,
+    "Metal": 4,
+    "Stone": 3,
+    "Jade": 3,
+    "UI": 3,
+    "UIEffects": 3,
+    "VFX": 3,
+    "UVAnimation": 4,
+    "VertexAnimation": 3,
+    "General": 9
+  },
+  "researchRecords": 1042,
+  "localUniqueSources": 255,
+  "localGraphsParsed": 152,
+  "localGraphAdaptationsGenerated": 20,
+  "localGraphsBlocked": 80,
+  "artifactHashesAndAseMetadataPresent": true,
+  "allArtifactsAseRoundTripAndCompiled": true,
+  "allArtifactsHaveLayoutAndComments": true,
+  "allArtifactsCustomExpressions": 0,
+  "generatedTextureDefaultsAndAttributesChecked": 88,
+  "sourceVisualComparisonPerformed": false,
+  "newLibraryAllKeywordCombinationsExhaustivelyChecked": false,
+  "originalSceneOrUserProjectWritten": false,
+  "sourceCacheHashesUnchanged": true,
+  "allLocalGraphsParsed": true,
+  "importChecks": {
+    "BuiltIn": {
+      "compiled": 14,
+      "windowCreated": true,
+      "apiLoaded": true,
+      "pathAndPipelineGuardsPassed": true
+    },
+    "URP": {
+      "compiled": 14,
+      "windowCreated": true,
+      "apiLoaded": true,
+      "pathAndPipelineGuardsPassed": true
+    },
+    "HDRP": {
+      "compiled": 34,
+      "windowCreated": true,
+      "apiLoaded": true,
+      "pathAndPipelineGuardsPassed": true
+    }
+  },
+  "deepWaterShaderImportAndOriginalResourcesCreated": true,
+  "finalCatalogTraversalAndChecksumGuardsPassed": true,
+  "coreChecks": {
+    "command": "dotnet run --project Tests/CoreChecks.csproj --no-restore",
+    "exitCode": 0,
+    "recordedConsole": "PASS: 506 checks"
+  },
+  "editorCompile": {
+    "command": "dotnet build Tests/EditorCompile.csproj --no-restore",
+    "exitCode": 0,
+    "warnings": 0,
+    "errors": 0
+  },
+  "waterAssetsCompile": {
+    "command": "dotnet build Tests/WaterAssetsCompile.csproj --no-restore",
+    "exitCode": 0,
+    "warnings": 0,
+    "errors": 0
+  },
+  "plannerContracts": {
+    "command": "python Tests/ShaderLibraryPlanChecks.py",
+    "passed": 8,
+    "exitCode": 0
+  },
+  "recordedBuildResults": "Successful process outcomes recorded during this batch; verification rechecks artifact/import/regression evidence directly.",
+  "frozenPublicRegression": {
+    "files": 760,
+    "shaders": 436,
+    "targetEvaluations": 1308,
+    "canPlan": {
+      "BuiltIn": 3,
+      "URP": 3,
+      "HDRP": 0
+    },
+    "allHashesUnchanged": true,
+    "planningFlagsUnchanged": true,
+    "reportSha256": "6f0303bc04907eb1f384c9d9dc43bc998bb549ba4562323f28cd9fefcf7b4cde"
+  },
+  "catalogSha256": "fd9525e3a66b66a5df4ccc65f35f010f9a504240363f26ab1b9ac1ba76f7d98d",
+  "codeSha256": {
+    "Runtime/ASEShaderConversionCore.cs": "dee01435993ca9ba121cfe83f1af072181bc2baf01b3c4e17f7342412561676a",
+    "Runtime/CharacterMaterialLibrary.cs": "1ddadc3f63bebeb919e7fa34e674fae807f6ed84c3829f3edb6e495aa5185a23",
+    "Runtime/HlslExpressions.cs": "606663a10475e78a35001b3c080a0f3f0724c334d7c733cab7f83f78d1a5dc64",
+    "Runtime/HlslFunctionLibrary.cs": "fee078460858275557b69822cd1433e08f01f8e3d7fd1d5f68d4456281639b25",
+    "Runtime/ReviewedNormal360Profile.cs": "893fbe477f18d7c1db4889729d773faf070392111f2aff3571911cc1f2fa2afc",
+    "Runtime/ReviewedUiProfile.cs": "a1a8e893576571ba789f6243c4f3daf3ae92cbe6f18e8510f2ebc87f7856ff9f",
+    "Runtime/ShaderGraphLayout.cs": "43103cf3cfb72db97bb5db91a55d0338b11dc80fc67e898c8b03dae5cd1f90ff",
+    "Runtime/ShaderGraphSource.cs": "b64e38d674a7de71f8ff27e3a77d69a554d371dc44b8997d0225cdcc0c5b1c96",
+    "Runtime/ShaderGraphValidator.cs": "43440ebe6496539438cee9f03d2daf8aaba7e39d22305b05b0232247b9a72111",
+    "Runtime/ShaderLibraryCatalog.cs": "6ddac21c308b2abcda0ed0c40e5e6db81808219bb8dd6498590b1d6591d625e6",
+    "Runtime/ShaderRuleLibrary.cs": "dd5c7fdcc2e7d62b9e506bca5af9ff65e6e8afe0e08b153b82e5e63e7ab43d2d",
+    "Editor/AseEditorBridge.cs": "f45a87486642b7e75aa149e3a5dd88f6f90ac3e32b81e29e13184181467d48c1",
+    "Editor/AseGraphPresentation.cs": "4d6733e7ed4389ec96198923e8344494fb2e2e262ebd00fe9dfe2b638a4fced8",
+    "Editor/AseNodeAdapters.cs": "01c06b104225d5c37ecb2338a7ccfd1d354899beaadf3f2a6909835cf02a1cad",
+    "Editor/AseReflection.cs": "b8f43a52a76b1741cb8a227c8258fe68c7c7016c662046a05cead8feb9670196",
+    "Editor/ASEShaderConverterWindow.cs": "d6df2a4b71a31db34db9adefa65a5f2143ec605229541e6cb114c4f5426c6cf7",
+    "Editor/CharacterMaterialWindow.cs": "4b849ba8b6dfcd0afeed9fb02697bdb6e7415d26c17bc2909aa906b36d4898eb",
+    "Editor/ShaderAgentInbox.cs": "9b54cdc9b500fe2a0595a49172f2ecaada90fadc6363a623421587105274429b",
+    "Editor/ShaderConverterApi.cs": "2781adf21c7a5cb1e9b4aa3a9e1ba7fcd6a1069836e239025bc8067b6759ddd1",
+    "Editor/ShaderConverterMessages.cs": "1ea9fbbd968c899f750dce6e57f872525d7f75f0fb21ef9af8409eceeb972514",
+    "Editor/ShaderLibraryWindow.cs": "0f4446414d8fde463b203bb643a4e7ecf69d0aadef7fa3e1e0ff3abf53dc0f6d"
+  }
+}

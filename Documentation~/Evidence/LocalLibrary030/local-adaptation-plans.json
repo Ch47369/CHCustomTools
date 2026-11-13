@@ -1,0 +1,1699 @@
+{
+  "rows": [
+    {
+      "sha256": "dff3a366d0ccf05af8cdf948b703bd932a146fd8494bee325caf4fce3ca7d5ca",
+      "path": "Assets/Art/Shaders/SF_Base BlendingWithTerrain.shadergraph",
+      "categories": [
+        "Stone"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Unadapted built-in feature m_ConservativeDepthOffset"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "0b09e8a8e8b43cce0a750f452362b78d06045c51bec67d0c108959be6574cc9b",
+      "path": "Assets/Scans Factory/GateBackyard/Shaders/SF_Base.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [
+        {
+          "property": "_NormalMap",
+          "guid": "07c705c812ce4d74a961f65dc8dbe447",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "Smoothness",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        }
+      ],
+      "id": "local-HDRP-0b09e8a8e8b4",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-0b09e8a8e8b4.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "c31bbec3eca7c734d1e02a1e0213929a6e5f874e56c01ea44fc8e21187eccec4",
+      "path": "Assets/Art/Shaders/SF_BaseDecal_01.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "No equivalent ASE template adapter for DecalSubTarget; model not downgraded."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "ecdf53e9246cc3bae84462ad0d712b7d19fc2d8e82ed108dfba9af4f0b94c941",
+      "path": "Assets/Scans Factory/GateBackyard/Shaders/SF_BaseDecal_02.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "No equivalent ASE template adapter for DecalSubTarget; model not downgraded."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "044b7612c112f6cc282ca13662d6cbadc33d7bec7a2a7b2769e66f1ae3f9f213",
+      "path": "Assets/Art/Shaders/SF_BaseTransparentGlass.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [
+        {
+          "property": "_NormalMap",
+          "guid": "07c705c812ce4d74a961f65dc8dbe447",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "Smoothness",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        }
+      ],
+      "id": "local-HDRP-044b7612c112",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-044b7612c112.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "63e82913eb58db6da2469f72b79913d47c69a3cf5ddea1c92a5487bf07018357",
+      "path": "Assets/Art/Shaders/SF_Fog.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Native semantic adapter not implemented for RemapNode"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "2a377100bd62b31426400f4093474a961767be3a48b4c8dc9fb2698661196915",
+      "path": "Assets/Scans Factory/GateBackyard/Shaders/SF_Pipe_01.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [],
+      "id": "local-HDRP-2a377100bd62",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-2a377100bd62.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "501d7be675064577bae32d4906008f6d32086432e5887516838796ae09e5fedc",
+      "path": "Assets/Art/Shaders/Anisotropy Graph.shadergraph",
+      "categories": [
+        "Metal",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Missing transparent feature m_TransparentWritesMotionVec"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "a6de1919eaa39bbcd77eb7cc1fca5692ca15dbb5cbec15d431c19de6449f4d53",
+      "path": "Assets/Art/Shaders/Anisotropy Graph_D.shadergraph",
+      "categories": [
+        "Metal",
+        "VFX",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Native semantic adapter not implemented for ExponentialNode"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "4ea2ecce3642fbf10c2425cf5a6748be9a908be070f714a16d6347663c252690",
+      "path": "Assets/Art/Shaders/Anisotropy_S.shadergraph",
+      "categories": [
+        "Metal",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Missing transparent feature m_TransparentWritesMotionVec"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "5f1acba57c6f60c427ac293d959dcf2c9bbe6f14f5327d25eff2678099c82a1e",
+      "path": "Assets/Shader/Girl_Hair.shadergraph",
+      "categories": [
+        "Hair"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [],
+      "id": "local-HDRP-5f1acba57c6f",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-5f1acba57c6f.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "c0533fde7f1010b6153ef95c5b5c780db8e0048786379ac8ebc7726ff0eece56",
+      "path": "Assets/Art/Shaders/Light.shadergraph",
+      "categories": [
+        "VFX",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Non-alpha transparent blend requires reviewed target mapping."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "922206b0d3a30ccab75984ce78d5c29ada2efd13a29048c82afd3d6189a32913",
+      "path": "Assets/Art/Shaders/LitBasicGraph_Iridescence.ShaderGraph",
+      "categories": [
+        "Metal",
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Unadapted system feature m_DOTSInstancing"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "91b14ee430f3cd2090223700cbb23c21882185aa72477f5064bc9cce6f0dd14a",
+      "path": "Assets/Art/Shaders/Unlit_Graph.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [],
+      "id": "local-HDRP-91b14ee430f3",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-91b14ee430f3.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "b1ca84f8cadd26318b8b8566373afdf51601adb791177aaa930562c621d670b9",
+      "path": "Assets/Art/Shaders/Particle.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Non-alpha transparent blend requires reviewed target mapping."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "5a4fb1118aec9b01739a065e6b222514a41f9f515fd2c4b0895d589f09dfc768",
+      "path": "Assets/Art/Shaders/Particle_Blend.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Native semantic adapter not implemented for SceneDepthNode"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "7e1c6c4986414266d43a1240cad99097d35126db09183b9b244094e7a7cf139d",
+      "path": "Assets/Art/Shader/Particle_Flow.shadergraph",
+      "categories": [
+        "VFX",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Non-alpha transparent blend requires reviewed target mapping."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "0fe23ee8d4993ed06f3e5b5204db6dcc4babd08fe306b690d4a1ad57fccad1e7",
+      "path": "Assets/Art/Shader/Particle_Flow_Blend.shadergraph",
+      "categories": [
+        "VFX",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Native semantic adapter not implemented for CombineNode"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "dbf4c58cc37f88cc12980038b3e389b4066692d024c595bfa587744f85bed993",
+      "path": "Assets/Shader/Fabric Shader.shadergraph",
+      "categories": [
+        "Fabric",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Implicit bound Fresnel normal/view slots need explicit coordinate-space adapters."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "4ec73cc0c8d92e9e942ef6f38ce3573d0e7f12ae0f7ac397043cdeadaa0b9da7",
+      "path": "Assets/Shader/Skin.shadergraph",
+      "categories": [
+        "Skin",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "No equivalent ASE template adapter for StackLitSubTarget; model not downgraded."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "efb1bec0bd9d46195c72727dd04aa297e8ff437cbc012b14d6f33476d5448b9b",
+      "path": "Assets/Game_art/Shader/Fabric_Trans.ShaderGraph",
+      "categories": [
+        "Fabric",
+        "UVAnimation"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [],
+      "id": "local-HDRP-efb1bec0bd9d",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-efb1bec0bd9d.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "d6d08e15eab39bfdbbd056a3b3764755e13aa833a74d275fe6d858d7ab1dd759",
+      "path": "Assets/Game_art/Shader/Glass_Rain.ShaderGraph",
+      "categories": [
+        "Metal",
+        "VFX",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Non-default transparent rendering pass requires review."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "18acaa20c040e9f90232ef4dea88207f6f2daa5db760438adbbe8b7c8fb72c86",
+      "path": "Assets/Game_art/Shader/RGB.shadergraph",
+      "categories": [
+        "UVAnimation"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [],
+      "id": "local-HDRP-18acaa20c040",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-18acaa20c040.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "a42337ecb412bc2d2afd156839c2964b88844be1fc5489db6e975459dbfe813d",
+      "path": "Assets/Game_art/Shader/Velvet.ShaderGraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "85a538b528c3cbcd0f3809a2484d2d19cbf3af65bb2e17ea2b8be9ba944996fc",
+      "path": "Assets/Art/Shader/Cover Grass.ShaderGraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "293755a24c51673264f2f03c72640cd5c82c1de9a0c56fd402b9118aa3dce4b4",
+      "path": "Assets/Art/Shader/Distortion.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "0d98ce2bd295f26e391cb0f9c5c7a36b1c8a4d7028003daf11771134300f2443",
+      "path": "Assets/Art/Shader/Leafs.shadergraph",
+      "categories": [
+        "VertexAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Unadapted system feature m_DOTSInstancing"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "ce2ef9e9e16c1b90ae3d1121c0ee26b1893bea1bad793bb5321fbd1017237c11",
+      "path": "Assets/Game_art/Volumetric Samples/Fog Volume Shadergraph/LocalClouds.shadergraph",
+      "categories": [
+        "VFX",
+        "UVAnimation",
+        "VertexAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "No equivalent ASE template adapter for FogVolumeSubTarget; model not downgraded."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "b22f3d64654cb39a7d4839ee1e46af46b78317f1d9c8b020654763171776deb4",
+      "path": "Girl_project(1)/Assets/ShaderLibrary/Eye.shadergraph",
+      "categories": [
+        "Eye",
+        "VFX"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [
+        {
+          "property": "_MainTex",
+          "guid": "4f47073b006bcef44bc62e532cafc4fb",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_ShadeScleraTex",
+          "guid": "4a04cda9fb11e7245b2e2b6ed221e008",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_IrisColorTex",
+          "guid": "6dee9e1c6726c9a4fb3b487598969152",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_IrisTex",
+          "guid": "d6f59e45d58f66344811c1af0bf412a2",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_ShadeIrisTex",
+          "guid": "b444eddaee4f4e84b82d5448a713adc1",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_EyeBump",
+          "guid": "81b3acbd0c61e354bb574c92d8fb9da0",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_CorneaBump",
+          "guid": "fb64935e844038c40a4780f4ef1a7693",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_IrisBump",
+          "guid": "778e5c3fd9fd91c43821754495d8bf1b",
+          "status": "RequiresSourceAssetBinding"
+        }
+      ],
+      "id": "local-HDRP-b22f3d64654c",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-b22f3d64654c.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "bf1acc8b5350144891be8844429f46f199158919949277717ee5b769724e3277",
+      "path": "Assets/ShaderLibrary/Girl_Hair.shadergraph",
+      "categories": [
+        "Hair"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [],
+      "id": "local-HDRP-bf1acc8b5350",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-bf1acc8b5350.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "4aa9f2d9d0e647ad390e7217e95d31cea0d287a733dba1cc1e823cf9eb61919e",
+      "path": "Assets/ShaderLibrary/LitSimple_wobble.shadergraph",
+      "categories": [
+        "Metal",
+        "VertexAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Keyword definitions and branches have not been mapped."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "5d3637eaa5b388491e66a4b82499327a19da9229113b94bc37645c704fdebb87",
+      "path": "Assets/ShaderLibrary/Skin_Rain.shadergraph",
+      "categories": [
+        "Skin",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "No equivalent ASE template adapter for StackLitSubTarget; model not downgraded."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "4e9932aa7d8132320e50eafc57a0b5390fb93d71b1d9f90dbd923028822ac2d7",
+      "path": "Assets/_Packages/com.unity.demoteam.hair/Samples~/HairSample/Materials/SRP.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [],
+      "id": "local-HDRP-4e9932aa7d81",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-4e9932aa7d81.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "7ffd503f71d3fa294247d7a5e5c374790f5af407aa5bbe7e7a869e86ce4b2149",
+      "path": "Assets/Shaders/Hair/HairShader Graph.shadergraph",
+      "categories": [
+        "Hair"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Connected vertex stage VertexDescription.Position needs reviewed absolute/relative and normal/tangent mapping."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "3e9616eef84c0c8f2f849eaa725a34debdb176eb2613cd8479ac8dcb440ac27b",
+      "path": "Assets/Shaders/Hair/HairShader.shadergraph",
+      "categories": [
+        "Hair"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Unadapted system feature m_CustomVelocity"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "75a13af9e5b0a11d7defa1689b0b2497b104dbbc18e03829bdf389d68e1b919e",
+      "path": "Assets/Shaders/Hair/MarschnerBasic.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Unadapted system feature m_CustomVelocity"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "a0b3b9bf81922d85fc521a846a110a5952f6db2606a15be0fc64599e97c1d5e8",
+      "path": "Assets/Shaders/ShaderLibrary/DigitalHuman_Skin_Rain.shadergraph",
+      "categories": [
+        "Skin",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "No equivalent ASE template adapter for StackLitSubTarget; model not downgraded."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "6dec954b5a2e83e63966111a907122843debfb59bab3904b3b8e2a0c0401292f",
+      "path": "Assets/Shaders/ShaderLibrary/Eye.shadergraph",
+      "categories": [
+        "Eye",
+        "VFX"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [],
+      "id": "local-HDRP-6dec954b5a2e",
+      "inactiveOutputs": [
+        {
+          "descriptor": "SurfaceDescription.Specular",
+          "connected": true,
+          "retainedNode": "n282",
+          "reason": "Source render feature disabled; preserved as an unconnected native branch."
+        }
+      ],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-6dec954b5a2e.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "6c683211e8ece3efb4c6500a1125f552f2242bf5598ad89c595bec7e558ee865",
+      "path": "Assets/_Packages/com.unity.demoteam.hair/Runtime/HairMaterialDefaultLitSRP.shadergraph",
+      "categories": [
+        "Hair"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Connected vertex stage VertexDescription.Normal needs reviewed absolute/relative and normal/tangent mapping."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "bc4aa57b1388001c2d2784c3ec34434cc51560ee62f489f98fe686a6cb3a18e1",
+      "path": "Assets/Art/Shaders/SF_Base.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [
+        {
+          "property": "_AlbedoColorMask",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_NormalMap",
+          "guid": "07c705c812ce4d74a961f65dc8dbe447",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_DetailNormalMap",
+          "guid": "abc00000000005661724113764724317",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "Smoothness",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        }
+      ],
+      "id": "local-HDRP-bc4aa57b1388",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-bc4aa57b1388.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "aa6ad0c9a158a2963d9dc595a9635ef062adde455f37bfc1b402e35e7a9d00c3",
+      "path": "Assets/Art/Shaders/SF_BaseDecal_02.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "No equivalent ASE template adapter for DecalSubTarget; model not downgraded."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "8cb1136f317ee204256948c5407e97f7fcbe2c7a0a558684b503f2fb9bb617b8",
+      "path": "Assets/Art/Shaders/SF_BaseMasked.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [
+        {
+          "property": "_NormalMap",
+          "guid": "07c705c812ce4d74a961f65dc8dbe447",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "Smoothness",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_Mask",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        }
+      ],
+      "id": "local-HDRP-8cb1136f317e",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-8cb1136f317e.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "98503c7606a40749c7681a2d968d6efe664b87ae4d65d1bdb197e7ceddd6ff56",
+      "path": "Assets/Art/Shaders/SF_BaseMaskedTranslucent.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [
+        {
+          "property": "_NormalMap",
+          "guid": "07c705c812ce4d74a961f65dc8dbe447",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "Smoothness",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_Mask",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        }
+      ],
+      "id": "local-HDRP-98503c7606a4",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-98503c7606a4.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "80d30ee004da357b92357c822eab7795a5363c41997f8188f91dd66822680362",
+      "path": "Assets/Art/Shaders/SF_BaseRMA.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Unadapted built-in feature m_AddPrecomputedVelocity"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "4a617f9c3b5d0e676f02edba234f1bd137365c5880cccb35142c2378037b1d74",
+      "path": "Assets/Art/Shaders/SF_Base_VertexPaint.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [
+        {
+          "property": "_AlbedoColorMask",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_Mask",
+          "guid": "abc00000000000204514655943510958",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_NormalMap",
+          "guid": "07c705c812ce4d74a961f65dc8dbe447",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_DetailNormalMap",
+          "guid": "abc00000000005661724113764724317",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "Smoothness",
+          "guid": "2205ca0505c13cc4b993bd8c9ada4050",
+          "status": "RequiresSourceAssetBinding"
+        },
+        {
+          "property": "_NormalMap2",
+          "guid": "07c705c812ce4d74a961f65dc8dbe447",
+          "status": "RequiresSourceAssetBinding"
+        }
+      ],
+      "id": "local-HDRP-4a617f9c3b5d",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-4a617f9c3b5d.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "cd6782ca55f26cc105096cec3799a11616d9474a253d091e71fca41b351c48a0",
+      "path": "Assets/Art/Shaders/SF_Water.shadergraph",
+      "categories": [
+        "Water"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Native semantic adapter not implemented for SceneDepthNode"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "32f21be1a796323d969cbd0efa8cb8da9b08e96c03617482229f27c0cf430002",
+      "path": "Assets/Mimic/Materials/Shaders/Triplanar Normal Displacement.shadergraph",
+      "categories": [
+        "Metal",
+        "Stone",
+        "UVAnimation",
+        "VertexAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Connected vertex stage VertexDescription.Position needs reviewed absolute/relative and normal/tangent mapping."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "e604d2baf89953b2af9de07ee544444f55e9933316f665072a1e96165179b5d6",
+      "path": "Assets/Mimic/Materials/Shaders/Unlit Shadow.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [],
+      "id": "local-HDRP-e604d2baf899",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-e604d2baf899.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "b324576552cc3376df1d5550eb717986b868f1fbcb5c90768368d73cb54e91ef",
+      "path": "Assets/Art/Shaders/Anisotropy Graph.shadergraph",
+      "categories": [
+        "Metal",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Missing transparent feature m_TransparentWritesMotionVec"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "5ec99312e0fb98d24638ea915670267c524fb45d5cb495c0e07baa759f20f8cd",
+      "path": "Assets/Art/Shaders/Dissolve.shadergraph",
+      "categories": [
+        "Metal",
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Native semantic adapter not implemented for TriplanarNode"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "8b2f70979b9e997463113cd96244ef4d9d3bd7c48d2923e841ffa93f83186fd6",
+      "path": "Assets/Art/Shaders/Girl_Hair.shadergraph",
+      "categories": [
+        "Hair"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [],
+      "id": "local-HDRP-8b2f70979b9e",
+      "inactiveOutputs": [
+        {
+          "descriptor": "SurfaceDescription.AlphaClipThresholdDepthPostpass",
+          "connected": false,
+          "retainedNode": "n57",
+          "reason": "Source render feature disabled; preserved as an unconnected native branch."
+        }
+      ],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-8b2f70979b9e.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "4da2ac361cb6a0713d0acd4ade0767fa8be7a968ba4620f056ea5d312b8d3fd7",
+      "path": "Assets/ShaderLibrary/Skin.shadergraph",
+      "categories": [
+        "Skin",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "No equivalent ASE template adapter for StackLitSubTarget; model not downgraded."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "29221741da5bf90907b5a8a805347f732befde1b72fb71cdbc87c41d22abffcf",
+      "path": "Assets/ShaderLibrary/CarPaint.shadergraph",
+      "categories": [
+        "Metal",
+        "Stone",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "No equivalent ASE template adapter for StackLitSubTarget; model not downgraded."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "3cf4ee4b1500b1e72f3d71d2030d278b760bdef351db1ce196d2cb4924602596",
+      "path": "Assets/ShaderLibrary/Hologram.shadergraph",
+      "categories": [
+        "Metal",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Implicit bound Fresnel normal/view slots need explicit coordinate-space adapters."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "1e59d245544136544aa90690c672807d0e37d3ecff52e702abd6d4c31a77e32f",
+      "path": "Assets/ShaderLibrary/Eye.shadergraph",
+      "categories": [
+        "Eye",
+        "VFX"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [],
+      "id": "local-HDRP-1e59d2455441",
+      "inactiveOutputs": [
+        {
+          "descriptor": "SurfaceDescription.Specular",
+          "connected": true,
+          "retainedNode": "n282",
+          "reason": "Source render feature disabled; preserved as an unconnected native branch."
+        }
+      ],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-1e59d2455441.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "2cd75307e9fc1cd294cc53b2970369127ee4310bf4a7863ac0c08dee1a0b9da3",
+      "path": "Assets/ShaderLibrary/Anisotropy_S.shadergraph",
+      "categories": [
+        "Metal",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Missing transparent feature m_TransparentWritesMotionVec"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "058a25826913c35894ed543374b42f8b4d0c53de2c3c56940f9676869f6b87ff",
+      "path": "Assets/ShaderLibrary/Rain_Decal.ShaderGraph",
+      "categories": [
+        "Water",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "No equivalent ASE template adapter for DecalSubTarget; model not downgraded."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "e35193c477f9995234a09e8aa2bf5c22600e4c75c3fd12fb4e627ba59f3beb08",
+      "path": "Assets/Art/Shaders/HDRP_Add_CG.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "0059e06fb2edbaaf469d95b52978fa2a7a988fd717f14cc098ae9c2b3f909bf3",
+      "path": "Assets/Art/Shaders/HDRP_Blend_CG.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "d845301879aec0f2bc0b3b32e7b568a92c2b55913e8dbe9ffafc3f146bddd023",
+      "path": "Assets/Art/Shaders/ParticleLit.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "58c36e7ec1718218729f192a7c2b16e8d48dece5a0f70814d734b13586a0b40e",
+      "path": "Assets/Art/Shaders/ParticleLitCameraFading.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "9ab8b6e11f1b1ae348813eadd544f9557d4227edafe6fe6b827746e27ee57505",
+      "path": "Assets/Art/Shaders/ParticleLitDistortion.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "8684f99cfaed28b62ecee34a16c97140ff7711a5dc42de7d7eb22bcfba58af60",
+      "path": "Assets/Art/Shaders/ParticleLitFlipbook.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "c6dbe4d65333bb23b1d7aa1148ff4b4013ddfe3c7d8d0f21ccd8f606d8ffb1c4",
+      "path": "Assets/Art/Shaders/ParticleLitFlipbookCameraFading.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "e8196e66abb1aabbcdf6fce96571682019b7251bcacafc85162956cf4c11e3e6",
+      "path": "Assets/Art/Shaders/ParticleLitSoft.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "8d2698c29a66e57c82d850a10fcd072c5e81e6726ae7e33382cf5e3af07fa309",
+      "path": "Assets/Art/Shaders/ParticleUnlit.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "c554dc4e3c325b679b10ae5af449685cc5a58e8faf5c24bcc3ea0ba8b169755f",
+      "path": "Assets/Art/Shaders/ParticleUnlitCameraFading.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "4f39acd113ec36362922e9056ad21f2d7eac62ff67bca713de9843e6442ab6a3",
+      "path": "Assets/Art/Shaders/ParticleUnlitDistortion.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "bf7aa3a8765cc73c66e891135f85a2b376f94abda0e9b1cb85b8ee8a036a12a3",
+      "path": "Assets/Art/Shaders/ParticleUnlitFlipbook.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "39b1e16e4e395a784e9a39cd197610d6e5addac4073c510ee478057720c64d06",
+      "path": "Assets/Art/Shaders/ParticleUnlitFlipbookCameraFading.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "2a399092c1049f40e4499fa39408d3d487fdcf582cb1443e8f4b28e18fda7501",
+      "path": "Assets/Art/Shaders/ParticleUnlitSoft.shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "1ddc5d05b3947d2fcbd5610e74cf760e197dfcf636827008f2a5cae622073e3a",
+      "path": "Assets/FantasyGolemPack/Material/Shader/Shader_Golem_Basic.shadergraph",
+      "categories": [
+        "Metal",
+        "UVAnimation"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [],
+      "id": "local-HDRP-1ddc5d05b394",
+      "inactiveOutputs": [],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-1ddc5d05b394.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "d50a228fd4f19297c118ae08d2881a200df13dbdfcf930666f4e601d6dfd7599",
+      "path": "Assets/Game_Art/ShaderGraph/Bark_Wind.shadergraph",
+      "categories": [
+        "Metal",
+        "UVAnimation",
+        "VertexAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Keyword definitions and branches have not been mapped."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "fa96790a898ff18eac8ff691e0eec50feba7e248bee1bbcbda6d1de90855a260",
+      "path": "Assets/Game_Art/ShaderGraph/Lava.shadergraph",
+      "categories": [
+        "Metal",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Native semantic adapter not implemented for RemapNode"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "dcff7223c2483f3aa70aa77042a46b3c8df8dc3fa415dadb77ba1230876510f9",
+      "path": "Assets/Game_Art/ShaderGraph/Leaves_Wind.shadergraph",
+      "categories": [
+        "Metal",
+        "UVAnimation",
+        "VertexAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Keyword definitions and branches have not been mapped."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "b0670d87c9ba1030bfb6d7bb0c242e144b9cf2a20ddd634c409c837d6b9b8135",
+      "path": "Assets/ShaderGraph/Beach FoamMask.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "This adapter requires an explicit HDRP active target."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "297031a7e0f06a5deaf077b2d3c1c54f1d605ac846863b2327115bbfc083ad17",
+      "path": "Assets/ShaderGraph/Rock Foam.shadergraph",
+      "categories": [
+        "Stone"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "This adapter requires an explicit HDRP active target."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "2e3dbc3a6a2f05d2b2befe97dbd957d6ecae62a73b3b37d8f7d97a81789d6e54",
+      "path": "Assets/ShaderGraph/WaveFoam_BC.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "This adapter requires an explicit HDRP active target."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "b32b782712001377b380adbc5951b4587c6d8a94dd68a78b281fb55e1236469e",
+      "path": "Assets/ShaderGraph/WaveFoam_Deformer.shadergraph",
+      "categories": [
+        "VertexAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "This adapter requires an explicit HDRP active target."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "87585b0da34418bde3eda6e072362b1ce919e5c40f35ebe92d02cda72794b86f",
+      "path": "Assets/ShaderGraph/WaveFoam_N.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "This adapter requires an explicit HDRP active target."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "e34331e9e9300a30e0f12a812b4bbdcd5256ec056e6896fa10c9fc9b3b7d7c98",
+      "path": "Assets/ShaderGraph/WaveFoam_S.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "This adapter requires an explicit HDRP active target."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "e36b2a153e51f11691d85b17535ddc7cdad2b5700e3865b1310c7eec9b300073",
+      "path": "Assets/Shader/Unity Shader Graph/LitBasicGraph_Snow.ShaderGraph",
+      "categories": [
+        "Metal",
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Unadapted system feature m_DOTSInstancing"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "6573b9d35a575a2284d359342fd84cb6de6ac525b340f4134aff5f793f117fcf",
+      "path": "Assets/Shader/Unity Shader Graph/Snow (Particles).shadergraph",
+      "categories": [
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Non-alpha transparent blend requires reviewed target mapping."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "83893de6a18ec18ac1702c87158d67f94a342b5798d9497f6bf81e18086a1459",
+      "path": "Spatial_project/Assets/Art/Shaders/Unity Shader Graph/Bark_Wind.shadergraph",
+      "categories": [
+        "Metal",
+        "VFX",
+        "UVAnimation",
+        "VertexAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Keyword definitions and branches have not been mapped."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "f9b6d4acf99d001e27b04c4da4b91969dacac015f3c47e300d836e35d943b16f",
+      "path": "Spatial_project/Assets/Art/Shaders/Unity Shader Graph/Leaves_Wind.shadergraph",
+      "categories": [
+        "Metal",
+        "VFX",
+        "UVAnimation",
+        "VertexAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Keyword definitions and branches have not been mapped."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "5316682e2baa77eed4da18ef1eaf27da8ed6bfc031ce44faeb9888698a5812e1",
+      "path": "Spatial_project/Assets/Art/Shaders/Unity Shader Graph/LitBasicGraph.ShaderGraph",
+      "categories": [
+        "Metal",
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Unadapted system feature m_DOTSInstancing"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "fef503afea36072bef7577f286aceeeaee1d3736bb8c5741cf3d632ed3fff57f",
+      "path": "Spatial_project/Assets/Art/Shaders/Unity Shader Graph/LitBasicGraph_NormalOS.ShaderGraph",
+      "categories": [
+        "Metal",
+        "VFX"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Unadapted system feature m_DOTSInstancing"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "ae45c36ed110dbae7e15d7e6a8bd8c84dc68e8e9a7fdf1e049c1374dc0e032a2",
+      "path": "Spatial_project/Assets/Art/Shaders/Unity Shader Graph/Planet.ShaderGraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Legacy master-node graph needs version migration and a model adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "bdf79f18db6b15c4c4de7475cfbca351804f1d60fe386adb5f4cbb4689f72b69",
+      "path": "Assets/Shader/Dissolve.shadergraph",
+      "categories": [
+        "Water",
+        "Metal",
+        "VFX",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Keyword definitions and branches have not been mapped."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "cf5dd0fd77d4a0c22a8074c9d10a1ac63a475653554d7925c2189df5a9922471",
+      "path": "Assets/Game_art/Volumetric Samples/Fog Volume Shadergraph/Foggy Orb.shadergraph",
+      "categories": [
+        "VFX",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "No equivalent ASE template adapter for FogVolumeSubTarget; model not downgraded."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "bcd0a959d6d8bfa49966c48665873aa5039ca802b86164488beb3c7597efc67f",
+      "path": "Assets/Game_art/Volumetric Samples/Fog Volume Shadergraph/Fumes.shadergraph",
+      "categories": [
+        "VertexAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "No equivalent ASE template adapter for FogVolumeSubTarget; model not downgraded."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "5d3cba7c86081c1480e8a6d86debcb92e0e8619e3f5e8aac992c6bc0d12bbcb3",
+      "path": "Assets/Game_art/Volumetric Samples/Fog Volume Shadergraph/Ground Smoke.shadergraph",
+      "categories": [
+        "UVAnimation",
+        "VertexAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "No equivalent ASE template adapter for FogVolumeSubTarget; model not downgraded."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "66f6c056e2e7aab9271a7dde5b0d3ecc76bd08fa44beb2d5787c93f5c333569f",
+      "path": "Assets/Game_art/Volumetric Samples/Fog Volume Shadergraph/ProceduralNoiseShowcase.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Keyword definitions and branches have not been mapped."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "c9aef46148c52a963a81f162a66e0ffd2895689c3028eed2395584ebb83c5312",
+      "path": "Assets/Game_art/Volumetric Samples/Fog Volume Shadergraph/Volumetric Heart.shadergraph",
+      "categories": [
+        "General"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "No equivalent ASE template adapter for FogVolumeSubTarget; model not downgraded."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "aaace4303347e1abbabe389e22d0311a82e489b468830e16a862b9d1a4057e4c",
+      "path": "Assets/ShaderLibrary/Fabric.ShaderGraph",
+      "categories": [
+        "Fabric",
+        "UVAnimation"
+      ],
+      "status": "PlannedAdaptation",
+      "blockers": [],
+      "assetBindings": [],
+      "id": "local-HDRP-aaace4303347",
+      "inactiveOutputs": [
+        {
+          "descriptor": "SurfaceDescription.Thickness",
+          "connected": true,
+          "retainedNode": "n98",
+          "reason": "Source render feature disabled; preserved as an unconnected native branch."
+        }
+      ],
+      "plan": ".build~\\LocalGraphPlans030\\local-HDRP-aaace4303347.json",
+      "sourceConversionComplete": false,
+      "visualComparisonPassed": false,
+      "actualGenerationStatus": "Generated",
+      "aseGenerated": true
+    },
+    {
+      "sha256": "0ff24413881c5de4e034785f61eb9476a56bc525c454e85889c7219ff8c80888",
+      "path": "Assets/ShaderLibrary/Fabric_Curtains.ShaderGraph",
+      "categories": [
+        "Fabric",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Non-default transparent rendering pass requires review."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "359f4dbeee14178d23528a964f301732ae9010648a4ba01cf130c50271a1f83d",
+      "path": "Assets/ShaderLibrary/Fabric_Detail.ShaderGraph",
+      "categories": [
+        "Fabric",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Baked GI override outputs need a dedicated mapping."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "db83e8cab8211042004af084e9421774b4696d55f7614082f8fcda3f9e19aa06",
+      "path": "Assets/ShaderLibrary/Fabric_Rim_Detail_POM.ShaderGraph",
+      "categories": [
+        "Fabric",
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Native semantic adapter not implemented for ParallaxOcclusionMappingNode"
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "72c6c58db9fb4437d6df424c4a1f97d7b9b04648286fd9624e65b8e9cb19df21",
+      "path": "Assets/ShaderLibrary/Vegetation.ShaderGraph",
+      "categories": [
+        "UVAnimation",
+        "VertexAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Coat/ray-tracing/refraction material extension requires a dedicated adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    },
+    {
+      "sha256": "c87b4e0e25118a8476a6f1b2516b7d7f97a69e38887145c7b00973d69484c0f6",
+      "path": "Assets/ShaderLibrary/VideoPlayer.shadergraph",
+      "categories": [
+        "UVAnimation"
+      ],
+      "status": "RequiresAdapter",
+      "blockers": [
+        "Coat/ray-tracing/refraction material extension requires a dedicated adapter."
+      ],
+      "assetBindings": [],
+      "actualGenerationStatus": "NotGenerated",
+      "aseGenerated": false
+    }
+  ],
+  "plannedCount": 20,
+  "generatedCount": 20,
+  "note": "A plan is not a generated graph; all external source assets and visual equivalence remain unvalidated."
+}

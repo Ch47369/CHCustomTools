@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <!-- Unity ignores folders ending in ~. Keep .NET build assemblies out of asset import. -->
+    <BaseOutputPath>$(MSBuildThisFileDirectory).build~/$(MSBuildProjectName)/bin/</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory).build~/$(MSBuildProjectName)/obj/</BaseIntermediateOutputPath>
+  </PropertyGroup>
+</Project>

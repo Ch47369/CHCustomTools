@@ -1,0 +1,102 @@
+﻿[
+    {
+        "file":  "array-4x2-flip0-generated.png",
+        "bytes":  925,
+        "sha256":  "c30b63151c39c47aec8896b553fc2e102a0d71b2265a9fc06ff1436bf3760f54"
+    },
+    {
+        "file":  "array-4x2-flip0-source.png",
+        "bytes":  925,
+        "sha256":  "c30b63151c39c47aec8896b553fc2e102a0d71b2265a9fc06ff1436bf3760f54"
+    },
+    {
+        "file":  "array-analysis.json",
+        "bytes":  93300,
+        "sha256":  "fde838f0dabe7b5d79ee44f10adbb2b71feb8597c069669fc17eef0a01f4a469"
+    },
+    {
+        "file":  "array-conversion.json",
+        "bytes":  2883,
+        "sha256":  "64bf3c9852f19eb300fd560ed79ac4a7ba47948e3ff6b978478cbce58ef7bbc4"
+    },
+    {
+        "file":  "array-environment.json",
+        "bytes":  6616,
+        "sha256":  "fedc036a9fceb7fdab66afe9c0b9e13434fa4d7bd53375608db0f35b7f4c1ce9"
+    },
+    {
+        "file":  "array-pixels.txt",
+        "bytes":  256,
+        "sha256":  "1e626bc10d3ac9ef70890954d867f3b9b015af57d69426a870b02b0e8ff03d58"
+    },
+    {
+        "file":  "array-sample.json",
+        "bytes":  42107,
+        "sha256":  "661884ad56bf49ab51953cc65c70f0c2e0b6e71e4f6108371336010219d507c1"
+    },
+    {
+        "file":  "array-smoke-result.txt",
+        "bytes":  130,
+        "sha256":  "ac29cb9226606fd253d23d2185107602d9bfe6e7ce8ef310406704eef3ed171a"
+    },
+    {
+        "file":  "presentation-smoke-result.txt",
+        "bytes":  148,
+        "sha256":  "92b4a95eba41de690eca2b1d702e8e6816c0c10524227a4700ccdc4457131081"
+    },
+    {
+        "file":  "target-presentation-nodes.json",
+        "bytes":  10752,
+        "sha256":  "ce5608ccd17bf299bdecbb8a57ade434d0300e48d26fac86c56f06447ed81051"
+    },
+    {
+        "file":  "target-probe.json",
+        "bytes":  5772,
+        "sha256":  "efecc8469969d8eb8404708b6442d00300d2f3f7efea2d61b121fe39841f6987"
+    },
+    {
+        "file":  "ui-conversion.json",
+        "bytes":  114750,
+        "sha256":  "03ff6f22964b61e2e12e16c0b588c2dd390898172d2cd6327e195ffb95cb2d28"
+    },
+    {
+        "file":  "ui-environment.json",
+        "bytes":  6616,
+        "sha256":  "fedc036a9fceb7fdab66afe9c0b9e13434fa4d7bd53375608db0f35b7f4c1ce9"
+    },
+    {
+        "file":  "ui-no-presentation.json",
+        "bytes":  2878,
+        "sha256":  "30ad0f4e2124a2ffbc1de3ac3a25c704f58659776df643c1126426b7075c581c"
+    },
+    {
+        "file":  "ui-pixels.txt",
+        "bytes":  432,
+        "sha256":  "2992b26d07923f4193b149a9e1a667d17964a302a54cd8fc000c3d7d3cbea7cb"
+    },
+    {
+        "file":  "ui-template.json",
+        "bytes":  8120,
+        "sha256":  "02901ca10066d04b2a2340196647aaba0c349f091f45273b957b2799fe5e0a1a"
+    },
+    {
+        "file":  "unity-success-markers.txt",
+        "bytes":  63,
+        "sha256":  "f7241e8b792e9546f0ba9300819add541da88a1cb6855af3ec18950328c9e0ff"
+    },
+    {
+        "file":  "variants1-flip0-generated.png",
+        "bytes":  2634,
+        "sha256":  "1b8108884a191f034b59c8b600258388ee548f6642a5f8d3b3960968052332f3"
+    },
+    {
+        "file":  "variants1-flip0-source.png",
+        "bytes":  2634,
+        "sha256":  "1b8108884a191f034b59c8b600258388ee548f6642a5f8d3b3960968052332f3"
+    },
+    {
+        "file":  "verification.json",
+        "bytes":  8584,
+        "sha256":  "c9d33137890de928f3ec970c0addf0fe003618d0b305474570ad47ae40fd6ae3"
+    }
+]

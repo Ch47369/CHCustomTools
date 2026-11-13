@@ -1,0 +1,142 @@
+[
+  {
+    "pipeline": "URP",
+    "state": "Default",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "URP",
+    "state": "DepthThin",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "URP",
+    "state": "DepthThick",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "URP",
+    "state": "LightNear",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "URP",
+    "state": "LightFar",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "URP",
+    "state": "ExponentLow",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "URP",
+    "state": "ExponentHigh",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "URP",
+    "state": "RampMinimum",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "URP",
+    "state": "RampMaximum",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "URP",
+    "state": "ChannelSaturateAfterMultiply",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "URP",
+    "state": "Offset",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "URP",
+    "state": "LightDirection",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "URP",
+    "state": "RotateNonUniformScale",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "URP",
+    "state": "TranslatedModelAndCamera",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "HDRP",
+    "state": "Default",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "HDRP",
+    "state": "DepthThin",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "HDRP",
+    "state": "DepthThick",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "HDRP",
+    "state": "LightNear",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "HDRP",
+    "state": "LightFar",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "HDRP",
+    "state": "ExponentLow",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "HDRP",
+    "state": "ExponentHigh",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "HDRP",
+    "state": "RampMinimum",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "HDRP",
+    "state": "RampMaximum",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "HDRP",
+    "state": "ChannelSaturateAfterMultiply",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "HDRP",
+    "state": "Offset",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "HDRP",
+    "state": "LightDirection",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "HDRP",
+    "state": "RotateNonUniformScale",
+    "maxChannelDifference": 0.0
+  },
+  {
+    "pipeline": "HDRP",
+    "state": "TranslatedModelAndCamera",
+    "maxChannelDifference": 0.0
+  }
+]

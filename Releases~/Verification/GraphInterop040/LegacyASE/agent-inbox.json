@@ -1,0 +1,2304 @@
+{
+    "success": true,
+    "unityVersion": "2022.3.10f1",
+    "protocol": "ase-converter-files-v1",
+    "operations": [
+        "probe",
+        "describe",
+        "rules",
+        "analyze",
+        "analyzeTargets",
+        "generate",
+        "generatePlan"
+    ],
+    "probe": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+            "unityVersion": "2022.3.10f1",
+            "aseVersion": "1.9.9.13",
+            "activePipeline": "BuiltIn",
+            "templates": [
+                {
+                    "guid": "b9e3bd2247b04c12ac193aa10cb6ed01",
+                    "name": "ASE Converter/Image Filter BuiltIn",
+                    "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/ImageFilterBuiltIn.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "b9e3bd2247b04c12ac193aa10cb6ed03",
+                    "name": "ASE Converter/Image Filter HDRP",
+                    "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/ImageFilterHDRP.shader",
+                    "pipeline": "HDRP",
+                    "ready": true
+                },
+                {
+                    "guid": "b9e3bd2247b04c12ac193aa10cb6ed02",
+                    "name": "ASE Converter/Image Filter URP",
+                    "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/ImageFilterURP.shader",
+                    "pipeline": "URP",
+                    "ready": true
+                },
+                {
+                    "guid": "d4cd5a117794f8a6a862df9ee727159d",
+                    "name": "ASE Converter/Jade Formula Fixture BuiltIn",
+                    "path": "Assets/JadeArticle036/FormulaFixture.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "55d8d802ded7ff5510caf7a0a6900396",
+                    "name": "ASE Converter/Parallax Glitter BuiltIn",
+                    "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/ParallaxGlitterBuiltIn.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "57f0b2ef4faf3ad15a58de7ba63288b9",
+                    "name": "ASE Converter/Parallax Glitter HDRP",
+                    "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/ParallaxGlitterHDRP.shader",
+                    "pipeline": "HDRP",
+                    "ready": true
+                },
+                {
+                    "guid": "1a540ee51739aef1bcef9483889243bf",
+                    "name": "ASE Converter/Parallax Glitter URP",
+                    "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/ParallaxGlitterURP.shader",
+                    "pipeline": "URP",
+                    "ready": true
+                },
+                {
+                    "guid": "a99d644facf4442398d54acf418923b9",
+                    "name": "ASE Converter/Two Sided Texture Fog",
+                    "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/Normal360Fog.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "c08fd7d51a79449e86b199a5bb4a5724",
+                    "name": "ASE Converter/UI Pan Zoom",
+                    "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/UiPanZoom.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "eab467e6cd0b4d27ab8e9e434d8c30e3",
+                    "name": "ASE Converter/UI Straight Alpha",
+                    "path": "Packages/com.aseshader.handwritten-converter/Editor/Templates/UiStraightAlpha.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "0f8ba0101102bb14ebf021ddadce9b49",
+                    "name": "Built-In/Default Sprites",
+                    "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Sprites-Default.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "c71b220b631b6344493ea3cf87110c93",
+                    "name": "Built-In/Image Effect",
+                    "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/PostProcess.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "ed95fe726fd7b4644bb42f4d1ddd2bcd",
+                    "name": "Built-In/Lit",
+                    "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Lit.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "e1de45c0d41f68c41b2cc20c8b9c05ef",
+                    "name": "Built-In/Multi Pass Unlit",
+                    "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/MultiPassUnlit.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "0b6a9f8b4f707c74ca64c0be8e590de0",
+                    "name": "Built-In/Particles Alpha Blended",
+                    "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Particle Alpha Blend.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "32139be9c1eb75640a847f011acf3bcf",
+                    "name": "Built-In/Post-Processing Stack",
+                    "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/PPStack.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "0770190933193b94aaa3065e307002fa",
+                    "name": "Built-In/Unlit",
+                    "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Unlit.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "899e609c083c74c4ca567477c39edef0",
+                    "name": "Built-In/Unlit Lightmap",
+                    "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/UnlitLightmap.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "45bf09b07249a46489d5200e9ba4d9f1",
+                    "name": "Built-In/Wireframe",
+                    "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/Legacy/Wireframe.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "6ce779933eb99f049b78d6163735e06f",
+                    "name": "Custom Render Texture/Initialize",
+                    "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/CustomRT/CustomRTInit.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "32120270d1b3a8746af2aca8bc749736",
+                    "name": "Custom Render Texture/Update",
+                    "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/CustomRT/CustomRTUpdate.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                },
+                {
+                    "guid": "5056123faa0c79b47ab6ad7e8bf059a4",
+                    "name": "UI/Default",
+                    "path": "Assets/AmplifyShaderEditor/Plugins/EditorResources/Templates/UI/UI-Default.shader",
+                    "pipeline": "BuiltIn",
+                    "ready": true
+                }
+            ],
+            "errors": []
+        },
+        "description": {
+            "masters": [],
+            "options": []
+        },
+        "analysis": {
+            "plan": {
+                "schemaVersion": 1,
+                "shaderName": "",
+                "pipeline": "Auto",
+                "surface": "Unlit",
+                "templateGuid": "",
+                "nodes": [],
+                "wires": [],
+                "outputs": [],
+                "masterSettings": [],
+                "presentation": {
+                    "autoLayout": true,
+                    "addComments": true,
+                    "useRegisters": true,
+                    "longWireDistance": 1800.0,
+                    "maxRegisters": 24
+                },
+                "comments": []
+            },
+            "report": {
+                "status": "Planned",
+                "sourcePath": "",
+                "outputPath": "",
+                "shaderName": "",
+                "pipeline": "",
+                "unityVersion": "",
+                "aseVersion": "",
+                "templateGuid": "",
+                "sourcePipeline": "",
+                "crossPipeline": false,
+                "existingAseGraph": false,
+                "aseRoundTripPassed": false,
+                "shaderCompiled": false,
+                "visualComparisonPassed": false,
+                "targetGraph": "ASE",
+                "shaderGraphVersion": "",
+                "shaderGraphRoundTripPassed": false,
+                "standardTargetAdaptation": false,
+                "nativeNodeCount": 0,
+                "customExpressionCount": 0,
+                "propertyCount": 0,
+                "layoutApplied": false,
+                "commentCount": 0,
+                "registerNodeCount": 0,
+                "getNodeCount": 0,
+                "nativeMappings": [],
+                "fallbackReasons": [],
+                "blockers": [],
+                "warnings": []
+            },
+            "knowledge": {
+                "libraryVersion": "0.3.6",
+                "classification": "Handwritten",
+                "sourceSignature": "",
+                "referenceFile": "",
+                "referenceNotes": "",
+                "explicitPassCount": 0,
+                "surfaceShader": false,
+                "graph": {
+                    "present": false,
+                    "complete": false,
+                    "version": "",
+                    "nodeCount": 0,
+                    "wireCount": 0,
+                    "customExpressionCount": 0,
+                    "nodeTypes": [],
+                    "templateGuids": [],
+                    "functionGuids": []
+                },
+                "sourceGraph": {
+                    "format": "",
+                    "status": "AnalysisOnly",
+                    "target": "",
+                    "sourcePipeline": "Unknown",
+                    "nodeCount": 0,
+                    "edgeCount": 0,
+                    "keywordCount": 0,
+                    "groupCount": 0,
+                    "noteCount": 0,
+                    "properties": [],
+                    "blocks": [],
+                    "nodeTypes": [],
+                    "dependencies": [],
+                    "targetSettings": [],
+                    "blockers": []
+                },
+                "rules": [],
+                "notes": [],
+                "materialCategories": [],
+                "characterMaterials": [],
+                "performance": {
+                    "status": "NotBenchmarked",
+                    "directTextureSampleSites": 0,
+                    "loopSites": 0,
+                    "explicitPasses": 0,
+                    "includesMayAddWork": false,
+                    "observations": []
+                }
+            }
+        },
+        "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "targetGraph": "ASE",
+            "shaderGraphVersion": "",
+            "shaderGraphRoundTripPassed": false,
+            "standardTargetAdaptation": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+        },
+        "ruleLibrary": {
+            "version": "0.3.6",
+            "rules": [],
+            "references": [],
+            "publicSources": [],
+            "categories": [],
+            "characterProfiles": []
+        },
+        "shaderLibrary": {
+            "version": "0.3.6",
+            "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+            "entries": [],
+            "research": [],
+            "familyContracts": []
+        },
+        "targetAnalyses": [],
+        "shaderGraphEnvironment": {
+            "unityVersion": "",
+            "shaderGraphVersion": "",
+            "urpVersion": "",
+            "activePipeline": "",
+            "errors": [],
+            "supportedNodes": [
+                "Vector1Node",
+                "Vector2Node",
+                "Vector3Node",
+                "Vector4Node",
+                "PropertyNode",
+                "AddNode",
+                "SubtractNode",
+                "MultiplyNode",
+                "DivideNode",
+                "SaturateNode",
+                "AbsoluteNode",
+                "NegateNode",
+                "SineNode",
+                "CosineNode",
+                "FloorNode",
+                "CeilingNode",
+                "FractionNode",
+                "SquareRootNode",
+                "PowerNode",
+                "MinimumNode",
+                "MaximumNode",
+                "LerpNode",
+                "SwizzleNode",
+                "CombineNode",
+                "UVNode",
+                "SampleTexture2DNode"
+            ]
+        },
+        "shaderGraphDescription": [],
+        "shaderGraphAnalysis": {
+            "plan": {
+                "schemaVersion": 1,
+                "pipeline": "URP",
+                "surface": "Unlit",
+                "shaderPath": "ShaderConverter",
+                "acceptStandardUrpUnlitTarget": false,
+                "nodes": [],
+                "edges": [],
+                "colorNode": "",
+                "colorSlot": 0
+            },
+            "report": {
+                "status": "Planned",
+                "sourcePath": "",
+                "outputPath": "",
+                "shaderName": "",
+                "pipeline": "",
+                "unityVersion": "",
+                "aseVersion": "",
+                "templateGuid": "",
+                "sourcePipeline": "",
+                "crossPipeline": false,
+                "existingAseGraph": false,
+                "aseRoundTripPassed": false,
+                "shaderCompiled": false,
+                "visualComparisonPassed": false,
+                "targetGraph": "ShaderGraph",
+                "shaderGraphVersion": "",
+                "shaderGraphRoundTripPassed": false,
+                "standardTargetAdaptation": false,
+                "nativeNodeCount": 0,
+                "customExpressionCount": 0,
+                "propertyCount": 0,
+                "layoutApplied": false,
+                "commentCount": 0,
+                "registerNodeCount": 0,
+                "getNodeCount": 0,
+                "nativeMappings": [],
+                "fallbackReasons": [],
+                "blockers": [],
+                "warnings": []
+            }
+        }
+    },
+    "describe": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+            "unityVersion": "",
+            "aseVersion": "",
+            "activePipeline": "",
+            "templates": [],
+            "errors": []
+        },
+        "description": {
+            "masters": [
+                {
+                    "type": "TemplateMultiPassMasterNode",
+                    "pass": "ExtraPrePass",
+                    "inputs": [
+                        {
+                            "id": 0,
+                            "name": "Color",
+                            "type": "FLOAT3",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 1,
+                            "name": "Alpha",
+                            "type": "FLOAT",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 2,
+                            "name": "Alpha Clip Threshold",
+                            "type": "FLOAT",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 28,
+                            "name": "Depth",
+                            "type": "FLOAT",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 3,
+                            "name": "Vertex Offset",
+                            "type": "FLOAT3",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 4,
+                            "name": "Vertex Normal",
+                            "type": "FLOAT3",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 5,
+                            "name": "Vertex Tangent",
+                            "type": "FLOAT4",
+                            "visible": true,
+                            "locked": false
+                        }
+                    ],
+                    "outputs": []
+                },
+                {
+                    "type": "TemplateMultiPassMasterNode",
+                    "pass": "Unlit",
+                    "inputs": [
+                        {
+                            "id": 0,
+                            "name": "Color",
+                            "type": "FLOAT3",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 7,
+                            "name": "Alpha",
+                            "type": "FLOAT",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 8,
+                            "name": "Alpha Clip Threshold",
+                            "type": "FLOAT",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 9,
+                            "name": "Alpha Clip Threshold Shadow",
+                            "type": "FLOAT",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 28,
+                            "name": "Depth",
+                            "type": "FLOAT",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 15,
+                            "name": "Vertex Offset",
+                            "type": "FLOAT3",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 16,
+                            "name": "Vertex Normal",
+                            "type": "FLOAT3",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 17,
+                            "name": "Vertex Tangent",
+                            "type": "FLOAT4",
+                            "visible": true,
+                            "locked": false
+                        }
+                    ],
+                    "outputs": []
+                },
+                {
+                    "type": "TemplateMultiPassMasterNode",
+                    "pass": "ShadowCaster",
+                    "inputs": [
+                        {
+                            "id": 7,
+                            "name": "Alpha",
+                            "type": "FLOAT",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 8,
+                            "name": "Alpha Clip Threshold",
+                            "type": "FLOAT",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 9,
+                            "name": "Alpha Clip Threshold Shadow",
+                            "type": "FLOAT",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 28,
+                            "name": "Depth",
+                            "type": "FLOAT",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 15,
+                            "name": "Vertex Offset",
+                            "type": "FLOAT3",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 16,
+                            "name": "Vertex Normal",
+                            "type": "FLOAT3",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 17,
+                            "name": "Vertex Tangent",
+                            "type": "FLOAT4",
+                            "visible": false,
+                            "locked": false
+                        }
+                    ],
+                    "outputs": []
+                },
+                {
+                    "type": "SamplerNode",
+                    "pass": "",
+                    "inputs": [
+                        {
+                            "id": 0,
+                            "name": "Tex",
+                            "type": "SAMPLER2D",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 1,
+                            "name": "UV",
+                            "type": "FLOAT2",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 2,
+                            "name": "Level",
+                            "type": "FLOAT",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 3,
+                            "name": "DDX",
+                            "type": "FLOAT2",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 4,
+                            "name": "DDY",
+                            "type": "FLOAT2",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 5,
+                            "name": "Scale",
+                            "type": "FLOAT",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 6,
+                            "name": "Index",
+                            "type": "FLOAT",
+                            "visible": false,
+                            "locked": false
+                        },
+                        {
+                            "id": 7,
+                            "name": "SS",
+                            "type": "SAMPLERSTATE",
+                            "visible": true,
+                            "locked": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "id": 0,
+                            "name": "RGBA",
+                            "type": "COLOR",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 1,
+                            "name": "R",
+                            "type": "FLOAT",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 2,
+                            "name": "G",
+                            "type": "FLOAT",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 3,
+                            "name": "B",
+                            "type": "FLOAT",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 4,
+                            "name": "A",
+                            "type": "FLOAT",
+                            "visible": true,
+                            "locked": false
+                        },
+                        {
+                            "id": 5,
+                            "name": "RGB",
+                            "type": "FLOAT3",
+                            "visible": true,
+                            "locked": false
+                        }
+                    ]
+                },
+                {
+                    "type": "SwizzleNode",
+                    "pass": "",
+                    "inputs": [
+                        {
+                            "id": 0,
+                            "name": "  ",
+                            "type": "FLOAT4",
+                            "visible": true,
+                            "locked": false
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "id": 0,
+                            "name": "  ",
+                            "type": "FLOAT4",
+                            "visible": true,
+                            "locked": false
+                        }
+                    ]
+                }
+            ],
+            "options": [
+                {
+                    "name": "option:Surface",
+                    "value": "Opaque|Transparent|disable"
+                },
+                {
+                    "name": "option:  Keep Alpha",
+                    "value": "false|true|disable"
+                },
+                {
+                    "name": "option:  Blend",
+                    "value": "Alpha|Premultiply|Additive|Multiply|Custom|disable"
+                },
+                {
+                    "name": "option:Alpha Clipping",
+                    "value": "false|true|disable"
+                },
+                {
+                    "name": "option:  Use Shadow Threshold",
+                    "value": "false|true|disable"
+                },
+                {
+                    "name": "option:Cast Shadows",
+                    "value": "false|true|disable"
+                },
+                {
+                    "name": "option:Write Depth",
+                    "value": "false|true|disable"
+                },
+                {
+                    "name": "option:  Conservative",
+                    "value": "false|true|disable"
+                },
+                {
+                    "name": "option:Extra Pre Pass",
+                    "value": "false|true|disable"
+                },
+                {
+                    "name": "option:Vertex Position",
+                    "value": "Absolute|Relative|disable"
+                }
+            ]
+        },
+        "analysis": {
+            "plan": {
+                "schemaVersion": 1,
+                "shaderName": "",
+                "pipeline": "Auto",
+                "surface": "Unlit",
+                "templateGuid": "",
+                "nodes": [],
+                "wires": [],
+                "outputs": [],
+                "masterSettings": [],
+                "presentation": {
+                    "autoLayout": true,
+                    "addComments": true,
+                    "useRegisters": true,
+                    "longWireDistance": 1800.0,
+                    "maxRegisters": 24
+                },
+                "comments": []
+            },
+            "report": {
+                "status": "Planned",
+                "sourcePath": "",
+                "outputPath": "",
+                "shaderName": "",
+                "pipeline": "",
+                "unityVersion": "",
+                "aseVersion": "",
+                "templateGuid": "",
+                "sourcePipeline": "",
+                "crossPipeline": false,
+                "existingAseGraph": false,
+                "aseRoundTripPassed": false,
+                "shaderCompiled": false,
+                "visualComparisonPassed": false,
+                "targetGraph": "ASE",
+                "shaderGraphVersion": "",
+                "shaderGraphRoundTripPassed": false,
+                "standardTargetAdaptation": false,
+                "nativeNodeCount": 0,
+                "customExpressionCount": 0,
+                "propertyCount": 0,
+                "layoutApplied": false,
+                "commentCount": 0,
+                "registerNodeCount": 0,
+                "getNodeCount": 0,
+                "nativeMappings": [],
+                "fallbackReasons": [],
+                "blockers": [],
+                "warnings": []
+            },
+            "knowledge": {
+                "libraryVersion": "0.3.6",
+                "classification": "Handwritten",
+                "sourceSignature": "",
+                "referenceFile": "",
+                "referenceNotes": "",
+                "explicitPassCount": 0,
+                "surfaceShader": false,
+                "graph": {
+                    "present": false,
+                    "complete": false,
+                    "version": "",
+                    "nodeCount": 0,
+                    "wireCount": 0,
+                    "customExpressionCount": 0,
+                    "nodeTypes": [],
+                    "templateGuids": [],
+                    "functionGuids": []
+                },
+                "sourceGraph": {
+                    "format": "",
+                    "status": "AnalysisOnly",
+                    "target": "",
+                    "sourcePipeline": "Unknown",
+                    "nodeCount": 0,
+                    "edgeCount": 0,
+                    "keywordCount": 0,
+                    "groupCount": 0,
+                    "noteCount": 0,
+                    "properties": [],
+                    "blocks": [],
+                    "nodeTypes": [],
+                    "dependencies": [],
+                    "targetSettings": [],
+                    "blockers": []
+                },
+                "rules": [],
+                "notes": [],
+                "materialCategories": [],
+                "characterMaterials": [],
+                "performance": {
+                    "status": "NotBenchmarked",
+                    "directTextureSampleSites": 0,
+                    "loopSites": 0,
+                    "explicitPasses": 0,
+                    "includesMayAddWork": false,
+                    "observations": []
+                }
+            }
+        },
+        "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "targetGraph": "ASE",
+            "shaderGraphVersion": "",
+            "shaderGraphRoundTripPassed": false,
+            "standardTargetAdaptation": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+        },
+        "ruleLibrary": {
+            "version": "0.3.6",
+            "rules": [],
+            "references": [],
+            "publicSources": [],
+            "categories": [],
+            "characterProfiles": []
+        },
+        "shaderLibrary": {
+            "version": "0.3.6",
+            "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+            "entries": [],
+            "research": [],
+            "familyContracts": []
+        },
+        "targetAnalyses": [],
+        "shaderGraphEnvironment": {
+            "unityVersion": "",
+            "shaderGraphVersion": "",
+            "urpVersion": "",
+            "activePipeline": "",
+            "errors": [],
+            "supportedNodes": [
+                "Vector1Node",
+                "Vector2Node",
+                "Vector3Node",
+                "Vector4Node",
+                "PropertyNode",
+                "AddNode",
+                "SubtractNode",
+                "MultiplyNode",
+                "DivideNode",
+                "SaturateNode",
+                "AbsoluteNode",
+                "NegateNode",
+                "SineNode",
+                "CosineNode",
+                "FloorNode",
+                "CeilingNode",
+                "FractionNode",
+                "SquareRootNode",
+                "PowerNode",
+                "MinimumNode",
+                "MaximumNode",
+                "LerpNode",
+                "SwizzleNode",
+                "CombineNode",
+                "UVNode",
+                "SampleTexture2DNode"
+            ]
+        },
+        "shaderGraphDescription": [],
+        "shaderGraphAnalysis": {
+            "plan": {
+                "schemaVersion": 1,
+                "pipeline": "URP",
+                "surface": "Unlit",
+                "shaderPath": "ShaderConverter",
+                "acceptStandardUrpUnlitTarget": false,
+                "nodes": [],
+                "edges": [],
+                "colorNode": "",
+                "colorSlot": 0
+            },
+            "report": {
+                "status": "Planned",
+                "sourcePath": "",
+                "outputPath": "",
+                "shaderName": "",
+                "pipeline": "",
+                "unityVersion": "",
+                "aseVersion": "",
+                "templateGuid": "",
+                "sourcePipeline": "",
+                "crossPipeline": false,
+                "existingAseGraph": false,
+                "aseRoundTripPassed": false,
+                "shaderCompiled": false,
+                "visualComparisonPassed": false,
+                "targetGraph": "ShaderGraph",
+                "shaderGraphVersion": "",
+                "shaderGraphRoundTripPassed": false,
+                "standardTargetAdaptation": false,
+                "nativeNodeCount": 0,
+                "customExpressionCount": 0,
+                "propertyCount": 0,
+                "layoutApplied": false,
+                "commentCount": 0,
+                "registerNodeCount": 0,
+                "getNodeCount": 0,
+                "nativeMappings": [],
+                "fallbackReasons": [],
+                "blockers": [],
+                "warnings": []
+            }
+        }
+    },
+    "analyze": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+            "unityVersion": "",
+            "aseVersion": "",
+            "activePipeline": "",
+            "templates": [],
+            "errors": []
+        },
+        "description": {
+            "masters": [],
+            "options": []
+        },
+        "analysis": {
+            "plan": {
+                "schemaVersion": 1,
+                "shaderName": "ConverterSamples/TintedTexture_ASE",
+                "pipeline": "BuiltIn",
+                "surface": "Unlit",
+                "templateGuid": "",
+                "nodes": [
+                    {
+                        "id": "n0",
+                        "type": "TexturePropertyNode",
+                        "purpose": "Property _MainTex",
+                        "fallbackReason": "",
+                        "group": "properties",
+                        "label": "_MainTex",
+                        "x": -1500.0,
+                        "y": 0.0,
+                        "propertyName": "_MainTex",
+                        "displayName": "Texture",
+                        "value": "\"gray\" {}",
+                        "propertyKind": "2D",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n1",
+                        "type": "ColorNode",
+                        "purpose": "Property _Tint",
+                        "fallbackReason": "",
+                        "group": "properties",
+                        "label": "_Tint",
+                        "x": -1500.0,
+                        "y": 180.0,
+                        "propertyName": "_Tint",
+                        "displayName": "Tint",
+                        "value": "(1, 0.5, 0.25, 0.8)",
+                        "propertyKind": "Color",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n2",
+                        "type": "RangedFloatNode",
+                        "purpose": "Property _Strength",
+                        "fallbackReason": "",
+                        "group": "properties",
+                        "label": "_Strength",
+                        "x": -1500.0,
+                        "y": 360.0,
+                        "propertyName": "_Strength",
+                        "displayName": "Strength",
+                        "value": "1",
+                        "propertyKind": "Range",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 2.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n3",
+                        "type": "TextureCoordinatesNode",
+                        "purpose": "Vertex UV0",
+                        "fallbackReason": "",
+                        "group": "phase3",
+                        "label": "",
+                        "x": -1500.0,
+                        "y": 540.0,
+                        "propertyName": "",
+                        "displayName": "",
+                        "value": "",
+                        "propertyKind": "",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [
+                            {
+                                "name": "m_textureCoordChannel",
+                                "value": "0"
+                            }
+                        ],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n4",
+                        "type": "VertexToFragmentNode",
+                        "purpose": "Interpolate vertex UV expression i.uv",
+                        "fallbackReason": "",
+                        "group": "phase3",
+                        "label": "",
+                        "x": -1500.0,
+                        "y": 720.0,
+                        "propertyName": "",
+                        "displayName": "",
+                        "value": "",
+                        "propertyKind": "",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n5",
+                        "type": "SamplerNode",
+                        "purpose": "Texture sample",
+                        "fallbackReason": "",
+                        "group": "phase5",
+                        "label": "sampled",
+                        "x": -1500.0,
+                        "y": 900.0,
+                        "propertyName": "",
+                        "displayName": "",
+                        "value": "",
+                        "propertyKind": "",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n6",
+                        "type": "SimpleMultiplyOpNode",
+                        "purpose": "SimpleMultiplyOpNode",
+                        "fallbackReason": "",
+                        "group": "phase6",
+                        "label": "",
+                        "x": -1200.0,
+                        "y": 0.0,
+                        "propertyName": "",
+                        "displayName": "",
+                        "value": "",
+                        "propertyKind": "",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n7",
+                        "type": "SimpleMultiplyOpNode",
+                        "purpose": "SimpleMultiplyOpNode",
+                        "fallbackReason": "",
+                        "group": "phase6",
+                        "label": "",
+                        "x": -1200.0,
+                        "y": 180.0,
+                        "propertyName": "",
+                        "displayName": "",
+                        "value": "",
+                        "propertyKind": "",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n8",
+                        "type": "SwizzleNode",
+                        "purpose": "Swizzle xyz",
+                        "fallbackReason": "",
+                        "group": "phase6",
+                        "label": "",
+                        "x": -1200.0,
+                        "y": 360.0,
+                        "propertyName": "",
+                        "displayName": "",
+                        "value": "",
+                        "propertyKind": "",
+                        "swizzle": "xyz",
+                        "code": "",
+                        "outputType": "FLOAT3",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n9",
+                        "type": "SwizzleNode",
+                        "purpose": "Swizzle w",
+                        "fallbackReason": "",
+                        "group": "phase6",
+                        "label": "",
+                        "x": -1200.0,
+                        "y": 540.0,
+                        "propertyName": "",
+                        "displayName": "",
+                        "value": "",
+                        "propertyKind": "",
+                        "swizzle": "w",
+                        "code": "",
+                        "outputType": "FLOAT",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    }
+                ],
+                "wires": [
+                    {
+                        "from": "n3",
+                        "fromPort": "0",
+                        "to": "n4",
+                        "toPort": "0"
+                    },
+                    {
+                        "from": "n0",
+                        "fromPort": "0",
+                        "to": "n5",
+                        "toPort": "0"
+                    },
+                    {
+                        "from": "n4",
+                        "fromPort": "0",
+                        "to": "n5",
+                        "toPort": "1"
+                    },
+                    {
+                        "from": "n5",
+                        "fromPort": "0",
+                        "to": "n6",
+                        "toPort": "0"
+                    },
+                    {
+                        "from": "n1",
+                        "fromPort": "0",
+                        "to": "n6",
+                        "toPort": "1"
+                    },
+                    {
+                        "from": "n6",
+                        "fromPort": "0",
+                        "to": "n7",
+                        "toPort": "0"
+                    },
+                    {
+                        "from": "n2",
+                        "fromPort": "0",
+                        "to": "n7",
+                        "toPort": "1"
+                    },
+                    {
+                        "from": "n7",
+                        "fromPort": "0",
+                        "to": "n8",
+                        "toPort": "0"
+                    },
+                    {
+                        "from": "n7",
+                        "fromPort": "0",
+                        "to": "n9",
+                        "toPort": "0"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "node": "n8",
+                        "port": "0",
+                        "masterPort": "Color",
+                        "pass": ""
+                    },
+                    {
+                        "node": "n9",
+                        "port": "0",
+                        "masterPort": "Alpha",
+                        "pass": ""
+                    }
+                ],
+                "masterSettings": [
+                    {
+                        "name": "option:  Keep Alpha",
+                        "value": "true"
+                    },
+                    {
+                        "name": "option:Cast Shadows",
+                        "value": "false"
+                    }
+                ],
+                "presentation": {
+                    "autoLayout": true,
+                    "addComments": true,
+                    "useRegisters": true,
+                    "longWireDistance": 1800.0,
+                    "maxRegisters": 24
+                },
+                "comments": [
+                    {
+                        "id": "properties",
+                        "title": "材质输入",
+                        "text": "这些属性提供纹理、颜色和参数；属性名与原 Shader 一致。"
+                    },
+                    {
+                        "id": "phase3",
+                        "title": "计算 顶点 UV 与插值",
+                        "text": "在顶点阶段计算原 UV 表达式，再插值到片元；保留纹理 ST、时间分量和源 TEXCOORD 通道。"
+                    },
+                    {
+                        "id": "phase5",
+                        "title": "计算 sampled",
+                        "text": "按 UV 采样纹理。表达式：tex2D(_MainTex, i.uv)"
+                    },
+                    {
+                        "id": "phase6",
+                        "title": "计算 最终颜色与透明度",
+                        "text": "按连线计算并传递结果。表达式：sampled * _Tint * _Strength 输出到主节点的颜色和 Alpha。"
+                    }
+                ]
+            },
+            "report": {
+                "status": "Planned",
+                "sourcePath": "Assets/TintedTexture.shader",
+                "outputPath": "",
+                "shaderName": "ConverterSamples/TintedTexture_ASE",
+                "pipeline": "BuiltIn",
+                "unityVersion": "",
+                "aseVersion": "",
+                "templateGuid": "",
+                "sourcePipeline": "BuiltIn",
+                "crossPipeline": false,
+                "existingAseGraph": false,
+                "aseRoundTripPassed": false,
+                "shaderCompiled": false,
+                "visualComparisonPassed": false,
+                "targetGraph": "ASE",
+                "shaderGraphVersion": "",
+                "shaderGraphRoundTripPassed": false,
+                "standardTargetAdaptation": false,
+                "nativeNodeCount": 10,
+                "customExpressionCount": 0,
+                "propertyCount": 3,
+                "layoutApplied": false,
+                "commentCount": 0,
+                "registerNodeCount": 0,
+                "getNodeCount": 0,
+                "nativeMappings": [
+                    "Property _MainTex -> TexturePropertyNode",
+                    "Property _Tint -> ColorNode",
+                    "Property _Strength -> RangedFloatNode",
+                    "Vertex UV0 -> TextureCoordinatesNode",
+                    "Interpolate vertex UV expression i.uv -> VertexToFragmentNode",
+                    "Texture sample -> SamplerNode",
+                    "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+                    "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+                    "Swizzle xyz -> SwizzleNode",
+                    "Swizzle w -> SwizzleNode"
+                ],
+                "fallbackReasons": [],
+                "blockers": [],
+                "warnings": [
+                    "A plan is not a validated ASE shader. Generate and reload it in the target Unity/ASE environment, then compare rendering with the source."
+                ]
+            },
+            "knowledge": {
+                "libraryVersion": "0.3.6",
+                "classification": "Handwritten",
+                "sourceSignature": "4b71110427d6f13485a720fb5b33fa507ca3d412e236f958fe8f7c24c7c687d9",
+                "referenceFile": "",
+                "referenceNotes": "",
+                "explicitPassCount": 1,
+                "surfaceShader": false,
+                "graph": {
+                    "present": false,
+                    "complete": false,
+                    "version": "",
+                    "nodeCount": 0,
+                    "wireCount": 0,
+                    "customExpressionCount": 0,
+                    "nodeTypes": [],
+                    "templateGuids": [],
+                    "functionGuids": []
+                },
+                "sourceGraph": {
+                    "format": "",
+                    "status": "AnalysisOnly",
+                    "target": "",
+                    "sourcePipeline": "Unknown",
+                    "nodeCount": 0,
+                    "edgeCount": 0,
+                    "keywordCount": 0,
+                    "groupCount": 0,
+                    "noteCount": 0,
+                    "properties": [],
+                    "blocks": [],
+                    "nodeTypes": [],
+                    "dependencies": [],
+                    "targetSettings": [],
+                    "blockers": []
+                },
+                "rules": [
+                    {
+                        "id": "pipeline-contract",
+                        "title": "源管线与三条目标管线检查",
+                        "implementation": "AnalysisRule",
+                        "recipe": "分别检测源管线并独立分析 Built-in、URP、HDRP；仅共用可移植的数值图，逐目标检查模板和状态契约。",
+                        "nativeNodes": [],
+                        "preserve": [
+                            "实际 RenderPipeline Tag 和 include",
+                            "源 HDRP 曝光与 Pass 不因目标改成 Built-in 而消失",
+                            "混合管线不能靠目标选项消除",
+                            "分析不等于生成验证"
+                        ],
+                        "validation": [
+                            "三条管线分别报告",
+                            "源 HDRP 向三个目标均保留审查",
+                            "注释和 Shader 名不影响检测",
+                            "目标项目 probe/describe 和真实生成另验"
+                        ]
+                    },
+                    {
+                        "id": "dependency-stage-contract",
+                        "title": "依赖、指令与阶段入口审查",
+                        "implementation": "AnalysisRule",
+                        "recipe": "统一识别 # 后空白的指令，审核引号及尖括号 include；宏路径、续行、include_with_pragmas 等保持阻塞。入口必须唯一定义；禁止辅助函数覆盖已映射的内置坐标变换。",
+                        "nativeNodes": [],
+                        "preserve": [
+                            "完整依赖路径",
+                            "未知 include 不静默丢弃",
+                            "续行先于注释处理",
+                            "顶点单一末尾 return 与赋值顺序",
+                            "入口重载审查",
+                            "原有管线、属性和 Pass 阻塞继续生效"
+                        ],
+                        "validation": [
+                            "合法空白指令和已知 include 可规划",
+                            "未知依赖、宏路径、变体与目标不被绕过",
+                            "内置变换覆盖和提前 return 阻塞",
+                            "三目标合成契约回归",
+                            "ASE 保存重载与画面另验"
+                        ]
+                    },
+                    {
+                        "id": "performance-evidence",
+                        "title": "画质与 GPU 成本评估",
+                        "implementation": "RecipeRecorded",
+                        "recipe": "先保持行为，再按目标设备测 GPU 时间、带宽、overdraw、变体和画质误差；静态源码只能提示成本，不能给出性能优胜结论。",
+                        "nativeNodes": [],
+                        "preserve": [
+                            "采样调用位置不等于每像素采样次数",
+                            "include、循环与分支会改变工作量",
+                            "Register/Get 整理连线不保证减少 GPU 指令",
+                            "避免用未经比较的便宜算法替换原效果"
+                        ],
+                        "validation": [
+                            "固定场景和分辨率",
+                            "GPU 型号/API/管线",
+                            "GPU 中位数与高分位时间",
+                            "移动端热稳定",
+                            "材质画面对比"
+                        ]
+                    }
+                ],
+                "notes": [
+                    "已记录的语义方案不等于自动支持；未实现的模板、阶段与状态仍由原分析器阻塞。"
+                ],
+                "materialCategories": [],
+                "characterMaterials": [],
+                "performance": {
+                    "status": "NotBenchmarked",
+                    "directTextureSampleSites": 1,
+                    "loopSites": 0,
+                    "explicitPasses": 1,
+                    "includesMayAddWork": true,
+                    "observations": [
+                        "静态调用位置不是运行次数；include、循环、宏和分支未经展开。性能尚未在目标 GPU 上测量。"
+                    ]
+                }
+            }
+        },
+        "report": {
+            "status": "Planned",
+            "sourcePath": "Assets/TintedTexture.shader",
+            "outputPath": "",
+            "shaderName": "ConverterSamples/TintedTexture_ASE",
+            "pipeline": "BuiltIn",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "BuiltIn",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "targetGraph": "ASE",
+            "shaderGraphVersion": "",
+            "shaderGraphRoundTripPassed": false,
+            "standardTargetAdaptation": false,
+            "nativeNodeCount": 10,
+            "customExpressionCount": 0,
+            "propertyCount": 3,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [
+                "Property _MainTex -> TexturePropertyNode",
+                "Property _Tint -> ColorNode",
+                "Property _Strength -> RangedFloatNode",
+                "Vertex UV0 -> TextureCoordinatesNode",
+                "Interpolate vertex UV expression i.uv -> VertexToFragmentNode",
+                "Texture sample -> SamplerNode",
+                "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+                "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+                "Swizzle xyz -> SwizzleNode",
+                "Swizzle w -> SwizzleNode"
+            ],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": [
+                "A plan is not a validated ASE shader. Generate and reload it in the target Unity/ASE environment, then compare rendering with the source."
+            ]
+        },
+        "ruleLibrary": {
+            "version": "0.3.6",
+            "rules": [],
+            "references": [],
+            "publicSources": [],
+            "categories": [],
+            "characterProfiles": []
+        },
+        "shaderLibrary": {
+            "version": "0.3.6",
+            "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+            "entries": [],
+            "research": [],
+            "familyContracts": []
+        },
+        "targetAnalyses": [],
+        "shaderGraphEnvironment": {
+            "unityVersion": "",
+            "shaderGraphVersion": "",
+            "urpVersion": "",
+            "activePipeline": "",
+            "errors": [],
+            "supportedNodes": [
+                "Vector1Node",
+                "Vector2Node",
+                "Vector3Node",
+                "Vector4Node",
+                "PropertyNode",
+                "AddNode",
+                "SubtractNode",
+                "MultiplyNode",
+                "DivideNode",
+                "SaturateNode",
+                "AbsoluteNode",
+                "NegateNode",
+                "SineNode",
+                "CosineNode",
+                "FloorNode",
+                "CeilingNode",
+                "FractionNode",
+                "SquareRootNode",
+                "PowerNode",
+                "MinimumNode",
+                "MaximumNode",
+                "LerpNode",
+                "SwizzleNode",
+                "CombineNode",
+                "UVNode",
+                "SampleTexture2DNode"
+            ]
+        },
+        "shaderGraphDescription": [],
+        "shaderGraphAnalysis": {
+            "plan": {
+                "schemaVersion": 1,
+                "pipeline": "URP",
+                "surface": "Unlit",
+                "shaderPath": "ShaderConverter",
+                "acceptStandardUrpUnlitTarget": false,
+                "nodes": [],
+                "edges": [],
+                "colorNode": "",
+                "colorSlot": 0
+            },
+            "report": {
+                "status": "Planned",
+                "sourcePath": "",
+                "outputPath": "",
+                "shaderName": "",
+                "pipeline": "",
+                "unityVersion": "",
+                "aseVersion": "",
+                "templateGuid": "",
+                "sourcePipeline": "",
+                "crossPipeline": false,
+                "existingAseGraph": false,
+                "aseRoundTripPassed": false,
+                "shaderCompiled": false,
+                "visualComparisonPassed": false,
+                "targetGraph": "ShaderGraph",
+                "shaderGraphVersion": "",
+                "shaderGraphRoundTripPassed": false,
+                "standardTargetAdaptation": false,
+                "nativeNodeCount": 0,
+                "customExpressionCount": 0,
+                "propertyCount": 0,
+                "layoutApplied": false,
+                "commentCount": 0,
+                "registerNodeCount": 0,
+                "getNodeCount": 0,
+                "nativeMappings": [],
+                "fallbackReasons": [],
+                "blockers": [],
+                "warnings": []
+            }
+        }
+    },
+    "generate": {
+        "schemaVersion": 1,
+        "success": true,
+        "error": "",
+        "environment": {
+            "unityVersion": "",
+            "aseVersion": "",
+            "activePipeline": "",
+            "templates": [],
+            "errors": []
+        },
+        "description": {
+            "masters": [],
+            "options": []
+        },
+        "analysis": {
+            "plan": {
+                "schemaVersion": 1,
+                "shaderName": "ConverterSamples/TintedTexture_ASE",
+                "pipeline": "BuiltIn",
+                "surface": "Unlit",
+                "templateGuid": "",
+                "nodes": [
+                    {
+                        "id": "n0",
+                        "type": "TexturePropertyNode",
+                        "purpose": "Property _MainTex",
+                        "fallbackReason": "",
+                        "group": "properties",
+                        "label": "_MainTex",
+                        "x": 950.0,
+                        "y": 115.0,
+                        "propertyName": "_MainTex",
+                        "displayName": "Texture",
+                        "value": "\"gray\" {}",
+                        "propertyKind": "2D",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n1",
+                        "type": "ColorNode",
+                        "purpose": "Property _Tint",
+                        "fallbackReason": "",
+                        "group": "properties",
+                        "label": "_Tint",
+                        "x": 50.0,
+                        "y": 115.0,
+                        "propertyName": "_Tint",
+                        "displayName": "Tint",
+                        "value": "(1, 0.5, 0.25, 0.8)",
+                        "propertyKind": "Color",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n2",
+                        "type": "RangedFloatNode",
+                        "purpose": "Property _Strength",
+                        "fallbackReason": "",
+                        "group": "properties",
+                        "label": "_Strength",
+                        "x": 50.0,
+                        "y": 360.0,
+                        "propertyName": "_Strength",
+                        "displayName": "Strength",
+                        "value": "1",
+                        "propertyKind": "Range",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 2.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n3",
+                        "type": "TextureCoordinatesNode",
+                        "purpose": "Vertex UV0",
+                        "fallbackReason": "",
+                        "group": "phase3",
+                        "label": "",
+                        "x": 50.0,
+                        "y": 850.0,
+                        "propertyName": "",
+                        "displayName": "",
+                        "value": "",
+                        "propertyKind": "",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [
+                            {
+                                "name": "m_textureCoordChannel",
+                                "value": "0"
+                            }
+                        ],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n4",
+                        "type": "VertexToFragmentNode",
+                        "purpose": "Interpolate vertex UV expression i.uv",
+                        "fallbackReason": "",
+                        "group": "phase3",
+                        "label": "",
+                        "x": 390.0,
+                        "y": 850.0,
+                        "propertyName": "",
+                        "displayName": "",
+                        "value": "",
+                        "propertyKind": "",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n5",
+                        "type": "SamplerNode",
+                        "purpose": "Texture sample",
+                        "fallbackReason": "",
+                        "group": "phase5",
+                        "label": "sampled",
+                        "x": 1290.0,
+                        "y": 115.0,
+                        "propertyName": "",
+                        "displayName": "",
+                        "value": "",
+                        "propertyKind": "",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n6",
+                        "type": "SimpleMultiplyOpNode",
+                        "purpose": "SimpleMultiplyOpNode",
+                        "fallbackReason": "",
+                        "group": "phase6",
+                        "label": "",
+                        "x": 1850.0,
+                        "y": 115.0,
+                        "propertyName": "",
+                        "displayName": "",
+                        "value": "",
+                        "propertyKind": "",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n7",
+                        "type": "SimpleMultiplyOpNode",
+                        "purpose": "SimpleMultiplyOpNode",
+                        "fallbackReason": "",
+                        "group": "phase6",
+                        "label": "",
+                        "x": 2190.0,
+                        "y": 115.0,
+                        "propertyName": "",
+                        "displayName": "",
+                        "value": "",
+                        "propertyKind": "",
+                        "swizzle": "",
+                        "code": "",
+                        "outputType": "",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n8",
+                        "type": "SwizzleNode",
+                        "purpose": "Swizzle xyz",
+                        "fallbackReason": "",
+                        "group": "phase6",
+                        "label": "",
+                        "x": 2530.0,
+                        "y": 115.0,
+                        "propertyName": "",
+                        "displayName": "",
+                        "value": "",
+                        "propertyKind": "",
+                        "swizzle": "xyz",
+                        "code": "",
+                        "outputType": "FLOAT3",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    },
+                    {
+                        "id": "n9",
+                        "type": "SwizzleNode",
+                        "purpose": "Swizzle w",
+                        "fallbackReason": "",
+                        "group": "phase6",
+                        "label": "",
+                        "x": 2530.0,
+                        "y": 360.0,
+                        "propertyName": "",
+                        "displayName": "",
+                        "value": "",
+                        "propertyKind": "",
+                        "swizzle": "w",
+                        "code": "",
+                        "outputType": "FLOAT",
+                        "rangeMin": 0.0,
+                        "rangeMax": 0.0,
+                        "settings": [],
+                        "customInputs": []
+                    }
+                ],
+                "wires": [
+                    {
+                        "from": "n3",
+                        "fromPort": "0",
+                        "to": "n4",
+                        "toPort": "0"
+                    },
+                    {
+                        "from": "n0",
+                        "fromPort": "0",
+                        "to": "n5",
+                        "toPort": "0"
+                    },
+                    {
+                        "from": "n4",
+                        "fromPort": "0",
+                        "to": "n5",
+                        "toPort": "1"
+                    },
+                    {
+                        "from": "n5",
+                        "fromPort": "0",
+                        "to": "n6",
+                        "toPort": "0"
+                    },
+                    {
+                        "from": "n1",
+                        "fromPort": "0",
+                        "to": "n6",
+                        "toPort": "1"
+                    },
+                    {
+                        "from": "n6",
+                        "fromPort": "0",
+                        "to": "n7",
+                        "toPort": "0"
+                    },
+                    {
+                        "from": "n2",
+                        "fromPort": "0",
+                        "to": "n7",
+                        "toPort": "1"
+                    },
+                    {
+                        "from": "n7",
+                        "fromPort": "0",
+                        "to": "n8",
+                        "toPort": "0"
+                    },
+                    {
+                        "from": "n7",
+                        "fromPort": "0",
+                        "to": "n9",
+                        "toPort": "0"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "node": "n8",
+                        "port": "0",
+                        "masterPort": "Color",
+                        "pass": ""
+                    },
+                    {
+                        "node": "n9",
+                        "port": "0",
+                        "masterPort": "Alpha",
+                        "pass": ""
+                    }
+                ],
+                "masterSettings": [
+                    {
+                        "name": "option:  Keep Alpha",
+                        "value": "true"
+                    },
+                    {
+                        "name": "option:Cast Shadows",
+                        "value": "false"
+                    }
+                ],
+                "presentation": {
+                    "autoLayout": true,
+                    "addComments": true,
+                    "useRegisters": true,
+                    "longWireDistance": 1800.0,
+                    "maxRegisters": 24
+                },
+                "comments": [
+                    {
+                        "id": "properties",
+                        "title": "材质输入",
+                        "text": "这些属性提供纹理、颜色和参数；属性名与原 Shader 一致。"
+                    },
+                    {
+                        "id": "phase3",
+                        "title": "计算 顶点 UV 与插值",
+                        "text": "在顶点阶段计算原 UV 表达式，再插值到片元；保留纹理 ST、时间分量和源 TEXCOORD 通道。"
+                    },
+                    {
+                        "id": "phase5",
+                        "title": "计算 sampled",
+                        "text": "按 UV 采样纹理。表达式：tex2D(_MainTex, i.uv)"
+                    },
+                    {
+                        "id": "phase6",
+                        "title": "计算 最终颜色与透明度",
+                        "text": "按连线计算并传递结果。表达式：sampled * _Tint * _Strength 输出到主节点的颜色和 Alpha。"
+                    }
+                ]
+            },
+            "report": {
+                "status": "Generated",
+                "sourcePath": "Assets/TintedTexture.shader",
+                "outputPath": "Assets/AgentInbox_e7eaa7e4e28049dabf43e29e7fec27df.shader",
+                "shaderName": "ConverterSamples/TintedTexture_ASE",
+                "pipeline": "BuiltIn",
+                "unityVersion": "2022.3.10f1",
+                "aseVersion": "1.9.9.13",
+                "templateGuid": "0770190933193b94aaa3065e307002fa",
+                "sourcePipeline": "BuiltIn",
+                "crossPipeline": false,
+                "existingAseGraph": false,
+                "aseRoundTripPassed": true,
+                "shaderCompiled": true,
+                "visualComparisonPassed": false,
+                "targetGraph": "ASE",
+                "shaderGraphVersion": "",
+                "shaderGraphRoundTripPassed": false,
+                "standardTargetAdaptation": false,
+                "nativeNodeCount": 12,
+                "customExpressionCount": 0,
+                "propertyCount": 3,
+                "layoutApplied": true,
+                "commentCount": 4,
+                "registerNodeCount": 1,
+                "getNodeCount": 1,
+                "nativeMappings": [
+                    "Property _MainTex -> TexturePropertyNode",
+                    "Property _Tint -> ColorNode",
+                    "Property _Strength -> RangedFloatNode",
+                    "Vertex UV0 -> TextureCoordinatesNode",
+                    "Interpolate vertex UV expression i.uv -> VertexToFragmentNode",
+                    "Texture sample -> SamplerNode",
+                    "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+                    "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+                    "Swizzle xyz -> SwizzleNode",
+                    "Swizzle w -> SwizzleNode"
+                ],
+                "fallbackReasons": [],
+                "blockers": [],
+                "warnings": [
+                    "A plan is not a validated ASE shader. Generate and reload it in the target Unity/ASE environment, then compare rendering with the source.",
+                    "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+                ]
+            },
+            "knowledge": {
+                "libraryVersion": "0.3.6",
+                "classification": "Handwritten",
+                "sourceSignature": "4b71110427d6f13485a720fb5b33fa507ca3d412e236f958fe8f7c24c7c687d9",
+                "referenceFile": "",
+                "referenceNotes": "",
+                "explicitPassCount": 1,
+                "surfaceShader": false,
+                "graph": {
+                    "present": false,
+                    "complete": false,
+                    "version": "",
+                    "nodeCount": 0,
+                    "wireCount": 0,
+                    "customExpressionCount": 0,
+                    "nodeTypes": [],
+                    "templateGuids": [],
+                    "functionGuids": []
+                },
+                "sourceGraph": {
+                    "format": "",
+                    "status": "AnalysisOnly",
+                    "target": "",
+                    "sourcePipeline": "Unknown",
+                    "nodeCount": 0,
+                    "edgeCount": 0,
+                    "keywordCount": 0,
+                    "groupCount": 0,
+                    "noteCount": 0,
+                    "properties": [],
+                    "blocks": [],
+                    "nodeTypes": [],
+                    "dependencies": [],
+                    "targetSettings": [],
+                    "blockers": []
+                },
+                "rules": [
+                    {
+                        "id": "pipeline-contract",
+                        "title": "源管线与三条目标管线检查",
+                        "implementation": "AnalysisRule",
+                        "recipe": "分别检测源管线并独立分析 Built-in、URP、HDRP；仅共用可移植的数值图，逐目标检查模板和状态契约。",
+                        "nativeNodes": [],
+                        "preserve": [
+                            "实际 RenderPipeline Tag 和 include",
+                            "源 HDRP 曝光与 Pass 不因目标改成 Built-in 而消失",
+                            "混合管线不能靠目标选项消除",
+                            "分析不等于生成验证"
+                        ],
+                        "validation": [
+                            "三条管线分别报告",
+                            "源 HDRP 向三个目标均保留审查",
+                            "注释和 Shader 名不影响检测",
+                            "目标项目 probe/describe 和真实生成另验"
+                        ]
+                    },
+                    {
+                        "id": "dependency-stage-contract",
+                        "title": "依赖、指令与阶段入口审查",
+                        "implementation": "AnalysisRule",
+                        "recipe": "统一识别 # 后空白的指令，审核引号及尖括号 include；宏路径、续行、include_with_pragmas 等保持阻塞。入口必须唯一定义；禁止辅助函数覆盖已映射的内置坐标变换。",
+                        "nativeNodes": [],
+                        "preserve": [
+                            "完整依赖路径",
+                            "未知 include 不静默丢弃",
+                            "续行先于注释处理",
+                            "顶点单一末尾 return 与赋值顺序",
+                            "入口重载审查",
+                            "原有管线、属性和 Pass 阻塞继续生效"
+                        ],
+                        "validation": [
+                            "合法空白指令和已知 include 可规划",
+                            "未知依赖、宏路径、变体与目标不被绕过",
+                            "内置变换覆盖和提前 return 阻塞",
+                            "三目标合成契约回归",
+                            "ASE 保存重载与画面另验"
+                        ]
+                    },
+                    {
+                        "id": "performance-evidence",
+                        "title": "画质与 GPU 成本评估",
+                        "implementation": "RecipeRecorded",
+                        "recipe": "先保持行为，再按目标设备测 GPU 时间、带宽、overdraw、变体和画质误差；静态源码只能提示成本，不能给出性能优胜结论。",
+                        "nativeNodes": [],
+                        "preserve": [
+                            "采样调用位置不等于每像素采样次数",
+                            "include、循环与分支会改变工作量",
+                            "Register/Get 整理连线不保证减少 GPU 指令",
+                            "避免用未经比较的便宜算法替换原效果"
+                        ],
+                        "validation": [
+                            "固定场景和分辨率",
+                            "GPU 型号/API/管线",
+                            "GPU 中位数与高分位时间",
+                            "移动端热稳定",
+                            "材质画面对比"
+                        ]
+                    }
+                ],
+                "notes": [
+                    "已记录的语义方案不等于自动支持；未实现的模板、阶段与状态仍由原分析器阻塞。"
+                ],
+                "materialCategories": [],
+                "characterMaterials": [],
+                "performance": {
+                    "status": "NotBenchmarked",
+                    "directTextureSampleSites": 1,
+                    "loopSites": 0,
+                    "explicitPasses": 1,
+                    "includesMayAddWork": true,
+                    "observations": [
+                        "静态调用位置不是运行次数；include、循环、宏和分支未经展开。性能尚未在目标 GPU 上测量。"
+                    ]
+                }
+            }
+        },
+        "report": {
+            "status": "Generated",
+            "sourcePath": "Assets/TintedTexture.shader",
+            "outputPath": "Assets/AgentInbox_e7eaa7e4e28049dabf43e29e7fec27df.shader",
+            "shaderName": "ConverterSamples/TintedTexture_ASE",
+            "pipeline": "BuiltIn",
+            "unityVersion": "2022.3.10f1",
+            "aseVersion": "1.9.9.13",
+            "templateGuid": "0770190933193b94aaa3065e307002fa",
+            "sourcePipeline": "BuiltIn",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": true,
+            "shaderCompiled": true,
+            "visualComparisonPassed": false,
+            "targetGraph": "ASE",
+            "shaderGraphVersion": "",
+            "shaderGraphRoundTripPassed": false,
+            "standardTargetAdaptation": false,
+            "nativeNodeCount": 12,
+            "customExpressionCount": 0,
+            "propertyCount": 3,
+            "layoutApplied": true,
+            "commentCount": 4,
+            "registerNodeCount": 1,
+            "getNodeCount": 1,
+            "nativeMappings": [
+                "Property _MainTex -> TexturePropertyNode",
+                "Property _Tint -> ColorNode",
+                "Property _Strength -> RangedFloatNode",
+                "Vertex UV0 -> TextureCoordinatesNode",
+                "Interpolate vertex UV expression i.uv -> VertexToFragmentNode",
+                "Texture sample -> SamplerNode",
+                "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+                "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+                "Swizzle xyz -> SwizzleNode",
+                "Swizzle w -> SwizzleNode"
+            ],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": [
+                "A plan is not a validated ASE shader. Generate and reload it in the target Unity/ASE environment, then compare rendering with the source.",
+                "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+            ]
+        },
+        "ruleLibrary": {
+            "version": "0.3.6",
+            "rules": [],
+            "references": [],
+            "publicSources": [],
+            "categories": [],
+            "characterProfiles": []
+        },
+        "shaderLibrary": {
+            "version": "0.3.6",
+            "scope": "ASE save/reload and compilation are verified per entry. Source assets, host setup and visual equivalence require separate validation.",
+            "entries": [],
+            "research": [],
+            "familyContracts": []
+        },
+        "targetAnalyses": [],
+        "shaderGraphEnvironment": {
+            "unityVersion": "",
+            "shaderGraphVersion": "",
+            "urpVersion": "",
+            "activePipeline": "",
+            "errors": [],
+            "supportedNodes": [
+                "Vector1Node",
+                "Vector2Node",
+                "Vector3Node",
+                "Vector4Node",
+                "PropertyNode",
+                "AddNode",
+                "SubtractNode",
+                "MultiplyNode",
+                "DivideNode",
+                "SaturateNode",
+                "AbsoluteNode",
+                "NegateNode",
+                "SineNode",
+                "CosineNode",
+                "FloorNode",
+                "CeilingNode",
+                "FractionNode",
+                "SquareRootNode",
+                "PowerNode",
+                "MinimumNode",
+                "MaximumNode",
+                "LerpNode",
+                "SwizzleNode",
+                "CombineNode",
+                "UVNode",
+                "SampleTexture2DNode"
+            ]
+        },
+        "shaderGraphDescription": [],
+        "shaderGraphAnalysis": {
+            "plan": {
+                "schemaVersion": 1,
+                "pipeline": "URP",
+                "surface": "Unlit",
+                "shaderPath": "ShaderConverter",
+                "acceptStandardUrpUnlitTarget": false,
+                "nodes": [],
+                "edges": [],
+                "colorNode": "",
+                "colorSlot": 0
+            },
+            "report": {
+                "status": "Planned",
+                "sourcePath": "",
+                "outputPath": "",
+                "shaderName": "",
+                "pipeline": "",
+                "unityVersion": "",
+                "aseVersion": "",
+                "templateGuid": "",
+                "sourcePipeline": "",
+                "crossPipeline": false,
+                "existingAseGraph": false,
+                "aseRoundTripPassed": false,
+                "shaderCompiled": false,
+                "visualComparisonPassed": false,
+                "targetGraph": "ShaderGraph",
+                "shaderGraphVersion": "",
+                "shaderGraphRoundTripPassed": false,
+                "standardTargetAdaptation": false,
+                "nativeNodeCount": 0,
+                "customExpressionCount": 0,
+                "propertyCount": 0,
+                "layoutApplied": false,
+                "commentCount": 0,
+                "registerNodeCount": 0,
+                "getNodeCount": 0,
+                "nativeMappings": [],
+                "fallbackReasons": [],
+                "blockers": [],
+                "warnings": []
+            }
+        }
+    }
+}

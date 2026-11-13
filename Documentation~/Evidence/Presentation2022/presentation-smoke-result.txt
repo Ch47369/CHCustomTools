@@ -1,0 +1,1 @@
+PASS: 139 checks. UI template, native graph, comments/references, properties, 21 rendered material/variant states. Target Canvas scene not compared.

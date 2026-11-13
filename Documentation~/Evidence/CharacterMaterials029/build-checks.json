@@ -1,0 +1,19 @@
+{
+  "checkedUtc": "2026-10-22T04:59:26.148026+00:00",
+  "libraryVersion": "0.2.9",
+  "results": [
+    {
+      "command": "dotnet run --project Tests/CoreChecks.csproj --no-restore",
+      "exitCode": 0,
+      "observedOutput": "PASS: 479 checks"
+    },
+    {
+      "command": "dotnet build Tests/EditorCompile.csproj --no-restore",
+      "exitCode": 0,
+      "warnings": 0,
+      "errors": 0
+    }
+  ],
+  "execution": "Sequential; recorded from completed tool outputs",
+  "note": "Core tests and Editor C# compilation do not establish character graph generation or visual equivalence."
+}

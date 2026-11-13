@@ -1,0 +1,11 @@
+{
+  "hardwareBenchmarked": false,
+  "rules": {
+    "High": "scene input/copy dependency OR HDRP character/SSS model OR >6 sampling sites OR >180 native nodes",
+    "Medium": "transparent OR vertex animation OR >2 sampling sites OR >55 native nodes",
+    "Low": "otherwise",
+    "HDRP": "PC target only; no mobile support assertion",
+    "OtherDevices": "High -> PC; otherwise >4 sites -> Pad/PC; remaining -> Mobile/Pad/PC"
+  },
+  "notes": "Sampling counts are static graph sites, not dynamic samples/instructions. Template lights, hidden samples, passes, resolution, overdraw and hardware are not measured."
+}

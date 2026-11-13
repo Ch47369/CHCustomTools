@@ -1,0 +1,38 @@
+{
+    "status": "Generated",
+    "sourcePath": "F:\\ASEShader\\.validation\\UnityURP\\Assets\\UniversalTexture_Source.shader",
+    "outputPath": "Assets/UniversalTexture_ASE 6.shader",
+    "shaderName": "ConverterSamples/UniversalTexture_ASE",
+    "pipeline": "URP",
+    "unityVersion": "2022.3.10f1",
+    "aseVersion": "1.9.9.13",
+    "templateGuid": "2992e84f91cbeb14eab234972e07ea9d",
+    "sourcePipeline": "URP",
+    "crossPipeline": false,
+    "existingAseGraph": false,
+    "aseRoundTripPassed": true,
+    "shaderCompiled": true,
+    "visualComparisonPassed": true,
+    "nativeNodeCount": 6,
+    "customExpressionCount": 0,
+    "propertyCount": 6,
+    "layoutApplied": true,
+    "commentCount": 2,
+    "registerNodeCount": 0,
+    "getNodeCount": 0,
+    "nativeMappings": [
+        "Property _MainTex -> TexturePropertyNode",
+        "Vertex UV0 -> TextureCoordinatesNode",
+        "Interpolate vertex UV expression i.uv -> VertexToFragmentNode",
+        "Texture sample -> SamplerNode",
+        "Swizzle xyz -> SwizzleNode",
+        "Swizzle w -> SwizzleNode"
+    ],
+    "fallbackReasons": [],
+    "blockers": [],
+    "warnings": [
+        "A plan is not a validated ASE shader. Generate and reload it in the target Unity/ASE environment, then compare rendering with the source.",
+        "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline.",
+        "Pixel comparison passed for this fixture; this is not an SRP scene test."
+    ]
+}

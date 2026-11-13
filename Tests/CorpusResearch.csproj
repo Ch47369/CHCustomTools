@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CorpusResearch.cs" />
+    <Compile Include="FunctionCorpusResearch.cs" />
+    <Compile Include="SemanticCompletenessChecks.cs" />
+    <ProjectReference Include="../ASEShaderConverter.Core.csproj" />
+  </ItemGroup>
+</Project>

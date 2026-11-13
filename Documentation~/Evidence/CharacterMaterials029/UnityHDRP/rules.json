@@ -1,0 +1,1854 @@
+{
+    "schemaVersion": 1,
+    "success": true,
+    "error": "",
+    "environment": {
+        "unityVersion": "",
+        "aseVersion": "",
+        "activePipeline": "",
+        "templates": [],
+        "errors": []
+    },
+    "description": {
+        "masters": [],
+        "options": []
+    },
+    "analysis": {
+        "plan": {
+            "schemaVersion": 1,
+            "shaderName": "",
+            "pipeline": "Auto",
+            "surface": "Unlit",
+            "templateGuid": "",
+            "nodes": [],
+            "wires": [],
+            "outputs": [],
+            "masterSettings": [],
+            "presentation": {
+                "autoLayout": true,
+                "addComments": true,
+                "useRegisters": true,
+                "longWireDistance": 1800.0,
+                "maxRegisters": 24
+            },
+            "comments": []
+        },
+        "report": {
+            "status": "Planned",
+            "sourcePath": "",
+            "outputPath": "",
+            "shaderName": "",
+            "pipeline": "",
+            "unityVersion": "",
+            "aseVersion": "",
+            "templateGuid": "",
+            "sourcePipeline": "",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": false,
+            "shaderCompiled": false,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 0,
+            "customExpressionCount": 0,
+            "propertyCount": 0,
+            "layoutApplied": false,
+            "commentCount": 0,
+            "registerNodeCount": 0,
+            "getNodeCount": 0,
+            "nativeMappings": [],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": []
+        },
+        "knowledge": {
+            "libraryVersion": "0.2.9",
+            "classification": "Handwritten",
+            "sourceSignature": "",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 0,
+            "surfaceShader": false,
+            "graph": {
+                "present": false,
+                "complete": false,
+                "version": "",
+                "nodeCount": 0,
+                "wireCount": 0,
+                "customExpressionCount": 0,
+                "nodeTypes": [],
+                "templateGuids": [],
+                "functionGuids": []
+            },
+            "rules": [],
+            "notes": [],
+            "materialCategories": [],
+            "characterMaterials": [],
+            "performance": {
+                "status": "NotBenchmarked",
+                "directTextureSampleSites": 0,
+                "loopSites": 0,
+                "explicitPasses": 0,
+                "includesMayAddWork": false,
+                "observations": []
+            }
+        }
+    },
+    "report": {
+        "status": "Planned",
+        "sourcePath": "",
+        "outputPath": "",
+        "shaderName": "",
+        "pipeline": "",
+        "unityVersion": "",
+        "aseVersion": "",
+        "templateGuid": "",
+        "sourcePipeline": "",
+        "crossPipeline": false,
+        "existingAseGraph": false,
+        "aseRoundTripPassed": false,
+        "shaderCompiled": false,
+        "visualComparisonPassed": false,
+        "nativeNodeCount": 0,
+        "customExpressionCount": 0,
+        "propertyCount": 0,
+        "layoutApplied": false,
+        "commentCount": 0,
+        "registerNodeCount": 0,
+        "getNodeCount": 0,
+        "nativeMappings": [],
+        "fallbackReasons": [],
+        "blockers": [],
+        "warnings": []
+    },
+    "ruleLibrary": {
+        "version": "0.2.9",
+        "rules": [
+            {
+                "id": "ase-migration",
+                "title": "已有 ASE 图与依赖",
+                "implementation": "AseMigration",
+                "recipe": "由 ASE 打开并迁移完整图；分析元数据只用于清点，不重建生成的 HLSL。",
+                "nativeNodes": [],
+                "preserve": [
+                    "图版本",
+                    "全部 Master 和 Pass",
+                    "Function 子图 GUID",
+                    "模板 GUID",
+                    "节点设置和原有连线"
+                ],
+                "validation": [
+                    "目标 ASE 能加载全部节点和依赖",
+                    "保存重载",
+                    "编译各 Pass",
+                    "场景比较"
+                ]
+            },
+            {
+                "id": "pure-functions",
+                "title": "纯数学辅助函数",
+                "implementation": "NativePlanner",
+                "recipe": "按值绑定参数、隔离局部作用域，将可解析的函数体内联为原生数学节点；不按文件名或源码签名授权。",
+                "nativeNodes": [
+                    "SimpleAddOpNode",
+                    "SimpleMultiplyOpNode",
+                    "DotProductOpNode",
+                    "FractNode",
+                    "LerpOp",
+                    "CosOpNode"
+                ],
+                "preserve": [
+                    "参数类型与返回宽度",
+                    "只允许局部赋值",
+                    "精确宽度重载选择",
+                    "拒绝递归、隐藏采样与全局写入",
+                    "原有渲染和顶点检查继续执行"
+                ],
+                "validation": [
+                    "调用与手动内联的数值结果一致",
+                    "不同函数名和参数名",
+                    "参数作用域互不污染",
+                    "恶意或不支持的函数仍阻塞"
+                ]
+            },
+            {
+                "id": "exact-helper-overloads",
+                "title": "按参数宽度选择辅助函数重载",
+                "implementation": "NativePlanner",
+                "recipe": "按函数名、参数数目和每个标量/向量宽度精确选择；允许不同宽度重载相互调用。",
+                "nativeNodes": [],
+                "preserve": [
+                    "拒绝精度类型同宽歧义",
+                    "拒绝隐式转换",
+                    "不能丢掉未支持的整数、资源或 out/inout 重载",
+                    "按完整签名检查递归"
+                ],
+                "validation": [
+                    "标量、float2、float4 三重载数值",
+                    "重载间调用",
+                    "重复、精度、整数和宽度不匹配拒绝"
+                ]
+            },
+            {
+                "id": "scalar-conditionals",
+                "title": "标量条件与三元选择",
+                "implementation": "NativePlanner",
+                "recipe": "把标量 >、<、>=、<=、==、!= 的纯数值三元表达式映射为原生 If，显式接入大于、等于、小于三个结果口。",
+                "nativeNodes": [
+                    "ConditionalIfNode"
+                ],
+                "preserve": [
+                    "相等边界",
+                    "分支结果宽度",
+                    "右结合嵌套",
+                    "拒绝分支采样、导数、向量谓词与副作用"
+                ],
+                "validation": [
+                    "六种比较的负、零、正边界数值",
+                    "嵌套与辅助函数",
+                    "条件采样和宽度变化拒绝"
+                ]
+            },
+            {
+                "id": "casts-intrinsics",
+                "title": "浮点显式转换与补充数学函数",
+                "implementation": "NativePlanner",
+                "recipe": "支持浮点标量复制、向量截取和同宽转换；补充 rsqrt/sign/trunc/fmod/atan/atan2/asin/acos 对应原生节点。",
+                "nativeNodes": [
+                    "SwizzleNode",
+                    "DynamicAppendNode",
+                    "RSqrtOpNode",
+                    "SignOpNode",
+                    "TruncOpNode",
+                    "FmodOpNode",
+                    "ATan2OpNode"
+                ],
+                "preserve": [
+                    "整数除法不当浮点除法",
+                    "保留 f/h 字面量",
+                    "拒绝整数转换和非法向量扩展",
+                    "fmod 的负数截断语义",
+                    "不保证 half/fixed 量化等价"
+                ],
+                "validation": [
+                    "显式截取/复制",
+                    "负数 fmod 和 trunc",
+                    "atan2 输入顺序",
+                    "非法常量与深度限制"
+                ]
+            },
+            {
+                "id": "vertex-uv-arithmetic",
+                "title": "顶点 UV 动画与阶段",
+                "implementation": "NativePlanner",
+                "recipe": "在 float2 TEXCOORD varying 的单次赋值中规划纯算术、时间与参数；由 Vertex To Fragment 在原顶点阶段求值并插值。允许 TRANSFORM_TEX 后继续组合算术。",
+                "nativeNodes": [
+                    "TextureCoordinatesNode",
+                    "TimeNode",
+                    "VertexToFragmentNode",
+                    "SinOpNode"
+                ],
+                "preserve": [
+                    "源 TEXCOORD 通道",
+                    "顶点求值顺序",
+                    "纹理 ST",
+                    "不捕获片元局部变量",
+                    "未使用的未适配赋值仍阻塞",
+                    "不把顶点位置变形冒充 UV"
+                ],
+                "validation": [
+                    "顶点滚动和正弦数值",
+                    "ST 加时间",
+                    "重复写入拒绝",
+                    "阶段隔离与未使用未知函数拒绝"
+                ]
+            },
+            {
+                "id": "pipeline-contract",
+                "title": "源管线与三条目标管线检查",
+                "implementation": "AnalysisRule",
+                "recipe": "分别检测源管线并独立分析 Built-in、URP、HDRP；仅共用可移植的数值图，逐目标检查模板和状态契约。",
+                "nativeNodes": [],
+                "preserve": [
+                    "实际 RenderPipeline Tag 和 include",
+                    "源 HDRP 曝光与 Pass 不因目标改成 Built-in 而消失",
+                    "混合管线不能靠目标选项消除",
+                    "分析不等于生成验证"
+                ],
+                "validation": [
+                    "三条管线分别报告",
+                    "源 HDRP 向三个目标均保留审查",
+                    "注释和 Shader 名不影响检测",
+                    "目标项目 probe/describe 和真实生成另验"
+                ]
+            },
+            {
+                "id": "dependency-stage-contract",
+                "title": "依赖、指令与阶段入口审查",
+                "implementation": "AnalysisRule",
+                "recipe": "统一识别 # 后空白的指令，审核引号及尖括号 include；宏路径、续行、include_with_pragmas 等保持阻塞。入口必须唯一定义；禁止辅助函数覆盖已映射的内置坐标变换。",
+                "nativeNodes": [],
+                "preserve": [
+                    "完整依赖路径",
+                    "未知 include 不静默丢弃",
+                    "续行先于注释处理",
+                    "顶点单一末尾 return 与赋值顺序",
+                    "入口重载审查",
+                    "原有管线、属性和 Pass 阻塞继续生效"
+                ],
+                "validation": [
+                    "合法空白指令和已知 include 可规划",
+                    "未知依赖、宏路径、变体与目标不被绕过",
+                    "内置变换覆盖和提前 return 阻塞",
+                    "三目标合成契约回归",
+                    "ASE 保存重载与画面另验"
+                ]
+            },
+            {
+                "id": "opaque-state-contract",
+                "title": "Built-in / URP 不透明队列与剔除",
+                "implementation": "NativePlanner",
+                "recipe": "Geometry 队列显式设为 Opaque 并校验实际模板 Tags。Built-in 静态 Cull Front/Off 使用受限模块；URP 使用已描述的 Two Sided 选项及原值。",
+                "nativeNodes": [],
+                "preserve": [
+                    "目标模板真实选项",
+                    "静态 Cull Front/Off",
+                    "重复作用域仍阻塞",
+                    "不擅自改变 Blend 或深度",
+                    "ASE API 版本与保存重载校验"
+                ],
+                "validation": [
+                    "两个目标的 Front/Off 计划",
+                    "Geometry 队列",
+                    "内联状态边界",
+                    "生成与画面需另验"
+                ]
+            },
+            {
+                "id": "ui-canvas",
+                "title": "UI / Canvas 与裁剪",
+                "implementation": "RecipeRecorded",
+                "recipe": "保留顶点色、Tint、PerRendererData、TextureSampleAdd、Stencil 与 RectMask2D，区分硬裁剪和像素大小/软度参与的软裁剪。",
+                "nativeNodes": [
+                    "VertexColorNode",
+                    "SamplerNode",
+                    "LerpOp"
+                ],
+                "preserve": [
+                    "Canvas 渲染模式",
+                    "unity_GUIZTestMode",
+                    "ColorMask",
+                    "UI 关键字",
+                    "字体 SDF 与外部图集",
+                    "Gamma/Linear 顶点色",
+                    "Alpha 精度"
+                ],
+                "validation": [
+                    "Mask 和 RectMask2D 内外",
+                    "软度与分辨率",
+                    "字体边缘",
+                    "Canvas Overlay/Camera/World",
+                    "项目实际 UI 渲染路径"
+                ]
+            },
+            {
+                "id": "ui-animation",
+                "title": "UI 动效与过渡",
+                "implementation": "RecipeRecorded",
+                "recipe": "把渐变、流光、溶解和扭曲的数值部分拆为节点，保留脚本驱动参数、关键词、额外 UV 通道、裁剪和最终 Alpha/混合。",
+                "nativeNodes": [
+                    "TimeNode",
+                    "FractNode",
+                    "SmoothstepOpNode",
+                    "LerpOp",
+                    "SamplerNode"
+                ],
+                "preserve": [
+                    "过渡速率和 0.9999 等边界系数",
+                    "遮罩与动效先后顺序",
+                    "局部坐标",
+                    "采样滤波",
+                    "SoftMask 包依赖",
+                    "原始混合因子"
+                ],
+                "validation": [
+                    "动效 0/边界/1",
+                    "暂停与反向",
+                    "滚动视图裁剪",
+                    "叠色",
+                    "Gamma/Linear",
+                    "外部驱动独立改变"
+                ]
+            },
+            {
+                "id": "vfx-particles",
+                "title": "特效与粒子数据",
+                "implementation": "RecipeRecorded",
+                "recipe": "保留 Particle System 顶点流、Custom Data、序列帧、Soft Particles、深度淡化和混合；GPU 仿真、拖尾和宿主 RT 调度独立列为依赖。",
+                "nativeNodes": [
+                    "VertexColorNode",
+                    "SamplerNode",
+                    "CameraDepthFade",
+                    "TimeNode"
+                ],
+                "preserve": [
+                    "加法/直通 Alpha/预乘各自的 RGB 和 Alpha",
+                    "粒子 UV 数据布局",
+                    "深度与相机输入",
+                    "VFX Graph/几何阶段不能只用片元图替代"
+                ],
+                "validation": [
+                    "所有启用的顶点流",
+                    "交叠和交界",
+                    "近远裁剪",
+                    "CPU/GPU 粒子",
+                    "模拟纹理生命周期",
+                    "目标管线辅助 Pass"
+                ]
+            },
+            {
+                "id": "uv-animation",
+                "title": "UV 动画分类方案",
+                "implementation": "RecipeRecorded",
+                "recipe": "区分滚动、中心旋转、序列帧、流图和扭曲。可用纯算术由通用节点规划；整数帧索引、派生采样、分支和过滤行为仍须适配。",
+                "nativeNodes": [
+                    "TimeNode",
+                    "TextureCoordinatesNode",
+                    "SinOpNode",
+                    "CosOpNode",
+                    "FloorOpNode",
+                    "FractNode"
+                ],
+                "preserve": [
+                    "源 UV 通道与阶段",
+                    "_Time 分量",
+                    "中心、方向与速度",
+                    "Atlas 格数、帧序和插帧",
+                    "ST 是否存在",
+                    "wrap/filter/mip"
+                ],
+                "validation": [
+                    "负速度",
+                    "回绕与帧边界",
+                    "非方形图集",
+                    "多通道",
+                    "顶点计算和片元计算分别验证"
+                ]
+            },
+            {
+                "id": "vertex-animation",
+                "title": "顶点动画分类方案",
+                "implementation": "RecipeRecorded",
+                "recipe": "按空间记录波浪、风摆、公告板、VAT、骨骼或 GPU 位置纹理的变形步骤。需要顶点位置、法线/切线及各辅助 Pass 的一致计划。",
+                "nativeNodes": [
+                    "PositionNode",
+                    "SinOpNode",
+                    "TimeNode",
+                    "SamplerNode",
+                    "CrossProductOpNode"
+                ],
+                "preserve": [
+                    "Object/World 空间",
+                    "绝对位置或相对偏移",
+                    "法线/切线重建",
+                    "显式顶点 LOD",
+                    "Bounds 与 Culling",
+                    "ShadowCaster/Depth/Motion Vectors",
+                    "仿真脚本与历史位置"
+                ],
+                "validation": [
+                    "非均匀缩放",
+                    "动画时刻",
+                    "边界裁剪",
+                    "阴影和深度",
+                    "运动矢量",
+                    "纹理格式及布局"
+                ]
+            },
+            {
+                "id": "bounded-loops",
+                "title": "固定次数的算术累加循环",
+                "implementation": "NativePlanner",
+                "recipe": "展开 for(int k=N; k<M; k++) 的算术累加，最多 16 次；循环体不读取计数器、不声明局部作用域、不采样、不跳转。",
+                "nativeNodes": [
+                    "SimpleAddOpNode",
+                    "SimpleMultiplyOpNode"
+                ],
+                "preserve": [
+                    "原始运算顺序",
+                    "每轮累加和频率/振幅更新",
+                    "动态循环继续阻塞",
+                    "零次循环仍审查副作用"
+                ],
+                "validation": [
+                    "0/1/3/16 次边界",
+                    "17 次拒绝",
+                    "动态界限拒绝",
+                    "break、计数器读取和纹理采样拒绝"
+                ]
+            },
+            {
+                "id": "vertex-texture-st",
+                "title": "顶点纹理 Tiling/Offset",
+                "implementation": "NativePlanner",
+                "recipe": "按 TEXCOORD 语义映射 TRANSFORM_TEX，将纹理属性接到 UV 节点 Tex 端，再经 Vertex To Fragment 保留顶点计算和插值。",
+                "nativeNodes": [
+                    "TexturePropertyNode",
+                    "TextureCoordinatesNode",
+                    "VertexToFragmentNode"
+                ],
+                "preserve": [
+                    "源 UV 通道",
+                    "实际纹理 ST",
+                    "原顶点阶段",
+                    "无 ST 的采样不得自动加 ST",
+                    "重复写入继续阻塞"
+                ],
+                "validation": [
+                    "不同属性和 UV 通道",
+                    "Tex 连线",
+                    "阶段节点",
+                    "重复写入和非法语义拒绝"
+                ]
+            },
+            {
+                "id": "unity-globals-distance",
+                "title": "时间、相机位置与距离",
+                "implementation": "NativePlanner",
+                "recipe": "_Time 映射完整四分量 Time 节点；_WorldSpaceCameraPos 映射世界相机位置；length/distance 使用对应原生节点。",
+                "nativeNodes": [
+                    "TimeNode",
+                    "WorldSpaceCameraPos",
+                    "LengthOpNode",
+                    "DistanceOpNode"
+                ],
+                "preserve": [
+                    "_Time.x=t/20、y=t、z=2t、w=3t",
+                    "坐标空间由原表达式决定",
+                    "distance 两端宽度一致"
+                ],
+                "validation": [
+                    "时间分量不互换",
+                    "距离数值",
+                    "非法宽度和纹理输入拒绝"
+                ]
+            },
+            {
+                "id": "noise-fbm",
+                "title": "确定性噪声与分层累加",
+                "implementation": "RecipeRecorded",
+                "recipe": "先内联原 hash/value-noise，再展开固定 octave。不能把不同 hash 或 value noise 替换成 ASE 的 Simplex Noise。",
+                "nativeNodes": [
+                    "FractNode",
+                    "FloorOpNode",
+                    "DotProductOpNode",
+                    "LerpOp",
+                    "SimpleMultiplyOpNode"
+                ],
+                "preserve": [
+                    "hash 常数和输入空间",
+                    "插值曲线",
+                    "每层频率、振幅与累计顺序",
+                    "时间分量"
+                ],
+                "validation": [
+                    "整数晶格及边界",
+                    "负坐标",
+                    "多个动画时刻",
+                    "像素比较"
+                ]
+            },
+            {
+                "id": "fresnel-space",
+                "title": "Fresnel、视线与彩膜",
+                "implementation": "RecipeRecorded",
+                "recipe": "保留法线和视线的坐标空间、顶点插值与片元归一化顺序；dot→saturate→1-x→pow。余弦彩膜使用原相位和频率。",
+                "nativeNodes": [
+                    "NormalizeNode",
+                    "DotProductOpNode",
+                    "SaturateNode",
+                    "OneMinusNode",
+                    "PowerNode",
+                    "CosOpNode"
+                ],
+                "preserve": [
+                    "正反面法线符号",
+                    "视线方向",
+                    "乘色、强度和 Alpha",
+                    "不提前在顶点归一化"
+                ],
+                "validation": [
+                    "非均匀缩放",
+                    "正反面",
+                    "掠射角",
+                    "不同相机位置"
+                ]
+            },
+            {
+                "id": "ordered-passes",
+                "title": "多 Pass、透明混合与回退",
+                "implementation": "RecipeRecorded",
+                "recipe": "为每个 Pass 分别记录顶点/片元输出、Cull、Blend、深度和队列，并保留执行顺序与 Fallback。",
+                "nativeNodes": [],
+                "preserve": [
+                    "内壁先、外壁后",
+                    "Pass 数量与顺序",
+                    "独立 Cull",
+                    "混合和深度",
+                    "Fallback"
+                ],
+                "validation": [
+                    "逐 Pass 编译",
+                    "正反绕序",
+                    "透明重叠",
+                    "回退资源存在"
+                ]
+            },
+            {
+                "id": "stencil-state",
+                "title": "Stencil 与材质绑定状态",
+                "implementation": "RecipeRecorded",
+                "recipe": "通过模板明确绑定 Ref/Comp/Pass/ReadMask/WriteMask，不能只复制颜色图。",
+                "nativeNodes": [],
+                "preserve": [
+                    "Stencil 的作用范围",
+                    "动态属性绑定",
+                    "Blend、ColorMask、ZWrite、ZTest",
+                    "材质属性特性"
+                ],
+                "validation": [
+                    "遮罩内外",
+                    "读写掩码",
+                    "状态动态修改"
+                ]
+            },
+            {
+                "id": "vertex-transform",
+                "title": "公告板、顶点位移与插值",
+                "implementation": "RecipeRecorded",
+                "recipe": "顶点变换需要独立阶段计划；物体原点、缩放、相机方向、叉积和轴向约束不得改成片元计算。",
+                "nativeNodes": [
+                    "PositionNode",
+                    "ObjectPositionNode",
+                    "ObjectScaleNode",
+                    "WorldSpaceCameraPos",
+                    "CrossProductOpNode"
+                ],
+                "preserve": [
+                    "局部/世界/裁剪空间",
+                    "变形顺序",
+                    "粒子自定义数据",
+                    "ShadowCaster 与主 Pass 同步"
+                ],
+                "validation": [
+                    "非均匀和负缩放",
+                    "不同相机姿态",
+                    "阴影",
+                    "批处理与实例化"
+                ]
+            },
+            {
+                "id": "pbr-outline",
+                "title": "PBR 材质输出与描边",
+                "implementation": "RecipeRecorded",
+                "recipe": "使用对应 Lit/Surface Master 的完整材质输出；描边为独立 Pass，保留膨胀方式和全部灯光/阴影等辅助 Pass。",
+                "nativeNodes": [
+                    "FresnelNode",
+                    "TransformDirectionNode",
+                    "UnpackScaleNormalNode"
+                ],
+                "preserve": [
+                    "金属/高光工作流",
+                    "法线空间",
+                    "透明与裁剪",
+                    "子图依赖",
+                    "描边 Cull/深度/Pass 顺序"
+                ],
+                "validation": [
+                    "光照和反射",
+                    "阴影与烘焙",
+                    "描边厚度",
+                    "所有材质输出"
+                ]
+            },
+            {
+                "id": "dissolve-alpha",
+                "title": "溶解、粒子与渐隐",
+                "implementation": "RecipeRecorded",
+                "recipe": "把噪声、阈值、Smoothstep 与边缘颜色拆为原生节点，并分别映射 Alpha、裁剪和混合。",
+                "nativeNodes": [
+                    "SamplerNode",
+                    "SmoothstepOpNode",
+                    "LerpOp",
+                    "VertexColorNode",
+                    "PannerNode"
+                ],
+                "preserve": [
+                    "加法或直通 Alpha 混合",
+                    "顶点色和粒子数据",
+                    "UV 动画",
+                    "裁剪阈值",
+                    "阴影 Pass"
+                ],
+                "validation": [
+                    "溶解 0/边界/1",
+                    "顶点色 Alpha",
+                    "透明重叠",
+                    "裁剪阴影"
+                ]
+            },
+            {
+                "id": "uv-rotate-fade",
+                "title": "中心旋转与物体距离渐隐",
+                "implementation": "RecipeRecorded",
+                "recipe": "UV 减中心→按原时间分量做正弦/余弦旋转→加回中心。距离使用物体原点；轴向坐标在顶点阶段选择后插值。",
+                "nativeNodes": [
+                    "TextureCoordinatesNode",
+                    "SinOpNode",
+                    "CosOpNode",
+                    "SimpleMultiplyOpNode",
+                    "LerpOp",
+                    "ConditionalIfNode"
+                ],
+                "preserve": [
+                    "_Time.x 是 t/20",
+                    "半径 0.51 外返回零 RGBA，不能替换成 clip",
+                    "动态 Blend/Cull",
+                    "连续两次 Alpha 更新和未钳制 lerp",
+                    "未使用的 _MinValue 仍保留属性",
+                    "不凭空添加纹理 ST"
+                ],
+                "validation": [
+                    "旋转正负速度",
+                    "半径边界",
+                    "距离上下界及相等",
+                    "两种轴",
+                    "各种混合模式"
+                ]
+            },
+            {
+                "id": "chroma-key",
+                "title": "YCbCr 视频抠像与羽化",
+                "implementation": "RecipeRecorded",
+                "recipe": "按原 Cb/Cr 系数计算色度距离平方，使用平方阈值求遮罩；保留 4/8 邻域、对角权重、边缘分支、去溢色和亮度补偿。",
+                "nativeNodes": [
+                    "DotProductOpNode",
+                    "SimpleSubtractOpNode",
+                    "SaturateNode",
+                    "SamplerNode",
+                    "SmoothstepOpNode",
+                    "LerpOp",
+                    "SimpleMinOpNode"
+                ],
+                "preserve": [
+                    "4 邻域系数 0.2",
+                    "8 邻域对角 0.707、总系数 0.12774655",
+                    "原 half 精度",
+                    "TexelSize 与顶点 ST",
+                    "最终 Alpha 来自 smoothedMask*TInt.a，不乘源 Alpha",
+                    "不擅加除零 epsilon"
+                ],
+                "validation": [
+                    "纯背景/前景/边缘",
+                    "阈值相等时的原行为",
+                    "不同分辨率与 ST",
+                    "低/高质量关键词分别验证",
+                    "半精度和分支内导数"
+                ]
+            },
+            {
+                "id": "keyword-binding",
+                "title": "关键词、属性与编译变体",
+                "implementation": "RecipeRecorded",
+                "recipe": "分别记录属性 Toggle 派生关键词、pragma 的 global/local 关键词及条件分支；名称不一致时报告，不能自动改名绑定。0.2.8 人工计划的 StaticSwitch 受限适配为大写 Float 属性、0/1 默认值、local shader_feature，关键词为属性名加 _ON；不表示任意源码宏已能转换。",
+                "nativeNodes": [
+                    "StaticSwitch"
+                ],
+                "preserve": [
+                    "global/local 作用域",
+                    "默认分支",
+                    "宏与关键词原名",
+                    "多 Pass 变体",
+                    "实例化与 stereo",
+                    "材质 float 与关键词需同步",
+                    "HLSL 分支不移除 ShaderLab GrabPass"
+                ],
+                "validation": [
+                    "每种关键词组合",
+                    "材质数值与关键词独立变化",
+                    "目标图形 API",
+                    "ASE 开关设置保存重载"
+                ]
+            },
+            {
+                "id": "screen-depth",
+                "title": "屏幕、深度与后处理",
+                "implementation": "RecipeRecorded",
+                "recipe": "分别映射屏幕/投影坐标、深度采样和还原、全屏 Blit 及相关相机输入；禁止用普通 UV 采样代替。",
+                "nativeNodes": [
+                    "GrabScreenPosition",
+                    "ScreenDepthNode",
+                    "CameraDepthFade"
+                ],
+                "preserve": [
+                    "透视除法",
+                    "线性/原始深度",
+                    "反向 Z",
+                    "相机深度纹理依赖",
+                    "平台 Y 翻转"
+                ],
+                "validation": [
+                    "透视/正交相机",
+                    "前后裁剪面",
+                    "不同渲染 API"
+                ]
+            },
+            {
+                "id": "sdf-raymarch",
+                "title": "SDF 与 Raymarch 控制流",
+                "implementation": "RecipeRecorded",
+                "recipe": "识别距离函数、固定/动态步进和提前退出；原生节点不足以表达迭代时，需局部 Custom Expression 的明确输入输出及原因。",
+                "nativeNodes": [
+                    "LengthOpNode",
+                    "SimpleMinOpNode",
+                    "SimpleMaxOpNode"
+                ],
+                "preserve": [
+                    "空间和距离单位",
+                    "迭代上限与提前退出",
+                    "法线估计",
+                    "深度写入",
+                    "不将整份 Shader 塞入 Custom Expression"
+                ],
+                "validation": [
+                    "命中/未命中",
+                    "步进边界",
+                    "相机内外",
+                    "深度遮挡"
+                ]
+            },
+            {
+                "id": "bloom-pyramid",
+                "title": "Bloom 金字塔与 HDR 编码",
+                "implementation": "RecipeRecorded",
+                "recipe": "记录预过滤、降采样、升采样与最终合成各 Pass；金字塔调度由宿主脚本负责，不能由单个材质图替代。",
+                "nativeNodes": [
+                    "SamplerNode",
+                    "SimpleMinOpNode",
+                    "SimpleMaxOpNode",
+                    "SimpleAddOpNode"
+                ],
+                "preserve": [
+                    "RGBM 与浮点 HDR 分支",
+                    "Karis 亮度加权",
+                    "4 点均值与 9 点 tent 权重",
+                    "Gamma/Linear 变换",
+                    "stereo 和平台 Y 翻转",
+                    "最终保留 base.a"
+                ],
+                "validation": [
+                    "桌面/移动编码",
+                    "HDR 高亮",
+                    "抗闪烁开关",
+                    "分辨率与采样尺度",
+                    "多级 RT 生命周期"
+                ]
+            },
+            {
+                "id": "urp-pass-contract",
+                "title": "URP 模板与辅助 Pass",
+                "implementation": "RecipeRecorded",
+                "recipe": "按目标 URP 版本选择实际 ASE 模板并描述端口；保持材质 CBUFFER、变体、灯光输入与辅助 Pass 契约。",
+                "nativeNodes": [],
+                "preserve": [
+                    "SRP Batcher 的 UnityPerMaterial",
+                    "DepthOnly/DepthNormals 与 Depth Priming",
+                    "ShadowCaster/Meta",
+                    "顶点色和光照输入",
+                    "RenderPipeline/LightMode"
+                ],
+                "validation": [
+                    "实际 URP 版本",
+                    "Depth Priming 开关",
+                    "相机深度/法线",
+                    "阴影和烘焙",
+                    "实例化与 stereo"
+                ]
+            },
+            {
+                "id": "performance-evidence",
+                "title": "画质与 GPU 成本评估",
+                "implementation": "RecipeRecorded",
+                "recipe": "先保持行为，再按目标设备测 GPU 时间、带宽、overdraw、变体和画质误差；静态源码只能提示成本，不能给出性能优胜结论。",
+                "nativeNodes": [],
+                "preserve": [
+                    "采样调用位置不等于每像素采样次数",
+                    "include、循环与分支会改变工作量",
+                    "Register/Get 整理连线不保证减少 GPU 指令",
+                    "避免用未经比较的便宜算法替换原效果"
+                ],
+                "validation": [
+                    "固定场景和分辨率",
+                    "GPU 型号/API/管线",
+                    "GPU 中位数与高分位时间",
+                    "移动端热稳定",
+                    "材质画面对比"
+                ]
+            },
+            {
+                "id": "water-material",
+                "title": "水面、折射、泡沫与焦散",
+                "implementation": "RecipeRecorded",
+                "recipe": "分开记录法线/波浪、Fresnel、深度着色、折射、岸沫及顶点位移；高级水系统还依赖模拟与渲染调度。原创 Built-in 深度水计划见 Tools~/Build-DepthWaterPlan.py：三向涌浪与解析斜率、双层线性斜率纹理、RGB 吸收、岸沫，0.2.8 加入按重建水底世界位置投影的双层流动焦散和独立效果开关。既有计划在 Unity 2022.3.10f1 / ASE 1.9.9.13 / D3D11 验证；不表示通用水转换或 SRP 支持。",
+                "nativeNodes": [
+                    "SamplerNode",
+                    "FresnelNode",
+                    "DepthFade",
+                    "PannerNode",
+                    "StaticSwitch"
+                ],
+                "preserve": [
+                    "透明与深度写入",
+                    "屏幕颜色/深度输入",
+                    "位移和法线空间一致",
+                    "重建水底位置与深度衰减",
+                    "焦散依赖水底透视",
+                    "关键词分支与共享深度",
+                    "关闭折射仍有 GrabPass 拷贝",
+                    "预合成背景不再次 Alpha 混合"
+                ],
+                "validation": [
+                    "水深、岸边和交叠",
+                    "关闭和组合开关",
+                    "透明排序",
+                    "移动设备带宽",
+                    "水面下视角尚未验证",
+                    "人工计划不能替代目标场景验证"
+                ]
+            },
+            {
+                "id": "skin-jade-scattering",
+                "title": "皮肤、玉石与透射散射",
+                "implementation": "RecipeRecorded",
+                "recipe": "区分皮肤漫反射/高光、厚度驱动透射与管线 SSS/Diffusion Profile；简化近似不能声称等价于屏幕空间或体积散射。",
+                "nativeNodes": [
+                    "SamplerNode",
+                    "DotProductOpNode",
+                    "PowerNode",
+                    "LerpOp"
+                ],
+                "preserve": [
+                    "厚度单位和光照方向",
+                    "扩散轮廓资产",
+                    "散射颜色与能量",
+                    "正背面",
+                    "阴影和曝光",
+                    "皮肤与玉石分别调参"
+                ],
+                "validation": [
+                    "逆光与侧光",
+                    "薄厚区域",
+                    "不同光色",
+                    "近远距离",
+                    "SSS 开关及成本"
+                ]
+            },
+            {
+                "id": "character-skin",
+                "title": "高质量人物皮肤与微表面",
+                "implementation": "RecipeRecorded",
+                "recipe": "人物皮肤独立建档：基色、双尺度法线、粗糙度/高光、厚度与 SSS Mask、扩散资产及可选皱纹驱动；先核对真实光照模板和外部扩散调度。",
+                "nativeNodes": [
+                    "SamplerNode",
+                    "BlendNormalsNode",
+                    "LerpOp"
+                ],
+                "preserve": [
+                    "漫反射/高光分离",
+                    "SSS 不替代薄部位透射",
+                    "厚度单位和贴图通道",
+                    "Diffusion Profile/LUT",
+                    "蒙皮与运动矢量",
+                    "微表面过滤"
+                ],
+                "validation": [
+                    "耳鼻逆光与面部厚部位",
+                    "曝光和肤色",
+                    "表情驱动",
+                    "近远距离/TAA",
+                    "目标 ASE 模板、图重载、编译和角色画面对比"
+                ]
+            },
+            {
+                "id": "eye-cornea-iris",
+                "title": "人物眼球、角膜与虹膜",
+                "implementation": "RecipeRecorded",
+                "recipe": "单独描述角膜外层和虹膜/巩膜内层，保留各自法线、粗糙度、IOR、虹膜凹陷/折射、瞳孔缩放和巩膜散射；普通 Lit 或 Clear Coat 不视为等价眼球 BSDF。",
+                "nativeNodes": [
+                    "SamplerNode",
+                    "FresnelNode",
+                    "ParallaxMappingNode",
+                    "LerpOp"
+                ],
+                "preserve": [
+                    "内外层法线与空间",
+                    "IOR 和深度单位",
+                    "瞳孔不误作透明",
+                    "虹膜/角膜缘遮罩",
+                    "眼睑遮挡和泪线",
+                    "巩膜扩散资产",
+                    "透明层与反射",
+                    "眼球视线动画"
+                ],
+                "validation": [
+                    "眼球转动/掠射角",
+                    "虹膜视差和瞳孔范围",
+                    "角膜高光/环境反射",
+                    "眼睑交界",
+                    "曝光与近远距离",
+                    "目标 Eye 模板/资产/图重载/编译/画面对比"
+                ]
+            },
+            {
+                "id": "character-material-contract",
+                "title": "人物材质依赖与质量边界",
+                "implementation": "AnalysisRule",
+                "recipe": "为皮肤、毛发、眼球、布料返回结构化输入、三管线适配要求、语义保留、验证与成本清单；分类只作线索，不解锁生成、不证明贴图/网格/宿主依赖齐备。",
+                "nativeNodes": [],
+                "preserve": [
+                    "发卡/发丝/壳层区分",
+                    "棉麻/丝绸不同 BSDF",
+                    "角膜/内层区分",
+                    "SSS 外部调度",
+                    "HDRP 版本边界",
+                    "不宣称 3A 画质或 GPU 性能"
+                ],
+                "validation": [
+                    "避免 Skinning/StereoEyeIndex 等误分类",
+                    "四类及组合材质分析",
+                    "规则和 API 可读",
+                    "已有阻塞不可被类别标签绕过",
+                    "实际角色及多光照验证另做"
+                ]
+            },
+            {
+                "id": "hair-anisotropy",
+                "title": "头发与各向异性",
+                "implementation": "RecipeRecorded",
+                "recipe": "记录沿发丝切线的高光、双叶或物理散射模型；切线空间、Alpha Clip/Blend、背面和阴影必须独立映射。",
+                "nativeNodes": [
+                    "DotProductOpNode",
+                    "NormalizeNode",
+                    "PowerNode"
+                ],
+                "preserve": [
+                    "切线方向与手性",
+                    "高光位移/宽度",
+                    "发卡透明排序",
+                    "Alpha 裁剪",
+                    "双面法线",
+                    "阴影覆盖"
+                ],
+                "validation": [
+                    "旋转光源",
+                    "近景发丝",
+                    "重叠 overdraw",
+                    "TAA/MSAA",
+                    "阴影闪烁"
+                ]
+            },
+            {
+                "id": "fabric-sheen",
+                "title": "布料、绒面与织物",
+                "implementation": "RecipeRecorded",
+                "recipe": "区分棉麻绒面 Sheen、丝绸各向异性和织纹法线；选择支持相应 BSDF 的模板，普通金属 PBR 不足以替代。",
+                "nativeNodes": [
+                    "SamplerNode",
+                    "DotProductOpNode",
+                    "LerpOp"
+                ],
+                "preserve": [
+                    "Sheen lobe 与能量补偿",
+                    "切线和双面",
+                    "织纹尺度",
+                    "法线和粗糙度",
+                    "透射"
+                ],
+                "validation": [
+                    "掠射角",
+                    "不同光向",
+                    "织纹远近抗锯齿",
+                    "双面与阴影"
+                ]
+            },
+            {
+                "id": "metal-stone-pbr",
+                "title": "金属、石头与纹理映射",
+                "implementation": "RecipeRecorded",
+                "recipe": "分别记录金属/粗糙度或高光工作流；石头常用多尺度法线、遮蔽、细节和三平面映射，不依据名称自动改写材质。",
+                "nativeNodes": [
+                    "SamplerNode",
+                    "TransformDirectionNode",
+                    "LerpOp"
+                ],
+                "preserve": [
+                    "线性/颜色纹理空间",
+                    "金属反射与环境",
+                    "法线合成",
+                    "AO 作用位置",
+                    "三平面权重和负缩放",
+                    "视差成本"
+                ],
+                "validation": [
+                    "HDR 光照和反射探针",
+                    "不同粗糙度",
+                    "非均匀缩放",
+                    "纹理接缝",
+                    "距离和 mip"
+                ]
+            }
+        ],
+        "references": [
+            {
+                "file": "BillBordScale.shader",
+                "signature": "e80a3bc5a0d18bb0bec5376ea2422947d6c37330f4c6fbeddfdc37c6f90b35d3",
+                "kind": "ExistingAseGraph",
+                "notes": "ASE 19908；94 节点。公告板必须保留顶点空间和轴向约束。",
+                "ruleIds": [
+                    "ase-migration",
+                    "vertex-transform"
+                ]
+            },
+            {
+                "file": "bubble.shader",
+                "signature": "0f6cbdcf4a5aa21b4003b016224b10c7d66b9f981079eb21eb3e5c36442bdec2",
+                "kind": "Handwritten",
+                "notes": "11 属性，双 Pass。内壁 Cull Front 先画，外壁 Cull Back 后画；均 ZWrite Off、SrcAlpha。hash21 常数 123.34/456.21/45.32，value-noise 用 f*f*(3-2*f)，fbm 三层振幅 .5/.25/.125、频率倍率 2.03。保留余弦相位 (0,.33,.67)、LOD 100 及 Unlit/Transparent Fallback。规则已记录，双 Pass 模板和阶段映射尚未验证。",
+                "ruleIds": [
+                    "pure-functions",
+                    "bounded-loops",
+                    "noise-fbm",
+                    "fresnel-space",
+                    "ordered-passes"
+                ]
+            },
+            {
+                "file": "Custom2TexStencilmask.shader",
+                "signature": "e6d13de5d1ebbf70c97b83dcd84f734e779a3f8fb2d06e8cd47158b58a48aa83",
+                "kind": "ExistingAseGraph",
+                "notes": "ASE 19908；158 节点。保留 Stencil、粒子数据、动画、混合和全部 Pass。",
+                "ruleIds": [
+                    "ase-migration",
+                    "stencil-state",
+                    "dissolve-alpha"
+                ]
+            },
+            {
+                "file": "Custom2TexV2.shader",
+                "signature": "d2ff75658d9996133f640da6af9d1532fe4daf30bf3f730bcb6369cc76ec378c",
+                "kind": "ExistingAseGraph",
+                "notes": "ASE 19908；121 节点。保留双纹理动画、距离渐隐、顶点色和粒子数据。",
+                "ruleIds": [
+                    "ase-migration",
+                    "dissolve-alpha",
+                    "vertex-transform"
+                ]
+            },
+            {
+                "file": "Dissolve_add.shader",
+                "signature": "4e0f69b11883c9c1670b2e8669078d808e9b753c2bc24441950c38412bd5fc60",
+                "kind": "ExistingAseGraph",
+                "notes": "ASE 19908；36 节点。保留溶解边缘、Fresnel、加法混合和 Alpha。",
+                "ruleIds": [
+                    "ase-migration",
+                    "dissolve-alpha",
+                    "fresnel-space"
+                ]
+            },
+            {
+                "file": "Fresnel_A.shader",
+                "signature": "6adbc342a5e4e5c096e418bd04f0ef5b51cf325badf05b496f7ed622fff60564",
+                "kind": "ExistingAseGraph",
+                "notes": "ASE 19908；17 节点。保留法线和视线变换、Fresnel 参数及 Alpha。",
+                "ruleIds": [
+                    "ase-migration",
+                    "fresnel-space"
+                ]
+            },
+            {
+                "file": "PBR.shader",
+                "signature": "e0ab06712280325c00af603753e3de0b2f564ccda0b9831c9a12f15f0766df3a",
+                "kind": "ExistingAseGraph",
+                "notes": "ASE 19908；151 节点。Standard Surface 输出，依赖 Square Wave 子图 GUID 6f8df4c09ccca5d42b0d3d422aad9cbd。",
+                "ruleIds": [
+                    "ase-migration",
+                    "pbr-outline"
+                ]
+            },
+            {
+                "file": "PBR_OutLine.shader",
+                "signature": "48f3727d0c9b2fba00f8ae1f0ab8ab12315a78a9363e772dc4695c7ffb2815ef",
+                "kind": "ExistingAseGraph",
+                "notes": "ASE 19908；178 节点。Lit 模板和独立 OutLinePass；保留 7 个显式 Pass，依赖同一 Square Wave 子图。",
+                "ruleIds": [
+                    "ase-migration",
+                    "pbr-outline",
+                    "ordered-passes"
+                ]
+            },
+            {
+                "file": "RotateAroundCenter.shader",
+                "signature": "f7eac528ee3581ceea8ba3549d17dcd7da2c30ec1eaadaada620bf39fe11413e",
+                "kind": "Handwritten",
+                "notes": "14 属性。_Color.a 的赋值需在图中改为等价局部值，不能修改全局属性。保留两次顺序更新和平方项；_MinValue 原本未使用，不应擅自接线。两个 Toggle(_True) 不代表两个数值参数相互联动。模板绑定 Blend [_Src] [_Dst]、Cull [_CullMode]；阶段和状态适配仍待验证。",
+                "ruleIds": [
+                    "uv-rotate-fade",
+                    "vertex-transform",
+                    "keyword-binding"
+                ]
+            },
+            {
+                "file": "TransMovie.shader",
+                "signature": "a0228a509ba72606798bb04d5870efcc2f917b002794c8eca7cc2441348b2ea3",
+                "kind": "Handwritten",
+                "notes": "10 属性。Queue Transparent+1、Cull Off、ZWrite Off、SrcAlpha 混合。_HighQualityFeather 的普通 Toggle 派生 _HIGHQUALITYFEATHER_ON，与 pragma multi_compile_local _ _HIGH_QUALITY_FEATHER 不同；不得自动修正。仍需局部关键词、采样分支、half 精度与 stereo 模板适配验证。",
+                "ruleIds": [
+                    "pure-functions",
+                    "chroma-key",
+                    "keyword-binding"
+                ]
+            },
+            {
+                "file": "Vertex offset.shader",
+                "signature": "7bffb2ee1f0ee766ff62b3362ef9a9af074940647f054e59c9876eb81536fc9a",
+                "kind": "ExistingAseGraph",
+                "notes": "ASE 19908；53 节点。保留顶点位移、时间动画及 ShadowCaster。",
+                "ruleIds": [
+                    "ase-migration",
+                    "vertex-transform",
+                    "dissolve-alpha"
+                ]
+            }
+        ],
+        "publicSources": [
+            {
+                "repository": "Unity-Technologies/Graphics",
+                "url": "https://github.com/Unity-Technologies/Graphics",
+                "license": "Unity Companion License",
+                "focus": "URP、HDRP Lit/散射、Hair、Eye、Fabric、Water；人物档案另核对已安装 HDRP 14.0.8，不将更新版本特性自动回填",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "ronja-tutorials/ShaderTutorials",
+                "url": "https://github.com/ronja-tutorials/ShaderTutorials",
+                "license": "No root license declared",
+                "focus": "基础、Surface、噪声、SDF、深度和后处理；只读研究，不分发其源码",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "keijiro/NoiseShader",
+                "url": "https://github.com/keijiro/NoiseShader",
+                "license": "MIT",
+                "focus": "Classic/Simplex 噪声、hash、fade 和重载依赖",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "keijiro/KinoBloom",
+                "url": "https://github.com/keijiro/KinoBloom",
+                "license": "MIT",
+                "focus": "Bloom 多阶段、RGBM、抗闪烁、采样权重",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "keijiro/KinoGlitch",
+                "url": "https://github.com/keijiro/KinoGlitch",
+                "license": "MIT",
+                "focus": "屏幕失真和离散噪声",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "keijiro/KinoMotion",
+                "url": "https://github.com/keijiro/KinoMotion",
+                "license": "MIT",
+                "focus": "运动向量、深度与重建采样",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "keijiro/KinoFog",
+                "url": "https://github.com/keijiro/KinoFog",
+                "license": "MIT",
+                "focus": "深度重建和雾",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "Cyanilux/URP_ShaderCodeTemplates",
+                "url": "https://github.com/Cyanilux/URP_ShaderCodeTemplates",
+                "license": "CC0-1.0",
+                "focus": "URP Unlit/Lit、CBUFFER、辅助 Pass 与关键词",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "danielshervheim/unity-stylized-water",
+                "url": "https://github.com/danielshervheim/unity-stylized-water",
+                "license": "BSD-3-Clause",
+                "focus": "水面波浪、GrabPass 折射、深度、泡沫与反射",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "IronWarrior/ToonWaterShader",
+                "url": "https://github.com/IronWarrior/ToonWaterShader",
+                "license": "Unlicense",
+                "focus": "卡通水、深度边岸泡沫",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "nvjob/nvjob-water-shader-simple-and-fast",
+                "url": "https://github.com/nvjob/nvjob-water-shader-simple-and-fast",
+                "license": "MIT",
+                "focus": "简单水面方案；仓库命名不等于已测得高性能",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "leonardo-domingues/skin-shader-unity",
+                "url": "https://github.com/leonardo-domingues/skin-shader-unity",
+                "license": "MIT",
+                "focus": "GPU Gems 皮肤散射、卷积纹理和外部调度",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "itsFulcrum/Unity-URP-Hair-Shader",
+                "url": "https://github.com/itsFulcrum/Unity-URP-Hair-Shader",
+                "license": "CC0-1.0",
+                "focus": "发卡双高光、切线、URP 光照和透明/阴影",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "radiatoryang/unity-triplanar-terrain-cliff-shader",
+                "url": "https://github.com/radiatoryang/unity-triplanar-terrain-cliff-shader",
+                "license": "MIT",
+                "focus": "岩壁三平面、地形混合与法线",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "aspect-ux/AspectURP",
+                "url": "https://github.com/aspect-ux/AspectURP",
+                "license": "MIT at repository root; inspect per-file notices",
+                "focus": "SSS 近似、预积分皮肤、PBR、金属与多种案例；Depth_Jade 本身仅为深度查看器",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "blurfeng/blur-toon-urp",
+                "url": "https://github.com/blurfeng/blur-toon-urp",
+                "license": "MIT",
+                "focus": "角色卡通光照、阴影和轮廓",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "hecomi/UnityFurURP",
+                "url": "https://github.com/hecomi/UnityFurURP",
+                "license": "No fetched root license; inspect per-file and upstream notices",
+                "focus": "URP shell/fin/geometry 毛发、风摆及阴影；不假定普通片元图可替代几何阶段",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "ColinLeung-NiloCat/UnityURPToonLitShaderExample",
+                "url": "https://github.com/ColinLeung-NiloCat/UnityURPToonLitShaderExample",
+                "license": "MIT",
+                "focus": "角色光照分层、描边、深度偏移及 invLerp/remap",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "keijiro/KinoVignette",
+                "url": "https://github.com/keijiro/KinoVignette",
+                "license": "MIT notice in Vignette.shader; no fetched root license",
+                "focus": "暗角半径、Falloff 与四次衰减；只读源码研究",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "keijiro/KinoMirror",
+                "url": "https://github.com/keijiro/KinoMirror",
+                "license": "Per-file notices; no fetched root license",
+                "focus": "独立留出检查集；后处理坐标与平台依赖",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "keijiro/KinoContour",
+                "url": "https://github.com/keijiro/KinoContour",
+                "license": "MIT",
+                "focus": "独立留出检查集；深度/法线轮廓",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "mob-sakai/UIEffect",
+                "url": "https://github.com/mob-sakai/UIEffect",
+                "license": "MIT at repository root; bundled TMP files have separate notices",
+                "focus": "UI 动效、过渡、软裁剪、额外 UV、关键词与 SoftMask 依赖",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "mob-sakai/ParticleEffectForUGUI",
+                "url": "https://github.com/mob-sakai/ParticleEffectForUGUI",
+                "license": "MIT",
+                "focus": "UI 加法粒子、软裁剪、顶点色 Gamma 处理、Alpha 量化与预乘",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            },
+            {
+                "repository": "keijiro/KvantSwarm",
+                "url": "https://github.com/keijiro/KvantSwarm",
+                "license": "Per-file notices; no fetched root license",
+                "focus": "位置纹理驱动的顶点动画、相邻点法线重建、仿真与 Surface 阴影依赖",
+                "performanceEvidence": "SourceInspected; target GPU not benchmarked"
+            }
+        ],
+        "categories": [
+            {
+                "id": "Water",
+                "title": "水",
+                "scope": "水面、折射、泡沫与模拟",
+                "ruleIds": [
+                    "water-material"
+                ]
+            },
+            {
+                "id": "Skin",
+                "title": "人物皮肤",
+                "scope": "SSS、微表面、厚度及皱纹驱动",
+                "ruleIds": [
+                    "character-skin"
+                ]
+            },
+            {
+                "id": "Hair",
+                "title": "头发与毛发",
+                "scope": "发卡、发丝、shell/fin",
+                "ruleIds": [
+                    "hair-anisotropy"
+                ]
+            },
+            {
+                "id": "Fabric",
+                "title": "布料",
+                "scope": "绒面、丝绸、织纹",
+                "ruleIds": [
+                    "fabric-sheen"
+                ]
+            },
+            {
+                "id": "Eye",
+                "title": "眼球",
+                "scope": "角膜、虹膜、瞳孔与巩膜",
+                "ruleIds": [
+                    "eye-cornea-iris"
+                ]
+            },
+            {
+                "id": "Metal",
+                "title": "金属",
+                "scope": "金属工作流和反射",
+                "ruleIds": [
+                    "metal-stone-pbr"
+                ]
+            },
+            {
+                "id": "Stone",
+                "title": "石头",
+                "scope": "岩壁、三平面与细节",
+                "ruleIds": [
+                    "metal-stone-pbr"
+                ]
+            },
+            {
+                "id": "Jade",
+                "title": "玉石",
+                "scope": "厚度、透射和散射；专用完整实现尚未验证",
+                "ruleIds": [
+                    "skin-jade-scattering"
+                ]
+            },
+            {
+                "id": "UI",
+                "title": "UI",
+                "scope": "Canvas、Mask、字体和图集",
+                "ruleIds": [
+                    "ui-canvas"
+                ]
+            },
+            {
+                "id": "UIEffects",
+                "title": "UI 动效",
+                "scope": "渐变、流光、溶解和过渡",
+                "ruleIds": [
+                    "ui-animation"
+                ]
+            },
+            {
+                "id": "VFX",
+                "title": "特效",
+                "scope": "粒子、拖尾、软粒子和 GPU 仿真",
+                "ruleIds": [
+                    "vfx-particles"
+                ]
+            },
+            {
+                "id": "UVAnimation",
+                "title": "UV 动画",
+                "scope": "滚动、旋转、序列帧和扭曲",
+                "ruleIds": [
+                    "uv-animation"
+                ]
+            },
+            {
+                "id": "VertexAnimation",
+                "title": "顶点动画",
+                "scope": "波浪、风摆、公告板和 VAT",
+                "ruleIds": [
+                    "vertex-animation"
+                ]
+            }
+        ],
+        "characterProfiles": [
+            {
+                "id": "Skin",
+                "title": "人物皮肤 / SSS 与微表面",
+                "ruleId": "character-skin",
+                "implementation": "RecipeRecorded",
+                "qualityTarget": "高质量实时人物目标；尚无本插件人物 ASE 图重载、编译或角色画面对比，不能宣称达到 3A 成片质量。",
+                "geometry": "保留蒙皮、法线/切线、UV 接缝和脸部细节；表情皱纹贴图依赖动画驱动。",
+                "inputs": [
+                    {
+                        "name": "Base Color",
+                        "usage": "去除烘焙高光/阴影的肤色",
+                        "colorSpace": "sRGB"
+                    },
+                    {
+                        "name": "Normal / Micro Normal",
+                        "usage": "宏观与毛孔法线，保留压缩解码及合成方式",
+                        "colorSpace": "NormalMap"
+                    },
+                    {
+                        "name": "Mask / Roughness / Specular",
+                        "usage": "通道布局按源材质确认，不能自动假定",
+                        "colorSpace": "Linear"
+                    },
+                    {
+                        "name": "Thickness / Subsurface Mask",
+                        "usage": "厚度量纲、归一化与扩散遮罩分别确认",
+                        "colorSpace": "Linear"
+                    },
+                    {
+                        "name": "Diffusion Profile / SSS LUT",
+                        "usage": "管线资产或预积分 LUT；必须明确生成与绑定",
+                        "colorSpace": "AssetOrDeclaredLUT"
+                    },
+                    {
+                        "name": "Wrinkle Maps (optional)",
+                        "usage": "表情驱动的法线/粗糙度层",
+                        "colorSpace": "DeclaredPerChannel"
+                    }
+                ],
+                "pipelines": [
+                    {
+                        "pipeline": "BuiltIn",
+                        "status": "RequiresAdapter",
+                        "requirements": "需要专门光照模板和 SSS 预积分/屏幕扩散宿主；普通 Standard 的包裹漫反射不能冒充完整 SSS。",
+                        "referenceTemplateGuid": ""
+                    },
+                    {
+                        "pipeline": "URP",
+                        "status": "RequiresAdapter",
+                        "requirements": "需要对应版本的自定义光照及 Renderer Feature/扩散调度；默认 Lit 没有等价 HDRP SSS。",
+                        "referenceTemplateGuid": ""
+                    },
+                    {
+                        "pipeline": "HDRP",
+                        "status": "RequiresAdapter",
+                        "requirements": "参考 14.0.8 Lit 的 Subsurface Scattering/Transmission、Diffusion Profile 与相机/资源帧设置；必须 describe ASE 模板是否暴露相同功能。",
+                        "referenceTemplateGuid": "53b46d85872c5b24c8f4f0a1c3fe4c87"
+                    }
+                ],
+                "preserve": [
+                    "漫反射与高光分离",
+                    "次表面扩散与薄部位透射分开",
+                    "厚度尺度与 Diffusion Profile 资产",
+                    "粗糙度/高光工作流",
+                    "微法线远距过滤",
+                    "皱纹驱动与阴影/深度/运动矢量 Pass"
+                ],
+                "validation": [
+                    "白光/彩光/逆光",
+                    "耳鼻薄部位与脸颊厚部位",
+                    "曝光与肤色",
+                    "表情与蒙皮运动",
+                    "SSS 开关",
+                    "近景/远景及 TAA 稳定性"
+                ],
+                "costs": [
+                    "屏幕空间 SSS 是外部扩散调度，不能靠几个数学节点替代",
+                    "细节纹理与皱纹层带宽",
+                    "透射阴影、Diffusion Profile 与帧设置成本"
+                ],
+                "sources": [
+                    "Unity-Technologies/Graphics: Lit + SubsurfaceScattering (installed HDRP 14.0.8)",
+                    "leonardo-domingues/skin-shader-unity (MIT; external convolution host)"
+                ]
+            },
+            {
+                "id": "Hair",
+                "title": "头发 / 毛发与各向异性",
+                "ruleId": "hair-anisotropy",
+                "implementation": "RecipeRecorded",
+                "qualityTarget": "高质量实时人物目标；尚无本插件人物 ASE 图重载、编译或角色画面对比，不能宣称达到 3A 成片质量。",
+                "geometry": "区分 Hair Cards 发卡、真实 Strand 发丝与 Shell/Fin 壳层毛发；切线方向、根梢属性、Bounds 和 LOD 不能省略。",
+                "inputs": [
+                    {
+                        "name": "Base / Root-Tip Color",
+                        "usage": "基色或根梢/染色分布",
+                        "colorSpace": "sRGBOrDeclared"
+                    },
+                    {
+                        "name": "Opacity / Coverage",
+                        "usage": "覆盖率，过滤、mip 与阈值必须配套",
+                        "colorSpace": "Linear"
+                    },
+                    {
+                        "name": "Tangent / Flow",
+                        "usage": "梳理方向和正交基；不能当普通 RGB 法线读取",
+                        "colorSpace": "LinearOrVertexAttribute"
+                    },
+                    {
+                        "name": "Normal / Roughness / Shift",
+                        "usage": "原模型的法线、纵向/横向粗糙度与高光位移",
+                        "colorSpace": "DeclaredPerChannel"
+                    },
+                    {
+                        "name": "Strand / Shell Data",
+                        "usage": "长度、密度、根梢、LOD、仿真及运动历史",
+                        "colorSpace": "MeshAndHostData"
+                    }
+                ],
+                "pipelines": [
+                    {
+                        "pipeline": "BuiltIn",
+                        "status": "RequiresAdapter",
+                        "requirements": "需要各向异性光照模板、覆盖/双面与阴影适配；壳层/发丝几何和宿主仿真独立实现。",
+                        "referenceTemplateGuid": ""
+                    },
+                    {
+                        "pipeline": "URP",
+                        "status": "RequiresAdapter",
+                        "requirements": "需要相应版本的灯光/阴影接口及 Alpha/DepthNormals 适配；示例双高光不是所有物理发丝模型的等价实现。",
+                        "referenceTemplateGuid": ""
+                    },
+                    {
+                        "pipeline": "HDRP",
+                        "status": "RequiresAdapter",
+                        "requirements": "参考目标版本 Hair BSDF；14.0.8 的实际特性不能套用后续 HDRP 物理发丝功能。ASE 模板、透明深度与运动 Pass 逐项核对。",
+                        "referenceTemplateGuid": "e4fe21624ace6de4b9fbaabdda0c51de"
+                    }
+                ],
+                "preserve": [
+                    "发卡与发丝散射模型不混同",
+                    "切线轴向与手性",
+                    "双叶高光或 R/TT/TRT 各叶的原始定义",
+                    "Alpha Clip/Blend/AlphaToCoverage 各自语义",
+                    "双面法线与透明排序",
+                    "毛发密度/风摆/历史位置",
+                    "ShadowCaster/Depth/Motion Vectors 覆盖一致"
+                ],
+                "validation": [
+                    "绕光高光移动",
+                    "正背光与轮廓透射",
+                    "发卡多层交叠",
+                    "Alpha 边缘及阴影",
+                    "LOD/距离/运动",
+                    "TAA/MSAA 各自检查",
+                    "壳层外轮廓与几何阶段"
+                ],
+                "costs": [
+                    "发卡主要关注 overdraw、阴影和 Alpha 测试",
+                    "真实发丝的几何/模拟与散射成本",
+                    "壳层/fin 的 draw、顶点放大与剔除成本"
+                ],
+                "sources": [
+                    "Unity-Technologies/Graphics: Hair (installed HDRP 14.0.8)",
+                    "itsFulcrum/Unity-URP-Hair-Shader (CC0-1.0)",
+                    "hecomi/UnityFurURP (license unresolved; read-only research only)"
+                ]
+            },
+            {
+                "id": "Eye",
+                "title": "眼球 / 角膜、虹膜与巩膜",
+                "ruleId": "eye-cornea-iris",
+                "implementation": "RecipeRecorded",
+                "qualityTarget": "高质量实时人物目标；尚无本插件人物 ASE 图重载、编译或角色画面对比，不能宣称达到 3A 成片质量。",
+                "geometry": "明确角膜外壳与眼球内层是双网格还是管线单材质模型；虹膜凹陷、瞳孔遮罩、眼睑遮挡及泪线分开。",
+                "inputs": [
+                    {
+                        "name": "Iris / Sclera Base",
+                        "usage": "虹膜和巩膜颜色；布局与遮罩按源确认",
+                        "colorSpace": "sRGB"
+                    },
+                    {
+                        "name": "Iris / Cornea Normal",
+                        "usage": "内层与角膜外层分别保留",
+                        "colorSpace": "NormalMap"
+                    },
+                    {
+                        "name": "Iris / Pupil / Limbal Masks",
+                        "usage": "虹膜、瞳孔和角膜缘，不把瞳孔黑色当透明",
+                        "colorSpace": "Linear"
+                    },
+                    {
+                        "name": "IOR / Iris Depth / Pupil Scale",
+                        "usage": "量纲、折射方向及瞳孔尺寸范围",
+                        "colorSpace": "Parameters"
+                    },
+                    {
+                        "name": "Thickness / Diffusion Profile",
+                        "usage": "巩膜散射的管线/贴图依赖",
+                        "colorSpace": "AssetOrLinear"
+                    },
+                    {
+                        "name": "Occlusion / Tearline",
+                        "usage": "眼睑阴影与泪线是独立模型/材质或输入",
+                        "colorSpace": "DeclaredHostData"
+                    }
+                ],
+                "pipelines": [
+                    {
+                        "pipeline": "BuiltIn",
+                        "status": "RequiresAdapter",
+                        "requirements": "需要角膜/虹膜分层光照与折射模板；仅加 Clear Coat 或普通透明高光不能视为等价眼球。",
+                        "referenceTemplateGuid": ""
+                    },
+                    {
+                        "pipeline": "URP",
+                        "status": "RequiresAdapter",
+                        "requirements": "需要自定义眼球光照、折射输入与必要的 Renderer Feature；内外层法线与排序独立审查。",
+                        "referenceTemplateGuid": ""
+                    },
+                    {
+                        "pipeline": "HDRP",
+                        "status": "RequiresAdapter",
+                        "requirements": "参考 14.0.8 Eye 的角膜/虹膜双层、IOR 与 SSS；不能以普通 HDRP Lit 输出代替 Eye BSDF，ASE Eye 模板是否可用须实际 probe/describe。",
+                        "referenceTemplateGuid": ""
+                    }
+                ],
+                "preserve": [
+                    "角膜与内层不同法线和粗糙度",
+                    "IOR 与折射空间",
+                    "虹膜凹陷和视差深度",
+                    "瞳孔直径及 UV 原点",
+                    "巩膜散射与血丝",
+                    "角膜高光与反射",
+                    "眼睑遮挡/泪线及透明排序",
+                    "蒙皮/视线动画与运动 Pass"
+                ],
+                "validation": [
+                    "正视/掠射与眼球转动",
+                    "瞳孔缩放及虹膜边缘",
+                    "角膜高光/反射",
+                    "侧面虹膜视差",
+                    "眼睑/泪线遮挡",
+                    "近远距离/曝光",
+                    "不同光源及立体视图"
+                ],
+                "costs": [
+                    "角膜折射采样及透明叠层",
+                    "双层 BSDF 与视差步骤",
+                    "巩膜 SSS 外部调度",
+                    "额外眼睑/泪线几何和材质成本"
+                ],
+                "sources": [
+                    "Unity-Technologies/Graphics: Eye/Eye.hlsl + Eye.cs.hlsl + EyeUtils.hlsl (installed HDRP 14.0.8)"
+                ]
+            },
+            {
+                "id": "Fabric",
+                "title": "衣服布料 / Sheen、丝绸与织纹",
+                "ruleId": "fabric-sheen",
+                "implementation": "RecipeRecorded",
+                "qualityTarget": "高质量实时人物目标；尚无本插件人物 ASE 图重载、编译或角色画面对比，不能宣称达到 3A 成片质量。",
+                "geometry": "衣服蒙皮/布料模拟是宿主功能；棉麻/绒面与丝绸分别选择散射模型，保留织纹方向与双面厚度。",
+                "inputs": [
+                    {
+                        "name": "Base Color",
+                        "usage": "织物基色/图案，去除烘焙光照",
+                        "colorSpace": "sRGB"
+                    },
+                    {
+                        "name": "Normal / Weave Detail",
+                        "usage": "褶皱和细织纹，保留法线合成及真实尺寸",
+                        "colorSpace": "NormalMap"
+                    },
+                    {
+                        "name": "Roughness / Sheen / Anisotropy",
+                        "usage": "具体模型与通道按原源材质确认",
+                        "colorSpace": "Linear"
+                    },
+                    {
+                        "name": "Tangent / Weave Direction",
+                        "usage": "丝绸高光及纤维方向",
+                        "colorSpace": "LinearOrVertexAttribute"
+                    },
+                    {
+                        "name": "Thickness / Transmission",
+                        "usage": "背光透射与双面近似",
+                        "colorSpace": "Linear"
+                    },
+                    {
+                        "name": "Simulation / Wear Masks (optional)",
+                        "usage": "布料运动宿主及污渍/磨损层",
+                        "colorSpace": "DeclaredHostData"
+                    }
+                ],
+                "pipelines": [
+                    {
+                        "pipeline": "BuiltIn",
+                        "status": "RequiresAdapter",
+                        "requirements": "需要棉麻 Sheen/丝绸各向异性专用光照模板；普通 Standard 不提供等价 Fabric BSDF。",
+                        "referenceTemplateGuid": ""
+                    },
+                    {
+                        "pipeline": "URP",
+                        "status": "RequiresAdapter",
+                        "requirements": "需要目标版本的自定义 Sheen/各向异性光照及双面/阴影适配；织纹数学可复用但不代表完整材质转换。",
+                        "referenceTemplateGuid": ""
+                    },
+                    {
+                        "pipeline": "HDRP",
+                        "status": "RequiresAdapter",
+                        "requirements": "参考 14.0.8 Fabric 的 Cotton/Wool 与 Silk 模型、透射和切线设置；ASE 模板与各辅助 Pass 须实际核对。",
+                        "referenceTemplateGuid": "41e04be03f2c20941bc749271be1c937"
+                    }
+                ],
+                "preserve": [
+                    "棉麻 Sheen 与丝绸各向异性区分",
+                    "原始粗糙度/能量补偿",
+                    "织纹切线方向与真实尺度",
+                    "细节法线和远距过滤",
+                    "双面法线/透射与厚度",
+                    "污渍/磨损遮罩",
+                    "蒙皮/布料模拟与 Shadow/Depth/Motion Pass"
+                ],
+                "validation": [
+                    "棉麻/丝绸分别绕光",
+                    "掠射角与褶皱",
+                    "织纹近远抗锯齿",
+                    "正背面及逆光透射",
+                    "布料运动和阴影",
+                    "曝光与多光源"
+                ],
+                "costs": [
+                    "Sheen/各向异性 BSDF 成本",
+                    "高频织纹纹理和采样过滤",
+                    "双面 overdraw 与透射阴影",
+                    "布料模拟、顶点运动与历史帧的额外成本"
+                ],
+                "sources": [
+                    "Unity-Technologies/Graphics: Fabric/Fabric.hlsl + Fabric.cs.hlsl (installed HDRP 14.0.8)"
+                ]
+            }
+        ]
+    },
+    "targetAnalyses": []
+}

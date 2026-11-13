@@ -1,0 +1,94 @@
+{
+  "pipeline": "URP",
+  "success": true,
+  "windowCreated": true,
+  "apiLoaded": true,
+  "pathEscapeRejected": true,
+  "pipelineMismatchRejected": true,
+  "rows": [
+    {
+      "id": "original-URP-Skin",
+      "path": "Assets/ASEShaderLibrary/Skin/URP/original-URP-Skin.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-URP-Hair",
+      "path": "Assets/ASEShaderLibrary/Hair/URP/original-URP-Hair.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-URP-Eye",
+      "path": "Assets/ASEShaderLibrary/Eye/URP/original-URP-Eye.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-URP-Fabric",
+      "path": "Assets/ASEShaderLibrary/Fabric/URP/original-URP-Fabric.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-URP-Hosiery",
+      "path": "Assets/ASEShaderLibrary/Hosiery/URP/original-URP-Hosiery.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-URP-Water",
+      "path": "Assets/ASEShaderLibrary/Water/URP/original-URP-Water.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-URP-Metal",
+      "path": "Assets/ASEShaderLibrary/Metal/URP/original-URP-Metal.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-URP-Stone",
+      "path": "Assets/ASEShaderLibrary/Stone/URP/original-URP-Stone.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-URP-Jade",
+      "path": "Assets/ASEShaderLibrary/Jade/URP/original-URP-Jade.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-URP-UI",
+      "path": "Assets/ASEShaderLibrary/UI/URP/original-URP-UI.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-URP-UIEffects",
+      "path": "Assets/ASEShaderLibrary/UIEffects/URP/original-URP-UIEffects.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-URP-VFX",
+      "path": "Assets/ASEShaderLibrary/VFX/URP/original-URP-VFX.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-URP-UVAnimation",
+      "path": "Assets/ASEShaderLibrary/UVAnimation/URP/original-URP-UVAnimation.shader",
+      "error": "",
+      "compiled": true
+    },
+    {
+      "id": "original-URP-VertexAnimation",
+      "path": "Assets/ASEShaderLibrary/VertexAnimation/URP/original-URP-VertexAnimation.shader",
+      "error": "",
+      "compiled": true
+    }
+  ]
+}

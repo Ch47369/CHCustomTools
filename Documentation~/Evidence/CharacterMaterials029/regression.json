@@ -1,0 +1,36 @@
+{
+  "checkedUtc": "2026-10-22T04:59:26.132020+00:00",
+  "libraryVersion": "0.2.9",
+  "manifestSha256": "a37474c9c35d8e1ecaef8e63818371d9c69fa6b3c43af5013fb7953c4c2c1d9a",
+  "sourceFiles": 760,
+  "shaderFiles": 436,
+  "includeInventoried": 324,
+  "targetEvaluations": 1308,
+  "canPlanByTarget": {
+    "BuiltIn": 3,
+    "URP": 3,
+    "HDRP": 0
+  },
+  "analysisErrors": 0,
+  "allSourceHashesUnchanged": true,
+  "fullLocalReport": ".build~/CharacterRegression029/public-corpus-analysis.json",
+  "fullLocalReportSha256": "17ef6e320d67aa3e0dbe5fa75ce023d55a04cd9a9a29426fd7f3e3f4c1f40fac",
+  "characterSourceFiles": 35,
+  "characterShaders": 15,
+  "characterTargetEvaluations": 45,
+  "characterCanPlanByTarget": {
+    "BuiltIn": 0,
+    "URP": 0,
+    "HDRP": 0
+  },
+  "ruleCounts": {
+    "AseMigration": 1,
+    "NativePlanner": 9,
+    "AnalysisRule": 3,
+    "RecipeRecorded": 27
+  },
+  "generatedShaders": 0,
+  "aseSaveReloadPerformed": false,
+  "characterShaderCompilationPerformed": false,
+  "characterVisualComparisonPerformed": false
+}

@@ -1,0 +1,3950 @@
+{
+  "schemaVersion": 1,
+  "operation": "generatePlan",
+  "outputPath": "Assets/Shaders/DeepWater/DeepWater_Review4.shader",
+  "plan": {
+    "schemaVersion": 1,
+    "shaderName": "Water/DeepWater_ASE",
+    "pipeline": "BuiltIn",
+    "surface": "Lit",
+    "templateGuid": "ed95fe726fd7b4644bb42f4d1ddd2bcd",
+    "nodes": [
+      {
+        "id": "world_position",
+        "type": "WorldPosInputsNode",
+        "group": "coordinates",
+        "label": "world_position",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "world_xz",
+        "type": "SwizzleNode",
+        "group": "coordinates",
+        "label": "world_xz",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xz",
+        "outputType": "FLOAT2"
+      },
+      {
+        "id": "time_seconds",
+        "type": "SimpleTimeNode",
+        "group": "coordinates",
+        "label": "time_seconds",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "wave_speed",
+        "type": "RangedFloatNode",
+        "group": "coordinates",
+        "label": "wave_speed",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.75",
+        "propertyName": "_WaveSpeed",
+        "displayName": "01 Waves / speed",
+        "propertyKind": "Range",
+        "rangeMin": 0.05,
+        "rangeMax": 2
+      },
+      {
+        "id": "water_clock",
+        "type": "SimpleMultiplyOpNode",
+        "group": "coordinates",
+        "label": "water_clock",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "wave_zero",
+        "type": "RangedFloatNode",
+        "group": "waves",
+        "label": "wave_zero",
+        "settings": [],
+        "customInputs": [],
+        "value": "0",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "wave_one",
+        "type": "RangedFloatNode",
+        "group": "waves",
+        "label": "wave_one",
+        "settings": [],
+        "customInputs": [],
+        "value": "1",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "wave_height",
+        "type": "RangedFloatNode",
+        "group": "waves",
+        "label": "wave_height",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.13",
+        "propertyName": "_WaveHeight",
+        "displayName": "01 Waves / height (m)",
+        "propertyKind": "Range",
+        "rangeMin": 0,
+        "rangeMax": 0.6
+      },
+      {
+        "id": "wave_scale",
+        "type": "RangedFloatNode",
+        "group": "waves",
+        "label": "wave_scale",
+        "settings": [],
+        "customInputs": [],
+        "value": "1",
+        "propertyName": "_WaveScale",
+        "displayName": "01 Waves / frequency",
+        "propertyKind": "Range",
+        "rangeMin": 0.1,
+        "rangeMax": 3
+      },
+      {
+        "id": "swell_1_parameters",
+        "type": "Vector4Node",
+        "group": "waves",
+        "label": "swell_1_parameters",
+        "settings": [],
+        "customInputs": [],
+        "value": "(0.52,0.17,0,0)",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Vector"
+      },
+      {
+        "id": "swell_1_direction",
+        "type": "SwizzleNode",
+        "group": "waves",
+        "label": "swell_1_direction",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xy",
+        "outputType": "FLOAT2"
+      },
+      {
+        "id": "swell_1_wavevector",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_1_wavevector",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_1_distance",
+        "type": "DotProductOpNode",
+        "group": "waves",
+        "label": "swell_1_distance",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_1_omega",
+        "type": "RangedFloatNode",
+        "group": "waves",
+        "label": "swell_1_omega",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.9",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "swell_1_time",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_1_time",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_1_travel",
+        "type": "SimpleAddOpNode",
+        "group": "waves",
+        "label": "swell_1_travel",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_1_offset",
+        "type": "RangedFloatNode",
+        "group": "waves",
+        "label": "swell_1_offset",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.1",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "swell_1_phase",
+        "type": "SimpleAddOpNode",
+        "group": "waves",
+        "label": "swell_1_phase",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_1_weight",
+        "type": "RangedFloatNode",
+        "group": "waves",
+        "label": "swell_1_weight",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.57",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "swell_1_amplitude",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_1_amplitude",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_1_sin",
+        "type": "SinOpNode",
+        "group": "waves",
+        "label": "swell_1_sin",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_1_height",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_1_height",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_1_cos",
+        "type": "CosOpNode",
+        "group": "waves",
+        "label": "swell_1_cos",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_1_derivative",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_1_derivative",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_1_kx",
+        "type": "SwizzleNode",
+        "group": "waves",
+        "label": "swell_1_kx",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "x",
+        "outputType": "FLOAT"
+      },
+      {
+        "id": "swell_1_slope_x",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_1_slope_x",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_1_kz",
+        "type": "SwizzleNode",
+        "group": "waves",
+        "label": "swell_1_kz",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "y",
+        "outputType": "FLOAT"
+      },
+      {
+        "id": "swell_1_slope_z",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_1_slope_z",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_2_parameters",
+        "type": "Vector4Node",
+        "group": "waves",
+        "label": "swell_2_parameters",
+        "settings": [],
+        "customInputs": [],
+        "value": "(-0.23,0.86,0,0)",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Vector"
+      },
+      {
+        "id": "swell_2_direction",
+        "type": "SwizzleNode",
+        "group": "waves",
+        "label": "swell_2_direction",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xy",
+        "outputType": "FLOAT2"
+      },
+      {
+        "id": "swell_2_wavevector",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_2_wavevector",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_2_distance",
+        "type": "DotProductOpNode",
+        "group": "waves",
+        "label": "swell_2_distance",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_2_omega",
+        "type": "RangedFloatNode",
+        "group": "waves",
+        "label": "swell_2_omega",
+        "settings": [],
+        "customInputs": [],
+        "value": "1.23",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "swell_2_time",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_2_time",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_2_travel",
+        "type": "SimpleAddOpNode",
+        "group": "waves",
+        "label": "swell_2_travel",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_2_offset",
+        "type": "RangedFloatNode",
+        "group": "waves",
+        "label": "swell_2_offset",
+        "settings": [],
+        "customInputs": [],
+        "value": "1.6",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "swell_2_phase",
+        "type": "SimpleAddOpNode",
+        "group": "waves",
+        "label": "swell_2_phase",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_2_weight",
+        "type": "RangedFloatNode",
+        "group": "waves",
+        "label": "swell_2_weight",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.28",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "swell_2_amplitude",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_2_amplitude",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_2_sin",
+        "type": "SinOpNode",
+        "group": "waves",
+        "label": "swell_2_sin",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_2_height",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_2_height",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_2_cos",
+        "type": "CosOpNode",
+        "group": "waves",
+        "label": "swell_2_cos",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_2_derivative",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_2_derivative",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_2_kx",
+        "type": "SwizzleNode",
+        "group": "waves",
+        "label": "swell_2_kx",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "x",
+        "outputType": "FLOAT"
+      },
+      {
+        "id": "swell_2_slope_x",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_2_slope_x",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_2_kz",
+        "type": "SwizzleNode",
+        "group": "waves",
+        "label": "swell_2_kz",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "y",
+        "outputType": "FLOAT"
+      },
+      {
+        "id": "swell_2_slope_z",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_2_slope_z",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_3_parameters",
+        "type": "Vector4Node",
+        "group": "waves",
+        "label": "swell_3_parameters",
+        "settings": [],
+        "customInputs": [],
+        "value": "(1.13,0.65,0,0)",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Vector"
+      },
+      {
+        "id": "swell_3_direction",
+        "type": "SwizzleNode",
+        "group": "waves",
+        "label": "swell_3_direction",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xy",
+        "outputType": "FLOAT2"
+      },
+      {
+        "id": "swell_3_wavevector",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_3_wavevector",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_3_distance",
+        "type": "DotProductOpNode",
+        "group": "waves",
+        "label": "swell_3_distance",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_3_omega",
+        "type": "RangedFloatNode",
+        "group": "waves",
+        "label": "swell_3_omega",
+        "settings": [],
+        "customInputs": [],
+        "value": "1.58",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "swell_3_time",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_3_time",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_3_travel",
+        "type": "SimpleAddOpNode",
+        "group": "waves",
+        "label": "swell_3_travel",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_3_offset",
+        "type": "RangedFloatNode",
+        "group": "waves",
+        "label": "swell_3_offset",
+        "settings": [],
+        "customInputs": [],
+        "value": "3.0",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "swell_3_phase",
+        "type": "SimpleAddOpNode",
+        "group": "waves",
+        "label": "swell_3_phase",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_3_weight",
+        "type": "RangedFloatNode",
+        "group": "waves",
+        "label": "swell_3_weight",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.15",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "swell_3_amplitude",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_3_amplitude",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_3_sin",
+        "type": "SinOpNode",
+        "group": "waves",
+        "label": "swell_3_sin",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_3_height",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_3_height",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_3_cos",
+        "type": "CosOpNode",
+        "group": "waves",
+        "label": "swell_3_cos",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_3_derivative",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_3_derivative",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_3_kx",
+        "type": "SwizzleNode",
+        "group": "waves",
+        "label": "swell_3_kx",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "x",
+        "outputType": "FLOAT"
+      },
+      {
+        "id": "swell_3_slope_x",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_3_slope_x",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_3_kz",
+        "type": "SwizzleNode",
+        "group": "waves",
+        "label": "swell_3_kz",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "y",
+        "outputType": "FLOAT"
+      },
+      {
+        "id": "swell_3_slope_z",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "swell_3_slope_z",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "height_pair",
+        "type": "SimpleAddOpNode",
+        "group": "waves",
+        "label": "height_pair",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_height",
+        "type": "SimpleAddOpNode",
+        "group": "waves",
+        "label": "swell_height",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "slope_x_pair",
+        "type": "SimpleAddOpNode",
+        "group": "waves",
+        "label": "slope_x_pair",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_slope_x",
+        "type": "SimpleAddOpNode",
+        "group": "waves",
+        "label": "swell_slope_x",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "slope_z_pair",
+        "type": "SimpleAddOpNode",
+        "group": "waves",
+        "label": "slope_z_pair",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "swell_slope_z",
+        "type": "SimpleAddOpNode",
+        "group": "waves",
+        "label": "swell_slope_z",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "world_wave_offset",
+        "type": "DynamicAppendNode",
+        "group": "waves",
+        "label": "world_wave_offset",
+        "settings": [],
+        "customInputs": [],
+        "outputType": "FLOAT4"
+      },
+      {
+        "id": "world_to_object",
+        "type": "WorldToObjectMatrix",
+        "group": "waves",
+        "label": "world_to_object",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "offset_transform",
+        "type": "SimpleMultiplyOpNode",
+        "group": "waves",
+        "label": "offset_transform",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "object_wave_offset",
+        "type": "SwizzleNode",
+        "group": "waves",
+        "label": "object_wave_offset",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xyz",
+        "outputType": "FLOAT3"
+      },
+      {
+        "id": "ripple_texture",
+        "type": "TexturePropertyNode",
+        "group": "ripples",
+        "label": "ripple_texture",
+        "settings": [],
+        "customInputs": [],
+        "propertyName": "_RippleSlope",
+        "displayName": "02 Ripples / seamless slope field",
+        "propertyKind": "2D",
+        "value": "\"gray\" {}"
+      },
+      {
+        "id": "ripple_scale",
+        "type": "RangedFloatNode",
+        "group": "ripples",
+        "label": "ripple_scale",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.4",
+        "propertyName": "_RippleScale",
+        "displayName": "02 Ripples / tiling per meter",
+        "propertyKind": "Range",
+        "rangeMin": 0.05,
+        "rangeMax": 2
+      },
+      {
+        "id": "ripple_strength",
+        "type": "RangedFloatNode",
+        "group": "ripples",
+        "label": "ripple_strength",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.48",
+        "propertyName": "_RippleStrength",
+        "displayName": "02 Ripples / strength",
+        "propertyKind": "Range",
+        "rangeMin": 0,
+        "rangeMax": 1.5
+      },
+      {
+        "id": "ripple_uv_a",
+        "type": "SimpleMultiplyOpNode",
+        "group": "ripples",
+        "label": "ripple_uv_a",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "ripple_flow_a_data",
+        "type": "Vector4Node",
+        "group": "ripples",
+        "label": "ripple_flow_a_data",
+        "settings": [],
+        "customInputs": [],
+        "value": "(0.036,0.021,0,0)",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Vector"
+      },
+      {
+        "id": "ripple_flow_a",
+        "type": "SwizzleNode",
+        "group": "ripples",
+        "label": "ripple_flow_a",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xy",
+        "outputType": "FLOAT2"
+      },
+      {
+        "id": "ripple_pan_a",
+        "type": "PannerNode",
+        "group": "ripples",
+        "label": "ripple_pan_a",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "rotated_xz",
+        "type": "SwizzleNode",
+        "group": "ripples",
+        "label": "rotated_xz",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "yx",
+        "outputType": "FLOAT2"
+      },
+      {
+        "id": "ripple_scale_ratio",
+        "type": "RangedFloatNode",
+        "group": "ripples",
+        "label": "ripple_scale_ratio",
+        "settings": [],
+        "customInputs": [],
+        "value": "1.63",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "ripple_second_scale",
+        "type": "SimpleMultiplyOpNode",
+        "group": "ripples",
+        "label": "ripple_second_scale",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "ripple_uv_b",
+        "type": "SimpleMultiplyOpNode",
+        "group": "ripples",
+        "label": "ripple_uv_b",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "ripple_flow_b_data",
+        "type": "Vector4Node",
+        "group": "ripples",
+        "label": "ripple_flow_b_data",
+        "settings": [],
+        "customInputs": [],
+        "value": "(-0.019,0.029,0,0)",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Vector"
+      },
+      {
+        "id": "ripple_flow_b",
+        "type": "SwizzleNode",
+        "group": "ripples",
+        "label": "ripple_flow_b",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xy",
+        "outputType": "FLOAT2"
+      },
+      {
+        "id": "ripple_pan_b",
+        "type": "PannerNode",
+        "group": "ripples",
+        "label": "ripple_pan_b",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "ripples_a",
+        "type": "SamplerNode",
+        "group": "ripples",
+        "label": "ripples_a",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "ripples_b",
+        "type": "SamplerNode",
+        "group": "ripples",
+        "label": "ripples_b",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "ripple_slope_a",
+        "type": "SwizzleNode",
+        "group": "ripples",
+        "label": "ripple_slope_a",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xy",
+        "outputType": "FLOAT2"
+      },
+      {
+        "id": "ripple_slope_b",
+        "type": "SwizzleNode",
+        "group": "ripples",
+        "label": "ripple_slope_b",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "yx",
+        "outputType": "FLOAT2"
+      },
+      {
+        "id": "encoded_ripple_sum",
+        "type": "SimpleAddOpNode",
+        "group": "ripples",
+        "label": "encoded_ripple_sum",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "slope_decode_bias",
+        "type": "RangedFloatNode",
+        "group": "ripples",
+        "label": "slope_decode_bias",
+        "settings": [],
+        "customInputs": [],
+        "value": "1",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "signed_ripple_slope",
+        "type": "SimpleSubtractOpNode",
+        "group": "ripples",
+        "label": "signed_ripple_slope",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "detail_slope",
+        "type": "SimpleMultiplyOpNode",
+        "group": "ripples",
+        "label": "detail_slope",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "detail_noise_sum",
+        "type": "SimpleAddOpNode",
+        "group": "ripples",
+        "label": "detail_noise_sum",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "noise_average",
+        "type": "RangedFloatNode",
+        "group": "ripples",
+        "label": "noise_average",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.5",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "foam_detail_noise",
+        "type": "SimpleMultiplyOpNode",
+        "group": "ripples",
+        "label": "foam_detail_noise",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "detail_x",
+        "type": "SwizzleNode",
+        "group": "normal",
+        "label": "detail_x",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "x",
+        "outputType": "FLOAT"
+      },
+      {
+        "id": "total_slope_x",
+        "type": "SimpleAddOpNode",
+        "group": "normal",
+        "label": "total_slope_x",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "negative_slope_x",
+        "type": "NegateNode",
+        "group": "normal",
+        "label": "negative_slope_x",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "detail_z",
+        "type": "SwizzleNode",
+        "group": "normal",
+        "label": "detail_z",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "y",
+        "outputType": "FLOAT"
+      },
+      {
+        "id": "total_slope_z",
+        "type": "SimpleAddOpNode",
+        "group": "normal",
+        "label": "total_slope_z",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "negative_slope_z",
+        "type": "NegateNode",
+        "group": "normal",
+        "label": "negative_slope_z",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "normal_y",
+        "type": "RangedFloatNode",
+        "group": "normal",
+        "label": "normal_y",
+        "settings": [],
+        "customInputs": [],
+        "value": "1",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "slope_normal_ws",
+        "type": "DynamicAppendNode",
+        "group": "normal",
+        "label": "slope_normal_ws",
+        "settings": [],
+        "customInputs": [],
+        "outputType": "FLOAT3"
+      },
+      {
+        "id": "water_normal_ws",
+        "type": "NormalizeNode",
+        "group": "normal",
+        "label": "water_normal_ws",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "view_to_camera_ws",
+        "type": "ViewDirInputsCoordNode",
+        "group": "normal",
+        "label": "view_to_camera_ws",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "water_fresnel",
+        "type": "FresnelNode",
+        "group": "normal",
+        "label": "water_fresnel",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "water_f0",
+        "type": "RangedFloatNode",
+        "group": "normal",
+        "label": "water_f0",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.02037",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "water_fresnel_scale",
+        "type": "RangedFloatNode",
+        "group": "normal",
+        "label": "water_fresnel_scale",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.97963",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "water_fresnel_power",
+        "type": "RangedFloatNode",
+        "group": "normal",
+        "label": "water_fresnel_power",
+        "settings": [],
+        "customInputs": [],
+        "value": "5",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "scene_depth_gap",
+        "type": "DepthFade",
+        "group": "depth",
+        "label": "scene_depth_gap",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "depth_zero",
+        "type": "RangedFloatNode",
+        "group": "depth",
+        "label": "depth_zero",
+        "settings": [],
+        "customInputs": [],
+        "value": "0",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "positive_depth",
+        "type": "SimpleMaxOpNode",
+        "group": "depth",
+        "label": "positive_depth",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "depth_limit",
+        "type": "RangedFloatNode",
+        "group": "depth",
+        "label": "depth_limit",
+        "settings": [],
+        "customInputs": [],
+        "value": "80",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "depth_eye",
+        "type": "SimpleMinOpNode",
+        "group": "depth",
+        "label": "depth_eye",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "view_w_zero",
+        "type": "RangedFloatNode",
+        "group": "depth",
+        "label": "view_w_zero",
+        "settings": [],
+        "customInputs": [],
+        "value": "0",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "view_direction4",
+        "type": "DynamicAppendNode",
+        "group": "depth",
+        "label": "view_direction4",
+        "settings": [],
+        "customInputs": [],
+        "outputType": "FLOAT4"
+      },
+      {
+        "id": "world_to_camera",
+        "type": "WorldToCameraMatrix",
+        "group": "depth",
+        "label": "world_to_camera",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "view_camera_space",
+        "type": "SimpleMultiplyOpNode",
+        "group": "depth",
+        "label": "view_camera_space",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "view_camera_z",
+        "type": "SwizzleNode",
+        "group": "depth",
+        "label": "view_camera_z",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "z",
+        "outputType": "FLOAT"
+      },
+      {
+        "id": "view_cosine",
+        "type": "AbsOpNode",
+        "group": "depth",
+        "label": "view_cosine",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "min_ray_cosine",
+        "type": "RangedFloatNode",
+        "group": "depth",
+        "label": "min_ray_cosine",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.12",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "safe_ray_cosine",
+        "type": "SimpleMaxOpNode",
+        "group": "depth",
+        "label": "safe_ray_cosine",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "optical_path_m",
+        "type": "SimpleDivideOpNode",
+        "group": "depth",
+        "label": "optical_path_m",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "density",
+        "type": "RangedFloatNode",
+        "group": "depth",
+        "label": "density",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.7",
+        "propertyName": "_Density",
+        "displayName": "03 Depth / absorption density",
+        "propertyKind": "Range",
+        "rangeMin": 0.01,
+        "rangeMax": 3
+      },
+      {
+        "id": "absorption",
+        "type": "Vector4Node",
+        "group": "depth",
+        "label": "absorption",
+        "settings": [],
+        "customInputs": [],
+        "value": "(0.85,0.32,0.17,0)",
+        "propertyName": "_Absorption",
+        "displayName": "03 Depth / absorption RGB (1/m)",
+        "propertyKind": "Vector"
+      },
+      {
+        "id": "absorption_rgb",
+        "type": "SwizzleNode",
+        "group": "depth",
+        "label": "absorption_rgb",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xyz",
+        "outputType": "FLOAT3"
+      },
+      {
+        "id": "optical_thickness",
+        "type": "SimpleMultiplyOpNode",
+        "group": "depth",
+        "label": "optical_thickness",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "rgb_extinction",
+        "type": "SimpleMultiplyOpNode",
+        "group": "depth",
+        "label": "rgb_extinction",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "negative_extinction",
+        "type": "NegateNode",
+        "group": "depth",
+        "label": "negative_extinction",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "rgb_transmittance",
+        "type": "ExpOpNode",
+        "group": "depth",
+        "label": "rgb_transmittance",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "deep_distance",
+        "type": "RangedFloatNode",
+        "group": "depth",
+        "label": "deep_distance",
+        "settings": [],
+        "customInputs": [],
+        "value": "5",
+        "propertyName": "_DeepDistance",
+        "displayName": "03 Depth / deep color distance (m)",
+        "propertyKind": "Range",
+        "rangeMin": 0.1,
+        "rangeMax": 25
+      },
+      {
+        "id": "depth_color_gradient",
+        "type": "SimpleDivideOpNode",
+        "group": "depth",
+        "label": "depth_color_gradient",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "deep_color_weight",
+        "type": "SaturateNode",
+        "group": "depth",
+        "label": "deep_color_weight",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "shallow_color",
+        "type": "ColorNode",
+        "group": "depth",
+        "label": "shallow_color",
+        "settings": [],
+        "customInputs": [],
+        "value": "(0.12,0.48,0.4,1)",
+        "propertyName": "_ShallowColor",
+        "displayName": "03 Depth / shallow scattering",
+        "propertyKind": "Color"
+      },
+      {
+        "id": "shallow_rgb",
+        "type": "SwizzleNode",
+        "group": "depth",
+        "label": "shallow_rgb",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xyz",
+        "outputType": "FLOAT3"
+      },
+      {
+        "id": "deep_color",
+        "type": "ColorNode",
+        "group": "depth",
+        "label": "deep_color",
+        "settings": [],
+        "customInputs": [],
+        "value": "(0.012,0.13,0.19,1)",
+        "propertyName": "_DeepColor",
+        "displayName": "03 Depth / deep scattering",
+        "propertyKind": "Color"
+      },
+      {
+        "id": "deep_rgb",
+        "type": "SwizzleNode",
+        "group": "depth",
+        "label": "deep_rgb",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xyz",
+        "outputType": "FLOAT3"
+      },
+      {
+        "id": "depth_scattering_color",
+        "type": "LerpOp",
+        "group": "depth",
+        "label": "depth_scattering_color",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "contact_start",
+        "type": "RangedFloatNode",
+        "group": "depth",
+        "label": "contact_start",
+        "settings": [],
+        "customInputs": [],
+        "value": "0",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "contact_width",
+        "type": "RangedFloatNode",
+        "group": "depth",
+        "label": "contact_width",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.1",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "shore_contact_fade",
+        "type": "SmoothstepOpNode",
+        "group": "depth",
+        "label": "shore_contact_fade",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_width",
+        "type": "RangedFloatNode",
+        "group": "foam",
+        "label": "foam_width",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.5",
+        "propertyName": "_FoamWidth",
+        "displayName": "04 Foam / shoreline width (m)",
+        "propertyKind": "Range",
+        "rangeMin": 0.02,
+        "rangeMax": 2
+      },
+      {
+        "id": "shore_depth_width",
+        "type": "SimpleDivideOpNode",
+        "group": "foam",
+        "label": "shore_depth_width",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "shore_distance_normalized",
+        "type": "SaturateNode",
+        "group": "foam",
+        "label": "shore_distance_normalized",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "shore_foam_band",
+        "type": "OneMinusNode",
+        "group": "foam",
+        "label": "shore_foam_band",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_band_shape",
+        "type": "SimpleMultiplyOpNode",
+        "group": "foam",
+        "label": "foam_band_shape",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_noise_low",
+        "type": "RangedFloatNode",
+        "group": "foam",
+        "label": "foam_noise_low",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.34",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "foam_noise_high",
+        "type": "RangedFloatNode",
+        "group": "foam",
+        "label": "foam_noise_high",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.66",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "foam_breakup",
+        "type": "SmoothstepOpNode",
+        "group": "foam",
+        "label": "foam_breakup",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_ring_frequency",
+        "type": "RangedFloatNode",
+        "group": "foam",
+        "label": "foam_ring_frequency",
+        "settings": [],
+        "customInputs": [],
+        "value": "14",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "shore_ring_distance",
+        "type": "SimpleMultiplyOpNode",
+        "group": "foam",
+        "label": "shore_ring_distance",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_ring_speed",
+        "type": "RangedFloatNode",
+        "group": "foam",
+        "label": "foam_ring_speed",
+        "settings": [],
+        "customInputs": [],
+        "value": "1.8",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "shore_ring_time",
+        "type": "SimpleMultiplyOpNode",
+        "group": "foam",
+        "label": "shore_ring_time",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "shore_ring_phase",
+        "type": "SimpleSubtractOpNode",
+        "group": "foam",
+        "label": "shore_ring_phase",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "shore_ring_sin",
+        "type": "SinOpNode",
+        "group": "foam",
+        "label": "shore_ring_sin",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_half",
+        "type": "RangedFloatNode",
+        "group": "foam",
+        "label": "foam_half",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.5",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "shore_ring_half",
+        "type": "SimpleMultiplyOpNode",
+        "group": "foam",
+        "label": "shore_ring_half",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_ring_bias",
+        "type": "RangedFloatNode",
+        "group": "foam",
+        "label": "foam_ring_bias",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.5",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "shore_ring_positive",
+        "type": "SimpleAddOpNode",
+        "group": "foam",
+        "label": "shore_ring_positive",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_ring_min",
+        "type": "RangedFloatNode",
+        "group": "foam",
+        "label": "foam_ring_min",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.35",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "foam_ring_max",
+        "type": "RangedFloatNode",
+        "group": "foam",
+        "label": "foam_ring_max",
+        "settings": [],
+        "customInputs": [],
+        "value": "1",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "foam_ring_modulation",
+        "type": "LerpOp",
+        "group": "foam",
+        "label": "foam_ring_modulation",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_strength",
+        "type": "RangedFloatNode",
+        "group": "foam",
+        "label": "foam_strength",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.7",
+        "propertyName": "_FoamStrength",
+        "displayName": "04 Foam / amount",
+        "propertyKind": "Range",
+        "rangeMin": 0,
+        "rangeMax": 1
+      },
+      {
+        "id": "foam_band_breakup",
+        "type": "SimpleMultiplyOpNode",
+        "group": "foam",
+        "label": "foam_band_breakup",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_pattern",
+        "type": "SimpleMultiplyOpNode",
+        "group": "foam",
+        "label": "foam_pattern",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_amount",
+        "type": "SimpleMultiplyOpNode",
+        "group": "foam",
+        "label": "foam_amount",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_contact",
+        "type": "SimpleMultiplyOpNode",
+        "group": "foam",
+        "label": "foam_contact",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "shore_foam",
+        "type": "SaturateNode",
+        "group": "foam",
+        "label": "shore_foam",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_color",
+        "type": "ColorNode",
+        "group": "foam",
+        "label": "foam_color",
+        "settings": [],
+        "customInputs": [],
+        "value": "(0.82,0.91,0.88,1)",
+        "propertyName": "_FoamColor",
+        "displayName": "04 Foam / color",
+        "propertyKind": "Color"
+      },
+      {
+        "id": "foam_rgb",
+        "type": "SwizzleNode",
+        "group": "foam",
+        "label": "foam_rgb",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xyz",
+        "outputType": "FLOAT3"
+      },
+      {
+        "id": "normal_x",
+        "type": "SwizzleNode",
+        "group": "refraction",
+        "label": "normal_x",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "x",
+        "outputType": "FLOAT"
+      },
+      {
+        "id": "normal_y_component",
+        "type": "SwizzleNode",
+        "group": "refraction",
+        "label": "normal_y_component",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "y",
+        "outputType": "FLOAT"
+      },
+      {
+        "id": "normal_z",
+        "type": "SwizzleNode",
+        "group": "refraction",
+        "label": "normal_z",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "z",
+        "outputType": "FLOAT"
+      },
+      {
+        "id": "normal_w_zero",
+        "type": "RangedFloatNode",
+        "group": "refraction",
+        "label": "normal_w_zero",
+        "settings": [],
+        "customInputs": [],
+        "value": "0",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "normal_ws4",
+        "type": "DynamicAppendNode",
+        "group": "refraction",
+        "label": "normal_ws4",
+        "settings": [],
+        "customInputs": [],
+        "outputType": "FLOAT4"
+      },
+      {
+        "id": "refraction_world_to_camera",
+        "type": "WorldToCameraMatrix",
+        "group": "refraction",
+        "label": "refraction_world_to_camera",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "normal_camera_space",
+        "type": "SimpleMultiplyOpNode",
+        "group": "refraction",
+        "label": "normal_camera_space",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "refraction_direction",
+        "type": "SwizzleNode",
+        "group": "refraction",
+        "label": "refraction_direction",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xy",
+        "outputType": "FLOAT2"
+      },
+      {
+        "id": "refraction_strength",
+        "type": "RangedFloatNode",
+        "group": "refraction",
+        "label": "refraction_strength",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.014",
+        "propertyName": "_RefractionStrength",
+        "displayName": "05 Optics / refraction",
+        "propertyKind": "Range",
+        "rangeMin": 0,
+        "rangeMax": 0.05
+      },
+      {
+        "id": "refraction_fade_distance",
+        "type": "RangedFloatNode",
+        "group": "refraction",
+        "label": "refraction_fade_distance",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.65",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "refraction_depth",
+        "type": "SimpleDivideOpNode",
+        "group": "refraction",
+        "label": "refraction_depth",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "shallow_refraction_fade",
+        "type": "SaturateNode",
+        "group": "refraction",
+        "label": "shallow_refraction_fade",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "refraction_weight",
+        "type": "SimpleMultiplyOpNode",
+        "group": "refraction",
+        "label": "refraction_weight",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "screen_distortion",
+        "type": "SimpleMultiplyOpNode",
+        "group": "refraction",
+        "label": "screen_distortion",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "grab_screen_uv",
+        "type": "GrabScreenPosition",
+        "group": "refraction",
+        "label": "grab_screen_uv",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "grab_xy",
+        "type": "SwizzleNode",
+        "group": "refraction",
+        "label": "grab_xy",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xy",
+        "outputType": "FLOAT2"
+      },
+      {
+        "id": "distorted_grab_uv",
+        "type": "SimpleAddOpNode",
+        "group": "refraction",
+        "label": "distorted_grab_uv",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "safe_refracted_uv",
+        "type": "SaturateNode",
+        "group": "refraction",
+        "label": "safe_refracted_uv",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "refracted_scene_color",
+        "type": "ScreenColorNode",
+        "group": "refraction",
+        "label": "refracted_scene_color",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "refracted_rgb",
+        "type": "SwizzleNode",
+        "group": "refraction",
+        "label": "refracted_rgb",
+        "settings": [],
+        "customInputs": [],
+        "swizzle": "xyz",
+        "outputType": "FLOAT3"
+      },
+      {
+        "id": "absorbed_scene",
+        "type": "SimpleMultiplyOpNode",
+        "group": "refraction",
+        "label": "absorbed_scene",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "absorbed_fraction",
+        "type": "OneMinusNode",
+        "group": "refraction",
+        "label": "absorbed_fraction",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "absorbed_scattering",
+        "type": "SimpleMultiplyOpNode",
+        "group": "refraction",
+        "label": "absorbed_scattering",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "scattering_strength",
+        "type": "RangedFloatNode",
+        "group": "refraction",
+        "label": "scattering_strength",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.75",
+        "propertyName": "_ScatteringStrength",
+        "displayName": "05 Optics / scattering",
+        "propertyKind": "Range",
+        "rangeMin": 0,
+        "rangeMax": 1.5
+      },
+      {
+        "id": "scattering_energy",
+        "type": "SimpleMultiplyOpNode",
+        "group": "refraction",
+        "label": "scattering_energy",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "underwater_color",
+        "type": "SimpleAddOpNode",
+        "group": "refraction",
+        "label": "underwater_color",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "fresnel_transmission",
+        "type": "OneMinusNode",
+        "group": "refraction",
+        "label": "fresnel_transmission",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "transmitted_fresnel",
+        "type": "SimpleMultiplyOpNode",
+        "group": "refraction",
+        "label": "transmitted_fresnel",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_transmission",
+        "type": "OneMinusNode",
+        "group": "refraction",
+        "label": "foam_transmission",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "water_transmission_emission",
+        "type": "SimpleMultiplyOpNode",
+        "group": "refraction",
+        "label": "water_transmission_emission",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "reflection_strength",
+        "type": "RangedFloatNode",
+        "group": "surface",
+        "label": "reflection_strength",
+        "settings": [],
+        "customInputs": [],
+        "value": "1",
+        "propertyName": "_ReflectionStrength",
+        "displayName": "05 Optics / reflection",
+        "propertyKind": "Range",
+        "rangeMin": 0,
+        "rangeMax": 2
+      },
+      {
+        "id": "pbr_water_f0",
+        "type": "RangedFloatNode",
+        "group": "surface",
+        "label": "pbr_water_f0",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.02037",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "reflection_contact",
+        "type": "SimpleMultiplyOpNode",
+        "group": "surface",
+        "label": "reflection_contact",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "pbr_f0",
+        "type": "SimpleMultiplyOpNode",
+        "group": "surface",
+        "label": "pbr_f0",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "foam_specular",
+        "type": "RangedFloatNode",
+        "group": "surface",
+        "label": "foam_specular",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.028",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "surface_specular",
+        "type": "LerpOp",
+        "group": "surface",
+        "label": "surface_specular",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "specular_rgb",
+        "type": "DynamicAppendNode",
+        "group": "surface",
+        "label": "specular_rgb",
+        "settings": [],
+        "customInputs": [],
+        "outputType": "FLOAT3"
+      },
+      {
+        "id": "smoothness",
+        "type": "RangedFloatNode",
+        "group": "surface",
+        "label": "smoothness",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.94",
+        "propertyName": "_Smoothness",
+        "displayName": "05 Optics / smoothness",
+        "propertyKind": "Range",
+        "rangeMin": 0.5,
+        "rangeMax": 0.99
+      },
+      {
+        "id": "foam_smoothness",
+        "type": "RangedFloatNode",
+        "group": "surface",
+        "label": "foam_smoothness",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.28",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "surface_smoothness",
+        "type": "LerpOp",
+        "group": "surface",
+        "label": "surface_smoothness",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "water_diffuse_fraction",
+        "type": "RangedFloatNode",
+        "group": "surface",
+        "label": "water_diffuse_fraction",
+        "settings": [],
+        "customInputs": [],
+        "value": "0.06",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      },
+      {
+        "id": "water_diffuse",
+        "type": "SimpleMultiplyOpNode",
+        "group": "surface",
+        "label": "water_diffuse",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "surface_albedo",
+        "type": "LerpOp",
+        "group": "surface",
+        "label": "surface_albedo",
+        "settings": [],
+        "customInputs": []
+      },
+      {
+        "id": "composite_alpha",
+        "type": "RangedFloatNode",
+        "group": "surface",
+        "label": "composite_alpha",
+        "settings": [],
+        "customInputs": [],
+        "value": "1",
+        "propertyName": null,
+        "displayName": null,
+        "propertyKind": "Float",
+        "rangeMin": 0,
+        "rangeMax": 0
+      }
+    ],
+    "wires": [
+      {
+        "fromPort": "0",
+        "to": "world_xz",
+        "toPort": "0",
+        "from": "world_position"
+      },
+      {
+        "fromPort": "0",
+        "to": "water_clock",
+        "toPort": "0",
+        "from": "time_seconds"
+      },
+      {
+        "fromPort": "0",
+        "to": "water_clock",
+        "toPort": "1",
+        "from": "wave_speed"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_direction",
+        "toPort": "0",
+        "from": "swell_1_parameters"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_wavevector",
+        "toPort": "0",
+        "from": "swell_1_direction"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_wavevector",
+        "toPort": "1",
+        "from": "wave_scale"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_distance",
+        "toPort": "0",
+        "from": "world_xz"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_distance",
+        "toPort": "1",
+        "from": "swell_1_wavevector"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_time",
+        "toPort": "0",
+        "from": "water_clock"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_time",
+        "toPort": "1",
+        "from": "swell_1_omega"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_travel",
+        "toPort": "0",
+        "from": "swell_1_distance"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_travel",
+        "toPort": "1",
+        "from": "swell_1_time"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_phase",
+        "toPort": "0",
+        "from": "swell_1_travel"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_phase",
+        "toPort": "1",
+        "from": "swell_1_offset"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_amplitude",
+        "toPort": "0",
+        "from": "wave_height"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_amplitude",
+        "toPort": "1",
+        "from": "swell_1_weight"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_sin",
+        "toPort": "0",
+        "from": "swell_1_phase"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_height",
+        "toPort": "0",
+        "from": "swell_1_sin"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_height",
+        "toPort": "1",
+        "from": "swell_1_amplitude"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_cos",
+        "toPort": "0",
+        "from": "swell_1_phase"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_derivative",
+        "toPort": "0",
+        "from": "swell_1_cos"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_derivative",
+        "toPort": "1",
+        "from": "swell_1_amplitude"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_kx",
+        "toPort": "0",
+        "from": "swell_1_wavevector"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_slope_x",
+        "toPort": "0",
+        "from": "swell_1_derivative"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_slope_x",
+        "toPort": "1",
+        "from": "swell_1_kx"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_kz",
+        "toPort": "0",
+        "from": "swell_1_wavevector"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_slope_z",
+        "toPort": "0",
+        "from": "swell_1_derivative"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_1_slope_z",
+        "toPort": "1",
+        "from": "swell_1_kz"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_direction",
+        "toPort": "0",
+        "from": "swell_2_parameters"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_wavevector",
+        "toPort": "0",
+        "from": "swell_2_direction"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_wavevector",
+        "toPort": "1",
+        "from": "wave_scale"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_distance",
+        "toPort": "0",
+        "from": "world_xz"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_distance",
+        "toPort": "1",
+        "from": "swell_2_wavevector"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_time",
+        "toPort": "0",
+        "from": "water_clock"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_time",
+        "toPort": "1",
+        "from": "swell_2_omega"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_travel",
+        "toPort": "0",
+        "from": "swell_2_distance"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_travel",
+        "toPort": "1",
+        "from": "swell_2_time"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_phase",
+        "toPort": "0",
+        "from": "swell_2_travel"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_phase",
+        "toPort": "1",
+        "from": "swell_2_offset"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_amplitude",
+        "toPort": "0",
+        "from": "wave_height"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_amplitude",
+        "toPort": "1",
+        "from": "swell_2_weight"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_sin",
+        "toPort": "0",
+        "from": "swell_2_phase"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_height",
+        "toPort": "0",
+        "from": "swell_2_sin"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_height",
+        "toPort": "1",
+        "from": "swell_2_amplitude"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_cos",
+        "toPort": "0",
+        "from": "swell_2_phase"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_derivative",
+        "toPort": "0",
+        "from": "swell_2_cos"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_derivative",
+        "toPort": "1",
+        "from": "swell_2_amplitude"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_kx",
+        "toPort": "0",
+        "from": "swell_2_wavevector"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_slope_x",
+        "toPort": "0",
+        "from": "swell_2_derivative"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_slope_x",
+        "toPort": "1",
+        "from": "swell_2_kx"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_kz",
+        "toPort": "0",
+        "from": "swell_2_wavevector"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_slope_z",
+        "toPort": "0",
+        "from": "swell_2_derivative"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_2_slope_z",
+        "toPort": "1",
+        "from": "swell_2_kz"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_direction",
+        "toPort": "0",
+        "from": "swell_3_parameters"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_wavevector",
+        "toPort": "0",
+        "from": "swell_3_direction"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_wavevector",
+        "toPort": "1",
+        "from": "wave_scale"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_distance",
+        "toPort": "0",
+        "from": "world_xz"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_distance",
+        "toPort": "1",
+        "from": "swell_3_wavevector"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_time",
+        "toPort": "0",
+        "from": "water_clock"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_time",
+        "toPort": "1",
+        "from": "swell_3_omega"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_travel",
+        "toPort": "0",
+        "from": "swell_3_distance"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_travel",
+        "toPort": "1",
+        "from": "swell_3_time"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_phase",
+        "toPort": "0",
+        "from": "swell_3_travel"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_phase",
+        "toPort": "1",
+        "from": "swell_3_offset"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_amplitude",
+        "toPort": "0",
+        "from": "wave_height"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_amplitude",
+        "toPort": "1",
+        "from": "swell_3_weight"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_sin",
+        "toPort": "0",
+        "from": "swell_3_phase"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_height",
+        "toPort": "0",
+        "from": "swell_3_sin"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_height",
+        "toPort": "1",
+        "from": "swell_3_amplitude"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_cos",
+        "toPort": "0",
+        "from": "swell_3_phase"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_derivative",
+        "toPort": "0",
+        "from": "swell_3_cos"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_derivative",
+        "toPort": "1",
+        "from": "swell_3_amplitude"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_kx",
+        "toPort": "0",
+        "from": "swell_3_wavevector"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_slope_x",
+        "toPort": "0",
+        "from": "swell_3_derivative"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_slope_x",
+        "toPort": "1",
+        "from": "swell_3_kx"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_kz",
+        "toPort": "0",
+        "from": "swell_3_wavevector"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_slope_z",
+        "toPort": "0",
+        "from": "swell_3_derivative"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_3_slope_z",
+        "toPort": "1",
+        "from": "swell_3_kz"
+      },
+      {
+        "fromPort": "0",
+        "to": "height_pair",
+        "toPort": "0",
+        "from": "swell_1_height"
+      },
+      {
+        "fromPort": "0",
+        "to": "height_pair",
+        "toPort": "1",
+        "from": "swell_2_height"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_height",
+        "toPort": "0",
+        "from": "height_pair"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_height",
+        "toPort": "1",
+        "from": "swell_3_height"
+      },
+      {
+        "fromPort": "0",
+        "to": "slope_x_pair",
+        "toPort": "0",
+        "from": "swell_1_slope_x"
+      },
+      {
+        "fromPort": "0",
+        "to": "slope_x_pair",
+        "toPort": "1",
+        "from": "swell_2_slope_x"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_slope_x",
+        "toPort": "0",
+        "from": "slope_x_pair"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_slope_x",
+        "toPort": "1",
+        "from": "swell_3_slope_x"
+      },
+      {
+        "fromPort": "0",
+        "to": "slope_z_pair",
+        "toPort": "0",
+        "from": "swell_1_slope_z"
+      },
+      {
+        "fromPort": "0",
+        "to": "slope_z_pair",
+        "toPort": "1",
+        "from": "swell_2_slope_z"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_slope_z",
+        "toPort": "0",
+        "from": "slope_z_pair"
+      },
+      {
+        "fromPort": "0",
+        "to": "swell_slope_z",
+        "toPort": "1",
+        "from": "swell_3_slope_z"
+      },
+      {
+        "fromPort": "0",
+        "to": "world_wave_offset",
+        "toPort": "0",
+        "from": "wave_zero"
+      },
+      {
+        "fromPort": "0",
+        "to": "world_wave_offset",
+        "toPort": "1",
+        "from": "swell_height"
+      },
+      {
+        "fromPort": "0",
+        "to": "world_wave_offset",
+        "toPort": "2",
+        "from": "wave_zero"
+      },
+      {
+        "fromPort": "0",
+        "to": "world_wave_offset",
+        "toPort": "3",
+        "from": "wave_zero"
+      },
+      {
+        "fromPort": "0",
+        "to": "offset_transform",
+        "toPort": "0",
+        "from": "world_to_object"
+      },
+      {
+        "fromPort": "0",
+        "to": "offset_transform",
+        "toPort": "1",
+        "from": "world_wave_offset"
+      },
+      {
+        "fromPort": "0",
+        "to": "object_wave_offset",
+        "toPort": "0",
+        "from": "offset_transform"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_uv_a",
+        "toPort": "0",
+        "from": "world_xz"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_uv_a",
+        "toPort": "1",
+        "from": "ripple_scale"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_flow_a",
+        "toPort": "0",
+        "from": "ripple_flow_a_data"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_pan_a",
+        "toPort": "0",
+        "from": "ripple_uv_a"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_pan_a",
+        "toPort": "2",
+        "from": "ripple_flow_a"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_pan_a",
+        "toPort": "1",
+        "from": "water_clock"
+      },
+      {
+        "fromPort": "0",
+        "to": "rotated_xz",
+        "toPort": "0",
+        "from": "world_xz"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_second_scale",
+        "toPort": "0",
+        "from": "ripple_scale"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_second_scale",
+        "toPort": "1",
+        "from": "ripple_scale_ratio"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_uv_b",
+        "toPort": "0",
+        "from": "rotated_xz"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_uv_b",
+        "toPort": "1",
+        "from": "ripple_second_scale"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_flow_b",
+        "toPort": "0",
+        "from": "ripple_flow_b_data"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_pan_b",
+        "toPort": "0",
+        "from": "ripple_uv_b"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_pan_b",
+        "toPort": "2",
+        "from": "ripple_flow_b"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_pan_b",
+        "toPort": "1",
+        "from": "water_clock"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripples_a",
+        "toPort": "Tex",
+        "from": "ripple_texture"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripples_a",
+        "toPort": "UV",
+        "from": "ripple_pan_a"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripples_b",
+        "toPort": "Tex",
+        "from": "ripple_texture"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripples_b",
+        "toPort": "UV",
+        "from": "ripple_pan_b"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_slope_a",
+        "toPort": "0",
+        "from": "ripples_a"
+      },
+      {
+        "fromPort": "0",
+        "to": "ripple_slope_b",
+        "toPort": "0",
+        "from": "ripples_b"
+      },
+      {
+        "fromPort": "0",
+        "to": "encoded_ripple_sum",
+        "toPort": "0",
+        "from": "ripple_slope_a"
+      },
+      {
+        "fromPort": "0",
+        "to": "encoded_ripple_sum",
+        "toPort": "1",
+        "from": "ripple_slope_b"
+      },
+      {
+        "fromPort": "0",
+        "to": "signed_ripple_slope",
+        "toPort": "0",
+        "from": "encoded_ripple_sum"
+      },
+      {
+        "fromPort": "0",
+        "to": "signed_ripple_slope",
+        "toPort": "1",
+        "from": "slope_decode_bias"
+      },
+      {
+        "fromPort": "0",
+        "to": "detail_slope",
+        "toPort": "0",
+        "from": "signed_ripple_slope"
+      },
+      {
+        "fromPort": "0",
+        "to": "detail_slope",
+        "toPort": "1",
+        "from": "ripple_strength"
+      },
+      {
+        "fromPort": "3",
+        "to": "detail_noise_sum",
+        "toPort": "0",
+        "from": "ripples_a"
+      },
+      {
+        "fromPort": "3",
+        "to": "detail_noise_sum",
+        "toPort": "1",
+        "from": "ripples_b"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_detail_noise",
+        "toPort": "0",
+        "from": "detail_noise_sum"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_detail_noise",
+        "toPort": "1",
+        "from": "noise_average"
+      },
+      {
+        "fromPort": "0",
+        "to": "detail_x",
+        "toPort": "0",
+        "from": "detail_slope"
+      },
+      {
+        "fromPort": "0",
+        "to": "total_slope_x",
+        "toPort": "0",
+        "from": "swell_slope_x"
+      },
+      {
+        "fromPort": "0",
+        "to": "total_slope_x",
+        "toPort": "1",
+        "from": "detail_x"
+      },
+      {
+        "fromPort": "0",
+        "to": "negative_slope_x",
+        "toPort": "0",
+        "from": "total_slope_x"
+      },
+      {
+        "fromPort": "0",
+        "to": "detail_z",
+        "toPort": "0",
+        "from": "detail_slope"
+      },
+      {
+        "fromPort": "0",
+        "to": "total_slope_z",
+        "toPort": "0",
+        "from": "swell_slope_z"
+      },
+      {
+        "fromPort": "0",
+        "to": "total_slope_z",
+        "toPort": "1",
+        "from": "detail_z"
+      },
+      {
+        "fromPort": "0",
+        "to": "negative_slope_z",
+        "toPort": "0",
+        "from": "total_slope_z"
+      },
+      {
+        "fromPort": "0",
+        "to": "slope_normal_ws",
+        "toPort": "0",
+        "from": "negative_slope_x"
+      },
+      {
+        "fromPort": "0",
+        "to": "slope_normal_ws",
+        "toPort": "1",
+        "from": "normal_y"
+      },
+      {
+        "fromPort": "0",
+        "to": "slope_normal_ws",
+        "toPort": "2",
+        "from": "negative_slope_z"
+      },
+      {
+        "fromPort": "0",
+        "to": "water_normal_ws",
+        "toPort": "0",
+        "from": "slope_normal_ws"
+      },
+      {
+        "fromPort": "0",
+        "to": "water_fresnel",
+        "toPort": "0",
+        "from": "water_normal_ws"
+      },
+      {
+        "fromPort": "0",
+        "to": "water_fresnel",
+        "toPort": "4",
+        "from": "view_to_camera_ws"
+      },
+      {
+        "fromPort": "0",
+        "to": "water_fresnel",
+        "toPort": "1",
+        "from": "water_f0"
+      },
+      {
+        "fromPort": "0",
+        "to": "water_fresnel",
+        "toPort": "2",
+        "from": "water_fresnel_scale"
+      },
+      {
+        "fromPort": "0",
+        "to": "water_fresnel",
+        "toPort": "3",
+        "from": "water_fresnel_power"
+      },
+      {
+        "fromPort": "0",
+        "to": "positive_depth",
+        "toPort": "0",
+        "from": "scene_depth_gap"
+      },
+      {
+        "fromPort": "0",
+        "to": "positive_depth",
+        "toPort": "1",
+        "from": "depth_zero"
+      },
+      {
+        "fromPort": "0",
+        "to": "depth_eye",
+        "toPort": "0",
+        "from": "positive_depth"
+      },
+      {
+        "fromPort": "0",
+        "to": "depth_eye",
+        "toPort": "1",
+        "from": "depth_limit"
+      },
+      {
+        "fromPort": "1",
+        "to": "view_direction4",
+        "toPort": "0",
+        "from": "view_to_camera_ws"
+      },
+      {
+        "fromPort": "2",
+        "to": "view_direction4",
+        "toPort": "1",
+        "from": "view_to_camera_ws"
+      },
+      {
+        "fromPort": "3",
+        "to": "view_direction4",
+        "toPort": "2",
+        "from": "view_to_camera_ws"
+      },
+      {
+        "fromPort": "0",
+        "to": "view_direction4",
+        "toPort": "3",
+        "from": "view_w_zero"
+      },
+      {
+        "fromPort": "0",
+        "to": "view_camera_space",
+        "toPort": "0",
+        "from": "world_to_camera"
+      },
+      {
+        "fromPort": "0",
+        "to": "view_camera_space",
+        "toPort": "1",
+        "from": "view_direction4"
+      },
+      {
+        "fromPort": "0",
+        "to": "view_camera_z",
+        "toPort": "0",
+        "from": "view_camera_space"
+      },
+      {
+        "fromPort": "0",
+        "to": "view_cosine",
+        "toPort": "0",
+        "from": "view_camera_z"
+      },
+      {
+        "fromPort": "0",
+        "to": "safe_ray_cosine",
+        "toPort": "0",
+        "from": "view_cosine"
+      },
+      {
+        "fromPort": "0",
+        "to": "safe_ray_cosine",
+        "toPort": "1",
+        "from": "min_ray_cosine"
+      },
+      {
+        "fromPort": "0",
+        "to": "optical_path_m",
+        "toPort": "0",
+        "from": "depth_eye"
+      },
+      {
+        "fromPort": "0",
+        "to": "optical_path_m",
+        "toPort": "1",
+        "from": "safe_ray_cosine"
+      },
+      {
+        "fromPort": "0",
+        "to": "absorption_rgb",
+        "toPort": "0",
+        "from": "absorption"
+      },
+      {
+        "fromPort": "0",
+        "to": "optical_thickness",
+        "toPort": "0",
+        "from": "optical_path_m"
+      },
+      {
+        "fromPort": "0",
+        "to": "optical_thickness",
+        "toPort": "1",
+        "from": "density"
+      },
+      {
+        "fromPort": "0",
+        "to": "rgb_extinction",
+        "toPort": "0",
+        "from": "optical_thickness"
+      },
+      {
+        "fromPort": "0",
+        "to": "rgb_extinction",
+        "toPort": "1",
+        "from": "absorption_rgb"
+      },
+      {
+        "fromPort": "0",
+        "to": "negative_extinction",
+        "toPort": "0",
+        "from": "rgb_extinction"
+      },
+      {
+        "fromPort": "0",
+        "to": "rgb_transmittance",
+        "toPort": "0",
+        "from": "negative_extinction"
+      },
+      {
+        "fromPort": "0",
+        "to": "depth_color_gradient",
+        "toPort": "0",
+        "from": "optical_path_m"
+      },
+      {
+        "fromPort": "0",
+        "to": "depth_color_gradient",
+        "toPort": "1",
+        "from": "deep_distance"
+      },
+      {
+        "fromPort": "0",
+        "to": "deep_color_weight",
+        "toPort": "0",
+        "from": "depth_color_gradient"
+      },
+      {
+        "fromPort": "0",
+        "to": "shallow_rgb",
+        "toPort": "0",
+        "from": "shallow_color"
+      },
+      {
+        "fromPort": "0",
+        "to": "deep_rgb",
+        "toPort": "0",
+        "from": "deep_color"
+      },
+      {
+        "fromPort": "0",
+        "to": "depth_scattering_color",
+        "toPort": "0",
+        "from": "shallow_rgb"
+      },
+      {
+        "fromPort": "0",
+        "to": "depth_scattering_color",
+        "toPort": "1",
+        "from": "deep_rgb"
+      },
+      {
+        "fromPort": "0",
+        "to": "depth_scattering_color",
+        "toPort": "2",
+        "from": "deep_color_weight"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_contact_fade",
+        "toPort": "0",
+        "from": "depth_eye"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_contact_fade",
+        "toPort": "1",
+        "from": "contact_start"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_contact_fade",
+        "toPort": "2",
+        "from": "contact_width"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_depth_width",
+        "toPort": "0",
+        "from": "depth_eye"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_depth_width",
+        "toPort": "1",
+        "from": "foam_width"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_distance_normalized",
+        "toPort": "0",
+        "from": "shore_depth_width"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_foam_band",
+        "toPort": "0",
+        "from": "shore_distance_normalized"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_band_shape",
+        "toPort": "0",
+        "from": "shore_foam_band"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_band_shape",
+        "toPort": "1",
+        "from": "shore_foam_band"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_breakup",
+        "toPort": "0",
+        "from": "foam_detail_noise"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_breakup",
+        "toPort": "1",
+        "from": "foam_noise_low"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_breakup",
+        "toPort": "2",
+        "from": "foam_noise_high"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_ring_distance",
+        "toPort": "0",
+        "from": "depth_eye"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_ring_distance",
+        "toPort": "1",
+        "from": "foam_ring_frequency"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_ring_time",
+        "toPort": "0",
+        "from": "water_clock"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_ring_time",
+        "toPort": "1",
+        "from": "foam_ring_speed"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_ring_phase",
+        "toPort": "0",
+        "from": "shore_ring_distance"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_ring_phase",
+        "toPort": "1",
+        "from": "shore_ring_time"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_ring_sin",
+        "toPort": "0",
+        "from": "shore_ring_phase"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_ring_half",
+        "toPort": "0",
+        "from": "shore_ring_sin"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_ring_half",
+        "toPort": "1",
+        "from": "foam_half"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_ring_positive",
+        "toPort": "0",
+        "from": "shore_ring_half"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_ring_positive",
+        "toPort": "1",
+        "from": "foam_ring_bias"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_ring_modulation",
+        "toPort": "0",
+        "from": "foam_ring_min"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_ring_modulation",
+        "toPort": "1",
+        "from": "foam_ring_max"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_ring_modulation",
+        "toPort": "2",
+        "from": "shore_ring_positive"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_band_breakup",
+        "toPort": "0",
+        "from": "foam_band_shape"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_band_breakup",
+        "toPort": "1",
+        "from": "foam_breakup"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_pattern",
+        "toPort": "0",
+        "from": "foam_band_breakup"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_pattern",
+        "toPort": "1",
+        "from": "foam_ring_modulation"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_amount",
+        "toPort": "0",
+        "from": "foam_strength"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_amount",
+        "toPort": "1",
+        "from": "shore_contact_fade"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_contact",
+        "toPort": "0",
+        "from": "foam_pattern"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_contact",
+        "toPort": "1",
+        "from": "foam_amount"
+      },
+      {
+        "fromPort": "0",
+        "to": "shore_foam",
+        "toPort": "0",
+        "from": "foam_contact"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_rgb",
+        "toPort": "0",
+        "from": "foam_color"
+      },
+      {
+        "fromPort": "0",
+        "to": "normal_x",
+        "toPort": "0",
+        "from": "water_normal_ws"
+      },
+      {
+        "fromPort": "0",
+        "to": "normal_y_component",
+        "toPort": "0",
+        "from": "water_normal_ws"
+      },
+      {
+        "fromPort": "0",
+        "to": "normal_z",
+        "toPort": "0",
+        "from": "water_normal_ws"
+      },
+      {
+        "fromPort": "0",
+        "to": "normal_ws4",
+        "toPort": "0",
+        "from": "normal_x"
+      },
+      {
+        "fromPort": "0",
+        "to": "normal_ws4",
+        "toPort": "1",
+        "from": "normal_y_component"
+      },
+      {
+        "fromPort": "0",
+        "to": "normal_ws4",
+        "toPort": "2",
+        "from": "normal_z"
+      },
+      {
+        "fromPort": "0",
+        "to": "normal_ws4",
+        "toPort": "3",
+        "from": "normal_w_zero"
+      },
+      {
+        "fromPort": "0",
+        "to": "normal_camera_space",
+        "toPort": "0",
+        "from": "refraction_world_to_camera"
+      },
+      {
+        "fromPort": "0",
+        "to": "normal_camera_space",
+        "toPort": "1",
+        "from": "normal_ws4"
+      },
+      {
+        "fromPort": "0",
+        "to": "refraction_direction",
+        "toPort": "0",
+        "from": "normal_camera_space"
+      },
+      {
+        "fromPort": "0",
+        "to": "refraction_depth",
+        "toPort": "0",
+        "from": "depth_eye"
+      },
+      {
+        "fromPort": "0",
+        "to": "refraction_depth",
+        "toPort": "1",
+        "from": "refraction_fade_distance"
+      },
+      {
+        "fromPort": "0",
+        "to": "shallow_refraction_fade",
+        "toPort": "0",
+        "from": "refraction_depth"
+      },
+      {
+        "fromPort": "0",
+        "to": "refraction_weight",
+        "toPort": "0",
+        "from": "refraction_strength"
+      },
+      {
+        "fromPort": "0",
+        "to": "refraction_weight",
+        "toPort": "1",
+        "from": "shallow_refraction_fade"
+      },
+      {
+        "fromPort": "0",
+        "to": "screen_distortion",
+        "toPort": "0",
+        "from": "refraction_direction"
+      },
+      {
+        "fromPort": "0",
+        "to": "screen_distortion",
+        "toPort": "1",
+        "from": "refraction_weight"
+      },
+      {
+        "fromPort": "0",
+        "to": "grab_xy",
+        "toPort": "0",
+        "from": "grab_screen_uv"
+      },
+      {
+        "fromPort": "0",
+        "to": "distorted_grab_uv",
+        "toPort": "0",
+        "from": "grab_xy"
+      },
+      {
+        "fromPort": "0",
+        "to": "distorted_grab_uv",
+        "toPort": "1",
+        "from": "screen_distortion"
+      },
+      {
+        "fromPort": "0",
+        "to": "safe_refracted_uv",
+        "toPort": "0",
+        "from": "distorted_grab_uv"
+      },
+      {
+        "fromPort": "0",
+        "to": "refracted_scene_color",
+        "toPort": "UV",
+        "from": "safe_refracted_uv"
+      },
+      {
+        "fromPort": "0",
+        "to": "refracted_rgb",
+        "toPort": "0",
+        "from": "refracted_scene_color"
+      },
+      {
+        "fromPort": "0",
+        "to": "absorbed_scene",
+        "toPort": "0",
+        "from": "refracted_rgb"
+      },
+      {
+        "fromPort": "0",
+        "to": "absorbed_scene",
+        "toPort": "1",
+        "from": "rgb_transmittance"
+      },
+      {
+        "fromPort": "0",
+        "to": "absorbed_fraction",
+        "toPort": "0",
+        "from": "rgb_transmittance"
+      },
+      {
+        "fromPort": "0",
+        "to": "absorbed_scattering",
+        "toPort": "0",
+        "from": "depth_scattering_color"
+      },
+      {
+        "fromPort": "0",
+        "to": "absorbed_scattering",
+        "toPort": "1",
+        "from": "absorbed_fraction"
+      },
+      {
+        "fromPort": "0",
+        "to": "scattering_energy",
+        "toPort": "0",
+        "from": "absorbed_scattering"
+      },
+      {
+        "fromPort": "0",
+        "to": "scattering_energy",
+        "toPort": "1",
+        "from": "scattering_strength"
+      },
+      {
+        "fromPort": "0",
+        "to": "underwater_color",
+        "toPort": "0",
+        "from": "absorbed_scene"
+      },
+      {
+        "fromPort": "0",
+        "to": "underwater_color",
+        "toPort": "1",
+        "from": "scattering_energy"
+      },
+      {
+        "fromPort": "0",
+        "to": "fresnel_transmission",
+        "toPort": "0",
+        "from": "water_fresnel"
+      },
+      {
+        "fromPort": "0",
+        "to": "transmitted_fresnel",
+        "toPort": "0",
+        "from": "underwater_color"
+      },
+      {
+        "fromPort": "0",
+        "to": "transmitted_fresnel",
+        "toPort": "1",
+        "from": "fresnel_transmission"
+      },
+      {
+        "fromPort": "0",
+        "to": "foam_transmission",
+        "toPort": "0",
+        "from": "shore_foam"
+      },
+      {
+        "fromPort": "0",
+        "to": "water_transmission_emission",
+        "toPort": "0",
+        "from": "transmitted_fresnel"
+      },
+      {
+        "fromPort": "0",
+        "to": "water_transmission_emission",
+        "toPort": "1",
+        "from": "foam_transmission"
+      },
+      {
+        "fromPort": "0",
+        "to": "reflection_contact",
+        "toPort": "0",
+        "from": "reflection_strength"
+      },
+      {
+        "fromPort": "0",
+        "to": "reflection_contact",
+        "toPort": "1",
+        "from": "shore_contact_fade"
+      },
+      {
+        "fromPort": "0",
+        "to": "pbr_f0",
+        "toPort": "0",
+        "from": "pbr_water_f0"
+      },
+      {
+        "fromPort": "0",
+        "to": "pbr_f0",
+        "toPort": "1",
+        "from": "reflection_contact"
+      },
+      {
+        "fromPort": "0",
+        "to": "surface_specular",
+        "toPort": "0",
+        "from": "pbr_f0"
+      },
+      {
+        "fromPort": "0",
+        "to": "surface_specular",
+        "toPort": "1",
+        "from": "foam_specular"
+      },
+      {
+        "fromPort": "0",
+        "to": "surface_specular",
+        "toPort": "2",
+        "from": "shore_foam"
+      },
+      {
+        "fromPort": "0",
+        "to": "specular_rgb",
+        "toPort": "0",
+        "from": "surface_specular"
+      },
+      {
+        "fromPort": "0",
+        "to": "specular_rgb",
+        "toPort": "1",
+        "from": "surface_specular"
+      },
+      {
+        "fromPort": "0",
+        "to": "specular_rgb",
+        "toPort": "2",
+        "from": "surface_specular"
+      },
+      {
+        "fromPort": "0",
+        "to": "surface_smoothness",
+        "toPort": "0",
+        "from": "smoothness"
+      },
+      {
+        "fromPort": "0",
+        "to": "surface_smoothness",
+        "toPort": "1",
+        "from": "foam_smoothness"
+      },
+      {
+        "fromPort": "0",
+        "to": "surface_smoothness",
+        "toPort": "2",
+        "from": "shore_foam"
+      },
+      {
+        "fromPort": "0",
+        "to": "water_diffuse",
+        "toPort": "0",
+        "from": "absorbed_scattering"
+      },
+      {
+        "fromPort": "0",
+        "to": "water_diffuse",
+        "toPort": "1",
+        "from": "water_diffuse_fraction"
+      },
+      {
+        "fromPort": "0",
+        "to": "surface_albedo",
+        "toPort": "0",
+        "from": "water_diffuse"
+      },
+      {
+        "fromPort": "0",
+        "to": "surface_albedo",
+        "toPort": "1",
+        "from": "foam_rgb"
+      },
+      {
+        "fromPort": "0",
+        "to": "surface_albedo",
+        "toPort": "2",
+        "from": "shore_foam"
+      }
+    ],
+    "outputs": [
+      {
+        "node": "surface_albedo",
+        "port": "0",
+        "masterPort": "Albedo",
+        "pass": "ForwardBase"
+      },
+      {
+        "node": "water_normal_ws",
+        "port": "0",
+        "masterPort": "Normal WS",
+        "pass": "ForwardBase"
+      },
+      {
+        "node": "specular_rgb",
+        "port": "0",
+        "masterPort": "Specular",
+        "pass": "ForwardBase"
+      },
+      {
+        "node": "surface_smoothness",
+        "port": "0",
+        "masterPort": "Smoothness",
+        "pass": "ForwardBase"
+      },
+      {
+        "node": "water_transmission_emission",
+        "port": "0",
+        "masterPort": "Emission",
+        "pass": "ForwardBase"
+      },
+      {
+        "node": "composite_alpha",
+        "port": "0",
+        "masterPort": "Alpha",
+        "pass": "ForwardBase"
+      },
+      {
+        "node": "object_wave_offset",
+        "port": "0",
+        "masterPort": "Vertex Offset",
+        "pass": "ForwardBase"
+      }
+    ],
+    "masterSettings": [
+      {
+        "name": "option:Workflow",
+        "value": "Specular"
+      },
+      {
+        "name": "option:Surface",
+        "value": "Transparent"
+      },
+      {
+        "name": "option:  Blend",
+        "value": "Translucent"
+      },
+      {
+        "name": "option:Normal Space",
+        "value": "World"
+      },
+      {
+        "name": "option:Two Sided",
+        "value": "Cull Back"
+      },
+      {
+        "name": "option:Cast Shadows",
+        "value": "false"
+      },
+      {
+        "name": "option:Deferred Pass",
+        "value": "false"
+      },
+      {
+        "name": "option:Meta Pass",
+        "value": "false"
+      },
+      {
+        "name": "option:Add Pass",
+        "value": "false"
+      },
+      {
+        "name": "option:Receive Specular",
+        "value": "Force On"
+      },
+      {
+        "name": "option:Receive Reflections",
+        "value": "Force On"
+      },
+      {
+        "name": "option:LOD CrossFade",
+        "value": "false"
+      },
+      {
+        "name": "option:GPU Instancing",
+        "value": "true"
+      },
+      {
+        "name": "option:Built-in Fog",
+        "value": "true"
+      }
+    ],
+    "comments": [
+      {
+        "id": "coordinates",
+        "title": "01 世界坐标与时间",
+        "text": "以世界 XZ 米制坐标驱动波浪与细波纹；对象缩放不改变波长。所有动画共享时间和速度。适用于水平水面。"
+      },
+      {
+        "id": "waves",
+        "title": "02 三向缓慢涌浪与解析斜率",
+        "text": "三组不同方向、频率和速度的正弦波叠加成米制位移，同时用 cos 求导得到匹配的水面斜率。w=0 的矩阵变换将世界位移转回对象空间，不受平移影响。细分网格才有真实起伏。"
+      },
+      {
+        "id": "ripples",
+        "title": "03 双层无缝细波纹",
+        "text": "两次采样同一张原创线性斜率纹理，以不同方向和尺度流动。RG 解码为有正负的斜率；第二层交换通道。B 作为岸沫破碎噪声。纹理必须关闭 sRGB，保持 Repeat 与 mipmap。"
+      },
+      {
+        "id": "normal",
+        "title": "04 真实方向法线与 Fresnel",
+        "text": "将涌浪解析斜率和细波纹斜率相加，构造并归一化世界空间法线。Schlick Fresnel 使用水的正视反射率约 2.04%，斜视时增强反射并减少透射。主节点 Normal Space 必须为 World。"
+      },
+      {
+        "id": "depth",
+        "title": "05 真实场景深度与光吸收",
+        "text": "Depth Fade 读取相机深度，减去已位移水面的线性眼空间深度。除以视线余弦近似沿光线的水中路程。Beer-Lambert: T=exp(-吸收系数×密度×路程)，红光比蓝绿光消失得快。相机必须开启 DepthTexture。"
+      },
+      {
+        "id": "foam",
+        "title": "06 浅岸泡沫与接触软化",
+        "text": "按真实深度间隙生成窄岸沫；双层流动噪声打碎边缘，再乘缓慢推进的条带。最后乘接触渐变，避免水陆交线硬白边。默认无全屏浪尖白沫，保持清澈湖水风格。"
+      },
+      {
+        "id": "refraction",
+        "title": "07 屏幕折射与水下颜色",
+        "text": "法线变换到相机空间，轻微扰动 ASE Grab Screen Position 生成的标准化屏幕坐标。浅岸缩小偏移，屏幕边缘限制在 0..1。场景色经 RGB 吸收后加水体散射，并让出 Fresnel 反射和泡沫能量。Built-in GrabPass 有屏幕复制成本。"
+      },
+      {
+        "id": "surface",
+        "title": "08 PBR 水面与最终合成",
+        "text": "Specular 工作流使用水的低 F0 和高光滑度，由 Unity 的方向光及 Reflection Probe 产生高光与反射；泡沫更粗糙。Transparent 排序、ZWrite Off，Translucent 的 One/Zero 合成已折射背景，防止再次 Alpha 混合。水面不投影，保留接收阴影和雾。"
+      }
+    ],
+    "presentation": {
+      "autoLayout": true,
+      "addComments": true,
+      "useRegisters": true,
+      "longWireDistance": 1400,
+      "maxRegisters": 48
+    }
+  }
+}

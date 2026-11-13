@@ -1,0 +1,114 @@
+﻿{
+    "packageVersion":  "0.2.4",
+    "recordDate":  "2026-10-21",
+    "unityVersion":  "2022.3.10f1",
+    "aseVersion":  "1.9.9.13",
+    "pipeline":  "BuiltIn",
+    "graphicsApi":  "Direct3D11",
+    "coreChecks":  {
+                       "passed":  true,
+                       "count":  55
+                   },
+    "editorReferenceCompile":  {
+                                   "passed":  true,
+                                   "errors":  0,
+                                   "warnings":  0
+                               },
+    "normalChecks":  {
+                         "passed":  true,
+                         "count":  258,
+                         "renderedCases":  49,
+                         "marker":  "ASE_NORMAL_SMOKE_PASS: 258; cases=49",
+                         "fogActuallyChangedReference":  true,
+                         "referenceFogMaxDifference":  0.3024847,
+                         "changedSemanticsRejected":  true,
+                         "propertyTypesFlagsAttributesAndNumericDefaultsMatched":  true
+                     },
+    "deepZoomUiRegression":  {
+                                 "passed":  true,
+                                 "checks":  139,
+                                 "renderedCases":  21,
+                                 "maxAbsoluteRgbaError":  0,
+                                 "marker":  "ASE_PRESENTATION_SMOKE_PASS: 139"
+                             },
+    "conversions":  [
+                        {
+                            "name":  "Normal360",
+                            "source":  {
+                                           "path":  "F:/BingMaYongPhoto/Assets/Scripts/GameLogic/MediaManager/ShowDetailPanel/ShowDetail360/Normal360.shader",
+                                           "sha256":  "d4fb551ede54ce5080c483fff24dcb8b19d430b2583835e055f49fa62746c53f",
+                                           "copyMatchesOriginal":  true
+                                       },
+                            "isolatedOutput":  {
+                                                   "path":  "Assets/Generated/Normal360_ASE 1.shader",
+                                                   "sha256":  "0fca9b08101a4d70c339439363386451a8a1fff9844d7b237d43db6342386943",
+                                                   "shaderName":  "Unlit/Normal360_ASE",
+                                                   "templateGuid":  "a99d644facf4442398d54acf418923b9",
+                                                   "aseRoundTripPassed":  true,
+                                                   "shaderCompiled":  true,
+                                                   "visualComparisonPassed":  false,
+                                                   "computationalNativeNodes":  12,
+                                                   "nativeNodeCount":  14,
+                                                   "customExpressions":  0,
+                                                   "properties":  2,
+                                                   "commentCount":  4,
+                                                   "registerNodeCount":  1,
+                                                   "getNodeCount":  1
+                                               },
+                            "template":  {
+                                             "path":  "Editor/Templates/Normal360Fog.shader",
+                                             "sha256":  "4387d1a1ced8fe84439d1e8c24cb4043d52fed0156d5ce878265a947d3e92f02"
+                                         },
+                            "fixtureComparison":  {
+                                                      "passed":  true,
+                                                      "cases":  26,
+                                                      "width":  128,
+                                                      "height":  64,
+                                                      "format":  "Linear RGBAFloat",
+                                                      "maxAbsoluteRgbaError":  0,
+                                                      "nonconstantVisibleReference":  true
+                                                  }
+                        },
+                        {
+                            "name":  "NormalImagePanZoom",
+                            "source":  {
+                                           "path":  "F:/BingMaYongPhoto/Assets/Scripts/GameLogic/MediaManager/ShowDetailPanel/ShowDetailImage/NormalImagePanZoom.shader",
+                                           "sha256":  "a49293c055e60f121f220b1fb033b31a19bc5e5cd3b062d81d5fa32ba0b0f9e0",
+                                           "copyMatchesOriginal":  true
+                                       },
+                            "isolatedOutput":  {
+                                                   "path":  "Assets/Generated/NormalImagePanZoom_ASE 1.shader",
+                                                   "sha256":  "d3aac62e935042bb06ca4b342972c67b975f05940c35ec0f7a206e91f4d5e853",
+                                                   "shaderName":  "UI/NormalImagePanZoom_ASE",
+                                                   "templateGuid":  "c08fd7d51a79449e86b199a5bb4a5724",
+                                                   "aseRoundTripPassed":  true,
+                                                   "shaderCompiled":  true,
+                                                   "visualComparisonPassed":  false,
+                                                   "computationalNativeNodes":  31,
+                                                   "nativeNodeCount":  43,
+                                                   "customExpressions":  0,
+                                                   "properties":  11,
+                                                   "commentCount":  7,
+                                                   "registerNodeCount":  6,
+                                                   "getNodeCount":  6
+                                               },
+                            "template":  {
+                                             "path":  "Editor/Templates/UiPanZoom.shader",
+                                             "sha256":  "5395ba883026fce1711a0e9f66fd8e61018fcfb3d33c49723c560d6e42b22b44"
+                                         },
+                            "fixtureComparison":  {
+                                                      "passed":  true,
+                                                      "cases":  23,
+                                                      "width":  128,
+                                                      "height":  64,
+                                                      "format":  "Linear RGBAFloat",
+                                                      "maxAbsoluteRgbaError":  0,
+                                                      "nonconstantVisibleReference":  true
+                                                  }
+                        }
+                    ],
+    "targetSceneComparisonPassed":  false,
+    "originalSourceAssetsModified":  false,
+    "referenceAseSourceRedistributed":  false,
+    "note":  "Fixed render fixtures passed. Original user scenes and other Unity/ASE/platform combinations remain unverified. API visualComparisonPassed stays false."
+}

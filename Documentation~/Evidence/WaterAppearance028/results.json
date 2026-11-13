@@ -1,0 +1,9 @@
+{
+    "passed": true,
+    "graphicsApi": "Direct3D11",
+    "shallowVsDeep": 0.39022016525268557,
+    "colorAlphaChange": 0.0,
+    "densityChange": 0.19477029144763947,
+    "missingDepthChange": 0.08433877676725388,
+    "scope": "Isolated flat water/bed fixture; not the user's live Scene view."
+}

@@ -1,0 +1,512 @@
+{
+  "libraryVersion": "0.2.8",
+  "probeCount": 19,
+  "planned": 19,
+  "numericalChecks": 19,
+  "generatedShaders": 0,
+  "note": "Function-only extraction; wrappers exist only in memory. Double-precision .NET reference dataflow checks do not model GPU precision/quantization. Parent shaders/includes retain all stage, dependency and render-state blockers. No ASE generation, shader execution or rendering.",
+  "probes": [
+    {
+      "id": "wglnoise_mod/1",
+      "expression": "wglnoise_mod(-291.37,2.0)",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 13,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        0.6299999999999955,
+        0,
+        0
+      ],
+      "expected": [
+        0.6299999999999955,
+        0,
+        0
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        }
+      ]
+    },
+    {
+      "id": "wglnoise_mod/2",
+      "expression": "wglnoise_mod(float2(-291.37),float2(2.0))",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 16,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        0.6299999999999955,
+        0.6299999999999955,
+        0
+      ],
+      "expected": [
+        0.6299999999999955,
+        0.6299999999999955,
+        0
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        }
+      ]
+    },
+    {
+      "id": "wglnoise_mod/3",
+      "expression": "wglnoise_mod(float3(-291.37),float3(2.0))",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 16,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        0.6299999999999955,
+        0.6299999999999955,
+        0.6299999999999955
+      ],
+      "expected": [
+        0.6299999999999955,
+        0.6299999999999955,
+        0.6299999999999955
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        }
+      ]
+    },
+    {
+      "id": "wglnoise_mod/4",
+      "expression": "wglnoise_mod(float4(-291.37),float4(2.0))",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 11,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        0.6299999999999955,
+        0.6299999999999955,
+        0.6299999999999955
+      ],
+      "expected": [
+        0.6299999999999955,
+        0.6299999999999955,
+        0.6299999999999955
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        }
+      ]
+    },
+    {
+      "id": "wglnoise_fade/1",
+      "expression": "wglnoise_fade(0.37)",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 17,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        0.2670122242,
+        0,
+        0
+      ],
+      "expected": [
+        0.2670122242,
+        0,
+        0
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        }
+      ]
+    },
+    {
+      "id": "wglnoise_fade/2",
+      "expression": "wglnoise_fade(float2(0.37))",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 19,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        0.2670122242,
+        0.2670122242,
+        0
+      ],
+      "expected": [
+        0.2670122242,
+        0.2670122242,
+        0
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        }
+      ]
+    },
+    {
+      "id": "wglnoise_fade/3",
+      "expression": "wglnoise_fade(float3(0.37))",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 19,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        0.2670122242,
+        0.2670122242,
+        0.2670122242
+      ],
+      "expected": [
+        0.2670122242,
+        0.2670122242,
+        0.2670122242
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        }
+      ]
+    },
+    {
+      "id": "wglnoise_mod289/1",
+      "expression": "wglnoise_mod289(-291.37)",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 14,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        286.63,
+        0,
+        0
+      ],
+      "expected": [
+        286.63,
+        0,
+        0
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        }
+      ]
+    },
+    {
+      "id": "wglnoise_mod289/2",
+      "expression": "wglnoise_mod289(float2(-291.37))",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 16,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        286.63,
+        286.63,
+        0
+      ],
+      "expected": [
+        286.63,
+        286.63,
+        0
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        }
+      ]
+    },
+    {
+      "id": "wglnoise_mod289/3",
+      "expression": "wglnoise_mod289(float3(-291.37))",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 16,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        286.63,
+        286.63,
+        286.63
+      ],
+      "expected": [
+        286.63,
+        286.63,
+        286.63
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        }
+      ]
+    },
+    {
+      "id": "wglnoise_mod289/4",
+      "expression": "wglnoise_mod289(float4(-291.37))",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 11,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        286.63,
+        286.63,
+        286.63
+      ],
+      "expected": [
+        286.63,
+        286.63,
+        286.63
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        }
+      ]
+    },
+    {
+      "id": "wglnoise_permute/2",
+      "expression": "wglnoise_permute(float2(-291.37))",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 21,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        213.51459999987856,
+        213.51459999987856,
+        0
+      ],
+      "expected": [
+        213.51459999987856,
+        213.51459999987856,
+        0
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        }
+      ]
+    },
+    {
+      "id": "wglnoise_permute/3",
+      "expression": "wglnoise_permute(float3(-291.37))",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 21,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        213.51459999987856,
+        213.51459999987856,
+        213.51459999987856
+      ],
+      "expected": [
+        213.51459999987856,
+        213.51459999987856,
+        213.51459999987856
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        }
+      ]
+    },
+    {
+      "id": "wglnoise_permute/4",
+      "expression": "wglnoise_permute(float4(-291.37))",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 16,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        213.51459999987856,
+        213.51459999987856,
+        213.51459999987856
+      ],
+      "expected": [
+        213.51459999987856,
+        213.51459999987856,
+        213.51459999987856
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        }
+      ]
+    },
+    {
+      "id": "GradientNoise/1",
+      "expression": "GradientNoise(0.37)",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 68,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        0.4126032757085676,
+        0,
+        0
+      ],
+      "expected": [
+        0.4126032757085676,
+        0,
+        0
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        },
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Noise1D.hlsl",
+          "sha256": "de8c079a6f7d36a6c317715860d50dc9f266aa2215cd4e026d49c4d3924f40dd"
+        }
+      ]
+    },
+    {
+      "id": "GradientNoise/2",
+      "expression": "GradientNoise(0.37,2.0)",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 68,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        -0.17429615154004308,
+        0,
+        0
+      ],
+      "expected": [
+        -0.17429615154004308,
+        0,
+        0
+      ],
+      "sourceFiles": [
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Common.hlsl",
+          "sha256": "f4d34c6fa5eaf4d1b9ec369de840232ba9798f6e099601176461221f2efa6e6d"
+        },
+        {
+          "path": "keijiro--NoiseShader/Packages/jp.keijiro.noiseshader/Shader/Noise1D.hlsl",
+          "sha256": "de8c079a6f7d36a6c317715860d50dc9f266aa2215cd4e026d49c4d3924f40dd"
+        }
+      ]
+    },
+    {
+      "id": "invLerp",
+      "expression": "invLerp(0.0,2.0,0.37)",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 12,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        0.185,
+        0,
+        0
+      ],
+      "expected": [
+        0.185,
+        0,
+        0
+      ],
+      "sourceFiles": [
+        {
+          "path": "ColinLeung-NiloCat--UnityURPToonLitShaderExample/NiloInvLerpRemap.hlsl",
+          "sha256": "283750708ee17ee85ef89664cf8dd4e032cc5e7a1e3692cf8b08bab1641af890"
+        }
+      ]
+    },
+    {
+      "id": "invLerpClamp",
+      "expression": "invLerpClamp(0.0,2.0,0.37)",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 13,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        0.185,
+        0,
+        0
+      ],
+      "expected": [
+        0.185,
+        0,
+        0
+      ],
+      "sourceFiles": [
+        {
+          "path": "ColinLeung-NiloCat--UnityURPToonLitShaderExample/NiloInvLerpRemap.hlsl",
+          "sha256": "283750708ee17ee85ef89664cf8dd4e032cc5e7a1e3692cf8b08bab1641af890"
+        }
+      ]
+    },
+    {
+      "id": "remap",
+      "expression": "remap(0.0,2.0,-1.0,1.0,0.37)",
+      "scope": "FunctionOnly",
+      "canPlan": true,
+      "status": "Planned",
+      "nodes": 16,
+      "blockers": [],
+      "numericalCheck": "PassedDotNetReference",
+      "actual": [
+        -0.63,
+        0,
+        0
+      ],
+      "expected": [
+        -0.63,
+        0,
+        0
+      ],
+      "sourceFiles": [
+        {
+          "path": "ColinLeung-NiloCat--UnityURPToonLitShaderExample/NiloInvLerpRemap.hlsl",
+          "sha256": "283750708ee17ee85ef89664cf8dd4e032cc5e7a1e3692cf8b08bab1641af890"
+        }
+      ]
+    }
+  ]
+}

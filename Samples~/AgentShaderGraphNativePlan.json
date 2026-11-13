@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "operation": "generatePlan",
+  "outputPath": "Assets/Converted/AgentNative.shadergraph",
+  "options": { "targetGraph": "ShaderGraph" },
+  "shaderGraphPlan": {
+    "schemaVersion": 1,
+    "pipeline": "URP",
+    "surface": "Unlit",
+    "shaderPath": "ShaderConverter/Agent",
+    "acceptStandardUrpUnlitTarget": true,
+    "nodes": [
+      { "id": "color", "type": "Vector3Node", "value": [0.3, 0.6, 0.9], "x": -600, "y": 0 },
+      { "id": "gain", "type": "PropertyNode", "propertyName": "_Gain", "displayName": "亮度", "propertyKind": "Numeric", "value": [0.5], "slider": true, "rangeMin": 0, "rangeMax": 2, "x": -600, "y": 220 },
+      { "id": "multiply", "type": "MultiplyNode", "x": -300, "y": 0 }
+    ],
+    "edges": [
+      { "from": "color", "fromSlot": 0, "to": "multiply", "toSlot": 0 },
+      { "from": "gain", "fromSlot": 0, "to": "multiply", "toSlot": 1 }
+    ],
+    "colorNode": "multiply",
+    "colorSlot": 2
+  }
+}

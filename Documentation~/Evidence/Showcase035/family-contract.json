@@ -1,0 +1,59 @@
+{
+  "familyId": "Aspect-LayeredParallaxGlitter",
+  "sourceIdentity": "ShaderSHA256:ceb4795f177903e42c4d3ab0e85d6ce3f741750a988346be488f17ff0926252f",
+  "comparisonStatus": "NotCompared",
+  "sharedFeatures": [
+    "同一 MIT 源码完整 Unlit 正向效果",
+    "顶点 tangent view 归一化/插值与片元再次归一化",
+    "手动 RG 法线解码与反射视差",
+    "三层独立流动 / 每层 1–15 次向上取整迭代",
+    "累计色带 UV / 显式 LOD0 / pow-step-clamp 衰减 / 逐次 max",
+    "原 Spark += max(Spark,Layer) 合成与 MaskAlpha 原始 UV 裁剪",
+    "原属性 Float/Range/Color/Vector/2D 与 HDR 闪片色",
+    "原生节点、布局与中文气泡"
+  ],
+  "targets": [
+    {
+      "pipeline": "BuiltIn",
+      "entryId": "showcase-BuiltIn-LayeredParallaxGlitter",
+      "status": "Mapped",
+      "gaps": [],
+      "hostRequirements": [
+        "编辑图需保留插件 Editor/Templates/ParallaxGlitterBuiltIn.shader。",
+        "网格必须有 UV0、法线和切线；噪声/裁剪/原始 RG 法线使用 Default Linear 纹理，不能将法线设为 Unity NormalMap。",
+        "基色与色带采用 sRGB 色彩贴图；Iteration 合同范围 1–15，超范围不作行为保证。",
+        "保留原 cutout 不透明深度和 Fallback；本次功能映射/像素比较限定显式 Unlit 正向 Pass，不含后备阴影 Pass、XR 或整场景后处理一致性。",
+        "限定 Unlit 正向 Pass 功能映射；不等于整个原场景画面等价。"
+      ],
+      "evidence": "Documentation~/Evidence/Showcase035/Build-BuiltIn/results.json"
+    },
+    {
+      "pipeline": "URP",
+      "entryId": "showcase-URP-LayeredParallaxGlitter",
+      "status": "Mapped",
+      "gaps": [],
+      "hostRequirements": [
+        "编辑图需保留插件 Editor/Templates/ParallaxGlitterURP.shader。",
+        "网格必须有 UV0、法线和切线；噪声/裁剪/原始 RG 法线使用 Default Linear 纹理，不能将法线设为 Unity NormalMap。",
+        "基色与色带采用 sRGB 色彩贴图；Iteration 合同范围 1–15，超范围不作行为保证。",
+        "保留原 cutout 不透明深度和 Fallback；本次功能映射/像素比较限定显式 Unlit 正向 Pass，不含后备阴影 Pass、XR 或整场景后处理一致性。",
+        "限定 Unlit 正向 Pass 功能映射；不等于整个原场景画面等价。"
+      ],
+      "evidence": "Documentation~/Evidence/Showcase035/Build-URP/results.json"
+    },
+    {
+      "pipeline": "HDRP",
+      "entryId": "showcase-HDRP-LayeredParallaxGlitter",
+      "status": "Mapped",
+      "gaps": [],
+      "hostRequirements": [
+        "编辑图需保留插件 Editor/Templates/ParallaxGlitterHDRP.shader。",
+        "网格必须有 UV0、法线和切线；噪声/裁剪/原始 RG 法线使用 Default Linear 纹理，不能将法线设为 Unity NormalMap。",
+        "基色与色带采用 sRGB 色彩贴图；Iteration 合同范围 1–15，超范围不作行为保证。",
+        "保留原 cutout 不透明深度和 Fallback；本次功能映射/像素比较限定显式 Unlit 正向 Pass，不含后备阴影 Pass、XR 或整场景后处理一致性。",
+        "限定 Unlit 正向 Pass 功能映射；不等于整个原场景画面等价。"
+      ],
+      "evidence": "Documentation~/Evidence/Showcase035/Build-HDRP/results.json"
+    }
+  ]
+}

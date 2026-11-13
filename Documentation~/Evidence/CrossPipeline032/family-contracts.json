@@ -1,0 +1,4160 @@
+{
+  "families": [
+    {
+      "familyId": "Eye-Foundation",
+      "sourceIdentity": "OriginalRecipe:Eye-Foundation",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-Eye",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-Eye",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-Eye",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Eye-IrisBands",
+      "sourceIdentity": "OriginalRecipe:Eye-IrisBands",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Eye-IrisBands",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Eye-IrisBands",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Eye-IrisBands",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Eye-IrisMask",
+      "sourceIdentity": "OriginalRecipe:Eye-IrisMask",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Eye-IrisMask",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Eye-IrisMask",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Eye-IrisMask",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Eye-IrisSpeckles",
+      "sourceIdentity": "OriginalRecipe:Eye-IrisSpeckles",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Eye-IrisSpeckles",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Eye-IrisSpeckles",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Eye-IrisSpeckles",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Eye-LimbalRing",
+      "sourceIdentity": "OriginalRecipe:Eye-LimbalRing",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Eye-LimbalRing",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Eye-LimbalRing",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Eye-LimbalRing",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Eye-ScleraTint",
+      "sourceIdentity": "OriginalRecipe:Eye-ScleraTint",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Eye-ScleraTint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Eye-ScleraTint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Eye-ScleraTint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "此原创方案范围为虹膜/瞳孔及表面色；三目标均未实现专用角膜 Eye BSDF。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Fabric-Checks",
+      "sourceIdentity": "OriginalRecipe:Fabric-Checks",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Fabric-Checks",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现织纹/PBR，缺少 HDRP Fabric 的 Charlie/Sheen 材质模型。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Fabric-Checks",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现织纹/PBR，缺少 HDRP Fabric 的 Charlie/Sheen 材质模型。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Fabric-Checks",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Fabric-CrossWeave",
+      "sourceIdentity": "OriginalRecipe:Fabric-CrossWeave",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Fabric-CrossWeave",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现织纹/PBR，缺少 HDRP Fabric 的 Charlie/Sheen 材质模型。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Fabric-CrossWeave",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现织纹/PBR，缺少 HDRP Fabric 的 Charlie/Sheen 材质模型。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Fabric-CrossWeave",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Fabric-Foundation",
+      "sourceIdentity": "OriginalRecipe:Fabric-Foundation",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-Fabric",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现织纹/PBR，缺少 HDRP Fabric 的 Charlie/Sheen 材质模型。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-Fabric",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现织纹/PBR，缺少 HDRP Fabric 的 Charlie/Sheen 材质模型。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-Fabric",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Fabric-Print",
+      "sourceIdentity": "OriginalRecipe:Fabric-Print",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Fabric-Print",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现织纹/PBR，缺少 HDRP Fabric 的 Charlie/Sheen 材质模型。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Fabric-Print",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现织纹/PBR，缺少 HDRP Fabric 的 Charlie/Sheen 材质模型。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Fabric-Print",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Fabric-Stripes",
+      "sourceIdentity": "OriginalRecipe:Fabric-Stripes",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Fabric-Stripes",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现织纹/PBR，缺少 HDRP Fabric 的 Charlie/Sheen 材质模型。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Fabric-Stripes",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现织纹/PBR，缺少 HDRP Fabric 的 Charlie/Sheen 材质模型。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Fabric-Stripes",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Fabric-VertexDye",
+      "sourceIdentity": "OriginalRecipe:Fabric-VertexDye",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Fabric-VertexDye",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现织纹/PBR，缺少 HDRP Fabric 的 Charlie/Sheen 材质模型。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Fabric-VertexDye",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现织纹/PBR，缺少 HDRP Fabric 的 Charlie/Sheen 材质模型。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Fabric-VertexDye",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Hair-DyeMask",
+      "sourceIdentity": "OriginalRecipe:Hair-DyeMask",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Hair-DyeMask",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现发卡覆盖/PBR，缺少 HDRP Hair 的发丝方向、专用高光与散射。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Hair-DyeMask",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现发卡覆盖/PBR，缺少 HDRP Hair 的发丝方向、专用高光与散射。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Hair-DyeMask",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Hair-Foundation",
+      "sourceIdentity": "OriginalRecipe:Hair-Foundation",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-Hair",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现发卡覆盖/PBR，缺少 HDRP Hair 的发丝方向、专用高光与散射。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-Hair",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现发卡覆盖/PBR，缺少 HDRP Hair 的发丝方向、专用高光与散射。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-Hair",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Hair-RootTip",
+      "sourceIdentity": "OriginalRecipe:Hair-RootTip",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Hair-RootTip",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现发卡覆盖/PBR，缺少 HDRP Hair 的发丝方向、专用高光与散射。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Hair-RootTip",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现发卡覆盖/PBR，缺少 HDRP Hair 的发丝方向、专用高光与散射。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Hair-RootTip",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Hair-Streaks",
+      "sourceIdentity": "OriginalRecipe:Hair-Streaks",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Hair-Streaks",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现发卡覆盖/PBR，缺少 HDRP Hair 的发丝方向、专用高光与散射。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Hair-Streaks",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现发卡覆盖/PBR，缺少 HDRP Hair 的发丝方向、专用高光与散射。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Hair-Streaks",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Hair-TipFade",
+      "sourceIdentity": "OriginalRecipe:Hair-TipFade",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Hair-TipFade",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现发卡覆盖/PBR，缺少 HDRP Hair 的发丝方向、专用高光与散射。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Hair-TipFade",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现发卡覆盖/PBR，缺少 HDRP Hair 的发丝方向、专用高光与散射。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Hair-TipFade",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Hair-VertexDye",
+      "sourceIdentity": "OriginalRecipe:Hair-VertexDye",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Hair-VertexDye",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现发卡覆盖/PBR，缺少 HDRP Hair 的发丝方向、专用高光与散射。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Hair-VertexDye",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现发卡覆盖/PBR，缺少 HDRP Hair 的发丝方向、专用高光与散射。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Hair-VertexDye",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Hosiery-Diamond",
+      "sourceIdentity": "OriginalRecipe:Hosiery-Diamond",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Hosiery-Diamond",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Hosiery-Diamond",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Hosiery-Diamond",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Hosiery-Dots",
+      "sourceIdentity": "OriginalRecipe:Hosiery-Dots",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Hosiery-Dots",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Hosiery-Dots",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Hosiery-Dots",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Hosiery-Foundation",
+      "sourceIdentity": "OriginalRecipe:Hosiery-Foundation",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-Hosiery",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-Hosiery",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-Hosiery",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Hosiery-Gradient",
+      "sourceIdentity": "OriginalRecipe:Hosiery-Gradient",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Hosiery-Gradient",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Hosiery-Gradient",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Hosiery-Gradient",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Hosiery-Lace",
+      "sourceIdentity": "OriginalRecipe:Hosiery-Lace",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Hosiery-Lace",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Hosiery-Lace",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Hosiery-Lace",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Hosiery-Rib",
+      "sourceIdentity": "OriginalRecipe:Hosiery-Rib",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Hosiery-Rib",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Hosiery-Rib",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Hosiery-Rib",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Jade-Clouds",
+      "sourceIdentity": "OriginalRecipe:Jade-Clouds",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Jade-Clouds",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现玉石表面色/微法线，缺少 HDRP SSS、厚度透射与扩散宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Jade-Clouds",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现玉石表面色/微法线，缺少 HDRP SSS、厚度透射与扩散宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Jade-Clouds",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "需要注册 Diffusion Profile 并启用相机/帧设置中的 SSS/Transmission。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Jade-Foundation",
+      "sourceIdentity": "OriginalRecipe:Jade-Foundation",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-Jade",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现玉石表面色/微法线，缺少 HDRP SSS、厚度透射与扩散宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-Jade",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现玉石表面色/微法线，缺少 HDRP SSS、厚度透射与扩散宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-Jade",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "需要注册 Diffusion Profile 并启用相机/帧设置中的 SSS/Transmission。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Jade-Gradient",
+      "sourceIdentity": "OriginalRecipe:Jade-Gradient",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Jade-Gradient",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现玉石表面色/微法线，缺少 HDRP SSS、厚度透射与扩散宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Jade-Gradient",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现玉石表面色/微法线，缺少 HDRP SSS、厚度透射与扩散宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Jade-Gradient",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "需要注册 Diffusion Profile 并启用相机/帧设置中的 SSS/Transmission。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Jade-Rind",
+      "sourceIdentity": "OriginalRecipe:Jade-Rind",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Jade-Rind",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现玉石表面色/微法线，缺少 HDRP SSS、厚度透射与扩散宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Jade-Rind",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现玉石表面色/微法线，缺少 HDRP SSS、厚度透射与扩散宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Jade-Rind",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "需要注册 Diffusion Profile 并启用相机/帧设置中的 SSS/Transmission。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Jade-Speckles",
+      "sourceIdentity": "OriginalRecipe:Jade-Speckles",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Jade-Speckles",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现玉石表面色/微法线，缺少 HDRP SSS、厚度透射与扩散宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Jade-Speckles",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现玉石表面色/微法线，缺少 HDRP SSS、厚度透射与扩散宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Jade-Speckles",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "需要注册 Diffusion Profile 并启用相机/帧设置中的 SSS/Transmission。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Jade-Veins",
+      "sourceIdentity": "OriginalRecipe:Jade-Veins",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Jade-Veins",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现玉石表面色/微法线，缺少 HDRP SSS、厚度透射与扩散宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Jade-Veins",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现玉石表面色/微法线，缺少 HDRP SSS、厚度透射与扩散宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Jade-Veins",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "需要注册 Diffusion Profile 并启用相机/帧设置中的 SSS/Transmission。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Metal-Brushed",
+      "sourceIdentity": "OriginalRecipe:Metal-Brushed",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Metal-Brushed",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Metal-Brushed",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Metal-Brushed",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Metal-Foundation",
+      "sourceIdentity": "OriginalRecipe:Metal-Foundation",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-Metal",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-Metal",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-Metal",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Metal-HeatTint",
+      "sourceIdentity": "OriginalRecipe:Metal-HeatTint",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Metal-HeatTint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Metal-HeatTint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Metal-HeatTint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Metal-Oxidized",
+      "sourceIdentity": "OriginalRecipe:Metal-Oxidized",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Metal-Oxidized",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Metal-Oxidized",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Metal-Oxidized",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Metal-Panels",
+      "sourceIdentity": "OriginalRecipe:Metal-Panels",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Metal-Panels",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Metal-Panels",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Metal-Panels",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Metal-Scratches",
+      "sourceIdentity": "OriginalRecipe:Metal-Scratches",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Metal-Scratches",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Metal-Scratches",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Metal-Scratches",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Skin-Blush",
+      "sourceIdentity": "OriginalRecipe:Skin-Blush",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Skin-Blush",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现肤色/微表面，缺少 HDRP SSS、Transmission 与 Diffusion Profile 宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Skin-Blush",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现肤色/微表面，缺少 HDRP SSS、Transmission 与 Diffusion Profile 宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Skin-Blush",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "需要注册 Diffusion Profile 并启用相机/帧设置中的 SSS/Transmission。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Skin-Dust",
+      "sourceIdentity": "OriginalRecipe:Skin-Dust",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Skin-Dust",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现肤色/微表面，缺少 HDRP SSS、Transmission 与 Diffusion Profile 宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Skin-Dust",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现肤色/微表面，缺少 HDRP SSS、Transmission 与 Diffusion Profile 宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Skin-Dust",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "需要注册 Diffusion Profile 并启用相机/帧设置中的 SSS/Transmission。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Skin-Foundation",
+      "sourceIdentity": "OriginalRecipe:Skin-Foundation",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-Skin",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现肤色/微表面，缺少 HDRP SSS、Transmission 与 Diffusion Profile 宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-Skin",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现肤色/微表面，缺少 HDRP SSS、Transmission 与 Diffusion Profile 宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-Skin",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "需要注册 Diffusion Profile 并启用相机/帧设置中的 SSS/Transmission。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Skin-Freckles",
+      "sourceIdentity": "OriginalRecipe:Skin-Freckles",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Skin-Freckles",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现肤色/微表面，缺少 HDRP SSS、Transmission 与 Diffusion Profile 宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Skin-Freckles",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现肤色/微表面，缺少 HDRP SSS、Transmission 与 Diffusion Profile 宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Skin-Freckles",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "需要注册 Diffusion Profile 并启用相机/帧设置中的 SSS/Transmission。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Skin-OilMask",
+      "sourceIdentity": "OriginalRecipe:Skin-OilMask",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Skin-OilMask",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现肤色/微表面，缺少 HDRP SSS、Transmission 与 Diffusion Profile 宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Skin-OilMask",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现肤色/微表面，缺少 HDRP SSS、Transmission 与 Diffusion Profile 宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Skin-OilMask",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "需要注册 Diffusion Profile 并启用相机/帧设置中的 SSS/Transmission。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Skin-Tan",
+      "sourceIdentity": "OriginalRecipe:Skin-Tan",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Skin-Tan",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现肤色/微表面，缺少 HDRP SSS、Transmission 与 Diffusion Profile 宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Skin-Tan",
+          "status": "FeatureGap",
+          "gaps": [
+            "现有版本只实现肤色/微表面，缺少 HDRP SSS、Transmission 与 Diffusion Profile 宿主。"
+          ],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Skin-Tan",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "需要注册 Diffusion Profile 并启用相机/帧设置中的 SSS/Transmission。"
+          ],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Stone-Cracks",
+      "sourceIdentity": "OriginalRecipe:Stone-Cracks",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Stone-Cracks",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Stone-Cracks",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Stone-Cracks",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Stone-Foundation",
+      "sourceIdentity": "OriginalRecipe:Stone-Foundation",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-Stone",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-Stone",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-Stone",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Stone-MossMask",
+      "sourceIdentity": "OriginalRecipe:Stone-MossMask",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Stone-MossMask",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Stone-MossMask",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Stone-MossMask",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Stone-Strata",
+      "sourceIdentity": "OriginalRecipe:Stone-Strata",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Stone-Strata",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Stone-Strata",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Stone-Strata",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Stone-VertexPaint",
+      "sourceIdentity": "OriginalRecipe:Stone-VertexPaint",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Stone-VertexPaint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Stone-VertexPaint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Stone-VertexPaint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Stone-Wet",
+      "sourceIdentity": "OriginalRecipe:Stone-Wet",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Stone-Wet",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Stone-Wet",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Stone-Wet",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UI-Foundation",
+      "sourceIdentity": "OriginalRecipe:UI-Foundation",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-UI",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-UI",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-UI",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UI-Frame",
+      "sourceIdentity": "OriginalRecipe:UI-Frame",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UI-Frame",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UI-Frame",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UI-Frame",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UI-Gradient",
+      "sourceIdentity": "OriginalRecipe:UI-Gradient",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UI-Gradient",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UI-Gradient",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UI-Gradient",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UI-MaskTint",
+      "sourceIdentity": "OriginalRecipe:UI-MaskTint",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UI-MaskTint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UI-MaskTint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UI-MaskTint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UI-RadialMask",
+      "sourceIdentity": "OriginalRecipe:UI-RadialMask",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UI-RadialMask",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UI-RadialMask",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UI-RadialMask",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UI-Scanline",
+      "sourceIdentity": "OriginalRecipe:UI-Scanline",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UI-Scanline",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UI-Scanline",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UI-Scanline",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UIEffects-Foundation",
+      "sourceIdentity": "OriginalRecipe:UIEffects-Foundation",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-UIEffects",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-UIEffects",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-UIEffects",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UIEffects-Grid",
+      "sourceIdentity": "OriginalRecipe:UIEffects-Grid",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UIEffects-Grid",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UIEffects-Grid",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UIEffects-Grid",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UIEffects-Pulse",
+      "sourceIdentity": "OriginalRecipe:UIEffects-Pulse",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UIEffects-Pulse",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UIEffects-Pulse",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UIEffects-Pulse",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UIEffects-RingPulse",
+      "sourceIdentity": "OriginalRecipe:UIEffects-RingPulse",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UIEffects-RingPulse",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UIEffects-RingPulse",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UIEffects-RingPulse",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UIEffects-ScanPulse",
+      "sourceIdentity": "OriginalRecipe:UIEffects-ScanPulse",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UIEffects-ScanPulse",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UIEffects-ScanPulse",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UIEffects-ScanPulse",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UIEffects-Wipe",
+      "sourceIdentity": "OriginalRecipe:UIEffects-Wipe",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UIEffects-Wipe",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UIEffects-Wipe",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UIEffects-Wipe",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UVAnimation-Distortion",
+      "sourceIdentity": "OriginalRecipe:UVAnimation-Distortion",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UVAnimation-Distortion",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UVAnimation-Distortion",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UVAnimation-Distortion",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UVAnimation-Flipbook",
+      "sourceIdentity": "OriginalRecipe:UVAnimation-Flipbook",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UVAnimation-Flipbook",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UVAnimation-Flipbook",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UVAnimation-Flipbook",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UVAnimation-FlowMask",
+      "sourceIdentity": "OriginalRecipe:UVAnimation-FlowMask",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UVAnimation-FlowMask",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UVAnimation-FlowMask",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UVAnimation-FlowMask",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UVAnimation-Foundation",
+      "sourceIdentity": "OriginalRecipe:UVAnimation-Foundation",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-UVAnimation",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-UVAnimation",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-UVAnimation",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UVAnimation-LayerRotate",
+      "sourceIdentity": "OriginalRecipe:UVAnimation-LayerRotate",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UVAnimation-LayerRotate",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UVAnimation-LayerRotate",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UVAnimation-LayerRotate",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "UVAnimation-PingPong",
+      "sourceIdentity": "OriginalRecipe:UVAnimation-PingPong",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-UVAnimation-PingPong",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-UVAnimation-PingPong",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-UVAnimation-PingPong",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "VFX-Beam",
+      "sourceIdentity": "OriginalRecipe:VFX-Beam",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-VFX-Beam",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-VFX-Beam",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-VFX-Beam",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "VFX-Foundation",
+      "sourceIdentity": "OriginalRecipe:VFX-Foundation",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-VFX",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-VFX",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-VFX",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "VFX-Pulse",
+      "sourceIdentity": "OriginalRecipe:VFX-Pulse",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-VFX-Pulse",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-VFX-Pulse",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-VFX-Pulse",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "VFX-Ring",
+      "sourceIdentity": "OriginalRecipe:VFX-Ring",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-VFX-Ring",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-VFX-Ring",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-VFX-Ring",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "VFX-Scan",
+      "sourceIdentity": "OriginalRecipe:VFX-Scan",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-VFX-Scan",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-VFX-Scan",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-VFX-Scan",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "VFX-SoftDisc",
+      "sourceIdentity": "OriginalRecipe:VFX-SoftDisc",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-VFX-SoftDisc",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-VFX-SoftDisc",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-VFX-SoftDisc",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "VertexAnimation-Bend",
+      "sourceIdentity": "OriginalRecipe:VertexAnimation-Bend",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-VertexAnimation-Bend",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-VertexAnimation-Bend",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-VertexAnimation-Bend",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "VertexAnimation-Bob",
+      "sourceIdentity": "OriginalRecipe:VertexAnimation-Bob",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-VertexAnimation-Bob",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-VertexAnimation-Bob",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-VertexAnimation-Bob",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "VertexAnimation-CrossWind",
+      "sourceIdentity": "OriginalRecipe:VertexAnimation-CrossWind",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-VertexAnimation-CrossWind",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-VertexAnimation-CrossWind",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-VertexAnimation-CrossWind",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "VertexAnimation-Flutter",
+      "sourceIdentity": "OriginalRecipe:VertexAnimation-Flutter",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-VertexAnimation-Flutter",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-VertexAnimation-Flutter",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-VertexAnimation-Flutter",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "VertexAnimation-Foundation",
+      "sourceIdentity": "OriginalRecipe:VertexAnimation-Foundation",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-VertexAnimation",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-VertexAnimation",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-VertexAnimation",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "VertexAnimation-Ripple",
+      "sourceIdentity": "OriginalRecipe:VertexAnimation-Ripple",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-VertexAnimation-Ripple",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-VertexAnimation-Ripple",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-VertexAnimation-Ripple",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Water-DeepWater",
+      "sourceIdentity": "OriginalPlan:Tools~/Build-DepthWaterPlan.py",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "世界空间三向顶点波浪及解析法线",
+        "双层流动细波纹",
+        "RGB 指数深度吸收与浅深水色",
+        "Fresnel 透射",
+        "浅岸泡沫",
+        "水底世界坐标焦散",
+        "屏幕折射与散射",
+        "八组本地功能关键词"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-DeepWater",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "水面为细分水平网格；水底需为不透明物体并写入深度；颜色 Alpha 不作为不透明度旋钮。",
+            "相机 Depth Texture、GrabPass 与 Reflection Probe。"
+          ],
+          "evidence": "Documentation~/Evidence/FullValidation028/Smoke/Water/water-conversion.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-DeepWater",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "水面为细分水平网格；水底需为不透明物体并写入深度；颜色 Alpha 不作为不透明度旋钮。",
+            "启用 Opaque Texture 与 Depth Texture；Renderer 的 Copy Depth 设 After Opaques 或 Force Prepass，不能等到透明之后；Reflection Probe；只采样不透明物体背景。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-DeepWater",
+          "status": "FeatureGap",
+          "gaps": [
+            "Built-in/URP 的独立高光开关和独立环境反射开关在 HDRP 尚无对应材质控制；默认均开启。"
+          ],
+          "hostRequirements": [
+            "水面为细分水平网格；水底需为不透明物体并写入深度；颜色 Alpha 不作为不透明度旋钮。",
+            "HDRP Color Pyramid 与深度缓冲；默认透明渲染阶段；去预曝光后输入 Emission；Reflection Probe。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Water-DualNormal",
+      "sourceIdentity": "OriginalRecipe:Water-DualNormal",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Water-DualNormal",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Water-DualNormal",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Water-DualNormal",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Water-Foam",
+      "sourceIdentity": "OriginalRecipe:Water-Foam",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Water-Foam",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Water-Foam",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Water-Foam",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Water-Foundation",
+      "sourceIdentity": "OriginalRecipe:Water-Foundation",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "original-BuiltIn-Water",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "original-URP-Water",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "original-HDRP-Water",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Original-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Water-RimTint",
+      "sourceIdentity": "OriginalRecipe:Water-RimTint",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Water-RimTint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Water-RimTint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Water-RimTint",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Water-Ripples",
+      "sourceIdentity": "OriginalRecipe:Water-Ripples",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Water-Ripples",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Water-Ripples",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Water-Ripples",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "Water-VertexWave",
+      "sourceIdentity": "OriginalRecipe:Water-VertexWave",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "effect-BuiltIn-Water-VertexWave",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-BuiltIn/results.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "effect-URP-Water-VertexWave",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-URP/results.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "effect-HDRP-Water-VertexWave",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [],
+          "evidence": "Documentation~/Evidence/Library031/Build-HDRP/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-044b7612c112",
+      "sourceIdentity": "ShaderGraphSHA256:044b7612c112f6cc282ca13662d6cbadc33d7bec7a2a7b2769e66f1ae3f9f213",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDLitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；Built-in 尚无对应贴花宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；URP Decal Renderer Feature 与图的接收路径尚未接入验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-044b7612c112",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-0b09e8a8e8b4",
+      "sourceIdentity": "ShaderGraphSHA256:0b09e8a8e8b43cce0a750f452362b78d06045c51bec67d0c108959be6574cc9b",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDLitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；Built-in 尚无对应贴花宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；URP Decal Renderer Feature 与图的接收路径尚未接入验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-0b09e8a8e8b4",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-18acaa20c040",
+      "sourceIdentity": "ShaderGraphSHA256:18acaa20c040e9f90232ef4dea88207f6f2daa5db760438adbbe8b7c8fb72c86",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDLitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；Built-in 尚无对应贴花宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；URP Decal Renderer Feature 与图的接收路径尚未接入验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-18acaa20c040",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-1ddc5d05b394",
+      "sourceIdentity": "ShaderGraphSHA256:1ddc5d05b3947d2fcbd5610e74cf760e197dfcf636827008f2a5cae622073e3a",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDLitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；Built-in 尚无对应贴花宿主。",
+            "原图 Specular Occlusion 模式尚未显式映射。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；URP Decal Renderer Feature 与图的接收路径尚未接入验证。",
+            "原图 Specular Occlusion 模式尚未显式映射。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-1ddc5d05b394",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-1e59d2455441",
+      "sourceIdentity": "ShaderGraphSHA256:1e59d245544136544aa90690c672807d0e37d3ecff52e702abd6d4c31a77e32f",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDLitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图使用 SSS/Transmission 和 Diffusion Profile；目标缺少扩散宿主及厚度散射实现。",
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图使用 SSS/Transmission 和 Diffusion Profile；目标缺少扩散宿主及厚度散射实现。",
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-1e59d2455441",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-2a377100bd62",
+      "sourceIdentity": "ShaderGraphSHA256:2a377100bd62b31426400f4093474a961767be3a48b4c8dc9fb2698661196915",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDLitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；Built-in 尚无对应贴花宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；URP Decal Renderer Feature 与图的接收路径尚未接入验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-2a377100bd62",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-4a617f9c3b5d",
+      "sourceIdentity": "ShaderGraphSHA256:4a617f9c3b5d0e676f02edba234f1bd137365c5880cccb35142c2378037b1d74",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDLitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；Built-in 尚无对应贴花宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；URP Decal Renderer Feature 与图的接收路径尚未接入验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-4a617f9c3b5d",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-4e9932aa7d81",
+      "sourceIdentity": "ShaderGraphSHA256:4e9932aa7d8132320e50eafc57a0b5390fb93d71b1d9f90dbd923028822ac2d7",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDLitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；Built-in 尚无对应贴花宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；URP Decal Renderer Feature 与图的接收路径尚未接入验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-4e9932aa7d81",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-5f1acba57c6f",
+      "sourceIdentity": "ShaderGraphSHA256:5f1acba57c6f60c427ac293d959dcf2c9bbe6f14f5327d25eff2678099c82a1e",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HairSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "缺少与原 HDRP Hair 双高光叶、发丝方向、透射及散射模型对应的目标管线适配器；不能用普通 Lit 代替。",
+            "原图 Specular Occlusion 模式尚未显式映射。",
+            "原图 Depth Offset 未映射到深度/阴影/透明 Pass。",
+            "原图独立阴影裁剪阈值与透明裁剪需目标模板验证。",
+            "原图透明深度后处理 Pass 尚未移植。",
+            "原图双面法线翻转/镜像及发丝光照朝向尚未验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "缺少与原 HDRP Hair 双高光叶、发丝方向、透射及散射模型对应的目标管线适配器；不能用普通 Lit 代替。",
+            "原图 Specular Occlusion 模式尚未显式映射。",
+            "原图 Depth Offset 未映射到深度/阴影/透明 Pass。",
+            "原图独立阴影裁剪阈值与透明裁剪需目标模板验证。",
+            "原图透明深度后处理 Pass 尚未移植。",
+            "原图双面法线翻转/镜像及发丝光照朝向尚未验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-5f1acba57c6f",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-6dec954b5a2e",
+      "sourceIdentity": "ShaderGraphSHA256:6dec954b5a2e83e63966111a907122843debfb59bab3904b3b8e2a0c0401292f",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDLitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图使用 SSS/Transmission 和 Diffusion Profile；目标缺少扩散宿主及厚度散射实现。",
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图使用 SSS/Transmission 和 Diffusion Profile；目标缺少扩散宿主及厚度散射实现。",
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-6dec954b5a2e",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-8b2f70979b9e",
+      "sourceIdentity": "ShaderGraphSHA256:8b2f70979b9e997463113cd96244ef4d9d3bd7c48d2923e841ffa93f83186fd6",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HairSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "缺少与原 HDRP Hair 双高光叶、发丝方向、透射及散射模型对应的目标管线适配器；不能用普通 Lit 代替。",
+            "原图 Specular Occlusion 模式尚未显式映射。",
+            "原图 Depth Offset 未映射到深度/阴影/透明 Pass。",
+            "原图独立阴影裁剪阈值与透明裁剪需目标模板验证。",
+            "原图双面法线翻转/镜像及发丝光照朝向尚未验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "缺少与原 HDRP Hair 双高光叶、发丝方向、透射及散射模型对应的目标管线适配器；不能用普通 Lit 代替。",
+            "原图 Specular Occlusion 模式尚未显式映射。",
+            "原图 Depth Offset 未映射到深度/阴影/透明 Pass。",
+            "原图独立阴影裁剪阈值与透明裁剪需目标模板验证。",
+            "原图双面法线翻转/镜像及发丝光照朝向尚未验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-8b2f70979b9e",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-8cb1136f317e",
+      "sourceIdentity": "ShaderGraphSHA256:8cb1136f317ee204256948c5407e97f7fcbe2c7a0a558684b503f2fb9bb617b8",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDLitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；Built-in 尚无对应贴花宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；URP Decal Renderer Feature 与图的接收路径尚未接入验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-8cb1136f317e",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-91b14ee430f3",
+      "sourceIdentity": "ShaderGraphSHA256:91b14ee430f3cd2090223700cbb23c21882185aa72477f5064bc9cce6f0dd14a",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDUnlitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "HDRP 透明雾与材质可切换裁剪尚未映射到目标 Unlit 模板；保留原 Alpha 与阈值。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "HDRP 透明雾与材质可切换裁剪尚未映射到目标 Unlit 模板；保留原 Alpha 与阈值。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-91b14ee430f3",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-98503c7606a4",
+      "sourceIdentity": "ShaderGraphSHA256:98503c7606a40749c7681a2d968d6efe664b87ae4d65d1bdb197e7ceddd6ff56",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDLitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；Built-in 尚无对应贴花宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；URP Decal Renderer Feature 与图的接收路径尚未接入验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-98503c7606a4",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-aaace4303347",
+      "sourceIdentity": "ShaderGraphSHA256:aaace4303347e1abbabe389e22d0311a82e489b468830e16a862b9d1a4057e4c",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 FabricSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "缺少原 Fabric Cotton/Wool 的 Charlie/Sheen BSDF 适配器。",
+            "原图 Specular Occlusion 模式尚未显式映射。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "缺少原 Fabric Cotton/Wool 的 Charlie/Sheen BSDF 适配器。",
+            "原图 Specular Occlusion 模式尚未显式映射。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-aaace4303347",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-b22f3d64654c",
+      "sourceIdentity": "ShaderGraphSHA256:b22f3d64654cb39a7d4839ee1e46af46b78317f1d9c8b020654763171776deb4",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDLitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图使用 SSS/Transmission 和 Diffusion Profile；目标缺少扩散宿主及厚度散射实现。",
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图使用 SSS/Transmission 和 Diffusion Profile；目标缺少扩散宿主及厚度散射实现。",
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-b22f3d64654c",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-bc4aa57b1388",
+      "sourceIdentity": "ShaderGraphSHA256:bc4aa57b1388001c2d2784c3ec34434cc51560ee62f489f98fe686a6cb3a18e1",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDLitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；Built-in 尚无对应贴花宿主。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；URP Decal Renderer Feature 与图的接收路径尚未接入验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-bc4aa57b1388",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-bf1acc8b5350",
+      "sourceIdentity": "ShaderGraphSHA256:bf1acc8b5350144891be8844429f46f199158919949277717ee5b769724e3277",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HairSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "缺少与原 HDRP Hair 双高光叶、发丝方向、透射及散射模型对应的目标管线适配器；不能用普通 Lit 代替。",
+            "原图 Specular Occlusion 模式尚未显式映射。",
+            "原图 Depth Offset 未映射到深度/阴影/透明 Pass。",
+            "原图独立阴影裁剪阈值与透明裁剪需目标模板验证。",
+            "原图透明深度后处理 Pass 尚未移植。",
+            "原图双面法线翻转/镜像及发丝光照朝向尚未验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "缺少与原 HDRP Hair 双高光叶、发丝方向、透射及散射模型对应的目标管线适配器；不能用普通 Lit 代替。",
+            "原图 Specular Occlusion 模式尚未显式映射。",
+            "原图 Depth Offset 未映射到深度/阴影/透明 Pass。",
+            "原图独立阴影裁剪阈值与透明裁剪需目标模板验证。",
+            "原图透明深度后处理 Pass 尚未移植。",
+            "原图双面法线翻转/镜像及发丝光照朝向尚未验证。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-bf1acc8b5350",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-e604d2baf899",
+      "sourceIdentity": "ShaderGraphSHA256:e604d2baf89953b2af9de07ee544444f55e9933316f665072a1e96165179b5d6",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 HDLitSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；Built-in 尚无对应贴花宿主。",
+            "原图 Specular Occlusion 模式尚未显式映射。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "原图启用 Receive SSR；目标尚未提供并验证对应屏幕反射宿主。",
+            "原图接收 Decals；URP Decal Renderer Feature 与图的接收路径尚未接入验证。",
+            "原图 Specular Occlusion 模式尚未显式映射。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-e604d2baf899",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    },
+    {
+      "familyId": "local-HDRP-efb1bec0bd9d",
+      "sourceIdentity": "ShaderGraphSHA256:efb1bec0bd9d46195c72727dd04aa297e8ff437cbc012b14d6f33476d5448b9b",
+      "comparisonStatus": "NotCompared",
+      "sharedFeatures": [
+        "原生计算分支与同名材质属性",
+        "ASE 可编辑节点、功能分组与中文气泡注释",
+        "原 Shader Graph 计算、黑板参数及外部资源绑定身份",
+        "原模型 FabricSubTarget"
+      ],
+      "targets": [
+        {
+          "pipeline": "BuiltIn",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "缺少原 Fabric Cotton/Wool 的 Charlie/Sheen BSDF 适配器。",
+            "原布料 Thickness/Transmission 未实现对应透射光照。",
+            "原图 Specular Occlusion 模式尚未显式映射。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "URP",
+          "entryId": "",
+          "status": "RequiresAdapter",
+          "gaps": [
+            "缺少原 Fabric Cotton/Wool 的 Charlie/Sheen BSDF 适配器。",
+            "原布料 Thickness/Transmission 未实现对应透射光照。",
+            "原图 Specular Occlusion 模式尚未显式映射。"
+          ],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/CrossPipeline032/family-contracts.json"
+        },
+        {
+          "pipeline": "HDRP",
+          "entryId": "local-HDRP-efb1bec0bd9d",
+          "status": "Mapped",
+          "gaps": [],
+          "hostRequirements": [
+            "必须重新绑定原图贴图/扩散资源；未复制原项目素材。"
+          ],
+          "evidence": "Documentation~/Evidence/LocalLibrary030/Local-HDRP-final/results.json"
+        }
+      ]
+    }
+  ]
+}

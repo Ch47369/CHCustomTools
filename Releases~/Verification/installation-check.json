@@ -1,0 +1,24 @@
+﻿{
+    "schemaVersion":  1,
+    "success":  true,
+    "recordDate":  "2026-10-21",
+    "package":  "com.aseshader.handwritten-converter-0.2.0.tgz",
+    "sha256":  "05ce135c80fa4a8efc5f24a870aa90432be625f9c99e4bd3c2a1a746c6db9fca",
+    "unityVersion":  "6000.0.80f1",
+    "aseVersion":  "1.9.9.13",
+    "pipeline":  "BuiltIn",
+    "packageInstructionsPath":  "F:\\ASEShader\\.validation\\Unity6_80\\Library\\PackageCache\\com.aseshader.handwritten-converter@121d0151a278\\Documentation~/AgentProtocol.md",
+    "operationsTested":  [
+                             "probe",
+                             "describe",
+                             "analyze",
+                             "generate"
+                         ],
+    "aseRoundTripPassed":  true,
+    "shaderCompiled":  true,
+    "visualComparisonPassed":  false,
+    "archiveFileHashesVerified":  113,
+    "generatedSamplesVerified":  6,
+    "excludedContentFound":  0,
+    "passMarker":  "ASE_CONVERTER_AGENT_SMOKE_PASS"
+}

@@ -1,0 +1,119 @@
+{
+    "pipeline": "BuiltIn",
+    "error": "",
+    "colorSpace": "Linear",
+    "finishedUtc": "2026-11-02T02:57:40.0959443Z",
+    "success": true,
+    "originalSceneEquivalent": false,
+    "realCamera": true,
+    "sceneChangedPixels": 53761,
+    "sceneLightChangedPixels": 52251,
+    "sceneVisiblePixels": 53826,
+    "formula": [
+        {
+            "state": "Default",
+            "maxError": 0.000013113021850585938,
+            "meanError": 0.0000034747567951853854,
+            "checkedPixels": 3136,
+            "changedPixels": 0
+        },
+        {
+            "state": "DepthThin",
+            "maxError": 0.000010222196578979492,
+            "meanError": 0.0000019261519810243046,
+            "checkedPixels": 3136,
+            "changedPixels": 3089
+        },
+        {
+            "state": "DepthThick",
+            "maxError": 0.000004708766937255859,
+            "meanError": 9.302833063884464e-7,
+            "checkedPixels": 3136,
+            "changedPixels": 3136
+        },
+        {
+            "state": "LightNear",
+            "maxError": 0.00003427267074584961,
+            "meanError": 0.000010913337973761372,
+            "checkedPixels": 3136,
+            "changedPixels": 3031
+        },
+        {
+            "state": "LightFar",
+            "maxError": 0.000006496906280517578,
+            "meanError": 0.000001920522663567681,
+            "checkedPixels": 3136,
+            "changedPixels": 3093
+        },
+        {
+            "state": "ExponentLow",
+            "maxError": 0.0000032782554626464845,
+            "meanError": 0.0000013253480801722617,
+            "checkedPixels": 3136,
+            "changedPixels": 3089
+        },
+        {
+            "state": "ExponentHigh",
+            "maxError": 0.000032573938369750977,
+            "meanError": 0.000004512624400376808,
+            "checkedPixels": 3136,
+            "changedPixels": 3090
+        },
+        {
+            "state": "RampMinimum",
+            "maxError": 0.00002333521842956543,
+            "meanError": 0.0000051953243200841829,
+            "checkedPixels": 3136,
+            "changedPixels": 3121
+        },
+        {
+            "state": "RampMaximum",
+            "maxError": 0.0000209808349609375,
+            "meanError": 0.000005574499027716229,
+            "checkedPixels": 3136,
+            "changedPixels": 3136
+        },
+        {
+            "state": "ChannelSaturateAfterMultiply",
+            "maxError": 0.00004875659942626953,
+            "meanError": 0.000003973234925069846,
+            "checkedPixels": 3136,
+            "changedPixels": 3136
+        },
+        {
+            "state": "Offset",
+            "maxError": 0.000011712312698364258,
+            "meanError": 0.000003282254056102829,
+            "checkedPixels": 3136,
+            "changedPixels": 2992
+        },
+        {
+            "state": "LightDirection",
+            "maxError": 0.000013202428817749023,
+            "meanError": 0.00000374349679077568,
+            "checkedPixels": 3136,
+            "changedPixels": 3114
+        },
+        {
+            "state": "RotateNonUniformScale",
+            "maxError": 0.000009059906005859375,
+            "meanError": 0.000003226866965633235,
+            "checkedPixels": 2158,
+            "changedPixels": 0
+        },
+        {
+            "state": "TranslatedModelAndCamera",
+            "maxError": 0.000012636184692382813,
+            "meanError": 0.000003241149215682526,
+            "checkedPixels": 3136,
+            "changedPixels": 0
+        }
+    ],
+    "images": [
+        "LibraryBuildEvidence/JadeArticle036/GreenManual.png",
+        "LibraryBuildEvidence/JadeArticle036/PurpleManual.png",
+        "LibraryBuildEvidence/JadeArticle036/ScatteringOff.png",
+        "LibraryBuildEvidence/JadeArticle036/SceneLight.png",
+        "LibraryBuildEvidence/JadeArticle036/SceneLightRotated.png"
+    ]
+}

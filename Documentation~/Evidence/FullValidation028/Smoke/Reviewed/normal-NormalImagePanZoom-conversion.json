@@ -1,0 +1,1365 @@
+{
+    "schemaVersion": 1,
+    "success": true,
+    "error": "",
+    "environment": {
+        "unityVersion": "",
+        "aseVersion": "",
+        "activePipeline": "",
+        "templates": [],
+        "errors": []
+    },
+    "description": {
+        "masters": [],
+        "options": []
+    },
+    "analysis": {
+        "plan": {
+            "schemaVersion": 1,
+            "shaderName": "UI/NormalImagePanZoom_ASE",
+            "pipeline": "BuiltIn",
+            "surface": "Unlit",
+            "templateGuid": "c08fd7d51a79449e86b199a5bb4a5724",
+            "nodes": [
+                {
+                    "id": "n0",
+                    "type": "TexturePropertyNode",
+                    "purpose": "Property _MainTex",
+                    "fallbackReason": "",
+                    "group": "properties",
+                    "label": "_MainTex",
+                    "x": 4110.0,
+                    "y": 115.0,
+                    "propertyName": "_MainTex",
+                    "displayName": "Sprite Texture",
+                    "value": "\"white\" {}",
+                    "propertyKind": "2D",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [
+                        {
+                            "name": "attribute:PerRendererData",
+                            "value": "true"
+                        }
+                    ],
+                    "customInputs": []
+                },
+                {
+                    "id": "n1",
+                    "type": "Vector4Node",
+                    "purpose": "Property _ViewRect",
+                    "fallbackReason": "",
+                    "group": "properties",
+                    "label": "_ViewRect",
+                    "x": 50.0,
+                    "y": 115.0,
+                    "propertyName": "_ViewRect",
+                    "displayName": "View Rect",
+                    "value": "(0,0,1,1)",
+                    "propertyKind": "Vector",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [
+                        {
+                            "name": "attribute:HideInInspector",
+                            "value": "true"
+                        }
+                    ],
+                    "customInputs": []
+                },
+                {
+                    "id": "n2",
+                    "type": "RangedFloatNode",
+                    "purpose": "Property _FlipHorizontally",
+                    "fallbackReason": "",
+                    "group": "properties",
+                    "label": "_FlipHorizontally",
+                    "x": 50.0,
+                    "y": 360.0,
+                    "propertyName": "_FlipHorizontally",
+                    "displayName": "Flip Horizontally",
+                    "value": "0",
+                    "propertyKind": "Float",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [
+                        {
+                            "name": "attribute:HideInInspector",
+                            "value": "true"
+                        }
+                    ],
+                    "customInputs": []
+                },
+                {
+                    "id": "n3",
+                    "type": "TextureCoordinatesNode",
+                    "purpose": "UV0",
+                    "fallbackReason": "",
+                    "group": "phase3",
+                    "label": "viewUV",
+                    "x": 50.0,
+                    "y": 850.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [
+                        {
+                            "name": "m_textureCoordChannel",
+                            "value": "0"
+                        }
+                    ],
+                    "customInputs": []
+                },
+                {
+                    "id": "n4",
+                    "type": "RangedFloatNode",
+                    "purpose": "Constant",
+                    "fallbackReason": "",
+                    "group": "phase4",
+                    "label": "",
+                    "x": 1290.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "0.5",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n5",
+                    "type": "RangedFloatNode",
+                    "purpose": "Constant",
+                    "fallbackReason": "",
+                    "group": "phase4",
+                    "label": "",
+                    "x": 950.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "1.0",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n6",
+                    "type": "SwizzleNode",
+                    "purpose": "Swizzle x",
+                    "fallbackReason": "",
+                    "group": "phase4",
+                    "label": "",
+                    "x": 950.0,
+                    "y": 360.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "x",
+                    "code": "",
+                    "outputType": "FLOAT",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n7",
+                    "type": "SimpleSubtractOpNode",
+                    "purpose": "SimpleSubtractOpNode",
+                    "fallbackReason": "",
+                    "group": "phase4",
+                    "label": "",
+                    "x": 1290.0,
+                    "y": 850.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n8",
+                    "type": "SwizzleNode",
+                    "purpose": "Swizzle x",
+                    "fallbackReason": "",
+                    "group": "phase4",
+                    "label": "",
+                    "x": 1290.0,
+                    "y": 360.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "x",
+                    "code": "",
+                    "outputType": "FLOAT",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n9",
+                    "type": "ConditionalIfNode",
+                    "purpose": "Scalar conditional selection",
+                    "fallbackReason": "",
+                    "group": "phase4",
+                    "label": "",
+                    "x": 1630.0,
+                    "y": 360.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n10",
+                    "type": "SwizzleNode",
+                    "purpose": "Swizzle y",
+                    "fallbackReason": "",
+                    "group": "phase4",
+                    "label": "",
+                    "x": 1630.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "y",
+                    "code": "",
+                    "outputType": "FLOAT",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n11",
+                    "type": "DynamicAppendNode",
+                    "purpose": "DynamicAppendNode",
+                    "fallbackReason": "",
+                    "group": "phase4",
+                    "label": "",
+                    "x": 1970.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "FLOAT2",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n12",
+                    "type": "SwizzleNode",
+                    "purpose": "Swizzle xy",
+                    "fallbackReason": "",
+                    "group": "phase12",
+                    "label": "",
+                    "x": 3210.0,
+                    "y": 360.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "xy",
+                    "code": "",
+                    "outputType": "FLOAT2",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n13",
+                    "type": "SwizzleNode",
+                    "purpose": "Swizzle zw",
+                    "fallbackReason": "",
+                    "group": "phase12",
+                    "label": "",
+                    "x": 2870.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "zw",
+                    "code": "",
+                    "outputType": "FLOAT2",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n14",
+                    "type": "SimpleMultiplyOpNode",
+                    "purpose": "SimpleMultiplyOpNode",
+                    "fallbackReason": "",
+                    "group": "phase12",
+                    "label": "",
+                    "x": 3210.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n15",
+                    "type": "SimpleAddOpNode",
+                    "purpose": "SimpleAddOpNode",
+                    "fallbackReason": "",
+                    "group": "phase12",
+                    "label": "sampleUV",
+                    "x": 3550.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n16",
+                    "type": "SamplerNode",
+                    "purpose": "Texture sample",
+                    "fallbackReason": "",
+                    "group": "phase16",
+                    "label": "color",
+                    "x": 4450.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n17",
+                    "type": "RangedFloatNode",
+                    "purpose": "Constant",
+                    "fallbackReason": "",
+                    "group": "phase17",
+                    "label": "",
+                    "x": 4110.0,
+                    "y": 605.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "0.0",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n18",
+                    "type": "StepOpNode",
+                    "purpose": "StepOpNode",
+                    "fallbackReason": "",
+                    "group": "phase17",
+                    "label": "",
+                    "x": 4450.0,
+                    "y": 605.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n19",
+                    "type": "RangedFloatNode",
+                    "purpose": "Constant",
+                    "fallbackReason": "",
+                    "group": "phase17",
+                    "label": "",
+                    "x": 4110.0,
+                    "y": 850.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "1.0",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n20",
+                    "type": "StepOpNode",
+                    "purpose": "StepOpNode",
+                    "fallbackReason": "",
+                    "group": "phase17",
+                    "label": "",
+                    "x": 4450.0,
+                    "y": 850.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n21",
+                    "type": "SimpleMultiplyOpNode",
+                    "purpose": "SimpleMultiplyOpNode",
+                    "fallbackReason": "",
+                    "group": "phase17",
+                    "label": "inside",
+                    "x": 4790.0,
+                    "y": 605.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n22",
+                    "type": "SwizzleNode",
+                    "purpose": "Swizzle a",
+                    "fallbackReason": "",
+                    "group": "phase22",
+                    "label": "",
+                    "x": 5350.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "w",
+                    "code": "",
+                    "outputType": "FLOAT",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n23",
+                    "type": "SwizzleNode",
+                    "purpose": "Swizzle x",
+                    "fallbackReason": "",
+                    "group": "phase22",
+                    "label": "",
+                    "x": 5350.0,
+                    "y": 360.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "x",
+                    "code": "",
+                    "outputType": "FLOAT",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n24",
+                    "type": "SimpleMultiplyOpNode",
+                    "purpose": "SimpleMultiplyOpNode",
+                    "fallbackReason": "",
+                    "group": "phase22",
+                    "label": "",
+                    "x": 5690.0,
+                    "y": 605.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n25",
+                    "type": "SwizzleNode",
+                    "purpose": "Swizzle y",
+                    "fallbackReason": "",
+                    "group": "phase22",
+                    "label": "",
+                    "x": 5690.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "y",
+                    "code": "",
+                    "outputType": "FLOAT",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n26",
+                    "type": "SimpleMultiplyOpNode",
+                    "purpose": "SimpleMultiplyOpNode",
+                    "fallbackReason": "",
+                    "group": "phase22",
+                    "label": "",
+                    "x": 6030.0,
+                    "y": 850.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n27",
+                    "type": "SwizzleNode",
+                    "purpose": "Swizzle x",
+                    "fallbackReason": "",
+                    "group": "phase22",
+                    "label": "",
+                    "x": 6030.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "x",
+                    "code": "",
+                    "outputType": "FLOAT",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n28",
+                    "type": "SwizzleNode",
+                    "purpose": "Swizzle y",
+                    "fallbackReason": "",
+                    "group": "phase22",
+                    "label": "",
+                    "x": 6030.0,
+                    "y": 360.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "y",
+                    "code": "",
+                    "outputType": "FLOAT",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n29",
+                    "type": "SwizzleNode",
+                    "purpose": "Swizzle z",
+                    "fallbackReason": "",
+                    "group": "phase22",
+                    "label": "",
+                    "x": 6030.0,
+                    "y": 605.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "z",
+                    "code": "",
+                    "outputType": "FLOAT",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                },
+                {
+                    "id": "n30",
+                    "type": "DynamicAppendNode",
+                    "purpose": "DynamicAppendNode",
+                    "fallbackReason": "",
+                    "group": "phase22",
+                    "label": "",
+                    "x": 6370.0,
+                    "y": 115.0,
+                    "propertyName": "",
+                    "displayName": "",
+                    "value": "",
+                    "propertyKind": "",
+                    "swizzle": "",
+                    "code": "",
+                    "outputType": "FLOAT4",
+                    "rangeMin": 0.0,
+                    "rangeMax": 0.0,
+                    "settings": [],
+                    "customInputs": []
+                }
+            ],
+            "wires": [
+                {
+                    "from": "n3",
+                    "fromPort": "0",
+                    "to": "n6",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n5",
+                    "fromPort": "0",
+                    "to": "n7",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n6",
+                    "fromPort": "0",
+                    "to": "n7",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n3",
+                    "fromPort": "0",
+                    "to": "n8",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n2",
+                    "fromPort": "0",
+                    "to": "n9",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n4",
+                    "fromPort": "0",
+                    "to": "n9",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n8",
+                    "fromPort": "0",
+                    "to": "n9",
+                    "toPort": "4"
+                },
+                {
+                    "from": "n8",
+                    "fromPort": "0",
+                    "to": "n9",
+                    "toPort": "3"
+                },
+                {
+                    "from": "n7",
+                    "fromPort": "0",
+                    "to": "n9",
+                    "toPort": "2"
+                },
+                {
+                    "from": "n3",
+                    "fromPort": "0",
+                    "to": "n10",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n9",
+                    "fromPort": "0",
+                    "to": "n11",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n10",
+                    "fromPort": "0",
+                    "to": "n11",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n1",
+                    "fromPort": "0",
+                    "to": "n12",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n1",
+                    "fromPort": "0",
+                    "to": "n13",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n11",
+                    "fromPort": "0",
+                    "to": "n14",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n13",
+                    "fromPort": "0",
+                    "to": "n14",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n12",
+                    "fromPort": "0",
+                    "to": "n15",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n14",
+                    "fromPort": "0",
+                    "to": "n15",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n0",
+                    "fromPort": "0",
+                    "to": "n16",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n15",
+                    "fromPort": "0",
+                    "to": "n16",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n17",
+                    "fromPort": "0",
+                    "to": "n18",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n15",
+                    "fromPort": "0",
+                    "to": "n18",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n15",
+                    "fromPort": "0",
+                    "to": "n20",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n19",
+                    "fromPort": "0",
+                    "to": "n20",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n18",
+                    "fromPort": "0",
+                    "to": "n21",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n20",
+                    "fromPort": "0",
+                    "to": "n21",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n16",
+                    "fromPort": "0",
+                    "to": "n22",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n21",
+                    "fromPort": "0",
+                    "to": "n23",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n22",
+                    "fromPort": "0",
+                    "to": "n24",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n23",
+                    "fromPort": "0",
+                    "to": "n24",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n21",
+                    "fromPort": "0",
+                    "to": "n25",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n24",
+                    "fromPort": "0",
+                    "to": "n26",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n25",
+                    "fromPort": "0",
+                    "to": "n26",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n16",
+                    "fromPort": "0",
+                    "to": "n27",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n16",
+                    "fromPort": "0",
+                    "to": "n28",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n16",
+                    "fromPort": "0",
+                    "to": "n29",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n27",
+                    "fromPort": "0",
+                    "to": "n30",
+                    "toPort": "0"
+                },
+                {
+                    "from": "n28",
+                    "fromPort": "0",
+                    "to": "n30",
+                    "toPort": "1"
+                },
+                {
+                    "from": "n29",
+                    "fromPort": "0",
+                    "to": "n30",
+                    "toPort": "2"
+                },
+                {
+                    "from": "n26",
+                    "fromPort": "0",
+                    "to": "n30",
+                    "toPort": "3"
+                }
+            ],
+            "outputs": [
+                {
+                    "node": "n30",
+                    "port": "0",
+                    "masterPort": "Color",
+                    "pass": "UI"
+                }
+            ],
+            "masterSettings": [],
+            "presentation": {
+                "autoLayout": true,
+                "addComments": true,
+                "useRegisters": true,
+                "longWireDistance": 1800.0,
+                "maxRegisters": 24
+            },
+            "comments": [
+                {
+                    "id": "properties",
+                    "title": "材质输入",
+                    "text": "这些属性提供纹理、颜色和参数；属性名与原 Shader 一致。"
+                },
+                {
+                    "id": "phase3",
+                    "title": "计算 viewUV",
+                    "text": "按连线计算并传递结果。表达式：input.uv"
+                },
+                {
+                    "id": "phase4",
+                    "title": "条件选择",
+                    "text": "比较输入并选择分支，更新局部变量；保留相等时的分支结果。"
+                },
+                {
+                    "id": "phase12",
+                    "title": "计算 sampleUV",
+                    "text": "按连线计算并传递结果。表达式：_ViewRect.xy + viewUV * _ViewRect.zw"
+                },
+                {
+                    "id": "phase16",
+                    "title": "计算 color",
+                    "text": "按 UV 采样纹理。表达式：tex2D(_MainTex, sampleUV)"
+                },
+                {
+                    "id": "phase17",
+                    "title": "计算 inside",
+                    "text": "用阈值产生 0/1 选择信号。表达式：step(0.0, sampleUV) * step(sampleUV, 1.0)"
+                },
+                {
+                    "id": "phase22",
+                    "title": "计算 color.a",
+                    "text": "采样 _ViewRect 缩放/平移后的纹理；UV 越界时 Alpha 为零。模板继续乘顶点色与 Tint，应用矩形硬裁剪、Alpha Clip、Stencil 和透明混合。"
+                }
+            ]
+        },
+        "report": {
+            "status": "Generated",
+            "sourcePath": "Assets/Source/NormalImagePanZoom.shader",
+            "outputPath": "Assets/Generated/NormalImagePanZoom_ASE 2.shader",
+            "shaderName": "UI/NormalImagePanZoom_ASE",
+            "pipeline": "BuiltIn",
+            "unityVersion": "2022.3.10f1",
+            "aseVersion": "1.9.9.13",
+            "templateGuid": "c08fd7d51a79449e86b199a5bb4a5724",
+            "sourcePipeline": "BuiltIn",
+            "crossPipeline": false,
+            "existingAseGraph": false,
+            "aseRoundTripPassed": true,
+            "shaderCompiled": true,
+            "visualComparisonPassed": false,
+            "nativeNodeCount": 38,
+            "customExpressionCount": 0,
+            "propertyCount": 11,
+            "layoutApplied": true,
+            "commentCount": 7,
+            "registerNodeCount": 3,
+            "getNodeCount": 4,
+            "nativeMappings": [
+                "Property _MainTex -> TexturePropertyNode",
+                "Property _ViewRect -> Vector4Node",
+                "Property _FlipHorizontally -> RangedFloatNode",
+                "UV0 -> TextureCoordinatesNode",
+                "Constant -> RangedFloatNode",
+                "Constant -> RangedFloatNode",
+                "Swizzle x -> SwizzleNode",
+                "SimpleSubtractOpNode -> SimpleSubtractOpNode",
+                "Swizzle x -> SwizzleNode",
+                "Scalar conditional selection -> ConditionalIfNode",
+                "Swizzle y -> SwizzleNode",
+                "DynamicAppendNode -> DynamicAppendNode",
+                "Swizzle xy -> SwizzleNode",
+                "Swizzle zw -> SwizzleNode",
+                "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+                "SimpleAddOpNode -> SimpleAddOpNode",
+                "Texture sample -> SamplerNode",
+                "Constant -> RangedFloatNode",
+                "StepOpNode -> StepOpNode",
+                "Constant -> RangedFloatNode",
+                "StepOpNode -> StepOpNode",
+                "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+                "Swizzle a -> SwizzleNode",
+                "Swizzle x -> SwizzleNode",
+                "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+                "Swizzle y -> SwizzleNode",
+                "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+                "Swizzle x -> SwizzleNode",
+                "Swizzle y -> SwizzleNode",
+                "Swizzle z -> SwizzleNode",
+                "DynamicAppendNode -> DynamicAppendNode",
+                "Reviewed UI profile: template preserves vertex COLOR * _Color, hard clip, global UI keywords, Stencil, GUI ZTest, ColorMask and straight-alpha blending.",
+                "UI template property: _Color",
+                "UI template property: _StencilComp",
+                "UI template property: _Stencil",
+                "UI template property: _StencilOp",
+                "UI template property: _StencilWriteMask",
+                "UI template property: _StencilReadMask",
+                "UI template property: _ColorMask",
+                "UI template property: _UseUIAlphaClip"
+            ],
+            "fallbackReasons": [],
+            "blockers": [],
+            "warnings": [
+                "This UI adapter is restricted to the reviewed source signature. It uses the converter's hard-clip/straight-alpha UI template; ASE's default UI template has different blending and clipping.",
+                "A plan is not a validated ASE shader. Generate and reload it in the target Unity/ASE environment, then compare rendering with the source.",
+                "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+            ]
+        },
+        "knowledge": {
+            "libraryVersion": "0.2.8",
+            "classification": "Handwritten",
+            "sourceSignature": "0330c7672d514bec9ff5937c0aa69e6062088f574588c0fdc8e4aa7cd57e0ea0",
+            "referenceFile": "",
+            "referenceNotes": "",
+            "explicitPassCount": 1,
+            "surfaceShader": false,
+            "graph": {
+                "present": false,
+                "complete": false,
+                "version": "",
+                "nodeCount": 0,
+                "wireCount": 0,
+                "customExpressionCount": 0,
+                "nodeTypes": [],
+                "templateGuids": [],
+                "functionGuids": []
+            },
+            "rules": [
+                {
+                    "id": "pipeline-contract",
+                    "title": "源管线与三条目标管线检查",
+                    "implementation": "AnalysisRule",
+                    "recipe": "分别检测源管线并独立分析 Built-in、URP、HDRP；仅共用可移植的数值图，逐目标检查模板和状态契约。",
+                    "nativeNodes": [],
+                    "preserve": [
+                        "实际 RenderPipeline Tag 和 include",
+                        "源 HDRP 曝光与 Pass 不因目标改成 Built-in 而消失",
+                        "混合管线不能靠目标选项消除",
+                        "分析不等于生成验证"
+                    ],
+                    "validation": [
+                        "三条管线分别报告",
+                        "源 HDRP 向三个目标均保留审查",
+                        "注释和 Shader 名不影响检测",
+                        "目标项目 probe/describe 和真实生成另验"
+                    ]
+                },
+                {
+                    "id": "dependency-stage-contract",
+                    "title": "依赖、指令与阶段入口审查",
+                    "implementation": "AnalysisRule",
+                    "recipe": "统一识别 # 后空白的指令，审核引号及尖括号 include；宏路径、续行、include_with_pragmas 等保持阻塞。入口必须唯一定义；禁止辅助函数覆盖已映射的内置坐标变换。",
+                    "nativeNodes": [],
+                    "preserve": [
+                        "完整依赖路径",
+                        "未知 include 不静默丢弃",
+                        "续行先于注释处理",
+                        "顶点单一末尾 return 与赋值顺序",
+                        "入口重载审查",
+                        "原有管线、属性和 Pass 阻塞继续生效"
+                    ],
+                    "validation": [
+                        "合法空白指令和已知 include 可规划",
+                        "未知依赖、宏路径、变体与目标不被绕过",
+                        "内置变换覆盖和提前 return 阻塞",
+                        "三目标合成契约回归",
+                        "ASE 保存重载与画面另验"
+                    ]
+                },
+                {
+                    "id": "opaque-state-contract",
+                    "title": "Built-in / URP 不透明队列与剔除",
+                    "implementation": "NativePlanner",
+                    "recipe": "Geometry 队列显式设为 Opaque 并校验实际模板 Tags。Built-in 静态 Cull Front/Off 使用受限模块；URP 使用已描述的 Two Sided 选项及原值。",
+                    "nativeNodes": [],
+                    "preserve": [
+                        "目标模板真实选项",
+                        "静态 Cull Front/Off",
+                        "重复作用域仍阻塞",
+                        "不擅自改变 Blend 或深度",
+                        "ASE API 版本与保存重载校验"
+                    ],
+                    "validation": [
+                        "两个目标的 Front/Off 计划",
+                        "Geometry 队列",
+                        "内联状态边界",
+                        "生成与画面需另验"
+                    ]
+                },
+                {
+                    "id": "ui-canvas",
+                    "title": "UI / Canvas 与裁剪",
+                    "implementation": "RecipeRecorded",
+                    "recipe": "保留顶点色、Tint、PerRendererData、TextureSampleAdd、Stencil 与 RectMask2D，区分硬裁剪和像素大小/软度参与的软裁剪。",
+                    "nativeNodes": [
+                        "VertexColorNode",
+                        "SamplerNode",
+                        "LerpOp"
+                    ],
+                    "preserve": [
+                        "Canvas 渲染模式",
+                        "unity_GUIZTestMode",
+                        "ColorMask",
+                        "UI 关键字",
+                        "字体 SDF 与外部图集",
+                        "Gamma/Linear 顶点色",
+                        "Alpha 精度"
+                    ],
+                    "validation": [
+                        "Mask 和 RectMask2D 内外",
+                        "软度与分辨率",
+                        "字体边缘",
+                        "Canvas Overlay/Camera/World",
+                        "项目实际 UI 渲染路径"
+                    ]
+                },
+                {
+                    "id": "vertex-animation",
+                    "title": "顶点动画分类方案",
+                    "implementation": "RecipeRecorded",
+                    "recipe": "按空间记录波浪、风摆、公告板、VAT、骨骼或 GPU 位置纹理的变形步骤。需要顶点位置、法线/切线及各辅助 Pass 的一致计划。",
+                    "nativeNodes": [
+                        "PositionNode",
+                        "SinOpNode",
+                        "TimeNode",
+                        "SamplerNode",
+                        "CrossProductOpNode"
+                    ],
+                    "preserve": [
+                        "Object/World 空间",
+                        "绝对位置或相对偏移",
+                        "法线/切线重建",
+                        "显式顶点 LOD",
+                        "Bounds 与 Culling",
+                        "ShadowCaster/Depth/Motion Vectors",
+                        "仿真脚本与历史位置"
+                    ],
+                    "validation": [
+                        "非均匀缩放",
+                        "动画时刻",
+                        "边界裁剪",
+                        "阴影和深度",
+                        "运动矢量",
+                        "纹理格式及布局"
+                    ]
+                },
+                {
+                    "id": "stencil-state",
+                    "title": "Stencil 与材质绑定状态",
+                    "implementation": "RecipeRecorded",
+                    "recipe": "通过模板明确绑定 Ref/Comp/Pass/ReadMask/WriteMask，不能只复制颜色图。",
+                    "nativeNodes": [],
+                    "preserve": [
+                        "Stencil 的作用范围",
+                        "动态属性绑定",
+                        "Blend、ColorMask、ZWrite、ZTest",
+                        "材质属性特性"
+                    ],
+                    "validation": [
+                        "遮罩内外",
+                        "读写掩码",
+                        "状态动态修改"
+                    ]
+                },
+                {
+                    "id": "keyword-binding",
+                    "title": "关键词、属性与编译变体",
+                    "implementation": "RecipeRecorded",
+                    "recipe": "分别记录属性 Toggle 派生关键词、pragma 的 global/local 关键词及条件分支；名称不一致时报告，不能自动改名绑定。0.2.8 人工计划的 StaticSwitch 受限适配为大写 Float 属性、0/1 默认值、local shader_feature，关键词为属性名加 _ON；不表示任意源码宏已能转换。",
+                    "nativeNodes": [
+                        "StaticSwitch"
+                    ],
+                    "preserve": [
+                        "global/local 作用域",
+                        "默认分支",
+                        "宏与关键词原名",
+                        "多 Pass 变体",
+                        "实例化与 stereo",
+                        "材质 float 与关键词需同步",
+                        "HLSL 分支不移除 ShaderLab GrabPass"
+                    ],
+                    "validation": [
+                        "每种关键词组合",
+                        "材质数值与关键词独立变化",
+                        "目标图形 API",
+                        "ASE 开关设置保存重载"
+                    ]
+                },
+                {
+                    "id": "performance-evidence",
+                    "title": "画质与 GPU 成本评估",
+                    "implementation": "RecipeRecorded",
+                    "recipe": "先保持行为，再按目标设备测 GPU 时间、带宽、overdraw、变体和画质误差；静态源码只能提示成本，不能给出性能优胜结论。",
+                    "nativeNodes": [],
+                    "preserve": [
+                        "采样调用位置不等于每像素采样次数",
+                        "include、循环与分支会改变工作量",
+                        "Register/Get 整理连线不保证减少 GPU 指令",
+                        "避免用未经比较的便宜算法替换原效果"
+                    ],
+                    "validation": [
+                        "固定场景和分辨率",
+                        "GPU 型号/API/管线",
+                        "GPU 中位数与高分位时间",
+                        "移动端热稳定",
+                        "材质画面对比"
+                    ]
+                }
+            ],
+            "notes": [
+                "已记录的语义方案不等于自动支持；未实现的模板、阶段与状态仍由原分析器阻塞。"
+            ],
+            "materialCategories": [
+                "UI",
+                "VertexAnimation"
+            ],
+            "performance": {
+                "status": "NotBenchmarked",
+                "directTextureSampleSites": 1,
+                "loopSites": 0,
+                "explicitPasses": 1,
+                "includesMayAddWork": true,
+                "observations": [
+                    "静态调用位置不是运行次数；include、循环、宏和分支未经展开。性能尚未在目标 GPU 上测量。",
+                    "存在混合状态：透明覆盖层数和带宽可能比节点数更影响性能。"
+                ]
+            }
+        }
+    },
+    "report": {
+        "status": "Generated",
+        "sourcePath": "Assets/Source/NormalImagePanZoom.shader",
+        "outputPath": "Assets/Generated/NormalImagePanZoom_ASE 2.shader",
+        "shaderName": "UI/NormalImagePanZoom_ASE",
+        "pipeline": "BuiltIn",
+        "unityVersion": "2022.3.10f1",
+        "aseVersion": "1.9.9.13",
+        "templateGuid": "c08fd7d51a79449e86b199a5bb4a5724",
+        "sourcePipeline": "BuiltIn",
+        "crossPipeline": false,
+        "existingAseGraph": false,
+        "aseRoundTripPassed": true,
+        "shaderCompiled": true,
+        "visualComparisonPassed": false,
+        "nativeNodeCount": 38,
+        "customExpressionCount": 0,
+        "propertyCount": 11,
+        "layoutApplied": true,
+        "commentCount": 7,
+        "registerNodeCount": 3,
+        "getNodeCount": 4,
+        "nativeMappings": [
+            "Property _MainTex -> TexturePropertyNode",
+            "Property _ViewRect -> Vector4Node",
+            "Property _FlipHorizontally -> RangedFloatNode",
+            "UV0 -> TextureCoordinatesNode",
+            "Constant -> RangedFloatNode",
+            "Constant -> RangedFloatNode",
+            "Swizzle x -> SwizzleNode",
+            "SimpleSubtractOpNode -> SimpleSubtractOpNode",
+            "Swizzle x -> SwizzleNode",
+            "Scalar conditional selection -> ConditionalIfNode",
+            "Swizzle y -> SwizzleNode",
+            "DynamicAppendNode -> DynamicAppendNode",
+            "Swizzle xy -> SwizzleNode",
+            "Swizzle zw -> SwizzleNode",
+            "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+            "SimpleAddOpNode -> SimpleAddOpNode",
+            "Texture sample -> SamplerNode",
+            "Constant -> RangedFloatNode",
+            "StepOpNode -> StepOpNode",
+            "Constant -> RangedFloatNode",
+            "StepOpNode -> StepOpNode",
+            "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+            "Swizzle a -> SwizzleNode",
+            "Swizzle x -> SwizzleNode",
+            "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+            "Swizzle y -> SwizzleNode",
+            "SimpleMultiplyOpNode -> SimpleMultiplyOpNode",
+            "Swizzle x -> SwizzleNode",
+            "Swizzle y -> SwizzleNode",
+            "Swizzle z -> SwizzleNode",
+            "DynamicAppendNode -> DynamicAppendNode",
+            "Reviewed UI profile: template preserves vertex COLOR * _Color, hard clip, global UI keywords, Stencil, GUI ZTest, ColorMask and straight-alpha blending.",
+            "UI template property: _Color",
+            "UI template property: _StencilComp",
+            "UI template property: _Stencil",
+            "UI template property: _StencilOp",
+            "UI template property: _StencilWriteMask",
+            "UI template property: _StencilReadMask",
+            "UI template property: _ColorMask",
+            "UI template property: _UseUIAlphaClip"
+        ],
+        "fallbackReasons": [],
+        "blockers": [],
+        "warnings": [
+            "This UI adapter is restricted to the reviewed source signature. It uses the converter's hard-clip/straight-alpha UI template; ASE's default UI template has different blending and clipping.",
+            "A plan is not a validated ASE shader. Generate and reload it in the target Unity/ASE environment, then compare rendering with the source.",
+            "Rendering equivalence has not been checked. Compare source and generated materials in the target pipeline."
+        ]
+    },
+    "ruleLibrary": {
+        "version": "0.2.8",
+        "rules": [],
+        "references": [],
+        "publicSources": [],
+        "categories": []
+    },
+    "targetAnalyses": []
+}
