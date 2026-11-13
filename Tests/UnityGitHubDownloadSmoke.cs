@@ -11,8 +11,8 @@ using UnityEngine;
 
 public static class UnityGitHubDownloadSmoke
 {
-    const string Filename = "com.aseshader.handwritten-converter-0.4.7.tgz";
-    const string Expected = "8f95611f89a7c75398a05f46d0ff08b8f86f027885abbecac5a6d795e01cadc9";
+    const string Filename = "com.aseshader.handwritten-converter-0.4.8.tgz";
+    const string Expected = "89de508e9c33d47998fedb50845fa9e3664a78b81b13d20969c63cdd544828f6";
     static Task<string> download;
     static string folder;
     static int phase;
@@ -22,11 +22,11 @@ public static class UnityGitHubDownloadSmoke
     {
         var type = typeof(ShaderPackageUpdater).Assembly.GetType("ASEShaderConverter.Editor.ShaderGitHubClient", true);
         return (Task<string>)type.GetMethod("Download", BindingFlags.Static | BindingFlags.NonPublic).Invoke(null,
-            new object[] { ShaderPackageUpdatePolicy.Repository, "v0.4.7", folder, cancellation.Token });
+            new object[] { ShaderPackageUpdatePolicy.Repository, "v0.4.8", folder, cancellation.Token });
     }
     public static void Run()
     {
-        folder = Path.GetFullPath("Artifacts/GitHubDownload048"); Directory.CreateDirectory(folder);
+        folder = Path.GetFullPath("Artifacts/GitHubDownload049"); Directory.CreateDirectory(folder);
         File.WriteAllText(Path.Combine(folder, Filename), "invalid existing fixture; preserve this file");
         cancellation = new CancellationTokenSource(); download = Download(); timeout = EditorApplication.timeSinceStartup + 660;
         EditorApplication.update += Tick;
@@ -57,7 +57,7 @@ public static class UnityGitHubDownloadSmoke
     {
         EditorApplication.update -= Tick; cancellation.Cancel(); cancellation.Dispose(); Directory.CreateDirectory("Artifacts");
         File.WriteAllText("Artifacts/github-download.json", JsonUtility.ToJson(new Report { success = error == null, invalidCachePreserved = phase == 1,
-            unity = Application.unityVersion, downloadedTag = "v0.4.7", sha256 = digest, bytes = error == null ? new FileInfo(Path.Combine(folder, Filename)).Length : 0,
+            unity = Application.unityVersion, downloadedTag = "v0.4.8", sha256 = digest, bytes = error == null ? new FileInfo(Path.Combine(folder, Filename)).Length : 0,
             failure = error == null ? "" : error.ToString() }, true));
         EditorApplication.Exit(error == null ? 0 : 1);
     }

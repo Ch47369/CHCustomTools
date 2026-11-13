@@ -3,7 +3,7 @@ param(
     [ValidateSet('Shader','Audio','Both')][string]$Packages='Shader',
     [switch]$Tarballs,
     [ValidatePattern('^[A-Za-z0-9-]+$')][string]$RunId='CustomTools048',
-    [ValidatePattern('^\d+\.\d+\.\d+$')][string]$ShaderVersion='0.4.8',
+    [ValidatePattern('^\d+\.\d+\.\d+$')][string]$ShaderVersion='0.4.9',
     [ValidateSet('UnityToolMenusSmoke','UnityInlineUpdateSmoke','UnityGraphInputWindowSmoke','UnityUnifiedWindowSmoke','UnityGitUpdateSmoke','UnityCustomToolsSmoke','UnityGitInstallSmoke','UnityGitHubDownloadSmoke')][string]$TestClass='UnityCustomToolsSmoke',
     [switch]$Preview
 )

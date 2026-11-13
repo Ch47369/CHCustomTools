@@ -1,0 +1,11 @@
+{
+    "success": false,
+    "unity": "6000.0.80f1",
+    "beforeVersion": "0.4.7",
+    "beforeSource": "Local",
+    "targetTag": "v0.4.8",
+    "installedVersion": "0.4.7",
+    "installedSource": "Local",
+    "packageId": "com.aseshader.handwritten-converter@file:F:\\ASEShader\\.validation\\GitHubReleaseUpgrade048-Unity6-Fixture\\package",
+    "failure": "System.Exception: GitHub installation failed: Network; 连接 GitHub 失败，请检查网络、VPN / 代理及 DNS 后重试。公开更新无需登录。\r\n  at UnityGitInstallSmoke.Tick () [0x001fb] in F:\\ASEShader\\.validation\\GitHubReleaseUpgrade048-Unity6-Project\\Assets\\Editor\\UnityGitInstallSmoke.cs:54 "
+}

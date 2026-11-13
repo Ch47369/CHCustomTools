@@ -1,4 +1,4 @@
-# 插件检查与更新（0.4.8）
+# 插件检查与更新（0.4.9）
 
 CH自定义工具集使用公开仓库 [Ch47369/CHCustomTools](https://github.com/Ch47369/CHCustomTools)。统一入口 **Tools → CH自定义工具集 → 设置 → 插件更新**；检查、下载、安装状态和错误提示都在当前窗口显示。Package Manager 选中本包后，详情扩展区域也可检查更新。只有发现比当前安装版本更高的正式版本时，才显示“更新到 X.Y.Z”按钮；检查失败、版本相同或远程版本更旧时均隐藏。
 
@@ -12,9 +12,9 @@ Package Manager → **Add package from git URL**：
 https://github.com/Ch47369/CHCustomTools.git
 ```
 
-固定本次版本可加 `#v0.4.8`。公开 HTTPS 地址无需 GitHub 登录，首次 Git URL 安装仍需 Unity 能找到 Git。旧地址 `Ch47369/ShaderConverter` 继续兼容。
+固定本次版本可加 `#v0.4.9`。公开 HTTPS 地址无需 GitHub 登录，首次 Git URL 安装仍需 Unity 能找到 Git。旧地址 `Ch47369/ShaderConverter` 继续兼容。
 
-0.4.7 及更早更新器若卡在 Git 克隆或认证提示，请从 [正式发布页](https://github.com/Ch47369/CHCustomTools/releases/tag/v0.4.8) 下载 `.tgz`，通过 **Add package from tarball** 手动安装一次 0.4.8。这会启用新的公开 Release 更新器。无需另装音频插件。
+0.4.7 及更早更新器若卡在 Git 克隆或认证提示，请从 [正式发布页](https://github.com/Ch47369/CHCustomTools/releases/tag/v0.4.9) 下载 `.tgz`，通过 **Add package from tarball** 手动安装一次 0.4.9。这会启用新的公开 Release 更新器。无需另装音频插件。
 
 ## 日常更新
 

@@ -136,7 +136,8 @@ namespace ASEShaderConverter.Editor
             internal UnityWebRequest request;
             internal UnityWebRequestAsyncOperation operation;
         }
-        const int ChunkSize = 512 * 1024;
+        // Small ranges avoid restarting almost-complete requests on slower GitHub CDN connections.
+        const int ChunkSize = 128 * 1024;
         static readonly ConcurrentQueue<Transfer> transfers = new ConcurrentQueue<Transfer>();
         static Transfer active;
         static ShaderGitHubClient()
@@ -168,7 +169,7 @@ namespace ASEShaderConverter.Editor
             range.request = new UnityWebRequest(active.url, UnityWebRequest.kHttpVerbGET);
             range.request.SetRequestHeader("Range", "bytes=" + range.start + "-" + range.end);
             range.request.downloadHandler = new DownloadHandlerFile(range.file) { removeFileOnAbort = true };
-            range.request.timeout = 30; range.request.redirectLimit = 0;
+            range.request.timeout = 60; range.request.redirectLimit = 0;
             range.operation = range.request.SendWebRequest(); range.began = EditorApplication.timeSinceStartup;
         }
         static void Pump()
@@ -190,14 +191,14 @@ namespace ASEShaderConverter.Editor
             for (int i = active.ranges.Count - 1; i >= 0; i--)
             {
                 var range = active.ranges[i];
-                bool timedOut = EditorApplication.timeSinceStartup - range.began > 35;
+                bool timedOut = EditorApplication.timeSinceStartup - range.began > 65;
                 if (!range.operation.isDone && !timedOut) { inFlight += (long)range.request.downloadedBytes; continue; }
                 bool success = range.operation.isDone && range.request.result == UnityWebRequest.Result.Success && range.request.responseCode == 206 &&
                     range.request.GetResponseHeader("Content-Range") == "bytes " + range.start + "-" + range.end + "/" + active.size;
                 if (!success)
                 {
                     Clean(range);
-                    if (range.retries++ < 1) { StartRange(range); continue; }
+                    if (range.retries++ < 2) { StartRange(range); continue; }
                     Complete(timedOut ? ShaderGitFailure.Timeout : ShaderGitFailure.Network); return;
                 }
                 range.request.Dispose(); range.request = null;

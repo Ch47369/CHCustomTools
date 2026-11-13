@@ -1,4 +1,4 @@
-# CH自定义工具集 0.4.8
+# CH自定义工具集 0.4.9
 
 作者：CH。统一入口 **Tools → CH自定义工具集**。左侧为 Shader、VFX、设置，右侧的功能标签直接切换当前面板，不再打开新的功能窗口。原 Shader 包升级后就是完整工具集；包 ID 保持 `com.aseshader.handwritten-converter`。
 
@@ -50,13 +50,13 @@
 https://github.com/Ch47369/CHCustomTools.git
 ```
 
-固定本次版本可使用 `https://github.com/Ch47369/CHCustomTools.git#v0.4.8`。仓库现为公开，安装和更新无需 GitHub 登录。首次用 Git URL 安装需要 Unity 能找到 Git；离线可安装同版本 Unity Tarball，不需要另取音频包。
+固定本次版本可使用 `https://github.com/Ch47369/CHCustomTools.git#v0.4.9`。仓库现为公开，安装和更新无需 GitHub 登录。首次用 Git URL 安装需要 Unity 能找到 Git；离线可安装同版本 Unity Tarball，不需要另取音频包。
 
 更新在设置 → 插件更新中进行；HTTPS 安装从 GitHub Release 查询正式版本，只有严格高于当前版本才提供版本更新操作。下载通过 GitHub API 进行，验证发布资源的大小和 SHA-256，再交给 Unity 安装。安装包保存在当前项目 `Packages/CHCustomToolsCache~`，项目的包引用随之改为该文件；后续仍从 GitHub 检查和下载更新，不读取开发者本地仓库。请把此缓存目录连同 manifest 一起保留，便于项目在其他机器恢复。SSH 安装保留原 Git 传输方式。
 
 首次仍可用 Git URL 安装；更新后 Package Manager 的底层来源可能显示 Local tarball，工具窗口会显示 GitHub Release。包文件来自公开的 GitHub 正式发布资源。旧地址 `Ch47369/ShaderConverter` 继续兼容，新安装使用 `Ch47369/CHCustomTools`。
 
-公开更新不调用 Git 凭据管理器，不读取本地 Git 仓库，也不要求登录。HTTPS 更新通过 GitHub API 查询并下载，使用并行分段请求、范围检查、大小和完整文件 SHA-256 校验；只有校验通过才交给 Unity 安装。旧版若因 Git 克隆超时而无法更新，请先手动安装一次 0.4.8 Tarball，以启用新更新器。
+公开更新不调用 Git 凭据管理器，不读取本地 Git 仓库，也不要求登录。HTTPS 更新通过 GitHub API 查询并下载，使用并行分段请求、范围检查、大小和完整文件 SHA-256 校验；只有校验通过才交给 Unity 安装。旧版若因 Git 克隆超时而无法更新，请先手动安装一次 0.4.9 Tarball，以启用新更新器。
 
 语言只有中文、English 两种显示。未手动选择时跟随 Unity 编辑器语言；设置 → 常规中手动选择后影响全部功能，恢复默认清除覆盖。作者始终为 CH。
 

@@ -1,6 +1,8 @@
-**0.4.8 当前版：CH自定义工具集**，作者 CH。统一入口 **Tools → CH自定义工具集**；左侧 Shader / VFX / 设置，右侧显示功能。完整包含 Shader转换器、293 图 ASE 库、Agent、音频转动画曲线、子特效时序、VFX资源整理与恢复。语言、版本和 Git 更新统一管理。原包 ID 保持兼容，GitHub 仓库已按用户要求设为公开；更新从 GitHub Release 下载，无需登录。音频无需第二个依赖包；旧数据通过创建副本迁移，详见 [工具集操作与升级](Documentation~/CustomTools.md)。
+**0.4.9 下载修复**：保留 0.4.8 的完整音频/VFX整合。针对 Unity 6 实际下载中 512 KB 分段接近完成时触发 30 秒超时的问题，缩小为 128 KB 分段、单请求 60 秒、最多三次尝试，总下载仍限制十分钟；继续验证范围、大小与 SHA-256。实际失败和后续验证见 `Documentation~/Evidence/GitHubDownload049`。
 
-本次安装包：`Releases~/com.aseshader.handwritten-converter-0.4.8.tgz`，源码归档 `Releases~/CHCustomTools-0.4.8.zip`。以下旧版说明和证据按历史批次保留，菜单以当前统一入口为准。
+**0.4.9 当前版：CH自定义工具集**，作者 CH。统一入口 **Tools → CH自定义工具集**；左侧 Shader / VFX / 设置，右侧显示功能。完整包含 Shader转换器、293 图 ASE 库、Agent、音频转动画曲线、子特效时序、VFX资源整理与恢复。语言、版本和 Git 更新统一管理。原包 ID 保持兼容，GitHub 仓库已按用户要求设为公开；更新从 GitHub Release 下载，无需登录。音频无需第二个依赖包；旧数据通过创建副本迁移，详见 [工具集操作与升级](Documentation~/CustomTools.md)。
+
+本次安装包：`Releases~/com.aseshader.handwritten-converter-0.4.9.tgz`，源码归档 `Releases~/CHCustomTools-0.4.9.zip`。以下旧版说明和证据按历史批次保留，菜单以当前统一入口为准。
 
 # CH自定义工具集
 
@@ -40,7 +42,7 @@
 
 本地 21 个压缩包与解压目录按数据读取，去重为 255 份源码，152 张图/子图解析成功。100 个 Shader Graph 中 20 个已生成，80 个仍有明确阻塞；StackLit、专用 Eye 模型和复杂宿主不以普通 Lit 替代。统一研究页记录 1,042 个来源身份，原始参考源码不随包分发。完整使用、三管线边界、丝袜基础及水面设置见 [分类库说明](Documentation~/ShaderLibrary.md)，计数与证据见 [LocalLibrary030](Documentation~/Evidence/LocalLibrary030/README.md)。JSON 请求 `operation: "library"` 返回同一份目录；42 条语义规则/14 个研究分类继续通过 `rules`/`analyze` 提供。
 
-当前安装包为 `Releases~/com.aseshader.handwritten-converter-0.4.8.tgz`（UPM）或 `Releases~/CHCustomTools-0.4.8.zip`。以下旧版数字按历史批次保留。
+当前安装包为 `Releases~/com.aseshader.handwritten-converter-0.4.9.tgz`（UPM）或 `Releases~/CHCustomTools-0.4.9.zip`。以下旧版数字按历史批次保留。
 
 **0.2.9 人物材质库**：新增皮肤、头发/毛发、眼球、衣服布料四份独立档案，记录 SSS/厚度/微法线、发卡与发丝散射/覆盖、角膜虹膜分层、棉绒 Sheen 与丝绸各向异性，以及三管线依赖、输入色彩空间、验证与成本要求。当时使用独立人物库入口，0.3.4 已合并到统一 ASE 着色器库的对应分类，可实际检查当前环境及参考模板端口；主转换器分析与 JSON API 同步显示人物语义审查。四类仍为方案/分析能力，完整生成适配尚未实现，不能宣称已训练模型权重或达到 3A 画质。479 项核心检查、EditorCompile 与隔离 HDRP API/模板检查通过，35 份人物参考的完整 Shader 三目标可规划为 0/0/0；详情见 [人物材质库](Documentation~/CharacterMaterials.md) 和 [证据](Documentation~/Evidence/CharacterMaterials029/README.md)。
 
@@ -51,7 +53,7 @@
 ## 安装和使用
 
 1. ASE 输出/库需安装正版 ASE 和目标管线模板。ShaderGraph 输出需 Unity 2022.3、Shader Graph 14.0.8；URP/HDRP 需对应包 14.0.8。项目需启用所选目标管线，无需安装 ASE。
-2. 推荐使用 Git 安装：Package Manager → **Add package from git URL**，填写 `https://github.com/Ch47369/CHCustomTools.git`；固定本次版本可加 `#v0.4.8`。仓库公开，无需 GitHub 登录，首次 Git URL 安装需电脑已安装 Git。后续在插件的“设置 → 插件更新”升级：HTTPS 更新从公开 GitHub Release 下载、校验安装包，再交给 Unity 安装，无本地 Git 或凭据依赖。旧更新器若无法升级，可从 Release 下载 `.tgz`，用 **Add package from tarball** 手动安装一次新版。源码目录支持 Add package from disk 选择 `package.json`；完整着色器库需保留配套目录。更新缓存说明见 [工具集操作与升级](Documentation~/CustomTools.md)。
+2. 推荐使用 Git 安装：Package Manager → **Add package from git URL**，填写 `https://github.com/Ch47369/CHCustomTools.git`；固定本次版本可加 `#v0.4.9`。仓库公开，无需 GitHub 登录，首次 Git URL 安装需电脑已安装 Git。后续在插件的“设置 → 插件更新”升级：HTTPS 更新从公开 GitHub Release 下载、校验安装包，再交给 Unity 安装，无本地 Git 或凭据依赖。旧更新器若无法升级，可从 Release 下载 `.tgz`，用 **Add package from tarball** 手动安装一次新版。源码目录支持 Add package from disk 选择 `package.json`；完整着色器库需保留配套目录。更新缓存说明见 [工具集操作与升级](Documentation~/CustomTools.md)。
 3. 打开 `Tools/CH自定义工具集` → Shader → 图转换，把 Project 窗口中的 Shader 拖到“输入 Shader”栏，或把系统文件夹中的单个 `.shader` 拖到拖放区域。也可浏览、粘贴路径或使用选中 Shader；切换输入会建议一个不会覆盖原文件的 `Assets/*_ASE.shader` 输出路径。
 4. 选择输出格式 ASE 或 ShaderGraph 及目标管线；后者需明确勾选标准宿主适配。点击“分析”，通过后点击“生成并验证”，获取新的 `.shader` 或 `.shadergraph`。若显示“需要适配”，列出的项目仍阻止生成；复制/导出报告供 Agent 逐项适配。已有输出不会覆盖。拖入目录仅作目录选择，不进行扫描或批量转换。
 5. 在 ASE 中打开输出，并在目标场景比较原、新材质的颜色、Alpha、深度和渲染状态。报告中的 `visualComparisonPassed` 默认是 false。

@@ -1,3 +1,5 @@
+0.4.9 接续：保留已发布0.4.8及完整整合。Unity6两次真实GitHub下载出现512KB请求30秒超时，失败保持0.4.7安装；证据GitHubDownload049保留原始失败。下载改128KB/60秒/最多三次，四路、总十分钟、范围/长度/SHA256与缓存保护不变。新发布需重新做实际下载与两版最终Tarball、发布后跨重载升级。工具Verify-CustomToolsRelease改读取当前版本，Run-GitHubReleaseUpgrade按当前版本建立独立夹具；旧证据不覆盖。
+
 0.4.8 接续：统一显示名/入口 Tools/CH自定义工具集、作者CH，左侧Shader/VFX/设置，右侧内嵌功能。整合AudioRhythmCurves1.0.9全部音频曲线/原生动画/粒子/子特效时序/VFX资源整理恢复；命名空间CH.CustomTools.VFX、独立MonoScript GUID，允许旧包共存。旧曲线文本迁移只创建_CH副本，保留原数据，用户须主动替换对旧profile的自定义引用。共享语言仅设置→常规。包ID保留com.aseshader.handwritten-converter，最低Unity2022.3。
 
 用户已明确改为公开仓库 https://github.com/Ch47369/CHCustomTools；旧ShaderConverter地址继续兼容。HTTPS更新通过公开Release API，无Git/凭据依赖，Unity原生HTTP四路分段、范围/大小/SHA256校验后UPM安装。缓存Packages/CHCustomToolsCache~需随manifest保留，界面来源显示GitHub Release；初次仍可Git URL安装，SSH保留Git传输。只在严格高版本时提供更新。旧版Git克隆3分钟未完成有实测失败，不能把检查远程版本通过当作完整升级成功。发布后升级夹具会把候选更新器回移植到固定0.4.7包，再实际从GitHub装0.4.8；不宣称旧更新器能自动自愈。629核心、两Unity编译0/0；源码功能62/62，共存真实旧数据迁移63/63，公开更新20项和完整历史发布包下载校验通过。最终Tarball/发布升级结果另见Releases~；证据CustomTools048、工具Verify-CustomToolsRelease/Run-GitHubReleaseUpgrade。293图/转换核心/协议/交付恢复仍受保护，不增加Shader生成或画面等价结论。保留历史失败与包。隔离Unity活跃时仍禁止改共享C#，dotnet顺序运行。
