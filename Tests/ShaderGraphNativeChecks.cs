@@ -53,6 +53,19 @@ internal static class ShaderGraphNativeChecks
         foreach(string expr in new[]{"float4(1,0,0,0.5)","float4(1,0,0,_Strength)","unknown(_Strength)"}) check(!ShaderGraphNativePlanner.Analyze(Source(expr),"blocked.shader",options).report.CanGenerate,"Unknown or alpha-loss input blocked: "+expr);
         check(!ShaderGraphNativePlanner.Analyze(Source("float4(1,0,0,1)").Replace("o.uv=v.uv","o.uv=sin(v.uv)"),"vertex.shader",options).report.CanGenerate,"Vertex nonlinear arithmetic is not moved to fragment");
         check(!ShaderGraphNativePlanner.Analyze(Source("float4(1,0,0,1)"),"review.shader",new ShaderConversionOptions{targetPipeline="URP"}).report.CanGenerate,"Standard target adaptation is explicit");
+        foreach (string target in new[]{"BuiltIn","URP","HDRP"})
+        {
+            var adapted = new ShaderConversionOptions { targetGraph="ShaderGraph", targetPipeline=target, acceptStandardUnlitTarget=true };
+            var native = ShaderGraphNativePlanner.Analyze(Source("float4(_Strength,0.25,0.75,1)"),"target.shader",adapted);
+            check(native.report.CanGenerate && native.plan.pipeline==target && native.report.standardTargetAdaptation,"Explicit standard host maps to " + target);
+            check(ShaderGraphNativePlanner.Validate(native.plan).Count==0,"Native plan validates for " + target);
+            check(!ShaderGraphNativePlanner.Analyze(Source("float4(1,0,0,0.5)"),"alpha.shader",adapted).report.CanGenerate,"Target selection never drops Alpha for " + target);
+            string hdrpSource=Source("float4(1,0,0,1)").Replace("SubShader {", "SubShader { Tags { \"RenderPipeline\"=\"HDRenderPipeline\" }");
+            check(!ShaderGraphNativePlanner.Analyze(hdrpSource,"source-hdrp.shader",adapted).report.CanGenerate,"Source HDRP still requires review for " + target);
+            native.plan.acceptStandardUnlitTarget=false; native.plan.acceptStandardUrpUnlitTarget=true;
+            check((ShaderGraphNativePlanner.Validate(native.plan).Count==0)==(target=="URP"),"Legacy URP consent only applies to URP, " + target);
+        }
+        check(!ShaderConversionEngine.Analyze(Source("float4(1,0,0,1)"),"ase-hdrp.shader",new ShaderConversionOptions{targetPipeline="HDRP",acceptStandardUnlitTarget=true}).report.CanGenerate,"Native SG host consent does not relax ASE HDRP semantics");
         a.plan.edges.Add(new ShaderGraphNativeEdge{from="missing",to=a.plan.colorNode}); check(ShaderGraphNativePlanner.Validate(a.plan).Any(),"Dangling edge rejected"); a.plan.edges.RemoveAt(a.plan.edges.Count-1);
         a.plan.nodes[0].type="System.IO.File"; check(ShaderGraphNativePlanner.Validate(a.plan).Any(),"Arbitrary reflected type blocked");
         return checks;

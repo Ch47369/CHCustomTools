@@ -4,7 +4,7 @@ param(
     [switch]$Tarballs,
     [ValidatePattern('^[A-Za-z0-9-]+$')][string]$RunId='ToolMenus043',
     [ValidatePattern('^\d+\.\d+\.\d+$')][string]$ShaderVersion='0.4.3',
-    [ValidateSet('UnityToolMenusSmoke','UnityInlineUpdateSmoke')][string]$TestClass='UnityToolMenusSmoke'
+    [ValidateSet('UnityToolMenusSmoke','UnityInlineUpdateSmoke','UnityGraphInputWindowSmoke')][string]$TestClass='UnityToolMenusSmoke'
 )
 $ErrorActionPreference='Stop'
 $menuRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
@@ -32,4 +32,5 @@ New-Item -ItemType Directory -Force -Path $attempt|Out-Null
 $log=Join-Path $attempt 'editor.log'
 $arguments='-projectPath "'+$project+'" -executeMethod '+$TestClass+'.Run -logFile "'+$log+'" -force-d3d11'
 $process=Start-Process -FilePath $UnityEditorPath -ArgumentList $arguments -WorkingDirectory $project -WindowStyle Hidden -PassThru
-[pscustomobject]@{id=$process.Id;project=$project;log=$log;output=$project+'/Artifacts/tool-menus-verification.json';startedUtc=[DateTimeOffset]::UtcNow.ToString('o')}|ConvertTo-Json|Tee-Object -FilePath ($attempt+'/launch.json')
+$reportName=if($TestClass -eq 'UnityGraphInputWindowSmoke'){'graph-input-window.json'}else{'tool-menus-verification.json'}
+[pscustomobject]@{id=$process.Id;project=$project;log=$log;output=$project+'/Artifacts/'+$reportName;startedUtc=[DateTimeOffset]::UtcNow.ToString('o')}|ConvertTo-Json|Tee-Object -FilePath ($attempt+'/launch.json')

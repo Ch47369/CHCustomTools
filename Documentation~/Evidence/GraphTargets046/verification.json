@@ -1,0 +1,52 @@
+{
+  "version": "0.4.6",
+  "scope": "Standard opaque Unlit native targets in Unity2022.3 / SG14.0.8; no original host/scene equivalence or other versions/platforms claimed.",
+  "success": true,
+  "visualComparisonPassed": false,
+  "sourceAttempts": {
+    "BuiltIn": {
+      "attempt": "20261113051005890",
+      "checks": 49,
+      "packageVersion": "0.4.6",
+      "evidence": "BuiltIn/result.json"
+    },
+    "HDRP": {
+      "attempt": "20261113050308318",
+      "checks": 49,
+      "packageVersion": "0.4.6",
+      "evidence": "HDRP/result.json"
+    },
+    "URP": {
+      "attempt": "20261113050432680",
+      "checks": 49,
+      "packageVersion": "0.4.6",
+      "evidence": "URP/result.json"
+    }
+  },
+  "failedAttemptsRetained": [
+    "20261113045833655",
+    "20261113050106400",
+    "20261113050228454"
+  ],
+  "windowChecks": {
+    "2022.3.10f1": 7,
+    "6000.0.80f1": 7
+  },
+  "coreChecks": 608,
+  "editorCompile": {
+    "Unity2022.3": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "Unity6": {
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  "windowFailedAttemptsRetained": [
+    "20261113050502656",
+    "20261113050628666",
+    "20261113050711225",
+    "20261113050756794"
+  ]
+}

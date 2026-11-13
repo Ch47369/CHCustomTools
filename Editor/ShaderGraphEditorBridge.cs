@@ -14,7 +14,7 @@ namespace ASEShaderConverter.Editor
 {
     [Serializable] public sealed class ShaderGraphEnvironmentInfo
     {
-        public string unityVersion, shaderGraphVersion = "", urpVersion = "", activePipeline;
+        public string unityVersion, shaderGraphVersion = "", urpVersion = "", hdrpVersion = "", activePipeline, targetPipeline;
         public List<string> errors = new List<string>();
         public string[] supportedNodes = ShaderGraphNativePlanner.NodeTypes;
     }
@@ -68,19 +68,26 @@ namespace ASEShaderConverter.Editor
             if (slot == null) throw new ArgumentException("Missing " + (input ? "input" : "output") + " slot " + node.GetType().Name + ":" + id);
             return slot;
         }
-        public static ShaderGraphEnvironmentInfo Probe()
+        public static ShaderGraphEnvironmentInfo Probe() { return Probe("Auto"); }
+        public static ShaderGraphEnvironmentInfo Probe(string pipeline)
         {
-            var result = new ShaderGraphEnvironmentInfo { unityVersion = Application.unityVersion, activePipeline = GraphicsSettings.currentRenderPipeline == null ? "BuiltIn" : GraphicsSettings.currentRenderPipeline.GetType().Name.Contains("Universal") ? "URP" : "Other" };
+            string active = GraphicsSettings.currentRenderPipeline == null ? "BuiltIn" : GraphicsSettings.currentRenderPipeline.GetType().Name.Contains("Universal") ? "URP" : GraphicsSettings.currentRenderPipeline.GetType().Name.Contains("HDRenderPipeline") ? "HDRP" : "Other";
+            var result = new ShaderGraphEnvironmentInfo { unityVersion = Application.unityVersion, activePipeline = active, targetPipeline = pipeline == "Auto" ? active : pipeline };
             var packages = UnityEditor.PackageManager.PackageInfo.GetAllRegisteredPackages();
             result.shaderGraphVersion = packages.FirstOrDefault(p => p.name == "com.unity.shadergraph")?.version ?? "";
             result.urpVersion = packages.FirstOrDefault(p => p.name == "com.unity.render-pipelines.universal")?.version ?? "";
-            if (!result.unityVersion.StartsWith("2022.3.",StringComparison.Ordinal) || result.shaderGraphVersion != "14.0.8" || result.urpVersion != "14.0.8") result.errors.Add("The current native ShaderGraph adapter is verified only for Unity 2022.3 / ShaderGraph 14.0.8 / URP 14.0.8; install matching packages in the target project.");
-            if (result.activePipeline != "URP") result.errors.Add("The current native ShaderGraph output requires an active URP project.");
+            result.hdrpVersion = packages.FirstOrDefault(p => p.name == "com.unity.render-pipelines.high-definition")?.version ?? "";
+            if (!result.unityVersion.StartsWith("2022.3.",StringComparison.Ordinal) || result.shaderGraphVersion != "14.0.8") result.errors.Add("Native ShaderGraph requires Unity 2022.3 / ShaderGraph 14.0.8.");
+            if (!new[]{"BuiltIn","URP","HDRP"}.Contains(result.targetPipeline)) result.errors.Add("Unsupported native ShaderGraph target pipeline: " + result.targetPipeline);
+            if (result.targetPipeline == "URP" && result.urpVersion != "14.0.8") result.errors.Add("Native URP ShaderGraph requires URP 14.0.8.");
+            if (result.targetPipeline == "HDRP" && result.hdrpVersion != "14.0.8") result.errors.Add("Native HDRP ShaderGraph requires HDRP 14.0.8.");
+            if (result.activePipeline != result.targetPipeline) result.errors.Add("Activate the target " + result.targetPipeline + " pipeline in this project before generating and compiling its ShaderGraph.");
             return result;
         }
-        public static List<ShaderGraphNodeInfo> Describe(string[] types)
+        public static List<ShaderGraphNodeInfo> Describe(string[] types) { return Describe(types,"Auto"); }
+        public static List<ShaderGraphNodeInfo> Describe(string[] types, string pipeline)
         {
-            RequireEnvironment();
+            RequireEnvironment(pipeline);
             return (types == null || types.Length == 0 ? ShaderGraphNativePlanner.NodeTypes.Where(t => t != "PropertyNode").ToArray() : types).Select(t => {
                 if (!ShaderGraphNativePlanner.NodeTypes.Contains(t)) throw new NotSupportedException("Unsupported native node: " + t);
                 object node = New(t);
@@ -88,9 +95,9 @@ namespace ASEShaderConverter.Editor
                 return new ShaderGraphNodeInfo { type = t, slots = Slots(node).Select(s => new ShaderGraphSlotInfo { id = (int)R.Get(s,"id"), name = R.Get(s,"displayName").ToString(), type = R.Get(s,"valueType").ToString(), input = (bool)R.Get(s,"isInputSlot") }).ToList() };
             }).ToList();
         }
-        static void RequireEnvironment()
+        static void RequireEnvironment(string pipeline)
         {
-            var env = Probe(); if (env.errors.Count > 0) throw new NotSupportedException(string.Join("\n",env.errors.ToArray()));
+            var env = Probe(pipeline); if (env.errors.Count > 0) throw new NotSupportedException(string.Join("\n",env.errors.ToArray()));
         }
         public static ShaderConversionReport Generate(ShaderGraphNativePlan plan, string outputPath, ShaderConversionReport report = null)
         {
@@ -100,23 +107,29 @@ namespace ASEShaderConverter.Editor
             if (report.blockers.Count > 0) { report.status = "Blocked"; return report; }
             try
             {
-                RequireEnvironment();
+                RequireEnvironment(plan.pipeline);
                 report.unityVersion = Application.unityVersion; report.shaderGraphVersion = Probe().shaderGraphVersion;
-                report.pipeline = "URP"; report.standardTargetAdaptation = true;
+                report.pipeline = plan.pipeline; report.standardTargetAdaptation = true;
                 string path = OutputPath(outputPath);
                 if (File.Exists(path) || File.Exists(path + ".meta")) throw new IOException("Output already exists; choose a new .shadergraph path: " + path);
                 object graph = New("GraphData"); R.Call(graph,"AddContexts");
                 R.Set(graph,"path", plan.shaderPath); R.Call(graph,"SetGraphDefaultPrecision",R.Get(graph,"graphDefaultPrecision"));
-                object target = New(TargetName);
-                if (!(bool)R.Call(target,"TrySetActiveSubTarget",Find(SubTargetName))) throw new NotSupportedException("Unity rejected Unlit subtarget.");
-                R.Set(target,"allowMaterialOverride",false); R.Set(target,"surfaceType","Opaque");
-                R.Set(target,"renderFace","Front"); R.Set(target,"alphaClip",false);
-                R.Set(target,"castShadows",false); R.Set(target,"receiveShadows",false);
-                R.Set(target,"supportsLodCrossFade",false); R.Set(target,"zWriteControl","ForceEnabled");
-                R.Set(target,"zTestMode","LEqual");
+                object target = CreateTarget(plan.pipeline);
                 var targets = Array.CreateInstance(Find("UnityEditor.ShaderGraph.Target"),1); targets.SetValue(target,0);
                 var descriptor = R.Get(Find("UnityEditor.ShaderGraph.BlockFields+SurfaceDescription"),"BaseColor");
-                var descriptors = Array.CreateInstance(descriptor.GetType(),1); descriptors.SetValue(descriptor,0);
+                // HD's official Unlit factory includes default vertex outputs.
+                // Omitting them suppresses Vertex.template.hlsl even in auxiliary
+                // passes, leaving UnpackVaryingsMeshToFragInputs undefined.
+                object[] defaults = plan.pipeline == "HDRP" ? new[]{
+                    R.Get(Find("UnityEditor.ShaderGraph.BlockFields+VertexDescription"),"Position"),
+                    R.Get(Find("UnityEditor.ShaderGraph.BlockFields+VertexDescription"),"Normal"),
+                    R.Get(Find("UnityEditor.ShaderGraph.BlockFields+VertexDescription"),"Tangent"),
+                    descriptor,
+                    R.Get(Find("UnityEditor.ShaderGraph.BlockFields+SurfaceDescription"),"Emission"),
+                    R.Get(Find("UnityEditor.ShaderGraph.BlockFields+SurfaceDescription"),"Alpha")
+                } : new[]{descriptor};
+                var descriptors = Array.CreateInstance(descriptor.GetType(),defaults.Length);
+                for (int i = 0; i < defaults.Length; i++) descriptors.SetValue(defaults[i],i);
                 R.Call(graph,"InitializeOutputs",targets,descriptors);
                 var nodes = new Dictionary<string,object>();
                 foreach (var n in plan.nodes)
@@ -168,13 +181,45 @@ namespace ASEShaderConverter.Editor
                 AssetDatabase.ImportAsset(path,ImportAssetOptions.ForceSynchronousImport | ImportAssetOptions.ForceUpdate);
                 Shader shader = AssetDatabase.LoadAssetAtPath<Shader>(path);
                 report.shaderName = shader == null ? "" : shader.name;
-                report.shaderCompiled = AseEditorBridge.CompileNativeShader(shader,"Universal Forward",report);
+                report.shaderCompiled = AseEditorBridge.CompileNativeShader(shader,plan.pipeline == "BuiltIn" ? "Pass" : plan.pipeline == "HDRP" ? "ForwardOnly" : "Universal Forward",report);
                 report.nativeNodeCount = plan.nodes.Count; report.propertyCount = plan.nodes.Count(n => n.type == "PropertyNode" || n.type == "KeywordNode");
                 report.status = report.shaderCompiled ? "Generated" : "ValidationFailed";
-                report.warnings.Add("Generated native ShaderGraph under the standard URP Unlit target; source host/scene equivalence and platform coverage are not implied.");
+                report.warnings.Add("Generated native ShaderGraph under the standard " + plan.pipeline + " Unlit target; source host/scene equivalence and platform coverage are not implied.");
             }
             catch (Exception e) { report.blockers.Add("ShaderGraph generation/reload/compile at " + outputPath + ": " + e); report.status = "GenerationFailed"; }
             return report;
+        }
+        // Only fixed, reviewed SG14 target/data properties are accessed here. No
+        // plan-supplied type names or field writes reach these version-gated adapters.
+        static object CreateTarget(string pipeline)
+        {
+            string targetName = pipeline == "BuiltIn" ? "UnityEditor.Rendering.BuiltIn.ShaderGraph.BuiltInTarget" : pipeline == "HDRP" ? "UnityEditor.Rendering.HighDefinition.ShaderGraph.HDTarget" : TargetName;
+            string subName = pipeline == "BuiltIn" ? "UnityEditor.Rendering.BuiltIn.ShaderGraph.BuiltInUnlitSubTarget" : pipeline == "HDRP" ? "UnityEditor.Rendering.HighDefinition.ShaderGraph.HDUnlitSubTarget" : SubTargetName;
+            object target = New(targetName);
+            if (!(bool)R.Call(target,"TrySetActiveSubTarget",Find(subName))) throw new NotSupportedException("Unity rejected " + pipeline + " Unlit subtarget.");
+            if (pipeline == "HDRP")
+            {
+                object sub = R.Get(target,"activeSubTarget");
+                object system = R.Get(sub,"systemData"), builtin = R.Get(sub,"builtinData"), unlit = R.Get(sub,"unlitData");
+                R.Set(system,"surfaceType","Opaque"); R.Set(system,"renderQueueType","Opaque");
+                R.Set(system,"zTest","LessEqual"); R.Set(system,"opaqueCullMode","Back");
+                R.Set(system,"alphaTest",false); R.Set(system,"doubleSidedMode","Disabled");
+                R.Set(system,"dotsInstancing",false); R.Set(system,"customVelocity",false); R.Set(system,"tessellation",false);
+                R.Set(builtin,"distortion",false); R.Set(builtin,"addPrecomputedVelocity",false);
+                R.Set(builtin,"depthOffset",false); R.Set(builtin,"supportLodCrossFade",false);
+                R.Set(unlit,"enableShadowMatte",false); R.Set(unlit,"distortionOnly",false);
+            }
+            else
+            {
+                R.Set(target,"allowMaterialOverride",false); R.Set(target,"surfaceType","Opaque");
+                R.Set(target,"renderFace","Front"); R.Set(target,"alphaClip",false);
+                R.Set(target,"zWriteControl","ForceEnabled"); R.Set(target,"zTestMode","LEqual");
+                if (pipeline == "URP")
+                {
+                    R.Set(target,"castShadows",false); R.Set(target,"receiveShadows",false); R.Set(target,"supportsLodCrossFade",false);
+                }
+            }
+            return target;
         }
         static void ConfigureProperty(object graph, object node, ShaderGraphNativeNode spec)
         {

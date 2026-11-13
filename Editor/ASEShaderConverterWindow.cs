@@ -12,13 +12,14 @@ namespace ASEShaderConverter.Editor
         [SerializeField] private string inputPath = "", outputPath = "Assets/Converted_ASE.shader";
         [SerializeField] private int pipeline;
         [SerializeField] private int targetGraph;
-        [SerializeField] private bool acceptStandardTarget;
+        [SerializeField] private bool acceptStandardUnlitHost;
         private ShaderGraphNativeAnalysis nativeAnalysis;
         private ShaderGraphEnvironmentInfo nativeEnvironment;
         [SerializeField] private bool keepName;
         [SerializeField] private bool advanced, autoLayout = true, addComments = true, useRegisters = true;
         [SerializeField] private float longWireDistance = 1800;
         private Vector2 scroll;
+        private Rect inputPathArea;
         private Shader inputShader;
         private bool showOriginalMessages;
         private bool showKnowledge;
@@ -68,14 +69,14 @@ namespace ASEShaderConverter.Editor
             EditorGUILayout.HelpBox(CHToolLanguage.Text("统一入口：手写 Shader → ASE / Shader Graph；Shader Graph → ASE、ASE → Shader Graph 先分析阻塞，再由 Agent 提交审查后的原生计划。"), MessageType.Info);
             DrawInput();
             EditorGUI.BeginChangeCheck();
-            targetGraph = EditorGUILayout.Popup(CHToolLanguage.Text("输出图格式"),targetGraph,new[]{"ASE",CHToolLanguage.Text("Shader Graph（URP 原生子集）")});
+            targetGraph = EditorGUILayout.Popup(CHToolLanguage.Text("输出图格式"),targetGraph,new[]{"ASE","ShaderGraph"});
             if (EditorGUI.EndChangeCheck()) { ClearAnalysis(); outputPath = AssetDatabase.GenerateUniqueAssetPath("Assets/Converted"+(targetGraph == 0 ? "_ASE.shader" : "_SG.shadergraph")); }
             if (targetGraph == 1)
             {
                 EditorGUI.BeginChangeCheck();
-                acceptStandardTarget = EditorGUILayout.ToggleLeft(CHToolLanguage.Text("使用标准 URP Unlit 宿主（雾 / AO / Decal / 附加 Pass；不代表原宿主等价）"),acceptStandardTarget);
+                acceptStandardUnlitHost = EditorGUILayout.ToggleLeft(CHToolLanguage.Pick("使用目标管线的标准 Unlit 宿主（雾、曝光、附加 Pass 由目标管线决定）", "Use the target pipeline's standard Unlit host (pipeline fog, exposure and auxiliary passes)"),acceptStandardUnlitHost);
                 if (EditorGUI.EndChangeCheck()) ClearAnalysis();
-                EditorGUILayout.HelpBox(CHToolLanguage.Text("当前适配：Unity 2022.3 + Shader Graph / URP 14.0.8。手写输入要求 Alpha 恒为 1；数学、Float/Range/Vector 参数、2D 纹理采样及直接 UV 插值可转换。Color 属性、复杂顶点与渲染状态仍需适配。"),MessageType.None);
+                EditorGUILayout.HelpBox(CHToolLanguage.Pick("支持 Built-in / URP / HDRP 标准不透明 Unlit，需 Unity 2022.3、Shader Graph 14.0.8；URP / HDRP 需对应管线 14.0.8。手写输入要求 Alpha 恒为 1；支持数学、Float/Range/Vector、2D 采样、直接 UV、已适配的 Enum 关键词。Color、复杂顶点及其他渲染状态仍需适配；不代表原宿主或场景等价。", "Built-in / URP / HDRP standard opaque Unlit: Unity 2022.3, Shader Graph 14.0.8 and matching URP / HDRP 14.0.8. Input Alpha must be provably 1. Supports math, Float/Range/Vector, 2D sampling, direct UV and adapted Enum keywords. Color, complex vertex and other render states require adapters; source host/scene equivalence is not implied."),MessageType.None);
             }
             EditorGUILayout.BeginHorizontal();
             outputPath = EditorGUILayout.TextField(CHToolLanguage.Text("输出 Shader"), outputPath);
@@ -86,7 +87,9 @@ namespace ASEShaderConverter.Editor
             }
             EditorGUILayout.EndHorizontal();
             EditorGUI.BeginChangeCheck();
+            int previousPipeline = pipeline;
             pipeline = EditorGUILayout.Popup(CHToolLanguage.Text("目标管线"), pipeline, CHToolLanguage.Text(PipelineNames));
+            if (pipeline != previousPipeline) acceptStandardUnlitHost = false;
             if(targetGraph == 0) keepName = EditorGUILayout.Toggle(CHToolLanguage.Text("保留 Shader 名称"), keepName);
             advanced = EditorGUILayout.Foldout(advanced, CHToolLanguage.Text("高级：节点排列与功能说明"), true);
             if (advanced && targetGraph == 0)
@@ -99,7 +102,7 @@ namespace ASEShaderConverter.Editor
             }
             if (EditorGUI.EndChangeCheck()) ClearAnalysis();
             EditorGUILayout.BeginHorizontal();
-            using (new EditorGUI.DisabledScope(string.IsNullOrWhiteSpace(inputPath)))
+            using (new EditorGUI.DisabledScope(!IsShaderFile(inputPath)))
             {
                 if (GUILayout.Button(CHToolLanguage.Text("分析"))) Analyze();
                 using (new EditorGUI.DisabledScope(analysis != null && (analysis.report.status == "NeedsAgent" || analysis.report.existingAseGraph)))
@@ -107,7 +110,7 @@ namespace ASEShaderConverter.Editor
                     if (GUILayout.Button(CHToolLanguage.Text("生成并验证"))) Generate();
                 }
             }
-            if (GUILayout.Button(CHToolLanguage.Text("检查环境"))) { if(targetGraph == 0) environment = AseEditorBridge.Probe(); else nativeEnvironment = ShaderGraphEditorBridge.Probe(); }
+            if (GUILayout.Button(CHToolLanguage.Text("检查环境"))) { if(targetGraph == 0) environment = AseEditorBridge.Probe(); else nativeEnvironment = ShaderGraphEditorBridge.Probe(PipelineIds[pipeline]); }
             if (GUILayout.Button(CHToolLanguage.Text("使用选中 Shader"))) UseSelection();
             EditorGUILayout.EndHorizontal();
             if (analysis != null)
@@ -122,7 +125,7 @@ namespace ASEShaderConverter.Editor
                 EditorGUILayout.EndHorizontal();
             }
             if (!string.IsNullOrEmpty(error)) EditorGUILayout.HelpBox(error, MessageType.Error);
-            if (targetGraph == 1 && nativeEnvironment != null) { EditorGUILayout.LabelField("Unity / Shader Graph / URP",nativeEnvironment.unityVersion+" / "+nativeEnvironment.shaderGraphVersion+" / "+nativeEnvironment.urpVersion); DrawMessages(nativeEnvironment.errors,CHToolLanguage.Text("环境问题"),MessageType.Error); }
+            if (targetGraph == 1 && nativeEnvironment != null) { EditorGUILayout.LabelField("Unity / ShaderGraph",nativeEnvironment.unityVersion+" / "+nativeEnvironment.shaderGraphVersion); EditorGUILayout.LabelField(CHToolLanguage.Text("当前管线"),nativeEnvironment.activePipeline); DrawMessages(nativeEnvironment.errors,CHToolLanguage.Text("环境问题"),MessageType.Error); }
             if (targetGraph == 0 && environment != null)
             {
                 EditorGUILayout.LabelField("Unity / ASE", environment.unityVersion + " / " + environment.aseVersion);
@@ -167,10 +170,11 @@ namespace ASEShaderConverter.Editor
             ClearAnalysis();
             try
             {
+                if (!IsShaderFile(inputPath)) throw new ArgumentException(CHToolLanguage.Pick("已选择目录，请再选择要转换的 Shader 文件。", "A folder is selected. Choose a Shader file to convert."));
                 string source = File.ReadAllText(SourceDiskPath(inputPath));
                 var options = new ShaderConversionOptions { targetPipeline = PipelineIds[pipeline], keepOriginalShaderName = targetGraph == 0 && keepName,
                     presentation = new GraphPresentationOptions { autoLayout = autoLayout, addComments = addComments, useRegisters = useRegisters, longWireDistance = longWireDistance } };
-                if (targetGraph == 1) { options.targetGraph = "ShaderGraph"; options.acceptStandardUrpUnlitTarget = acceptStandardTarget; nativeAnalysis = ShaderGraphNativePlanner.Analyze(source,inputPath,options); analysis = new ShaderConversionAnalysis { report = nativeAnalysis.report }; }
+                if (targetGraph == 1) { options.targetGraph = "ShaderGraph"; options.acceptStandardUnlitTarget = acceptStandardUnlitHost; nativeAnalysis = ShaderGraphNativePlanner.Analyze(source,inputPath,options); analysis = new ShaderConversionAnalysis { report = nativeAnalysis.report }; }
                 else { analysis = ShaderConversionEngine.Analyze(source, inputPath, options); targetAnalyses = ShaderConversionEngine.AnalyzeTargets(source, inputPath, options); }
             }
             catch (Exception e) { error = e.Message; }
@@ -257,17 +261,26 @@ namespace ASEShaderConverter.Editor
                 else error = CHToolLanguage.Text("请选择包含源码的 .shader 文件。Unity 内置 Shader 不能作为文件输入。");
             }
             EditorGUILayout.BeginHorizontal();
-            string edited = EditorGUILayout.TextField(CHToolLanguage.Text("文件路径"), inputPath);
+            Rect pathArea = EditorGUILayout.GetControlRect();
+            inputPathArea = new Rect(GUIUtility.GUIToScreenPoint(pathArea.position) - position.position, pathArea.size);
+            HandleDrop(pathArea);
+            string edited = EditorGUI.TextField(pathArea, CHToolLanguage.Text("文件路径"), inputPath);
             if (edited != inputPath) SetInput(edited);
             if (GUILayout.Button(CHToolLanguage.Text("浏览"), GUILayout.Width(60)))
             {
-                string path = EditorUtility.OpenFilePanelWithFilters(CHToolLanguage.Text("选择 Shader 或 Shader Graph"), Application.dataPath, new[]{"Shader / Shader Graph","shader,shadergraph,shadersubgraph"});
+                string path = EditorUtility.OpenFilePanelWithFilters(CHToolLanguage.Text("选择 Shader 或 Shader Graph"), IsInputDirectory(inputPath) ? SourceDiskPath(inputPath) : Application.dataPath, new[]{"Shader / Shader Graph","shader,shadergraph,shadersubgraph"});
+                if (!string.IsNullOrEmpty(path)) SetInput(path);
+            }
+            if (GUILayout.Button(CHToolLanguage.Pick("目录", "Folder"), GUILayout.Width(60)))
+            {
+                string path = EditorUtility.OpenFolderPanel(CHToolLanguage.Pick("选择目录", "Select folder"), IsInputDirectory(inputPath) ? SourceDiskPath(inputPath) : Application.dataPath, "");
                 if (!string.IsNullOrEmpty(path)) SetInput(path);
             }
             EditorGUILayout.EndHorizontal();
             Rect dropArea = GUILayoutUtility.GetRect(0, 38, GUILayout.ExpandWidth(true));
-            GUI.Box(dropArea, CHToolLanguage.Text("拖入 .shader / .shadergraph / .shadersubgraph（支持系统文件夹）"), EditorStyles.helpBox);
+            GUI.Box(dropArea, CHToolLanguage.Pick("拖入 Shader 文件或目录（支持 Unity Project 与系统文件夹）", "Drop a Shader file or folder (Unity Project or system folder)"), EditorStyles.helpBox);
             HandleDrop(dropArea);
+            if (IsInputDirectory(inputPath)) EditorGUILayout.HelpBox(CHToolLanguage.Pick("已选择目录。可点击“浏览”从此目录选择文件后转换。", "Folder selected. Click Browse to choose a file in this folder for conversion."), MessageType.None);
         }
 
         private void HandleDrop(Rect area)
@@ -290,17 +303,23 @@ namespace ASEShaderConverter.Editor
         private static bool TryGetDraggedShader(out string path)
         {
             path = "";
-            if (DragAndDrop.objectReferences.Length > 0)
+            if (DragAndDrop.paths.Length > 1 || DragAndDrop.objectReferences.Length > 1) return false;
+            if (DragAndDrop.paths.Length == 1)
+            {
+                path = DragAndDrop.paths[0];
+            }
+            else
             {
                 if (DragAndDrop.objectReferences.Length != 1) return false;
                 path = AssetDatabase.GetAssetPath(DragAndDrop.objectReferences[0]);
             }
-            else
-            {
-                if (DragAndDrop.paths.Length != 1) return false;
-                path = DragAndDrop.paths[0];
-            }
-            return IsShaderFile(path);
+            return IsShaderFile(path) || IsInputDirectory(path);
+        }
+
+        private static bool IsInputDirectory(string path)
+        {
+            try { return !string.IsNullOrWhiteSpace(path) && Directory.Exists(SourceDiskPath(path)); }
+            catch (Exception) { return false; }
         }
 
         private static bool IsShaderFile(string path)
@@ -317,16 +336,30 @@ namespace ASEShaderConverter.Editor
             if (normalized.StartsWith("Packages/", StringComparison.Ordinal))
             {
                 var package = UnityEditor.PackageManager.PackageInfo.FindForAssetPath(normalized);
-                if (package != null) return Path.Combine(package.resolvedPath, normalized.Substring(("Packages/" + package.name + "/").Length));
+                if (package != null)
+                {
+                    string root = "Packages/" + package.name;
+                    if (normalized.TrimEnd('/') == root) return package.resolvedPath;
+                    if (normalized.StartsWith(root+"/",StringComparison.Ordinal)) return Path.Combine(package.resolvedPath, normalized.Substring(root.Length+1));
+                }
             }
             return Path.GetFullPath(path);
         }
 
         private void SetInput(string path)
         {
-            string normalized = path.Replace('\\', '/');
+            string normalized = (path ?? "").Replace('\\', '/');
             string assets = Application.dataPath.Replace('\\', '/') + "/";
-            if (normalized.StartsWith(assets, StringComparison.OrdinalIgnoreCase)) normalized = "Assets/" + normalized.Substring(assets.Length);
+            // Unity may report a package alias for a physical Assets folder when
+            // a local package contains the project. Prefer the current project's
+            // canonical Assets path whenever both references resolve there.
+            try
+            {
+                string disk = SourceDiskPath(normalized).Replace('\\','/').TrimEnd('/');
+                if (disk.Equals(assets.TrimEnd('/'),StringComparison.OrdinalIgnoreCase)) normalized = "Assets";
+                else if (disk.StartsWith(assets,StringComparison.OrdinalIgnoreCase)) normalized = "Assets/" + disk.Substring(assets.Length);
+            }
+            catch (Exception) { /* Keep incomplete text editable. */ }
             if (normalized == inputPath) return;
             inputPath = normalized;
             inputShader = LoadInputShader();

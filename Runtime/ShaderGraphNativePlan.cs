@@ -12,6 +12,7 @@ namespace ASEShaderConverter
         public int schemaVersion = 1;
         public string pipeline = "URP", surface = "Unlit", shaderPath = "ShaderConverter";
         public bool acceptStandardUrpUnlitTarget;
+        public bool acceptStandardUnlitTarget;
         public List<ShaderGraphNativeNode> nodes = new List<ShaderGraphNativeNode>();
         public List<ShaderGraphNativeEdge> edges = new List<ShaderGraphNativeEdge>();
         public string colorNode = "";
@@ -63,9 +64,9 @@ namespace ASEShaderConverter
         {
             var errors = new List<string>();
             if (plan == null) { errors.Add("ShaderGraph native plan is missing."); return errors; }
-            if (plan.schemaVersion != 1 || plan.pipeline != "URP" || plan.surface != "Unlit") errors.Add("Native ShaderGraph schema 1 currently requires URP Unlit.");
+            if (plan.schemaVersion != 1 || !new[]{"BuiltIn","URP","HDRP"}.Contains(plan.pipeline) || plan.surface != "Unlit") errors.Add("Native ShaderGraph schema 1 requires BuiltIn, URP or HDRP Unlit.");
             if (plan.shaderPath == null || !Regex.IsMatch(plan.shaderPath,@"^[\p{L}\p{N}_ /.-]*$")) errors.Add("Shader path contains unsupported characters.");
-            if (!plan.acceptStandardUrpUnlitTarget) errors.Add("Explicitly select the standard URP Unlit target adaptation (fog, SSAO, decals, depth/editor passes; opaque Alpha=1). This is not source host equivalence.");
+            if (!(plan.acceptStandardUnlitTarget || (plan.pipeline == "URP" && plan.acceptStandardUrpUnlitTarget))) errors.Add("Explicitly select the standard " + plan.pipeline + " Unlit target adaptation (pipeline fog, exposure, depth/editor and auxiliary passes; opaque Alpha=1). This is not source host equivalence.");
             if (plan.nodes == null || plan.edges == null) { errors.Add("Native plan collections cannot be null."); return errors; }
             if (plan.nodes.Count > 2048 || plan.edges.Count > 8192) errors.Add("Native plan size limit exceeded.");
             var ids = new HashSet<string>(); var properties = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -123,6 +124,7 @@ namespace ASEShaderConverter
             var original = ShaderConversionEngine.Analyze(source, sourcePath, new ShaderConversionOptions {
                 targetPipeline = options.targetPipeline, surface = options.surface,
                 targetGraph = "ShaderGraph",
+                acceptStandardUnlitTarget = options.acceptStandardUnlitTarget,
                 customExpressionFallback = false, keepOriginalShaderName = options.keepOriginalShaderName,
                 presentation = options.presentation
             });
@@ -132,20 +134,21 @@ namespace ASEShaderConverter
             if (r.existingAseGraph) r.blockers.Add("ASE → ShaderGraph requires a reviewed native graph reader; generated HLSL is not used as a substitute. Use a reviewed Agent native plan for now.");
             if (ShaderGraphSource.IsGraph(source)) r.blockers.Add("ShaderGraph input is currently structural analysis only; automatic graph-to-graph conversion is not implemented for this input.");
             if (!r.CanGenerate) { r.status = "NeedsAgent"; return result; }
-            result.plan = Map(original.plan, r, options.acceptStandardUrpUnlitTarget);
+            result.plan = Map(original.plan, r, options.acceptStandardUnlitTarget);
+            result.plan.acceptStandardUrpUnlitTarget = options.acceptStandardUrpUnlitTarget;
             r.blockers.AddRange(Validate(result.plan));
             r.nativeNodeCount = result.plan.nodes.Count;
             r.nativeMappings = result.plan.nodes.Select(n => n.id + " → ShaderGraph." + n.type).ToList();
             r.warnings.Remove("A plan is not a validated ASE shader. Generate and reload it in the target Unity/ASE environment, then compare rendering with the source.");
-            r.standardTargetAdaptation = options.acceptStandardUrpUnlitTarget;
+            r.standardTargetAdaptation = options.acceptStandardUnlitTarget || (result.plan.pipeline == "URP" && options.acceptStandardUrpUnlitTarget);
             r.status = r.blockers.Count == 0 ? "Planned" : "NeedsAgent";
             r.shaderName = "ShaderConverter/" + original.plan.shaderName.Replace("_ASE", "_SG");
-            r.warnings.Add("Standard URP Unlit target adaptation: fog/SSAO/decals and auxiliary depth/editor passes follow Unity's target. No source host or scene equivalence is claimed.");
+            r.warnings.Add("Standard " + result.plan.pipeline + " Unlit target adaptation: pipeline fog, exposure and auxiliary passes follow Unity's target. No source host or scene equivalence is claimed.");
             return result;
         }
         static ShaderGraphNativePlan Map(ShaderGraphPlan source, ShaderConversionReport report, bool accept)
         {
-            var plan = new ShaderGraphNativePlan { pipeline = source.pipeline, acceptStandardUrpUnlitTarget = accept };
+            var plan = new ShaderGraphNativePlan { pipeline = source.pipeline, acceptStandardUnlitTarget = accept };
             if (source.surface != "Unlit" || !string.IsNullOrEmpty(source.templateGuid)) report.blockers.Add("Only the general single-pass Unlit native plan can map to the standard ShaderGraph target.");
             var alpha = source.outputs.SingleOrDefault(o => o.masterPort == "Alpha");
             if (alpha == null || !IsOne(source, alpha.node, alpha.port, new HashSet<string>())) report.blockers.Add("Opaque ShaderGraph forces Alpha=1; the source Alpha must be provably constant 1. Non-constant or non-one Alpha is blocked.");

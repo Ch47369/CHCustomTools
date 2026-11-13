@@ -1,0 +1,14 @@
+{
+    "success": true,
+    "unityVersion": "6000.0.80f1",
+    "error": "",
+    "checks": [
+        "Tools/Shader opens converter directly",
+        "Old URP-only window consent does not enable the new host option",
+        "File path control has a real GUI rectangle",
+        "Dragging a Unity Project folder onto File path selects it; selected=Assets/GraphInput046/20261113051953560",
+        "File path control has a real GUI rectangle",
+        "Dragging a system Assets folder onto File path selects the root; selected=Assets",
+        "Directory drop performs no analysis or file writes"
+    ]
+}

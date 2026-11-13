@@ -1,6 +1,6 @@
 # Agent 协议 v1
 
-0.4.0 产品显示名称与菜单统一为“Shader转换器”。包 ID、程序集/命名空间、旧 API、schema 1 和 `Library/ASEShaderConverter/Agent` 目录兼容。新增 `options.targetGraph="ShaderGraph"` 路由的 probe/describe/analyze/generate/generatePlan，支持 Unity2022.3、SG14.0.8、URP14.0.8 标准 Unlit 原生子集；新计划使用独立 `shaderGraphPlan` 字段。旧 `ShaderGraphPlan`/`plan` 仍为 ASE 类型与端口，不是 Unity `.shadergraph`。通用 ASE↔Shader Graph 自动互转尚未实现；具体字段、宿主适配选择和限制见 [图格式与 Agent 使用](ShaderConversionRoadmap.md)。目录、293 库图及规则仍沿用 0.3.6。
+0.4.6 输出格式显示为 ASE / ShaderGraph，均提供 Built-in / URP / HDRP 选择。`options.targetGraph="ShaderGraph"` 路由 probe/describe/analyze/generate/generatePlan 支持 Unity2022.3、SG14.0.8 三管线标准不透明 Unlit 原生子集；URP/HDRP 需对应包14.0.8与活动管线。`options.acceptStandardUnlitTarget=true` 明确授权目标标准宿主；原生计划同名字段亦需填写。旧 `acceptStandardUrpUnlitTarget` 只授权 URP。源 HDRP 宿主审查仍保留。新计划使用独立 `shaderGraphPlan`；旧 `ShaderGraphPlan`/`plan` 仍为 ASE 类型与端口，不是 Unity `.shadergraph`。包 ID、程序集/命名空间、公开旧 API、schema1 与 Agent 目录兼容。通用 ASE↔ShaderGraph 自动互转尚未实现；具体字段、宿主适配选择和限制见 [图格式与 Agent 使用](ShaderConversionRoadmap.md)。目录、293 库图及规则仍沿用 0.3.6。
 
 当 ShaderLab 明确声明 `[KeywordEnum(...)]` 或可解析的 `[Enum(Name,Value,...)]`，且枚举 Float 直接作为二路 `lerp` 的第三参数时，Shader Graph 原生计划使用 `KeywordNode` Enum；保留条目/默认值并跳过重复的连续 Float 属性；SG 关键词引用统一大写，非 ASCII 显示名用原属性引用显示并在报告注明原名（SG14 使用显示名生成 HLSL 标识符）。普通 Float + Lerp 继续映射 `LerpNode`。多条目、嵌套或未证明的用法返回 NeedsAgent，不能凭 Float 值猜测关键词。`KeywordNode` 只允许本地 All-stage `ShaderFeature`/`MultiCompile`，端口使用 SG14 实际 `KeywordEntry.id`；材料切换需要启用对应条目关键词，`SetFloat` 不等价于连续插值。
 

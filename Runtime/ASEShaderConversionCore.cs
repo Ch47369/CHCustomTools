@@ -14,6 +14,7 @@ namespace ASEShaderConverter
         public string surface = "Unlit"; // Unlit, Lit (agent-authored graphs)
         public string targetGraph = "ASE"; // ASE (legacy default), ShaderGraph
         public bool acceptStandardUrpUnlitTarget;
+        public bool acceptStandardUnlitTarget;
         public bool keepOriginalShaderName;
         public bool customExpressionFallback = true;
         public GraphPresentationOptions presentation = new GraphPresentationOptions();
@@ -137,7 +138,7 @@ namespace ASEShaderConverter
             var properties = ParseProperties(scan, report, allowDiscreteKeywordLowering: options.targetGraph == "ShaderGraph");
             report.propertyCount = properties.Count;
             // Render state and vertex semantics must be represented in the graph, never silently dropped.
-            CheckSemantics(scan, plan, report);
+            CheckSemantics(scan, plan, report, options);
             Match pragma = Regex.Match(scan, @"#pragma\s+fragment\s+(\w+)");
             string fragmentName = pragma.Success ? pragma.Groups[1].Value : "frag";
             Match function = Regex.Match(scan, @"\b(?:fixed|half|float)4\s+" + Regex.Escape(fragmentName) + @"\s*\(\s*\w+\s+(\w+)\s*\)\s*(?::[^\{]+)?\{");
@@ -316,9 +317,11 @@ namespace ASEShaderConverter
             return float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out numeric) && !float.IsNaN(numeric) && !float.IsInfinity(numeric);
         }
 
-        private static void CheckSemantics(string scan, ShaderGraphPlan plan, ShaderConversionReport report)
+        private static void CheckSemantics(string scan, ShaderGraphPlan plan, ShaderConversionReport report, ShaderConversionOptions options)
         {
-            if (plan.pipeline == "HDRP" || report.sourcePipeline == "HDRP") report.blockers.Add("HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.");
+            // An explicit native SG host adaptation covers the target only. Source HDRP
+            // semantics still require review, and the historical ASE route stays blocked.
+            if (report.sourcePipeline == "HDRP" || (plan.pipeline == "HDRP" && !(options.targetGraph == "ShaderGraph" && options.acceptStandardUnlitTarget))) report.blockers.Add("HDRP raw fragment output needs an agent plan that explicitly reviews template passes, exposure, fog, blending, and alpha behavior, including when HDRP is the source pipeline.");
             string shaderLabWithStrings = ShaderText.MaskPrograms(scan);
             string shaderLab = ShaderText.MaskBlocks(ShaderText.MaskStrings(shaderLabWithStrings), "Properties");
             var programs = Regex.Matches(scan, "\"(?:\\\\.|[^\"\\\\])*\"|\\b(?<kind>CGPROGRAM|HLSLPROGRAM|CGINCLUDE|HLSLINCLUDE)\\b(?<body>.*?)\\b(?:ENDCG|ENDHLSL)\\b", RegexOptions.Singleline).Cast<Match>().Where(m=>m.Groups["body"].Success).ToArray();

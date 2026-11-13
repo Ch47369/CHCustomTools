@@ -1,5 +1,7 @@
 # 接入本项目的 Agent
 
+0.4.6 接续：输出格式仅 ASE / ShaderGraph，共用 Built-in / URP / HDRP 选择。SG14.0.8 新增受限 BuiltInTarget/BuiltInUnlitSubTarget 与 HDTarget/HDUnlitSubTarget（URP 适配保留），Unity2022.3、对应 SRP14.0.8、活动目标管线检查。标准不透明 Unlit；新 acceptStandardUnlitTarget 显式授权三管线标准宿主，旧 acceptStandardUrpUnlitTarget 仅 URP；schema1/旧 API 保留。源 HDRP 宿主审查不因目标选择或授权消失，ASE 限制不放宽。HDRP 初始化遵循官方 Unlit 工厂六个默认块（Position/Normal/Tangent/BaseColor/Emission/Alpha），否则辅助 Pass 缺 UnpackVaryingsMeshToFragInputs；不改 Unity 包或拼接源码规避。严格官方保存重载逐字比较+同步全材质 Pass 编译后才 Generated；不宣称原宿主/场景等价、其他版本/平台支持或通用 ASE↔SG 自动互转。目录拖拽支持文件路径栏及原区域，Unity Project/系统/Assets根/Package根；只选择目录，不扫描/批量转换，浏览从所选目录起，目录本身禁用转换。608核心；新验证 UnityGraphTargetsSmoke/UnityGraphInputWindowSmoke、Run-GraphTargets.ps1、Collect-GraphTargets.py、Verify-GraphTargetsRelease.py；证据 GraphTargets046，失败保留 .build~/GraphTargets046/Attempts 与 Launches。最终安装报告另存 Releases~。保留293图/旧资源/旧包和证据。隔离 Unity 活跃仍禁止改共享 C#，dotnet 顺序运行。
+
 0.4.5 接续：检查更新、状态、版本更新按钮内置主窗口，不再新开更新窗口。ShaderPackageUpdateWindow.Open 公开旧入口改为打开主窗口；恢复旧布局时延迟转到主窗口并关闭旧更新窗口。后台查询/安装策略和 Package Manager 扩展保留；仍只在发现严格高版本时显示更新动作。入口 Tools/Shader、作者 CH、语言按钮不变；音频包不改。验证 Run-InlineUpdates.ps1 / Verify-InlineUpdatesRelease.py，证据 InlineUpdates045。历史包/证据保留。
 
 0.4.4 接续：用户要求直接点击顶部 Tools/Shader 打开转换器，不保留 Shader 下二级菜单；库、更新、Agent 目录均从主窗口进入，公开 Open API 保留。作者 CH，主窗口内置语言按钮不变；音频包不修改。复现 Run-ShaderEntry.ps1、Verify-ShaderEntryRelease.py；证据 ShaderEntry044，历史包和证据保留。

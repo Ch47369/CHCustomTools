@@ -100,8 +100,8 @@ namespace ASEShaderConverter.Editor
             var response = new ShaderAgentResponse();
             switch (request.operation)
             {
-                case "probe": response.shaderGraphEnvironment = ShaderGraphEditorBridge.Probe(); response.success = response.shaderGraphEnvironment.errors.Count == 0; break;
-                case "describe": response.shaderGraphDescription = ShaderGraphEditorBridge.Describe(request.nodeTypes); response.success = true; break;
+                case "probe": response.shaderGraphEnvironment = ShaderGraphEditorBridge.Probe(request.options.targetPipeline); response.success = response.shaderGraphEnvironment.errors.Count == 0; break;
+                case "describe": response.shaderGraphDescription = ShaderGraphEditorBridge.Describe(request.nodeTypes,request.options.targetPipeline); response.success = true; break;
                 case "generatePlan": response.report = ShaderGraphEditorBridge.Generate(request.shaderGraphPlan,request.outputPath); response.success = response.report.status == "Generated"; break;
                 case "analyze":
                 case "generate":
