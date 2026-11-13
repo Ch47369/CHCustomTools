@@ -1,6 +1,7 @@
 using System.IO;
 using UnityEditor;
 using UnityEngine;
+using CH.CustomTools.VFX;
 
 namespace ASEShaderConverter.Editor
 {
@@ -10,20 +11,52 @@ namespace ASEShaderConverter.Editor
         [SerializeField] private int conversionTab, settingsTab, agentTab;
         [SerializeField] private ShaderLibraryPanel library = new ShaderLibraryPanel();
         [SerializeField] private Vector2 settingsScroll, agentScroll;
-        private readonly Rect[] navigationAreas = new Rect[4];
-        private static readonly string[] PageIds = { "conversion", "library", "agent", "settings" };
+        private readonly Rect[] navigationAreas = new Rect[3];
+        private static readonly string[] PageIds = { "shader", "vfx", "settings" };
+        [SerializeField] private string lastShaderPage = "conversion", lastVfxPage = "audio";
+        [SerializeField] private RhythmCurvePanel audio = new RhythmCurvePanel();
+        [SerializeField] private VfxResourceOrganizerPanel organizer = new VfxResourceOrganizerPanel();
+        private string ActiveCategory { get { return activePage == "settings" ? "settings" : activePage == "audio" || activePage == "organizer" ? "vfx" : "shader"; } }
+        private void EnableVfxPanels()
+        {
+            if (audio == null) audio = new RhythmCurvePanel();
+            if (organizer == null) organizer = new VfxResourceOrganizerPanel();
+            audio.Enable(Repaint); organizer.Enable(Repaint);
+        }
+        private void DisableVfxPanels() { if (audio != null) audio.Disable(); if (organizer != null) organizer.Disable(); }
+        private void OnDestroy() { if (audio != null) audio.Dispose(); }
+        private void OnFocus() { if (audio != null) audio.ValidateSource(); }
+        public static void OpenAudio(RhythmCurveProfile profile = null)
+        {
+            var window = ShowMain(); window.Navigate("audio");
+            if (profile != null) window.audio.Load(profile);
+        }
+        public static void AnalyzeAudio(AudioClip clip)
+        {
+            var window = ShowMain(); window.Navigate("audio"); window.audio.SetSource(clip); window.audio.Analyze();
+        }
+        public static void OpenOrganizer(bool addSelection = false)
+        {
+            var window = ShowMain(); window.Navigate("organizer");
+            if (addSelection) window.organizer.AddSelection();
+        }
 
         private static ASEShaderConverterWindow ShowMain()
         {
             var window = GetWindow<ASEShaderConverterWindow>();
             window.minSize = new Vector2(800, 500);
-            window.titleContent = new GUIContent(CHToolLanguage.Text("Shader转换器"));
+            window.titleContent = new GUIContent(CHToolLanguage.Pick("CH自定义工具集", "CH Custom Tools"));
             window.Show(); window.Focus();
             return window;
         }
         private void Navigate(string page)
         {
+            if (page == "shader") page = lastShaderPage;
+            if (page == "vfx") page = lastVfxPage;
+            if (activePage == "audio" && page != "audio") RhythmAudioPreview.StopOwn();
             activePage = page;
+            if (ActiveCategory == "shader") lastShaderPage = page;
+            if (ActiveCategory == "vfx") lastVfxPage = page;
             if (Event.current != null) GUI.FocusControl(null);
             Repaint();
         }
@@ -42,25 +75,42 @@ namespace ASEShaderConverter.Editor
         private void OnInspectorUpdate() { if (ShaderLibraryBatch.IsRunning) Repaint(); }
         private void OnGUI()
         {
-            titleContent.text = CHToolLanguage.Text("Shader转换器");
-            if (System.Array.IndexOf(PageIds, activePage) < 0) activePage = "conversion";
+            titleContent.text = CHToolLanguage.Pick("CH自定义工具集", "CH Custom Tools");
+            if (System.Array.IndexOf(new[] { "conversion", "library", "agent", "audio", "organizer", "settings" }, activePage) < 0) activePage = "conversion";
             if (library == null) library = new ShaderLibraryPanel();
             EditorGUILayout.BeginHorizontal();
             DrawNavigation();
             EditorGUILayout.BeginVertical(GUILayout.Width(Mathf.Max(400, position.width - 210)), GUILayout.ExpandHeight(true));
             GUILayout.Space(10);
-            GUILayout.Label(PageTitle(activePage), EditorStyles.boldLabel);
+            GUILayout.Label(ActiveCategory == "shader" ? "Shader" : ActiveCategory == "vfx" ? "VFX" : PageTitle("settings"), EditorStyles.boldLabel);
+            DrawCategoryTabs();
             GUILayout.Space(6);
             if (activePage == "library") library.DrawPanel();
             else if (activePage == "agent") DrawAgentPage();
             else if (activePage == "settings") DrawSettingsPage();
+            else if (activePage == "audio") audio.DrawPanel();
+            else if (activePage == "organizer") organizer.DrawPanel();
             else DrawConversionPage();
             EditorGUILayout.EndVertical();
             GUILayout.Space(8);
             EditorGUILayout.EndHorizontal();
         }
+        private void DrawCategoryTabs()
+        {
+            if (ActiveCategory == "settings") return;
+            var pages = ActiveCategory == "shader" ? new[] { "conversion", "library", "agent" } : new[] { "audio", "organizer" };
+            var titles = System.Array.ConvertAll(pages, PageTitle);
+            int selected = System.Array.IndexOf(pages, activePage);
+            int next = GUILayout.Toolbar(selected, titles);
+            if (next != selected && next >= 0) Navigate(pages[next]);
+            GUILayout.Space(6);
+        }
         private static string PageTitle(string page)
         {
+            if (page == "shader") return "Shader";
+            if (page == "vfx") return "VFX";
+            if (page == "audio") return CHToolLanguage.Pick("音频转动画曲线", "Audio to animation curves");
+            if (page == "organizer") return CHToolLanguage.Pick("特效资源整理", "VFX resource organizer");
             if (page == "library") return CHToolLanguage.Pick("着色器库", "Shader library");
             if (page == "agent") return CHToolLanguage.Pick("Agent 接入", "Agent integration");
             if (page == "settings") return CHToolLanguage.Pick("设置", "Settings");
@@ -70,7 +120,7 @@ namespace ASEShaderConverter.Editor
         {
             EditorGUILayout.BeginVertical(GUILayout.Width(180), GUILayout.ExpandHeight(true));
             GUILayout.Space(12);
-            GUILayout.Label(CHToolLanguage.Text("Shader转换器"), EditorStyles.boldLabel);
+            GUILayout.Label(CHToolLanguage.Pick("CH自定义工具集", "CH Custom Tools"), EditorStyles.boldLabel);
             GUILayout.Space(12);
             var style = new GUIStyle(EditorStyles.label) { alignment = TextAnchor.MiddleLeft, padding = new RectOffset(16, 8, 0, 0) };
             for (int i = 0; i < PageIds.Length; i++)
@@ -78,11 +128,11 @@ namespace ASEShaderConverter.Editor
                 var rect = GUILayoutUtility.GetRect(180, 30, GUILayout.ExpandWidth(true));
                 if (Event.current.type == EventType.Repaint)
                     navigationAreas[i] = new Rect(GUIUtility.GUIToScreenPoint(rect.position) - position.position, rect.size);
-                bool selected = activePage == PageIds[i];
+                bool selected = ActiveCategory == PageIds[i];
                 if (selected) EditorGUI.DrawRect(rect, EditorGUIUtility.isProSkin ? new Color(.17f, .36f, .53f) : new Color(.24f, .49f, .78f));
                 style.normal.textColor = selected ? Color.white : EditorStyles.label.normal.textColor;
                 string label = PageTitle(PageIds[i]);
-                if (i == 3 && ShaderPackageUpdater.HasNewVersion) label += "  •";
+                if (i == 2 && ShaderPackageUpdater.HasNewVersion) label += "  •";
                 if (GUI.Button(rect, label, style)) Navigate(PageIds[i]);
             }
             GUILayout.FlexibleSpace();
@@ -103,6 +153,10 @@ namespace ASEShaderConverter.Editor
             if (settingsTab == 0)
             {
                 CHToolLanguage.DrawLanguageSelector();
+                GUILayout.Space(14);
+                EditorGUILayout.LabelField(CHToolLanguage.Pick("旧版音频插件", "Standalone audio plugin"), EditorStyles.boldLabel);
+                EditorGUILayout.HelpBox(CHToolLanguage.Pick("音频和资源整理现已包含在工具集中。可移除旧独立包；原曲线资源不会被删除。旧曲线数据可在此创建兼容副本，原文件和导出的动画保留。", "Audio and VFX organization are bundled here. You can remove the standalone package without deleting profile assets. Create compatible profile copies below; original files and exported animations are preserved."), MessageType.None);
+                if (GUILayout.Button(CHToolLanguage.Pick("迁移旧版曲线数据（创建副本）", "Migrate legacy curve data (create a copy)"))) RhythmProfileMigration.ChooseCopy();
                 EditorGUILayout.HelpBox(CHToolLanguage.Pick("默认跟随 Unity 的语言。手动选择中文或 English 后，插件内所有功能统一使用所选语言；恢复默认即可继续跟随 Unity。", "Follows Unity's language by default. A manual Chinese or English choice applies to every feature in the plugin. Reset language to follow Unity again."), MessageType.None);
             }
             else if (settingsTab == 1)
@@ -114,7 +168,7 @@ namespace ASEShaderConverter.Editor
             {
                 EditorGUILayout.LabelField(CHToolLanguage.Pick("作者", "Author"), "CH");
                 EditorGUILayout.LabelField(CHToolLanguage.Pick("工具集", "Tool collection"), "CH自定义工具集");
-                EditorGUILayout.LabelField(CHToolLanguage.Pick("插件", "Plugin"), CHToolLanguage.Text("Shader转换器"));
+                EditorGUILayout.LabelField(CHToolLanguage.Pick("功能", "Features"), "Shader / VFX");
                 EditorGUILayout.LabelField(ShaderPackageUpdater.SourceLabel, EditorStyles.wordWrappedLabel);
                 EditorGUILayout.Space();
                 EditorGUILayout.LabelField(CHToolLanguage.Pick("Git 安装地址", "Git install URL"), EditorStyles.boldLabel);

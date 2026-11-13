@@ -1,0 +1,64 @@
+{
+  "sourceRepository": "F:/AudioRhythmCurves-Git",
+  "commit": "1408814cdfb53dc58c507c0d992c0bb42d44f538",
+  "version": "1.0.9",
+  "originalNamespace": "AudioRhythmCurves",
+  "bundledNamespace": "CH.CustomTools.VFX",
+  "files": [
+    {
+      "source": "RhythmAnalyzer.cs",
+      "sourceSha256": "d1d7d34126fa11abae4cb2c6317cb74213927e7b5f9d12e6a1e80f6fbf8dbdf5",
+      "normalizedSourceSha256": "d1d7d34126fa11abae4cb2c6317cb74213927e7b5f9d12e6a1e80f6fbf8dbdf5"
+    },
+    {
+      "source": "RhythmAudioImport.cs",
+      "sourceSha256": "6de8a224c646dd2b7a59244151f9f502b9dc0b87ac7f4dfceda0e08e8736cae0",
+      "normalizedSourceSha256": "6de8a224c646dd2b7a59244151f9f502b9dc0b87ac7f4dfceda0e08e8736cae0"
+    },
+    {
+      "source": "RhythmAudioPreview.cs",
+      "sourceSha256": "180c25bc4059114acf2b4742de78b4e032bc6d3e2e1735561f02975c9a9bfd7c",
+      "normalizedSourceSha256": "180c25bc4059114acf2b4742de78b4e032bc6d3e2e1735561f02975c9a9bfd7c"
+    },
+    {
+      "source": "RhythmCurveClipboard.cs",
+      "sourceSha256": "fdfaa5204aef2f48734007ab8022f29c63eb14646c81be2db70fd46951f8f5a6",
+      "normalizedSourceSha256": "fdfaa5204aef2f48734007ab8022f29c63eb14646c81be2db70fd46951f8f5a6"
+    },
+    {
+      "source": "RhythmCurveExport.cs",
+      "sourceSha256": "a107c12f16fcc564a3abc9eb6a672cede9e581d6c7224365a5469d760c8390cd",
+      "normalizedSourceSha256": "a107c12f16fcc564a3abc9eb6a672cede9e581d6c7224365a5469d760c8390cd"
+    },
+    {
+      "source": "RhythmCurveProfile.cs",
+      "sourceSha256": "32f26fc1abf5a9d7d90421d6922fd720b9f36eedb3e4232414374006a32da61c",
+      "normalizedSourceSha256": "32f26fc1abf5a9d7d90421d6922fd720b9f36eedb3e4232414374006a32da61c"
+    },
+    {
+      "source": "RhythmEffectTiming.cs",
+      "sourceSha256": "f85c7eea73e9cc5f1adb7dd06514d7f3fde9e460e448dffab21f12a42d4c53d5",
+      "normalizedSourceSha256": "f85c7eea73e9cc5f1adb7dd06514d7f3fde9e460e448dffab21f12a42d4c53d5"
+    },
+    {
+      "source": "VfxResourceOrganizer.cs",
+      "sourceSha256": "8a063fc959c1523e7f2da0c4cb4dbb8a9c737a06707b4c4774172a1e7f628a26",
+      "normalizedSourceSha256": "8a063fc959c1523e7f2da0c4cb4dbb8a9c737a06707b4c4774172a1e7f628a26"
+    },
+    {
+      "source": "CHToolEnglish.cs",
+      "sourceSha256": "748f32f730177357ddf99b3c03597018bd75f579229ea8235163534c7d189815",
+      "normalizedSourceSha256": "748f32f730177357ddf99b3c03597018bd75f579229ea8235163534c7d189815"
+    },
+    {
+      "source": "RhythmCurveWindow.cs",
+      "sourceSha256": "24b7bdc55955fe3304f3c915cf4b84bb7dd62f36c661ffb7441db016bacc8c7a",
+      "normalizedSourceSha256": "24b7bdc55955fe3304f3c915cf4b84bb7dd62f36c661ffb7441db016bacc8c7a"
+    },
+    {
+      "source": "VfxResourceOrganizerWindow.cs",
+      "sourceSha256": "0523df4b524858e633f9ff8bc523b6da3d1c4731699e4eb0489a92a296df3035",
+      "normalizedSourceSha256": "0523df4b524858e633f9ff8bc523b6da3d1c4731699e4eb0489a92a296df3035"
+    }
+  ]
+}

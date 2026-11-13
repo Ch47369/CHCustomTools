@@ -14,9 +14,9 @@ namespace ASEShaderConverter
     public static class ShaderPackageUpdatePolicy
     {
         public const string PackageName = "com.aseshader.handwritten-converter";
-        public const string Repository = "https://github.com/Ch47369/ShaderConverter.git";
-        public const string SshRepository = "ssh://git@github.com/Ch47369/ShaderConverter.git";
-        public const string ReleasesUrl = "https://github.com/Ch47369/ShaderConverter/releases";
+        public const string Repository = "https://github.com/Ch47369/CHCustomTools.git";
+        public const string SshRepository = "ssh://git@github.com/Ch47369/CHCustomTools.git";
+        public const string ReleasesUrl = "https://github.com/Ch47369/CHCustomTools/releases";
         const string Stable = @"(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)";
 
         public static bool TryVersion(string value, out Version version)
@@ -44,7 +44,10 @@ namespace ASEShaderConverter
             string url = packageId.Substring(prefix.Length).Split('#')[0];
             return IsRepository(url) ? url : null;
         }
-        public static bool IsRepository(string url) { return url == Repository || url == SshRepository; }
+        public const string LegacyRepository = "https://github.com/Ch47369/ShaderConverter.git";
+        public const string LegacySshRepository = "ssh://git@github.com/Ch47369/ShaderConverter.git";
+        public static bool IsHttpsRepository(string url) { return url == Repository || url == LegacyRepository; }
+        public static bool IsRepository(string url) { return IsHttpsRepository(url) || url == SshRepository || url == LegacySshRepository; }
         public static bool CanInstall(string installed, ShaderPackageRelease target, bool migrateLocal)
         {
             Version current;

@@ -1,10 +1,14 @@
-# Shader转换器
+**0.4.8 当前版：CH自定义工具集**，作者 CH。统一入口 **Tools → CH自定义工具集**；左侧 Shader / VFX / 设置，右侧显示功能。完整包含 Shader转换器、293 图 ASE 库、Agent、音频转动画曲线、子特效时序、VFX资源整理与恢复。语言、版本和 Git 更新统一管理。原包 ID 保持兼容，GitHub 仓库已按用户要求设为公开；更新从 GitHub Release 下载，无需登录。音频无需第二个依赖包；旧数据通过创建副本迁移，详见 [工具集操作与升级](Documentation~/CustomTools.md)。
+
+本次安装包：`Releases~/com.aseshader.handwritten-converter-0.4.8.tgz`，源码归档 `Releases~/CHCustomTools-0.4.8.zip`。以下旧版说明和证据按历史批次保留，菜单以当前统一入口为准。
+
+# CH自定义工具集
 
 **0.4.7 单窗口与更新诊断**：左侧“图转换 / 着色器库 / Agent 接入 / 设置”导航，右侧切换小类和内容。旧窗口入口统一转入主窗口；切页保留输入、报告与库筛选。输出路径可拖入 Assets 内的目录，保留文件名并避开重名；换源文件或输出格式继续使用所选目录。语言在“设置 → 常规”，更新在“设置 → 插件更新”。作者显示为 **CH**。更新检查复用已有 Git 凭据，区分 Git 缺失、网络、超时、凭据与仓库权限错误；仅认证错误提供显式登录重试。
 
 **0.4.6 图格式与目录选择**：输出格式显示为 **ASE / ShaderGraph**，两种格式均可选择 **Built-in / URP / HDRP**。ShaderGraph 新增 Built-in/HDRP 标准不透明 Unlit 目标适配；范围与版本要求见下文。“文件路径”栏支持拖入 Unity Project 文件夹，目录选择只填写路径，点击“浏览”可从此目录选源文件。
 
-插件作者为 **CH**，点击 Unity 顶部 **Tools → Shader** 直接打开转换器主窗口。图转换、库、Agent 和设置在同一窗口内切换；检查更新、检查结果和“更新到…”按钮位于“设置 → 插件更新”。在“设置 → 常规”选择 **中文 / English**，全部功能共用；默认跟随 Unity 编辑器语言，手动选择后跨重载和重启保存。用法见 [语言设置](Documentation~/LanguageSettings.md)。
+插件作者为 **CH**，点击 Unity 顶部 **Tools → CH自定义工具集** 打开统一窗口。Shader、音频曲线、VFX资源整理和设置在同一窗口内切换；检查更新、检查结果和“更新到…”按钮位于“设置 → 插件更新”。在“设置 → 常规”选择 **中文 / English**，全部功能共用；默认跟随 Unity 编辑器语言，手动选择后跨重载和重启保存。用法见 [语言设置](Documentation~/LanguageSettings.md)。
 
 **0.4.1 插件更新按钮**：后台自动检查私有 Git 仓库正式标签，**只有仓库版本高于当前安装版本时，Package Manager 详情页才显示“更新到 X.Y.Z”**，无新版本时隐藏更新按钮；主窗口提供“插件更新”入口，并可手动刷新。本地目录/Tarball 安装可切换为私有 Git 标签安装。0.4.0 及更早版本需先通过 Git URL 安装一次 0.4.1。按钮使用 Unity 的公开详情扩展 API；Git 包不会获得注册表包的原生工具栏按钮或左侧“更新”列表。具体操作与认证要求见 [插件更新](Documentation~/PackageUpdates.md)。
 
@@ -36,7 +40,7 @@
 
 本地 21 个压缩包与解压目录按数据读取，去重为 255 份源码，152 张图/子图解析成功。100 个 Shader Graph 中 20 个已生成，80 个仍有明确阻塞；StackLit、专用 Eye 模型和复杂宿主不以普通 Lit 替代。统一研究页记录 1,042 个来源身份，原始参考源码不随包分发。完整使用、三管线边界、丝袜基础及水面设置见 [分类库说明](Documentation~/ShaderLibrary.md)，计数与证据见 [LocalLibrary030](Documentation~/Evidence/LocalLibrary030/README.md)。JSON 请求 `operation: "library"` 返回同一份目录；42 条语义规则/14 个研究分类继续通过 `rules`/`analyze` 提供。
 
-安装包为 `Releases~/com.aseshader.handwritten-converter-0.4.7.tgz`（UPM）或 `Releases~/ShaderConverter-0.4.7.zip`。以下旧版数字按历史批次保留。
+当前安装包为 `Releases~/com.aseshader.handwritten-converter-0.4.8.tgz`（UPM）或 `Releases~/CHCustomTools-0.4.8.zip`。以下旧版数字按历史批次保留。
 
 **0.2.9 人物材质库**：新增皮肤、头发/毛发、眼球、衣服布料四份独立档案，记录 SSS/厚度/微法线、发卡与发丝散射/覆盖、角膜虹膜分层、棉绒 Sheen 与丝绸各向异性，以及三管线依赖、输入色彩空间、验证与成本要求。当时使用独立人物库入口，0.3.4 已合并到统一 ASE 着色器库的对应分类，可实际检查当前环境及参考模板端口；主转换器分析与 JSON API 同步显示人物语义审查。四类仍为方案/分析能力，完整生成适配尚未实现，不能宣称已训练模型权重或达到 3A 画质。479 项核心检查、EditorCompile 与隔离 HDRP API/模板检查通过，35 份人物参考的完整 Shader 三目标可规划为 0/0/0；详情见 [人物材质库](Documentation~/CharacterMaterials.md) 和 [证据](Documentation~/Evidence/CharacterMaterials029/README.md)。
 
@@ -47,8 +51,8 @@
 ## 安装和使用
 
 1. ASE 输出/库需安装正版 ASE 和目标管线模板。ShaderGraph 输出需 Unity 2022.3、Shader Graph 14.0.8；URP/HDRP 需对应包 14.0.8。项目需启用所选目标管线，无需安装 ASE。
-2. 推荐使用 Git 安装：Package Manager → **Add package from git URL**，填写 `https://github.com/Ch47369/ShaderConverter.git#v0.4.7`。仓库为私有，电脑需安装 Git 并通过系统 Git 凭据管理器或 SSH 认证有访问权限的 GitHub 账号；Package Manager 不会授予仓库权限，URL 中也不应填写 Token。已配置 SSH 的电脑可使用 `ssh://git@github.com/Ch47369/ShaderConverter.git#v0.4.7`。固定标签安装对应版本；后续用插件的“检查更新”按钮升级。也可从私有仓库的 Release 下载 `.tgz`，用 Add package from tarball 安装。源码目录支持 Add package from disk 选择 `package.json`；完整着色器库需保留配套目录。
-3. 打开 `Tools/Shader`，把 Project 窗口中的 Shader 拖到“输入 Shader”栏，或把系统文件夹中的单个 `.shader` 拖到拖放区域。也可浏览、粘贴路径或使用选中 Shader；切换输入会建议一个不会覆盖原文件的 `Assets/*_ASE.shader` 输出路径。
+2. 推荐使用 Git 安装：Package Manager → **Add package from git URL**，填写 `https://github.com/Ch47369/CHCustomTools.git`；固定本次版本可加 `#v0.4.8`。仓库公开，无需 GitHub 登录，首次 Git URL 安装需电脑已安装 Git。后续在插件的“设置 → 插件更新”升级：HTTPS 更新从公开 GitHub Release 下载、校验安装包，再交给 Unity 安装，无本地 Git 或凭据依赖。旧更新器若无法升级，可从 Release 下载 `.tgz`，用 **Add package from tarball** 手动安装一次新版。源码目录支持 Add package from disk 选择 `package.json`；完整着色器库需保留配套目录。更新缓存说明见 [工具集操作与升级](Documentation~/CustomTools.md)。
+3. 打开 `Tools/CH自定义工具集` → Shader → 图转换，把 Project 窗口中的 Shader 拖到“输入 Shader”栏，或把系统文件夹中的单个 `.shader` 拖到拖放区域。也可浏览、粘贴路径或使用选中 Shader；切换输入会建议一个不会覆盖原文件的 `Assets/*_ASE.shader` 输出路径。
 4. 选择输出格式 ASE 或 ShaderGraph 及目标管线；后者需明确勾选标准宿主适配。点击“分析”，通过后点击“生成并验证”，获取新的 `.shader` 或 `.shadergraph`。若显示“需要适配”，列出的项目仍阻止生成；复制/导出报告供 Agent 逐项适配。已有输出不会覆盖。拖入目录仅作目录选择，不进行扫描或批量转换。
 5. 在 ASE 中打开输出，并在目标场景比较原、新材质的颜色、Alpha、深度和渲染状态。报告中的 `visualComparisonPassed` 默认是 false。
 

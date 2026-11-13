@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ASEShaderConverter.Editor
 {
-    internal enum ShaderGitFailure { None, GitUnavailable, Authentication, AccessDenied, Network, Timeout, Cancelled, Unknown }
+    internal enum ShaderGitFailure { None, GitUnavailable, Authentication, AccessDenied, Network, Timeout, Cancelled, InvalidRelease, Integrity, Installation, Unknown }
     internal sealed class ShaderGitCheckException : Exception
     {
         internal readonly ShaderGitFailure Kind;
@@ -42,7 +42,7 @@ namespace ASEShaderConverter.Editor
             }
             return (extraCandidates ?? new string[0]).FirstOrDefault(File.Exists);
         }
-        static string GitExecutable()
+        internal static string GitExecutable()
         {
             bool windows = Environment.OSVersion.Platform == PlatformID.Win32NT;
             string[] candidates = windows ? new[] {
@@ -78,7 +78,7 @@ namespace ASEShaderConverter.Editor
                 };
                 process.StartInfo.EnvironmentVariables["GIT_TERMINAL_PROMPT"] = "0";
                 process.StartInfo.EnvironmentVariables["GCM_INTERACTIVE"] = authenticate ? "always" : "never";
-                if (repository == ShaderPackageUpdatePolicy.SshRepository) process.StartInfo.EnvironmentVariables["GIT_SSH_COMMAND"] = "ssh -o BatchMode=yes -o ConnectTimeout=10";
+                if ((repository == ShaderPackageUpdatePolicy.SshRepository || repository == ShaderPackageUpdatePolicy.LegacySshRepository)) process.StartInfo.EnvironmentVariables["GIT_SSH_COMMAND"] = "ssh -o BatchMode=yes -o ConnectTimeout=10";
                 bool started = false;
                 Task<string> output = null, diagnostic = null;
                 try

@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEditor;
@@ -21,6 +22,9 @@ namespace ASEShaderConverter.Editor
         static Task<ShaderPackageRelease> check;
         static CancellationTokenSource cancellation;
         static AddRequest installation;
+        static Task<string> download;
+        const string PendingFile = "CH.CustomTools.Update.PendingFile";
+        const string DownloadFolder = "CHCustomToolsCache~";
         static double nextPoll;
         static bool restored;
         public static event Action Changed;
@@ -30,8 +34,8 @@ namespace ASEShaderConverter.Editor
         public static bool HasError { get; private set; }
         internal static ShaderGitFailure LastFailure { get; private set; }
         public static string FailureReason { get { return LastFailure.ToString(); } }
-        public static bool CanAuthenticate { get { return CanCheck && Repository == ShaderPackageUpdatePolicy.Repository && (LastFailure == ShaderGitFailure.Authentication || LastFailure == ShaderGitFailure.AccessDenied); } }
-        public static bool Busy { get { return check != null || installation != null || SessionState.GetString(Pending, "").Length > 0; } }
+        public static bool CanAuthenticate { get { return false; } } // Public GitHub releases do not require sign-in.
+        public static bool Busy { get { return check != null || download != null || installation != null || SessionState.GetString(Pending, "").Length > 0; } }
         static ShaderPackageUpdater()
         {
             EditorApplication.update += Poll;
@@ -48,8 +52,8 @@ namespace ASEShaderConverter.Editor
             get
             {
                 var p = Installed;
-                if (p == null) return CHToolLanguage.Text("未找到已安装的 Shader转换器");
-                string source = p.source == PackageSource.Git ? "Git" : p.source == PackageSource.LocalTarball ? CHToolLanguage.Text("本地 Tarball") : p.source == PackageSource.Local ? CHToolLanguage.Text("本地目录") : p.source == PackageSource.Embedded ? CHToolLanguage.Text("嵌入式目录") : p.source.ToString();
+                if (p == null) return CHToolLanguage.Pick("未找到已安装的 CH自定义工具集", "Installed CH Custom Tools package was not found");
+                string source = IsGitHubRelease(p) ? "GitHub Release" : p.source == PackageSource.Git ? "GitHub" : p.source == PackageSource.LocalTarball ? CHToolLanguage.Text("本地 Tarball") : p.source == PackageSource.Local ? CHToolLanguage.Text("本地目录") : p.source == PackageSource.Embedded ? CHToolLanguage.Text("嵌入式目录") : p.source.ToString();
                 return CHToolLanguage.Text("当前版本 ") + p.version + " · " + source;
             }
         }
@@ -59,9 +63,9 @@ namespace ASEShaderConverter.Editor
             {
                 var p = Installed;
                 if (p != null && p.source == PackageSource.Embedded) return CHToolLanguage.Text("嵌入式包不能直接更新。请先备份并移出项目 Packages 中的源码目录，再通过 Git URL 安装。");
-                if (p != null && p.source == PackageSource.Git && Repository == null) return CHToolLanguage.Text("此包来自其他 Git 地址。请在其来源仓库管理版本；本更新器只处理 ShaderConverter 官方私有仓库。");
-                if (p != null && (p.source == PackageSource.Local || p.source == PackageSource.LocalTarball)) return CHToolLanguage.Text("当前为本地安装。切换为 Git 安装会更改当前项目的包引用，本地源码目录和 Tarball 文件会保留。");
-                return CHToolLanguage.Pick("更新会复用本机 Git 凭据，并锁定选定的正式版本。", "Updates reuse your saved Git credentials and pin the selected stable release.");
+                if (p != null && p.source == PackageSource.Git && Repository == null) return CHToolLanguage.Pick("此包来自其他 Git 地址，请在其来源仓库管理版本。", "Manage this package in its originating Git repository.");
+                if (p != null && IsGitHubRelease(p)) return CHToolLanguage.Pick("安装包来自 GitHub Release，已校验大小和 SHA-256；后续继续从 GitHub 检查和下载更新。", "Installed from GitHub Release after size/SHA-256 verification. Future updates continue to come from GitHub.");
+                return CHToolLanguage.Pick("从公开 GitHub Release 下载正式包并校验 SHA-256，无需 GitHub 登录。", "Downloads stable packages from public GitHub Releases and verifies SHA-256. GitHub sign-in is not required.");
             }
         }
         static bool SupportedSource(PackageInfo p) { return p != null && (p.source == PackageSource.Git || p.source == PackageSource.Local || p.source == PackageSource.LocalTarball) && Repository != null; }
@@ -70,10 +74,10 @@ namespace ASEShaderConverter.Editor
         {
             get { var p = Installed; return SupportedSource(p) && ShaderPackageUpdatePolicy.CanInstall(p.version, Latest, false); }
         }
-        public static bool CanMigrate { get { return CanInstall && !HasNewVersion; } }
+        public static bool CanMigrate { get { return CanInstall && !HasNewVersion && Installed != null && !IsGitHubRelease(Installed); } }
         public static bool CanInstall
         {
-            get { var p = Installed; return CanCheck && ShaderPackageUpdatePolicy.CanInstall(p.version, Latest, p.source != PackageSource.Git); }
+            get { var p = Installed; return CanCheck && ShaderPackageUpdatePolicy.CanInstall(p.version, Latest, p.source != PackageSource.Git && !IsGitHubRelease(p)); }
         }
         public static string InstallLabel
         {
@@ -123,20 +127,25 @@ namespace ASEShaderConverter.Editor
             SessionState.EraseString(CachedTag);
             SessionState.SetString(CachedRepository, Repository);
             cancellation = new CancellationTokenSource();
-            check = ShaderGitClient.ReadTags(Repository, authenticate, cancellation.Token);
-            SetMessage(new CHToolMessage(CHToolLanguage.Text(true, "正在检查正式版本…"), CHToolLanguage.Text(false, "正在检查正式版本…")));
+            check = ShaderPackageUpdatePolicy.IsHttpsRepository(Repository)
+                ? ShaderGitHubClient.Latest(Repository, authenticate, cancellation.Token)
+                : ShaderGitClient.ReadTags(Repository, authenticate, cancellation.Token);
+            SetMessage(new CHToolMessage("正在检查 GitHub 正式版本…", "Checking GitHub releases…"));
         }
         internal static CHToolMessage FailureMessage(ShaderGitFailure failure)
         {
             switch (failure)
             {
                 case ShaderGitFailure.GitUnavailable: return new CHToolMessage("Unity 未找到 Git。请安装 Git；若已安装，可重试或重启 Unity 后再检查。", "Unity could not find Git. Install Git; if it is already installed, retry or restart Unity.");
-                case ShaderGitFailure.Authentication: return new CHToolMessage("GitHub 登录凭据不可用或已过期。请点击“GitHub 登录并重试”，使用有此私有仓库访问权限的账号登录。", "GitHub credentials are missing or expired. Click Sign in to GitHub and retry, using an account with access to this private repository.");
-                case ShaderGitFailure.AccessDenied: return new CHToolMessage("GitHub 拒绝访问此私有仓库。请确认已接受仓库邀请并使用有权限的账号；HTTPS 安装可点击“GitHub 登录并重试”，SSH 安装请检查密钥。", "GitHub denied access to this private repository. Accept its invitation and use an authorized account. HTTPS users can sign in and retry; SSH users should check their key.");
-                case ShaderGitFailure.Network: return new CHToolMessage("连接 GitHub 失败。Git 已找到，请检查网络、VPN / 代理及 DNS 后重试。", "Could not connect to GitHub. Git was found; check the network, VPN / proxy and DNS, then retry.");
-                case ShaderGitFailure.Timeout: return new CHToolMessage("连接 GitHub 超时。请检查网络或代理后重试；若正在登录，请完成 GitHub 授权。", "The GitHub connection timed out. Check the network or proxy and retry; complete GitHub authorization if signing in.");
+                case ShaderGitFailure.Authentication: return new CHToolMessage("GitHub 的 SSH / Git 认证未通过。公开更新建议使用 HTTPS 安装地址。", "GitHub SSH / Git authentication failed. Use the HTTPS install URL for public updates.");
+                case ShaderGitFailure.AccessDenied: return new CHToolMessage("GitHub 拒绝了当前传输方式。请改用公开 HTTPS 安装地址，或检查 SSH 密钥。", "GitHub denied this transport. Use the public HTTPS install URL or check your SSH key.");
+                case ShaderGitFailure.Network: return new CHToolMessage("连接 GitHub 失败，请检查网络、VPN / 代理及 DNS 后重试。公开更新无需登录。", "Could not connect to GitHub. Check the network, VPN / proxy and DNS, then retry. Public updates do not require sign-in.");
+                case ShaderGitFailure.Timeout: return new CHToolMessage("连接 GitHub 超时，请检查网络或代理后重试。", "The GitHub connection timed out. Check the network or proxy and retry.");
                 case ShaderGitFailure.Cancelled: return new CHToolMessage("版本检查已取消，可以重新检查。", "The version check was cancelled. You can check again.");
-                default: return new CHToolMessage("Git 无法完成版本检查。请检查本机 Git 配置后重试。", "Git could not complete the version check. Check your local Git configuration and retry.");
+                case ShaderGitFailure.InvalidRelease: return new CHToolMessage("GitHub 正式版缺少有效安装包或 SHA-256 信息，请联系作者修复该发布。", "The GitHub release is missing a valid package or SHA-256 digest. Contact the author to repair that release.");
+                case ShaderGitFailure.Integrity: return new CHToolMessage("GitHub 安装包的大小或 SHA-256 校验失败，已停止安装并保留原版本。若项目缓存已有同名文件，请先备份并移走该文件后重试。", "GitHub package size or SHA-256 verification failed. Installation stopped and the current version is preserved. Back up and move aside any existing cache with that filename before retrying.");
+                case ShaderGitFailure.Installation: return new CHToolMessage("GitHub 安装包已经下载，但 Unity Package Manager 安装失败，请查看当前项目的包解析错误后重试。", "The GitHub package was downloaded, but Unity Package Manager could not install it. Check this project's package resolution error and retry.");
+                default: return new CHToolMessage("GitHub 更新操作未完成，请重试并查看当前项目的包解析状态。", "The GitHub update did not complete. Retry and check this project's package resolution status.");
             }
         }
         public static void InstallLatest()
@@ -145,12 +154,64 @@ namespace ASEShaderConverter.Editor
             string url = ShaderPackageUpdatePolicy.InstallationUrl(Repository, Latest.tag);
             SessionState.SetString(Pending, url);
             SessionState.SetString(Started, DateTime.UtcNow.ToString("o"));
-            try { installation = Client.Add(url); SetMessage(new CHToolMessage(CHToolLanguage.Text(true, "Unity Package Manager 正在安装 ") + Latest.version + CHToolLanguage.Text(true, "，请等待包解析和脚本重载…"), CHToolLanguage.Text(false, "Unity Package Manager 正在安装 ") + Latest.version + CHToolLanguage.Text(false, "，请等待包解析和脚本重载…"))); }
+            try
+            {
+                if (ShaderPackageUpdatePolicy.IsHttpsRepository(Repository))
+                {
+                    cancellation = new CancellationTokenSource();
+                    string folder = Path.GetFullPath(Path.Combine(UnityEngine.Application.dataPath, "../Packages", DownloadFolder));
+                    download = ShaderGitHubClient.Download(Repository, Latest.tag, folder, cancellation.Token);
+                    SetMessage(new CHToolMessage("正在从 GitHub Release 下载并校验安装包…", "Downloading and verifying the package from GitHub Release…"));
+                    return;
+                }
+                installation = Client.Add(url); SetMessage(new CHToolMessage(CHToolLanguage.Text(true, "Unity Package Manager 正在安装 ") + Latest.version + CHToolLanguage.Text(true, "，请等待包解析和脚本重载…"), CHToolLanguage.Text(false, "Unity Package Manager 正在安装 ") + Latest.version + CHToolLanguage.Text(false, "，请等待包解析和脚本重载…"))); }
             catch (Exception) { SessionState.EraseString(Pending); SessionState.EraseString(Started); SetMessage(new CHToolMessage(CHToolLanguage.Text(true, "无法启动更新，请在 Package Manager 中检查正在进行的操作。"), CHToolLanguage.Text(false, "无法启动更新，请在 Package Manager 中检查正在进行的操作。")), true); }
         }
-        static void CancelCheck() { if (cancellation != null) cancellation.Cancel(); }
+        static bool IsDownloadedRelease(PackageInfo package, string expectedFile)
+        {
+            const string prefix = ShaderPackageUpdatePolicy.PackageName + "@file:";
+            if (package.source != PackageSource.LocalTarball || string.IsNullOrEmpty(expectedFile) || !package.packageId.StartsWith(prefix, StringComparison.Ordinal)) return false;
+            string actual = package.packageId.Substring(prefix.Length);
+            try
+            {
+                if (!Path.IsPathRooted(actual)) actual = Path.Combine(UnityEngine.Application.dataPath, "../Packages", actual);
+                return string.Equals(Path.GetFullPath(actual), Path.GetFullPath(expectedFile), StringComparison.OrdinalIgnoreCase);
+            }
+            catch (Exception) { return false; }
+        }
+        static bool IsGitHubRelease(PackageInfo package)
+        {
+            string file = Path.GetFullPath(Path.Combine(UnityEngine.Application.dataPath, "../Packages", DownloadFolder, ShaderPackageUpdatePolicy.PackageName + "-" + package.version + ".tgz"));
+            return IsDownloadedRelease(package, file);
+        }
+        static void CancelCheck()
+        {
+            if (cancellation != null) cancellation.Cancel();
+            if (download != null) { SessionState.EraseString(Pending); SessionState.EraseString(Started); SessionState.EraseString(PendingFile); }
+        }
         static void Poll()
         {
+            if (download != null && download.IsCompleted)
+            {
+                var completed = download; download = null;
+                if (cancellation != null) { cancellation.Dispose(); cancellation = null; }
+                if (completed.IsFaulted || completed.IsCanceled)
+                {
+                    var failure = completed.Exception == null ? null : completed.Exception.GetBaseException() as ShaderGitCheckException;
+                    LastFailure = completed.IsCanceled ? ShaderGitFailure.Cancelled : failure == null ? ShaderGitFailure.Unknown : failure.Kind;
+                    SessionState.EraseString(Pending); SessionState.EraseString(Started); SessionState.EraseString(PendingFile);
+                    SetMessage(FailureMessage(LastFailure), true); return;
+                }
+                string file = completed.Result;
+                SessionState.SetString(PendingFile, file);
+                try { installation = Client.Add("file:" + DownloadFolder + "/" + Path.GetFileName(file)); }
+                catch (Exception)
+                {
+                    SessionState.EraseString(Pending); SessionState.EraseString(Started); SessionState.EraseString(PendingFile);
+                    SetMessage(new CHToolMessage("GitHub 安装包已下载并通过校验，但 Unity 未能开始安装。可以重试。", "The GitHub package was downloaded and verified, but Unity could not start installation. Retry the update."), true); return;
+                }
+                SetMessage(new CHToolMessage("GitHub 安装包校验通过，Unity 正在安装并重载脚本…", "GitHub package verified. Unity is installing it and reloading scripts…"));
+            }
             if (check != null && check.IsCompleted)
             {
                 var completed = check; check = null;
@@ -172,6 +233,11 @@ namespace ASEShaderConverter.Editor
             }
             if (EditorApplication.timeSinceStartup < nextPoll) return;
             nextPoll = EditorApplication.timeSinceStartup + 0.5;
+            if (download != null)
+            {
+                SetMessage(new CHToolMessage("正在从 GitHub Release 下载并校验安装包… " + ShaderGitHubClient.Progress + "%", "Downloading and verifying the package from GitHub Release… " + ShaderGitHubClient.Progress + "%"));
+                return;
+            }
             string pending = SessionState.GetString(Pending, "");
             if (pending.Length == 0)
             {
@@ -184,6 +250,7 @@ namespace ASEShaderConverter.Editor
                 if (installation.Status == StatusCode.Failure)
                 {
                     LastFailure = ShaderGitClient.Classify(installation.Error == null ? "" : installation.Error.message);
+                    if (LastFailure == ShaderGitFailure.Unknown) LastFailure = ShaderGitFailure.Installation;
                     installation = null; SessionState.EraseString(Pending); SessionState.EraseString(Started);
                     var reason = FailureMessage(LastFailure);
                     // Keep Package Manager diagnostics private; expose only the classified reason.
@@ -196,14 +263,17 @@ namespace ASEShaderConverter.Editor
             string tag = pending.Substring(pending.LastIndexOf('#') + 1);
             // GetAllRegisteredPackages can omit GitInfo on Unity 2022.3. The exact
             // packageId contains the requested repository and tag even in that case.
-            if (installed != null && installed.source == PackageSource.Git && installed.packageId == ShaderPackageUpdatePolicy.PackageName + "@" + pending && installed.version == tag.Substring(1))
+            bool gitMatches = installed != null && installed.source == PackageSource.Git && installed.packageId == ShaderPackageUpdatePolicy.PackageName + "@" + pending;
+            bool releaseMatches = installed != null && IsDownloadedRelease(installed, SessionState.GetString(PendingFile, ""));
+            if (installed != null && installed.version == tag.Substring(1) && (gitMatches || releaseMatches))
             {
-                SessionState.EraseString(Pending); SessionState.EraseString(Started); SetMessage(new CHToolMessage(CHToolLanguage.Text(true, "已安装 ") + installed.version + CHToolLanguage.Text(true, "。Git 版本已锁定到 ") + tag + "。", CHToolLanguage.Text(false, "已安装 ") + installed.version + CHToolLanguage.Text(false, "。Git 版本已锁定到 ") + tag + "。"));
+                SessionState.EraseString(Pending); SessionState.EraseString(Started); SessionState.EraseString(PendingFile);
+                SetMessage(new CHToolMessage("已从 GitHub 安装 " + installed.version + "。", "Installed " + installed.version + " from GitHub."));
             }
             else
             {
                 DateTime started;
-                if (DateTime.TryParse(SessionState.GetString(Started, ""), null, System.Globalization.DateTimeStyles.RoundtripKind, out started) && DateTime.UtcNow - started > TimeSpan.FromMinutes(3))
+                if (DateTime.TryParse(SessionState.GetString(Started, ""), null, System.Globalization.DateTimeStyles.RoundtripKind, out started) && DateTime.UtcNow - started > TimeSpan.FromMinutes(10))
                 { SessionState.EraseString(Pending); SessionState.EraseString(Started); SetMessage(new CHToolMessage(CHToolLanguage.Text(true, "尚未确认安装结果。请查看 Package Manager 的包版本和错误信息，包解析仍可能继续完成。"), CHToolLanguage.Text(false, "尚未确认安装结果。请查看 Package Manager 的包版本和错误信息，包解析仍可能继续完成。")), true); }
             }
         }

@@ -1,10 +1,18 @@
 {
   "name": "com.aseshader.handwritten-converter",
-  "displayName": "Shader转换器",
-  "version": "0.4.7",
-  "unity": "2021.3",
-  "description": "Shader转换器：输出 ASE 或 ShaderGraph，支持 Built-in、URP、HDRP 管线；ShaderGraph 当前为标准不透明 Unlit 原生节点子集。提供 Agent 建图、保存重载、编译检查及 ASE 分类库。范围与宿主适配限制见文档。",
+  "displayName": "CH自定义工具集",
+  "version": "0.4.8",
+  "unity": "2022.3",
+  "description": "CH 自定义工具集：Shader转换器、ASE着色器库、Agent接入、音频转动画曲线、子特效时序和VFX引用资源整理。统一窗口、语言和Git更新。Shader转换范围与管线版本限制见文档。",
   "author": {
     "name": "CH"
+  },
+  "dependencies": {
+    "com.unity.modules.animation": "1.0.0",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.imgui": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0",
+    "com.unity.modules.particlesystem": "1.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0"
   }
 }

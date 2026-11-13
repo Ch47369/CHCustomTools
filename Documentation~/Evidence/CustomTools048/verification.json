@@ -1,0 +1,42 @@
+{
+  "version": "0.4.8",
+  "success": true,
+  "coreChecks": 629,
+  "editorCompile": {
+    "2022.3.10f1": {
+      "warnings": 0,
+      "errors": 0
+    },
+    "6000.0.80f1": {
+      "warnings": 0,
+      "errors": 0
+    }
+  },
+  "sourceFunctionalityChecks": {
+    "2022.3.10f1": 62,
+    "6000.0.80f1": 62
+  },
+  "standaloneCoexistenceAndRealProfileMigration": {
+    "2022.3.10f1": 63,
+    "6000.0.80f1": 63
+  },
+  "publicGitHubUpdateChecks": 20,
+  "publicGitHubReleaseDownload": {
+    "success": true,
+    "invalidCachePreserved": true,
+    "unity": "2022.3.10f1",
+    "downloadedTag": "v0.4.7",
+    "sha256": "8f95611f89a7c75398a05f46d0ff08b8f86f027885abbecac5a6d795e01cadc9",
+    "failure": "",
+    "bytes": 15145664
+  },
+  "repositoryVisibility": "public",
+  "normalHttpsUpdateRequiresGitExecutable": false,
+  "normalHttpsUpdateRequiresCredentials": false,
+  "graphRenderingComparisonPerformed": false,
+  "conversionSemanticsChanged": false,
+  "historicalFailedAttemptsRetained": true,
+  "finalTarballInstallationReport": "Releases~/custom-tools-tarball-install-0.4.8.json",
+  "finalPublishedReleaseUpgradeReport": "Releases~/github-release-upgrade-0.4.8.json",
+  "scopeNote": "Source functionality/coexistence checks preceded the final public updater changes; final tarball runs repeat the full 62-check functional/UI suite with the final product."
+}

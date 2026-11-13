@@ -18,7 +18,7 @@ internal static class PackageUpdateChecks
         check(!ShaderPackageUpdatePolicy.CanInstall("0.5.0",latest,true),"A migration cannot downgrade");
         check(ShaderPackageUpdatePolicy.CanInstall("0.4.10",latest,true),"Local installation can migrate at the same version");
         check(!ShaderPackageUpdatePolicy.CanInstall("broken",latest,true),"Unknown installed version is blocked");
-        foreach (string repository in new[]{ShaderPackageUpdatePolicy.Repository,ShaderPackageUpdatePolicy.SshRepository})
+        foreach (string repository in new[]{ShaderPackageUpdatePolicy.Repository,ShaderPackageUpdatePolicy.SshRepository,ShaderPackageUpdatePolicy.LegacyRepository,ShaderPackageUpdatePolicy.LegacySshRepository})
         {
             check(ShaderPackageUpdatePolicy.InstalledRepository(ShaderPackageUpdatePolicy.PackageName+"@"+repository+"#v0.4.0")==repository,"Preserve installed HTTPS or SSH transport");
             check(ShaderPackageUpdatePolicy.InstallationUrl(repository,latest.tag)==repository+"#v0.4.10","Update remains pinned to the chosen tag");

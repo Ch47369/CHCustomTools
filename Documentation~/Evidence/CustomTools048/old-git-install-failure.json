@@ -1,0 +1,11 @@
+{
+    "success": false,
+    "unity": "2022.3.10f1",
+    "beforeVersion": "0.4.7",
+    "beforeSource": "LocalTarball",
+    "targetTag": "v0.4.7",
+    "installedVersion": "0.4.7",
+    "installedSource": "LocalTarball",
+    "packageId": "com.aseshader.handwritten-converter@file:F:\\ASEShader\\Releases~\\com.aseshader.handwritten-converter-0.4.7.tgz",
+    "failure": "System.Exception: GitHub installation failed: None; 尚未确认安装结果。请查看 Package Manager 的包版本和错误信息，包解析仍可能继续完成。\r\n  at UnityGitInstallSmoke.Tick () [0x002b6] in F:\\ASEShader\\.validation\\GitInstallBaseline048-Shader-2022-FinalTarballs\\Assets\\Editor\\UnityGitInstallSmoke.cs:55 "
+}

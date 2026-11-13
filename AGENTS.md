@@ -1,3 +1,7 @@
+0.4.8 接续：统一显示名/入口 Tools/CH自定义工具集、作者CH，左侧Shader/VFX/设置，右侧内嵌功能。整合AudioRhythmCurves1.0.9全部音频曲线/原生动画/粒子/子特效时序/VFX资源整理恢复；命名空间CH.CustomTools.VFX、独立MonoScript GUID，允许旧包共存。旧曲线文本迁移只创建_CH副本，保留原数据，用户须主动替换对旧profile的自定义引用。共享语言仅设置→常规。包ID保留com.aseshader.handwritten-converter，最低Unity2022.3。
+
+用户已明确改为公开仓库 https://github.com/Ch47369/CHCustomTools；旧ShaderConverter地址继续兼容。HTTPS更新通过公开Release API，无Git/凭据依赖，Unity原生HTTP四路分段、范围/大小/SHA256校验后UPM安装。缓存Packages/CHCustomToolsCache~需随manifest保留，界面来源显示GitHub Release；初次仍可Git URL安装，SSH保留Git传输。只在严格高版本时提供更新。旧版Git克隆3分钟未完成有实测失败，不能把检查远程版本通过当作完整升级成功。发布后升级夹具会把候选更新器回移植到固定0.4.7包，再实际从GitHub装0.4.8；不宣称旧更新器能自动自愈。629核心、两Unity编译0/0；源码功能62/62，共存真实旧数据迁移63/63，公开更新20项和完整历史发布包下载校验通过。最终Tarball/发布升级结果另见Releases~；证据CustomTools048、工具Verify-CustomToolsRelease/Run-GitHubReleaseUpgrade。293图/转换核心/协议/交付恢复仍受保护，不增加Shader生成或画面等价结论。保留历史失败与包。隔离Unity活跃时仍禁止改共享C#，dotnet顺序运行。
+
 0.4.7 接续：单窗口左侧图转换/着色器库/Agent接入/设置，右侧子页。库改为可序列化panel，切页保留输入/运行时报告/筛选；语言仅设置→常规，更新仅设置→插件更新。Tools/Shader直接打开主窗；旧库/人物/更新窗口与公开入口在Editor更新循环重定向关闭。作者CH。输出路径支持Assets目录拖拽并保留文件名、重名保护和目录选择；625核心、两Unity各44窗口检查。更新器新ShaderGitClient自动寻找已安装Git（含Unity旧PATH）、安全错误分类、网络失败一次HTTP/1.1重试；正常复用已有凭据，只有显式HTTPS登录重试允许GCM交互。禁止保存/显示原始凭据诊断或内置Token。核心/图/适配器范围不变，293库图保持与固定0.4.6包一致。工具Run-ToolMenus新增UnityUnifiedWindowSmoke/UnityGitUpdateSmoke；真实隔离测试与打包证据见Documentation~/Evidence/UnifiedWindow047及Releases~，历史失败保留.build~/UnifiedWindow047/Attempts和GitUpdates047/Attempts。
 
 # 接入本项目的 Agent

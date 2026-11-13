@@ -36,18 +36,20 @@ namespace ASEShaderConverter.Editor
 
         private void OnEnable()
         {
-            titleContent = new GUIContent(CHToolLanguage.Text("Shader转换器"));
+            titleContent = new GUIContent(CHToolLanguage.Pick("CH自定义工具集", "CH Custom Tools"));
+            EnableVfxPanels();
             ShaderPackageUpdater.Changed += Repaint;
             EditorApplication.delayCall += EnsureUpdateCheck;
         }
         private void OnDisable()
         {
+            DisableVfxPanels();
             ShaderPackageUpdater.Changed -= Repaint;
             EditorApplication.delayCall -= EnsureUpdateCheck;
         }
         private void EnsureUpdateCheck() { if (this != null) ShaderPackageUpdater.EnsureChecked(); }
 
-        [MenuItem("Tools/Shader")]
+        [MenuItem("Tools/CH自定义工具集")]
         public static void Open()
         {
             var window = ShowMain();

@@ -9,7 +9,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-// Actual authenticated tag discovery plus safe synthetic failure states. Never installs a fake version or triggers login.
+// Actual public release discovery plus safe synthetic failure states. Never installs a fake version or triggers login.
 public static class UnityGitUpdateSmoke
 {
     const BindingFlags Static = BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
@@ -35,7 +35,7 @@ public static class UnityGitUpdateSmoke
         Application.logMessageReceived += Log;
         try
         {
-            Check(EditorApplication.ExecuteMenuItem("Tools/Shader"), "Tools/Shader opens the converter");
+            Check(EditorApplication.ExecuteMenuItem("Tools/CH自定义工具集"), "Tools/CH自定义工具集 opens the collection");
             main = Resources.FindObjectsOfTypeAll<ASEShaderConverterWindow>().Single(); ASEShaderConverterWindow.OpenUpdates();
             extension = new ShaderPackageManagerExtension(); ui = extension.CreateExtensionUI(); extension.OnPackageSelectionChange(ShaderPackageUpdater.Installed);
             ShaderPackageUpdater.CheckForUpdates(); timeout = EditorApplication.timeSinceStartup + 55;
@@ -55,8 +55,16 @@ public static class UnityGitUpdateSmoke
                 actualMessage = ShaderPackageUpdater.Message; actualFailure = ShaderPackageUpdater.FailureReason;
                 release = ShaderPackageUpdater.Latest; actualTag = release == null ? "" : release.tag;
                 failure = typeof(ShaderPackageUpdater).GetProperty("LastFailure", Static).GetValue(null);
-                Check(actualSuccess || new[] { "Network", "Timeout", "Authentication", "AccessDenied", "GitUnavailable", "Unknown" }.Contains(actualFailure), "Actual private Git result has either a release or a specific safe failure category");
+                Check(actualSuccess || new[] { "Network", "Timeout", "Authentication", "AccessDenied", "GitUnavailable", "Unknown" }.Contains(actualFailure), "Actual public GitHub result has either a release or a specific safe failure category");
                 Check(!string.IsNullOrEmpty(actualMessage), "Actual Git discovery reports its result inside Settings / Updates");
+                var setter = typeof(ShaderPackageUpdater).GetProperty("Latest").GetSetMethod(true);
+                setter.Invoke(null, new object[] { null }); Check(!ShaderPackageUpdater.HasNewVersion, "No update action is offered without a remote release");
+                var current = new Version(ShaderPackageUpdater.Installed.version);
+                setter.Invoke(null, new object[] { new ShaderPackageRelease { tag = "v" + current, version = current } });
+                Check(!ShaderPackageUpdater.HasNewVersion, "An equal GitHub release version does not offer an update");
+                var newer = new Version(current.Major, current.Minor, current.Build + 1);
+                setter.Invoke(null, new object[] { new ShaderPackageRelease { tag = "v" + newer, version = newer } });
+                Check(ShaderPackageUpdater.HasNewVersion, "Only a strictly higher GitHub release version offers an update");
                 phase = 0; SetFailure("Network"); return;
             }
             if (EditorApplication.timeSinceStartup < deadline) return;
@@ -71,7 +79,7 @@ public static class UnityGitUpdateSmoke
             }
             if (phase == 1)
             {
-                Check(ShaderPackageUpdater.CanAuthenticate && auth.style.display.value == DisplayStyle.Flex, "An actual credential failure offers explicit GitHub sign-in and retry");
+                Check(!ShaderPackageUpdater.CanAuthenticate && auth.style.display.value == DisplayStyle.None, "Public release updates never request GitHub sign-in for a stale authentication state");
                 phase = 2; SetFailure("GitUnavailable"); return;
             }
             if (phase == 2)
@@ -79,7 +87,7 @@ public static class UnityGitUpdateSmoke
                 Check(!ShaderPackageUpdater.CanAuthenticate && auth.style.display.value == DisplayStyle.None, "Missing Git is distinct from missing credentials");
                 phase = 3; SetFailure("AccessDenied"); return;
             }
-            Check(ShaderPackageUpdater.CanAuthenticate, "Private repository permission denial offers account selection for HTTPS");
+            Check(!ShaderPackageUpdater.CanAuthenticate, "Public release updates do not require repository account selection");
             Check(guiError == null, "All Git failure states render without errors or extra plugin windows");
             Finish(null);
         }
@@ -100,10 +108,10 @@ public static class UnityGitUpdateSmoke
         if (failure != null) typeof(ShaderPackageUpdater).GetProperty("LastFailure", Static).GetSetMethod(true).Invoke(null, new[] { failure });
         typeof(ShaderPackageUpdater).GetProperty("Latest").GetSetMethod(true).Invoke(null, new object[] { release });
         var package = ShaderPackageUpdater.Installed; Directory.CreateDirectory("Artifacts");
-        File.WriteAllText("Artifacts/git-update.json", JsonUtility.ToJson(new Result { success = error == null, privateGitCheckSucceeded = actualSuccess, unityVersion = Application.unityVersion,
+        File.WriteAllText("Artifacts/git-update.json", JsonUtility.ToJson(new Result { success = error == null, publicGitHubCheckSucceeded = actualSuccess, unityVersion = Application.unityVersion,
             version = package == null ? "" : package.version, source = package == null ? "" : package.source.ToString(), discoveredTag = actualTag, checkMessage = actualMessage,
             failureReason = actualFailure, checks = checks.ToArray(), error = error == null ? "" : error.ToString() }, true));
         if (main != null) main.Close(); EditorApplication.Exit(error == null ? 0 : 1);
     }
-    [Serializable] sealed class Result { public bool success, privateGitCheckSucceeded; public string unityVersion, version, source, discoveredTag, checkMessage, failureReason, error; public string[] checks; }
+    [Serializable] sealed class Result { public bool success, publicGitHubCheckSucceeded; public string unityVersion, version, source, discoveredTag, checkMessage, failureReason, error; public string[] checks; }
 }

@@ -1,3 +1,4 @@
+param([string[]]$ExcludeRelativePath = @())
 $ErrorActionPreference = 'Stop'
 $workspace = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $metadata = Get-Content -LiteralPath (Join-Path $workspace 'package.json') -Raw -Encoding UTF8 | ConvertFrom-Json
@@ -12,6 +13,8 @@ New-Item -ItemType Directory -Path $output -Force | Out-Null
 $include = @('Runtime','Editor','Tests','Documentation~','Samples~','Tools~','README.md','AGENTS.md','package.json','ASEShaderConverter.Core.csproj','Directory.Build.props','.nuget.empty.config')
 function Copy-ReleaseItem([string]$Source, [string]$Destination) {
     $item = Get-Item -LiteralPath $Source -Force
+    $releaseRelativePath = $item.FullName.Substring($workspace.Length + 1).Replace('\','/')
+    if ($ExcludeRelativePath -contains $releaseRelativePath) { return }
     if ($item.Name -match '^(AmplifyShaderEditor|\.validation|\.build~|bin~?|obj~?|__pycache__)(\.meta)?$' -or $item.Extension -eq '.pyc') { return }
     if (($item.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0) { throw "Release inputs cannot be links: $Source" }
     if ($item.PSIsContainer) {
@@ -36,7 +39,7 @@ foreach ($file in $files) {
     if ($relative -match '(^|/)(AmplifyShaderEditor|\.validation|\.build~|bin~?|obj~?|__pycache__)(\.meta)?(/|$)' -or $file.Extension -eq '.pyc') { throw "Forbidden release input: $relative" }
 }
 $tgz = Join-Path $output ($metadata.name + '-' + $version + '.tgz')
-$zipPrefix = if ($metadata.displayName -eq 'Shader转换器') { 'ShaderConverter' } else { 'ASEShaderConverter' }
+$zipPrefix = if ($metadata.displayName -eq 'CH自定义工具集') { 'CHCustomTools' } elseif ($metadata.displayName -eq 'Shader转换器') { 'ShaderConverter' } else { 'ASEShaderConverter' }
 $zip = Join-Path $output ($zipPrefix + '-' + $version + '.zip')
 & tar -czf $tgz -C $staging package
 if ($LASTEXITCODE -ne 0) { throw 'Could not create Unity Package Manager tarball.' }
