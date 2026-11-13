@@ -1,0 +1,35 @@
+{
+  "version": "0.6.3",
+  "success": true,
+  "baselineVersion": "0.6.2",
+  "baselineSha256": "078a5018004acf5baae41c04a81a759bcd1bac418ddd82981d31a37f9d9bd0a7",
+  "tarballSha256": "13a0eafeafd588556a05af318d5cdf9acf5ae2036ba0bb944513d2b0d8f049d0",
+  "packagedFilesMatchSource": 1393,
+  "changedBaselineFiles": [
+    "AGENTS.md",
+    "Documentation~/CustomTools.md",
+    "Documentation~/PathTools.md",
+    "Editor/Measurement/DmSceneTool.cs",
+    "Editor/PathTools/PathEditors.cs",
+    "Editor/PathTools/PathPointInsertion.cs",
+    "README.md",
+    "Tests/UnityPathInsertionSmoke.cs",
+    "package.json"
+  ],
+  "addedFiles": [
+    "Documentation~/Evidence/ScenePath063/2022.json",
+    "Documentation~/Evidence/ScenePath063/Unity6.json",
+    "Documentation~/Evidence/ScenePath063/verification.json",
+    "Editor/CHSceneVisuals.cs",
+    "Editor/CHSceneVisuals.cs.meta",
+    "Editor/PathTools/PathPointDrag.cs",
+    "Editor/PathTools/PathPointDrag.cs.meta",
+    "Tools~/Collect-ScenePath.py",
+    "Tools~/Verify-ScenePathRelease.py"
+  ],
+  "allRuntimeAnd293GraphsAndAudioVfxPreserved": true,
+  "measurementOnlySharedDrawingMethodsChanged": true,
+  "githubUpdaterPreserved": true,
+  "shaderSemanticsChanged": false,
+  "sourceSceneChecks": 236
+}

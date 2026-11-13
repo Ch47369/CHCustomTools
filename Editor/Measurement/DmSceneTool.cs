@@ -1117,10 +1117,7 @@ namespace CH.CustomTools.Measurement
             if (dir.sqrMagnitude < 1e-8f) return;
             dir.Normalize();
 
-            Handles.color = DmSkin.SceneHalo;
-            Handles.DrawAAPolyLine(4.5f, a, b);
-            Handles.color = col;
-            Handles.DrawAAPolyLine(hot ? 2.6f : 2f, a, b);
+            CHSceneVisuals.Line(col, hot, a, b);
 
             Vector3 perp = Vector3.Cross(dir, cam.transform.forward);
             if (perp.sqrMagnitude < 1e-6f) perp = Vector3.Cross(dir, Vector3.up);
@@ -1134,20 +1131,7 @@ namespace CH.CustomTools.Measurement
 
         static void DrawAnchor(Camera cam, Vector3 p, Color col, float r, bool solid, bool ring)
         {
-            Vector3 n = -cam.transform.forward;
-
-            Handles.color = new Color(0f, 0f, 0f, 0.30f);
-            Handles.DrawSolidDisc(p, n, r * 1.9f);
-
-            Handles.color = col;
-            if (solid) Handles.DrawSolidDisc(p, n, r);
-            else Handles.DrawWireDisc(p, n, r, 2f);
-
-            if (ring)
-            {
-                Handles.color = new Color(col.r, col.g, col.b, 0.85f);
-                Handles.DrawWireDisc(p, n, r * 2.7f, 1.5f);
-            }
+            CHSceneVisuals.Anchor(cam, p, col, r, solid, ring);
         }
 
         // ==================================================================
@@ -1375,31 +1359,7 @@ namespace CH.CustomTools.Measurement
         static Rect DrawPillGui(Vector2 center, GUIContent content, Color accent, bool strong,
             GUIStyle style, Color textColor)
         {
-            Handles.BeginGUI();
-            try
-            {
-                style.normal.textColor = textColor;
-                return DrawPillAt(center, content, accent, strong, style);
-            }
-            finally { Handles.EndGUI(); }
-        }
-
-        /// <summary>在 Scene 视图 GUI 空间绘制一枚圆角胶囊标签，返回其矩形。</summary>
-        static Rect DrawPillAt(Vector2 center, GUIContent content, Color accent, bool strong, GUIStyle style)
-        {
-            Vector2 size = style.CalcSize(content);
-            var rect = new Rect(
-                Mathf.Round(center.x - size.x * 0.5f),
-                Mathf.Round(center.y - size.y * 0.5f),
-                size.x, size.y);
-
-            Color edge = DmSkin.Pro
-                ? new Color(1f, 1f, 1f, strong ? 0.20f : 0.12f)
-                : new Color(0f, 0f, 0f, strong ? 0.22f : 0.14f);
-
-            DmSkin.DrawPill(rect, DmSkin.ScenePillBg, edge, DmSkin.PillRadius);
-            GUI.Label(rect, content, style);
-            return rect;
+            return CHSceneVisuals.Pill(center, content, accent, strong, style, textColor);
         }
 
         // ==================================================================

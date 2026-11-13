@@ -13,6 +13,7 @@ namespace CH.CustomTools.Paths.Editor
     public sealed class BezierPathEditor : UnityEditor.Editor
     {
         public static bool SnapToSurface;
+        public static bool ShowOrientation;
         public override void OnInspectorGUI()
         {
             EditorGUILayout.LabelField("CH · " + PathText.T("路径", "Path"), EditorStyles.boldLabel);
@@ -21,7 +22,7 @@ namespace CH.CustomTools.Paths.Editor
         }
         internal static void DrawPath(BezierPath path)
         {
-            EditorGUILayout.HelpBox(PathText.T("选中路径或其生成物，按住 Ctrl 在线上点击即可插点，松开 Ctrl 后可拖动新点。插入时保留线形，相邻控制柄改为手动；Ctrl+Z 可撤销。修改后重新生成模型或网格。", "Select the path or its generated objects. Hold Ctrl and click the curve to insert; release Ctrl to drag the new point. Insertion preserves the curve and makes adjacent handles manual. Ctrl+Z undoes it. Rebuild models/meshes after editing."), MessageType.None);
+            EditorGUILayout.HelpBox(PathText.T("直接拖动圆点调整路径；按住 Shift 从圆点拖出新点（首尾延长，中间插在后面）。Ctrl+点击曲线保形插点。松开鼠标完成，Esc取消拖拽，Ctrl+Z撤销整次操作。选中点显示控制柄；修改后重新生成模型或网格。", "Drag a point to move it; hold Shift and drag a point to add one (extend endpoints, insert after an interior point). Ctrl+click the curve inserts without changing its shape. Release to finish, Esc to cancel, Ctrl+Z to undo the gesture. Select a point for its handles. Rebuild models/meshes after editing."), MessageType.None);
             var so = new SerializedObject(path); so.Update();
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(so.FindProperty("closed"), new GUIContent(PathText.T("闭合路径", "Closed path")));
@@ -58,17 +59,19 @@ namespace CH.CustomTools.Paths.Editor
             if (GUILayout.Button(PathText.T("在场景中编辑", "Edit in Scene"))) { Selection.activeGameObject = path.gameObject; if (SceneView.lastActiveSceneView != null) SceneView.lastActiveSceneView.FrameSelected(); }
             EditorGUILayout.EndHorizontal();
             SnapToSurface = EditorGUILayout.Toggle(PathText.T("拖点时贴合下方表面", "Snap moved points to surface"), SnapToSurface);
+            ShowOrientation = EditorGUILayout.Toggle(PathText.T("显示路径朝向辅助线", "Show path orientation guides"), ShowOrientation);
         }
         internal static void DrawSceneHandles(BezierPath path)
         {
-            if (Application.isPlaying || PathMotionPreview.IsActive || path.knots == null) return;
+            if (Application.isPlaying || PathMotionPreview.IsActive || path.knots == null || PathPointDrag.IsDragging) return;
             try { path.ValidatePath(); } catch (System.Exception) { return; }
             if (PathPointInsertion.InsertionModifier(Event.current) && GUIUtility.hotControl == 0) return;
+            if (Event.current.shift && GUIUtility.hotControl == 0) return;
             for (int i = 0; i < path.knots.Count; i++)
             {
                 var k = path.knots[i]; if (k == null) continue; var position = path.transform.TransformPoint(k.position);
+                if (!PathPointInsertion.IsFocused(path, i)) continue;
                 Handles.color = PathPointInsertion.IsFocused(path, i) ? Color.green : Color.white;
-                Handles.Label(position + Vector3.up * HandleUtility.GetHandleSize(position) * .12f, (i + 1).ToString());
                 EditorGUI.BeginChangeCheck(); var moved = Handles.PositionHandle(position, Tools.pivotRotation == PivotRotation.Local ? path.transform.rotation : Quaternion.identity);
                 if (EditorGUI.EndChangeCheck())
                 {
@@ -94,11 +97,15 @@ namespace CH.CustomTools.Paths.Editor
             if (path.knots == null || path.knots.Count < 2 || path.knots.Count > 512) return;
             try
             {
-                path.ValidatePath(); Handles.color = new Color(.2f, .8f, 1, (type & GizmoType.Selected) != 0 ? 1 : .4f);
-                for (int i = 0; i < path.SegmentCount; i++) { int end = (i + 1) % path.knots.Count; Handles.DrawBezier(path.transform.TransformPoint(path.knots[i].position), path.transform.TransformPoint(path.knots[end].position), path.transform.TransformPoint(path.Handle(i, true)), path.transform.TransformPoint(path.Handle(end, false)), Handles.color, null, 2); }
-                if ((type & GizmoType.Selected) == 0) return;
-                float length = path.Length; int count = Mathf.Min(80, Mathf.CeilToInt(length));
-                for (int i = 0; i <= count; i++) { var p = path.Evaluate(length * i / count); Handles.color = Color.green; Handles.DrawLine(p.position, p.position + p.up * .3f); Handles.color = Color.red; Handles.DrawLine(p.position, p.position + p.tangent * .3f); }
+                path.ValidatePath(); bool selected = (type & GizmoType.Selected) != 0 || PathPointInsertion.SelectedPath() == path;
+                Color color = Measurement.DmSkin.Palette[1]; if (!selected) color.a = .4f;
+                using (new Handles.DrawingScope(Handles.color, Matrix4x4.identity))
+                {
+                    for (int i = 0; i < path.SegmentCount; i++) { int end = (i + 1) % path.knots.Count; CHSceneVisuals.Curve(path.transform.TransformPoint(path.knots[i].position), path.transform.TransformPoint(path.Handle(i, true)), path.transform.TransformPoint(path.Handle(end, false)), path.transform.TransformPoint(path.knots[end].position), color, selected); }
+                    if (!selected || !ShowOrientation) return;
+                    float length = path.Length; int count = Mathf.Min(80, Mathf.CeilToInt(length));
+                    for (int i = 0; i <= count; i++) { var p = path.Evaluate(length * i / count); Handles.color = Color.green; Handles.DrawLine(p.position, p.position + p.up * .3f); Handles.color = Color.red; Handles.DrawLine(p.position, p.position + p.tangent * .3f); }
+                }
             }
             catch (System.Exception) { /* Inspector shows invalid path details; gizmos must not spam logs. */ }
         }

@@ -27,6 +27,7 @@ namespace CH.CustomTools.Paths.Editor
             Selection.selectionChanged += SceneView.RepaintAll;
         }
         static void ClearFocus() { focusedPath = null; focusedIndex = -1; SceneView.RepaintAll(); }
+        internal static void Focus(BezierPath path, int index) { focusedPath = path; focusedIndex = index; SceneView.RepaintAll(); }
         internal static bool IsFocused(BezierPath path, int index) { return path == focusedPath && index == focusedIndex; }
         public static bool InsertionModifier(Event e) { return e != null && (e.control || e.command) && !e.alt; }
         public static BezierPath SelectedPath()
@@ -114,6 +115,7 @@ namespace CH.CustomTools.Paths.Editor
             {
                 HandleInsertion(view);
                 var path = SelectedPath();
+                PathPointDrag.SceneGUI(view, path, capturedControl != 0);
                 if (path != null && capturedControl == 0 && !Measurement.DmSceneTool.Active && (!InsertionModifier(Event.current) || GUIUtility.hotControl != 0)) BezierPathEditor.DrawSceneHandles(path);
             }
         }
