@@ -1,0 +1,7 @@
+{
+  "name": "CH.CustomTools.Paths",
+  "rootNamespace": "CH.CustomTools.Paths",
+  "references": [],
+  "autoReferenced": true,
+  "noEngineReferences": false
+}

@@ -1,0 +1,25 @@
+{
+  "version": "0.6.0",
+  "archives": [
+    {
+      "file": "com.aseshader.handwritten-converter-0.6.0.tgz",
+      "bytes": 15319315,
+      "sha256": "a37737a8436f40aa48658a5ef6518eac5b940cbd1919ebb15c68d1519ee8e9bd",
+      "files": 1368,
+      "libraryShaderCount": 293,
+      "allCatalogAndSourceHashesMatch": true,
+      "referenceSourcesAndAseSourcesExcluded": true,
+      "buildCachesAndPythonBytecodeExcluded": true
+    },
+    {
+      "file": "CHCustomTools-0.6.0.zip",
+      "bytes": 17951108,
+      "sha256": "c5123ba5ac664deed0e103a4d823673dd5f5d7747671d20d550d56ae2b620a98",
+      "files": 1368,
+      "libraryShaderCount": 293,
+      "allCatalogAndSourceHashesMatch": true,
+      "referenceSourcesAndAseSourcesExcluded": true,
+      "buildCachesAndPythonBytecodeExcluded": true
+    }
+  ]
+}

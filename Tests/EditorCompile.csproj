@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="../Editor/**/*.cs" />
     <ProjectReference Include="../ASEShaderConverter.Core.csproj" />
+    <ProjectReference Include="PathRuntimeCompile.csproj" />
     <Reference Include="$(UnityEditorPath)/Data/Managed/UnityEngine/*.dll" />
     <Reference Include="$(UnityEditorPath)/Data/Managed/UnityEngine.dll" Condition="!Exists('$(UnityEditorPath)/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll')" />
     <Reference Include="$(UnityEditorPath)/Data/Managed/UnityEditor.dll" Condition="!Exists('$(UnityEditorPath)/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll')" />

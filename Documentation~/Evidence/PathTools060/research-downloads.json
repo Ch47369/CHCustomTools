@@ -1,0 +1,37 @@
+[
+  {
+    "key": "unity-splines",
+    "url": "https://docs.unity3d.com/Packages/com.unity.splines@2.5/manual/index.html",
+    "bytes": 9818,
+    "sha256": "f5544dc68323cdb278f0a34b8792880cd8b4372fe0fa75c6648b4c232ffed07c"
+  },
+  {
+    "key": "unity-spline-animate",
+    "url": "https://docs.unity3d.com/Packages/com.unity.splines@2.5/manual/animate-spline.html",
+    "bytes": 9935,
+    "sha256": "4162bf3b749712ce4c7f326302961fed0edce9882705eb45c82e8d5fb4f03f17"
+  },
+  {
+    "key": "path-creator",
+    "url": "https://raw.githubusercontent.com/SebLague/Path-Creator/master/Assets/PathCreator/Core/Runtime/Objects/VertexPath.cs",
+    "bytes": 18712,
+    "sha256": "073b48bab5c022b43303b798462198858b523c4e6741776c4fcc3967248c527a"
+  },
+  {
+    "key": "bezier-solution",
+    "url": "https://raw.githubusercontent.com/yasirkula/UnityBezierSolution/master/Plugins/BezierSolution/BezierSpline.cs",
+    "bytes": 49059,
+    "sha256": "b1563fee6d3e78b7dc554d25017eb96817bd6b40a9f70bd46078994067f9096b"
+  },
+  {
+    "key": "path-license",
+    "url": "https://raw.githubusercontent.com/SebLague/Path-Creator/master/LICENSE",
+    "bytes": 1071,
+    "sha256": "00987bdc8168bb41f62aad9bc3ee7ab8ed85d4203bf27127d468ebc9404e2c33"
+  },
+  {
+    "key": "bezier-license",
+    "url": "https://raw.githubusercontent.com/yasirkula/UnityBezierSolution/master/LICENSE",
+    "error": "HTTP Error 404: Not Found"
+  }
+]

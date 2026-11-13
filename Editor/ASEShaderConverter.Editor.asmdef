@@ -2,7 +2,8 @@
   "name": "ASEShaderConverter.Editor",
   "rootNamespace": "ASEShaderConverter.Editor",
   "references": [
-    "ASEShaderConverter.Runtime"
+    "ASEShaderConverter.Runtime",
+    "CH.CustomTools.Paths"
   ],
   "includePlatforms": [
     "Editor"

@@ -1,0 +1,20 @@
+[
+  {
+    "repository": "SebLague/Path-Creator",
+    "commit": "555d9c0f74f4dea40647e6b374da0e21aadb919a",
+    "path": "Assets/PathCreator/Core/Runtime/Objects/VertexPath.cs",
+    "url": "https://raw.githubusercontent.com/SebLague/Path-Creator/555d9c0f74f4dea40647e6b374da0e21aadb919a/Assets/PathCreator/Core/Runtime/Objects/VertexPath.cs",
+    "sha256": "073b48bab5c022b43303b798462198858b523c4e6741776c4fcc3967248c527a",
+    "bytes": 18712,
+    "usage": "Reference study only; no source copied or distributed."
+  },
+  {
+    "repository": "yasirkula/UnityBezierSolution",
+    "commit": "40fa0386c065b43b2965fe4417bd797bb9b85846",
+    "path": "Plugins/BezierSolution/BezierSpline.cs",
+    "url": "https://raw.githubusercontent.com/yasirkula/UnityBezierSolution/40fa0386c065b43b2965fe4417bd797bb9b85846/Plugins/BezierSolution/BezierSpline.cs",
+    "sha256": "b1563fee6d3e78b7dc554d25017eb96817bd6b40a9f70bd46078994067f9096b",
+    "bytes": 49059,
+    "usage": "Reference study only; no source copied or distributed."
+  }
+]

@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <UnityEditorPath Condition="'$(UnityEditorPath)' == ''">C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor</UnityEditorPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../Runtime/PathTools/*.cs" />
+    <Reference Include="$(UnityEditorPath)/Data/Managed/UnityEngine/*.dll" />
+  </ItemGroup>
+</Project>

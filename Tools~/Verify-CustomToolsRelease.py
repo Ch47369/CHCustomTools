@@ -21,6 +21,9 @@ changed = {'Editor/ASEShaderConverterWindow.cs', 'Editor/ShaderConverterNavigati
            'Editor/ShaderPackageUpdateUI.cs', 'Editor/ShaderPackageUpdater.cs', 'Editor/ShaderGitClient.cs',
            'Runtime/ShaderPackageUpdatePolicy.cs'}
 measurementRelease = tuple(map(int, VERSION.split('.'))) >= (0, 5, 0)
+pathRelease = tuple(map(int, VERSION.split('.'))) >= (0, 6, 0)
+if pathRelease:
+    changed.add('Editor/ASEShaderConverter.Editor.asmdef')
 if measurementRelease:
     changed.update({'Editor/ShaderLibraryBrowser.cs', 'Editor/VFX/VfxResourceOrganizerPanel.cs'})
 protected = []
@@ -32,7 +35,7 @@ for path, data in old.items():
 for path, data in new.items():
     if path.startswith(('Runtime/', 'Editor/', 'Samples~/')):
         if path not in old:
-            assert path.startswith('Editor/VFX/') or (measurementRelease and (path.startswith('Editor/Measurement/') or path == 'Editor/Measurement.meta')) or path in {'Editor/VFX.meta', 'Editor/ShaderGitHubClient.cs', 'Editor/ShaderGitHubClient.cs.meta'}, path
+            assert path.startswith('Editor/VFX/') or (measurementRelease and (path.startswith('Editor/Measurement/') or path == 'Editor/Measurement.meta')) or (pathRelease and (path.startswith(('Runtime/PathTools/', 'Editor/PathTools/')) or path in {'Runtime/PathTools.meta', 'Editor/PathTools.meta'})) or path in {'Editor/VFX.meta', 'Editor/ShaderGitHubClient.cs', 'Editor/ShaderGitHubClient.cs.meta'}, path
             added.append(path)
         assert data == (ROOT / path).read_bytes(), path
 meta = json.loads(new['package.json'])

@@ -4,7 +4,7 @@ param(
     [switch]$Tarballs,
     [ValidatePattern('^[A-Za-z0-9-]+$')][string]$RunId='CustomTools048',
     [ValidatePattern('^\d+\.\d+\.\d+$')][string]$ShaderVersion='0.5.0',
-    [ValidateSet('UnityToolMenusSmoke','UnityInlineUpdateSmoke','UnityGraphInputWindowSmoke','UnityUnifiedWindowSmoke','UnityGitUpdateSmoke','UnityCustomToolsSmoke','UnityGitInstallSmoke','UnityGitHubDownloadSmoke','UnityMeasurementSmoke')][string]$TestClass='UnityCustomToolsSmoke',
+    [ValidateSet('UnityToolMenusSmoke','UnityInlineUpdateSmoke','UnityGraphInputWindowSmoke','UnityUnifiedWindowSmoke','UnityGitUpdateSmoke','UnityCustomToolsSmoke','UnityGitInstallSmoke','UnityGitHubDownloadSmoke','UnityMeasurementSmoke','UnityPathToolsSmoke')][string]$TestClass='UnityCustomToolsSmoke',
     [switch]$Preview
 )
 $ErrorActionPreference='Stop'
@@ -34,5 +34,5 @@ $log=Join-Path $attempt 'editor.log'
 $method=if($Preview){'Preview'}else{'Run'}
 $arguments='-projectPath "'+$project+'" -executeMethod '+$TestClass+'.'+$method+' -logFile "'+$log+'" -force-d3d11'
 $process=Start-Process -FilePath $UnityEditorPath -ArgumentList $arguments -WorkingDirectory $project -WindowStyle Hidden -PassThru
-$reportName=if($TestClass -eq 'UnityMeasurementSmoke'){'measurement.json'}elseif($TestClass -eq 'UnityGitHubDownloadSmoke'){'github-download.json'}elseif($TestClass -eq 'UnityGitInstallSmoke'){'real-git-install.json'}elseif($TestClass -eq 'UnityCustomToolsSmoke'){'custom-tools.json'}elseif($TestClass -eq 'UnityGitUpdateSmoke'){'git-update.json'}elseif($TestClass -eq 'UnityUnifiedWindowSmoke'){'unified-window.json'}elseif($TestClass -eq 'UnityGraphInputWindowSmoke'){'graph-input-window.json'}else{'tool-menus-verification.json'}
+$reportName=if($TestClass -eq 'UnityPathToolsSmoke'){'path-tools.json'}elseif($TestClass -eq 'UnityMeasurementSmoke'){'measurement.json'}elseif($TestClass -eq 'UnityGitHubDownloadSmoke'){'github-download.json'}elseif($TestClass -eq 'UnityGitInstallSmoke'){'real-git-install.json'}elseif($TestClass -eq 'UnityCustomToolsSmoke'){'custom-tools.json'}elseif($TestClass -eq 'UnityGitUpdateSmoke'){'git-update.json'}elseif($TestClass -eq 'UnityUnifiedWindowSmoke'){'unified-window.json'}elseif($TestClass -eq 'UnityGraphInputWindowSmoke'){'graph-input-window.json'}else{'tool-menus-verification.json'}
 [pscustomobject]@{id=$process.Id;project=$project;log=$log;output=$project+'/Artifacts/'+$reportName;startedUtc=[DateTimeOffset]::UtcNow.ToString('o')}|ConvertTo-Json|Tee-Object -FilePath ($attempt+'/launch.json')
