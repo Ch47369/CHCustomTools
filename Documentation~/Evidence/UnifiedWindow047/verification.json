@@ -1,0 +1,29 @@
+{
+  "version": "0.4.7",
+  "success": true,
+  "coreChecks": 625,
+  "sourceWindowChecks": {
+    "2022.3.10f1": 44,
+    "6000.0.80f1": 44
+  },
+  "sourcePrivateGitCheckSucceeded": true,
+  "sourceGitUpdateChecks": 17,
+  "editorCompile": {
+    "Unity2022.3": {
+      "warnings": 0,
+      "errors": 0
+    },
+    "Unity6": {
+      "warnings": 0,
+      "errors": 0
+    }
+  },
+  "sourceGuiAttempts": {
+    "2022.3.10f1": "20261113060528401",
+    "6000.0.80f1": "20261113060815424"
+  },
+  "sourceGitAttempt": "20261113055659110",
+  "historicalAttemptsRetained": true,
+  "renderingComparisonPerformed": false,
+  "conversionSemanticsChanged": false
+}

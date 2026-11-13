@@ -4,7 +4,8 @@ param(
     [switch]$Tarballs,
     [ValidatePattern('^[A-Za-z0-9-]+$')][string]$RunId='ToolMenus043',
     [ValidatePattern('^\d+\.\d+\.\d+$')][string]$ShaderVersion='0.4.3',
-    [ValidateSet('UnityToolMenusSmoke','UnityInlineUpdateSmoke','UnityGraphInputWindowSmoke')][string]$TestClass='UnityToolMenusSmoke'
+    [ValidateSet('UnityToolMenusSmoke','UnityInlineUpdateSmoke','UnityGraphInputWindowSmoke','UnityUnifiedWindowSmoke','UnityGitUpdateSmoke')][string]$TestClass='UnityToolMenusSmoke',
+    [switch]$Preview
 )
 $ErrorActionPreference='Stop'
 $menuRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
@@ -30,7 +31,8 @@ Copy-Item -LiteralPath ($menuRoot+'/Tests/'+$TestClass+'.cs') -Destination ($pro
 $attempt=Join-Path $menuRoot ('.build~/'+$RunId+'/Attempts/'+[DateTimeOffset]::UtcNow.ToString('yyyyMMddHHmmssfff'))
 New-Item -ItemType Directory -Force -Path $attempt|Out-Null
 $log=Join-Path $attempt 'editor.log'
-$arguments='-projectPath "'+$project+'" -executeMethod '+$TestClass+'.Run -logFile "'+$log+'" -force-d3d11'
+$method=if($Preview){'Preview'}else{'Run'}
+$arguments='-projectPath "'+$project+'" -executeMethod '+$TestClass+'.'+$method+' -logFile "'+$log+'" -force-d3d11'
 $process=Start-Process -FilePath $UnityEditorPath -ArgumentList $arguments -WorkingDirectory $project -WindowStyle Hidden -PassThru
-$reportName=if($TestClass -eq 'UnityGraphInputWindowSmoke'){'graph-input-window.json'}else{'tool-menus-verification.json'}
+$reportName=if($TestClass -eq 'UnityGitUpdateSmoke'){'git-update.json'}elseif($TestClass -eq 'UnityUnifiedWindowSmoke'){'unified-window.json'}elseif($TestClass -eq 'UnityGraphInputWindowSmoke'){'graph-input-window.json'}else{'tool-menus-verification.json'}
 [pscustomobject]@{id=$process.Id;project=$project;log=$log;output=$project+'/Artifacts/'+$reportName;startedUtc=[DateTimeOffset]::UtcNow.ToString('o')}|ConvertTo-Json|Tee-Object -FilePath ($attempt+'/launch.json')

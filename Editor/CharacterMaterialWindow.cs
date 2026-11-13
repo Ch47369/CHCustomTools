@@ -8,11 +8,9 @@ namespace ASEShaderConverter.Editor
     public sealed class CharacterMaterialWindow : EditorWindow
     {
         public static void Open(){ShaderLibraryWindow.OpenCategory("Skin");}
-        void OnGUI()
-        {
-            EditorGUILayout.HelpBox(CHToolLanguage.Text("人物材质已合并到 ASE 着色器库的皮肤、毛发、眼球和布料分类。"),MessageType.Info);
-            if(GUILayout.Button(CHToolLanguage.Text("打开统一着色器库"))){Open();Close();}
-        }
+        void OnEnable(){EditorApplication.update+=Redirect;}
+        void OnDisable(){EditorApplication.update-=Redirect;}
+        void Redirect(){if(this==null)return;Open();Close();}
     }
 
     internal sealed class CharacterMaterialPanel

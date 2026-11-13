@@ -12,7 +12,7 @@ namespace ASEShaderConverter.Editor
     {
         VisualElement root;
         Label version, note, status, heading;
-        Button check, install, migrate, notes;
+        Button check, install, migrate, notes, authenticate;
         bool selected;
         static ShaderPackageManagerExtension() { PackageManagerExtensions.RegisterExtension(new ShaderPackageManagerExtension()); }
         public VisualElement CreateExtensionUI()
@@ -26,6 +26,7 @@ namespace ASEShaderConverter.Editor
             status = new Label(); status.style.whiteSpace = WhiteSpace.Normal; status.style.marginTop = 6; root.Add(status);
             var actions = new VisualElement(); actions.style.flexDirection = FlexDirection.Row;
             check = new Button(ShaderPackageUpdater.CheckForUpdates) { name = "shader-converter-check-update", text = CHToolLanguage.Text("检查更新") }; actions.Add(check);
+            authenticate = new Button(ShaderPackageUpdater.AuthenticateAndCheck) { name = "shader-converter-authenticate" }; actions.Add(authenticate);
             install = new Button(ShaderPackageUpdater.InstallLatest) { name = "shader-converter-install-update" }; actions.Add(install);
             migrate = new Button(ShaderPackageUpdater.InstallLatest) { name = "shader-converter-migrate-git", text = CHToolLanguage.Text("改用 Git 安装当前版本") }; actions.Add(migrate);
             notes = new Button(() => Application.OpenURL(ShaderPackageUpdatePolicy.ReleasesUrl)) { text = CHToolLanguage.Text("版本说明") }; actions.Add(notes); root.Add(actions);
@@ -41,6 +42,9 @@ namespace ASEShaderConverter.Editor
             root.style.display = selected ? DisplayStyle.Flex : DisplayStyle.None;
             version.text = ShaderPackageUpdater.SourceLabel; note.text = ShaderPackageUpdater.InstallationNote; status.text = ShaderPackageUpdater.Message;
             check.SetEnabled(ShaderPackageUpdater.CanCheck); install.text = ShaderPackageUpdater.InstallLabel; install.SetEnabled(ShaderPackageUpdater.CanInstall);
+            authenticate.text = CHToolLanguage.Pick("GitHub 登录并重试", "Sign in to GitHub and retry");
+            authenticate.tooltip = CHToolLanguage.Pick("调用本机 Git 凭据管理器，可能打开 GitHub 登录页。", "Uses the local Git credential manager and may open the GitHub sign-in page.");
+            authenticate.style.display = ShaderPackageUpdater.CanAuthenticate ? DisplayStyle.Flex : DisplayStyle.None;
             install.style.display = ShaderPackageUpdater.HasNewVersion ? DisplayStyle.Flex : DisplayStyle.None;
             migrate.style.display = ShaderPackageUpdater.CanMigrate ? DisplayStyle.Flex : DisplayStyle.None;
         }
@@ -62,12 +66,17 @@ namespace ASEShaderConverter.Editor
             if (ShaderPackageUpdater.CanMigrate && GUILayout.Button(CHToolLanguage.Text("改用 Git 安装当前版本"))) ShaderPackageUpdater.InstallLatest();
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.HelpBox(ShaderPackageUpdater.Message, ShaderPackageUpdater.HasError ? MessageType.Error : MessageType.None);
+            if (ShaderPackageUpdater.CanAuthenticate)
+            {
+                EditorGUILayout.LabelField(CHToolLanguage.Pick("通过本机 Git 凭据管理器登录，可能打开 GitHub 登录页。", "Sign in through your local Git credential manager; this may open the GitHub sign-in page."), EditorStyles.wordWrappedLabel);
+                if (GUILayout.Button(CHToolLanguage.Pick("GitHub 登录并重试", "Sign in to GitHub and retry"))) ShaderPackageUpdater.AuthenticateAndCheck();
+            }
         }
     }
     // Keep the old public entry point and saved-layout type compatible, routing both to the main window.
     public sealed class ShaderPackageUpdateWindow : EditorWindow
     {
-        public static void Open() { ASEShaderConverterWindow.Open(); ShaderPackageUpdater.EnsureChecked(); }
+        public static void Open() { ASEShaderConverterWindow.OpenUpdates(); ShaderPackageUpdater.EnsureChecked(); }
         void OnEnable() { EditorApplication.update += Redirect; }
         void OnDisable() { EditorApplication.update -= Redirect; }
         void Redirect() { if (this == null) return; Open(); Close(); }

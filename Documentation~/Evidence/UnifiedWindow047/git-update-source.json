@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "privateGitCheckSucceeded": true,
+  "unityVersion": "2022.3.10f1",
+  "version": "0.4.7",
+  "source": "Local",
+  "discoveredTag": "v0.4.6",
+  "checkMessage": "当前版本高于仓库最新正式版 0.4.6。",
+  "failureReason": "None",
+  "error": "",
+  "checks": [
+    "Tools/Shader opens the converter",
+    "Actual private Git result has either a release or a specific safe failure category",
+    "Actual Git discovery reports its result inside Settings / Updates",
+    "Version discovery and failure states remain in one main window (phase 0)",
+    "Package Manager authentication action is available to the UI policy",
+    "Network errors do not request GitHub login",
+    "Failed discovery does not invent an update",
+    "Version discovery and failure states remain in one main window (phase 1)",
+    "Package Manager authentication action is available to the UI policy",
+    "An actual credential failure offers explicit GitHub sign-in and retry",
+    "Version discovery and failure states remain in one main window (phase 2)",
+    "Package Manager authentication action is available to the UI policy",
+    "Missing Git is distinct from missing credentials",
+    "Version discovery and failure states remain in one main window (phase 3)",
+    "Package Manager authentication action is available to the UI policy",
+    "Private repository permission denial offers account selection for HTTPS",
+    "All Git failure states render without errors or extra plugin windows"
+  ]
+}

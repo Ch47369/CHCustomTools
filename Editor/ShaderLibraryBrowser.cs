@@ -6,24 +6,25 @@ using UnityEngine;
 
 namespace ASEShaderConverter.Editor
 {
-    public sealed class ShaderLibraryWindow : EditorWindow
+    [Serializable] internal sealed class ShaderLibraryPanel
     {
         ShaderLibraryCatalog catalog;
-        string search="", activePipeline="", categoryId="", researchCategoryId="", loadError="";
-        int pipeline,device,tier,grouping,tab,scope,showcasePreset;
-        Vector2 scroll;
+        [SerializeField] string search="", categoryId="", researchCategoryId="";
+        string activePipeline="", loadError="", actionError="";
+        [SerializeField] int pipeline,device,tier,grouping,tab,scope,showcasePreset;
+        [SerializeField] Vector2 scroll;
+        [SerializeField] bool initialized;
         bool overview;
         HashSet<string> completeFamilies,mappedFamilies;
         ShaderLibraryCategorySummary[] assetCategories,researchCategories,coverageCategories;
         readonly Dictionary<string,bool> expanded=new Dictionary<string,bool>();
         readonly CharacterMaterialPanel character=new CharacterMaterialPanel();
         readonly string[] pipelines={"全部管线","BuiltIn","URP","HDRP"},devices={"全部设备","Mobile","Pad","PC"},deviceLabels={"全部设备","移动端 / 手机","Pad / 平板","PC / 电脑"},tiers={"全部复杂度","Low","Medium","High","Unrated"},tierLabels={"全部复杂度","低复杂度","中复杂度","高复杂度","未分级"};
-        public static void Open(){var window=GetWindow<ShaderLibraryWindow>(CHToolLanguage.Text("ASE 着色器库"));window.minSize=new Vector2(680,520);window.Show();}
-        public static void OpenCategory(string id)
+        internal void SelectCategory(string id)
         {
-            Open();var window=GetWindow<ShaderLibraryWindow>();window.ResetFilters();window.categoryId=id;window.character.Expanded=true;
+            EnsureLoaded(); ResetFilters(); categoryId=id; character.Expanded=true;
         }
-        void OnEnable(){Reload();}
+        internal void EnsureLoaded() { if(catalog==null) Reload(); }
         void Reload()
         {
             try
@@ -34,31 +35,32 @@ namespace ASEShaderConverter.Editor
                 mappedFamilies=new HashSet<string>(catalog.entries.GroupBy(ShaderLibraryQuery.Family).Where(g=>ShaderLibraryQuery.HasThreeMappedTargets(catalog.familyContracts.FirstOrDefault(c=>c.familyId==g.Key),g)).Select(g=>g.Key));
                 assetCategories=ShaderLibraryQuery.Categories(catalog);coverageCategories=ShaderLibraryQuery.Categories(catalog,true);
                 researchCategories=coverageCategories.Where(c=>c.researchSources>0).ToArray();
-                pipeline=Math.Max(0,Array.IndexOf(pipelines,activePipeline));
-            }catch(Exception e){catalog=null;loadError=e.Message;Debug.LogException(e);}
+                if(!initialized){pipeline=Math.Max(0,Array.IndexOf(pipelines,activePipeline));initialized=true;}
+            }catch(Exception e){catalog=null;loadError=e.Message;}
         }
         void ResetFilters()
         {
             search="";categoryId="";researchCategoryId="";device=tier=scope=grouping=tab=0;
             pipeline=Math.Max(0,Array.IndexOf(pipelines,activePipeline));scroll=Vector2.zero;
         }
-        void OnInspectorUpdate(){if(ShaderLibraryBatch.IsRunning)Repaint();}
-        void OnGUI()
+        internal void DrawPanel()
         {
-            titleContent = new GUIContent(CHToolLanguage.Text("ASE 着色器库"));
+            EnsureLoaded();
             if(catalog==null){EditorGUILayout.HelpBox(CHToolLanguage.Text("着色器库加载失败：")+loadError,MessageType.Error);if(GUILayout.Button(CHToolLanguage.Text("重新加载")))Reload();return;}
+            scroll=EditorGUILayout.BeginScrollView(scroll);
             EditorGUILayout.LabelField(CHToolLanguage.Text("ASE 着色器库 · ")+catalog.version,EditorStyles.boldLabel);
             EditorGUILayout.LabelField(catalog.entries.Where(ShaderLibraryQuery.IsGenerated).Select(ShaderLibraryQuery.Family).Distinct().Count()+CHToolLanguage.Text(" 个同源方案 / ")+catalog.entries.Count(ShaderLibraryQuery.IsGenerated)+CHToolLanguage.Text(" 份已验证 ASE 图；三份图齐备 ")+completeFamilies.Count+CHToolLanguage.Text("；三目标功能已映射 ")+mappedFamilies.Count+CHToolLanguage.Text("。当前工程：")+activePipeline,EditorStyles.wordWrappedLabel);
             EditorGUILayout.BeginHorizontal();
             if(GUILayout.Button(CHToolLanguage.Text("刷新目录与管线")))Reload();
             if(GUILayout.Button(CHToolLanguage.Text("重置筛选")))ResetFilters();
-            if(GUILayout.Button(CHToolLanguage.Text("手写 Shader 转换")))ASEShaderConverterWindow.Open();
             EditorGUILayout.EndHorizontal();
+            if(actionError.Length>0)EditorGUILayout.HelpBox(actionError,MessageType.Error);
             int next=GUILayout.Toolbar(tab,new[]{CHToolLanguage.Text("ASE 着色器与材质"),CHToolLanguage.Text("来源研究与待适配 (")+catalog.research.Count+")"});
             if(next!=tab){tab=next;scroll=Vector2.zero;}
             search=EditorGUILayout.TextField(CHToolLanguage.Text("搜索（空格组合条件）"),search);
             DrawCategorySelector();pipeline=EditorGUILayout.Popup(CHToolLanguage.Text("目标管线"),pipeline,CHToolLanguage.Text(pipelines));
             if(tab==0)DrawAssets();else DrawResearch();
+            EditorGUILayout.EndScrollView();
         }
         void DrawCategorySelector()
         {
@@ -83,7 +85,6 @@ namespace ASEShaderConverter.Editor
                 if(GUILayout.Button(CHToolLanguage.Text("一键安装筛选结果（Shader + .mat，当前管线 ")+current.Length+CHToolLanguage.Text(" 项）")))StartBatch(current.Select(e=>e.id).ToArray());
             if(ShaderLibraryBatch.IsRunning){EditorGUILayout.LabelField(ShaderLibraryBatch.Progress);if(GUILayout.Button(CHToolLanguage.Text("停止后续安装（保留已生成资源）")))ShaderLibraryBatch.Cancel();}
             if(!string.IsNullOrEmpty(ShaderLibraryBatch.LastReport))EditorGUILayout.LabelField(ShaderLibraryBatch.LastReport,EditorStyles.wordWrappedLabel);
-            scroll=EditorGUILayout.BeginScrollView(scroll);
             EditorGUILayout.HelpBox(CHToolLanguage.Text("已验证指 ASE 保存重载和 Unity 编译通过。功能缺口及宿主依赖见各方案；未确认通用跨管线画面等价。设备与复杂度为静态建议，未实机测速，HDRP 仅 PC。"),MessageType.Info);
             DrawOverview();DrawCategoryDetails();
             if(filtered.Length==0)DrawEmptyAssets();
@@ -96,7 +97,6 @@ namespace ASEShaderConverter.Editor
                 EditorGUILayout.Space();EditorGUILayout.LabelField(group.Key,EditorStyles.boldLabel);
                 foreach(var family in group.GroupBy(ShaderLibraryQuery.Family))DrawFamily(family);
             }
-            EditorGUILayout.EndScrollView();
         }
         void DrawOverview()
         {
@@ -158,7 +158,6 @@ namespace ASEShaderConverter.Editor
         {
             var rows=catalog.research.Where(e=>ShaderLibraryQuery.MatchesResearch(e,search,researchCategoryId,pipeline==0?"":pipelines[pipeline])).ToArray();
             EditorGUILayout.LabelField(CHToolLanguage.Text("匹配 ")+rows.Length+CHToolLanguage.Text(" 条研究来源（来源可以属于多个分类）"));
-            scroll=EditorGUILayout.BeginScrollView(scroll);
             EditorGUILayout.HelpBox(CHToolLanguage.Text("研究记录包含尚未转换的 Shader、Shader Graph、依赖和方案。此处条数不代表可安装的 ASE Shader；已生成版本请在着色器页查看。"),MessageType.Info);
             if(researchCategoryId.Length>0)
             {
@@ -175,11 +174,10 @@ namespace ASEShaderConverter.Editor
                 EditorGUILayout.LabelField(e.source,EditorStyles.wordWrappedLabel);EditorGUILayout.LabelField(CHToolLanguage.Text("许可：")+e.license,EditorStyles.wordWrappedLabel);
                 EditorGUILayout.LabelField(string.Join("；",e.blockers.ToArray()),EditorStyles.wordWrappedLabel);EditorGUILayout.EndVertical();
             }
-            EditorGUILayout.EndScrollView();
         }
         static string TierLabel(string value){return value=="Low"?CHToolLanguage.Text("低复杂度"):value=="Medium"?CHToolLanguage.Text("中复杂度"):value=="High"?CHToolLanguage.Text("高复杂度"):CHToolLanguage.Text("未分级");}
         static string DeviceLabel(string value){return value=="Mobile"?CHToolLanguage.Text("移动端"):value=="Pad"?CHToolLanguage.Text("Pad 平板"):value;}
-        static void StartBatch(string[] ids){try{ShaderLibraryBatch.Start(ids);}catch(Exception ex){EditorUtility.DisplayDialog(CHToolLanguage.Text("无法生成材质"),ex.Message,CHToolLanguage.Text("确定"));}}
+        void StartBatch(string[] ids){try{actionError="";ShaderLibraryBatch.Start(ids);}catch(Exception ex){actionError=ex.Message;}}
         void Draw(ShaderLibraryEntry e)
         {
             EditorGUILayout.LabelField(e.pipeline+" · "+TierLabel(e.performanceTier)+" · "+string.Join(" / ",e.devices.Select(DeviceLabel).ToArray())+CHToolLanguage.Text("（未实机测速）"));
@@ -200,7 +198,16 @@ namespace ASEShaderConverter.Editor
                 EditorGUILayout.LabelField(CHToolLanguage.Text("先安装并选中流麻 .mat，再应用配色预设。三种配色使用同一套 Shader。"),EditorStyles.wordWrappedLabel);
             }
             if(e.id=="original-BuiltIn-DeepWater")using(new EditorGUI.DisabledScope(ShaderLibraryBatch.IsRunning||e.pipeline!=activePipeline))
-                if(GUILayout.Button(CHToolLanguage.Text("安装完整 DeepWater 配套工具")))try{ShaderLibraryAssets.Import(e.id);}catch(Exception ex){EditorUtility.DisplayDialog(CHToolLanguage.Text("水面工具"),ex.Message,CHToolLanguage.Text("确定"));}
+                if(GUILayout.Button(CHToolLanguage.Text("安装完整 DeepWater 配套工具")))try{ShaderLibraryAssets.Import(e.id);}catch(Exception ex){actionError=ex.Message;}
         }
+    }
+
+    public sealed class ShaderLibraryWindow : EditorWindow
+    {
+        public static void Open() { ASEShaderConverterWindow.OpenLibrary(); }
+        public static void OpenCategory(string id) { ASEShaderConverterWindow.OpenLibrary(id); }
+        void OnEnable() { EditorApplication.update += Redirect; }
+        void OnDisable() { EditorApplication.update -= Redirect; }
+        void Redirect() { if(this==null)return; Open(); Close(); }
     }
 }
