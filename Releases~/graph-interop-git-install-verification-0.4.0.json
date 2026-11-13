@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "version": "0.4.0",
+  "installationUrl": "https://github.com/Ch47369/ShaderConverter.git#v0.4.0",
+  "source": "git",
+  "commit": "535a198b35771e67080c2450779b7fd6c7f836fa",
+  "packageRoot": "F:\\ASEShader\\.validation\\UnityShaderGraph040\\Library\\PackageCache\\com.aseshader.handwritten-converter@535a198b35",
+  "trackedSourceFilesComparedByteForByte": 1198,
+  "upmExcludedGitMetadata": [
+    ".gitignore"
+  ],
+  "tarballFilesComparedByteForByte": 1126,
+  "aseInstalled": false,
+  "integrationChecks": 65,
+  "sourceShaderComparisonStates": 35,
+  "maxChannelError": 0.0,
+  "shaderGraphRoundTripPassed": true,
+  "shaderCompiled": true,
+  "materialEnumDrawerValidated": true,
+  "visualComparisonPassed": false,
+  "standardTargetAdaptation": true,
+  "result": ".build~/GraphInterop040/Attempts/20261113013854650/result.json",
+  "log": ".build~/GraphInterop040/Install/editor-git-20261113.log",
+  "evidence": "Releases~/Verification/GraphInterop040/GitInstalled",
+  "userProjectModified": false
+}
