@@ -20,6 +20,9 @@ new = contents(ROOT / ('Releases~/com.aseshader.handwritten-converter-' + VERSIO
 changed = {'Editor/ASEShaderConverterWindow.cs', 'Editor/ShaderConverterNavigation.cs',
            'Editor/ShaderPackageUpdateUI.cs', 'Editor/ShaderPackageUpdater.cs', 'Editor/ShaderGitClient.cs',
            'Runtime/ShaderPackageUpdatePolicy.cs'}
+measurementRelease = tuple(map(int, VERSION.split('.'))) >= (0, 5, 0)
+if measurementRelease:
+    changed.update({'Editor/ShaderLibraryBrowser.cs', 'Editor/VFX/VfxResourceOrganizerPanel.cs'})
 protected = []
 added = []
 for path, data in old.items():
@@ -29,14 +32,14 @@ for path, data in old.items():
 for path, data in new.items():
     if path.startswith(('Runtime/', 'Editor/', 'Samples~/')):
         if path not in old:
-            assert path.startswith('Editor/VFX/') or path in {'Editor/VFX.meta', 'Editor/ShaderGitHubClient.cs', 'Editor/ShaderGitHubClient.cs.meta'}, path
+            assert path.startswith('Editor/VFX/') or (measurementRelease and (path.startswith('Editor/Measurement/') or path == 'Editor/Measurement.meta')) or path in {'Editor/VFX.meta', 'Editor/ShaderGitHubClient.cs', 'Editor/ShaderGitHubClient.cs.meta'}, path
             added.append(path)
         assert data == (ROOT / path).read_bytes(), path
 meta = json.loads(new['package.json'])
 assert meta['displayName'] == 'CH自定义工具集' and meta['author']['name'] == 'CH'
 assert meta['version'] == VERSION and meta['unity'] == '2022.3'
 assert meta['name'] == 'com.aseshader.handwritten-converter'
-assert set(meta['dependencies']) == {'com.unity.modules.' + m for m in ['animation', 'audio', 'imgui', 'jsonserialize', 'particlesystem', 'unitywebrequest']}
+assert set(meta['dependencies']) == {'com.unity.modules.' + m for m in ['animation', 'audio', 'imgui', 'jsonserialize', 'particlesystem', 'unitywebrequest'] + (['physics'] if measurementRelease else [])}
 provenance = json.loads(new['Documentation~/Evidence/CustomTools048/audio-provenance.json'])
 assert provenance['commit'] == '1408814cdfb53dc58c507c0d992c0bb42d44f538'
 algorithms = ['RhythmAnalyzer.cs', 'RhythmAudioImport.cs', 'RhythmAudioPreview.cs', 'RhythmCurveClipboard.cs',

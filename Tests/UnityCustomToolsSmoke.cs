@@ -140,6 +140,7 @@ public static class UnityCustomToolsSmoke
     }
     static void OrganizerChecks()
     {
+        NamingChecks();
         string assets = folder + "/SourceAssets"; Directory.CreateDirectory(assets); AssetDatabase.Refresh();
         var texture = new Texture2D(2, 2); texture.SetPixel(0, 0, Color.magenta); texture.Apply(); AssetDatabase.CreateAsset(texture, assets + "/Texture.asset");
         var material = new Material(Shader.Find("Unlit/Texture")); material.mainTexture = texture; AssetDatabase.CreateAsset(material, assets + "/Material.mat");
@@ -166,6 +167,34 @@ public static class UnityCustomToolsSmoke
         var shared = new Material(Shader.Find("Unlit/Texture")); shared.mainTexture = texture; AssetDatabase.CreateAsset(shared, assets + "/External.mat"); AssetDatabase.SaveAssets();
         scan = VfxResourceOrganizer.Scan(new[] { prefab }); plan = VfxResourceOrganizer.BuildPlan(scan, settings);
         Check(plan.moves.All(x => x.resource.guid != textureGuid), "Default organizer rules keep a texture referenced outside the selected effect");
+    }
+    static void NamingChecks()
+    {
+        var builder=typeof(VfxResourceOrganizer).Assembly.GetType("CH.CustomTools.VFX.VfxNameBuilder",true);
+        var parse=builder.GetMethod("TryParse",S);var compose=builder.GetMethod("Compose",S);
+        foreach(string pattern in new[]{"{prefix}_{effect}_{index:000}","{name}","VFX-{effect}__{prefix}.{index:00000000}","自定义文字_{index}_{name}_end","{index:00}{index:0000}"})
+        {
+            object[] args={pattern,null};Check((bool)parse.Invoke(null,args),"Readable name builder imports existing pattern: "+pattern);
+            string roundtrip=(string)compose.Invoke(null,new[]{args[1]});
+            Check(VfxResourceOrganizer.ExpandName(pattern,"T","Fire","Spark",12)==VfxResourceOrganizer.ExpandName(roundtrip,"T","Fire","Spark",12),"Readable name builder preserves existing filename output");
+        }
+        object[] unknown={"{unsupported}",null};Check(!(bool)parse.Invoke(null,unknown),"Unknown legacy pattern is preserved without automatic replacement");
+        object[] edit={"{prefix}_{effect}_{index:000}",null};parse.Invoke(null,edit);
+        var list=(System.Collections.IList)edit[1];var number=list[2];number.GetType().GetField("digits").SetValue(number,4);number.GetType().GetField("after").SetValue(number,"-");
+        list.RemoveAt(2);list.Insert(0,number);list[2].GetType().GetField("after").SetValue(list[2],"");
+        string changed=(string)compose.Invoke(null,new[]{edit[1]});
+        Check(VfxResourceOrganizer.ExpandName(changed,"T","Fire","Spark",2)=="0002-T_Fire","Reordering parts and changing digits or separator changes the real output");
+        var settings=new VfxOrganizerSettings();settings.rules[0].customNaming=true;settings.rules[0].pattern=changed;
+        var loaded=VfxOrganizerPresets.Deserialize(VfxOrganizerPresets.Serialize(settings));
+        Check(loaded.rules[0].customNaming && loaded.rules[0].pattern==changed,"Readable custom naming survives saved-preset reload");
+    }
+    public static void Preview()
+    {
+        language=typeof(ASEShaderConverterWindow).Assembly.GetType("ASEShaderConverter.Editor.CHToolLanguage",true);
+        language.GetMethod("Set",S).Invoke(null,new object[]{true});
+        ASEShaderConverterWindow.OpenOrganizer();main=Resources.FindObjectsOfTypeAll<ASEShaderConverterWindow>().Single();
+        main.position=new Rect(180,100,1120,820);
+        var settings=(VfxOrganizerSettings)Get(Get(main,"organizer"),"settings");settings.rules[0].customNaming=true;main.Repaint();
     }
     public static void Run()
     {
@@ -211,14 +240,17 @@ public static class UnityCustomToolsSmoke
                     One("audio"); Check((RhythmCurveProfile)Get(Get(main, "audio"), "profile") != profile, "Audio panel edits a working copy of a saved profile");
                     Set(Get(main, "audio"), "cursor", .75f); ASEShaderConverterWindow.OpenOrganizer(); break;
                 case 3:
-                    One("organizer"); Set(Get(main, "organizer"), "filter", "RetainedFilter"); Click(0); break;
+                    One("organizer"); Set(Get(main, "organizer"), "filter", "RetainedFilter");
+                    ((VfxOrganizerSettings)Get(Get(main,"organizer"),"settings")).rules[0].customNaming=true;Click(0); break;
                 case 4: One("conversion"); Check((string)Get(main, "inputPath") == "Assets/Retained.shader", "Shader input is retained across VFX navigation"); ASEShaderConverterWindow.OpenLibrary(); break;
                 case 5:
                     One("library"); var library = Get(main, "library");
+                    var actions=(Rect)Get(library,"actionRow");var selectors=(Rect)Get(library,"selectorRow");
+                    Check(actions.width>500 && Math.Abs(actions.x-selectors.x)<.1f && Math.Abs(actions.width-selectors.width)<.1f,"Library action and selector rows have matching edges and equal columns");
                     Check(((ASEShaderConverter.ShaderLibraryCatalog)Get(library, "catalog")).entries.Count == 293, "Unified window retains the full 293-shader catalog");
                     Set(library, "search", "玉石"); ASEShaderConverterWindow.OpenAgent(); break;
                 case 6: One("agent"); Check(File.Exists(Path.Combine(ShaderAgentInbox.Root, "connection.json")), "Agent connection stays available"); ASEShaderConverterWindow.OpenAudio(); break;
-                case 7: One("audio"); Check(Math.Abs((float)Get(Get(main, "audio"), "cursor") - .75f) < .001f, "Audio cursor/profile state survives category changes"); Click(2); break;
+                case 7: One("audio"); Check(Math.Abs((float)Get(Get(main, "audio"), "cursor") - .75f) < .001f, "Audio cursor/profile state survives category changes"); Click(3); break;
                 case 8: One("settings"); language.GetMethod("Set", S).Invoke(null, new object[] { false }); break;
                 case 9:
                     Check(main.titleContent.text == "CH Custom Tools", "One settings choice updates the host to English");
@@ -233,7 +265,8 @@ public static class UnityCustomToolsSmoke
                     One("organizer"); Check((string)Get(Get(main, "organizer"), "filter") == "RetainedFilter", "Organizer state survives language and category changes");
                     main.position = new Rect(180, 150, 800, 500); break;
                 case 12: ASEShaderConverterWindow.OpenAudio(profile); break;
-                case 13: One("audio"); Check(error == null, "Audio results and VFX panels render at minimum size without GUI errors"); Finish(null); return;
+                case 13: One("audio"); Check(error == null, "Audio results and VFX panels render at minimum size without GUI errors");ASEShaderConverterWindow.OpenOrganizer();language.GetMethod("Set", S).Invoke(null,new object[]{false});break;
+                case 14: One("organizer");Check(error==null,"Readable custom naming renders at minimum width in English");Finish(null);return;
             }
             main.Repaint(); next = EditorApplication.timeSinceStartup + .45;
         }

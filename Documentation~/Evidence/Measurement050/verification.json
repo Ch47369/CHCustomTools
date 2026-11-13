@@ -1,0 +1,34 @@
+{
+  "success": true,
+  "version": "0.5.0",
+  "coreChecks": 629,
+  "editorCompile": {
+    "2022.3.10f1": {
+      "warnings": 0,
+      "errors": 0
+    },
+    "6000.0.80f1": {
+      "warnings": 0,
+      "errors": 0
+    }
+  },
+  "measurementSourceChecks": {
+    "2022.3.10f1": 63,
+    "6000.0.80f1": 63
+  },
+  "customToolsRegressionChecks": {
+    "2022.3.10f1": 78,
+    "6000.0.80f1": 78
+  },
+  "originalMeasurementSourceUnchanged": true,
+  "userProjectsModified": false,
+  "legacyPreferenceBytesPreserved": true,
+  "historicalFailedAttemptsPreserved": true,
+  "measurementUnits": "1 world unit = 1 m",
+  "angles": "smaller included angle, 0–180 degrees",
+  "area": "planar simple polygon, not curved surface area",
+  "conversionSemanticsChanged": false,
+  "graphVisualEquivalenceClaimed": false,
+  "finalTarballResults": "Releases~/custom-tools-tarball-install-0.5.0.json",
+  "publishedUpgradeResults": "Releases~/github-release-upgrade-0.5.0.json"
+}

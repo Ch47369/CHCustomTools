@@ -1,0 +1,39 @@
+{
+  "success": true,
+  "version": "0.5.0",
+  "baselineVersion": "0.4.9",
+  "baselineSha256": "097db53ce038672e367a062faf97c0886999c43a91c1c53fde47f22073a57cd7",
+  "changedExistingProductFiles": [
+    "Editor/ShaderConverterNavigation.cs",
+    "Editor/ShaderLibraryBrowser.cs",
+    "Editor/VFX/VfxResourceOrganizerPanel.cs"
+  ],
+  "addedProductFiles": [
+    "Editor/Measurement.meta",
+    "Editor/Measurement/DmData.cs",
+    "Editor/Measurement/DmData.cs.meta",
+    "Editor/Measurement/DmGeometry.cs",
+    "Editor/Measurement/DmGeometry.cs.meta",
+    "Editor/Measurement/DmSceneTool.cs",
+    "Editor/Measurement/DmSceneTool.cs.meta",
+    "Editor/Measurement/DmSkin.cs",
+    "Editor/Measurement/DmSkin.cs.meta",
+    "Editor/Measurement/DmStore.cs",
+    "Editor/Measurement/DmStore.cs.meta",
+    "Editor/Measurement/DmSurface.cs",
+    "Editor/Measurement/DmSurface.cs.meta",
+    "Editor/Measurement/DmUndoState.cs",
+    "Editor/Measurement/DmUndoState.cs.meta",
+    "Editor/Measurement/MeasurementPanel.cs",
+    "Editor/Measurement/MeasurementPanel.cs.meta",
+    "Editor/VFX/VfxNameBuilder.cs",
+    "Editor/VFX/VfxNameBuilder.cs.meta"
+  ],
+  "protectedFilesIdentical": 446,
+  "libraryShadersIdentical": 293,
+  "allAudioAlgorithmsUnchanged": true,
+  "updaterUnchanged": true,
+  "conversionSemanticsChanged": false,
+  "userProjectsAndOriginalMeasurementFilesModified": false,
+  "graphVisualEquivalenceClaimed": false
+}

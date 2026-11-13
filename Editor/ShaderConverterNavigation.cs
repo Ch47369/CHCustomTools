@@ -2,6 +2,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 using CH.CustomTools.VFX;
+using CH.CustomTools.Measurement;
 
 namespace ASEShaderConverter.Editor
 {
@@ -11,19 +12,22 @@ namespace ASEShaderConverter.Editor
         [SerializeField] private int conversionTab, settingsTab, agentTab;
         [SerializeField] private ShaderLibraryPanel library = new ShaderLibraryPanel();
         [SerializeField] private Vector2 settingsScroll, agentScroll;
-        private readonly Rect[] navigationAreas = new Rect[3];
-        private static readonly string[] PageIds = { "shader", "vfx", "settings" };
+        private readonly Rect[] navigationAreas = new Rect[4];
+        private static readonly string[] PageIds = { "shader", "vfx", "scene", "settings" };
+        [SerializeField] private MeasurementPanel measurement = new MeasurementPanel();
         [SerializeField] private string lastShaderPage = "conversion", lastVfxPage = "audio";
         [SerializeField] private RhythmCurvePanel audio = new RhythmCurvePanel();
         [SerializeField] private VfxResourceOrganizerPanel organizer = new VfxResourceOrganizerPanel();
-        private string ActiveCategory { get { return activePage == "settings" ? "settings" : activePage == "audio" || activePage == "organizer" ? "vfx" : "shader"; } }
+        private string ActiveCategory { get { return activePage == "settings" ? "settings" : activePage == "measurement" ? "scene" : activePage == "audio" || activePage == "organizer" ? "vfx" : "shader"; } }
         private void EnableVfxPanels()
         {
             if (audio == null) audio = new RhythmCurvePanel();
             if (organizer == null) organizer = new VfxResourceOrganizerPanel();
             audio.Enable(Repaint); organizer.Enable(Repaint);
+            if(measurement==null)measurement=new MeasurementPanel();
+            measurement.Enable(Repaint);
         }
-        private void DisableVfxPanels() { if (audio != null) audio.Disable(); if (organizer != null) organizer.Disable(); }
+        private void DisableVfxPanels() { if (audio != null) audio.Disable(); if (organizer != null) organizer.Disable(); if(measurement!=null)measurement.Disable(); }
         private void OnDestroy() { if (audio != null) audio.Dispose(); }
         private void OnFocus() { if (audio != null) audio.ValidateSource(); }
         public static void OpenAudio(RhythmCurveProfile profile = null)
@@ -53,6 +57,8 @@ namespace ASEShaderConverter.Editor
         {
             if (page == "shader") page = lastShaderPage;
             if (page == "vfx") page = lastVfxPage;
+            if (page == "scene") page = "measurement";
+            if(activePage=="measurement" && page!="measurement" && measurement!=null)measurement.Deactivate();
             if (activePage == "audio" && page != "audio") RhythmAudioPreview.StopOwn();
             activePage = page;
             if (ActiveCategory == "shader") lastShaderPage = page;
@@ -68,6 +74,7 @@ namespace ASEShaderConverter.Editor
             window.Navigate("library");
         }
         public static void OpenAgent() { ShowMain().Navigate("agent"); }
+        public static void OpenMeasurement() { ShowMain().Navigate("measurement"); }
         public static void OpenUpdates()
         {
             var window = ShowMain(); window.settingsTab = 1; window.Navigate("settings");
@@ -76,13 +83,13 @@ namespace ASEShaderConverter.Editor
         private void OnGUI()
         {
             titleContent.text = CHToolLanguage.Pick("CH自定义工具集", "CH Custom Tools");
-            if (System.Array.IndexOf(new[] { "conversion", "library", "agent", "audio", "organizer", "settings" }, activePage) < 0) activePage = "conversion";
+            if (System.Array.IndexOf(new[] { "conversion", "library", "agent", "audio", "organizer", "measurement", "settings" }, activePage) < 0) activePage = "conversion";
             if (library == null) library = new ShaderLibraryPanel();
             EditorGUILayout.BeginHorizontal();
             DrawNavigation();
             EditorGUILayout.BeginVertical(GUILayout.Width(Mathf.Max(400, position.width - 210)), GUILayout.ExpandHeight(true));
             GUILayout.Space(10);
-            GUILayout.Label(ActiveCategory == "shader" ? "Shader" : ActiveCategory == "vfx" ? "VFX" : PageTitle("settings"), EditorStyles.boldLabel);
+            GUILayout.Label(PageTitle(ActiveCategory), EditorStyles.boldLabel);
             DrawCategoryTabs();
             GUILayout.Space(6);
             if (activePage == "library") library.DrawPanel();
@@ -90,6 +97,7 @@ namespace ASEShaderConverter.Editor
             else if (activePage == "settings") DrawSettingsPage();
             else if (activePage == "audio") audio.DrawPanel();
             else if (activePage == "organizer") organizer.DrawPanel();
+            else if (activePage == "measurement") measurement.DrawPanel();
             else DrawConversionPage();
             EditorGUILayout.EndVertical();
             GUILayout.Space(8);
@@ -98,7 +106,7 @@ namespace ASEShaderConverter.Editor
         private void DrawCategoryTabs()
         {
             if (ActiveCategory == "settings") return;
-            var pages = ActiveCategory == "shader" ? new[] { "conversion", "library", "agent" } : new[] { "audio", "organizer" };
+            var pages = ActiveCategory == "shader" ? new[] { "conversion", "library", "agent" } : ActiveCategory=="scene" ? new[]{"measurement"} : new[] { "audio", "organizer" };
             var titles = System.Array.ConvertAll(pages, PageTitle);
             int selected = System.Array.IndexOf(pages, activePage);
             int next = GUILayout.Toolbar(selected, titles);
@@ -109,6 +117,8 @@ namespace ASEShaderConverter.Editor
         {
             if (page == "shader") return "Shader";
             if (page == "vfx") return "VFX";
+            if (page == "scene") return CHToolLanguage.Pick("场景工具", "Scene tools");
+            if (page == "measurement") return CHToolLanguage.Pick("距离 / 角度测量", "Distance / angle measurement");
             if (page == "audio") return CHToolLanguage.Pick("音频转动画曲线", "Audio to animation curves");
             if (page == "organizer") return CHToolLanguage.Pick("特效资源整理", "VFX resource organizer");
             if (page == "library") return CHToolLanguage.Pick("着色器库", "Shader library");
@@ -132,7 +142,7 @@ namespace ASEShaderConverter.Editor
                 if (selected) EditorGUI.DrawRect(rect, EditorGUIUtility.isProSkin ? new Color(.17f, .36f, .53f) : new Color(.24f, .49f, .78f));
                 style.normal.textColor = selected ? Color.white : EditorStyles.label.normal.textColor;
                 string label = PageTitle(PageIds[i]);
-                if (i == 2 && ShaderPackageUpdater.HasNewVersion) label += "  •";
+                if (PageIds[i] == "settings" && ShaderPackageUpdater.HasNewVersion) label += "  •";
                 if (GUI.Button(rect, label, style)) Navigate(PageIds[i]);
             }
             GUILayout.FlexibleSpace();
@@ -168,7 +178,7 @@ namespace ASEShaderConverter.Editor
             {
                 EditorGUILayout.LabelField(CHToolLanguage.Pick("作者", "Author"), "CH");
                 EditorGUILayout.LabelField(CHToolLanguage.Pick("工具集", "Tool collection"), "CH自定义工具集");
-                EditorGUILayout.LabelField(CHToolLanguage.Pick("功能", "Features"), "Shader / VFX");
+                EditorGUILayout.LabelField(CHToolLanguage.Pick("功能", "Features"), "Shader / VFX / "+PageTitle("scene"));
                 EditorGUILayout.LabelField(ShaderPackageUpdater.SourceLabel, EditorStyles.wordWrappedLabel);
                 EditorGUILayout.Space();
                 EditorGUILayout.LabelField(CHToolLanguage.Pick("Git 安装地址", "Git install URL"), EditorStyles.boldLabel);

@@ -1,0 +1,83 @@
+{
+  "source": "D:\\U3DLearning\\特殊效果模板验证\\Packages\\com.unitytoolbox.distance-measure",
+  "version": "1.1.0",
+  "sourceReadOnly": true,
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "a9281b08056e4f0a3771bad6e53038c7a32deab949df8ef51641089d89ca6369"
+    },
+    {
+      "path": "CHANGELOG.md.meta",
+      "sha256": "ff04d2fbd3f94fc2a4eb71ecff6e52a3f2776b408dafe6f4178bb8935a06fcdf"
+    },
+    {
+      "path": "Editor.meta",
+      "sha256": "8602fb09671c61119523c193bf60e55e5f07ac30555a6f12143ea9436c7c7a3e"
+    },
+    {
+      "path": "package.json",
+      "sha256": "d451cd8ff54dbe8e75d91f349d235afc3018aa835c4df7e1080b3247543b0434"
+    },
+    {
+      "path": "package.json.meta",
+      "sha256": "66e354f362aacc0a111a0ed090877a28dcf2e6607e78b4374abb9b33adfb7cd5"
+    },
+    {
+      "path": "README.md",
+      "sha256": "73b599f31ac6891971144200b836d4909dbf1367c1b7ff8504fd1b9937c54953"
+    },
+    {
+      "path": "README.md.meta",
+      "sha256": "da3ea12d75e82a9609ff96518337120038386b60cbae5dfccd61e521fea19ed8"
+    },
+    {
+      "path": "Editor/DmData.cs",
+      "sha256": "1fa14fd557168814a98354bf4a3517592a5202902e5051caa50f86f9556f414c"
+    },
+    {
+      "path": "Editor/DmData.cs.meta",
+      "sha256": "4a87990dd8a933dd52201d71bbb48df57de33eb0c790ec79fe06fe2113c2becc"
+    },
+    {
+      "path": "Editor/DmSceneTool.cs",
+      "sha256": "f209e3d341ba1926dc0e11472dc1fec1a6ee2f3f1026e29076e69b0e64903fa2"
+    },
+    {
+      "path": "Editor/DmSceneTool.cs.meta",
+      "sha256": "d0e526cd91fde3fb03d7c868635a8c9a91fc9101cbbf3d43271ca56d3945d81a"
+    },
+    {
+      "path": "Editor/DmSkin.cs",
+      "sha256": "1cfd879adf3cb9e49111247c64d358fc53f9b20f27ca6ac65002940424dde650"
+    },
+    {
+      "path": "Editor/DmSkin.cs.meta",
+      "sha256": "f6ad0be2e8046b4ad7b965e19bbcf4c3936aaf8c36f3a3d7df077e61aff21880"
+    },
+    {
+      "path": "Editor/DmSurface.cs",
+      "sha256": "c42ce8a903545c44d90bae4de1eb61ed02805f0ded99b908bcc33b60787c16ee"
+    },
+    {
+      "path": "Editor/DmSurface.cs.meta",
+      "sha256": "185dd3c67e1474e368026d99eaab7e7cfcb58676e1decedf03e3f142c7ac3c55"
+    },
+    {
+      "path": "Editor/DmWindow.cs",
+      "sha256": "0f0d1ea3d0d0aa16f872507cf5fb0f24800c18d7f21795392253a797eed2c535"
+    },
+    {
+      "path": "Editor/DmWindow.cs.meta",
+      "sha256": "c95d2d8538e32eb55a78c00bbf97f91e170cb3bee70e44e18ccd3260b8358a32"
+    },
+    {
+      "path": "Editor/UnityToolbox.DistanceMeasure.Editor.asmdef",
+      "sha256": "db87f30fde8de280d221fec7425e256c7bfce560d1d2144502b182dba81c27ae"
+    },
+    {
+      "path": "Editor/UnityToolbox.DistanceMeasure.Editor.asmdef.meta",
+      "sha256": "5f3149f904fe1637c8a65aa95ad0254674c81c5a46fd4d3e5eb00c00404a524e"
+    }
+  ]
+}

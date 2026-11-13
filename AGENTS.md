@@ -1,3 +1,7 @@
+0.5.0 接续：整合用户 WorkBuddy 的 com.unitytoolbox.distance-measure 1.1.0 为场景工具→距离/角度测量，同一个 Tools/CH自定义工具集窗口；作者CH、共享中英。独立命名空间CH.CustomTools.Measurement/GUID，原插件与用户项目只读，provenance见Evidence/Measurement050。修复闭合周长末边、最近Collider/网格拾取、项目/场景存储隔离和首存迁移、Undo、跨场景与重载交互清理、0/180角标、非共面/自交边界与损坏数据保护。记录本机EditorPrefs，不写场景；旧记录只显式导入且保留字节。面积仅共面简单多边形、角度较小夹角0–180、1世界单位=1m，未烘焙蒙皮/GPU变形或测速。
+
+0.5.0 同轮用户补充：VFX自定义命名改为有序片段（前缀/特效名/原名/序号/文字）、上下移动/删除、连接文字及序号位数，实时预览。VfxNameBuilder解析/生成已有pattern，模型与ExpandName不改，旧方案输出与保存兼容；不能识别的内容保留并显式重设。着色器库两排按钮用统一等宽Column布局。Runtime/293图/音频算法/更新器/Agent恢复与固定0.4.9 SHA097db53ce038672e367a062faf97c0886999c43a91c1c53fde47f22073a57cd7保持一致，仅三份旧产品UI文件修改及新增测量/命名界面文件。测试与最终结果看Evidence/Measurement050和Releases~；工具Verify-MeasurementRelease、Verify-CustomToolsRelease、Verify-Release。GitHub升级检查改用未修改的已发布0.4.9包，不回移植候选更新器。失败日志保留。其他任务的.gitignore/Backend~/ShaderLibraryBackend.md/Run-ShaderLibraryBackendSmoke不纳入本轮提交或打包。隔离Unity活跃仍禁止改共享C#，dotnet顺序。
+
 0.4.9 接续：保留已发布0.4.8及完整整合。Unity6两次真实GitHub下载出现512KB请求30秒超时，失败保持0.4.7安装；证据GitHubDownload049保留原始失败。下载改128KB/60秒/最多三次，四路、总十分钟、范围/长度/SHA256与缓存保护不变。新发布需重新做实际下载与两版最终Tarball、发布后跨重载升级。工具Verify-CustomToolsRelease改读取当前版本，Run-GitHubReleaseUpgrade按当前版本建立独立夹具；旧证据不覆盖。
 
 0.4.8 接续：统一显示名/入口 Tools/CH自定义工具集、作者CH，左侧Shader/VFX/设置，右侧内嵌功能。整合AudioRhythmCurves1.0.9全部音频曲线/原生动画/粒子/子特效时序/VFX资源整理恢复；命名空间CH.CustomTools.VFX、独立MonoScript GUID，允许旧包共存。旧曲线文本迁移只创建_CH副本，保留原数据，用户须主动替换对旧profile的自定义引用。共享语言仅设置→常规。包ID保留com.aseshader.handwritten-converter，最低Unity2022.3。

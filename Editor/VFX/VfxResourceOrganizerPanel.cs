@@ -236,7 +236,7 @@ namespace CH.CustomTools.VFX
                             }
                             EditorGUILayout.LabelField(CHToolLanguage.Text("目标目录：") + folder, EditorStyles.wordWrappedMiniLabel);
                             bool open = namingExpanded.Contains(rule.kind);
-                            string namingLabel = CHToolLanguage.Text(VfxResourceNaming.Choices[VfxResourceNaming.GetChoice(rule)]);
+                            string namingLabel = NamingChoices()[VfxResourceNaming.GetChoice(rule)];
                             bool updated = EditorGUILayout.Foldout(open, CHToolLanguage.Text("命名方式：") + namingLabel, true);
                             if (updated != open)
                             {
@@ -254,16 +254,22 @@ namespace CH.CustomTools.VFX
         private void DrawNaming(VfxResourceRule rule)
         {
             int currentChoice = VfxResourceNaming.GetChoice(rule);
-            int selectedChoice = EditorGUILayout.Popup(CHToolLanguage.Text("命名方式"), currentChoice, CHToolLanguage.Text(VfxResourceNaming.Choices));
+            int selectedChoice = EditorGUILayout.Popup(CHToolLanguage.Text("命名方式"), currentChoice, NamingChoices());
             if (selectedChoice != currentChoice) VfxResourceNaming.SetChoice(rule, selectedChoice);
             using (new EditorGUI.DisabledScope(!(rule.pattern ?? "").Contains("{prefix}")))
                 rule.prefix = EditorGUILayout.TextField(new GUIContent(CHToolLanguage.Text("文件名前缀"), CHToolLanguage.Text("自动加在文件名开头的文字。例如材质 M、贴图 T、预制体 Prafabs。")), rule.prefix);
             if (VfxResourceNaming.GetChoice(rule) == VfxResourceNaming.Choices.Length - 1)
             {
-                rule.pattern = EditorGUILayout.TextField(CHToolLanguage.Text("自定义格式"), rule.pattern);
-                EditorGUILayout.LabelField(CHToolLanguage.Text("高级占位符：{prefix} 前缀 · {effect} 特效名 · {name} 原文件名 · {index:000} 三位序号"), EditorStyles.wordWrappedMiniLabel);
+                VfxNameBuilder.Draw(rule);
             }
             DrawNamingExamples(rule);
+        }
+
+        private static string[] NamingChoices()
+        {
+            var choices=CHToolLanguage.Text(VfxResourceNaming.Choices);
+            choices[choices.Length-1]=CHToolLanguage.Pick("自定义组合","Custom combination");
+            return choices;
         }
 
         private void DrawNamingExamples(VfxResourceRule rule)

@@ -9,6 +9,8 @@ namespace ASEShaderConverter.Editor
     [Serializable] internal sealed class ShaderLibraryPanel
     {
         ShaderLibraryCatalog catalog;
+        Rect actionRow,selectorRow;
+        static Rect Column(Rect row,int column) { float width=(row.width-4)*.5f;return new Rect(row.x+column*(width+4),row.y,width,row.height); }
         [SerializeField] string search="", categoryId="", researchCategoryId="";
         string activePipeline="", loadError="", actionError="";
         [SerializeField] int pipeline,device,tier,grouping,tab,scope,showcasePreset;
@@ -50,12 +52,14 @@ namespace ASEShaderConverter.Editor
             scroll=EditorGUILayout.BeginScrollView(scroll);
             EditorGUILayout.LabelField(CHToolLanguage.Text("ASE 着色器库 · ")+catalog.version,EditorStyles.boldLabel);
             EditorGUILayout.LabelField(catalog.entries.Where(ShaderLibraryQuery.IsGenerated).Select(ShaderLibraryQuery.Family).Distinct().Count()+CHToolLanguage.Text(" 个同源方案 / ")+catalog.entries.Count(ShaderLibraryQuery.IsGenerated)+CHToolLanguage.Text(" 份已验证 ASE 图；三份图齐备 ")+completeFamilies.Count+CHToolLanguage.Text("；三目标功能已映射 ")+mappedFamilies.Count+CHToolLanguage.Text("。当前工程：")+activePipeline,EditorStyles.wordWrappedLabel);
-            EditorGUILayout.BeginHorizontal();
-            if(GUILayout.Button(CHToolLanguage.Text("刷新目录与管线")))Reload();
-            if(GUILayout.Button(CHToolLanguage.Text("重置筛选")))ResetFilters();
-            EditorGUILayout.EndHorizontal();
+            var actions=EditorGUILayout.GetControlRect(false,22);
+            if(GUI.Button(Column(actions,0),CHToolLanguage.Text("刷新目录与管线")))Reload();
+            if(GUI.Button(Column(actions,1),CHToolLanguage.Text("重置筛选")))ResetFilters();
             if(actionError.Length>0)EditorGUILayout.HelpBox(actionError,MessageType.Error);
-            int next=GUILayout.Toolbar(tab,new[]{CHToolLanguage.Text("ASE 着色器与材质"),CHToolLanguage.Text("来源研究与待适配 (")+catalog.research.Count+")"});
+            var selectors=EditorGUILayout.GetControlRect(false,22);int next=tab;
+            string[] labels={CHToolLanguage.Text("ASE 着色器与材质"),CHToolLanguage.Text("来源研究与待适配 (")+catalog.research.Count+")"};
+            for(int i=0;i<2;i++)if(GUI.Toggle(Column(selectors,i),tab==i,labels[i],EditorStyles.toolbarButton) && tab!=i)next=i;
+            if(Event.current.type==EventType.Repaint){actionRow=actions;selectorRow=selectors;}
             if(next!=tab){tab=next;scroll=Vector2.zero;}
             search=EditorGUILayout.TextField(CHToolLanguage.Text("搜索（空格组合条件）"),search);
             DrawCategorySelector();pipeline=EditorGUILayout.Popup(CHToolLanguage.Text("目标管线"),pipeline,CHToolLanguage.Text(pipelines));
