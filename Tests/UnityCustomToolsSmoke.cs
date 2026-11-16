@@ -226,6 +226,7 @@ public static class UnityCustomToolsSmoke
             {
                 case 0:
                     One("conversion"); Check(main.titleContent.text == "CH自定义工具集", "Chinese collection title is correct");
+                    Check((string)typeof(ASEShaderConverterWindow).GetMethod("PageTitle", S).Invoke(null,new object[]{"shader"}) == "着色器" && (string)typeof(ASEShaderConverterWindow).GetMethod("PageTitle", S).Invoke(null,new object[]{"vfx"}) == "特效", "Chinese language localizes both Shader and VFX categories");
                     Check(((Rect)Get(main, "inputPathArea")).width > 500, "Shader content expands across the host window");
                     var area = (Rect)Get(main, "inputPathArea");
                     DragAndDrop.PrepareStartDrag(); DragAndDrop.paths = new[] { Application.dataPath }; DragAndDrop.objectReferences = new Object[0];
@@ -254,6 +255,7 @@ public static class UnityCustomToolsSmoke
                 case 8: One("settings"); language.GetMethod("Set", S).Invoke(null, new object[] { false }); break;
                 case 9:
                     Check(main.titleContent.text == "CH Custom Tools", "One settings choice updates the host to English");
+                    Check((string)typeof(ASEShaderConverterWindow).GetMethod("PageTitle", S).Invoke(null,new object[]{"shader"}) == "Shader" && (string)typeof(ASEShaderConverterWindow).GetMethod("PageTitle", S).Invoke(null,new object[]{"vfx"}) == "VFX", "English language restores Shader and VFX categories");
                     var audioLang = typeof(RhythmAnalyzer).Assembly.GetType("CH.CustomTools.VFX.CHToolLanguage");
                     Check(!(bool)audioLang.GetProperty("IsChinese", S).GetValue(null), "Audio/VFX panels share the host language cache");
                     language.GetMethod("Reset", S).Invoke(null, null);

@@ -17,12 +17,14 @@ namespace CH.CustomTools.Paths.Editor
         [SerializeField] string folder = "Assets";
         [SerializeField] Vector2 scroll;
         [SerializeField] int tab, preset = 1;
+        [SerializeField] bool previewModels = true, previewMesh = true;
         [NonSerialized] string message;
         static string T(string zh, string en) { return PathText.T(zh, en); }
-        public void Deactivate() { PathMotionPreview.Stop(); }
+        public void Deactivate() { PathAuthoringPreview.Stop(); PathMotionPreview.Stop(); PathSceneTool.Active = false; }
         void Action(Action action) { try { PathMotionPreview.Stop(); action(); message = T("已完成。生成与路径编辑支持撤销。", "Done. Generation and path edits support Undo."); } catch (Exception e) { message = e.Message; } }
         public void DrawPanel()
         {
+            PathSceneTool.DrawEnable(path);
             scroll = EditorGUILayout.BeginScrollView(scroll);
             EditorGUILayout.HelpBox(T("1 创建或选择路径 → 2 在 Scene 拖动路径点 → 3 生成模型 / 网格，或设置路径运动。1世界单位按1米处理。", "1 Create/select a path → 2 Drag points in Scene → 3 Generate models/meshes or set up motion. One world unit is treated as one metre."), MessageType.None);
             EditorGUILayout.BeginHorizontal();
@@ -35,13 +37,21 @@ namespace CH.CustomTools.Paths.Editor
             if (path == null) { EditorGUILayout.EndScrollView(); return; }
             try { EditorGUILayout.LabelField(T("路径长度", "Path length"), path.Length.ToString("0.###") + " m"); } catch (Exception e) { EditorGUILayout.HelpBox(e.Message, MessageType.Error); }
             int newTab = GUILayout.Toolbar(tab, CHToolLanguage.IsChinese ? new[] { "编辑路径", "沿线放模型", "生成网格", "路径运动" } : new[] { "Edit path", "Place models", "Build mesh", "Motion" });
-            if (newTab != tab) { Deactivate(); tab = newTab; }
+            if (newTab != tab) { PathMotionPreview.Stop(); if (newTab == 3) PathAuthoringPreview.Stop(); tab = newTab; }
+            if (tab != 3)
+            {
+                previewModels = EditorGUILayout.ToggleLeft(T("实时预览沿线模型", "Live model preview"), previewModels);
+                previewMesh = EditorGUILayout.ToggleLeft(T("实时预览生成网格", "Live mesh preview"), previewMesh);
+                EditorGUILayout.HelpBox(T("勾选上方 Scene 编辑后，修改点、切线、倾斜、模型或网格参数会实时预览。预览不保存；最后点击生成 / 重新生成才确认输出。", "Enable Scene editing above. Points, tangents, tilt and placement/mesh settings update the preview. Click Generate / rebuild to commit the output."), MessageType.None);
+            }
             GUILayout.Space(8);
             using (new EditorGUI.DisabledScope(EditorApplication.isPlayingOrWillChangePlaymode))
             {
                 if (tab == 0) BezierPathEditor.DrawPath(path);
                 else if (tab == 1) DrawPlacement(); else if (tab == 2) DrawMesh(); else DrawMotion();
             }
+            if (tab != 3) PathAuthoringPreview.Configure(path, model, placement, mesh, material, posts, previewModels, previewMesh);
+            if (!string.IsNullOrEmpty(PathAuthoringPreview.Status)) EditorGUILayout.HelpBox(PathAuthoringPreview.Status, MessageType.Warning);
             if (!string.IsNullOrEmpty(message)) EditorGUILayout.HelpBox(message, MessageType.Info);
             EditorGUILayout.EndScrollView();
         }
@@ -79,7 +89,7 @@ namespace CH.CustomTools.Paths.Editor
             { foreach (var item in DragAndDrop.objectReferences) { string p = AssetDatabase.GetAssetPath(item); if (!AssetDatabase.IsValidFolder(p) || !(p == "Assets" || p.StartsWith("Assets/", StringComparison.Ordinal))) continue; DragAndDrop.visualMode = DragAndDropVisualMode.Copy; if (ev.type == EventType.DragPerform) { DragAndDrop.AcceptDrag(); folder = p; } ev.Use(); break; } }
             GenerationNote(); if (GUILayout.Button(T("生成 / 重新生成网格", "Generate / rebuild mesh"), GUILayout.Height(28))) Action(() => PathAuthoring.Generate(path, mesh, material, posts, folder));
         }
-        void GenerationNote() { EditorGUILayout.HelpBox(T("重新生成会替换此路径对应的生成组；组内手动编辑也会替换。其他场景物体保留。网格另存唯一资源，撤销场景生成后资源仍保留，便于重做。修改路径后需要重新生成。", "Rebuild replaces this path's generated group, including manual edits inside it. Other scene objects are preserved. Meshes use unique assets; scene Undo retains assets for Redo. Rebuild after editing the path."), MessageType.None); }
+        void GenerationNote() { EditorGUILayout.HelpBox(T("预览仅临时显示，点击生成才保存。重新生成会替换此路径对应的生成组；组内手动编辑也会替换。其他场景物体保留。网格另存唯一资源，撤销场景生成后资源仍保留，便于重做。修改路径后需要重新生成。", "Preview is temporary; Generate saves it. Rebuild replaces this path's generated group, including manual edits inside it. Other scene objects are preserved. Meshes use unique assets; scene Undo retains assets for Redo. Rebuild after editing the path."), MessageType.None); }
         void DrawMotion()
         {
             motionTarget = (GameObject)EditorGUILayout.ObjectField(T("运动根物体", "Moving root object"), motionTarget, typeof(GameObject), true);

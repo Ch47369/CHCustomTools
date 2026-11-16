@@ -91,7 +91,7 @@ namespace CH.CustomTools.Paths.Editor
                 }
                 else if (e.type == EventType.MouseUp && e.button == 0) { Complete(); e.Use(); }
             }
-            if (path == null || inserting || Application.isPlaying || PathMotionPreview.IsActive || DmSceneTool.Active) return;
+            if (!PathSceneTool.Active || path == null || inserting || Application.isPlaying || PathMotionPreview.IsActive || DmSceneTool.Active) return;
             try { path.ValidatePath(); } catch (Exception) { return; }
             int hover = FindPoint(path, view.camera, e.mousePosition);
             bool canPick = !e.alt && !PathPointInsertion.InsertionModifier(e) && GUIUtility.hotControl == 0;
@@ -157,6 +157,7 @@ namespace CH.CustomTools.Paths.Editor
             }
             dragging = null; owner = null; control = 0; undoGroup = -1; changed = false; SceneView.RepaintAll();
         }
+        internal static void CancelActive() { Cancel(); }
         static void Cancel()
         {
             var path = dragging; int group = undoGroup; bool restore = changed;

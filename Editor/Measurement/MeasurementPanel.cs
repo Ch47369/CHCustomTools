@@ -21,7 +21,7 @@ namespace CH.CustomTools.Measurement
             DmStore.Reload();DmStore.Changed+=Repaint;DmSceneTool.Changed+=Repaint;
         }
         void Repaint() { if(repaint!=null)repaint(); }
-        public void Deactivate() { if(initialized){DmSceneTool.Active=false;DmStore.Flush();} }
+        public void Deactivate() { DmSceneTool.Active=false; if(initialized)DmStore.Flush(); }
         public void Disable()
         {
             EditorApplication.delayCall-=Initialize;Deactivate();

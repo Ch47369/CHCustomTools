@@ -14,15 +14,32 @@ namespace CH.CustomTools.Paths.Editor
     {
         public static bool SnapToSurface;
         public static bool ShowOrientation;
+        public static bool RotatePoints;
         public override void OnInspectorGUI()
         {
             EditorGUILayout.LabelField("CH · " + PathText.T("路径", "Path"), EditorStyles.boldLabel);
             if (GUILayout.Button(PathText.T("在工具集中打开", "Open in CH Custom Tools"))) { ASEShaderConverterWindow.OpenPathTools(); Selection.activeObject = target; }
+            PathSceneTool.DrawEnable((BezierPath)target);
             DrawPath((BezierPath)target);
         }
         internal static void DrawPath(BezierPath path)
         {
-            EditorGUILayout.HelpBox(PathText.T("直接拖动圆点调整路径；按住 Shift 从圆点拖出新点（首尾延长，中间插在后面）。Ctrl+点击曲线保形插点。松开鼠标完成，Esc取消拖拽，Ctrl+Z撤销整次操作。选中点显示控制柄；修改后重新生成模型或网格。", "Drag a point to move it; hold Shift and drag a point to add one (extend endpoints, insert after an interior point). Ctrl+click the curve inserts without changing its shape. Release to finish, Esc to cancel, Ctrl+Z to undo the gesture. Select a point for its handles. Rebuild models/meshes after editing."), MessageType.None);
+            try { path.ValidatePath(); } catch (System.Exception error) { EditorGUILayout.HelpBox(error.Message, MessageType.Error); return; }
+            EditorGUILayout.HelpBox(PathText.T("直接拖动圆点调整路径；按住 Shift 从圆点拖出新点（首尾延长，中间插在后面）。Ctrl+点击曲线保形插点。松开鼠标完成，Esc取消拖拽，Ctrl+Z撤销整次操作。选中点显示控制柄；可切换移动 / 旋转，旋转圆环调整横向倾斜。高低起伏需配合点高度和切线。实时预览在工具集里开启，最后点生成确认。", "Drag a point to move it; hold Shift and drag a point to add one (extend endpoints, insert after an interior point). Ctrl+click the curve inserts without changing its shape. Release to finish, Esc to cancel, Ctrl+Z to undo the gesture. Select a point for its handles. Switch Move / Rotate to tilt around the tangent; adjust height and tangents for slopes. Enable live preview in the tool panel, then Generate to commit."), MessageType.None);
+            RotatePoints = EditorGUILayout.Popup(PathText.T("选中点操作", "Selected point handle"), RotatePoints ? 1 : 0,
+                ASEShaderConverter.Editor.CHToolLanguage.IsChinese ? new[] { "移动", "旋转 / 倾斜" } : new[] { "Move", "Rotate / tilt" }) == 1;
+            int mode = PathKnotEditing.Mode(path, 0);
+            bool mixed = false; for (int i = 1; i < path.knots.Count; i++) if (PathKnotEditing.Mode(path, i) != mode) mixed = true;
+            var choices = new string[4]; choices[0] = PathText.T("混合（逐点设置）", "Mixed (per point)"); System.Array.Copy(PathKnotEditing.Names, 0, choices, 1, 3);
+            int whole = EditorGUILayout.Popup(PathText.T("整条路径类型", "Whole path type"), mixed ? 0 : mode + 1, choices);
+            if (whole > 0 && (mixed || whole != mode + 1)) PathKnotEditing.SetMode(path, -1, whole - 1);
+            int selected = PathPointInsertion.FocusedIndex(path);
+            if (selected >= 0 && selected < path.knots.Count)
+            {
+                int old = PathKnotEditing.Mode(path, selected);
+                int next = EditorGUILayout.Popup(PathText.T("选中点类型 ", "Selected point type ") + (selected + 1), old, PathKnotEditing.Names);
+                if (next != old) PathKnotEditing.SetMode(path, selected, next);
+            }
             var so = new SerializedObject(path); so.Update();
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.PropertyField(so.FindProperty("closed"), new GUIContent(PathText.T("闭合路径", "Closed path")));
@@ -37,13 +54,16 @@ namespace CH.CustomTools.Paths.Editor
                 if (!k.isExpanded) continue;
                 EditorGUI.indentLevel++;
                 EditorGUILayout.PropertyField(k.FindPropertyRelative("position"), new GUIContent(PathText.T("位置（路径局部）", "Position (path local)")));
-                EditorGUILayout.PropertyField(k.FindPropertyRelative("automatic"), new GUIContent(PathText.T("自动平滑", "Automatic handles")));
-                if (!k.FindPropertyRelative("automatic").boolValue)
+                int pointMode = PathKnotEditing.Mode(path, i);
+                int pointNext = EditorGUILayout.Popup(PathText.T("点类型", "Point type"), pointMode, PathKnotEditing.Names);
+                if (pointNext != pointMode) { so.ApplyModifiedProperties(); PathKnotEditing.SetMode(path, i, pointNext); so.Update(); }
+
+                if (PathKnotEditing.Mode(path, i) == 2)
                 {
                     EditorGUILayout.PropertyField(k.FindPropertyRelative("incoming"), new GUIContent(PathText.T("进入控制柄", "Incoming handle")));
                     EditorGUILayout.PropertyField(k.FindPropertyRelative("outgoing"), new GUIContent(PathText.T("离开控制柄", "Outgoing handle")));
                 }
-                EditorGUILayout.PropertyField(k.FindPropertyRelative("roll"), new GUIContent(PathText.T("扭转角度", "Roll (degrees)")));
+                EditorGUILayout.PropertyField(k.FindPropertyRelative("roll"), new GUIContent(PathText.T("旋转 / 横向倾斜（度）", "Rotation / bank (degrees)")));
                 using (new EditorGUI.DisabledScope(knots.arraySize <= (path.closed ? 3 : 2)))
                     if (GUILayout.Button(PathText.T("删除此点", "Remove point"))) { knots.DeleteArrayElementAtIndex(i); EditorGUI.indentLevel--; break; }
                 EditorGUI.indentLevel--;
@@ -63,7 +83,7 @@ namespace CH.CustomTools.Paths.Editor
         }
         internal static void DrawSceneHandles(BezierPath path)
         {
-            if (Application.isPlaying || PathMotionPreview.IsActive || path.knots == null || PathPointDrag.IsDragging) return;
+            if (!PathSceneTool.Active || Application.isPlaying || PathMotionPreview.IsActive || path.knots == null || PathPointDrag.IsDragging) return;
             try { path.ValidatePath(); } catch (System.Exception) { return; }
             if (PathPointInsertion.InsertionModifier(Event.current) && GUIUtility.hotControl == 0) return;
             if (Event.current.shift && GUIUtility.hotControl == 0) return;
@@ -72,7 +92,24 @@ namespace CH.CustomTools.Paths.Editor
                 var k = path.knots[i]; if (k == null) continue; var position = path.transform.TransformPoint(k.position);
                 if (!PathPointInsertion.IsFocused(path, i)) continue;
                 Handles.color = PathPointInsertion.IsFocused(path, i) ? Color.green : Color.white;
+                if (RotatePoints)
+                {
+                    Vector3 at, tangent; path.Cubic(i < path.SegmentCount ? i : i - 1, i < path.SegmentCount ? 0 : 1, out at, out tangent);
+                    if (tangent.sqrMagnitude < 1e-8f)
+                    { var neighbour = path.knots[i + 1 < path.knots.Count ? i + 1 : i - 1]; tangent = path.transform.TransformVector(i + 1 < path.knots.Count ? neighbour.position - k.position : k.position - neighbour.position); }
+                    if (tangent.sqrMagnitude < 1e-8f) tangent = path.transform.forward;
+                    tangent.Normalize(); var up = BezierPath.Perpendicular(tangent, path.transform.TransformDirection(path.initialUp));
+                    var rotation = Quaternion.AngleAxis(k.roll, tangent) * Quaternion.LookRotation(tangent, up);
+                    int previousControl = GUIUtility.hotControl;
+                    EditorGUI.BeginChangeCheck(); var rotated = Handles.Disc(rotation, position, tangent, HandleUtility.GetHandleSize(position) * .65f, false, 15);
+                    if (previousControl == 0 && GUIUtility.hotControl != 0) Undo.IncrementCurrentGroup();
+                    if (EditorGUI.EndChangeCheck()) PathKnotEditing.SetRoll(path, i, k.roll + Vector3.SignedAngle(rotation * Vector3.up, rotated * Vector3.up, tangent));
+                }
+                else
+                {
+                int previousControl = GUIUtility.hotControl;
                 EditorGUI.BeginChangeCheck(); var moved = Handles.PositionHandle(position, Tools.pivotRotation == PivotRotation.Local ? path.transform.rotation : Quaternion.identity);
+                if (previousControl == 0 && GUIUtility.hotControl != 0) Undo.IncrementCurrentGroup();
                 if (EditorGUI.EndChangeCheck())
                 {
                     if (SnapToSurface)
@@ -81,33 +118,45 @@ namespace CH.CustomTools.Paths.Editor
                     }
                     Undo.RecordObject(path, "Move path point"); k.position = path.transform.InverseTransformPoint(moved); path.Invalidate(); EditorUtility.SetDirty(path);
                 }
+                }
                 if (k.automatic) continue;
                 for (int h = 0; h < 2; h++)
                 {
-                    Vector3 point = path.transform.TransformPoint(path.Handle(i, h == 1)); Handles.color = Color.gray; Handles.DrawLine(position, point);
-                    EditorGUI.BeginChangeCheck(); Vector3 handle = Handles.PositionHandle(point, path.transform.rotation);
-                    if (EditorGUI.EndChangeCheck())
-                    { Undo.RecordObject(path, "Move path handle"); if (h == 0) k.incoming = path.transform.InverseTransformPoint(handle) - k.position; else k.outgoing = path.transform.InverseTransformPoint(handle) - k.position; path.Invalidate(); EditorUtility.SetDirty(path); }
+                    if (PathKnotEditing.Mode(path, i) == 0) continue;
+                    Vector3 point = path.transform.TransformPoint(path.Handle(i, h == 1)); Handles.color = Measurement.DmSkin.Accent; Handles.DrawLine(position, point);
+                    int previousControl = GUIUtility.hotControl;
+                    EditorGUI.BeginChangeCheck(); Vector3 handle = Handles.FreeMoveHandle(point, HandleUtility.GetHandleSize(point) * .065f, Vector3.zero, Handles.RectangleHandleCap);
+                    if (previousControl == 0 && GUIUtility.hotControl != 0) Undo.IncrementCurrentGroup();
+                    if (EditorGUI.EndChangeCheck()) PathKnotEditing.MoveTangent(path, i, h == 1, handle);
                 }
             }
         }
-        [DrawGizmo(GizmoType.Selected | GizmoType.NonSelected)]
-        static void DrawCurve(BezierPath path, GizmoType type)
+        // Handles belong to the Scene GUI pass. A DrawGizmo callback can omit them even
+        // when Gizmos is enabled; selected-path editing must also work with Gizmos off.
+        internal static void DrawSceneCurve(BezierPath path, bool selected)
         {
-            if (path.knots == null || path.knots.Count < 2 || path.knots.Count > 512) return;
+            if (path == null || Event.current.type != EventType.Repaint) return;
+            var depth = Handles.zTest;
             try
             {
-                path.ValidatePath(); bool selected = (type & GizmoType.Selected) != 0 || PathPointInsertion.SelectedPath() == path;
-                Color color = Measurement.DmSkin.Palette[1]; if (!selected) color.a = .4f;
-                using (new Handles.DrawingScope(Handles.color, Matrix4x4.identity))
+                path.ValidatePath();
+                using (new Handles.DrawingScope(Measurement.DmSkin.Palette[1], Matrix4x4.identity))
                 {
-                    for (int i = 0; i < path.SegmentCount; i++) { int end = (i + 1) % path.knots.Count; CHSceneVisuals.Curve(path.transform.TransformPoint(path.knots[i].position), path.transform.TransformPoint(path.Handle(i, true)), path.transform.TransformPoint(path.Handle(end, false)), path.transform.TransformPoint(path.knots[end].position), color, selected); }
+                    Handles.zTest = selected ? UnityEngine.Rendering.CompareFunction.Always : UnityEngine.Rendering.CompareFunction.LessEqual;
+                    for (int i = 0; i < path.SegmentCount; i++)
+                    {
+                        int end = (i + 1) % path.knots.Count;
+                        CHSceneVisuals.Curve(path.transform.TransformPoint(path.knots[i].position),
+                            path.transform.TransformPoint(path.Handle(i, true)), path.transform.TransformPoint(path.Handle(end, false)),
+                            path.transform.TransformPoint(path.knots[end].position), Measurement.DmSkin.Palette[1], selected);
+                    }
                     if (!selected || !ShowOrientation) return;
-                    float length = path.Length; int count = Mathf.Min(80, Mathf.CeilToInt(length));
+                    float length = path.Length; int count = Mathf.Max(1, Mathf.Min(80, Mathf.CeilToInt(length)));
                     for (int i = 0; i <= count; i++) { var p = path.Evaluate(length * i / count); Handles.color = Color.green; Handles.DrawLine(p.position, p.position + p.up * .3f); Handles.color = Color.red; Handles.DrawLine(p.position, p.position + p.tangent * .3f); }
                 }
             }
-            catch (System.Exception) { /* Inspector shows invalid path details; gizmos must not spam logs. */ }
+            catch (System.Exception) { /* Invalid paths are reported by authoring actions. */ }
+            finally { Handles.zTest = depth; }
         }
     }
     [CustomEditor(typeof(PathFollower))]

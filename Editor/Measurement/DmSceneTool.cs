@@ -77,6 +77,7 @@ namespace CH.CustomTools.Measurement
             {
                 if (_active == value) return;
                 _active = value;
+                if (value) CH.CustomTools.Paths.Editor.PathSceneTool.Active = false;
                 _cursorCached = false;
                 if (!value)
                 {

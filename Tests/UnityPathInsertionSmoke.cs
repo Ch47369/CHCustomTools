@@ -55,6 +55,7 @@ public static class UnityPathInsertionSmoke
             Check(PathPointInsertion.SelectedPath() == path, "Generated child selection resolves its owning path");
             ASEShaderConverterWindow.OpenPathTools(); window = Resources.FindObjectsOfTypeAll<ASEShaderConverterWindow>().Single();
             view = EditorWindow.GetWindow<SceneView>(); view.position = new Rect(30, 30, 1000, 780); view.Show(); view.LookAtDirect(Vector3.zero, Quaternion.LookRotation(Vector3.forward), 6); view.orthographic = true; view.Focus();
+            PathSceneTool.Active = true;
             BezierPathEditor.SnapToSurface = false;
             SceneView.duringSceneGui += Capture; Application.logMessageReceived += Log;
             phase = 0; next = EditorApplication.timeSinceStartup + 2; deadline = next + 100; EditorApplication.update += Tick;
@@ -249,7 +250,7 @@ public static class UnityPathInsertionSmoke
                     var measurement = typeof(ASEShaderConverterWindow).Assembly.GetType("CH.CustomTools.Measurement.DmSceneTool", true).GetProperty("Active", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
                     measurement.SetValue(null, true); Mouse(EventType.MouseMove, gestureDestination);
                     Check(JsonUtility.ToJson(path) == beforeGesture && !PathPointDrag.IsDragging, "Measurement activation takes priority and cancels path dragging");
-                    measurement.SetValue(null, false);
+                    measurement.SetValue(null, false); PathSceneTool.Active = true;
                     break;
                 case 15:
                     Mouse(EventType.MouseMove, gestureSource, shift: true); Mouse(EventType.MouseDown, gestureSource, shift: true);

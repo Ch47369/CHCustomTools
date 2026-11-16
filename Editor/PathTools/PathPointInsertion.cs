@@ -28,6 +28,8 @@ namespace CH.CustomTools.Paths.Editor
         }
         static void ClearFocus() { focusedPath = null; focusedIndex = -1; SceneView.RepaintAll(); }
         internal static void Focus(BezierPath path, int index) { focusedPath = path; focusedIndex = index; SceneView.RepaintAll(); }
+        internal static int FocusedIndex(BezierPath path) { return path == focusedPath ? focusedIndex : -1; }
+        internal static void CancelActive() { ClearFocus(); SceneView.RepaintAll(); }
         internal static bool IsFocused(BezierPath path, int index) { return path == focusedPath && index == focusedIndex; }
         public static bool InsertionModifier(Event e) { return e != null && (e.control || e.command) && !e.alt; }
         public static BezierPath SelectedPath()
@@ -113,8 +115,15 @@ namespace CH.CustomTools.Paths.Editor
         {
             using (new Handles.DrawingScope(Handles.color, Matrix4x4.identity))
             {
-                HandleInsertion(view);
                 var path = SelectedPath();
+                PathSceneTool.Draw(view);
+                if (!PathSceneTool.Active)
+                {
+                    if (capturedControl != 0 && capturedView == view)
+                    { if (GUIUtility.hotControl == capturedControl) GUIUtility.hotControl = 0; capturedControl = 0; capturedView = null; }
+                    PathPointDrag.SceneGUI(view, null, false); return;
+                }
+                HandleInsertion(view);
                 PathPointDrag.SceneGUI(view, path, capturedControl != 0);
                 if (path != null && capturedControl == 0 && !Measurement.DmSceneTool.Active && (!InsertionModifier(Event.current) || GUIUtility.hotControl != 0)) BezierPathEditor.DrawSceneHandles(path);
             }

@@ -155,7 +155,7 @@ namespace CH.CustomTools.Paths.Editor
         }
         public static void Start(PathFollower target)
         {
-            Stop(); if (target == null || target.path == null || EditorUtility.IsPersistent(target) || EditorApplication.isPlayingOrWillChangePlaymode || target.path.transform.IsChildOf(target.transform)) throw new InvalidOperationException("Choose a separate scene follower with a path, outside Play mode. / 请在非运行模式选择独立的路径运动对象。");
+            Stop(); PathAuthoringPreview.Stop(); if (target == null || target.path == null || EditorUtility.IsPersistent(target) || EditorApplication.isPlayingOrWillChangePlaymode || target.path.transform.IsChildOf(target.transform)) throw new InvalidOperationException("Choose a separate scene follower with a path, outside Play mode. / 请在非运行模式选择独立的路径运动对象。");
             target.path.ValidatePath(); var t = target.transform;
             follower = target; parent = t.parent; localPosition = t.localPosition; localRotation = t.localRotation; localScale = t.localScale; worldPosition = t.position; worldRotation = t.rotation;
             started = EditorApplication.timeSinceStartup; EditorApplication.update += Tick;

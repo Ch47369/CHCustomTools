@@ -1,6 +1,6 @@
 0.6.0 新增 **场景工具 → 路径工具**：编辑曲线、沿线放置模型、生成带UV的面片/标线/圆管/栏杆、预览和运行路径运动，详见 [路径工具](PathTools.md)。所有功能仍在统一窗口内。
 
-# CH自定义工具集 0.6.3
+# CH自定义工具集 0.6.4
 
 作者：CH。统一入口 **Tools → CH自定义工具集**。左侧为 Shader、VFX、场景工具、设置，右侧的功能标签直接切换当前面板，不再打开新的功能窗口。原 Shader 包升级后就是完整工具集；包 ID 保持 `com.aseshader.handwritten-converter`。
 
@@ -64,7 +64,7 @@
 https://github.com/Ch47369/CHCustomTools.git
 ```
 
-固定本次版本可使用 `https://github.com/Ch47369/CHCustomTools.git#v0.6.3`。仓库现为公开，安装和更新无需 GitHub 登录。首次用 Git URL 安装需要 Unity 能找到 Git；离线可安装同版本 Unity Tarball，不需要另取音频包。
+固定本次版本可使用 `https://github.com/Ch47369/CHCustomTools.git#v0.6.4`。仓库现为公开，安装和更新无需 GitHub 登录。首次用 Git URL 安装需要 Unity 能找到 Git；离线可安装同版本 Unity Tarball，不需要另取音频包。
 
 更新在设置 → 插件更新中进行；HTTPS 安装从 GitHub Release 查询正式版本，只有严格高于当前版本才提供版本更新操作。下载通过 GitHub API 进行，验证发布资源的大小和 SHA-256，再交给 Unity 安装。安装包保存在当前项目 `Packages/CHCustomToolsCache~`，项目的包引用随之改为该文件；后续仍从 GitHub 检查和下载更新，不读取开发者本地仓库。请把此缓存目录连同 manifest 一起保留，便于项目在其他机器恢复。SSH 安装保留原 Git 传输方式。
 
@@ -75,3 +75,5 @@ https://github.com/Ch47369/CHCustomTools.git
 语言只有中文、English 两种显示。未手动选择时跟随 Unity 编辑器语言；设置 → 常规中手动选择后影响全部功能，恢复默认清除覆盖。作者始终为 CH。
 
 最低 Unity 2022.3。音频/VFX及窗口在 Unity 2022.3.10f1 和 6000.0.80f1 实测；这不扩大 ShaderGraph 的 Unity 2022.3 / SG14.0.8 版本限制。已有转换能力、管线宿主要求和阻塞条件参见 ShaderConversionRoadmap.md，不宣称任意 Shader 都能自动互转。
+
+0.6.4：中文大类名称为“着色器 / 特效”。场景工具快捷键统一在“设置 → 常规”修改，默认测量 Alt+D、路径 Alt+S；均切换功能面板中的 Scene 启用状态，只在 Scene 获得焦点时生效。

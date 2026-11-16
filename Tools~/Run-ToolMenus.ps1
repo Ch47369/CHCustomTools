@@ -2,9 +2,10 @@ param(
     [string]$UnityEditorPath='C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Unity.exe',
     [ValidateSet('Shader','Audio','Both')][string]$Packages='Shader',
     [switch]$Tarballs,
+    [string]$SourceRoot='F:/ASEShader',
     [ValidatePattern('^[A-Za-z0-9-]+$')][string]$RunId='CustomTools048',
     [ValidatePattern('^\d+\.\d+\.\d+$')][string]$ShaderVersion='0.5.0',
-    [ValidateSet('UnityToolMenusSmoke','UnityInlineUpdateSmoke','UnityGraphInputWindowSmoke','UnityUnifiedWindowSmoke','UnityGitUpdateSmoke','UnityCustomToolsSmoke','UnityGitInstallSmoke','UnityGitHubDownloadSmoke','UnityMeasurementSmoke','UnityPathToolsSmoke','UnityPathInsertionSmoke')][string]$TestClass='UnityCustomToolsSmoke',
+    [ValidateSet('UnityToolMenusSmoke','UnityInlineUpdateSmoke','UnityGraphInputWindowSmoke','UnityUnifiedWindowSmoke','UnityGitUpdateSmoke','UnityCustomToolsSmoke','UnityGitInstallSmoke','UnityGitHubDownloadSmoke','UnityMeasurementSmoke','UnityPathToolsSmoke','UnityPathInsertionSmoke','UnityPathVisibilitySmoke','UnitySceneToolsSmoke','UnityPathPreviewSmoke')][string]$TestClass='UnityCustomToolsSmoke',
     [switch]$Preview
 )
 $ErrorActionPreference='Stop'
@@ -20,7 +21,7 @@ $dependencies=[ordered]@{
     'com.unity.modules.jsonserialize'='1.0.0';'com.unity.modules.particlesystem'='1.0.0'
 }
 if($Packages -ne 'Audio'){
-    $dependencies['com.aseshader.handwritten-converter']=if($Tarballs){('file:F:/ASEShader/Releases~/com.aseshader.handwritten-converter-'+$ShaderVersion+'.tgz')}else{'file:F:/ASEShader'}
+    $dependencies['com.aseshader.handwritten-converter']=if($Tarballs){('file:F:/ASEShader/Releases~/com.aseshader.handwritten-converter-'+$ShaderVersion+'.tgz')}else{'file:'+([IO.Path]::GetFullPath($SourceRoot).Replace('\','/'))}
 }
 if($Packages -ne 'Shader'){
     $dependencies['com.audiorhythmcurves.audio-rhythm-curves']=if($Tarballs){'file:F:/AudioRhythmCurves-Git/Releases/AudioRhythmCurves-1.0.9.tgz'}else{'file:F:/AudioRhythmCurves-Git/Package'}
@@ -34,5 +35,5 @@ $log=Join-Path $attempt 'editor.log'
 $method=if($Preview){'Preview'}else{'Run'}
 $arguments='-projectPath "'+$project+'" -executeMethod '+$TestClass+'.'+$method+' -logFile "'+$log+'" -force-d3d11'
 $process=Start-Process -FilePath $UnityEditorPath -ArgumentList $arguments -WorkingDirectory $project -WindowStyle Hidden -PassThru
-$reportName=if($TestClass -eq 'UnityPathInsertionSmoke'){'path-insertion.json'}elseif($TestClass -eq 'UnityPathToolsSmoke'){'path-tools.json'}elseif($TestClass -eq 'UnityMeasurementSmoke'){'measurement.json'}elseif($TestClass -eq 'UnityGitHubDownloadSmoke'){'github-download.json'}elseif($TestClass -eq 'UnityGitInstallSmoke'){'real-git-install.json'}elseif($TestClass -eq 'UnityCustomToolsSmoke'){'custom-tools.json'}elseif($TestClass -eq 'UnityGitUpdateSmoke'){'git-update.json'}elseif($TestClass -eq 'UnityUnifiedWindowSmoke'){'unified-window.json'}elseif($TestClass -eq 'UnityGraphInputWindowSmoke'){'graph-input-window.json'}else{'tool-menus-verification.json'}
+$reportName=if($TestClass -eq 'UnityPathPreviewSmoke'){'path-preview.json'}elseif($TestClass -eq 'UnitySceneToolsSmoke'){'scene-tools.json'}elseif($TestClass -eq 'UnityPathVisibilitySmoke'){'path-visibility.json'}elseif($TestClass -eq 'UnityPathInsertionSmoke'){'path-insertion.json'}elseif($TestClass -eq 'UnityPathToolsSmoke'){'path-tools.json'}elseif($TestClass -eq 'UnityMeasurementSmoke'){'measurement.json'}elseif($TestClass -eq 'UnityGitHubDownloadSmoke'){'github-download.json'}elseif($TestClass -eq 'UnityGitInstallSmoke'){'real-git-install.json'}elseif($TestClass -eq 'UnityCustomToolsSmoke'){'custom-tools.json'}elseif($TestClass -eq 'UnityGitUpdateSmoke'){'git-update.json'}elseif($TestClass -eq 'UnityUnifiedWindowSmoke'){'unified-window.json'}elseif($TestClass -eq 'UnityGraphInputWindowSmoke'){'graph-input-window.json'}else{'tool-menus-verification.json'}
 [pscustomobject]@{id=$process.Id;project=$project;log=$log;output=$project+'/Artifacts/'+$reportName;startedUtc=[DateTimeOffset]::UtcNow.ToString('o')}|ConvertTo-Json|Tee-Object -FilePath ($attempt+'/launch.json')

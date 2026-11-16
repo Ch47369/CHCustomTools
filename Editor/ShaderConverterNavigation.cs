@@ -136,8 +136,8 @@ namespace ASEShaderConverter.Editor
         }
         private static string PageTitle(string page)
         {
-            if (page == "shader") return "Shader";
-            if (page == "vfx") return "VFX";
+            if (page == "shader") return CHToolLanguage.Pick("着色器", "Shader");
+            if (page == "vfx") return CHToolLanguage.Pick("特效", "VFX");
             if (page == "scene") return CHToolLanguage.Pick("场景工具", "Scene tools");
             if (page == "measurement") return CHToolLanguage.Pick("距离 / 角度测量", "Distance / angle measurement");
             if (page == "paths") return CHToolLanguage.Pick("路径工具", "Path tools");
@@ -185,6 +185,7 @@ namespace ASEShaderConverter.Editor
             if (settingsTab == 0)
             {
                 CHToolLanguage.DrawLanguageSelector();
+                CHSceneToolSettings.Draw();
                 GUILayout.Space(14);
                 EditorGUILayout.LabelField(CHToolLanguage.Pick("旧版音频插件", "Standalone audio plugin"), EditorStyles.boldLabel);
                 EditorGUILayout.HelpBox(CHToolLanguage.Pick("音频和资源整理现已包含在工具集中。可移除旧独立包；原曲线资源不会被删除。旧曲线数据可在此创建兼容副本，原文件和导出的动画保留。", "Audio and VFX organization are bundled here. You can remove the standalone package without deleting profile assets. Create compatible profile copies below; original files and exported animations are preserved."), MessageType.None);
