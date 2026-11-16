@@ -1,0 +1,19 @@
+{
+  "version": "0.6.4",
+  "success": true,
+  "release": "https://github.com/Ch47369/CHCustomTools/releases/tag/v0.6.4",
+  "publicRepository": true,
+  "sourceCommit": "faf0a6645cf91709de583c4fe36f5e4fcbb7dbc4",
+  "releaseAssetDigestsMatch": true,
+  "tarballSha256": "42a8372a7f283c28e5508eee2433f726cfb30bb075e4ea426141818d00d02a97",
+  "unmodifiedBaseline": "0.6.3",
+  "actualGithubUpgradeEngines": [
+    "2022.3.10f1",
+    "6000.0.80f1"
+  ],
+  "upgradeInstalledContentVerified": 1424,
+  "sourceChecks": 240,
+  "coreChecks": 629,
+  "finalTarballChecks": 762,
+  "runtimeAnd293GraphsPreserved": true
+}
