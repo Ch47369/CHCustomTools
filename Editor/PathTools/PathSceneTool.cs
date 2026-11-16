@@ -12,6 +12,20 @@ namespace CH.CustomTools.Paths.Editor
     {
         static bool active, dirty = true;
         static BezierPath[] paths = new BezierPath[0];
+        public static BezierPath EditingPath { get; private set; }
+        internal static void SetTarget(BezierPath path)
+        {
+            if (EditingPath == path) return;
+            PathPointDrag.CancelActive(); PathPointInsertion.CancelActive();
+            EditingPath = path;
+            if (path != null && path.knots != null && path.knots.Count > 0) PathPointInsertion.Focus(path, 0);
+            SceneView.RepaintAll();
+        }
+        public static void Edit(BezierPath path)
+        {
+            if (path == null || EditorUtility.IsPersistent(path) || !path.gameObject.scene.IsValid()) return;
+            Active = true; SetTarget(path); Selection.activeGameObject = path.gameObject;
+        }
         public static bool Active
         {
             get { return active; }
@@ -20,8 +34,8 @@ namespace CH.CustomTools.Paths.Editor
                 value &= !EditorApplication.isPlayingOrWillChangePlaymode;
                 if (active == value) return;
                 active = value;
-                if (value) DmSceneTool.Active = false;
-                else { PathAuthoringPreview.Stop(); PathPointDrag.CancelActive(); PathPointInsertion.CancelActive(); }
+                if (value) { DmSceneTool.Active = false; SetTarget(PathPointInsertion.SelectionPath()); }
+                else { PathAuthoringPreview.Stop(); SetTarget(null); PathPointDrag.CancelActive(); PathPointInsertion.CancelActive(); }
                 SceneView.RepaintAll();
                 foreach (var window in Resources.FindObjectsOfTypeAll<EditorWindow>()) window.Repaint();
             }
@@ -29,6 +43,7 @@ namespace CH.CustomTools.Paths.Editor
         static PathSceneTool()
         {
             EditorApplication.hierarchyChanged += () => { dirty = true; };
+            Selection.selectionChanged += () => { var path = PathPointInsertion.SelectionPath(); if (Active && path != null) SetTarget(path); };
             AssemblyReloadEvents.beforeAssemblyReload += () => Active = false;
             EditorApplication.playModeStateChanged += state => Active = false;
             EditorSceneManager.activeSceneChangedInEditMode += (a, b) => Active = false;
@@ -52,9 +67,9 @@ namespace CH.CustomTools.Paths.Editor
             bool enabled = EditorGUILayout.ToggleLeft(PathText.T("在 Scene 视图中启用路径编辑", "Enable path editing in Scene view"), Active);
             if (enabled != Active)
             {
-                Active = enabled;
-                if (enabled && path != null) Selection.activeGameObject = path.gameObject;
+                if (enabled && path != null) Edit(path); else Active = enabled;
             }
+            if (Active && EditingPath == null && path != null) SetTarget(path);
         }
     }
 }

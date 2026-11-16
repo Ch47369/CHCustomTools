@@ -34,6 +34,10 @@ namespace CH.CustomTools.Paths.Editor
         public static bool InsertionModifier(Event e) { return e != null && (e.control || e.command) && !e.alt; }
         public static BezierPath SelectedPath()
         {
+            return PathSceneTool.Active && PathSceneTool.EditingPath != null ? PathSceneTool.EditingPath : SelectionPath();
+        }
+        internal static BezierPath SelectionPath()
+        {
             var selected = Selection.activeGameObject;
             if (selected == null || EditorUtility.IsPersistent(selected)) return null;
             var path = selected.GetComponentInParent<BezierPath>();
@@ -123,6 +127,10 @@ namespace CH.CustomTools.Paths.Editor
                     { if (GUIUtility.hotControl == capturedControl) GUIUtility.hotControl = 0; capturedControl = 0; capturedView = null; }
                     PathPointDrag.SceneGUI(view, null, false); return;
                 }
+                var input = Event.current;
+                if (input.type == EventType.KeyDown && !input.alt && !input.control && !input.command && !input.shift && GUIUtility.hotControl == 0 && !EditorGUIUtility.editingTextField
+                    && EditorWindow.focusedWindow == view && path != null && (input.keyCode == KeyCode.W || input.keyCode == KeyCode.E))
+                { BezierPathEditor.RotatePoints = input.keyCode == KeyCode.E; input.Use(); view.Repaint(); }
                 HandleInsertion(view);
                 PathPointDrag.SceneGUI(view, path, capturedControl != 0);
                 if (path != null && capturedControl == 0 && !Measurement.DmSceneTool.Active && (!InsertionModifier(Event.current) || GUIUtility.hotControl != 0)) BezierPathEditor.DrawSceneHandles(path);

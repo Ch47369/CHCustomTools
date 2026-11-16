@@ -26,8 +26,12 @@ namespace CH.CustomTools.Paths.Editor
         {
             try { path.ValidatePath(); } catch (System.Exception error) { EditorGUILayout.HelpBox(error.Message, MessageType.Error); return; }
             EditorGUILayout.HelpBox(PathText.T("直接拖动圆点调整路径；按住 Shift 从圆点拖出新点（首尾延长，中间插在后面）。Ctrl+点击曲线保形插点。松开鼠标完成，Esc取消拖拽，Ctrl+Z撤销整次操作。选中点显示控制柄；可切换移动 / 旋转，旋转圆环调整横向倾斜。高低起伏需配合点高度和切线。实时预览在工具集里开启，最后点生成确认。", "Drag a point to move it; hold Shift and drag a point to add one (extend endpoints, insert after an interior point). Ctrl+click the curve inserts without changing its shape. Release to finish, Esc to cancel, Ctrl+Z to undo the gesture. Select a point for its handles. Switch Move / Rotate to tilt around the tangent; adjust height and tangents for slopes. Enable live preview in the tool panel, then Generate to commit."), MessageType.None);
-            RotatePoints = EditorGUILayout.Popup(PathText.T("选中点操作", "Selected point handle"), RotatePoints ? 1 : 0,
+            var pointNames = new string[path.knots.Count]; for (int i = 0; i < pointNames.Length; i++) pointNames[i] = PathText.T("路径点 ", "Point ") + (i + 1);
+            int focused = PathPointInsertion.FocusedIndex(path), nextPoint = EditorGUILayout.Popup(PathText.T("当前编辑点", "Editing point"), Mathf.Clamp(focused, 0, pointNames.Length - 1), pointNames);
+            if (focused != nextPoint) PathPointInsertion.Focus(path, nextPoint);
+            RotatePoints = EditorGUILayout.Popup(PathText.T("选中点操作（W / E）", "Point handle (W / E)"), RotatePoints ? 1 : 0,
                 ASEShaderConverter.Editor.CHToolLanguage.IsChinese ? new[] { "移动", "旋转 / 倾斜" } : new[] { "Move", "Rotate / tilt" }) == 1;
+            EditorGUILayout.HelpBox(PathText.T("每个点都可选中后用三轴旋转。X/Y 转动切线，改变局部曲线和网格方向；绕路径方向旋转调整横向倾斜。点的位置保持不动。", "Select any point for three-axis rotation. X/Y turn its tangents and local curve/mesh direction; rotation around the path banks the mesh. The point position stays fixed."), MessageType.None);
             int mode = PathKnotEditing.Mode(path, 0);
             bool mixed = false; for (int i = 1; i < path.knots.Count; i++) if (PathKnotEditing.Mode(path, i) != mode) mixed = true;
             var choices = new string[4]; choices[0] = PathText.T("混合（逐点设置）", "Mixed (per point)"); System.Array.Copy(PathKnotEditing.Names, 0, choices, 1, 3);
@@ -39,6 +43,9 @@ namespace CH.CustomTools.Paths.Editor
                 int old = PathKnotEditing.Mode(path, selected);
                 int next = EditorGUILayout.Popup(PathText.T("选中点类型 ", "Selected point type ") + (selected + 1), old, PathKnotEditing.Names);
                 if (next != old) PathKnotEditing.SetMode(path, selected, next);
+                EditorGUI.BeginChangeCheck();
+                Vector3 rotation = EditorGUILayout.Vector3Field(PathText.T("选中点旋转（世界 XYZ 度）", "Point rotation (world XYZ degrees)"), PathKnotEditing.Rotation(path, selected).eulerAngles);
+                if (EditorGUI.EndChangeCheck()) PathKnotEditing.SetRotation(path, selected, Quaternion.Euler(rotation));
             }
             var so = new SerializedObject(path); so.Update();
             EditorGUI.BeginChangeCheck();
@@ -76,7 +83,7 @@ namespace CH.CustomTools.Paths.Editor
                 var position = count > 1 ? path.knots[count - 1].position * 2 - path.knots[count - 2].position : Vector3.forward * 5;
                 path.knots.Add(new PathKnot(position)); path.Invalidate(); EditorUtility.SetDirty(path);
             }
-            if (GUILayout.Button(PathText.T("在场景中编辑", "Edit in Scene"))) { Selection.activeGameObject = path.gameObject; if (SceneView.lastActiveSceneView != null) SceneView.lastActiveSceneView.FrameSelected(); }
+            if (GUILayout.Button(PathText.T("在场景中编辑", "Edit in Scene"))) { PathSceneTool.Edit(path); if (SceneView.lastActiveSceneView != null) SceneView.lastActiveSceneView.FrameSelected(); }
             EditorGUILayout.EndHorizontal();
             SnapToSurface = EditorGUILayout.Toggle(PathText.T("拖点时贴合下方表面", "Snap moved points to surface"), SnapToSurface);
             ShowOrientation = EditorGUILayout.Toggle(PathText.T("显示路径朝向辅助线", "Show path orientation guides"), ShowOrientation);
@@ -94,16 +101,11 @@ namespace CH.CustomTools.Paths.Editor
                 Handles.color = PathPointInsertion.IsFocused(path, i) ? Color.green : Color.white;
                 if (RotatePoints)
                 {
-                    Vector3 at, tangent; path.Cubic(i < path.SegmentCount ? i : i - 1, i < path.SegmentCount ? 0 : 1, out at, out tangent);
-                    if (tangent.sqrMagnitude < 1e-8f)
-                    { var neighbour = path.knots[i + 1 < path.knots.Count ? i + 1 : i - 1]; tangent = path.transform.TransformVector(i + 1 < path.knots.Count ? neighbour.position - k.position : k.position - neighbour.position); }
-                    if (tangent.sqrMagnitude < 1e-8f) tangent = path.transform.forward;
-                    tangent.Normalize(); var up = BezierPath.Perpendicular(tangent, path.transform.TransformDirection(path.initialUp));
-                    var rotation = Quaternion.AngleAxis(k.roll, tangent) * Quaternion.LookRotation(tangent, up);
+                    var rotation = PathKnotEditing.Rotation(path, i);
                     int previousControl = GUIUtility.hotControl;
-                    EditorGUI.BeginChangeCheck(); var rotated = Handles.Disc(rotation, position, tangent, HandleUtility.GetHandleSize(position) * .65f, false, 15);
+                    EditorGUI.BeginChangeCheck(); var rotated = Handles.RotationHandle(rotation, position);
                     if (previousControl == 0 && GUIUtility.hotControl != 0) Undo.IncrementCurrentGroup();
-                    if (EditorGUI.EndChangeCheck()) PathKnotEditing.SetRoll(path, i, k.roll + Vector3.SignedAngle(rotation * Vector3.up, rotated * Vector3.up, tangent));
+                    if (EditorGUI.EndChangeCheck()) PathKnotEditing.SetRotation(path, i, rotated);
                 }
                 else
                 {

@@ -53,6 +53,43 @@ namespace CH.CustomTools.Paths.Editor
             if (index < 0 || index >= path.knots.Count || float.IsNaN(degrees) || float.IsInfinity(degrees)) throw new ArgumentException("Invalid point rotation");
             Undo.RecordObject(path, "Rotate path point"); path.knots[index].roll = degrees; Changed(path);
         }
+        static Vector3 Direction(BezierPath path, int index)
+        {
+            var knot = path.knots[index];
+            Vector3 tangent = path.transform.TransformVector(path.Handle(index, true) - knot.position);
+            if (tangent.sqrMagnitude < 1e-10f) tangent = path.transform.TransformVector(knot.position - path.Handle(index, false));
+            if (tangent.sqrMagnitude < 1e-10f)
+            {
+                int other = index + 1 < path.knots.Count ? index + 1 : path.closed ? 0 : index - 1;
+                tangent = path.transform.TransformVector((path.knots[other].position - knot.position) * (other == index - 1 ? -1 : 1));
+            }
+            return tangent.sqrMagnitude < 1e-10f ? path.transform.forward : tangent.normalized;
+        }
+        public static Quaternion Rotation(BezierPath path, int index)
+        {
+            Vector3 tangent = Direction(path, index);
+            return Quaternion.AngleAxis(path.knots[index].roll, tangent) * Quaternion.LookRotation(tangent, BezierPath.Perpendicular(tangent, path.transform.TransformDirection(path.initialUp)));
+        }
+        public static void SetRotation(BezierPath path, int index, Quaternion rotation)
+        {
+            Validate(path, 2);
+            if (index < 0 || index >= path.knots.Count || !BezierPath.Finite(new Vector3(rotation.x, rotation.y, rotation.z)) || float.IsNaN(rotation.w) || float.IsInfinity(rotation.w)
+                || Quaternion.Dot(rotation, rotation) < 1e-10f) throw new ArgumentException("Invalid point rotation");
+            rotation = Quaternion.Normalize(rotation);
+            Quaternion current = Rotation(path, index), delta = rotation * Quaternion.Inverse(current);
+            Undo.RecordObject(path, "Rotate path point");
+            var knot = path.knots[index];
+            if (Vector3.Angle(current * Vector3.forward, rotation * Vector3.forward) > .0001f)
+            {
+                // Three-axis spline rotation turns its tangents; pure bank keeps automatic/linear mode.
+                Set(path, index, 2);
+                knot.incoming = path.transform.InverseTransformVector(delta * path.transform.TransformVector(knot.incoming));
+                knot.outgoing = path.transform.InverseTransformVector(delta * path.transform.TransformVector(knot.outgoing));
+            }
+            Vector3 tangent = Direction(path, index);
+            knot.roll = Vector3.SignedAngle(BezierPath.Perpendicular(tangent, path.transform.TransformDirection(path.initialUp)), rotation * Vector3.up, tangent);
+            Changed(path);
+        }
         static void Validate(BezierPath path, int mode)
         {
             if (path == null || EditorUtility.IsPersistent(path) || Application.isPlaying || PathMotionPreview.IsActive || mode < 0 || mode > 2) throw new InvalidOperationException("Select a scene path and stop preview.");

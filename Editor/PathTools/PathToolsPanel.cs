@@ -19,22 +19,33 @@ namespace CH.CustomTools.Paths.Editor
         [SerializeField] int tab, preset = 1;
         [SerializeField] bool previewModels = true, previewMesh = true;
         [NonSerialized] string message;
+        [NonSerialized] internal Rect useSelectionArea;
         static string T(string zh, string en) { return PathText.T(zh, en); }
         public void Deactivate() { PathAuthoringPreview.Stop(); PathMotionPreview.Stop(); PathSceneTool.Active = false; }
         void Action(Action action) { try { PathMotionPreview.Stop(); action(); message = T("已完成。生成与路径编辑支持撤销。", "Done. Generation and path edits support Undo."); } catch (Exception e) { message = e.Message; } }
+        void SelectPath(BezierPath next)
+        {
+            PathAuthoringPreview.Stop(); PathMotionPreview.Stop(); path = next;
+            if (next == null) PathSceneTool.Active = false;
+            else if (PathSceneTool.Active) PathSceneTool.Edit(next);
+        }
         public void DrawPanel()
         {
+            if (PathSceneTool.Active && PathSceneTool.EditingPath != null) path = PathSceneTool.EditingPath;
+            else if (path == null) path = PathPointInsertion.SelectionPath();
             PathSceneTool.DrawEnable(path);
             scroll = EditorGUILayout.BeginScrollView(scroll);
             EditorGUILayout.HelpBox(T("1 创建或选择路径 → 2 在 Scene 拖动路径点 → 3 生成模型 / 网格，或设置路径运动。1世界单位按1米处理。", "1 Create/select a path → 2 Drag points in Scene → 3 Generate models/meshes or set up motion. One world unit is treated as one metre."), MessageType.None);
             EditorGUILayout.BeginHorizontal();
             preset = EditorGUILayout.Popup(preset, CHToolLanguage.IsChinese ? new[] { "直线", "S形曲线", "圆形", "空间飞行" } : new[] { "Straight", "S curve", "Circle", "3D flight" });
-            if (GUILayout.Button(T("创建路径", "Create path"))) Action(() => { var view = SceneView.lastActiveSceneView; path = PathAuthoring.Create((PathPreset)preset, view == null ? Vector3.zero : view.pivot); });
+            if (GUILayout.Button(T("创建路径", "Create path"))) Action(() => { var view = SceneView.lastActiveSceneView; SelectPath(PathAuthoring.Create((PathPreset)preset, view == null ? Vector3.zero : view.pivot)); });
             EditorGUILayout.EndHorizontal();
             EditorGUI.BeginChangeCheck(); var next = (BezierPath)EditorGUILayout.ObjectField(T("当前路径", "Current path"), path, typeof(BezierPath), true);
-            if (EditorGUI.EndChangeCheck()) { Deactivate(); path = next; }
-            if (GUILayout.Button(T("使用当前选择的路径", "Use selected path"))) { var selected = Selection.activeGameObject; if (selected != null) { var p = selected.GetComponentInParent<BezierPath>(); var output = selected.GetComponentInParent<PathGeneratedOutput>(); Deactivate(); path = p != null ? p : output != null ? output.owner : null; } }
+            if (EditorGUI.EndChangeCheck()) SelectPath(next);
+            if (GUILayout.Button(T("使用当前选择的路径", "Use selected path"))) { var selected = PathPointInsertion.SelectionPath(); if (selected != null) SelectPath(selected); else message = T("请先在层级中选择路径或它的生成组。", "Select a path or its generated group in the Hierarchy."); }
+            if (Event.current.type == EventType.Repaint) { var rect = GUILayoutUtility.GetLastRect(); useSelectionArea = new Rect(GUIUtility.GUIToScreenPoint(rect.position), rect.size); }
             if (path == null) { EditorGUILayout.EndScrollView(); return; }
+            if (!PathSceneTool.Active) EditorGUILayout.HelpBox(T("路径编辑未启用。勾选上方开关，或点击“在场景中编辑”，即可显示路径点、控制柄与实时预览。", "Path editing is off. Enable it above or click Edit in Scene to show points, handles and live previews."), MessageType.Info);
             try { EditorGUILayout.LabelField(T("路径长度", "Path length"), path.Length.ToString("0.###") + " m"); } catch (Exception e) { EditorGUILayout.HelpBox(e.Message, MessageType.Error); }
             int newTab = GUILayout.Toolbar(tab, CHToolLanguage.IsChinese ? new[] { "编辑路径", "沿线放模型", "生成网格", "路径运动" } : new[] { "Edit path", "Place models", "Build mesh", "Motion" });
             if (newTab != tab) { PathMotionPreview.Stop(); if (newTab == 3) PathAuthoringPreview.Stop(); tab = newTab; }
@@ -42,6 +53,8 @@ namespace CH.CustomTools.Paths.Editor
             {
                 previewModels = EditorGUILayout.ToggleLeft(T("实时预览沿线模型", "Live model preview"), previewModels);
                 previewMesh = EditorGUILayout.ToggleLeft(T("实时预览生成网格", "Live mesh preview"), previewMesh);
+                if (previewModels || tab == 1) model = (GameObject)EditorGUILayout.ObjectField(T("沿线模型 / 预制体", "Path model / prefab"), model, typeof(GameObject), true);
+                if (previewModels && model == null) EditorGUILayout.HelpBox(T("尚未指定模型。将模型或预制体拖到上方栏位，便可沿路径实时预览。", "No model selected. Drop a model or prefab above to preview copies along the path."), MessageType.Info);
                 EditorGUILayout.HelpBox(T("勾选上方 Scene 编辑后，修改点、切线、倾斜、模型或网格参数会实时预览。预览不保存；最后点击生成 / 重新生成才确认输出。", "Enable Scene editing above. Points, tangents, tilt and placement/mesh settings update the preview. Click Generate / rebuild to commit the output."), MessageType.None);
             }
             GUILayout.Space(8);
@@ -57,7 +70,6 @@ namespace CH.CustomTools.Paths.Editor
         }
         void DrawPlacement()
         {
-            model = (GameObject)EditorGUILayout.ObjectField(T("模型 / 预制体", "Model / prefab"), model, typeof(GameObject), true);
             placement.spacing = EditorGUILayout.FloatField(T("放置间距（米）", "Spacing (m)"), placement.spacing);
             placement.includeEnd = EditorGUILayout.Toggle(T("开放路径补上终点", "Include open-path endpoint"), placement.includeEnd);
             placement.orientation = (PlacementOrientation)PathText.Choice("模型朝向", "Orientation", (int)placement.orientation, new[] { "跟随路径", "竖直放置", "固定世界朝向" }, new[] { "Follow path", "Upright", "Fixed world rotation" });

@@ -26,7 +26,7 @@ namespace CH.CustomTools.Paths.Editor
         public static bool IsDragging { get { return control != 0; } }
         static PathPointDrag()
         {
-            Selection.selectionChanged += () => { if (dragging != null && PathPointInsertion.SelectedPath() != dragging) Cancel(); };
+            Selection.selectionChanged += () => { if (dragging != null && PathPointInsertion.SelectionPath() != dragging) Cancel(); };
             AssemblyReloadEvents.beforeAssemblyReload += Cancel;
             Undo.undoRedoPerformed += () => { if (control != 0) { var path = dragging; Clear(); if (path != null) path.Invalidate(); } };
             EditorApplication.playModeStateChanged += state => Cancel();
@@ -79,7 +79,7 @@ namespace CH.CustomTools.Paths.Editor
             if (control != 0)
             {
                 if (owner != view) return;
-                if (dragging == null || path != dragging || Application.isPlaying || PathMotionPreview.IsActive || DmSceneTool.Active || GUIUtility.hotControl != control || e.alt)
+                if (dragging == null || path != dragging || PathPointInsertion.SelectionPath() != dragging || Application.isPlaying || PathMotionPreview.IsActive || DmSceneTool.Active || GUIUtility.hotControl != control || e.alt)
                 { Cancel(); return; }
                 if (e.type == EventType.KeyDown && (e.keyCode == KeyCode.Escape || ((e.control || e.command) && e.keyCode == KeyCode.Z)))
                 { Cancel(); e.Use(); return; }
