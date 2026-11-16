@@ -1,0 +1,25 @@
+{
+  "version": "0.6.6",
+  "success": true,
+  "baselineVersion": "0.6.5",
+  "candidateUpdaterBackported": false,
+  "transport": "Public GitHub Release using the unmodified published 0.6.5 HTTP updater",
+  "results": [
+    {
+      "success": true,
+      "unity": "6000.0.80f1",
+      "beforeVersion": "0.6.5",
+      "beforeSource": "Local",
+      "targetTag": "v0.6.6",
+      "installedVersion": "0.6.6",
+      "installedSource": "LocalTarball",
+      "packageId": "com.aseshader.handwritten-converter@file:F:\\ASEShader\\.validation\\GitHubReleaseUpgrade066-Unity6-Project\\Packages\\CHCustomToolsCache~\\com.aseshader.handwritten-converter-0.6.6.tgz",
+      "failure": "",
+      "baselineUnmodifiedFilesVerified": 1452,
+      "downloadedTarballSha256": "6b117b5b372226a12d52fe21b93e1398caf4517eb9dfd2edae60d52e02230c6d",
+      "installedFilesVerified": 1457,
+      "manifestDependency": "file:CHCustomToolsCache~/com.aseshader.handwritten-converter-0.6.6.tgz",
+      "packageCacheSurvivesReload": true
+    }
+  ]
+}

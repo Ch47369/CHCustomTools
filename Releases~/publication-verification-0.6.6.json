@@ -1,0 +1,13 @@
+{
+  "version": "0.6.6",
+  "success": true,
+  "release": "https://github.com/Ch47369/CHCustomTools/releases/tag/v0.6.6",
+  "sourceCommit": "5206bf7becc730cde76b06f69e8a670eae373fd8",
+  "releaseAssetDigestsMatch": true,
+  "tarballSha256": "6b117b5b372226a12d52fe21b93e1398caf4517eb9dfd2edae60d52e02230c6d",
+  "twoUnityFinalTarballChecks": 606,
+  "packagedAndInstalledFilesVerified": 1457,
+  "actualGithubUpgrade": "unmodified 0.6.5 -> 0.6.6, Unity 6000.0.80f1",
+  "runtimeAnd293GraphsPreserved": true,
+  "measurementAudioVfxRenderingAndUpdaterPreserved": true
+}
