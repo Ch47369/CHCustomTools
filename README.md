@@ -1,3 +1,5 @@
+**0.6.5 场景显示与测量结束修复**：右键单击或 Enter 完成开放折线，下一次左键开始新记录；只有左键点击首点才闭合面积。共享线条改用相机空间绘制并裁剪近裁面，避免远坐标透视下的尖刺和断线；标签在几何之后统一显示。路径预览改用不保存的临时渲染对象，避免重复提交，正式输出只在生成时更新。特效音频页移除 Audio / RhythmCurves 下方说明文字。
+
 **0.6.4 路径实时预览、倾斜与场景编辑**：模型摆放与网格可同时实时预览，编辑点/切线/参数即时更新，最后点击生成才保存正式输出。逐点旋转圆环调整横向倾斜，配合点高度适应坡面；无需修改原有路径数据格式。修复路径只有点没有连线。测量和路径均需在面板勾选“在 Scene 视图中启用”，或按默认 Alt+D / Alt+S 切换；快捷键在 **设置 → 常规 → 场景工具快捷键** 统一修改。两个工具互斥，切页/关窗停用。路径支持整条或逐点选择直线角点、自动平滑、贝兹角点；贝兹角点两侧方形切线柄独立拖动，可形成尖角。中文导航显示“着色器 / 特效”。
 
 **0.6.3 场景路径编辑**：路径与距离测量共用描边线、圆点和胶囊标签。直接拖点移动，Shift+从现有点拖出新点（首点向前延长、末点向后延长、中间插在后面，闭合保持连接）。鼠标松开完成；Esc、切换选择或启用测量取消；拖回原位不留下重合新点；整次手势支持一次Undo/Redo。Ctrl+点击曲线的保形插点保留。移动轴/控制柄只随选中点显示，朝向辅助线可手动开启。
@@ -12,9 +14,9 @@
 
 **0.4.9 下载修复**：保留 0.4.8 的完整音频/VFX整合。针对 Unity 6 实际下载中 512 KB 分段接近完成时触发 30 秒超时的问题，缩小为 128 KB 分段、单请求 60 秒、最多三次尝试，总下载仍限制十分钟；继续验证范围、大小与 SHA-256。实际失败和后续验证见 `Documentation~/Evidence/GitHubDownload049`。
 
-**0.6.4 当前版：CH自定义工具集**，作者 CH。统一入口 **Tools → CH自定义工具集**；左侧 Shader / VFX / 场景工具 / 设置，右侧显示功能。完整包含 Shader转换器、293 图 ASE 库、Agent、音频转动画曲线、子特效时序、VFX资源整理与恢复、场景距离 / 角度 / 面积测量。语言、版本和 Git 更新统一管理。原包 ID 保持兼容，GitHub 仓库已按用户要求设为公开；更新从 GitHub Release 下载，无需登录。音频无需第二个依赖包；旧数据通过创建副本迁移，详见 [工具集操作与升级](Documentation~/CustomTools.md)。
+**0.6.5 当前版：CH自定义工具集**，作者 CH。统一入口 **Tools → CH自定义工具集**；左侧 Shader / VFX / 场景工具 / 设置，右侧显示功能。完整包含 Shader转换器、293 图 ASE 库、Agent、音频转动画曲线、子特效时序、VFX资源整理与恢复、场景距离 / 角度 / 面积测量。语言、版本和 Git 更新统一管理。原包 ID 保持兼容，GitHub 仓库已按用户要求设为公开；更新从 GitHub Release 下载，无需登录。音频无需第二个依赖包；旧数据通过创建副本迁移，详见 [工具集操作与升级](Documentation~/CustomTools.md)。
 
-本次安装包：`Releases~/com.aseshader.handwritten-converter-0.6.4.tgz`，源码归档 `Releases~/CHCustomTools-0.6.4.zip`。以下旧版说明和证据按历史批次保留，菜单以当前统一入口为准。
+本次安装包：`Releases~/com.aseshader.handwritten-converter-0.6.5.tgz`，源码归档 `Releases~/CHCustomTools-0.6.5.zip`。以下旧版说明和证据按历史批次保留，菜单以当前统一入口为准。
 
 # CH自定义工具集
 
@@ -65,7 +67,7 @@
 ## 安装和使用
 
 1. ASE 输出/库需安装正版 ASE 和目标管线模板。ShaderGraph 输出需 Unity 2022.3、Shader Graph 14.0.8；URP/HDRP 需对应包 14.0.8。项目需启用所选目标管线，无需安装 ASE。
-2. 推荐使用 Git 安装：Package Manager → **Add package from git URL**，填写 `https://github.com/Ch47369/CHCustomTools.git`；固定本次版本可加 `#v0.4.9`。仓库公开，无需 GitHub 登录，首次 Git URL 安装需电脑已安装 Git。后续在插件的“设置 → 插件更新”升级：HTTPS 更新从公开 GitHub Release 下载、校验安装包，再交给 Unity 安装，无本地 Git 或凭据依赖。旧更新器若无法升级，可从 Release 下载 `.tgz`，用 **Add package from tarball** 手动安装一次新版。源码目录支持 Add package from disk 选择 `package.json`；完整着色器库需保留配套目录。更新缓存说明见 [工具集操作与升级](Documentation~/CustomTools.md)。
+2. 推荐使用 Git 安装：Package Manager → **Add package from git URL**，填写 `https://github.com/Ch47369/CHCustomTools.git`；固定本次版本可加 `#v0.6.5`。仓库公开，无需 GitHub 登录，首次 Git URL 安装需电脑已安装 Git。后续在插件的“设置 → 插件更新”升级：HTTPS 更新从公开 GitHub Release 下载、校验安装包，再交给 Unity 安装，无本地 Git 或凭据依赖。旧更新器若无法升级，可从 Release 下载 `.tgz`，用 **Add package from tarball** 手动安装一次新版。源码目录支持 Add package from disk 选择 `package.json`；完整着色器库需保留配套目录。更新缓存说明见 [工具集操作与升级](Documentation~/CustomTools.md)。
 3. 打开 `Tools/CH自定义工具集` → Shader → 图转换，把 Project 窗口中的 Shader 拖到“输入 Shader”栏，或把系统文件夹中的单个 `.shader` 拖到拖放区域。也可浏览、粘贴路径或使用选中 Shader；切换输入会建议一个不会覆盖原文件的 `Assets/*_ASE.shader` 输出路径。
 4. 选择输出格式 ASE 或 ShaderGraph 及目标管线；后者需明确勾选标准宿主适配。点击“分析”，通过后点击“生成并验证”，获取新的 `.shader` 或 `.shadergraph`。若显示“需要适配”，列出的项目仍阻止生成；复制/导出报告供 Agent 逐项适配。已有输出不会覆盖。拖入目录仅作目录选择，不进行扫描或批量转换。
 5. 在 ASE 中打开输出，并在目标场景比较原、新材质的颜色、Alpha、深度和渲染状态。报告中的 `visualComparisonPassed` 默认是 false。

@@ -26,6 +26,7 @@ public static class UnityPathVisibilitySmoke
     static void Check(bool value, string message) { if (!value) throw new Exception(message); checks.Add(message); }
     public static void Run()
     {
+        CHValidationInput.Install();
         try
         {
             PlayerSettings.runInBackground = true;
@@ -72,6 +73,7 @@ public static class UnityPathVisibilitySmoke
                 RenderTexture.active = captured;
                 texture = new Texture2D(captured.width, captured.height, TextureFormat.RGBA32, false);
                 texture.ReadPixels(new Rect(0, 0, captured.width, captured.height), 0, 0); texture.Apply();
+                if (phase == 0) Check(path.knots[0].position == new Vector3(-4,-2,0) && path.knots[1].position == new Vector3(0,2,0) && path.knots[2].position == new Vector3(4,-2,0), "Fixture control points remain unchanged by desktop input");
                 int visible = 0, samples = 0;
                 for (int segment = 0; segment < path.SegmentCount; segment++) for (int i = 4; i <= 16; i++)
                 {

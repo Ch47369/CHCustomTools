@@ -93,8 +93,6 @@ namespace CH.CustomTools.VFX
             scroll = EditorGUILayout.BeginScrollView(scroll);
             try
             {
-                GUILayout.Label(CHToolLanguage.Text("把声音的强弱、频段与起音，转成可编辑的特效曲线。"), hintStyle);
-                GUILayout.Space(8);
                 DrawSource();
                 if (GUILayout.Button(CHToolLanguage.Pick("迁移旧版曲线数据（创建副本）", "Migrate legacy curve data (create a copy)"))) RhythmProfileMigration.ChooseCopy();
                 GUILayout.Space(8);

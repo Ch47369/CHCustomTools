@@ -33,6 +33,7 @@ public static class UnitySceneToolsSmoke
     static object Call(string name, params object[] args) { return settings.GetMethod(name, Flags).Invoke(null, args); }
     public static void Run()
     {
+        CHValidationInput.Install();
         try
         {
             PlayerSettings.runInBackground = true;
@@ -91,11 +92,11 @@ public static class UnitySceneToolsSmoke
     }
     static void Log(string message, string stack, LogType type) { if (type == LogType.Error || type == LogType.Exception || type == LogType.Assert) errors = message + "\n" + stack; }
     static void Mouse(EventType type, Vector2 position, bool shift = false, bool ctrl = false)
-    { view.SendEvent(new Event { type = type, button = 0, mousePosition = position + inputOffset, shift = shift, control = ctrl }); view.Repaint(); }
+    { CHValidationInput.Send(view, new Event { type = type, button = 0, mousePosition = position + inputOffset, shift = shift, control = ctrl }); view.Repaint(); }
     static void Key(KeyCode key, EventModifiers modifiers, bool release = true)
     {
-        view.Focus(); view.SendEvent(new Event { type = EventType.KeyDown, keyCode = key, modifiers = modifiers });
-        if (release) view.SendEvent(new Event { type = EventType.KeyUp, keyCode = key, modifiers = modifiers });
+        view.Focus(); CHValidationInput.Send(view, new Event { type = EventType.KeyDown, keyCode = key, modifiers = modifiers });
+        if (release) CHValidationInput.Send(view, new Event { type = EventType.KeyUp, keyCode = key, modifiers = modifiers });
     }
     static void Tick()
     {
@@ -115,7 +116,7 @@ public static class UnitySceneToolsSmoke
                     Check(JsonUtility.ToJson(path) == before && !PathPointDrag.IsDragging, "Disabled path mode captures no drag or Ctrl insertion");
                     Key(KeyCode.S, EventModifiers.Alt, false); Check(PathSceneTool.Active && !Measure, "Alt+S enables path editing and disables measurement");
                     Key(KeyCode.S, EventModifiers.Alt, false); Check(PathSceneTool.Active, "Held shortcut key does not repeatedly toggle the tool");
-                    view.SendEvent(new Event { type = EventType.KeyUp, keyCode = KeyCode.S, alt = true }); break;
+                    CHValidationInput.Send(view, new Event { type = EventType.KeyUp, keyCode = KeyCode.S, alt = true }); break;
                 case 1:
                     Key(KeyCode.S, EventModifiers.Alt); Check(!PathSceneTool.Active, "Alt+S disables path editing");
                     Key(KeyCode.D, EventModifiers.Alt); Check(Measure && !PathSceneTool.Active, "Alt+D enables measurement");

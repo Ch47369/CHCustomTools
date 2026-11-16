@@ -4,7 +4,7 @@
 //
 //  交互（无显式模式，按落点几何自动判定类型）：
 //    · 左键放置锚点：两个点 = 直线距离；三点及以上未闭合 = 折线（逐段长度 + 总长）
-//    · 三点及以上时回到起点附近点一下（或按 Enter）即闭合，自动算每段长度、周长与面积（m²）
+//    · 三点及以上时左键回到起点附近点一下即闭合，自动算每段长度、周长与面积（m²）
 //    · 右键点一下「收工」：当前测量立即成为一条记录并留在场景里，视角继续可用
 //    · 拖动已有测量的端点可微调；拖线段主体则整条平移
 //    · Shift 正交（锁定到最近轴向） · Ctrl/Cmd 吸附已有端点
@@ -15,7 +15,7 @@
 //
 //  性能约定（绘制路径上的三条硬规矩，改动时请勿破坏）：
 //    1. 胶囊纹理按「分桶尺寸」缓存，绝不按精确宽高建纹理（见 DmSkin.DrawPill）
-//    2. 像素↔世界比例用解析值 + 相机缓存，不要每次调用 GUIPointToWorldRay
+//    2. 像素↔世界比例用当前投影解析值，不要每次调用 GUIPointToWorldRay
 //    3. Physics.Raycast 按「鼠标位置 + 相机是否变化」节流，不要每次 repaint 都打
 // -----------------------------------------------------------------------------
 
@@ -81,7 +81,7 @@ namespace CH.CustomTools.Measurement
                 _cursorCached = false;
                 if (!value)
                 {
-                    ClearDraft();
+                    CancelRightClick(); ClearDraft();
                     EndDrag();
                 }
                 else
@@ -273,7 +273,8 @@ namespace CH.CustomTools.Measurement
         static bool _cursorValid;
 
         static Vector2 _rmbDown;
-        static bool _rmbMoved;
+        static bool _rmbPending, _rmbMoved;
+        static SceneView _rmbView;
 
         static int _hover = -1;         // 悬停的测量索引
         static int _hoverPoint = -1;    // 悬停的顶点索引；-1 表示只悬停在线段上
@@ -314,7 +315,7 @@ namespace CH.CustomTools.Measurement
         }
         internal static void ResetInteraction()
         {
-            EndDrag(); ClearDraft(); _hover=_hoverPoint=-1; _cursorCached=false;
+            CancelRightClick(); EndDrag(); ClearDraft(); _hover=_hoverPoint=-1; _cursorCached=false;
             DmSurface.Invalidate(true);
         }
         static void InvalidateSurface() { DmSurface.Invalidate(true); _cursorCached=false; SceneView.RepaintAll(); }
@@ -363,7 +364,9 @@ namespace CH.CustomTools.Measurement
         {
             try
             {
-                OnSceneGuiCore(sv);
+                var depth = Handles.zTest;
+                try { using (new Handles.DrawingScope(Color.white, Matrix4x4.identity)) OnSceneGuiCore(sv); }
+                finally { Handles.zTest = depth; }
             }
             catch (System.Exception ex)
             {
@@ -548,6 +551,7 @@ namespace CH.CustomTools.Measurement
             // Allocate the same control in each event; register it as default only during Layout.
             _defaultControlId=GUIUtility.GetControlID("CH.Scene.Measurement".GetHashCode(),FocusType.Passive);
             if (e.type == EventType.Layout) HandleUtility.AddDefaultControl(_defaultControlId);
+            if (HandleRightClick(e)) return;
             if(GUIUtility.hotControl!=0 && GUIUtility.hotControl!=_defaultControlId && GUIUtility.hotControl!=_dragControlId) return;
 
             // ---------------- 键盘 ----------------
@@ -563,9 +567,8 @@ namespace CH.CustomTools.Measurement
                 }
                 if (e.keyCode == KeyCode.Return || e.keyCode == KeyCode.KeypadEnter)
                 {
-                    // Enter = 收工；若光标已回到起点附近（≥3 点）则闭合为面积
-                    Vector2 ss;
-                    CommitDraft(NearStartPoint(cam, out ss));
+                    // Only an explicit left click on the first point closes an area.
+                    CommitDraft(false);
                     e.Use();
                     return;
                 }
@@ -580,28 +583,6 @@ namespace CH.CustomTools.Measurement
                     e.Use();
                     return;
                 }
-            }
-
-            // ---------------- 右键：点一下「收工」，拖动则是转视角 ----------------
-            if (e.type == EventType.MouseDown && e.button == 1)
-            {
-                _rmbDown = e.mousePosition;
-                _rmbMoved = false;
-            }
-            else if (e.type == EventType.MouseDrag && e.button == 1)
-            {
-                if ((e.mousePosition - _rmbDown).sqrMagnitude > 36f) _rmbMoved = true;
-            }
-            else if (e.type == EventType.MouseUp && e.button == 1 && !_rmbMoved)
-            {
-                if (_draft.Count > 0)
-                {
-                    // 收工：提交成记录留在场景里。若光标已回到起点附近（≥3 点）则闭合为面积，否则按几何判为直线/折线
-                    Vector2 ss;
-                    CommitDraft(NearStartPoint(cam, out ss));
-                    e.Use();
-                }
-                return;
             }
 
             // ---------------- 正在拖拽 ----------------
@@ -652,6 +633,24 @@ namespace CH.CustomTools.Measurement
                 e.Use();
             }
         }
+
+        // Observe navigation before the generic hotControl guard. Unity owns the right
+        // button throughout; its mouse-up must still be delivered to release camera control.
+        static bool HandleRightClick(Event e)
+        {
+            if (e.type == EventType.MouseDown && e.button == 1 && !e.alt && _draft.Count > 0 && !_dragging)
+            { _rmbDown = e.mousePosition; _rmbMoved = false; _rmbPending = true; _rmbView = SceneView.currentDrawingSceneView; }
+            if (!_rmbPending || _rmbView != SceneView.currentDrawingSceneView) return false;
+            if (e.type == EventType.MouseDrag && e.button == 1 && (e.mousePosition - _rmbDown).sqrMagnitude > 36) _rmbMoved = true;
+            if (e.rawType == EventType.MouseUp && e.button == 1)
+            {
+                bool finish = !_rmbMoved && !e.alt;
+                CancelRightClick(); if (finish) CommitDraft(false);
+                return true;
+            }
+            return false;
+        }
+        static void CancelRightClick() { _rmbPending = _rmbMoved = false; _rmbView = null; }
 
         static void PlacePoint(Vector3 p)
         {
@@ -932,8 +931,7 @@ namespace CH.CustomTools.Measurement
                     {
                         // 再套一圈外环，明确提示"这个点可以拖"
                         Handles.color = new Color(c.r, c.g, c.b, 0.55f);
-                        Handles.DrawWireDisc(pts[i], -cam.transform.forward,
-                            PixelToWorld(cam, pts[i], 11f), 1.5f);
+                        CHSceneVisuals.Arc(pts[i], -cam.transform.forward, cam.transform.right, 360, PixelToWorld(cam, pts[i], 11f), Handles.color);
                     }
                 }
             }
@@ -995,12 +993,12 @@ namespace CH.CustomTools.Measurement
             Handles.zTest = CompareFunction.Always;
             Handles.color = new Color(c.r, c.g, c.b, 0.16f);
             // 耳切三角化：凹多边形也能正确填充（不会填到凹口外）。
-            // 每个三角形以 4 点凸多边形绘制（末点复用一次），填充色取当前 Handles.color。
+            // Pass three distinct vertices; a repeated fourth vertex creates a degenerate AA edge.
             var tris = Triangulate(pts);
             if (tris != null)
             {
                 for (int i = 0; i + 2 < tris.Count; i += 3)
-                    Handles.DrawAAConvexPolygon(pts[tris[i]], pts[tris[i + 1]], pts[tris[i + 2]], pts[tris[i + 2]]);
+                    CHSceneVisuals.Triangle(pts[tris[i]], pts[tris[i + 1]], pts[tris[i + 2]]);
             }
             Handles.zTest = prevZ;
             Handles.color = prevCol;
@@ -1126,8 +1124,8 @@ namespace CH.CustomTools.Measurement
 
             float tick = PixelToWorld(cam, (a + b) * 0.5f, 9f);
             Handles.color = col;
-            Handles.DrawAAPolyLine(2f, a - perp * tick, a + perp * tick);
-            Handles.DrawAAPolyLine(2f, b - perp * tick, b + perp * tick);
+            CHSceneVisuals.FineLine(col, 2f, a - perp * tick, a + perp * tick);
+            CHSceneVisuals.FineLine(col, 2f, b - perp * tick, b + perp * tick);
         }
 
         static void DrawAnchor(Camera cam, Vector3 p, Color col, float r, bool solid, bool ring)
@@ -1144,7 +1142,7 @@ namespace CH.CustomTools.Measurement
             if(!DmGeometry.TryAngle(prev,vtx,next,out deg))return;
             Vector3 nrm=Vector3.Cross(d1,d2);float r=PixelToWorld(cam,vtx,15f);
             Handles.color=new Color(c.r,c.g,c.b,hot?.95f:.65f);
-            if(nrm.sqrMagnitude>1e-10f) Handles.DrawWireArc(vtx,nrm.normalized,d1.normalized,deg,r,1.5f);
+            if(nrm.sqrMagnitude>1e-10f) CHSceneVisuals.Arc(vtx,nrm.normalized,d1.normalized,deg,r,Handles.color);
             Vector3 bis=d1.normalized+d2.normalized;
             if(bis.sqrMagnitude<1e-6f)bis=Vector3.Cross(d1.normalized,cam.transform.forward);
             if(bis.sqrMagnitude<1e-6f)bis=Vector3.Cross(d1.normalized,cam.transform.up);
@@ -1177,10 +1175,7 @@ namespace CH.CustomTools.Measurement
 
             for (int i = 0; i < _draft.Count - 1; i++)
             {
-                Handles.color = DmSkin.SceneHalo;
-                Handles.DrawAAPolyLine(4.5f, _draft[i], _draft[i + 1]);
-                Handles.color = soft;
-                Handles.DrawAAPolyLine(2f, _draft[i], _draft[i + 1]);
+                CHSceneVisuals.Line(soft, false, _draft[i], _draft[i + 1]);
             }
 
             // 即将闭合时的实时填充：与闭合后的填充同一套耳切三角化，凹多边形也不会填错
@@ -1194,12 +1189,12 @@ namespace CH.CustomTools.Measurement
                 if (tris != null)
                 {
                     for (int i = 0; i + 2 < tris.Count; i += 3)
-                        Handles.DrawAAConvexPolygon(_draft[tris[i]], _draft[tris[i + 1]], _draft[tris[i + 2]], _draft[tris[i + 2]]);
+                        CHSceneVisuals.Triangle(_draft[tris[i]], _draft[tris[i + 1]], _draft[tris[i + 2]]);
                 }
                 else
                 {
                     for (int i = 1; i < _draft.Count - 1; i++)
-                        Handles.DrawAAConvexPolygon(_draft[0], _draft[i], _draft[i + 1], _draft[i + 1]);
+                        CHSceneVisuals.Triangle(_draft[0], _draft[i], _draft[i + 1]);
                 }
                 Handles.zTest = prevZ;
                 Handles.color = prevCol;
@@ -1239,10 +1234,7 @@ namespace CH.CustomTools.Measurement
                 }
             }
 
-            Handles.color = DmSkin.SceneHalo;
-            Handles.DrawAAPolyLine(4.5f, last, target);
-            Handles.color = new Color(col.r, col.g, col.b, 0.85f);
-            Handles.DrawAAPolyLine(2f, last, target);
+            CHSceneVisuals.Line(new Color(col.r, col.g, col.b, 0.85f), false, last, target);
 
             DrawCursorMark(cam, target, col);
 
@@ -1281,14 +1273,14 @@ namespace CH.CustomTools.Measurement
             float arm = PixelToWorld(cam, p, 8.0f);
 
             Handles.color = col;
-            Handles.DrawWireDisc(p, n, r * 1.7f, 1.5f);
+            CHSceneVisuals.Arc(p, n, cam.transform.right, 360, r * 1.7f, Handles.color);
 
             Vector3 up = cam.transform.up * arm;
             Vector3 right = cam.transform.right * arm;
 
             Handles.color = new Color(col.r, col.g, col.b, 0.8f);
-            Handles.DrawAAPolyLine(1.5f, p - right, p + right);
-            Handles.DrawAAPolyLine(1.5f, p - up, p + up);
+            CHSceneVisuals.FineLine(Handles.color, 1.5f, p - right, p + right);
+            CHSceneVisuals.FineLine(Handles.color, 1.5f, p - up, p + up);
         }
 
         // ==================================================================
@@ -1412,48 +1404,9 @@ namespace CH.CustomTools.Measurement
         //
         //  改成：只在相机变化时探测一次「深度 1 处 1 像素等于多少世界长度」，
         //  透视相机下该值随深度严格线性，所以任意点直接按深度缩放即可，结果与
-        //  原实现一致。
+        //  正交相机使用投影高度；每次读取当前投影以适应缩放和视口尺寸。
         // ------------------------------------------------------------------
-        static Camera _p2wCam;
-        static Vector3 _p2wCamPos;
-        static Quaternion _p2wCamRot;
-        static float _p2wPerDepth;
-        static bool _p2wValid;
-
-        static float MeasurePixelWorld(Camera cam, Vector3 world, float pixels)
-        {
-            Vector2 sp = HandleUtility.WorldToGUIPoint(world);
-            float depth = Vector3.Dot(world - cam.transform.position, cam.transform.forward);
-            if (depth < 0.001f) depth = 0.001f;
-
-            Vector3 a = HandleUtility.GUIPointToWorldRay(sp).GetPoint(depth);
-            Vector3 b = HandleUtility.GUIPointToWorldRay(sp + new Vector2(pixels, 0f)).GetPoint(depth);
-            return Vector3.Distance(a, b);
-        }
-
-        static void RefreshPixelScale(Camera cam)
-        {
-            Transform t = cam.transform;
-            if (_p2wValid && _p2wCam == cam && _p2wCamPos == t.position && _p2wCamRot == t.rotation)
-                return;
-
-            _p2wCam = cam;
-            _p2wCamPos = t.position;
-            _p2wCamRot = t.rotation;
-            _p2wValid = true;
-
-            // 在相机正前方 1 个深度单位处探测
-            _p2wPerDepth = MeasurePixelWorld(cam, t.position + t.forward, 1f);
-        }
-
         static float PixelToWorld(Camera cam, Vector3 world, float pixels)
-        {
-            RefreshPixelScale(cam);
-            if (cam.orthographic) return pixels * _p2wPerDepth;   // 正交：与深度无关
-
-            float depth = Vector3.Dot(world - cam.transform.position, cam.transform.forward);
-            if (depth < 0.001f) depth = 0.001f;
-            return pixels * depth * _p2wPerDepth;
-        }
+        { return CHSceneVisuals.PixelToWorld(cam, world, pixels); }
     }
 }

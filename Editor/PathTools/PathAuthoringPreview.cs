@@ -12,8 +12,9 @@ namespace CH.CustomTools.Paths.Editor
     [InitializeOnLoad]
     public static class PathAuthoringPreview
     {
-        struct Draw { public Mesh mesh; public Matrix4x4 matrix; public Material material; public int submesh, layer; }
+        struct Draw { public Mesh mesh; public Matrix4x4 matrix; public Material material; public int submesh, layer; public Vector3 position, scale; public Quaternion rotation; public bool model; }
         static readonly List<Draw> models = new List<Draw>(), surface = new List<Draw>();
+        static readonly List<GameObject> helpers = new List<GameObject>();
         static readonly List<Mesh> baked = new List<Mesh>();
         static readonly Dictionary<Renderer, bool> hidden = new Dictionary<Renderer, bool>();
         static BezierPath path;
@@ -33,7 +34,7 @@ namespace CH.CustomTools.Paths.Editor
         static PathAuthoringPreview()
         {
             EditorApplication.update += Tick;
-            Camera.onPreCull += BeforeCamera; Camera.onPostRender += AfterCamera;
+            Camera.onPreCull += BeforeBuiltin; Camera.onPostRender += AfterBuiltin;
             RenderPipelineManager.beginCameraRendering += BeginCamera; RenderPipelineManager.endCameraRendering += EndCamera;
             AssemblyReloadEvents.beforeAssemblyReload += Stop; EditorApplication.quitting += Stop;
             EditorApplication.playModeStateChanged += _ => Stop();
@@ -76,7 +77,37 @@ namespace CH.CustomTools.Paths.Editor
                 for (int i = 0; i < mesh.subMeshCount; i++) surface.Add(new Draw { mesh = mesh, matrix = Matrix4x4.identity, material = i == 1 && posts != null ? posts : material != null ? material : Default(), submesh = i, layer = path.gameObject.layer });
             }
             catch (Exception e) { if (mesh != null) Object.DestroyImmediate(mesh); mesh = null; surface.Clear(); meshError = e.Message; }
-            SceneView.RepaintAll();
+            BuildRenderers(); SceneView.RepaintAll();
+        }
+        static void BuildRenderers()
+        {
+            var parts = new Dictionary<string, Mesh>();
+            foreach (var draw in models) AddRenderer(draw, parts);
+            foreach (var draw in surface) AddRenderer(draw, parts);
+        }
+        static void AddRenderer(Draw draw, Dictionary<string, Mesh> parts)
+        {
+            // Create only editor-owned mesh components. Never instantiate the user's prefab.
+            var go = EditorUtility.CreateGameObjectWithHideFlags("CH Path temporary preview", HideFlags.HideAndDontSave, typeof(MeshFilter), typeof(MeshRenderer));
+            helpers.Add(go);
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(go, path.gameObject.scene);
+            go.layer = draw.layer;
+            go.transform.position = draw.model ? draw.position : Vector3.zero;
+            go.transform.rotation = draw.model ? draw.rotation : Quaternion.identity; go.transform.localScale = draw.model ? draw.scale : Vector3.one;
+            string key = draw.mesh.GetInstanceID() + ":" + draw.submesh;
+            Mesh single;
+            if (!parts.TryGetValue(key, out single))
+            {
+                single = new Mesh { name = "CH temporary submesh", hideFlags = HideFlags.HideAndDontSave, indexFormat = draw.mesh.indexFormat };
+                single.CombineMeshes(new[] { new CombineInstance { mesh = draw.mesh, subMeshIndex = draw.submesh, transform = Matrix4x4.identity } }, true, true);
+                parts.Add(key, single); baked.Add(single);
+            }
+            go.GetComponent<MeshFilter>().sharedMesh = single;
+            var renderer = go.GetComponent<MeshRenderer>();
+            // One renderer for each draw matches the same submesh/material behavior.
+            renderer.sharedMaterial = draw.material; renderer.shadowCastingMode = ShadowCastingMode.Off; renderer.receiveShadows = false;
+            renderer.lightProbeUsage = LightProbeUsage.Off; renderer.reflectionProbeUsage = ReflectionProbeUsage.Off;
+            renderer.forceRenderingOff = true;
         }
         static Material Default() { if (fallback == null) { fallback = PathAuthoring.DefaultMaterial(); fallback.hideFlags = HideFlags.HideAndDontSave; } return fallback; }
         static void BuildModels()
@@ -93,10 +124,18 @@ namespace CH.CustomTools.Paths.Editor
                 if (renderer is MeshRenderer && filter != null) part = filter.sharedMesh;
                 else if (skinned != null && skinned.sharedMesh != null) { part = new Mesh { hideFlags = HideFlags.HideAndDontSave }; baked.Add(part); skinned.BakeMesh(part); }
                 if (part == null) continue;
+                var local = source.transform.worldToLocalMatrix * renderer.localToWorldMatrix;
+                if (local != Matrix4x4.identity)
+                {
+                    var transformed = new Mesh { name = "CH temporary model part", hideFlags = HideFlags.HideAndDontSave, indexFormat = part.indexFormat };
+                    var submeshes = new CombineInstance[part.subMeshCount];
+                    for (int s = 0; s < submeshes.Length; s++) submeshes[s] = new CombineInstance { mesh = part, subMeshIndex = s, transform = local };
+                    transformed.CombineMeshes(submeshes, false, true); baked.Add(transformed); part = transformed;
+                }
                 var materials = renderer.sharedMaterials;
                 // Unity repeats the last submesh when a renderer has extra material slots.
                 for (int s = 0; s < materials.Length && part.subMeshCount > 0; s++) if (materials[s] != null)
-                    parts.Add(new Draw { mesh = part, matrix = source.transform.worldToLocalMatrix * renderer.localToWorldMatrix, material = materials[s], submesh = Mathf.Min(s, part.subMeshCount - 1), layer = renderer.gameObject.layer });
+                    parts.Add(new Draw { mesh = part, matrix = Matrix4x4.identity, material = materials[s], submesh = Mathf.Min(s, part.subMeshCount - 1), layer = renderer.gameObject.layer });
             }
             if (parts.Count == 0) throw new InvalidOperationException(PathText.T("模型没有可预览的 MeshRenderer / SkinnedMeshRenderer 和材质。", "The model needs a MeshRenderer or SkinnedMeshRenderer with a mesh and material."));
             var distances = PathMeshBuilder.PlacementDistances(path.Length, placement.spacing, path.closed, placement.includeEnd);
@@ -109,9 +148,11 @@ namespace CH.CustomTools.Paths.Editor
                 if (tangent.sqrMagnitude < 1e-8f) tangent = Vector3.forward;
                 var rotation = placement.orientation == PlacementOrientation.Fixed ? Quaternion.identity : Quaternion.LookRotation(tangent, placement.orientation == PlacementOrientation.Upright ? Vector3.up : p.up);
                 var transform = Matrix4x4.TRS(p.position + rotation * placement.offset, rotation * Quaternion.Euler(placement.rotation), Vector3.Scale(source.transform.localScale, placement.scale));
-                foreach (var part in parts) { var draw = part; draw.matrix = transform * part.matrix; models.Add(draw); }
+                foreach (var part in parts) { var draw = part; draw.matrix = transform * part.matrix; draw.model = true; draw.position = p.position + rotation * placement.offset; draw.rotation = rotation * Quaternion.Euler(placement.rotation); draw.scale = Vector3.Scale(source.transform.localScale, placement.scale); models.Add(draw); }
             }
         }
+        static void BeforeBuiltin(Camera camera) { if (GraphicsSettings.currentRenderPipeline == null) BeforeCamera(camera); }
+        static void AfterBuiltin(Camera camera) { if (GraphicsSettings.currentRenderPipeline == null) AfterCamera(camera); }
         static void BeginCamera(ScriptableRenderContext context, Camera camera) { BeforeCamera(camera); }
         static void EndCamera(ScriptableRenderContext context, Camera camera) { AfterCamera(camera); }
         static bool Visible(Camera camera)
@@ -129,17 +170,17 @@ namespace CH.CustomTools.Paths.Editor
             foreach (var output in Object.FindObjectsByType<PathGeneratedOutput>(FindObjectsInactive.Include, FindObjectsSortMode.None))
                 if (output != null && output.owner == path && ((output.kind == "Models" && models.Count > 0) || (output.kind == "Mesh" && surface.Count > 0)))
                     foreach (var renderer in output.GetComponentsInChildren<Renderer>(true)) { hidden[renderer] = renderer.forceRenderingOff; renderer.forceRenderingOff = true; }
-            DrawAll(models, camera); DrawAll(surface, camera);
+            foreach (var helper in helpers) if (helper != null) helper.GetComponent<MeshRenderer>().forceRenderingOff = false;
         }
-        static void DrawAll(List<Draw> draws, Camera camera)
+        static void AfterCamera(Camera camera)
         {
-            foreach (var d in draws) if (d.mesh != null && d.material != null && (camera.cullingMask & (1 << d.layer)) != 0)
-                Graphics.DrawMesh(d.mesh, d.matrix, d.material, d.layer, camera, d.submesh, null, ShadowCastingMode.Off, false, null, LightProbeUsage.Off);
+            if (camera == null || camera.cameraType != CameraType.SceneView) return;
+            foreach (var helper in helpers) if (helper != null) helper.GetComponent<MeshRenderer>().forceRenderingOff = true;
+            RestoreRenderers();
         }
-        static void AfterCamera(Camera camera) { if (camera != null && camera.cameraType == CameraType.SceneView) RestoreRenderers(); }
         static void RestoreRenderers() { foreach (var pair in hidden) if (pair.Key != null) pair.Key.forceRenderingOff = pair.Value; hidden.Clear(); }
         static void ClearModels() { models.Clear(); foreach (var m in baked) if (m != null) Object.DestroyImmediate(m); baked.Clear(); }
-        static void ClearGeometry() { RestoreRenderers(); ClearModels(); surface.Clear(); if (mesh != null) Object.DestroyImmediate(mesh); mesh = null; }
+        static void ClearGeometry() { RestoreRenderers(); foreach (var helper in helpers) if (helper != null) Object.DestroyImmediate(helper); helpers.Clear(); ClearModels(); surface.Clear(); if (mesh != null) Object.DestroyImmediate(mesh); mesh = null; }
         public static void Stop()
         {
             bool changed = path != null || mesh != null || models.Count > 0;

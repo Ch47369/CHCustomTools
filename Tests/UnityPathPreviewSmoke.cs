@@ -37,6 +37,7 @@ public static class UnityPathPreviewSmoke
     static Mesh Temporary { get { return PathAuthoringPreview.PreviewMesh; } }
     public static void Run()
     {
+        CHValidationInput.Install();
         try
         {
             PlayerSettings.runInBackground = true;
@@ -56,9 +57,12 @@ public static class UnityPathPreviewSmoke
             Check(Temporary != null && PathAuthoringPreview.ModelDrawCount == 4, "Both mesh and four placed models preview without Generate");
             Check((Temporary.hideFlags & HideFlags.DontSave) != 0 && !EditorUtility.IsPersistent(Temporary), "Preview mesh is temporary and cannot be saved as an asset");
             Check(Object.FindObjectsByType<PathGeneratedOutput>(FindObjectsSortMode.None).Length == 0, "Preview creates no permanent output markers");
-            Check(Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).Length == objects, "Preview creates no scene objects or prefab instances");
+            Check(Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).Where(t => (t.gameObject.hideFlags & HideFlags.DontSave) == 0).Count() == objects, "Preview creates no saved scene objects or prefab instances");
             Check(CHPreviewCallbackProbe.callbacks == calls, "Model preview never executes source prefab behaviours");
             Check(path.gameObject.scene.isDirty == dirty && assets.SequenceEqual(Directory.GetFiles("Assets", "*", SearchOption.AllDirectories).OrderBy(x => x)), "Preview does not dirty the scene or create assets");
+            var sceneBytes = File.ReadAllBytes("Assets/Preview064/Preview.unity");
+            EditorSceneManager.SaveScene(path.gameObject.scene);
+            Check(sceneBytes.SequenceEqual(File.ReadAllBytes("Assets/Preview064/Preview.unity")), "Saving with live preview preserves scene bytes and excludes all temporary helpers");
             previous = Temporary; Refresh(); Check(Temporary == previous, "An unchanged preview reuses its mesh");
             Undo.IncrementCurrentGroup(); PathKnotEditing.SetRoll(path, 0, 45); Undo.FlushUndoRecordObjects(); Refresh();
             Check(previous == null && Temporary != null && Vector3.Dot(Temporary.normals[0], Quaternion.AngleAxis(45, Vector3.forward) * Vector3.up) > .9999f, "Point rotation immediately tilts the preview normals and disposes the prior mesh");
@@ -131,6 +135,7 @@ public static class UnityPathPreviewSmoke
                 }
                 finally { Object.DestroyImmediate(tex); }
                 foreach (var output in Object.FindObjectsByType<PathGeneratedOutput>(FindObjectsSortMode.None)) Check(output.GetComponentInChildren<Renderer>().forceRenderingOff == false, "Committed renderer state restored after Scene render: " + output.kind);
+                RepeatedCameraRenders();
                 PathSceneTool.Active = false; Check(!PathAuthoringPreview.IsActive && Temporary == null, "Disabling Scene editing clears authoring preview");
                 PathSceneTool.Active = true; Configure();
                 var probe = new GameObject("Motion target").AddComponent<PathFollower>(); probe.path = path;
@@ -146,6 +151,36 @@ public static class UnityPathPreviewSmoke
             }
         }
         catch (Exception e) { Finish(e); }
+    }
+    static Texture2D Render(Camera camera)
+    {
+        var rt = new RenderTexture(512, 512, 24); var target = camera.targetTexture; var previous = RenderTexture.active;
+        try { camera.targetTexture = rt; camera.Render(); RenderTexture.active = rt; var tex = new Texture2D(512, 512, TextureFormat.RGBA32, false); tex.ReadPixels(new Rect(0, 0, 512, 512), 0, 0); tex.Apply(); return tex; }
+        finally { camera.targetTexture = target; RenderTexture.active = previous; Object.DestroyImmediate(rt); }
+    }
+    static void RepeatedCameraRenders()
+    {
+        var transparent = new Material(Shader.Find("Sprites/Default")) { color = new Color(0, 1, 0, .4f) };
+        var group = PathAuthoring.Generate(path, settings, red, null, "Assets/Preview064");
+        group.GetComponent<MeshRenderer>().enabled = true;
+        PathAuthoringPreview.Configure(path, null, placement, settings, transparent, null, false, true); Refresh();
+        var sample = view.camera.WorldToViewportPoint(path.Evaluate(path.Length * .5f).position);
+        view.camera.clearFlags = CameraClearFlags.SolidColor; view.camera.backgroundColor = Color.black;
+        Color? first = null;
+        for (int i = 0; i < 6; i++)
+        {
+            var image = Render(view.camera); var color = image.GetPixel(Mathf.RoundToInt(sample.x * 512), Mathf.RoundToInt(sample.y * 512));
+            if (first.HasValue) Check(Vector4.Distance(first.Value, color) < .015f, "Repeated Scene camera renders do not accumulate transparent preview draws: " + i + "; first=" + first.Value + "; current=" + color);
+            else { first = color; Check(color.g > .2f && color.r < .05f, "Live mesh preview hides committed red geometry only in the Scene camera: " + color); }
+            if (i == 5) File.WriteAllBytes("Artifacts/repeated-transparent-preview.png", image.EncodeToPNG()); Object.DestroyImmediate(image);
+            Check(!group.GetComponent<MeshRenderer>().forceRenderingOff, "Scene render restores the committed renderer: " + i);
+        }
+        var cameraObject = new GameObject("Game camera preview isolation"); var game = cameraObject.AddComponent<Camera>();
+        game.transform.SetPositionAndRotation(view.camera.transform.position, view.camera.transform.rotation); game.orthographic = true; game.orthographicSize = view.camera.orthographicSize;
+        var picture = Render(game); var point = game.WorldToViewportPoint(path.Evaluate(path.Length * .5f).position); var pixel = picture.GetPixel(Mathf.RoundToInt(point.x * 512), Mathf.RoundToInt(point.y * 512));
+        Check(pixel.r > .8f && pixel.g < .05f, "Game camera renders committed output and excludes temporary preview: " + pixel);
+        Object.DestroyImmediate(picture); Object.DestroyImmediate(cameraObject);
+        PathAuthoringPreview.Stop(); Object.DestroyImmediate(transparent);
     }
     static void Finish(Exception failure)
     {

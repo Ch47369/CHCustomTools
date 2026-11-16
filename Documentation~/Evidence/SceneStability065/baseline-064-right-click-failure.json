@@ -1,0 +1,96 @@
+{
+    "version": "0.6.4",
+    "unity": "2022.3.10f1",
+    "status": "Failed",
+    "failure": "System.Exception: Right click at start completes one record without forcing closure\r\n  at UnitySceneStabilitySmoke.Check (System.Boolean value, System.String text) [0x00015] in F:\\ASEShader\\.validation\\SceneStability065Baseline-Shader-2022-Source\\Assets\\Editor\\UnitySceneStabilitySmoke.cs:24 \r\n  at UnitySceneStabilitySmoke.Tick () [0x00469] in F:\\ASEShader\\.validation\\SceneStability065Baseline-Shader-2022-Source\\Assets\\Editor\\UnitySceneStabilitySmoke.cs:96 ",
+    "count": 1,
+    "passed": [
+        "Three actual left clicks create a draft"
+    ],
+    "frames": [
+        {
+            "phase": 0,
+            "visible": 34,
+            "samples": 34,
+            "colored": 611,
+            "image": "mixed-0.png"
+        },
+        {
+            "phase": 1,
+            "visible": 34,
+            "samples": 34,
+            "colored": 606,
+            "image": "mixed-1.png"
+        },
+        {
+            "phase": 2,
+            "visible": 34,
+            "samples": 34,
+            "colored": 602,
+            "image": "mixed-2.png"
+        },
+        {
+            "phase": 3,
+            "visible": 34,
+            "samples": 34,
+            "colored": 602,
+            "image": "mixed-3.png"
+        },
+        {
+            "phase": 4,
+            "visible": 34,
+            "samples": 34,
+            "colored": 616,
+            "image": "mixed-4.png"
+        },
+        {
+            "phase": 5,
+            "visible": 34,
+            "samples": 34,
+            "colored": 617,
+            "image": "mixed-5.png"
+        },
+        {
+            "phase": 6,
+            "visible": 34,
+            "samples": 34,
+            "colored": 791,
+            "image": "mixed-6.png"
+        },
+        {
+            "phase": 7,
+            "visible": 34,
+            "samples": 34,
+            "colored": 780,
+            "image": "mixed-7.png"
+        },
+        {
+            "phase": 8,
+            "visible": 34,
+            "samples": 34,
+            "colored": 783,
+            "image": "mixed-8.png"
+        },
+        {
+            "phase": 9,
+            "visible": 34,
+            "samples": 34,
+            "colored": 793,
+            "image": "mixed-9.png"
+        },
+        {
+            "phase": 10,
+            "visible": 34,
+            "samples": 34,
+            "colored": 799,
+            "image": "mixed-10.png"
+        },
+        {
+            "phase": 11,
+            "visible": 34,
+            "samples": 34,
+            "colored": 807,
+            "image": "mixed-11.png"
+        }
+    ]
+}

@@ -5,7 +5,7 @@ param(
     [string]$SourceRoot='F:/ASEShader',
     [ValidatePattern('^[A-Za-z0-9-]+$')][string]$RunId='CustomTools048',
     [ValidatePattern('^\d+\.\d+\.\d+$')][string]$ShaderVersion='0.5.0',
-    [ValidateSet('UnityToolMenusSmoke','UnityInlineUpdateSmoke','UnityGraphInputWindowSmoke','UnityUnifiedWindowSmoke','UnityGitUpdateSmoke','UnityCustomToolsSmoke','UnityGitInstallSmoke','UnityGitHubDownloadSmoke','UnityMeasurementSmoke','UnityPathToolsSmoke','UnityPathInsertionSmoke','UnityPathVisibilitySmoke','UnitySceneToolsSmoke','UnityPathPreviewSmoke')][string]$TestClass='UnityCustomToolsSmoke',
+    [ValidateSet('UnityToolMenusSmoke','UnityInlineUpdateSmoke','UnityGraphInputWindowSmoke','UnityUnifiedWindowSmoke','UnityGitUpdateSmoke','UnityCustomToolsSmoke','UnityGitInstallSmoke','UnityGitHubDownloadSmoke','UnityMeasurementSmoke','UnityPathToolsSmoke','UnityPathInsertionSmoke','UnityPathVisibilitySmoke','UnitySceneToolsSmoke','UnityPathPreviewSmoke','UnitySceneStabilitySmoke')][string]$TestClass='UnityCustomToolsSmoke',
     [switch]$Preview
 )
 $ErrorActionPreference='Stop'
@@ -29,11 +29,12 @@ if($Packages -ne 'Shader'){
 @{dependencies=$dependencies}|ConvertTo-Json -Depth 4|Set-Content -LiteralPath ($project+'/Packages/manifest.json') -Encoding utf8NoBOM
 ('m_EditorVersion: '+$(if($engine -eq 'Unity6'){'6000.0.80f1'}else{'2022.3.10f1'}))|Set-Content -LiteralPath ($project+'/ProjectSettings/ProjectVersion.txt') -Encoding utf8NoBOM
 Copy-Item -LiteralPath ($menuRoot+'/Tests/'+$TestClass+'.cs') -Destination ($project+'/Assets/Editor/'+$TestClass+'.cs') -Force
+Copy-Item -LiteralPath ($menuRoot+'/Tests/CHValidationInput.cs') -Destination ($project+'/Assets/Editor/CHValidationInput.cs') -Force
 $attempt=Join-Path $menuRoot ('.build~/'+$RunId+'/Attempts/'+[DateTimeOffset]::UtcNow.ToString('yyyyMMddHHmmssfff'))
 New-Item -ItemType Directory -Force -Path $attempt|Out-Null
 $log=Join-Path $attempt 'editor.log'
 $method=if($Preview){'Preview'}else{'Run'}
 $arguments='-projectPath "'+$project+'" -executeMethod '+$TestClass+'.'+$method+' -logFile "'+$log+'" -force-d3d11'
 $process=Start-Process -FilePath $UnityEditorPath -ArgumentList $arguments -WorkingDirectory $project -WindowStyle Hidden -PassThru
-$reportName=if($TestClass -eq 'UnityPathPreviewSmoke'){'path-preview.json'}elseif($TestClass -eq 'UnitySceneToolsSmoke'){'scene-tools.json'}elseif($TestClass -eq 'UnityPathVisibilitySmoke'){'path-visibility.json'}elseif($TestClass -eq 'UnityPathInsertionSmoke'){'path-insertion.json'}elseif($TestClass -eq 'UnityPathToolsSmoke'){'path-tools.json'}elseif($TestClass -eq 'UnityMeasurementSmoke'){'measurement.json'}elseif($TestClass -eq 'UnityGitHubDownloadSmoke'){'github-download.json'}elseif($TestClass -eq 'UnityGitInstallSmoke'){'real-git-install.json'}elseif($TestClass -eq 'UnityCustomToolsSmoke'){'custom-tools.json'}elseif($TestClass -eq 'UnityGitUpdateSmoke'){'git-update.json'}elseif($TestClass -eq 'UnityUnifiedWindowSmoke'){'unified-window.json'}elseif($TestClass -eq 'UnityGraphInputWindowSmoke'){'graph-input-window.json'}else{'tool-menus-verification.json'}
+$reportName=if($TestClass -eq 'UnitySceneStabilitySmoke'){'scene-stability.json'}elseif($TestClass -eq 'UnityPathPreviewSmoke'){'path-preview.json'}elseif($TestClass -eq 'UnitySceneToolsSmoke'){'scene-tools.json'}elseif($TestClass -eq 'UnityPathVisibilitySmoke'){'path-visibility.json'}elseif($TestClass -eq 'UnityPathInsertionSmoke'){'path-insertion.json'}elseif($TestClass -eq 'UnityPathToolsSmoke'){'path-tools.json'}elseif($TestClass -eq 'UnityMeasurementSmoke'){'measurement.json'}elseif($TestClass -eq 'UnityGitHubDownloadSmoke'){'github-download.json'}elseif($TestClass -eq 'UnityGitInstallSmoke'){'real-git-install.json'}elseif($TestClass -eq 'UnityCustomToolsSmoke'){'custom-tools.json'}elseif($TestClass -eq 'UnityGitUpdateSmoke'){'git-update.json'}elseif($TestClass -eq 'UnityUnifiedWindowSmoke'){'unified-window.json'}elseif($TestClass -eq 'UnityGraphInputWindowSmoke'){'graph-input-window.json'}else{'tool-menus-verification.json'}
 [pscustomobject]@{id=$process.Id;project=$project;log=$log;output=$project+'/Artifacts/'+$reportName;startedUtc=[DateTimeOffset]::UtcNow.ToString('o')}|ConvertTo-Json|Tee-Object -FilePath ($attempt+'/launch.json')

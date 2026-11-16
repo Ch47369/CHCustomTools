@@ -37,6 +37,7 @@ public static class UnityPathInsertionSmoke
     static void Reject(Action action, string message) { bool rejected = false; try { action(); } catch (Exception) { rejected = true; } Check(rejected, message); }
     public static void Run()
     {
+        CHValidationInput.Install();
         try
         {
             PlayerSettings.runInBackground = true;
@@ -156,7 +157,7 @@ public static class UnityPathInsertionSmoke
     static void Mouse(EventType type, Vector2 position, bool ctrl = false, bool shift = false, bool alt = false)
     {
         Vector2 sent = position + inputOffset;
-        view.SendEvent(new Event { type = type, button = 0, mousePosition = sent, delta = type == EventType.MouseDrag ? sent - lastMouse : Vector2.zero, control = ctrl, shift = shift, alt = alt }); lastMouse = sent; view.Repaint();
+        CHValidationInput.Send(view, new Event { type = type, button = 0, mousePosition = sent, delta = type == EventType.MouseDrag ? sent - lastMouse : Vector2.zero, control = ctrl, shift = shift, alt = alt }); lastMouse = sent; view.Repaint();
     }
     static void Log(string message, string stack, LogType type) { if (type == LogType.Exception || type == LogType.Error || type == LogType.Assert) errors = message + "\n" + stack; }
     static void Tick()
@@ -224,7 +225,7 @@ public static class UnityPathInsertionSmoke
                 case 10:
                     Mouse(EventType.MouseMove, gestureSource, shift: true); Mouse(EventType.MouseDown, gestureSource, shift: true); Mouse(EventType.MouseDrag, gestureDestination, shift: true);
                     Check(path.knots.Count == 4, "Interior Shift-drag creates a single point");
-                    view.SendEvent(new Event { type = EventType.KeyDown, keyCode = KeyCode.Escape });
+                    CHValidationInput.Send(view, new Event { type = EventType.KeyDown, keyCode = KeyCode.Escape });
                     Check(JsonUtility.ToJson(path) == beforeGesture && !PathPointDrag.IsDragging, "Escape removes the draft point and restores the exact original path"); break;
                 case 11:
                     originalPoint = path.knots[1].position;
@@ -259,7 +260,7 @@ public static class UnityPathInsertionSmoke
                 case 16:
                     Mouse(EventType.MouseMove, gestureSource, shift: true); Mouse(EventType.MouseDown, gestureSource, shift: true); Mouse(EventType.MouseDrag, gestureDestination, shift: true);
                     Check(path.knots.Count == 4 && PathPointDrag.IsDragging, "Begin a real active Shift gesture before testing Ctrl+Z");
-                    view.SendEvent(new Event { type = EventType.KeyDown, keyCode = KeyCode.Z, control = true }); break;
+                    CHValidationInput.Send(view, new Event { type = EventType.KeyDown, keyCode = KeyCode.Z, control = true }); break;
                 case 17:
                     // Test the actual shortcut while the point owns Scene input.
                     Mouse(EventType.MouseMove, gestureSource);

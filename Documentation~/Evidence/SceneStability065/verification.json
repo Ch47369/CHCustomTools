@@ -1,0 +1,754 @@
+{
+  "version": "0.6.5",
+  "success": true,
+  "mode": "Source",
+  "coreChecks": 629,
+  "editorCompile": {
+    "2022": "0 warnings / 0 errors",
+    "Unity6": "0 warnings / 0 errors"
+  },
+  "totalChecks": 140,
+  "results": [
+    {
+      "engine": "2022",
+      "fixture": "UnitySceneStabilitySmoke",
+      "version": "0.6.5",
+      "unity": "2022.3.10f1",
+      "status": "Passed",
+      "failure": "",
+      "count": 12,
+      "passed": [
+        "Three actual left clicks create a draft",
+        "Right click at start completes one record without forcing closure",
+        "Right click keeps three-point measurement open even near its first point",
+        "Right click completion does not move the Scene camera",
+        "Next left click begins a separate measurement record",
+        "Only left clicking the start closes an area record",
+        "Explicit closure still computes an area",
+        "A two-point distance finishes with one right click",
+        "Right drag preserves the draft and does not commit a record",
+        "Native navigation leaves measurement enabled",
+        "Path remains visible with multiple measurement labels during all camera movements",
+        "Near-plane crossing clips the path stroke without screen-filling spikes"
+      ],
+      "frames": [
+        {
+          "phase": 0,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1420,
+          "image": "mixed-0.png"
+        },
+        {
+          "phase": 1,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1406,
+          "image": "mixed-1.png"
+        },
+        {
+          "phase": 2,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1407,
+          "image": "mixed-2.png"
+        },
+        {
+          "phase": 3,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1424,
+          "image": "mixed-3.png"
+        },
+        {
+          "phase": 4,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1427,
+          "image": "mixed-4.png"
+        },
+        {
+          "phase": 5,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1423,
+          "image": "mixed-5.png"
+        },
+        {
+          "phase": 6,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1864,
+          "image": "mixed-6.png"
+        },
+        {
+          "phase": 7,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1847,
+          "image": "mixed-7.png"
+        },
+        {
+          "phase": 8,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1860,
+          "image": "mixed-8.png"
+        },
+        {
+          "phase": 9,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1869,
+          "image": "mixed-9.png"
+        },
+        {
+          "phase": 10,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1867,
+          "image": "mixed-10.png"
+        },
+        {
+          "phase": 11,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1880,
+          "image": "mixed-11.png"
+        },
+        {
+          "phase": 12,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1421,
+          "image": "mixed-12.png"
+        },
+        {
+          "phase": 13,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1417,
+          "image": "mixed-13.png"
+        },
+        {
+          "phase": 14,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1439,
+          "image": "mixed-14.png"
+        },
+        {
+          "phase": 15,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1432,
+          "image": "mixed-15.png"
+        },
+        {
+          "phase": 16,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1408,
+          "image": "mixed-16.png"
+        },
+        {
+          "phase": 17,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1411,
+          "image": "mixed-17.png"
+        },
+        {
+          "phase": 18,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1873,
+          "image": "mixed-18.png"
+        },
+        {
+          "phase": 19,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1869,
+          "image": "mixed-19.png"
+        },
+        {
+          "phase": 20,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1867,
+          "image": "mixed-20.png"
+        },
+        {
+          "phase": 21,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1863,
+          "image": "mixed-21.png"
+        },
+        {
+          "phase": 22,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1878,
+          "image": "mixed-22.png"
+        },
+        {
+          "phase": 23,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1881,
+          "image": "mixed-23.png"
+        }
+      ]
+    },
+    {
+      "engine": "2022",
+      "fixture": "UnityPathPreviewSmoke",
+      "unity": "2022.3.10f1",
+      "version": "0.6.5",
+      "status": "Passed",
+      "failure": "",
+      "count": 46,
+      "passed": [
+        "Both mesh and four placed models preview without Generate",
+        "Preview mesh is temporary and cannot be saved as an asset",
+        "Preview creates no permanent output markers",
+        "Preview creates no saved scene objects or prefab instances",
+        "Model preview never executes source prefab behaviours",
+        "Preview does not dirty the scene or create assets",
+        "Saving with live preview preserves scene bytes and excludes all temporary helpers",
+        "An unchanged preview reuses its mesh",
+        "Point rotation immediately tilts the preview normals and disposes the prior mesh",
+        "Point rotation does not move the path centreline",
+        "Undo restores the live tilt preview",
+        "Redo restores point rotation and preview",
+        "Railing preview includes separate rail and post material slots",
+        "Changing point height updates the live mesh",
+        "Generate creates a distinct persistent mesh asset",
+        "Committed positions, normals, UV0, UV1 and topology exactly match live mesh preview",
+        "Committed model count matches preview",
+        "Committed model transform matches preview at distance index 0",
+        "Committed model transform matches preview at distance index 1",
+        "Committed model transform matches preview at distance index 2",
+        "Committed model transform matches preview at distance index 3",
+        "Committed model transform matches preview at distance index 4",
+        "Editing updates temporary mesh while preserving committed output until rebuild",
+        "Invalid model clears stale model preview but retains valid mesh preview",
+        "Invalid mesh parameters clear stale mesh preview while models remain visible",
+        "Preview participates in the active Scene camera",
+        "Scene renders live model and mesh materials with Gizmos off: red=6188, green=35416, active=True, editing=True, camera=(0.00, 12.00, 0.00), draws=4",
+        "Committed renderer state restored after Scene render: Mesh",
+        "Committed renderer state restored after Scene render: Models",
+        "Live mesh preview hides committed red geometry only in the Scene camera: RGBA(0.000, 0.400, 0.000, 1.000)",
+        "Scene render restores the committed renderer: 0",
+        "Repeated Scene camera renders do not accumulate transparent preview draws: 1; first=RGBA(0.000, 0.400, 0.000, 1.000); current=RGBA(0.000, 0.400, 0.000, 1.000)",
+        "Scene render restores the committed renderer: 1",
+        "Repeated Scene camera renders do not accumulate transparent preview draws: 2; first=RGBA(0.000, 0.400, 0.000, 1.000); current=RGBA(0.000, 0.400, 0.000, 1.000)",
+        "Scene render restores the committed renderer: 2",
+        "Repeated Scene camera renders do not accumulate transparent preview draws: 3; first=RGBA(0.000, 0.400, 0.000, 1.000); current=RGBA(0.000, 0.400, 0.000, 1.000)",
+        "Scene render restores the committed renderer: 3",
+        "Repeated Scene camera renders do not accumulate transparent preview draws: 4; first=RGBA(0.000, 0.400, 0.000, 1.000); current=RGBA(0.000, 0.400, 0.000, 1.000)",
+        "Scene render restores the committed renderer: 4",
+        "Repeated Scene camera renders do not accumulate transparent preview draws: 5; first=RGBA(0.000, 0.400, 0.000, 1.000); current=RGBA(0.000, 0.400, 0.000, 1.000)",
+        "Scene render restores the committed renderer: 5",
+        "Game camera renders committed output and excludes temporary preview: RGBA(1.000, 0.000, 0.000, 1.000)",
+        "Disabling Scene editing clears authoring preview",
+        "Starting motion preview releases authoring geometry",
+        "Closing the tool window releases preview mesh and references",
+        "Closing preview preserves the two explicitly committed output groups"
+      ]
+    },
+    {
+      "engine": "2022",
+      "fixture": "UnityPathVisibilitySmoke",
+      "unity": "2022.3.10f1",
+      "version": "0.6.5",
+      "status": "Passed",
+      "failure": "",
+      "count": 12,
+      "passed": [
+        "Fixture control points remain unchanged by desktop input",
+        "ortho-path-gizmos-off: visible curve between markers 26/26",
+        "ortho-path-gizmos-on: visible curve between markers 26/26",
+        "ortho-generated-child-gizmos-off: visible curve between markers 26/26",
+        "ortho-generated-child-gizmos-on: visible curve between markers 26/26",
+        "perspective-path-gizmos-off: visible curve between markers 26/26",
+        "perspective-path-gizmos-on: visible curve between markers 26/26",
+        "perspective-generated-child-gizmos-off: visible curve between markers 26/26",
+        "perspective-generated-child-gizmos-on: visible curve between markers 26/26",
+        "occluded-selected: visible curve between markers 26/26",
+        "unselected-preview: visible curve between markers 26/26",
+        "All curve rendering scenarios finish without Editor errors"
+      ],
+      "images": [
+        {
+          "scenario": "ortho-path-gizmos-off",
+          "image": "ortho-path-gizmos-off.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": false,
+          "perspective": false,
+          "generatedChild": false
+        },
+        {
+          "scenario": "ortho-path-gizmos-on",
+          "image": "ortho-path-gizmos-on.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": true,
+          "perspective": false,
+          "generatedChild": false
+        },
+        {
+          "scenario": "ortho-generated-child-gizmos-off",
+          "image": "ortho-generated-child-gizmos-off.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": false,
+          "perspective": false,
+          "generatedChild": true
+        },
+        {
+          "scenario": "ortho-generated-child-gizmos-on",
+          "image": "ortho-generated-child-gizmos-on.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": true,
+          "perspective": false,
+          "generatedChild": true
+        },
+        {
+          "scenario": "perspective-path-gizmos-off",
+          "image": "perspective-path-gizmos-off.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": false,
+          "perspective": true,
+          "generatedChild": false
+        },
+        {
+          "scenario": "perspective-path-gizmos-on",
+          "image": "perspective-path-gizmos-on.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": true,
+          "perspective": true,
+          "generatedChild": false
+        },
+        {
+          "scenario": "perspective-generated-child-gizmos-off",
+          "image": "perspective-generated-child-gizmos-off.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": false,
+          "perspective": true,
+          "generatedChild": true
+        },
+        {
+          "scenario": "perspective-generated-child-gizmos-on",
+          "image": "perspective-generated-child-gizmos-on.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": true,
+          "perspective": true,
+          "generatedChild": true
+        },
+        {
+          "scenario": "occluded-selected",
+          "image": "occluded-selected.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": true,
+          "perspective": false,
+          "generatedChild": false
+        },
+        {
+          "scenario": "unselected-preview",
+          "image": "unselected-preview.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": true,
+          "perspective": false,
+          "generatedChild": false
+        }
+      ]
+    },
+    {
+      "engine": "Unity6",
+      "fixture": "UnitySceneStabilitySmoke",
+      "version": "0.6.5",
+      "unity": "6000.0.80f1",
+      "status": "Passed",
+      "failure": "",
+      "count": 12,
+      "passed": [
+        "Three actual left clicks create a draft",
+        "Right click at start completes one record without forcing closure",
+        "Right click keeps three-point measurement open even near its first point",
+        "Right click completion does not move the Scene camera",
+        "Next left click begins a separate measurement record",
+        "Only left clicking the start closes an area record",
+        "Explicit closure still computes an area",
+        "A two-point distance finishes with one right click",
+        "Right drag preserves the draft and does not commit a record",
+        "Native navigation leaves measurement enabled",
+        "Path remains visible with multiple measurement labels during all camera movements",
+        "Near-plane crossing clips the path stroke without screen-filling spikes"
+      ],
+      "frames": [
+        {
+          "phase": 0,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1421,
+          "image": "mixed-0.png"
+        },
+        {
+          "phase": 1,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1407,
+          "image": "mixed-1.png"
+        },
+        {
+          "phase": 2,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1408,
+          "image": "mixed-2.png"
+        },
+        {
+          "phase": 3,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1425,
+          "image": "mixed-3.png"
+        },
+        {
+          "phase": 4,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1428,
+          "image": "mixed-4.png"
+        },
+        {
+          "phase": 5,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1424,
+          "image": "mixed-5.png"
+        },
+        {
+          "phase": 6,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1865,
+          "image": "mixed-6.png"
+        },
+        {
+          "phase": 7,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1848,
+          "image": "mixed-7.png"
+        },
+        {
+          "phase": 8,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1861,
+          "image": "mixed-8.png"
+        },
+        {
+          "phase": 9,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1870,
+          "image": "mixed-9.png"
+        },
+        {
+          "phase": 10,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1868,
+          "image": "mixed-10.png"
+        },
+        {
+          "phase": 11,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1881,
+          "image": "mixed-11.png"
+        },
+        {
+          "phase": 12,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1421,
+          "image": "mixed-12.png"
+        },
+        {
+          "phase": 13,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1417,
+          "image": "mixed-13.png"
+        },
+        {
+          "phase": 14,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1439,
+          "image": "mixed-14.png"
+        },
+        {
+          "phase": 15,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1434,
+          "image": "mixed-15.png"
+        },
+        {
+          "phase": 16,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1408,
+          "image": "mixed-16.png"
+        },
+        {
+          "phase": 17,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1411,
+          "image": "mixed-17.png"
+        },
+        {
+          "phase": 18,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1871,
+          "image": "mixed-18.png"
+        },
+        {
+          "phase": 19,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1868,
+          "image": "mixed-19.png"
+        },
+        {
+          "phase": 20,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1865,
+          "image": "mixed-20.png"
+        },
+        {
+          "phase": 21,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1863,
+          "image": "mixed-21.png"
+        },
+        {
+          "phase": 22,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1877,
+          "image": "mixed-22.png"
+        },
+        {
+          "phase": 23,
+          "visible": 34,
+          "samples": 34,
+          "colored": 1880,
+          "image": "mixed-23.png"
+        }
+      ]
+    },
+    {
+      "engine": "Unity6",
+      "fixture": "UnityPathPreviewSmoke",
+      "unity": "6000.0.80f1",
+      "version": "0.6.5",
+      "status": "Passed",
+      "failure": "",
+      "count": 46,
+      "passed": [
+        "Both mesh and four placed models preview without Generate",
+        "Preview mesh is temporary and cannot be saved as an asset",
+        "Preview creates no permanent output markers",
+        "Preview creates no saved scene objects or prefab instances",
+        "Model preview never executes source prefab behaviours",
+        "Preview does not dirty the scene or create assets",
+        "Saving with live preview preserves scene bytes and excludes all temporary helpers",
+        "An unchanged preview reuses its mesh",
+        "Point rotation immediately tilts the preview normals and disposes the prior mesh",
+        "Point rotation does not move the path centreline",
+        "Undo restores the live tilt preview",
+        "Redo restores point rotation and preview",
+        "Railing preview includes separate rail and post material slots",
+        "Changing point height updates the live mesh",
+        "Generate creates a distinct persistent mesh asset",
+        "Committed positions, normals, UV0, UV1 and topology exactly match live mesh preview",
+        "Committed model count matches preview",
+        "Committed model transform matches preview at distance index 0",
+        "Committed model transform matches preview at distance index 1",
+        "Committed model transform matches preview at distance index 2",
+        "Committed model transform matches preview at distance index 3",
+        "Committed model transform matches preview at distance index 4",
+        "Editing updates temporary mesh while preserving committed output until rebuild",
+        "Invalid model clears stale model preview but retains valid mesh preview",
+        "Invalid mesh parameters clear stale mesh preview while models remain visible",
+        "Preview participates in the active Scene camera",
+        "Scene renders live model and mesh materials with Gizmos off: red=6188, green=35416, active=True, editing=True, camera=(0.00, 12.00, 0.00), draws=4",
+        "Committed renderer state restored after Scene render: Mesh",
+        "Committed renderer state restored after Scene render: Models",
+        "Live mesh preview hides committed red geometry only in the Scene camera: RGBA(0.000, 0.400, 0.000, 1.000)",
+        "Scene render restores the committed renderer: 0",
+        "Repeated Scene camera renders do not accumulate transparent preview draws: 1; first=RGBA(0.000, 0.400, 0.000, 1.000); current=RGBA(0.000, 0.400, 0.000, 1.000)",
+        "Scene render restores the committed renderer: 1",
+        "Repeated Scene camera renders do not accumulate transparent preview draws: 2; first=RGBA(0.000, 0.400, 0.000, 1.000); current=RGBA(0.000, 0.400, 0.000, 1.000)",
+        "Scene render restores the committed renderer: 2",
+        "Repeated Scene camera renders do not accumulate transparent preview draws: 3; first=RGBA(0.000, 0.400, 0.000, 1.000); current=RGBA(0.000, 0.400, 0.000, 1.000)",
+        "Scene render restores the committed renderer: 3",
+        "Repeated Scene camera renders do not accumulate transparent preview draws: 4; first=RGBA(0.000, 0.400, 0.000, 1.000); current=RGBA(0.000, 0.400, 0.000, 1.000)",
+        "Scene render restores the committed renderer: 4",
+        "Repeated Scene camera renders do not accumulate transparent preview draws: 5; first=RGBA(0.000, 0.400, 0.000, 1.000); current=RGBA(0.000, 0.400, 0.000, 1.000)",
+        "Scene render restores the committed renderer: 5",
+        "Game camera renders committed output and excludes temporary preview: RGBA(1.000, 0.000, 0.000, 1.000)",
+        "Disabling Scene editing clears authoring preview",
+        "Starting motion preview releases authoring geometry",
+        "Closing the tool window releases preview mesh and references",
+        "Closing preview preserves the two explicitly committed output groups"
+      ]
+    },
+    {
+      "engine": "Unity6",
+      "fixture": "UnityPathVisibilitySmoke",
+      "unity": "6000.0.80f1",
+      "version": "0.6.5",
+      "status": "Passed",
+      "failure": "",
+      "count": 12,
+      "passed": [
+        "Fixture control points remain unchanged by desktop input",
+        "ortho-path-gizmos-off: visible curve between markers 26/26",
+        "ortho-path-gizmos-on: visible curve between markers 26/26",
+        "ortho-generated-child-gizmos-off: visible curve between markers 26/26",
+        "ortho-generated-child-gizmos-on: visible curve between markers 26/26",
+        "perspective-path-gizmos-off: visible curve between markers 26/26",
+        "perspective-path-gizmos-on: visible curve between markers 26/26",
+        "perspective-generated-child-gizmos-off: visible curve between markers 26/26",
+        "perspective-generated-child-gizmos-on: visible curve between markers 26/26",
+        "occluded-selected: visible curve between markers 26/26",
+        "unselected-preview: visible curve between markers 26/26",
+        "All curve rendering scenarios finish without Editor errors"
+      ],
+      "images": [
+        {
+          "scenario": "ortho-path-gizmos-off",
+          "image": "ortho-path-gizmos-off.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": false,
+          "perspective": false,
+          "generatedChild": false
+        },
+        {
+          "scenario": "ortho-path-gizmos-on",
+          "image": "ortho-path-gizmos-on.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": true,
+          "perspective": false,
+          "generatedChild": false
+        },
+        {
+          "scenario": "ortho-generated-child-gizmos-off",
+          "image": "ortho-generated-child-gizmos-off.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": false,
+          "perspective": false,
+          "generatedChild": true
+        },
+        {
+          "scenario": "ortho-generated-child-gizmos-on",
+          "image": "ortho-generated-child-gizmos-on.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": true,
+          "perspective": false,
+          "generatedChild": true
+        },
+        {
+          "scenario": "perspective-path-gizmos-off",
+          "image": "perspective-path-gizmos-off.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": false,
+          "perspective": true,
+          "generatedChild": false
+        },
+        {
+          "scenario": "perspective-path-gizmos-on",
+          "image": "perspective-path-gizmos-on.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": true,
+          "perspective": true,
+          "generatedChild": false
+        },
+        {
+          "scenario": "perspective-generated-child-gizmos-off",
+          "image": "perspective-generated-child-gizmos-off.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": false,
+          "perspective": true,
+          "generatedChild": true
+        },
+        {
+          "scenario": "perspective-generated-child-gizmos-on",
+          "image": "perspective-generated-child-gizmos-on.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": true,
+          "perspective": true,
+          "generatedChild": true
+        },
+        {
+          "scenario": "occluded-selected",
+          "image": "occluded-selected.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": true,
+          "perspective": false,
+          "generatedChild": false
+        },
+        {
+          "scenario": "unselected-preview",
+          "image": "unselected-preview.png",
+          "samples": 26,
+          "visible": 26,
+          "gizmos": true,
+          "perspective": false,
+          "generatedChild": false
+        }
+      ]
+    }
+  ],
+  "behavior": "RMB click and Enter finish an open length measurement; only explicit left click on first point closes an area. Geometry is clipped at near plane and drawn in eye space with scene depth retained; labels draw after geometry. Path previews use unsaved editor-owned renderers, avoid repeated draw submission, and restore committed output visibility after each Scene render. Audio subtitle removed. Existing palette, point and pill styles retained.",
+  "limits": [
+    "Windows D3D11 and the two recorded Unity versions only.",
+    "Mouse interaction assertions use SceneView.SendEvent; no claim of physical desktop right-drag verification.",
+    "Floating-point storage remains unchanged; extreme coordinates can still limit point position precision.",
+    "Preview helpers contain only mesh/render components and are excluded from scene serialization. Generate commits outputs."
+  ],
+  "runtimeSchemaChanged": false,
+  "userProjectsModified": false,
+  "shaderSemanticsChanged": false,
+  "regressionReproduction": "The published 0.6.4 baseline fails RMB completion. Intermediate native-stroke attempts reproduce perspective broken/spiked lines at (100000,10000,100000); final eye-space rendering passes all sampled frames. Transparent-repeat fixture also passed 0.6.4 and is a regression guard, not a claimed baseline failure."
+}
