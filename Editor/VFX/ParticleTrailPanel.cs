@@ -38,20 +38,22 @@ namespace CH.CustomTools.VFX
                     return;
                 }
 
-                var path = target.GetComponent<ParticleTrailPath>();
-                bool active = path != null && ParticleTrailSceneTool.Active == path;
+                var path = ParticleTrailStore.Find(target);
+                if (path == null && target.GetComponent<ParticleTrailPath>() != null)
+                    path = ParticleTrailStore.GetOrCreate(target);
+                bool active = path != null && ParticleTrailSceneTool.Active == target;
                 bool edit = EditorGUILayout.ToggleLeft(Pick("在 Scene 视图中编辑路径", "Edit path in Scene view"), active);
                 if (active != edit)
                 {
                     if (edit)
                     {
-                        if (path == null) path = Undo.AddComponent<ParticleTrailPath>(target.gameObject);
-                        ParticleTrailSceneTool.Start(path);
+                        ParticleTrailSceneTool.Start(target);
+                        path = ParticleTrailStore.Find(target);
                     }
                     else ParticleTrailSceneTool.Stop();
                 }
-                EditorGUILayout.HelpBox(Pick("Shift + 左键添加点，拖动圆点或移动轴调整位置。点选后按 Delete 删除，按 F 聚焦。",
-                    "Shift-click to add a point. Drag dots or the position handle to move them. Select a point and use Delete or F."),
+                EditorGUILayout.HelpBox(Pick("Shift + 左键添加点。W 移动点，E 旋转两侧切线，拖动方形控制柄精确调整曲线。Delete 删除，F 聚焦。",
+                    "Shift-click to add points. W moves a point, E rotates its tangents. Drag square tangent handles to shape the curve. Delete removes a point, F frames it."),
                     MessageType.None);
                 if (path == null) return;
 
@@ -61,36 +63,63 @@ namespace CH.CustomTools.VFX
             }
         }
 
-        static void DrawPath(ParticleTrailPath path)
+        void DrawPath(ParticleTrailData path)
         {
             float duration = EditorGUILayout.FloatField(Pick("路径用时（秒）", "Travel time (seconds)"), path.Duration);
             if (float.IsFinite(duration) && duration != path.Duration)
-                ParticleTrailSceneTool.Change(path, "Change trail travel time", () => path.Duration = duration);
+                ParticleTrailSceneTool.Change(target, "Change trail travel time", data => data.Duration = duration);
 
-            EditorGUILayout.LabelField(Pick("控制点", "Control points"), path.Points.Count.ToString());
-            if (ParticleTrailSceneTool.Active != path || path.Points.Count == 0) return;
+            EditorGUILayout.LabelField(Pick("控制点", "Control points"), path.knots.Count.ToString());
+            if (ParticleTrailSceneTool.Active != target || path.knots.Count == 0) return;
             int selected = ParticleTrailSceneTool.Selected;
-            var names = new string[path.Points.Count];
+            var names = new string[path.knots.Count];
             for (int i = 0; i < names.Length; i++) names[i] = Pick("点 ", "Point ") + (i + 1);
             int next = EditorGUILayout.Popup(Pick("选中点", "Selected point"), Mathf.Clamp(selected, 0, names.Length - 1), names);
             if (next != selected) ParticleTrailSceneTool.Selected = next;
-            Vector3 position = EditorGUILayout.Vector3Field(Pick("位置（本地）", "Local position"), path.Points[next]);
-            if (position != path.Points[next] && Paths.BezierPath.Finite(position))
-                ParticleTrailSceneTool.Change(path, "Move trail point", () => path.Points[next] = position);
+            ParticleTrailSceneTool.Rotating = EditorGUILayout.Popup(Pick("选中点工具（W / E）", "Point tool (W / E)"),
+                ParticleTrailSceneTool.Rotating ? 1 : 0,
+                new[] { Pick("移动", "Move"), Pick("旋转切线", "Rotate tangents") }) == 1;
+            var knot = path.knots[next];
+            Vector3 position = EditorGUILayout.Vector3Field(Pick("位置（本地）", "Local position"), knot.position);
+            if (position != knot.position && Paths.BezierPath.Finite(position))
+                ParticleTrailSceneTool.Change(target, "Move trail point", data => data.knots[next].position = position);
+            bool automatic = EditorGUILayout.Toggle(Pick("自动平滑", "Automatic smooth"), knot.automatic);
+            if (automatic != knot.automatic)
+                ParticleTrailSceneTool.Change(target, "Set trail point tangents", data =>
+                {
+                    if (automatic) data.knots[next].automatic = true;
+                    else data.FreezeTangents(next);
+                });
+            if (next > 0) DrawTangent(path, next, false);
+            if (next + 1 < path.knots.Count) DrawTangent(path, next, true);
         }
 
-        void DrawBake(ParticleTrailPath path)
+        void DrawTangent(ParticleTrailData path, int index, bool outgoing)
+        {
+            var old = path.Handle(index, outgoing) - path.knots[index].position;
+            var value = EditorGUILayout.Vector3Field(outgoing ? Pick("离开切线（本地）", "Outgoing tangent (local)") :
+                Pick("进入切线（本地）", "Incoming tangent (local)"), old);
+            if (value == old || !Paths.BezierPath.Finite(value)) return;
+            ParticleTrailSceneTool.Change(target, "Set particle trail tangent", data =>
+            {
+                data.FreezeTangents(index);
+                if (outgoing) data.knots[index].outgoing = value;
+                else data.knots[index].incoming = value;
+            });
+        }
+
+        void DrawBake(ParticleTrailData path)
         {
             var changes = ParticleTrailBaker.MovementChanges(target);
             if (changes.Count != 0)
                 EditorGUILayout.HelpBox(Pick("烘焙会调整这些运动设置：\n", "Baking will update these motion settings:\n") +
                     string.Join("\n", changes), MessageType.Warning);
-            EditorGUILayout.LabelField(Pick("烘焙写入单粒子发射、Velocity over Lifetime 和 Trails。",
-                "Baking sets up single-particle emission, Velocity over Lifetime and Trails."), EditorStyles.wordWrappedMiniLabel);
+            EditorGUILayout.LabelField(Pick("烘焙后仅使用原生粒子模块。路径控制点保存在项目编辑器数据中，可随时重新编辑。",
+                "Baked particles use native modules. Path controls are saved in project editor data for future edits."), EditorStyles.wordWrappedMiniLabel);
             string prior = path.BakedSignature;
             if (!string.IsNullOrEmpty(prior) && prior != ParticleTrailBaker.Signature(path))
                 EditorGUILayout.HelpBox(Pick("路径或用时已修改，请重新烘焙。", "The path or travel time has changed. Bake again."), MessageType.Info);
-            using (new EditorGUI.DisabledScope(path.Points.Count < 2))
+            using (new EditorGUI.DisabledScope(path.knots.Count < 2))
             {
                 if (GUILayout.Button(string.IsNullOrEmpty(prior) ? Pick("烘焙", "Bake") : Pick("重新烘焙", "Bake again"), GUILayout.Height(28)))
                 {
@@ -112,11 +141,11 @@ namespace CH.CustomTools.VFX
             {
                 Selection.activeGameObject = target.gameObject;
                 var scene = SceneView.lastActiveSceneView;
-                if (scene != null && path.Points.Count > 0)
+                if (scene != null && path.knots.Count > 0)
                 {
-                    var bounds = new Bounds(path.transform.TransformPoint(path.Points[0]), Vector3.zero);
-                    foreach (var point in path.Points)
-                        bounds.Encapsulate(path.transform.TransformPoint(point));
+                    var bounds = new Bounds(target.transform.TransformPoint(path.knots[0].position), Vector3.zero);
+                    foreach (var knot in path.knots)
+                        bounds.Encapsulate(target.transform.TransformPoint(knot.position));
                     bounds.Expand(.2f);
                     scene.Frame(bounds, false);
                     scene.Focus();

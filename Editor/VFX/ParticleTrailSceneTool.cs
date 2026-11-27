@@ -13,12 +13,19 @@ namespace CH.CustomTools.VFX
     internal static class ParticleTrailSceneTool
     {
         static readonly int PointHint = "CH.ParticleTrail.Point".GetHashCode();
-        static ParticleTrailPath path;
+        static ParticleSystem target;
+        static ParticleTrailData path => ParticleTrailStore.Find(target);
+        static bool previousToolsHidden, rotating;
+        internal static bool Rotating
+        {
+            get => rotating;
+            set { if (rotating == value) return; rotating = value; SceneView.RepaintAll(); }
+        }
         static int selected = -1;
         static SceneView dragView;
         static int dragControl;
 
-        internal static ParticleTrailPath Active => path;
+        internal static ParticleSystem Active => target;
         internal static int Selected
         {
             get => selected;
@@ -31,34 +38,52 @@ namespace CH.CustomTools.VFX
             SceneView.duringSceneGui += Draw;
             EditorApplication.playModeStateChanged += _ => Stop();
             EditorSceneManager.activeSceneChangedInEditMode += (_, __) => Stop();
-            EditorSceneManager.sceneClosing += (scene, _) => { if (path != null && path.gameObject.scene == scene) Stop(); };
-            Undo.undoRedoPerformed += () => { if (path != null) SceneView.RepaintAll(); };
+            EditorSceneManager.sceneClosing += (scene, _) => { if (target != null && target.gameObject.scene == scene) Stop(); };
+            Undo.undoRedoPerformed += () =>
+            {
+                if (target == null || path == null) Stop();
+                else { Selected = Mathf.Min(selected, path.knots.Count - 1); }
+            };
+            Selection.selectionChanged += () => { if (target != null && Selection.activeGameObject != target.gameObject) Stop(); };
+            AssemblyReloadEvents.beforeAssemblyReload += Stop;
+            EditorApplication.quitting += Stop;
+            EditorApplication.update += () =>
+            {
+                if (activeTools && (target == null || DmSceneTool.Active || PathSceneTool.Active || PathFenceDraft.Active)) Stop();
+            };
         }
 
-        internal static void Start(ParticleTrailPath target)
+        static bool activeTools;
+        internal static void Start(ParticleSystem system)
         {
             Stop();
+            var data = ParticleTrailStore.GetOrCreate(system);
             DmSceneTool.Active = false;
             PathSceneTool.Active = false;
-            path = target;
-            Selected = target.Points.Count - 1;
-            Selection.activeGameObject = target.gameObject;
+            PathFenceDraft.Cancel();
+            target = system;
+            previousToolsHidden = Tools.hidden;
+            Tools.hidden = true;
+            activeTools = true;
+            rotating = false;
+            Selected = data.knots.Count - 1;
+            Selection.activeGameObject = system.gameObject;
         }
 
         internal static void Stop()
         {
-            if (path == null) return;
-            path = null;
+            if (activeTools)
+            {
+                Tools.hidden = previousToolsHidden;
+                activeTools = false;
+            }
+            target = null;
             Selected = -1;
         }
 
-        internal static void Change(ParticleTrailPath target, string label, Action action)
+        internal static void Change(ParticleSystem system, string label, Action<ParticleTrailData> action)
         {
-            Undo.RecordObject(target, label);
-            action();
-            PrefabUtility.RecordPrefabInstancePropertyModifications(target);
-            EditorUtility.SetDirty(target);
-            SceneView.RepaintAll();
+            ParticleTrailStore.Change(system, label, action);
         }
 
         static bool Editable(SceneView view)
@@ -69,9 +94,9 @@ namespace CH.CustomTools.VFX
                 Stop();
                 return false;
             }
-            return view.camera != null && path.gameObject.scene.isLoaded &&
-                !SceneVisibilityManager.instance.IsHidden(path.gameObject) &&
-                StageUtility.GetStageHandle(path.gameObject) == StageUtility.GetCurrentStageHandle();
+            return view.camera != null && target.gameObject.scene.isLoaded &&
+                !SceneVisibilityManager.instance.IsHidden(target.gameObject) &&
+                StageUtility.GetStageHandle(target.gameObject) == StageUtility.GetCurrentStageHandle();
         }
 
         static void Commands(SceneView view)
@@ -84,16 +109,22 @@ namespace CH.CustomTools.VFX
             bool delete = (plain && e.keyCode == KeyCode.Delete) ||
                 (command && (e.commandName == "Delete" || e.commandName == "SoftDelete"));
             bool frame = (plain && e.keyCode == KeyCode.F) || (command && e.commandName == "FrameSelected");
-            if ((!delete && !frame) || selected < 0 || selected >= path.Points.Count) return;
+            if (plain && (e.keyCode == KeyCode.W || e.keyCode == KeyCode.E))
+            {
+                if (GUIUtility.hotControl == 0) Rotating = e.keyCode == KeyCode.E;
+                e.Use();
+                return;
+            }
+            if ((!delete && !frame) || selected < 0 || selected >= path.knots.Count) return;
             e.Use();
             if (GUIUtility.hotControl != 0) return;
             if (delete)
             {
-                Change(path, "Delete trail point", () => path.Points.RemoveAt(selected));
-                Selected = Mathf.Min(selected, path.Points.Count - 1);
+                Change(target, "Delete trail point", data => data.knots.RemoveAt(selected));
+                Selected = Mathf.Min(selected, path.knots.Count - 1);
             }
             else
-                view.LookAt(path.transform.TransformPoint(path.Points[selected]), view.rotation, view.size, view.orthographic);
+                view.LookAt(target.transform.TransformPoint(path.knots[selected].position), view.rotation, view.size, view.orthographic);
         }
 
         static void Draw(SceneView view)
@@ -120,31 +151,31 @@ namespace CH.CustomTools.VFX
             if (e.type == EventType.Layout) HandleUtility.AddDefaultControl(GUIUtility.GetControlID(PointHint, FocusType.Passive));
             if (e.type != EventType.MouseDown || e.button != 0) return;
             e.Use();
-            if (path.Points.Count >= ParticleTrailCurve.MaxPoints)
+            if (path.knots.Count >= ParticleTrailCurve.MaxPoints)
             {
                 view.ShowNotification(new GUIContent(ParticleTrailText.Pick("最多可添加 128 个点。", "The path already has 128 points.")));
                 return;
             }
-            var root = path.transform;
-            var anchor = path.Points.Count == 0 ? root.position : root.TransformPoint(path.Points[path.Points.Count - 1]);
+            var root = target.transform;
+            var anchor = path.knots.Count == 0 ? root.position : root.TransformPoint(path.knots[path.knots.Count - 1].position);
             var plane = new Plane(view.camera.transform.forward, anchor);
             var ray = HandleUtility.GUIPointToWorldRay(e.mousePosition);
             if (!plane.Raycast(ray, out float distance)) return;
             var local = root.InverseTransformPoint(ray.GetPoint(distance));
             if (!BezierPath.Finite(local)) return;
-            Change(path, "Add trail point", () => path.Points.Add(local));
-            Selected = path.Points.Count - 1;
+            Change(target, "Add trail point", data => data.knots.Add(new PathKnot(local)));
+            Selected = path.knots.Count - 1;
         }
 
         static void DrawPoints(SceneView view, Event e)
         {
-            var root = path.transform;
-            for (int i = 0; i < path.Points.Count; i++)
+            var root = target.transform;
+            for (int i = 0; i < path.knots.Count; i++)
             {
-                Vector3 world = root.TransformPoint(path.Points[i]);
+                Vector3 world = root.TransformPoint(path.knots[i].position);
                 if (!BezierPath.Finite(world) || view.camera.WorldToViewportPoint(world).z < view.camera.nearClipPlane) continue;
                 bool active = i == selected;
-                bool end = i == 0 || i == path.Points.Count - 1;
+                bool end = i == 0 || i == path.knots.Count - 1;
                 Color color = active ? DmSkin.Accent : end ? DmSkin.Palette[2] : DmSkin.Palette[1];
                 float size = CHSceneVisuals.PixelToWorld(view.camera, world, active ? 6 : 5);
                 int id = GUIUtility.GetControlID(PointHint + i, FocusType.Passive);
@@ -176,13 +207,86 @@ namespace CH.CustomTools.VFX
                         MovePoint(i, root.InverseTransformPoint(moved));
                 }
             }
-            if (selected >= 0 && selected < path.Points.Count && !e.shift && dragControl == 0)
+            if (selected >= 0 && selected < path.knots.Count && !e.shift && dragControl == 0)
+                DrawSelectedHandles(view, e);
+        }
+
+        static void DrawSelectedHandles(SceneView view, Event e)
+        {
+            var root = target.transform;
+            var knot = path.knots[selected];
+            Vector3 position = root.TransformPoint(knot.position);
+            if (view.camera.WorldToViewportPoint(position).z < view.camera.nearClipPlane) return;
+            using (new EditorGUI.DisabledScope(e.alt || e.shift || e.control || e.command))
             {
-                Vector3 position = root.TransformPoint(path.Points[selected]);
-                EditorGUI.BeginChangeCheck();
-                var moved = Handles.PositionHandle(position, Tools.pivotRotation == PivotRotation.Local ? root.rotation : Quaternion.identity);
-                if (EditorGUI.EndChangeCheck()) MovePoint(selected, root.InverseTransformPoint(moved));
+                if (rotating)
+                {
+                    var direction = root.TransformVector(path.Handle(selected, true) - knot.position);
+                    if (direction.sqrMagnitude < 1e-8f)
+                        direction = root.TransformVector(knot.position - path.Handle(selected, false));
+                    if (direction.sqrMagnitude < 1e-8f) direction = root.forward;
+                    var rotation = Quaternion.LookRotation(direction.normalized, BezierPath.Perpendicular(direction.normalized, root.up));
+                    int prior = GUIUtility.hotControl;
+                    EditorGUI.BeginChangeCheck();
+                    var changed = Handles.RotationHandle(rotation, position);
+                    if (prior == 0 && GUIUtility.hotControl != 0) Undo.IncrementCurrentGroup();
+                    if (EditorGUI.EndChangeCheck())
+                        RotateTangents(changed * Quaternion.Inverse(rotation));
+                }
+                else
+                {
+                    int prior = GUIUtility.hotControl;
+                    EditorGUI.BeginChangeCheck();
+                    var moved = Handles.PositionHandle(position, Tools.pivotRotation == PivotRotation.Local ? root.rotation : Quaternion.identity);
+                    if (prior == 0 && GUIUtility.hotControl != 0) Undo.IncrementCurrentGroup();
+                    if (EditorGUI.EndChangeCheck()) MovePoint(selected, root.InverseTransformPoint(moved));
+                }
+
+                if (selected > 0) DrawTangent(view, false, position);
+                if (selected + 1 < path.knots.Count) DrawTangent(view, true, position);
             }
+        }
+
+        static void DrawTangent(SceneView view, bool outgoing, Vector3 position)
+        {
+            var root = target.transform;
+            var handle = root.TransformPoint(path.Handle(selected, outgoing));
+            var color = outgoing ? DmSkin.Accent : DmSkin.Palette[2];
+            if (Event.current.type == EventType.Repaint)
+                CHSceneVisuals.FineLine(color, 2, position, handle);
+            using (new Handles.DrawingScope(color))
+            {
+                int prior = GUIUtility.hotControl;
+                EditorGUI.BeginChangeCheck();
+                var moved = Handles.FreeMoveHandle(handle, HandleUtility.GetHandleSize(handle) * .065f, Vector3.zero, Handles.RectangleHandleCap);
+                if (prior == 0 && GUIUtility.hotControl != 0) Undo.IncrementCurrentGroup();
+                if (EditorGUI.EndChangeCheck()) MoveTangent(outgoing, root.InverseTransformPoint(moved));
+            }
+        }
+
+        internal static void MoveTangent(bool outgoing, Vector3 local)
+        {
+            if (target == null || selected < 0 || selected >= path.knots.Count || !BezierPath.Finite(local)) return;
+            Change(target, "Move particle trail tangent", data =>
+            {
+                data.FreezeTangents(selected);
+                var knot = data.knots[selected];
+                if (outgoing) knot.outgoing = local - knot.position;
+                else knot.incoming = local - knot.position;
+            });
+        }
+
+        internal static void RotateTangents(Quaternion delta)
+        {
+            if (target == null || selected < 0 || selected >= path.knots.Count) return;
+            var root = target.transform;
+            Change(target, "Rotate particle trail tangents", data =>
+            {
+                data.FreezeTangents(selected);
+                var knot = data.knots[selected];
+                knot.incoming = root.InverseTransformVector(delta * root.TransformVector(knot.incoming));
+                knot.outgoing = root.InverseTransformVector(delta * root.TransformVector(knot.outgoing));
+            });
         }
 
         static void PointCap(int control, Vector3 position, Quaternion rotation, float size, EventType type)
@@ -194,15 +298,15 @@ namespace CH.CustomTools.VFX
         static void MovePoint(int index, Vector3 local)
         {
             if (BezierPath.Finite(local))
-                Change(path, "Move trail point", () => path.Points[index] = local);
+                Change(target, "Move trail point", data => data.knots[index].position = local);
         }
 
         static void DrawCurve(Camera camera)
         {
-            if (path.Points.Count < 2) return;
-            var root = path.transform;
+            if (path.knots.Count < 2) return;
+            var root = target.transform;
             ParticleTrailCurve curve;
-            try { curve = new ParticleTrailCurve(path.Points, root.localToWorldMatrix); }
+            try { curve = new ParticleTrailCurve(path.knots, root.localToWorldMatrix); }
             catch (ArgumentException) { return; }
 
             var color = DmSkin.Palette[1];

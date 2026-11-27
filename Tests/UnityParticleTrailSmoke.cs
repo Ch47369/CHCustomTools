@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using ASEShaderConverter.Editor;
 using CH.CustomTools.VFX;
+using CH.CustomTools.Paths;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -32,16 +33,17 @@ public static class UnityParticleTrailSmoke
     static readonly List<Motion> samples = new List<Motion>();
     static GameObject root;
     static ParticleSystem system;
-    static ParticleTrailPath path;
+    static ParticleTrailData path => ParticleTrailStore.Find(system);
     static ParticleSystemRenderer renderer;
     static Material trailMaterial;
     static SceneView view;
     static ASEShaderConverterWindow window;
-    static Vector2 inputOffset, received, baseScreen;
+    static Vector2 inputOffset, received, baseScreen, tangentScreen;
     static Vector2[] pointScreens;
     static bool calibrating, receivedInput;
     static int phase;
     static double next, deadline;
+    static bool nativePlayRequested;
     static string errors;
 
     public static void Run()
@@ -55,7 +57,7 @@ public static class UnityParticleTrailSmoke
             var target = new GameObject("S curve particle");
             target.transform.SetParent(root.transform, false);
             system = target.AddComponent<ParticleSystem>();
-            path = target.AddComponent<ParticleTrailPath>();
+            ParticleTrailStore.GetOrCreate(system);
             renderer = target.GetComponent<ParticleSystemRenderer>();
             var shader = Shader.Find("Sprites/Default");
             Check(shader != null, "Built-in preview shader is available");
@@ -82,7 +84,7 @@ public static class UnityParticleTrailSmoke
             Check((string)typeof(ASEShaderConverterWindow).GetField("activePage", flags).GetValue(window) == "particleTrails",
                 "The unified tool window opens the particle trail page");
             var tool = typeof(ParticleTrailBaker).Assembly.GetType("CH.CustomTools.VFX.ParticleTrailSceneTool");
-            tool.GetMethod("Start", BindingFlags.Static | BindingFlags.NonPublic).Invoke(null, new object[] { path });
+            tool.GetMethod("Start", BindingFlags.Static | BindingFlags.NonPublic).Invoke(null, new object[] { system });
             view = EditorWindow.GetWindow<SceneView>();
             view.Show();
             view.position = new Rect(40, 60, 1000, 760);
@@ -123,7 +125,9 @@ public static class UnityParticleTrailSmoke
         }
         if (Event.current.type != EventType.Repaint) return;
         baseScreen = WindowPoint(Vector3.zero);
-        pointScreens = path.Points.Select(p => WindowPoint(path.transform.TransformPoint(p))).ToArray();
+        pointScreens = path.knots.Select(k => WindowPoint(system.transform.TransformPoint(k.position))).ToArray();
+        if (path.knots.Count > 2)
+            tangentScreen = WindowPoint(system.transform.TransformPoint(path.Handle(1, true)));
     }
 
     static void Mouse(EventType type, Vector2 at, bool shift = false, Vector2 delta = default)
@@ -153,31 +157,40 @@ public static class UnityParticleTrailSmoke
                         Mouse(EventType.MouseDown, baseScreen + offset, true);
                         Mouse(EventType.MouseUp, baseScreen + offset, true);
                     }
-                    Check(path.Points.Count == 4, "Shift-click draws four ordered control points in Scene view");
+                    Check(path.knots.Count == 4, "Shift-click draws four ordered control points in Scene view");
+                    Check(Tools.hidden && system.GetComponent<ParticleTrailPath>() == null,
+                        "Editing hides the object's native transform tool and adds no component");
                     break;
                 case 1:
                     Mouse(EventType.MouseMove, pointScreens[1]);
                     break;
                 case 2:
-                    Vector3 before = path.Points[1];
+                    Vector3 before = path.knots[1].position;
                     Vector2 offsetDrag = new Vector2(45, -35);
                     Mouse(EventType.MouseDown, pointScreens[1]);
                     Mouse(EventType.MouseDrag, pointScreens[1] + offsetDrag, delta: offsetDrag);
                     Mouse(EventType.MouseUp, pointScreens[1] + offsetDrag);
-                    var moved = path.Points[1];
+                    var moved = path.knots[1].position;
                     Check(Vector3.Distance(before, moved) > .1f, "Dragging a Scene marker moves its control point");
                     view.Focus();
                     CHValidationInput.Send(view, new Event { type = EventType.KeyDown, keyCode = KeyCode.Delete });
                     CHValidationInput.Send(view, new Event { type = EventType.KeyUp, keyCode = KeyCode.Delete });
-                    Check(path != null && path.Points.Count == 3, "Delete removes only the selected control point");
+                    Check(path != null && path.knots.Count == 3, "Delete removes only the selected control point");
                     Undo.FlushUndoRecordObjects();
                     Undo.PerformUndo();
-                    Check(path.Points.Count == 4 && path.Points[1] == moved, "Undo restores the removed control point");
+                    Check(path.knots.Count == 4 && path.knots[1].position == moved, "Undo restores the removed control point");
                     break;
                 case 3:
-                    VerifyBake();
+                    BeginHandleChecks();
                     break;
                 case 4:
+                    Mouse(EventType.MouseMove, tangentScreen);
+                    break;
+                case 5:
+                    VerifyHandles();
+                    VerifyBake();
+                    break;
+                case 6:
                     Check(errors == null, "Scene editing and native trail rendering finish without errors");
                     Finish(null);
                     return;
@@ -195,15 +208,18 @@ public static class UnityParticleTrailSmoke
         {
             EditorSceneManager.OpenScene("Assets/ParticleTrailSmoke.unity");
             system = GameObject.Find("S curve particle").GetComponent<ParticleSystem>();
-            path = system.GetComponent<ParticleTrailPath>();
+            Check(path != null, "Editor data resolves after scene reopen");
             renderer = system.GetComponent<ParticleSystemRenderer>();
             view = EditorWindow.GetWindow<SceneView>();
             view.Show();
-            view.LookAtDirect(system.transform.TransformPoint(path.Points[1]), system.transform.rotation, 11f);
+            view.LookAtDirect(system.transform.TransformPoint(path.knots[1].position), system.transform.rotation, 11f);
             view.orthographic = true;
             Selection.activeGameObject = system.gameObject;
             view.Focus();
             Application.logMessageReceived += Log;
+            Check(system.GetComponent<ParticleTrailPath>() == null &&
+                path.BakedSignature == ParticleTrailBaker.Signature(path), "Restart restores the saved editor path without a scene script");
+            next = EditorApplication.timeSinceStartup + 2;
             deadline = EditorApplication.timeSinceStartup + 120;
             EditorApplication.update += ObserveNativePreview;
         }
@@ -217,13 +233,28 @@ public static class UnityParticleTrailSmoke
             if (errors != null) throw new InvalidOperationException(errors);
             if (EditorApplication.timeSinceStartup > deadline)
                 throw new TimeoutException("Unity's selected particle system did not play in the native preview.");
+            if (!nativePlayRequested && EditorApplication.timeSinceStartup >= next)
+            {
+                nativePlayRequested = true;
+                ActiveEditorTracker.sharedTracker.ForceRebuild();
+                var inspector = ActiveEditorTracker.sharedTracker.activeEditors.FirstOrDefault(editor => editor.target == system);
+                if (inspector != null)
+                {
+                    const BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic;
+                    inspector.GetType().GetMethod("Init", flags)?.Invoke(inspector, new object[] { true });
+                    var effect = inspector.GetType().GetField("m_ParticleEffectUI", flags)?.GetValue(inspector);
+                    effect?.GetType().GetMethod("Play", flags)?.Invoke(effect, null);
+                }
+                EditorApplication.QueuePlayerLoopUpdate();
+                view.Repaint();
+            }
             if (!system.isPlaying || system.particleCount != 1 || system.time < path.Duration * .4f)
                 return;
             var particle = new ParticleSystem.Particle[2];
             if (system.GetParticles(particle) != 1) return;
             float age = particle[0].startLifetime - particle[0].remainingLifetime;
             if (age < path.Duration * .3f) return;
-            var curve = new ParticleTrailCurve(path.Points, system.transform.localToWorldMatrix);
+            var curve = new ParticleTrailCurve(path.knots, system.transform.localToWorldMatrix);
             float error = system.transform.TransformVector(particle[0].position - curve.Evaluate(age / path.Duration)).magnitude;
             var mesh = new Mesh();
             try
@@ -262,16 +293,61 @@ public static class UnityParticleTrailSmoke
         EditorApplication.Exit(error == null ? 0 : 1);
     }
 
+    static void BeginHandleChecks()
+    {
+        var tool = typeof(ParticleTrailBaker).Assembly.GetType("CH.CustomTools.VFX.ParticleTrailSceneTool");
+        const BindingFlags flags = BindingFlags.Static | BindingFlags.NonPublic;
+        var rotating = tool.GetProperty("Rotating", flags);
+        view.Focus();
+        CHValidationInput.Send(view, new Event { type = EventType.KeyDown, keyCode = KeyCode.E });
+        CHValidationInput.Send(view, new Event { type = EventType.KeyUp, keyCode = KeyCode.E });
+        Check((bool)rotating.GetValue(null) && Tools.hidden, "E activates only the selected point rotation handle");
+        tool.GetProperty("Selected", flags).SetValue(null, 1);
+        view.Repaint();
+    }
+
+    static void VerifyHandles()
+    {
+        var tool = typeof(ParticleTrailBaker).Assembly.GetType("CH.CustomTools.VFX.ParticleTrailSceneTool");
+        const BindingFlags flags = BindingFlags.Static | BindingFlags.NonPublic;
+        var rotating = tool.GetProperty("Rotating", flags);
+        var knot = path.knots[1];
+        var point = knot.position;
+        var incoming = path.Handle(1, false);
+        var outgoing = path.Handle(1, true);
+        var drag = new Vector2(10, -25);
+        Mouse(EventType.MouseDown, tangentScreen);
+        Mouse(EventType.MouseDrag, tangentScreen + drag, delta: drag);
+        Mouse(EventType.MouseUp, tangentScreen + drag);
+        Check(!path.knots[1].automatic && Vector3.Distance(path.Handle(1, false), incoming) < .0001f &&
+            Vector3.Distance(path.Handle(1, true), outgoing) > .05f,
+            "Scene tangent handle drag freezes automatic tangents and moves just one side");
+        tool.GetMethod("RotateTangents", flags).Invoke(null, new object[] { Quaternion.AngleAxis(8, Vector3.forward) });
+        Check(path.knots[1].position == point && Vector3.Distance(path.Handle(1, false), incoming) > .01f,
+            "Point-centred rotation rotates tangents without moving the point");
+        CHValidationInput.Send(view, new Event { type = EventType.KeyDown, keyCode = KeyCode.W });
+        CHValidationInput.Send(view, new Event { type = EventType.KeyUp, keyCode = KeyCode.W });
+        Check(!(bool)rotating.GetValue(null) && Tools.hidden, "W returns to selected point position handle");
+        tool.GetMethod("Stop", flags).Invoke(null, null);
+        Check(!Tools.hidden, "Stopping editing restores the original transform tool");
+        tool.GetMethod("Start", flags).Invoke(null, new object[] { system });
+    }
+
     static void VerifyBake()
     {
-        for (int i = 0; i < path.Points.Count; i++)
-            path.Points[i] += Vector3.forward * (i * .8f + .9f);
+        for (int i = 0; i < path.knots.Count; i++)
+            path.knots[i].position += Vector3.forward * (i * .8f + .9f);
         path.Duration = 2f;
+        // Exercise migration/removal without changing the editor path data.
+        var legacy = system.gameObject.AddComponent<ParticleTrailPath>();
+        legacy.Points.AddRange(path.knots.Select(k => k.position));
+        legacy.Duration = path.Duration;
         string original = EditorJsonUtility.ToJson(system);
         var changes = ParticleTrailBaker.MovementChanges(system);
         Check(changes.Any(c => c.Contains("Start Speed")) && changes.Any(c => c.Contains("Gravity Modifier")) &&
             changes.Contains("Noise") && changes.Contains("Force over Lifetime"), "Preflight names the actual motion conflicts");
         ParticleTrailBaker.Bake(system, path);
+        Check(system.GetComponent<ParticleTrailPath>() == null, "Successful bake removes the legacy runtime path component");
         Check(system.main.startSpeed.constant == 0 && system.main.gravityModifier.constant == 0 &&
             !system.noise.enabled && !system.forceOverLifetime.enabled, "Bake removes competing motion modules");
         Check(system.main.startLifetime.constant == 2 && system.main.simulationSpace == ParticleSystemSimulationSpace.Local &&
@@ -285,7 +361,8 @@ public static class UnityParticleTrailSmoke
         string baked = EditorJsonUtility.ToJson(system);
         Undo.FlushUndoRecordObjects();
         Undo.PerformUndo();
-        Check(EditorJsonUtility.ToJson(system) == original && string.IsNullOrEmpty(path.BakedSignature),
+        Check(EditorJsonUtility.ToJson(system) == original && string.IsNullOrEmpty(path.BakedSignature) &&
+            system.GetComponent<ParticleTrailPath>() != null,
             "One bake Undo restores the complete original particle settings");
         Undo.PerformRedo();
         string redone = EditorJsonUtility.ToJson(system);
@@ -295,17 +372,18 @@ public static class UnityParticleTrailSmoke
             File.WriteAllText("Artifacts/undo-baked.json", baked);
             File.WriteAllText("Artifacts/undo-redone.json", redone);
         }
-        Check(redone == baked && path.BakedSignature == ParticleTrailBaker.Signature(path),
+        Check(redone == baked && path.BakedSignature == ParticleTrailBaker.Signature(path) &&
+            system.GetComponent<ParticleTrailPath>() == null,
             "Redo restores the full native bake");
 
         Sample("S curve at 2 s", true);
         Sample("S curve at 60 Hz", false, 120);
-        var localBefore = path.Points.ToArray();
+        var localBefore = path.knots.Select(k => k.position).ToArray();
         root.transform.SetPositionAndRotation(new Vector3(24f, -3, 11), Quaternion.Euler(26, 39, -18));
-        Check(path.Points.SequenceEqual(localBefore), "Moving the parent leaves the same saved local control points");
+        Check(path.knots.Select(k => k.position).SequenceEqual(localBefore), "Moving the parent leaves the same saved local control points");
         Sample("Rigid root move and rotation", false);
 
-        path.Points[1] += new Vector3(-.25f, .65f, .9f);
+        path.knots[1].position += new Vector3(-.25f, .65f, .9f);
         path.Duration = 1.35f;
         Check(path.BakedSignature != ParticleTrailBaker.Signature(path), "Changed point and duration are detected before rebake");
         ParticleTrailBaker.Bake(system, path);
@@ -313,23 +391,53 @@ public static class UnityParticleTrailSmoke
             renderer.trailMaterial == trailMaterial, "Rebake sets the new duration and retains the assigned trail material");
         Sample("Edited path at 1.35 s", false);
 
-        var snapshot = path.Points.ToArray();
+        var snapshot = path.knots.Select(k => k.position).ToArray();
         var scene = system.gameObject.scene;
         Check(EditorSceneManager.SaveScene(scene, "Assets/ParticleTrailSmoke.unity"), "A scene with authored data saves");
         window.Close();
         EditorSceneManager.OpenScene("Assets/ParticleTrailSmoke.unity");
         system = GameObject.Find("S curve particle").GetComponent<ParticleSystem>();
-        path = system.GetComponent<ParticleTrailPath>();
+        Check(path != null, "Editor data resolves after scene reopen");
         renderer = system.GetComponent<ParticleSystemRenderer>();
-        Check(path.Points.SequenceEqual(snapshot) && path.Duration == 1.35f && path.BakedSignature == ParticleTrailBaker.Signature(path),
+        Check(path.knots.Select(k => k.position).SequenceEqual(snapshot) && path.Duration == 1.35f && path.BakedSignature == ParticleTrailBaker.Signature(path),
             "Closing the tool and reopening the scene preserves authored points and duration");
+        Check(system.GetComponents<MonoBehaviour>().Length == 0, "Saved effect contains no MonoBehaviour dependency");
         Check(system.velocityOverLifetime.enabled && system.trails.enabled && renderer.trailMaterial == trailMaterial,
             "The saved particle system plays its native bake after reopening the scene");
+        VerifyLegacyAndPrefab();
+    }
+
+    static void VerifyLegacyAndPrefab()
+    {
+        var go = new GameObject("Legacy prefab");
+        var ps = go.AddComponent<ParticleSystem>();
+        var legacy = go.AddComponent<ParticleTrailPath>();
+        legacy.Points.AddRange(new[] { Vector3.zero, new Vector3(1, 3, 2), new Vector3(5, 4, 3) });
+        legacy.Duration = 3.5f;
+        var asset = AssetDatabase.GenerateUniqueAssetPath("Assets/LegacyTrail.prefab");
+        PrefabUtility.SaveAsPrefabAsset(go, asset);
+        Object.DestroyImmediate(go);
+        var stage = PrefabStageUtility.OpenPrefab(asset);
+        ps = stage.prefabContentsRoot.GetComponent<ParticleSystem>();
+        var data = ParticleTrailStore.GetOrCreate(ps);
+        Check(data.knots.Count == 3 && data.knots[1].position == new Vector3(1, 3, 2) &&
+            data.Duration == 3.5f, "Legacy prefab imports existing curve coordinates and time");
+        ParticleTrailBaker.Bake(ps, data);
+        Check(ps.GetComponent<ParticleTrailPath>() == null, "Prefab Mode bake removes migrated component");
+        var save = typeof(PrefabStage).GetMethod("SavePrefab", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        save.Invoke(stage, null);
+        StageUtility.GoToMainStage();
+        stage = PrefabStageUtility.OpenPrefab(asset);
+        ps = stage.prefabContentsRoot.GetComponent<ParticleSystem>();
+        data = ParticleTrailStore.Find(ps);
+        Check(data != null && data.knots.Count == 3 && data.Duration == 3.5f && ps.GetComponent<ParticleTrailPath>() == null,
+            "Prefab record resolves after closing and reopening Prefab Mode");
+        StageUtility.GoToMainStage();
     }
 
     static void Sample(string name, bool capture, int steps = 480)
     {
-        var curve = new ParticleTrailCurve(path.Points, system.transform.localToWorldMatrix);
+        var curve = new ParticleTrailCurve(path.knots, system.transform.localToWorldMatrix);
         float delta = path.Duration / steps;
         var particle = new ParticleSystem.Particle[4];
         var result = new Motion { name = name, duration = path.Duration, length = curve.Length };
@@ -358,7 +466,7 @@ public static class UnityParticleTrailSmoke
             previous = rootTransform.TransformPoint(particle[0].position);
             result.arrivalAge = particle[0].startLifetime - particle[0].remainingLifetime;
         }
-        result.endpointError = Vector3.Distance(previous, rootTransform.TransformPoint(path.Points.Last()));
+        result.endpointError = Vector3.Distance(previous, rootTransform.TransformPoint(path.knots.Last().position));
         var camera = new GameObject("Trail preview camera").AddComponent<Camera>();
         var mesh = new Mesh();
         try

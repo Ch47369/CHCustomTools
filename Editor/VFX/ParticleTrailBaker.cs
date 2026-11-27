@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using ASEShaderConverter.Editor;
+using CH.CustomTools.Paths;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -27,6 +28,18 @@ namespace CH.CustomTools.VFX
         {
             var text = new StringBuilder(path.Duration.ToString("R", CultureInfo.InvariantCulture));
             foreach (var p in path.Points) text.Append('|').Append(p.ToString("R", CultureInfo.InvariantCulture));
+            return Hash128.Compute(text.ToString()).ToString();
+        }
+        public static string Signature(ParticleTrailData path)
+        {
+            var text = new StringBuilder(path.Duration.ToString("R", CultureInfo.InvariantCulture));
+            foreach (var knot in path.knots)
+            {
+                text.Append('|').Append(knot.position.ToString("R", CultureInfo.InvariantCulture));
+                if (!knot.automatic)
+                    text.Append('|').Append(knot.incoming.ToString("R", CultureInfo.InvariantCulture))
+                        .Append('|').Append(knot.outgoing.ToString("R", CultureInfo.InvariantCulture));
+            }
             return Hash128.Compute(text.ToString()).ToString();
         }
 
@@ -62,11 +75,18 @@ namespace CH.CustomTools.VFX
         {
             if (!CanEdit(system) || path == null || system.gameObject != path.gameObject)
                 throw new ArgumentException(ParticleTrailText.Pick("请选择场景内的目标粒子系统。", "Select a particle system in an open scene."));
+            Bake(system, ParticleTrailStore.GetOrCreate(system));
+        }
+
+        public static void Bake(ParticleSystem system, ParticleTrailData path)
+        {
+            if (!CanEdit(system) || path == null || ParticleTrailStore.Find(system) != path)
+                throw new ArgumentException(ParticleTrailText.Pick("请选择场景内的目标粒子系统。", "Select a particle system in an open scene."));
             float duration = path.Duration;
             if (!float.IsFinite(duration) || duration < MinDuration || duration > MaxDuration)
                 throw new ArgumentException(ParticleTrailText.Pick("路径用时应在 0.1 至 120 秒之间。", "Set a travel time between 0.1 and 120 seconds."));
 
-            var geometry = new ParticleTrailCurve(path.Points, system.transform.localToWorldMatrix);
+            var geometry = new ParticleTrailCurve(path.knots, system.transform.localToWorldMatrix);
             var curves = geometry.VelocityCurves(duration);
             var renderer = system.GetComponent<ParticleSystemRenderer>();
             if (renderer == null)
@@ -76,23 +96,31 @@ namespace CH.CustomTools.VFX
             int group = Undo.GetCurrentGroup();
             const string label = "Bake particle trail path";
             Undo.SetCurrentGroupName(label);
-            Undo.RegisterCompleteObjectUndo(new UnityEngine.Object[] { system, renderer, path }, label);
+            Undo.RegisterCompleteObjectUndo(new UnityEngine.Object[] { system, renderer }, label);
+            ParticleTrailStore.Record(label);
             try
             {
                 system.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
-                ConfigureMotion(system, duration, path.Points[0], curves);
+                ConfigureMotion(system, duration, path.knots[0].position, curves);
                 ConfigureTrails(system, renderer, geometry.Length);
                 path.BakedSignature = Signature(path);
-                foreach (var changed in new UnityEngine.Object[] { system, renderer, path })
+                foreach (var changed in new UnityEngine.Object[] { system, renderer })
                 {
                     PrefabUtility.RecordPrefabInstancePropertyModifications(changed);
                     EditorUtility.SetDirty(changed);
                 }
+                ParticleTrailStore.Commit();
+                var legacy = system.GetComponent<ParticleTrailPath>();
+                if (legacy != null) Undo.DestroyObjectImmediate(legacy);
+                if (system.GetComponent<ParticleTrailPath>() != null)
+                    throw new InvalidOperationException("Could not remove the legacy path component. / 无法移除旧路径组件。");
+                UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(system.gameObject.scene);
                 Undo.CollapseUndoOperations(group);
             }
             catch
             {
                 Undo.RevertAllDownToGroup(group);
+                ParticleTrailStore.Commit();
                 throw;
             }
         }

@@ -16,6 +16,25 @@ namespace CH.CustomTools.VFX
         public float Length => distances[distances.Length - 1];
 
         public ParticleTrailCurve(IReadOnlyList<Vector3> points, Matrix4x4 localToWorld)
+            : this(AutomaticKnots(points), localToWorld) { }
+
+        static List<PathKnot> AutomaticKnots(IReadOnlyList<Vector3> points)
+        {
+            if (points == null) return null;
+            var knots = new List<PathKnot>(points.Count);
+            foreach (var point in points) knots.Add(new PathKnot(point));
+            return knots;
+        }
+
+        public static Vector3 Handle(IReadOnlyList<PathKnot> knots, int index, bool outgoing)
+        {
+            var knot = knots[index];
+            if (!knot.automatic) return knot.position + (outgoing ? knot.outgoing : knot.incoming);
+            return BezierPath.AutomaticHandle(knots[Math.Max(index - 1, 0)].position, knot.position,
+                knots[Math.Min(index + 1, knots.Count - 1)].position, outgoing);
+        }
+
+        public ParticleTrailCurve(IReadOnlyList<PathKnot> points, Matrix4x4 localToWorld)
         {
             if (points == null || points.Count < 2 || points.Count > MaxPoints)
                 throw new ArgumentException(ParticleTrailText.Pick("请添加 2 至 128 个控制点。", "Add between 2 and 128 points."));
@@ -23,12 +42,12 @@ namespace CH.CustomTools.VFX
                 throw new ArgumentException(ParticleTrailText.Pick("目标粒子系统的缩放必须可逆。", "The target system needs a nonzero scale."));
             samples = new Vector3[(points.Count - 1) * SamplesPerSpan + 1];
             distances = new float[samples.Length];
-            samples[0] = points[0];
+            samples[0] = points[0].position;
             for (int span = 0; span < points.Count - 1; span++)
             {
-                Vector3 start = points[span], end = points[span + 1];
-                Vector3 outgoing = BezierPath.AutomaticHandle(points[Math.Max(span - 1, 0)], start, end, true);
-                Vector3 incoming = BezierPath.AutomaticHandle(start, end, points[Math.Min(span + 2, points.Count - 1)], false);
+                Vector3 start = points[span].position, end = points[span + 1].position;
+                Vector3 outgoing = Handle(points, span, true);
+                Vector3 incoming = Handle(points, span + 1, false);
                 for (int i = 1; i <= SamplesPerSpan; i++)
                 {
                     float t = i / (float)SamplesPerSpan;
