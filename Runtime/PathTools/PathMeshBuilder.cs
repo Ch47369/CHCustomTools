@@ -54,6 +54,12 @@ namespace CH.CustomTools.Paths
                 if (v.Count == 0) throw new InvalidOperationException("No mesh generated. / 未生成网格。");
                 var mesh = new Mesh { name = "CH Path " + settings.kind, indexFormat = v.Count > 65535 ? IndexFormat.UInt32 : IndexFormat.UInt16 };
                 mesh.SetVertices(v); mesh.SetNormals(n); mesh.SetUVs(0, uv); mesh.SetUVs(1, uv1);
+                if (settings.kind == PathMeshKind.ElectronicFence)
+                {
+                    var colors = new Color32[v.Count];
+                    for (int i = 0; i < colors.Length; i++) colors[i] = new Color32(255, 255, 255, 255);
+                    mesh.colors32 = colors;
+                }
                 mesh.subMeshCount = settings.kind == PathMeshKind.Railing ? 2 : 1;
                 for (int i = 0; i < mesh.subMeshCount; i++) mesh.SetTriangles(indices[i], i);
                 mesh.RecalculateBounds(); mesh.RecalculateTangents(); return mesh;
@@ -116,6 +122,9 @@ namespace CH.CustomTools.Paths
                 int rows = Mathf.Max(1, Mathf.CeilToInt((end - start) / settings.step));
                 var bottoms = new Vector3[rows + 1];
                 var distances = new float[rows + 1];
+                var heights = new float[rows + 1];
+                float firstHeight = FenceHeight(settings, path.knots[segment]);
+                float lastHeight = FenceHeight(settings, path.knots[(segment + 1) % path.knots.Count]);
                 for (int i = 0; i <= rows; i++)
                 {
                     distances[i] = Mathf.Lerp(start, end, i / (float)rows);
@@ -123,10 +132,17 @@ namespace CH.CustomTools.Paths
                         ? path.transform.TransformPoint(path.knots[(segment + (i == rows ? 1 : 0)) % path.knots.Count].position)
                         : path.Evaluate(distances[i]).position;
                     bottoms[i] = position + up * settings.fenceBaseOffset;
+                    heights[i] = Mathf.Lerp(firstHeight, lastHeight, i / (float)rows);
                 }
-                AddFenceFace(builder, bottoms, distances, up, false);
-                if (settings.fenceDoubleSided) AddFenceFace(builder, bottoms, distances, up, true);
+                AddFenceFace(builder, bottoms, distances, heights, up, false);
+                if (settings.fenceDoubleSided) AddFenceFace(builder, bottoms, distances, heights, up, true);
             }
+        }
+        public static float FenceHeight(PathMeshSettings settings, PathKnot knot)
+        {
+            float height = settings.fenceHeight * (knot.fenceHeightOverride ? knot.fenceHeightScale : 1);
+            Positive(height, "Point fence height");
+            return height;
         }
 
         public static Vector3 FenceAxis(PathFenceAxis axis)
@@ -140,7 +156,7 @@ namespace CH.CustomTools.Paths
             }
         }
 
-        static void AddFenceFace(Builder builder, Vector3[] bottoms, float[] distances, Vector3 up, bool reverse)
+        static void AddFenceFace(Builder builder, Vector3[] bottoms, float[] distances, float[] heights, Vector3 up, bool reverse)
         {
             int first = builder.v.Count;
             for (int i = 0; i < bottoms.Length; i++)
@@ -150,7 +166,7 @@ namespace CH.CustomTools.Paths
                 if (normal.sqrMagnitude < .5f) normal = BezierPath.Perpendicular(up, Vector3.right);
                 if (reverse) normal = -normal;
                 builder.FenceVertex(bottoms[i], normal, distances[i], 0f);
-                builder.FenceVertex(bottoms[i] + up * builder.settings.fenceHeight, normal, distances[i], 1f);
+                builder.FenceVertex(bottoms[i] + up * heights[i], normal, distances[i], 1f);
                 if (i == 0) continue;
                 int a = first + (i - 1) * 2, c = a + 2;
                 if (reverse) { builder.Tri(a, a + 1, c); builder.Tri(a + 1, c + 1, c); }

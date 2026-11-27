@@ -11,6 +11,8 @@ namespace CH.CustomTools.Paths
         public bool automatic = true;
         public Vector3 incoming = Vector3.back, outgoing = Vector3.forward;
         public float roll;
+        public bool fenceHeightOverride;
+        public float fenceHeightScale = 1f;
         public PathKnot(Vector3 point) { position = point; }
     }
 

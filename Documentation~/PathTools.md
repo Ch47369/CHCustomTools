@@ -21,13 +21,19 @@
 
 **连线显示修复**：0.6.4 在 Scene 编辑绘制阶段画线，与点的位置一致，不依赖 Gizmos 开关。选中路径的线穿透几何便于编辑；未选中路径尊重深度，隐藏对象、相机层和当前 Stage 过滤仍生效。
 
-## 电子围栏 / Electronic fence
+## 电子围栏 / Electronic fence (0.7.4)
 
-在 **编辑路径** 选择绘制平面，再点 **在 Scene 绘制电子围栏**。XZ 对应 +Y，YZ 对应 +X，XY 对应 +Z。默认是 XZ。首点决定绘制平面的位置，后续落点沿同一平面。左键添加点，按住 Shift 将下一段限制在平面内最近的一条主轴，Backspace 撤回上一点。点回首点或按 Enter 闭合，Esc 取消。
+打开 **场景工具 → 路径工具 → 电子围栏**，选择 XZ、YZ 或 XY 绘制平面，分别对应 +Y、+X、+Z 高度方向。点击 **在 Scene 绘制电子围栏**。首点决定绘制平面的位置。
 
-已有路径可在 **生成网格 → 网格类型 → 电子围栏** 使用。可选择世界轴或路径局部轴，调整高度和底部偏移，并在 Scene 中实时预览。拖入自定义材质即可替换默认的青色半透明扫描效果。材质剔除背面且需要从两边观看时，勾选 **生成背面**。点击生成或重新生成网格后保存结果。UV0 的 X 按路径距离平铺，Y 从底到顶。UV1 的 X 为归一化路径进度，Y 从底到顶。
+- 左键落点，Shift 锁定平面主轴，Backspace 删除最后一个点。
+- 右键单击或 Enter 完成开放围栏（至少两个点），点击首点闭合（至少三个不共线的点）。右键拖动仍可导航 Scene 相机。Esc 取消绘制。
+- 完成后自动进入 **编辑控制点**，拖动任意点（包括首点）独立移动。W 移动、E 旋转，Ctrl 插点、Shift 拖出新点。切换 **整体移动 / 旋转** 使用 Unity 原生 Transform 工具调整整条路径。
+- 勾选实时预览，调整整体高度、底部偏移和世界/局部高度轴。选中任意点后输入其高度，或拖动点上方橙色控制柄。整体高度按比例缩放各点高度，**统一所有点的高度** 恢复统一高度。闭合开关可改变已有路径。
+- 材质留空时使用当前管线的 ASE Custom2TexV2 默认材质。支持自定义材质；对单面材质可选择生成背面。点击 **生成 / 重新生成网格** 确认保存。UV0 X 按距离平铺，Y 从底到顶。UV1 X 为路径进度，Y 为高度。
 
-In **Edit path**, choose the drawing plane and click **Draw electronic fence in Scene**. The selected plane determines the extrusion axis. Click to place corners, hold Shift to align the next edge, and click the first point or press Enter to close. In **Generate mesh**, choose **Electronic fence** to use an existing path. Assign a custom material to replace the default scan effect and generate the mesh to commit the preview.
+默认 Shader 由 ASE 1.9.9.13 保存并重载（Built-in 官方模板、URP 14.0.8 与 HDRP 14.0.8 官方默认 Unlit 模板）。保留原图 133 个非主节点。HDRP 的混合、深度写入及剔除由其官方模板材质状态控制。首次使用默认材质时，插件将对应管线 Shader 复制到 Assets/CHCustomTools/PathShaders 下，已有同名文件保留。可在 ASE 中继续编辑。默认材质附带原创网格贴图。
+
+In **Path tools → Fence**, choose the drawing plane, click to place corners, and Shift-align edges. Right-click or Enter finishes an open fence. Click the first point to close it. Edit points individually or switch to whole-path transforms. Adjust overall height or drag an orange point height handle. Use Live fence preview, assign a material if desired, and generate the mesh to commit the geometry.
 
 ## 快速开始
 

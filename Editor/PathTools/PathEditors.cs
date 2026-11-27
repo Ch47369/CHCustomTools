@@ -97,7 +97,7 @@ namespace CH.CustomTools.Paths.Editor
         }
         internal static void DrawSceneHandles(BezierPath path)
         {
-            if (!PathSceneTool.Active || Application.isPlaying || PathMotionPreview.BlocksPathEditing || path.knots == null || PathPointDrag.IsDragging) return;
+            if (!PathSceneTool.PointEditing || Application.isPlaying || PathMotionPreview.BlocksPathEditing || path.knots == null || PathPointDrag.IsDragging) return;
             try { path.ValidatePath(); } catch (System.Exception) { return; }
             if (PathPointInsertion.InsertionModifier(Event.current) && GUIUtility.hotControl == 0) return;
             if (Event.current.shift && GUIUtility.hotControl == 0) return;

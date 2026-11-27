@@ -45,7 +45,8 @@ namespace CH.CustomTools.Paths.Editor
             if (!BezierPath.Finite(local) || (local - original.position).sqrMagnitude < 1e-12f) throw new ArgumentException("Drag away from the original point. / 请从原点拖开再新增。");
             Undo.IncrementCurrentGroup(); Undo.SetCurrentGroupName("Duplicate and move path point");
             Undo.RegisterCompleteObjectUndo(path, "Duplicate and move path point");
-            var knot = new PathKnot(local) { automatic = original.automatic, incoming = original.incoming, outgoing = original.outgoing, roll = original.roll };
+            var knot = new PathKnot(local) { automatic = original.automatic, incoming = original.incoming, outgoing = original.outgoing, roll = original.roll,
+                fenceHeightOverride = original.fenceHeightOverride, fenceHeightScale = original.fenceHeightScale };
             int added = !path.closed && source == 0 ? 0 : source + 1;
             path.knots.Insert(added, knot); Changed(path); PathPointInsertion.Focus(path, added);
             return added;
@@ -93,7 +94,7 @@ namespace CH.CustomTools.Paths.Editor
                 }
                 else if (e.type == EventType.MouseUp && e.button == 0) { Complete(); e.Use(); }
             }
-            if (!PathSceneTool.Active || path == null || inserting || Application.isPlaying || PathMotionPreview.BlocksPathEditing || DmSceneTool.Active) return;
+            if (!PathSceneTool.PointEditing || path == null || inserting || Application.isPlaying || PathMotionPreview.BlocksPathEditing || DmSceneTool.Active) return;
             try { path.ValidatePath(); } catch (Exception) { return; }
             int hover = FindPoint(path, view.camera, e.mousePosition);
             bool canPick = !e.alt && !PathPointInsertion.InsertionModifier(e) && GUIUtility.hotControl == 0;

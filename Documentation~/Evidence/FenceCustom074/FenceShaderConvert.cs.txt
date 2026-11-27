@@ -1,0 +1,148 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using AmplifyShaderEditor;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.Rendering;
+
+public static class FenceShaderConvert
+{
+    const string Source = "Assets/FenceSource/Custom2TexV2.shader";
+    public static void Run()
+    {
+        try
+        {
+            Directory.CreateDirectory("Artifacts");
+            var args = Environment.GetCommandLineArgs();
+            int p = Array.IndexOf(args, "-fencePipeline");
+            string pipeline = args[p+1];
+            string guid = pipeline == "Built-in" ? "0770190933193b94aaa3065e307002fa" :
+                pipeline == "URP" ? "2992e84f91cbeb14eab234972e07ea9d" : "7f5cb9c3ea6481f469fdd856555439ef";
+            if (VersionInfo.FullNumber != 19913) throw new Exception("Wrong ASE version " + VersionInfo.StaticToString());
+            var pipelineAsset = AssetDatabase.LoadAssetAtPath<RenderPipelineAsset>("Assets/SmokePipelineConfigured.asset");
+            if (pipeline != "Built-in")
+            {
+                if (pipelineAsset == null) throw new Exception("Missing pipeline asset");
+                GraphicsSettings.renderPipelineAsset = pipelineAsset;
+                QualitySettings.renderPipeline = pipelineAsset;
+                Shader.globalRenderPipeline = pipeline == "URP" ? "UniversalPipeline" : "HDRenderPipeline";
+            }
+            TemplateTracker.ScanTemplateManifests();
+            var updated = new ConcurrentBag<string>();
+            ASEPackageManagerHelper.CheckActivePackages(UnityEditor.PackageManager.PackageInfo.GetAllRegisteredPackages(), updated);
+            foreach (var path in updated) AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceSynchronousImport | ImportAssetOptions.ForceUpdate);
+            TemplatesManager.Instance.RefreshAvailableTemplates();
+            var template = TemplatesManager.Instance.GetTemplate(guid);
+            if (template == null || !template.IsValid) throw new Exception("Target template not ready: " + guid);
+            var window = AmplifyShaderEditorWindow.CreateTab();
+            UIUtils.CurrentWindow = window;
+            window.CreateNewTemplateGraph(guid);
+            window.Show();
+            window.SendEvent(new Event { type = EventType.Layout });
+            window.SendEvent(new Event { type = EventType.Repaint });
+            var load = window.LoadFromDisk(Source);
+            if (load.ToString() != "LOADED") throw new Exception("Source failed to load: " + load);
+            var graph = window.CurrentGraph;
+            var old = (TemplateMultiPassMasterNode)graph.CurrentMasterNode;
+            var wires = old.InputPorts.Where(port => port.IsConnected).Select(port => new
+            {
+                name=port.Name,
+                node=port.ExternalReferences[0].NodeId,
+                output=port.ExternalReferences[0].PortId
+            }).ToArray();
+            var nodes = graph.AllNodes.Where(n => !(n is MasterNode)).ToDictionary(n=>n.UniqueId,n=>n.GetType().Name);
+            File.WriteAllText("Artifacts/old-ports.txt",string.Join("\n",wires.Select(w=>w.name+" "+w.node+" "+w.output)));
+            var sourceBlend=old.PassModule.BlendOpHelper;
+            int src=sourceBlend.SourceFactorRGBInline.NodeId, dst=sourceBlend.DestFactorRGBInline.NodeId;
+            int cull=old.PassModule.CullModeHelper.CullInlineProperty.NodeId;
+            int zwrite=old.PassModule.DepthOphelper.ZWriteMode.NodeId;
+            if (pipeline == "Built-in")
+            {
+                foreach (var m in graph.AllNodes.OfType<TemplateMultiPassMasterNode>()) m.ForceOptionsRefresh();
+                var options = old.SubShaderOptions.PassCustomOptionsUI.Concat(old.PassOptions.PassCustomOptionsUI).ToArray();
+                File.WriteAllLines("Artifacts/options.txt",options.Select(o=>o.Options.Name+"="+string.Join("|",o.Options.Options)));
+                SetOption(options,"Surface","Transparent");
+                SetOption(options,"Blend","Alpha");
+                Bind(old.PassModule.BlendOpHelper.SourceFactorRGBInline,src);
+                Bind(old.PassModule.BlendOpHelper.DestFactorRGBInline,dst);
+                Bind(old.PassModule.CullModeHelper.CullInlineProperty,cull);
+                Bind(old.SubShaderModule.CullModeHelper.CullInlineProperty,cull);
+                Bind(old.PassModule.DepthOphelper.ZWriteMode,zwrite);
+            }
+            else
+            {
+                window.SetTemplateShader(guid,false);
+                graph=window.CurrentGraph;
+                var master=(TemplateMultiPassMasterNode)graph.CurrentMasterNode;
+                foreach (var m in graph.AllNodes.OfType<TemplateMultiPassMasterNode>()) m.ForceOptionsRefresh();
+                var options = master.SubShaderOptions.PassCustomOptionsUI.Concat(master.PassOptions.PassCustomOptionsUI).ToArray();
+                File.WriteAllLines("Artifacts/options.txt",options.Select(o=>o.Options.Name+"="+string.Join("|",o.Options.Options)));
+                SetOption(options,pipeline=="URP" ? "Surface":"Surface Type","Transparent");
+                SetOption(options,pipeline=="URP" ? "Blend":"Blending Mode","Alpha");
+                if(pipeline=="URP") SetOption(options,"Built-in Fog","false");
+                if(pipeline=="HDRP") { SetOption(options,"Receive Fog","false"); SetOption(options,"Depth Write","false"); }
+                File.WriteAllLines("Artifacts/new-ports.txt",master.InputPorts.Select(x=>x.Name+" "+x.PortId+" "+x.DataType));
+                foreach (var wire in wires)
+                {
+                    var port=master.InputPorts.FirstOrDefault(x=>x.Name==wire.name);
+                    if(port==null && wire.name=="Color") port=master.InputPorts.FirstOrDefault(x=>x.Name=="Base Color" || x.Name=="BaseColor");
+                    if(port==null) throw new Exception("Missing target input for "+wire.name);
+                    graph.CreateConnection(master.UniqueId,port.PortId,wire.node,wire.output,false);
+                }
+                // ASE's material-linked host fields are set after the template option cascade.
+                if(pipeline=="URP")
+                {
+                    var module=master.PassModule;
+                    Bind(module.BlendOpHelper.SourceFactorRGBInline,src);
+                    Bind(module.BlendOpHelper.DestFactorRGBInline,dst);
+                    Bind(module.CullModeHelper.CullInlineProperty,cull); Bind(master.SubShaderModule.CullModeHelper.CullInlineProperty,cull);
+                    Bind(module.DepthOphelper.ZWriteMode,zwrite);
+                }
+            }
+            graph=window.CurrentGraph;
+            graph.RefreshExternalReferences();
+            graph.CurrentMasterNode.SetName("CH/Paths/Custom2TexV2/"+pipeline);
+            graph.CurrentMasterNode.ForceReordering();
+            typeof(IOUtils).GetField("UseSaveThread", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic).SetValue(null,false);
+            string output="Assets/FenceSource/Custom2TexV2-"+pipeline+".shader";
+            graph.FireMasterNode(Path.GetFullPath(output),true);
+            AssetDatabase.ImportAsset(output,ImportAssetOptions.ForceSynchronousImport|ImportAssetOptions.ForceUpdate);
+            var shader=AssetDatabase.LoadAssetAtPath<Shader>(output);
+            if(shader==null) throw new Exception("No shader output");
+            var messages=ShaderUtil.GetShaderMessages(shader);
+            File.WriteAllLines("Artifacts/shader-messages.txt",messages.Select(m=>m.severity+" "+m.message));
+            if(ShaderUtil.ShaderHasError(shader)) throw new Exception("Shader has compiler errors");
+            var result=window.LoadFromDisk(output);
+            if(result.ToString()!="LOADED")throw new Exception("ASE reload failed");
+            graph=window.CurrentGraph;
+            foreach(var node in nodes) if(graph.GetNode(node.Key)==null||graph.GetNode(node.Key).GetType().Name!=node.Value)
+                throw new Exception("Graph lost original node "+node.Key+" "+node.Value);
+            File.Copy(output,"Artifacts/"+Path.GetFileName(output),true);
+            File.WriteAllText("Artifacts/result.txt","Passed "+pipeline+" ASE "+VersionInfo.StaticToString()+" nodes "+nodes.Count);
+            window.ShaderIsModified=false;window.Close();
+            EditorApplication.Exit(0);
+        }
+        catch(Exception ex)
+        {
+            File.WriteAllText("Artifacts/result.txt",ex.ToString());
+            Debug.LogException(ex);EditorApplication.Exit(1);
+        }
+    }
+    static void SetOption(TemplateOptionUIItem[] items,string name,string value)
+    {
+        var found=items.SingleOrDefault(x=>x.Options.Name.Trim()==name.Trim());
+        if(found==null)return;
+        int i=Array.IndexOf(found.Options.Options,value);
+        if(i<0)throw new Exception("Missing option "+name+" "+value);
+        found.CurrentOption=i;found.Update(0,false);
+    }
+    static void Bind(InlineProperty property,int id)
+    {
+        if(id>=0){property.NodeId=id;property.Active=true;}
+    }
+}
+
+

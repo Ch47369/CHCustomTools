@@ -40,7 +40,7 @@ namespace CH.CustomTools.Paths.Editor
             }
             path.Invalidate(); Selection.activeGameObject = go; EditorSceneManager.MarkSceneDirty(go.scene); return path;
         }
-        internal static BezierPath CreateFenceBoundary(IReadOnlyList<Vector3> points)
+        internal static BezierPath CreateFenceBoundary(IReadOnlyList<Vector3> points, bool closed = true)
         {
             Undo.IncrementCurrentGroup();
             int group = Undo.GetCurrentGroup();
@@ -51,7 +51,7 @@ namespace CH.CustomTools.Paths.Editor
             var path = Undo.AddComponent<BezierPath>(go);
             Undo.RecordObjects(new Object[] { go.transform, path }, label);
             go.transform.position = points[0];
-            path.closed = true;
+            path.closed = closed;
             path.knots = new List<PathKnot>(points.Count);
             foreach (var p in points)
                 path.knots.Add(new PathKnot(p - points[0]) { automatic = false, incoming = Vector3.zero, outgoing = Vector3.zero });
@@ -118,10 +118,7 @@ namespace CH.CustomTools.Paths.Editor
         internal static Material DefaultMeshMaterial(PathMeshKind kind)
         {
             if (kind != PathMeshKind.ElectronicFence) return DefaultMaterial();
-            var shader = Shader.Find("CH/Paths/Electronic Fence");
-            if (shader == null)
-                throw new InvalidOperationException("The electronic fence shader could not be found. / 未找到电子围栏着色器。");
-            return new Material(shader) { name = "CH Electronic Fence" };
+            return PathFenceMaterial.Create();
         }
         public static GameObject Generate(BezierPath path, PathMeshSettings settings, Material material, Material posts, string folder)
         {

@@ -17,7 +17,8 @@ public static class UnityPathFenceSmoke
     static readonly List<string> checks = new List<string>();
     static SceneView view;
     static BezierPath path;
-    static Vector2 center, received, offset;
+    static Vector2 center, received, offset, firstPoint, heightTop, heightEnd;
+    static PathMeshSettings heightSettings;
     static bool calibrating, receivedMove;
     static double next, deadline;
     static int phase;
@@ -40,7 +41,7 @@ public static class UnityPathFenceSmoke
             Application.logMessageReceived += Log;
             BeginDraft();
             next = EditorApplication.timeSinceStartup + 3;
-            deadline = next + 55;
+            deadline = next + 180;
             EditorApplication.update += Tick;
         }
         catch (Exception e) { Finish(e); }
@@ -61,7 +62,20 @@ public static class UnityPathFenceSmoke
             receivedMove = true;
         }
         if (Event.current.type == EventType.Repaint)
+        {
             center = GUIUtility.GUIToScreenPoint(HandleUtility.WorldToGUIPoint(Vector3.zero)) - view.position.position;
+            if (path != null)
+            {
+                var point = path.transform.TransformPoint(path.knots[0].position);
+                firstPoint = GUIUtility.GUIToScreenPoint(HandleUtility.WorldToGUIPoint(point)) - view.position.position;
+                if (heightSettings != null)
+                {
+                    var top = point + Vector3.up * PathMeshBuilder.FenceHeight(heightSettings, path.knots[0]);
+                    heightTop = GUIUtility.GUIToScreenPoint(HandleUtility.WorldToGUIPoint(top)) - view.position.position;
+                    heightEnd = GUIUtility.GUIToScreenPoint(HandleUtility.WorldToGUIPoint(top + Vector3.up * 1.5f)) - view.position.position;
+                }
+            }
+        }
     }
 
     static void Log(string message, string stack, LogType type)
@@ -130,6 +144,67 @@ public static class UnityPathFenceSmoke
                     VerifyMeshes();
                     break;
                 case 2:
+                    PathSceneTool.Active = false;
+                    BeginDraft();
+                    view.Repaint();
+                    break;
+                case 3:
+                    Click(-160, -105);
+                    Click(120, -79, true);
+                    Click(126, 103, true);
+                    var draft = typeof(PathSceneTool).Assembly.GetType("CH.CustomTools.Paths.Editor.PathFenceDraft");
+                    var draftPoints = (List<Vector3>)draft.GetField("points", StaticMethods).GetValue(null);
+                    Check(draftPoints.Count == 3, "Open draft accepts three clicks after entering drawing mode");
+                    CHValidationInput.Send(view, new Event { type = EventType.MouseDown, mousePosition = center + offset, button = 1 });
+                    break;
+                case 4:
+                    CHValidationInput.Send(view, new Event { type = EventType.MouseUp, mousePosition = center + offset, button = 1 });
+                    break;
+                case 5:
+                    Check(path != null && !path.closed && path.knots.Count == 3, "Right-click finishes the open fence without adding a closing edge");
+                    PathSceneTool.Edit(path);
+                    Check(Tools.hidden && PathSceneTool.PointEditing, "Point mode hides the object's Transform gizmo");
+                    break;
+                case 6:
+                    CHValidationInput.Send(view, new Event { type = EventType.MouseMove, mousePosition = firstPoint + offset });
+                    break;
+                case 7:
+                    var root = path.transform.position;
+                    var other = path.knots[1].position;
+                    var before = path.knots[0].position;
+                    var delta = new Vector2(-28, -20);
+                    foreach (var kind in new[] { EventType.MouseDown, EventType.MouseDrag, EventType.MouseUp })
+                        CHValidationInput.Send(view, new Event { type = kind, mousePosition = firstPoint + offset +
+                            (kind == EventType.MouseDown ? Vector2.zero : delta), delta = kind == EventType.MouseDrag ? delta : Vector2.zero, button = 0 });
+                    Check(path.transform.position == root && path.knots[1].position == other &&
+                        Vector3.Distance(path.knots[0].position, before) > .05f, "Dragging the first point moves only that point");
+                    var whole = typeof(PathSceneTool).GetProperty("WholePath", StaticMethods);
+                    whole.SetValue(null, true);
+                    Check(!PathSceneTool.PointEditing && !Tools.hidden, "Whole-path mode restores native Transform tools");
+                    whole.SetValue(null, false);
+                    Check(PathSceneTool.PointEditing && Tools.hidden, "Point editing restores exclusive point handles");
+                    heightSettings = new PathMeshSettings { kind = PathMeshKind.ElectronicFence };
+                    typeof(PathSceneTool).Assembly.GetType("CH.CustomTools.Paths.Editor.PathFenceHeightEditing")
+                        .GetMethod("Configure", StaticMethods).Invoke(null, new object[] { path, heightSettings });
+                    view.LookAtDirect(path.transform.position, Quaternion.Euler(22, 18, 0), 8);
+                    view.Repaint();
+                    break;
+                case 8:
+                    CHValidationInput.Send(view, new Event { type = EventType.MouseMove, mousePosition = heightTop + offset });
+                    break;
+                case 9:
+                    var originalHeight = PathMeshBuilder.FenceHeight(heightSettings, path.knots[0]);
+                    var originalPoint = path.knots[0].position;
+                    var heightDelta = heightEnd - heightTop;
+                    foreach (var kind in new[] { EventType.MouseDown, EventType.MouseDrag, EventType.MouseUp })
+                        CHValidationInput.Send(view, new Event { type = kind, mousePosition = (kind == EventType.MouseDown ? heightTop : heightEnd) + offset,
+                            delta = kind == EventType.MouseDrag ? heightDelta : Vector2.zero, button = 0 });
+                    Check(PathMeshBuilder.FenceHeight(heightSettings, path.knots[0]) > originalHeight + .3f &&
+                        path.knots[0].position == originalPoint && !path.knots[1].fenceHeightOverride, "Dragging the orange height handle changes only the selected point height");
+                    PathSceneTool.Active = false;
+                    Check(!Tools.hidden, "Disabling path editing restores Unity tools");
+                    break;
+                case 10:
                     Check(errorLog == null, "Scene drawing and rendering completed without errors");
                     Finish(null);
                     return;
@@ -201,15 +276,19 @@ public static class UnityPathFenceSmoke
         var defaultOutput = PathAuthoring.Generate(path, settings, null, null, "Assets");
         var outputRenderer = defaultOutput.GetComponent<MeshRenderer>();
         var material = outputRenderer.sharedMaterial;
-        Check(material.shader.name == "CH/Paths/Electronic Fence" && EditorUtility.IsPersistent(material),
-            "Default fence gets an independent persistent scan material");
+        string expectedPipeline = GraphicsSettings.currentRenderPipeline == null ? "Built-in" :
+            GraphicsSettings.currentRenderPipeline.GetType().Name.Contains("HDRender") ? "HDRP" : "URP";
+        Check(material.shader.name == "CH/Paths/Custom2TexV2/" + expectedPipeline && EditorUtility.IsPersistent(material),
+            "Default fence uses the matching native ASE Custom2TexV2 shader");
+        for (int i = 0; i < material.passCount; i++) ShaderUtil.CompilePass(material, i, true);
+        Check(!ShaderUtil.ShaderHasError(material.shader), "All material passes compile synchronously");
         Check(temporary.vertices.SequenceEqual(defaultOutput.GetComponent<MeshFilter>().sharedMesh.vertices),
             "The generated fence matches the preview geometry");
         PathAuthoringPreview.Stop();
         CaptureFence("electronic-fence.png", c => c.g > .15f && c.b > .2f && c.r < c.b * .6f);
 
         var custom = new Material(material);
-        custom.SetColor("_FenceColor", new Color(1.4f, .23f, .04f, 1));
+        custom.SetColor("_MainTexColor", new Color(1.4f, .23f, .04f, 1));
         AssetDatabase.CreateAsset(custom, "Assets/CustomFence06010.mat");
         path.knots[2].position += new Vector3(.6f, .3f, .76f);
         Refresh(settings, custom);
@@ -220,7 +299,15 @@ public static class UnityPathFenceSmoke
             "Regenerate commits the original custom material and replaces the old fence");
         PathAuthoringPreview.Stop();
         CaptureFence("electronic-fence-custom.png", c => c.r > .2f && c.g > .04f && c.r > c.g * 2f);
-        Check(Mathf.Abs(custom.GetColor("_FenceColor").r - 1.4f) < .001f, "The assigned custom material remains editable and unmodified");
+        Check(Mathf.Abs(custom.GetColor("_MainTexColor").r - 1.4f) < .001f, "The assigned custom material remains editable and unmodified");
+        var controls = typeof(PathSceneTool).Assembly.GetType("CH.CustomTools.Paths.Editor.PathFenceHeightEditing");
+        controls.GetMethod("SetHeight", StaticMethods).Invoke(null, new object[] { path, settings, 0, 4.75f });
+        var variable = PathMeshBuilder.Build(path, settings);
+        Check(Mathf.Abs(Vector3.Distance(variable.vertices[0], variable.vertices[1]) - 4.75f) < .001f &&
+            Mathf.Abs(Vector3.Distance(variable.vertices[variable.vertexCount - 2], variable.vertices[variable.vertexCount - 1]) - 4.75f) < .001f,
+            "Individual point height controls both sides of the closed seam");
+        Check(variable.colors32.All(c => c.r == 255 && c.a == 255), "Generated fence supplies valid white vertex colors to Custom2TexV2");
+        Object.DestroyImmediate(variable);
     }
 
     static void Refresh(PathMeshSettings settings, Material material)

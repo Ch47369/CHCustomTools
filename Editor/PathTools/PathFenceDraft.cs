@@ -16,6 +16,8 @@ namespace CH.CustomTools.Paths.Editor
         static SceneView owner;
         static Vector3 normal;
         static float planeOffset;
+        static bool rightPending, rightMoved;
+        static Vector2 rightDown;
 
         internal static bool Active => completed != null;
 
@@ -31,6 +33,9 @@ namespace CH.CustomTools.Paths.Editor
         internal static void Begin(SceneView scene, PathFenceAxis axis, Action<BezierPath> onComplete)
         {
             Cancel();
+            CH.CustomTools.VFX.ParticleTrailSceneTool.Stop();
+            DmSceneTool.Active = false;
+            PathSceneTool.Active = false;
             normal = PathMeshBuilder.FenceAxis(axis);
             owner = scene;
             planeOffset = Vector3.Dot(scene.pivot, normal);
@@ -43,6 +48,7 @@ namespace CH.CustomTools.Paths.Editor
         {
             if (!Active) return;
             completed = null;
+            rightPending = rightMoved = false;
             points.Clear();
             owner = null;
             SceneView.RepaintAll();
@@ -57,6 +63,23 @@ namespace CH.CustomTools.Paths.Editor
                 return;
             }
             var input = Event.current;
+            if (input.rawType == EventType.MouseDown && input.button == 1 && !input.alt)
+            {
+                rightPending = true;
+                rightMoved = false;
+                rightDown = input.mousePosition;
+            }
+            if (rightPending && input.rawType == EventType.MouseDrag && input.button == 1 &&
+                (input.mousePosition - rightDown).sqrMagnitude > 36) rightMoved = true;
+            if (rightPending && input.rawType == EventType.MouseUp && input.button == 1)
+            {
+                bool complete = !rightMoved && !input.alt;
+                rightPending = rightMoved = false;
+                // Leave the event available to Unity so its navigation control is released.
+                if (complete && points.Count >= 2) Finish(view, false);
+                else if (complete && points.Count < 2) Cancel();
+                return;
+            }
             if (input.type != EventType.KeyDown || EditorWindow.focusedWindow != view || EditorGUIUtility.editingTextField) return;
             switch (input.keyCode)
             {
@@ -72,7 +95,7 @@ namespace CH.CustomTools.Paths.Editor
                 case KeyCode.KeypadEnter:
                 case KeyCode.Return:
                     input.Use();
-                    Finish(view);
+                    Finish(view, false);
                     break;
             }
         }
@@ -101,7 +124,7 @@ namespace CH.CustomTools.Paths.Editor
                     if (points.Count >= 3 && (HandleUtility.WorldToGUIPoint(points[0]) - input.mousePosition).sqrMagnitude <= 12 * 12)
                     {
                         input.Use();
-                        Finish(view);
+                        Finish(view, true);
                         return;
                     }
                     if (points.Count == 0 && DmSceneTool.TrySurface(ray, view.camera.cullingMask, out var hit))
@@ -162,21 +185,22 @@ namespace CH.CustomTools.Paths.Editor
             finally { Handles.zTest = original; }
         }
 
-        static void Finish(SceneView view)
+        static void Finish(SceneView view, bool closed)
         {
             Vector3 origin = points.Count == 0 ? Vector3.zero : points[0];
             float doubledArea = 0;
             for (int i = 1; i + 1 < points.Count; i++)
                 doubledArea += Vector3.Dot(Vector3.Cross(points[i] - origin, points[i + 1] - origin), normal);
-            if (points.Count < 3 || Mathf.Abs(doubledArea) < 1e-5f)
+            if (points.Count < (closed ? 3 : 2) || (closed && Mathf.Abs(doubledArea) < 1e-5f))
             {
-                view.ShowNotification(new GUIContent(PathText.T("闭合围栏需要至少三个不共线的点。", "A closed fence needs at least three non-collinear points.")));
+                view.ShowNotification(new GUIContent(closed ? PathText.T("闭合围栏需要至少三个不共线的点。", "A closed fence needs at least three non-collinear points.")
+                    : PathText.T("开放围栏至少需要两个点。", "An open fence needs at least two points.")));
                 return;
             }
             var callback = completed;
             var boundary = points.ToArray();
             Cancel();
-            callback(PathAuthoring.CreateFenceBoundary(boundary));
+            callback(PathAuthoring.CreateFenceBoundary(boundary, closed));
         }
     }
 }

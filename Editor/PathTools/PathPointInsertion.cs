@@ -36,7 +36,7 @@ namespace CH.CustomTools.Paths.Editor
             bool frame = (execute && input.commandName == "FrameSelected") || (keyDown && input.keyCode == KeyCode.F);
             bool delete = (execute && (input.commandName == "Delete" || input.commandName == "SoftDelete")) ||
                 (keyDown && input.keyCode == KeyCode.Delete);
-            if ((!frame && !delete) || !PathSceneTool.Active || PathMotionPreview.BlocksPathEditing ||
+            if ((!frame && !delete) || !PathSceneTool.PointEditing || PathMotionPreview.BlocksPathEditing ||
                 Measurement.DmSceneTool.Active || EditorApplication.isPlayingOrWillChangePlaymode ||
                 EditorGUIUtility.editingTextField || EditorWindow.focusedWindow != view)
                 return;
@@ -100,6 +100,9 @@ namespace CH.CustomTools.Paths.Editor
             Vector3 ab = Vector3.Lerp(a, b, parameter), bc = Vector3.Lerp(b, c, parameter), cd = Vector3.Lerp(c, d, parameter);
             Vector3 abc = Vector3.Lerp(ab, bc, parameter), bcd = Vector3.Lerp(bc, cd, parameter), point = Vector3.Lerp(abc, bcd, parameter);
             var knot = new PathKnot(point) { automatic = false, incoming = abc - point, outgoing = bcd - point, roll = Mathf.LerpAngle(startKnot.roll, endKnot.roll, parameter) };
+            knot.fenceHeightOverride = startKnot.fenceHeightOverride || endKnot.fenceHeightOverride;
+            knot.fenceHeightScale = Mathf.Lerp(startKnot.fenceHeightOverride ? startKnot.fenceHeightScale : 1,
+                endKnot.fenceHeightOverride ? endKnot.fenceHeightScale : 1, parameter);
             Undo.IncrementCurrentGroup(); Undo.SetCurrentGroupName("Insert path point"); Undo.RecordObject(path, "Insert path point");
             startKnot.automatic = false; startKnot.incoming = incoming; startKnot.outgoing = ab - a;
             endKnot.automatic = false; endKnot.incoming = cd - d; endKnot.outgoing = outgoing;
@@ -162,7 +165,7 @@ namespace CH.CustomTools.Paths.Editor
             {
                 var path = SelectedPath();
                 PathSceneTool.Draw(view);
-                if (!PathSceneTool.Active)
+                if (!PathSceneTool.PointEditing)
                 {
                     if (capturedControl != 0 && capturedView == view)
                     { if (GUIUtility.hotControl == capturedControl) GUIUtility.hotControl = 0; capturedControl = 0; capturedView = null; }
