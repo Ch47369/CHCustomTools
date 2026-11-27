@@ -58,12 +58,14 @@ namespace CH.CustomTools.Paths.Editor
         {
             float best = Radius * Radius; int result = -1;
             if (path == null || camera == null || path.knots == null) return -1;
+            int focused = PathPointInsertion.FocusedIndex(path);
             for (int i = 0; i < path.knots.Count; i++)
             {
                 var point = path.transform.TransformPoint(path.knots[i].position);
                 if (camera.WorldToViewportPoint(point).z <= camera.nearClipPlane) continue;
                 float distance = (HandleUtility.WorldToGUIPoint(point) - mouse).sqrMagnitude;
-                if (distance <= best) { best = distance; result = i; }
+                if (distance < best || (distance == best && (result < 0 || i == focused)))
+                { best = distance; result = i; }
             }
             return result;
         }
@@ -102,7 +104,8 @@ namespace CH.CustomTools.Paths.Editor
                 Draw(view, path, hover);
                 if (canPick && hover >= 0) EditorGUIUtility.AddCursorRect(new Rect(e.mousePosition - Vector2.one * Radius, Vector2.one * Radius * 2), e.shift ? MouseCursor.ArrowPlus : MouseCursor.MoveArrow);
             }
-            if (canPick && hover >= 0 && e.type == EventType.MouseDown && e.button == 0 && HandleUtility.nearestControl == id)
+            // The last Layout can still name the previous gizmo when Shift is first held on MouseDown.
+            if (canPick && hover >= 0 && e.type == EventType.MouseDown && e.button == 0 && (e.shift || HandleUtility.nearestControl == id))
             {
                 if (e.shift && path.knots.Count >= 512) { Debug.LogWarning(PathText.T("路径已达到512个点。", "The path already has 512 points.")); e.Use(); return; }
                 Vector3 point = path.transform.TransformPoint(path.knots[hover].position);

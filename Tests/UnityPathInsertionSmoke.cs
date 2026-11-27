@@ -218,10 +218,14 @@ public static class UnityPathInsertionSmoke
                     Undo.PerformRedo(); Check(JsonUtility.ToJson(path) == afterGesture, "One Redo restores the final Shift-drag destination");
                     Undo.PerformUndo(); gestureIndex = 0; originalPoint = path.knots[0].position; break;
                 case 9:
-                    Mouse(EventType.MouseMove, gestureSource, shift: true); Mouse(EventType.MouseDown, gestureSource, shift: true);
+                    // Select the first knot and allow its Move handle to register before pressing Shift.
+                    Mouse(EventType.MouseMove, gestureSource); Mouse(EventType.MouseDown, gestureSource); Mouse(EventType.MouseUp, gestureSource);
+                    phase = 22; break;
+                case 22:
+                    Mouse(EventType.MouseDown, gestureSource, shift: true);
                     Mouse(EventType.MouseDrag, gestureDestination, shift: true); Mouse(EventType.MouseUp, gestureDestination, shift: true); Undo.FlushUndoRecordObjects();
-                    Check(path.knots.Count == 4 && path.knots[1].position == originalPoint && path.knots[0].position != originalPoint, "Actual Shift-drag extends before the first endpoint");
-                    Undo.PerformUndo(); Check(JsonUtility.ToJson(path) == beforeGesture, "First-end extension is undoable"); gestureIndex = 1; break;
+                    Check(path.knots.Count == 4 && path.knots[1].position == originalPoint && path.knots[0].position != originalPoint, "Shift at mouse-down extends before the selected first endpoint");
+                    Undo.PerformUndo(); Check(JsonUtility.ToJson(path) == beforeGesture, "First-end extension is undoable"); gestureIndex = 1; phase = 10; break;
                 case 10:
                     Mouse(EventType.MouseMove, gestureSource, shift: true); Mouse(EventType.MouseDown, gestureSource, shift: true); Mouse(EventType.MouseDrag, gestureDestination, shift: true);
                     Check(path.knots.Count == 4, "Interior Shift-drag creates a single point");

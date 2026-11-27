@@ -23,8 +23,31 @@ namespace CH.CustomTools.Paths.Editor
         static PathPointInsertion()
         {
             SceneView.duringSceneGui += SceneGUI;
+            SceneView.beforeSceneGui += HandleFrameSelected;
             Undo.undoRedoPerformed += ClearFocus;
             Selection.selectionChanged += SceneView.RepaintAll;
+        }
+        static void HandleFrameSelected(SceneView view)
+        {
+            var input = Event.current;
+            bool execute = input.type == EventType.ExecuteCommand && input.commandName == "FrameSelected";
+            bool keyDown = input.type == EventType.KeyDown && input.keyCode == KeyCode.F &&
+                !input.alt && !input.control && !input.command && !input.shift;
+            if ((!execute && !keyDown) || !PathSceneTool.Active || PathMotionPreview.IsActive ||
+                Measurement.DmSceneTool.Active || EditorApplication.isPlayingOrWillChangePlaymode ||
+                GUIUtility.hotControl != 0 || EditorGUIUtility.editingTextField || EditorWindow.focusedWindow != view)
+                return;
+
+            var path = SelectedPath();
+            int index = FocusedIndex(path);
+            if (path == null || path.knots == null || index < 0 || index >= path.knots.Count || path.knots[index] == null)
+                return;
+            var position = path.transform.TransformPoint(path.knots[index].position);
+            if (!BezierPath.Finite(position))
+                return;
+
+            view.LookAt(position, view.rotation, view.size, view.orthographic);
+            input.Use();
         }
         static void ClearFocus() { focusedPath = null; focusedIndex = -1; SceneView.RepaintAll(); }
         internal static void Focus(BezierPath path, int index) { focusedPath = path; focusedIndex = index; SceneView.RepaintAll(); }

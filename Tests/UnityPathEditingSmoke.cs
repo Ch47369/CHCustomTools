@@ -23,6 +23,8 @@ public static class UnityPathEditingSmoke
     static float ringRadius;
     static int rotationTrial; static Vector2 rotationStart, rotationEnd;
     static Vector3[] previewBefore;
+    static float frameSize;
+    static Quaternion frameRotation;
     static void Check(bool ok, string message) { if (!ok) throw new Exception(message); checks.Add(message); }
     static object Get(object target, string name) { return target.GetType().GetField(name, F).GetValue(target); }
     static void Set(object target, string name, object value) { target.GetType().GetField(name, F).SetValue(target, value); }
@@ -101,8 +103,24 @@ public static class UnityPathEditingSmoke
                     PrepareRotationTrial(); next = EditorApplication.timeSinceStartup + .2; break;
                 case 6:
                     if (!RotateHandle()) { phase = 5; next = EditorApplication.timeSinceStartup + .2; break; }
-                    RotateEveryPoint(); Selection.activeObject = null; break;
+                    // Undo clears the focused knot. Select the middle marker again before framing.
+                    Mouse(EventType.MouseMove, point); Mouse(EventType.MouseDown, point); Mouse(EventType.MouseUp, point);
+                    frameSize = view.size;
+                    frameRotation = view.rotation;
+                    view.Focus();
+                    CHValidationInput.Send(view, new Event { type = EventType.KeyDown, keyCode = KeyCode.F });
+                    CHValidationInput.Send(view, new Event { type = EventType.KeyUp, keyCode = KeyCode.F });
+                    break;
                 case 7:
+                    Check(Vector3.Distance(view.pivot, path.transform.TransformPoint(path.knots[1].position)) < .01f, "F frames the selected middle knot, away from the path origin");
+                    Check(Mathf.Abs(view.size - frameSize) < .01f && Quaternion.Angle(view.rotation, frameRotation) < .05f, "Framing keeps the Scene zoom and viewing direction");
+                    view.LookAtDirect(Vector3.zero, frameRotation, frameSize);
+                    CHValidationInput.Send(view, EditorGUIUtility.CommandEvent("FrameSelected"));
+                    break;
+                case 8:
+                    Check(Vector3.Distance(view.pivot, path.transform.TransformPoint(path.knots[1].position)) < .01f, "Unity's Frame Selected command frames the focused knot");
+                    RotateEveryPoint(); Selection.activeObject = null; break;
+                case 9:
                     Check(PathPointInsertion.SelectedPath() == path, "Deselecting Hierarchy objects retains the explicitly enabled editing target");
                     PathSceneTool.Active = false; Check(!PathAuthoringPreview.IsActive && PathSceneTool.EditingPath == null, "Explicitly disabling releases the target and all previews");
                     Check(errors == null, "Selection, gestures and three-axis point rotations finish without Editor errors"); Finish(null); return;
