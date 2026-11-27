@@ -97,7 +97,7 @@ namespace CH.CustomTools.Paths.Editor
         }
         internal static void DrawSceneHandles(BezierPath path)
         {
-            if (!PathSceneTool.Active || Application.isPlaying || PathMotionPreview.IsActive || path.knots == null || PathPointDrag.IsDragging) return;
+            if (!PathSceneTool.Active || Application.isPlaying || PathMotionPreview.BlocksPathEditing || path.knots == null || PathPointDrag.IsDragging) return;
             try { path.ValidatePath(); } catch (System.Exception) { return; }
             if (PathPointInsertion.InsertionModifier(Event.current) && GUIUtility.hotControl == 0) return;
             if (Event.current.shift && GUIUtility.hotControl == 0) return;
@@ -142,14 +142,15 @@ namespace CH.CustomTools.Paths.Editor
         }
         // Handles belong to the Scene GUI pass. A DrawGizmo callback can omit them even
         // when Gizmos is enabled; selected-path editing must also work with Gizmos off.
-        internal static void DrawSceneCurve(BezierPath path, bool selected)
+        internal static void DrawSceneCurve(BezierPath path, bool selected, Color? sequenceColor = null)
         {
             if (path == null || Event.current.type != EventType.Repaint) return;
             var depth = Handles.zTest;
             try
             {
                 path.ValidatePath();
-                using (new Handles.DrawingScope(Measurement.DmSkin.Palette[1], Matrix4x4.identity))
+                Color color = sequenceColor ?? Measurement.DmSkin.Palette[1];
+                using (new Handles.DrawingScope(color, Matrix4x4.identity))
                 {
                     Handles.zTest = selected ? UnityEngine.Rendering.CompareFunction.Always : UnityEngine.Rendering.CompareFunction.LessEqual;
                     for (int i = 0; i < path.SegmentCount; i++)
@@ -157,7 +158,7 @@ namespace CH.CustomTools.Paths.Editor
                         int end = (i + 1) % path.knots.Count;
                         CHSceneVisuals.Curve(path.transform.TransformPoint(path.knots[i].position),
                             path.transform.TransformPoint(path.Handle(i, true)), path.transform.TransformPoint(path.Handle(end, false)),
-                            path.transform.TransformPoint(path.knots[end].position), Measurement.DmSkin.Palette[1], selected);
+                            path.transform.TransformPoint(path.knots[end].position), color, selected);
                     }
                     if (!selected || !ShowOrientation) return;
                     float length = path.Length; int count = Mathf.Max(1, Mathf.Min(80, Mathf.CeilToInt(length)));
@@ -176,16 +177,18 @@ namespace CH.CustomTools.Paths.Editor
         static bool advanced;
         static int bakeFrameRate = 60;
         static string motionMessage;
-        internal static void DrawFollower(PathFollower follower)
+        internal static void DrawFollower(PathFollower follower, BezierPath currentPath = null)
         {
             var so = new SerializedObject(follower);
             so.Update();
             EditorGUI.BeginChangeCheck();
-            Field(so, "path", "运动路径", "Path");
             var drive = so.FindProperty("drive");
+            bool wasSequence = follower.drive == PathMotionDrive.Sequence;
             drive.enumValueIndex = PathText.Choice("运动方式", "Motion driver", drive.enumValueIndex,
-                new[] { "自动运动", "动画进度 K 帧" }, new[] { "Automatic motion", "Animation progress keys" });
+                new[] { "自动运动", "动画进度 K 帧", "多路径运动序列" }, new[] { "Automatic motion", "Animation progress keys", "Multi-path sequence" });
             bool animation = drive.enumValueIndex == (int)PathMotionDrive.AnimationProgress;
+            bool sequenceMode = drive.enumValueIndex == (int)PathMotionDrive.Sequence;
+            if (!sequenceMode) Field(so, "path", "运动路径", "Path");
             if (animation)
             {
                 Field(so, "animationDuration", "默认动画用时（秒）", "Default clip duration (s)");
@@ -193,7 +196,7 @@ namespace CH.CustomTools.Paths.Editor
                 Field(so, "progress", "路径进度（0–1）", "Path progress (0–1)");
                 Field(so, "reverse", "反向朝向", "Face backwards");
             }
-            else
+            else if (!sequenceMode)
             {
                 Field(so, "speed", "速度（米/秒）", "Speed (m/s)");
                 if (follower.path != null)
@@ -217,6 +220,11 @@ namespace CH.CustomTools.Paths.Editor
                 travel.enumValueIndex = PathText.Choice("到达终点", "End behavior", travel.enumValueIndex,
                     new[] { "停在终点", "循环", "往返" }, new[] { "Once", "Loop", "Ping-pong" });
             }
+            else
+            {
+                Field(so, "playOnEnable", "运行时自动播放", "Play on enable");
+                Field(so, "loopSequence", "循环整个序列", "Loop sequence");
+            }
 
             EditorGUILayout.Space(6);
             EditorGUILayout.LabelField(PathText.T("模型朝向", "Model orientation"), EditorStyles.boldLabel);
@@ -224,7 +232,7 @@ namespace CH.CustomTools.Paths.Editor
             orientation.enumValueIndex = PathText.Choice("朝向方式", "Orientation", orientation.enumValueIndex,
                 new[] { "空间飞行（沿路径俯仰、倾斜）", "沿路径，世界上方向", "保持原旋转", "地面运动（仅水平转向）" },
                 new[] { "3D flight (pitch and bank)", "Follow path, world up", "Keep rotation", "Ground motion (yaw only)" });
-            if (orientation.enumValueIndex != (int)PathOrientation.PositionOnly)
+            if (sequenceMode || orientation.enumValueIndex != (int)PathOrientation.PositionOnly)
             {
                 var forward = so.FindProperty("modelForward");
                 var up = so.FindProperty("modelUp");
@@ -246,7 +254,7 @@ namespace CH.CustomTools.Paths.Editor
             {
                 Field(so, "positionOffset", "路径局部偏移（米）", "Path frame offset (m)");
                 Field(so, "lookAhead", "朝向前视距离（米）", "Look-ahead distance (m)");
-                if (!animation) Field(so, "turnSmoothing", "运行时转向平滑", "Runtime turn smoothing");
+                if (!animation && !sequenceMode) Field(so, "turnSmoothing", "运行时转向平滑", "Runtime turn smoothing");
                 Field(so, "maxBank", "最大侧倾角度", "Maximum bank (degrees)");
                 Field(so, "bankStrength", "转弯侧倾强度", "Bank strength");
             }
@@ -255,15 +263,24 @@ namespace CH.CustomTools.Paths.Editor
                 so.ApplyModifiedProperties();
                 RunMotionAction(() => { if (PathMotionPreview.IsFor(follower)) PathMotionPreview.Refresh(follower); });
             }
-            if (!animation && follower.path != null && !follower.path.closed && follower.travel == PathTravel.Loop)
+            PathSequenceTimeline timeline = null;
+            if (sequenceMode)
+            {
+                if (!wasSequence && follower.sequence.Count == 0 && follower.path != null) PathSequenceEditor.AddPath(follower, follower.path);
+                timeline = PathSequenceEditor.Draw(follower, currentPath ?? follower.path);
+            }
+            if (!animation && !sequenceMode && follower.path != null && !follower.path.closed && follower.travel == PathTravel.Loop)
                 EditorGUILayout.HelpBox(PathText.T("开放路径循环会从终点跳回起点。", "Looping an open path jumps from end to start."), MessageType.Warning);
-            using (new EditorGUI.DisabledScope(Application.isPlaying || AnimationMode.InAnimationMode() || follower.path == null))
+            using (new EditorGUI.DisabledScope(Application.isPlaying || AnimationMode.InAnimationMode() ||
+                (sequenceMode ? timeline == null : follower.path == null)))
             {
                 EditorGUILayout.Space(6);
                 EditorGUILayout.LabelField(PathText.T("运动预览", "Motion preview"), EditorStyles.boldLabel);
                 float current = PathMotionPreview.IsFor(follower) ? PathMotionPreview.Progress : follower.progress;
                 EditorGUI.BeginChangeCheck();
-                float previewProgress = EditorGUILayout.Slider(PathText.T("预览位置 (%)", "Preview position (%)"), current * 100, 0, 100) / 100;
+                float previewProgress = sequenceMode && timeline != null
+                    ? EditorGUILayout.Slider(PathText.T("序列时间（秒）", "Sequence time (s)"), current * timeline.Duration, 0, timeline.Duration) / timeline.Duration
+                    : EditorGUILayout.Slider(PathText.T("预览位置 (%)", "Preview position (%)"), current * 100, 0, 100) / 100;
                 if (EditorGUI.EndChangeCheck()) RunMotionAction(() => PathMotionPreview.Scrub(follower, previewProgress));
                 using (new EditorGUILayout.HorizontalScope())
                 {
@@ -271,7 +288,7 @@ namespace CH.CustomTools.Paths.Editor
                     if (GUILayout.Button(PathText.T("停在当前位置", "Pause at current"))) RunMotionAction(() => PathMotionPreview.Scrub(follower, current));
                     if (GUILayout.Button(PathText.T("停止并恢复", "Stop and restore"))) PathMotionPreview.Stop();
                 }
-                DrawAnimationTools(follower);
+                DrawAnimationTools(follower, sequenceMode);
             }
             if (!string.IsNullOrEmpty(motionMessage)) EditorGUILayout.HelpBox(motionMessage, MessageType.Warning);
         }
@@ -280,25 +297,25 @@ namespace CH.CustomTools.Paths.Editor
             try { action(); motionMessage = null; }
             catch (System.Exception error) { motionMessage = error.Message; }
         }
-        static void DrawAnimationTools(PathFollower follower)
+        static void DrawAnimationTools(PathFollower follower, bool sequenceMode)
         {
             EditorGUILayout.Space(8);
             EditorGUILayout.LabelField(PathText.T("动画片段", "Animation clips"), EditorStyles.boldLabel);
-            if (follower.drive != PathMotionDrive.AnimationProgress)
+            if (!sequenceMode && follower.drive != PathMotionDrive.AnimationProgress)
             {
                 var durationSettings = new SerializedObject(follower);
                 durationSettings.Update();
                 Field(durationSettings, "animationDuration", "动画用时（秒）", "Clip duration (s)");
                 durationSettings.ApplyModifiedProperties();
             }
-            if (GUILayout.Button(PathText.T("创建进度 K 帧片段", "Create progress keyframe clip")))
+            if (!sequenceMode && GUILayout.Button(PathText.T("创建进度 K 帧片段", "Create progress keyframe clip")))
                 RunMotionAction(() =>
                 {
                     PathMotionPreview.Stop();
                     string path = EditorUtility.SaveFilePanelInProject(PathText.T("保存进度动画", "Save progress clip"), follower.name + "_Progress", "anim", "");
                     if (!string.IsNullOrEmpty(path)) PathMotionAnimation.CreateProgressClip(follower, path);
                 });
-            if (follower.progressClip != null)
+            if (!sequenceMode && follower.progressClip != null)
             {
                 if (PathMotionAnimation.Timing(follower) == null)
                     EditorGUILayout.HelpBox(PathText.T("此片段中缺少 Path Follower / Progress 曲线。", "This clip has no Path Follower / Progress curve."), MessageType.Warning);
@@ -323,7 +340,7 @@ namespace CH.CustomTools.Paths.Editor
             Field(so, "bakedClip", "位置 / 旋转输出片段", "Position / rotation clip");
             so.ApplyModifiedProperties();
             bakeFrameRate = EditorGUILayout.IntSlider(PathText.T("烘焙帧率", "Bake frame rate"), bakeFrameRate, 1, 120);
-            if (GUILayout.Button(follower.bakedClip == null ? PathText.T("烘焙 Transform 动画", "Bake Transform animation") :
+            if (GUILayout.Button(follower.bakedClip == null ? (sequenceMode ? PathText.T("烘焙整个运动序列", "Bake entire sequence") : PathText.T("烘焙 Transform 动画", "Bake Transform animation")) :
                 PathText.T("重新烘焙已有片段", "Rebake existing clip")))
                 RunMotionAction(() =>
                 {

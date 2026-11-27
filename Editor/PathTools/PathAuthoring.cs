@@ -181,7 +181,10 @@ namespace CH.CustomTools.Paths.Editor
         static double started;
         static bool playing;
         static float progress;
+        static PathSequenceTimeline sequence;
+        static double nextSequenceRefresh;
         public static bool IsActive { get { return follower != null; } }
+        public static bool BlocksPathEditing => IsActive && (follower.drive != PathMotionDrive.Sequence || playing);
         public static bool IsFor(PathFollower target) => follower != null && follower == target;
         public static bool IsPlaying => IsActive && playing;
         public static float Progress => progress;
@@ -208,8 +211,14 @@ namespace CH.CustomTools.Paths.Editor
         }
         public static void Start(PathFollower target)
         {
-            Stop(); PathAuthoringPreview.Stop(); if (target == null || target.path == null || EditorUtility.IsPersistent(target) || EditorApplication.isPlayingOrWillChangePlaymode || AnimationMode.InAnimationMode() || target.path.transform.IsChildOf(target.transform)) throw new InvalidOperationException("Choose a separate scene follower with a path, outside Play mode and Animation Window preview. / 请退出播放与动画窗口预览，选择独立的路径运动对象。");
-            target.path.ValidatePath(); var t = target.transform;
+            Stop(); PathAuthoringPreview.Stop(); if (target == null || EditorUtility.IsPersistent(target) || EditorApplication.isPlayingOrWillChangePlaymode || AnimationMode.InAnimationMode()) throw new InvalidOperationException("Choose a separate scene follower with a path, outside Play mode and Animation Window preview. / 请退出播放与动画窗口预览，选择独立的路径运动对象。");
+            if (target.drive == PathMotionDrive.Sequence) sequence = new PathSequenceTimeline(target, target.transform.rotation);
+            else
+            {
+                if (target.path == null || target.path.transform.IsChildOf(target.transform)) throw new InvalidOperationException("Choose a separate path. / 请选择独立路径。");
+                target.path.ValidatePath();
+            }
+            var t = target.transform;
             follower = target; parent = t.parent; localPosition = t.localPosition; localRotation = t.localRotation; localScale = t.localScale; worldPosition = t.position; worldRotation = t.rotation;
             started = EditorApplication.timeSinceStartup; playing = true; progress = 0;
             EditorApplication.update += Tick;
@@ -219,7 +228,15 @@ namespace CH.CustomTools.Paths.Editor
             if (!IsFor(target)) Start(target);
             playing = false;
             progress = Mathf.Clamp01(value);
-            try { follower.ApplyProgress(progress); }
+            try
+            {
+                if (follower.drive == PathMotionDrive.Sequence)
+                {
+                    sequence = new PathSequenceTimeline(follower, worldRotation);
+                    follower.ApplySequencePose(sequence.Evaluate(progress * sequence.Duration), sequence.HasRotation);
+                }
+                else follower.ApplyProgress(progress);
+            }
             catch { Stop(); throw; }
             SceneView.RepaintAll();
         }
@@ -233,11 +250,22 @@ namespace CH.CustomTools.Paths.Editor
         {
             if (follower == null) { Stop(); return; }
             if (AnimationMode.InAnimationMode()) { Stop(); return; }
-            if (!playing) return;
+            if (!playing && follower.drive != PathMotionDrive.Sequence) return;
             try
             {
                 double elapsed = EditorApplication.timeSinceStartup - started;
-                if (follower.drive == PathMotionDrive.AnimationProgress)
+                if (follower.drive == PathMotionDrive.Sequence)
+                {
+                    if (playing || EditorApplication.timeSinceStartup >= nextSequenceRefresh)
+                    {
+                        sequence = new PathSequenceTimeline(follower, worldRotation);
+                        nextSequenceRefresh = EditorApplication.timeSinceStartup + .05;
+                        if (playing) progress = Mathf.Clamp01((float)elapsed / sequence.Duration);
+                        follower.ApplySequencePose(sequence.Evaluate(progress * sequence.Duration), sequence.HasRotation);
+                        if (progress >= 1) playing = false;
+                    }
+                }
+                else if (follower.drive == PathMotionDrive.AnimationProgress)
                 {
                     float duration = PathMotionAnimation.Duration(follower);
                     float time = Mathf.Min((float)elapsed, duration);
@@ -264,7 +292,7 @@ namespace CH.CustomTools.Paths.Editor
                 else { t.position = worldPosition; t.rotation = worldRotation; }
                 t.localScale = localScale;
             }
-            follower = null; playing = false; progress = 0; SceneView.RepaintAll();
+            follower = null; playing = false; progress = 0; sequence = null; SceneView.RepaintAll();
         }
     }
 }

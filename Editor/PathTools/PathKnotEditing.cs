@@ -93,7 +93,7 @@ namespace CH.CustomTools.Paths.Editor
         internal static bool TryRemovePoint(BezierPath path, int index)
         {
             if (path == null || EditorUtility.IsPersistent(path) || EditorApplication.isPlayingOrWillChangePlaymode ||
-                PathMotionPreview.IsActive || path.knots == null || index < 0 || index >= path.knots.Count ||
+                PathMotionPreview.BlocksPathEditing || path.knots == null || index < 0 || index >= path.knots.Count ||
                 path.knots.Count <= (path.closed ? 3 : 2))
                 return false;
 
@@ -106,7 +106,7 @@ namespace CH.CustomTools.Paths.Editor
         }
         static void Validate(BezierPath path, int mode)
         {
-            if (path == null || EditorUtility.IsPersistent(path) || Application.isPlaying || PathMotionPreview.IsActive || mode < 0 || mode > 2) throw new InvalidOperationException("Select a scene path and stop preview.");
+            if (path == null || EditorUtility.IsPersistent(path) || Application.isPlaying || PathMotionPreview.BlocksPathEditing || mode < 0 || mode > 2) throw new InvalidOperationException("Select a scene path and stop preview.");
             path.ValidatePath();
         }
         static void Changed(BezierPath path)

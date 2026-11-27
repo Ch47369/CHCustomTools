@@ -1,11 +1,12 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CH.CustomTools.Paths
 {
     public enum PathTravel { Once, Loop, PingPong }
     public enum PathOrientation { Transported, WorldUp, PositionOnly, Upright }
-    public enum PathMotionDrive { Speed, AnimationProgress }
+    public enum PathMotionDrive { Speed, AnimationProgress, Sequence }
     public enum PathModelAxis { PositiveZ, PositiveY, PositiveX, NegativeZ, NegativeY, NegativeX }
     [AddComponentMenu("CH/Paths/Path Follower")]
     [DisallowMultipleComponent]
@@ -24,6 +25,8 @@ namespace CH.CustomTools.Paths
         public PathModelAxis modelUp = PathModelAxis.PositiveY;
         [HideInInspector] public AnimationClip progressClip, bakedClip;
         [HideInInspector] public float animationDuration = 3;
+        public List<PathSequenceStage> sequence = new List<PathSequenceStage>();
+        public bool loopSequence;
         public Vector3 rotationOffset;
         public Vector3 positionOffset;
         [Min(0)] public float lookAhead = .4f;
@@ -32,10 +35,11 @@ namespace CH.CustomTools.Paths
         [Min(0)] public float bankStrength = 3;
         double elapsed;
         bool running;
+        PathSequenceTimeline runtimeSequence;
         public bool IsRunning { get { return running; } }
-        public void Restart() { elapsed = 0; running = true; }
+        public void Restart() { elapsed = 0; running = true; runtimeSequence = null; }
         public void Pause() { running = false; }
-        void OnEnable() { elapsed = 0; running = playOnEnable; }
+        void OnEnable() { elapsed = 0; running = playOnEnable; runtimeSequence = null; }
         public static event Action<PathFollower> EditorAnimationApplied;
         void OnDidApplyAnimationProperties()
         {
@@ -54,9 +58,20 @@ namespace CH.CustomTools.Paths
         }
         void Update()
         {
-            if (!Application.IsPlaying(gameObject) || drive != PathMotionDrive.Speed || !running || path == null) return;
+            if (!Application.IsPlaying(gameObject) || !running || drive == PathMotionDrive.AnimationProgress) return;
+            if (drive == PathMotionDrive.Speed && path == null) return;
             elapsed += Time.deltaTime;
-            try { Apply(elapsed, Time.deltaTime); }
+            try
+            {
+                if (drive == PathMotionDrive.Sequence)
+                {
+                    if (runtimeSequence == null) runtimeSequence = new PathSequenceTimeline(this, transform.rotation);
+                    float time = loopSequence ? (float)(elapsed % runtimeSequence.Duration) : Mathf.Min((float)elapsed, runtimeSequence.Duration);
+                    ApplySequencePose(runtimeSequence.Evaluate(time), runtimeSequence.HasRotation);
+                    if (!loopSequence && elapsed >= runtimeSequence.Duration) running = false;
+                }
+                else Apply(elapsed, Time.deltaTime);
+            }
             catch (Exception e) { running = false; Debug.LogError("CH Path follower stopped: " + e.Message, this); }
         }
         public float DistanceAt(double seconds, out bool backwards)
@@ -75,7 +90,7 @@ namespace CH.CustomTools.Paths
         {
             bool backwards;
             float distance = DistanceAt(seconds, out backwards);
-            return PoseAtDistance(distance, backwards, speed);
+            return PoseOnPath(path, distance, backwards, speed, orientation);
         }
         public PathSample PoseAtProgress(float value)
         {
@@ -83,9 +98,9 @@ namespace CH.CustomTools.Paths
             if (path == null || path.transform.IsChildOf(transform) || float.IsNaN(value) || float.IsInfinity(value) ||
                 float.IsNaN(duration) || float.IsInfinity(duration) || duration <= 0)
                 throw new InvalidOperationException("Invalid path or animation progress. / 路径或动画进度无效。");
-            return PoseAtDistance(Mathf.Clamp01(value) * path.Length, reverse, path.Length / duration);
+            return PoseOnPath(path, Mathf.Clamp01(value) * path.Length, reverse, path.Length / duration, orientation);
         }
-        PathSample PoseAtDistance(float distance, bool backwards, float motionSpeed)
+        internal PathSample PoseOnPath(BezierPath path, float distance, bool backwards, float motionSpeed, PathOrientation orientation)
         {
             if (!BezierPath.Finite(rotationOffset) || !BezierPath.Finite(positionOffset) || !BezierPath.Finite(new Vector3(lookAhead, maxBank, bankStrength)) || lookAhead < 0 || maxBank < 0 || bankStrength < 0 || !BezierPath.Finite(new Vector3(turnSmoothing, 0, 0)) || turnSmoothing < 0) throw new InvalidOperationException("Invalid orientation parameters. / 朝向参数无效。");
             var p = path.Evaluate(distance); float sign = backwards ? -1 : 1;
@@ -132,6 +147,11 @@ namespace CH.CustomTools.Paths
         }
         public void ApplyProgress(float value) { ApplyPose(PoseAtProgress(value), 0); }
         public void Apply(double seconds, float deltaTime = 0) { ApplyPose(PoseAt(seconds), deltaTime); }
+        public void ApplySequencePose(PathSequencePose pose, bool rotation = true)
+        {
+            transform.position = pose.position;
+            if (rotation) transform.rotation = pose.rotation;
+        }
         void ApplyPose(PathSample p, float deltaTime)
         {
             if (orientation != PathOrientation.PositionOnly)

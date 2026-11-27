@@ -59,7 +59,7 @@ namespace CH.CustomTools.Paths.Editor
                 if (path == null || !path.gameObject.scene.IsValid() || !path.gameObject.scene.isLoaded || EditorUtility.IsPersistent(path)) continue;
                 if ((view.camera.cullingMask & (1 << path.gameObject.layer)) == 0 || SceneVisibilityManager.instance.IsHidden(path.gameObject)) continue;
                 if (StageUtility.GetStageHandle(path.gameObject) != StageUtility.GetCurrentStageHandle()) continue;
-                BezierPathEditor.DrawSceneCurve(path, path == selected);
+                BezierPathEditor.DrawSceneCurve(path, path == selected, PathSequenceEditor.ColorFor(path));
             }
         }
         internal static void DrawEnable(BezierPath path)

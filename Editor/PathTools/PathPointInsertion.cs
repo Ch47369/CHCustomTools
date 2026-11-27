@@ -36,7 +36,7 @@ namespace CH.CustomTools.Paths.Editor
             bool frame = (execute && input.commandName == "FrameSelected") || (keyDown && input.keyCode == KeyCode.F);
             bool delete = (execute && (input.commandName == "Delete" || input.commandName == "SoftDelete")) ||
                 (keyDown && input.keyCode == KeyCode.Delete);
-            if ((!frame && !delete) || !PathSceneTool.Active || PathMotionPreview.IsActive ||
+            if ((!frame && !delete) || !PathSceneTool.Active || PathMotionPreview.BlocksPathEditing ||
                 Measurement.DmSceneTool.Active || EditorApplication.isPlayingOrWillChangePlaymode ||
                 EditorGUIUtility.editingTextField || EditorWindow.focusedWindow != view)
                 return;
@@ -88,7 +88,7 @@ namespace CH.CustomTools.Paths.Editor
         }
         public static int Insert(BezierPath path, int segment, float parameter)
         {
-            if (path == null || EditorUtility.IsPersistent(path) || Application.isPlaying || PathMotionPreview.IsActive) throw new InvalidOperationException("Stop motion preview and select a scene path. / 请停止运动预览并选择场景路径。");
+            if (path == null || EditorUtility.IsPersistent(path) || Application.isPlaying || PathMotionPreview.BlocksPathEditing) throw new InvalidOperationException("Stop motion preview and select a scene path. / 请停止运动预览并选择场景路径。");
             path.ValidatePath();
             if (path.knots.Count >= 512) throw new InvalidOperationException("The path already has 512 points. / 路径已达到512个点。");
             if (segment < 0 || segment >= path.SegmentCount || float.IsNaN(parameter) || parameter <= .0001f || parameter >= .9999f) throw new ArgumentException("Choose a position inside a curve segment. / 请在线段内部选择插入位置。");
@@ -190,7 +190,7 @@ namespace CH.CustomTools.Paths.Editor
                 else { if (e.type == EventType.MouseDrag) e.Use(); return; }
             }
             if (e.type == EventType.KeyUp && (e.keyCode == KeyCode.LeftControl || e.keyCode == KeyCode.RightControl || e.keyCode == KeyCode.LeftCommand || e.keyCode == KeyCode.RightCommand)) view.Repaint();
-            if (!InsertionModifier(e) || Application.isPlaying || PathMotionPreview.IsActive || Measurement.DmSceneTool.Active || GUIUtility.hotControl != 0) return;
+            if (!InsertionModifier(e) || Application.isPlaying || PathMotionPreview.BlocksPathEditing || Measurement.DmSceneTool.Active || GUIUtility.hotControl != 0) return;
             var path = SelectedPath(); if (path == null) return;
             Hit hit; bool found = TryFind(path, view.camera, e.mousePosition, out hit);
             if (e.type == EventType.MouseMove || e.type == EventType.KeyDown) view.Repaint();

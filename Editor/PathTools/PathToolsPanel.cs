@@ -22,7 +22,7 @@ namespace CH.CustomTools.Paths.Editor
         [NonSerialized] string message;
         [NonSerialized] internal Rect useSelectionArea;
         static string T(string zh, string en) { return PathText.T(zh, en); }
-        public void Deactivate() { PathFenceDraft.Cancel(); PathAuthoringPreview.Stop(); PathMotionPreview.Stop(); PathSceneTool.Active = false; }
+        public void Deactivate() { PathFenceDraft.Cancel(); PathAuthoringPreview.Stop(); PathMotionPreview.Stop(); PathSequenceEditor.SetGuideTarget(null); PathSceneTool.Active = false; }
         void Action(Action action) { try { PathMotionPreview.Stop(); action(); message = T("已完成。生成与路径编辑支持撤销。", "Done. Generation and path edits support Undo."); } catch (Exception e) { message = e.Message; } }
         void SelectPath(BezierPath next)
         {
@@ -51,7 +51,7 @@ namespace CH.CustomTools.Paths.Editor
             if (!PathSceneTool.Active) EditorGUILayout.HelpBox(T("路径编辑未启用。勾选上方开关，或点击“在场景中编辑”，即可显示路径点、控制柄与实时预览。", "Path editing is off. Enable it above or click Edit in Scene to show points, handles and live previews."), MessageType.Info);
             try { EditorGUILayout.LabelField(T("路径长度", "Path length"), path.Length.ToString("0.###") + " m"); } catch (Exception e) { EditorGUILayout.HelpBox(e.Message, MessageType.Error); }
             int newTab = GUILayout.Toolbar(tab, CHToolLanguage.IsChinese ? new[] { "编辑路径", "沿线放模型", "生成网格", "路径运动" } : new[] { "Edit path", "Place models", "Build mesh", "Motion" });
-            if (newTab != tab) { PathMotionPreview.Stop(); if (newTab == 3) PathAuthoringPreview.Stop(); tab = newTab; }
+            if (newTab != tab) { PathMotionPreview.Stop(); if (newTab == 3) PathAuthoringPreview.Stop(); else PathSequenceEditor.SetGuideTarget(null); tab = newTab; }
             if (tab != 3)
             {
                 previewModels = EditorGUILayout.ToggleLeft(T("实时预览沿线模型", "Live model preview"), previewModels);
@@ -185,13 +185,15 @@ namespace CH.CustomTools.Paths.Editor
                 }
             follower = motionTarget == null ? null : motionTarget.GetComponent<PathFollower>();
             EditorGUILayout.BeginHorizontal();
-            using (new EditorGUI.DisabledScope(motionTarget == null || (follower != null && follower.path == path)))
-                if (GUILayout.Button(follower == null ? T("绑定当前路径", "Bind current path") : T("改用当前路径", "Use current path")))
-                    Action(() => follower = PathAuthoring.Attach(path, motionTarget));
+            if (follower == null || follower.drive != PathMotionDrive.Sequence)
+                using (new EditorGUI.DisabledScope(motionTarget == null || (follower != null && follower.path == path)))
+                    if (GUILayout.Button(follower == null ? T("绑定当前路径", "Bind current path") : T("改用当前路径", "Use current path")))
+                        Action(() => follower = PathAuthoring.Attach(path, motionTarget));
             if (GUILayout.Button(T("创建飞行演示", "Create flight demo"))) Action(() => { follower = PathAuthoring.FlightDemo(path); motionTarget = follower.gameObject; });
             EditorGUILayout.EndHorizontal();
             if (follower == null) EditorGUILayout.HelpBox(T("先选择运动物体并绑定当前路径，再设置朝向、拖动预览进度或制作动画。", "Select the moving object and bind the current path to configure orientation, preview or animation."), MessageType.Info);
-            if (follower != null) PathFollowerEditor.DrawFollower(follower);
+            PathSequenceEditor.SetGuideTarget(follower);
+            if (follower != null) PathFollowerEditor.DrawFollower(follower, path);
         }
     }
 }

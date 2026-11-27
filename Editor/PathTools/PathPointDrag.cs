@@ -35,7 +35,7 @@ namespace CH.CustomTools.Paths.Editor
         }
         public static int Duplicate(BezierPath path, int source, Vector3 worldPosition)
         {
-            if (path == null || EditorUtility.IsPersistent(path) || Application.isPlaying || PathMotionPreview.IsActive)
+            if (path == null || EditorUtility.IsPersistent(path) || Application.isPlaying || PathMotionPreview.BlocksPathEditing)
                 throw new InvalidOperationException("Select a scene path and stop motion preview. / 请选择场景路径并停止运动预览。");
             path.ValidatePath();
             if (path.knots.Count >= 512) throw new InvalidOperationException("The path already has 512 points. / 路径已达到512个点。");
@@ -81,7 +81,7 @@ namespace CH.CustomTools.Paths.Editor
             if (control != 0)
             {
                 if (owner != view) return;
-                if (dragging == null || path != dragging || PathPointInsertion.SelectionPath() != dragging || Application.isPlaying || PathMotionPreview.IsActive || DmSceneTool.Active || GUIUtility.hotControl != control || e.alt)
+                if (dragging == null || path != dragging || PathPointInsertion.SelectionPath() != dragging || Application.isPlaying || PathMotionPreview.BlocksPathEditing || DmSceneTool.Active || GUIUtility.hotControl != control || e.alt)
                 { Cancel(); return; }
                 if (e.type == EventType.KeyDown && (e.keyCode == KeyCode.Escape || ((e.control || e.command) && e.keyCode == KeyCode.Z)))
                 { Cancel(); e.Use(); return; }
@@ -93,7 +93,7 @@ namespace CH.CustomTools.Paths.Editor
                 }
                 else if (e.type == EventType.MouseUp && e.button == 0) { Complete(); e.Use(); }
             }
-            if (!PathSceneTool.Active || path == null || inserting || Application.isPlaying || PathMotionPreview.IsActive || DmSceneTool.Active) return;
+            if (!PathSceneTool.Active || path == null || inserting || Application.isPlaying || PathMotionPreview.BlocksPathEditing || DmSceneTool.Active) return;
             try { path.ValidatePath(); } catch (Exception) { return; }
             int hover = FindPoint(path, view.camera, e.mousePosition);
             bool canPick = !e.alt && !PathPointInsertion.InsertionModifier(e) && GUIUtility.hotControl == 0;

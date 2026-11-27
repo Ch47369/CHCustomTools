@@ -129,7 +129,7 @@ namespace CH.CustomTools.Paths.Editor
 
         public static void BakeTransform(PathFollower follower, AnimationClip output, int frameRate)
         {
-            if (follower == null || follower.path == null || output == null || output == follower.progressClip ||
+            if (follower == null || (follower.drive != PathMotionDrive.Sequence && follower.path == null) || output == null || output == follower.progressClip ||
                 output.legacy || frameRate < 1 || frameRate > 120)
                 throw new ArgumentException("Choose a separate animation clip and frame rate 1–120. / 请选择独立的动画片段与 1–120 帧率。");
             if (!AssetDatabase.GetAssetPath(output).EndsWith(".anim", StringComparison.OrdinalIgnoreCase) ||
@@ -137,31 +137,50 @@ namespace CH.CustomTools.Paths.Editor
                 throw new ArgumentException("Choose an editable Transform .anim asset. / 请选择可编辑的普通 Transform .anim 片段。");
             if (AnimationMode.InAnimationMode())
                 throw new InvalidOperationException("Stop Animation Window preview before baking. / 请先退出 Animation 窗口预览。");
-            float duration = Duration(follower);
+            var sequence = follower.drive == PathMotionDrive.Sequence ? new PathSequenceTimeline(follower, follower.transform.rotation) : null;
+            float duration = sequence != null ? sequence.Duration : Duration(follower);
             if (duration <= 0 || !float.IsFinite(duration) || duration * frameRate > 30000)
                 throw new ArgumentException("Invalid duration or more than 30,000 samples. / 时长无效或采样超过 30000 帧。");
             int count = Mathf.Max(1, Mathf.CeilToInt(duration * frameRate));
+            var times = new SortedSet<float>();
+            for (int i = 0; i < count; i++) times.Add(i / (float)frameRate);
+            times.Add(duration);
+            if (sequence != null)
+                foreach (var track in sequence.Tracks) { times.Add(track.Start); times.Add(track.End); }
             var parent = follower.transform.parent;
             Quaternion last = Quaternion.identity;
-            bool rotate = follower.orientation != PathOrientation.PositionOnly;
+            bool rotate = sequence != null ? sequence.HasRotation : follower.orientation != PathOrientation.PositionOnly;
             int curveCount = rotate ? 7 : 3;
             var frames = new Keyframe[curveCount][];
-            for (int c = 0; c < curveCount; c++) frames[c] = new Keyframe[count + 1];
+            for (int c = 0; c < curveCount; c++) frames[c] = new Keyframe[times.Count];
             var timing = Timing(follower);
-            for (int i = 0; i <= count; i++)
+            int frame = 0;
+            foreach (float time in times)
             {
-                float time = i == count ? duration : Mathf.Min(duration, i / (float)frameRate);
-                float progress = Mathf.Clamp01(timing == null ? time / duration : timing.Evaluate(time));
-                var pose = follower.PoseAtProgress(progress);
-                var position = parent == null ? pose.position : parent.InverseTransformPoint(pose.position);
-                var rotation = rotate ? follower.RotationFor(pose) : follower.transform.rotation;
+                Vector3 position;
+                Quaternion rotation;
+                if (sequence != null)
+                {
+                    var pose = sequence.Evaluate(time);
+                    position = pose.position;
+                    rotation = pose.rotation;
+                }
+                else
+                {
+                    float progress = Mathf.Clamp01(timing == null ? time / duration : timing.Evaluate(time));
+                    var pose = follower.PoseAtProgress(progress);
+                    position = pose.position;
+                    rotation = rotate ? follower.RotationFor(pose) : follower.transform.rotation;
+                }
+                if (parent != null) position = parent.InverseTransformPoint(position);
                 if (parent != null) rotation = Quaternion.Inverse(parent.rotation) * rotation;
-                if (i > 0 && Quaternion.Dot(last, rotation) < 0)
+                if (frame > 0 && Quaternion.Dot(last, rotation) < 0)
                     rotation = new Quaternion(-rotation.x, -rotation.y, -rotation.z, -rotation.w);
                 last = rotation;
-                for (int axis = 0; axis < 3; axis++) frames[axis][i] = new Keyframe(time, position[axis]);
+                for (int axis = 0; axis < 3; axis++) frames[axis][frame] = new Keyframe(time, position[axis]);
                 if (rotate)
-                    for (int axis = 0; axis < 4; axis++) frames[axis + 3][i] = new Keyframe(time, rotation[axis]);
+                    for (int axis = 0; axis < 4; axis++) frames[axis + 3][frame] = new Keyframe(time, rotation[axis]);
+                frame++;
             }
             var curves = new AnimationCurve[curveCount];
             for (int c = 0; c < curveCount; c++)
