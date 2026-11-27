@@ -77,6 +77,14 @@ namespace ASEShaderConverter.Editor
         public static void OpenAgent() { ShowMain().Navigate("agent"); }
         public static void OpenMeasurement() { ShowMain().Navigate("measurement"); }
         public static void OpenPathTools() { ShowMain().Navigate("paths"); }
+        internal static void TogglePathDrawing(SceneView scene)
+        {
+            if (PathFenceDraft.Active) { PathFenceDraft.Cancel(); return; }
+            var window = ShowMain();
+            window.Navigate("paths");
+            if (window.paths == null) window.paths = new PathToolsPanel();
+            window.paths.BeginDrawing(scene);
+        }
         public static void OpenParticleTrails(ParticleSystem system = null)
         {
             var window = ShowMain();

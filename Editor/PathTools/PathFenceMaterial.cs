@@ -19,7 +19,7 @@ namespace CH.CustomTools.Paths.Editor
             throw new InvalidOperationException("Choose a material for this render pipeline. / 请指定当前渲染管线的材质。");
         }
 
-        internal static Material Create()
+        internal static Material Create(PathFenceStyle style = PathFenceStyle.CyanGrid)
         {
             string pipeline = Pipeline();
             string shaderName = "CH/Paths/Custom2TexV2/" + pipeline;
@@ -38,9 +38,36 @@ namespace CH.CustomTools.Paths.Editor
             if (shader == null || shader.name != shaderName || ShaderUtil.ShaderHasError(shader))
                 throw new InvalidOperationException("Custom2TexV2 could not compile for " + pipeline + ". / 围栏着色器编译失败，请检查项目管线版本。");
             var material = new Material(shader) { name = "CH Electronic Fence · Custom2TexV2" };
-            material.SetColor("_MainTexColor", new Color(.06f, 1.1f, 1.5f, .35f));
-            var grid = AssetDatabase.LoadAssetAtPath<Texture2D>("Packages/com.aseshader.handwritten-converter/Runtime/PathTools/FenceGrid.png");
-            if (grid != null) material.SetTexture("_MainTex", grid);
+            string texture;
+            Color tint;
+            float speed;
+            switch (style)
+            {
+                case PathFenceStyle.AmberWarning:
+                    texture = "FenceWarning"; tint = new Color(2.0f, .67f, .06f, .9f); speed = -.42f;
+                    break;
+                case PathFenceStyle.VioletEnergy:
+                    texture = "FenceEnergy"; tint = new Color(.78f, .22f, 2.0f, .9f); speed = .65f;
+                    break;
+                default:
+                    texture = "FenceGridBright"; tint = new Color(.06f, 1.4f, 2.1f, .9f); speed = -.55f;
+                    break;
+            }
+            material.name = "CH Electronic Fence · " + style;
+            material.SetColor("_MainTexColor", tint);
+            const string assetFolder = "Packages/com.aseshader.handwritten-converter/Runtime/PathTools/";
+            var pattern = AssetDatabase.LoadAssetAtPath<Texture2D>(assetFolder + texture + ".png");
+            var scan = AssetDatabase.LoadAssetAtPath<Texture2D>(assetFolder + "FenceSweep.png");
+            if (pattern != null) material.SetTexture("_MainTex", pattern);
+            if (scan != null)
+            {
+                material.SetTexture("_AddTex", scan);
+                material.SetColor("_AddTexColor", new Color(tint.r * .65f, tint.g * .65f, tint.b * .65f, .7f));
+                material.SetFloat("_AddTexIntensity", .8f);
+                material.SetVector("_AddTexPanner", new Vector4(0, speed, 0, 0));
+                material.SetFloat("_TexBlendMode", 2);
+            }
+            Set(material, "_RA", 1);
             Set(material, "_Src", (int)BlendMode.SrcAlpha);
             Set(material, "_Dst", (int)BlendMode.OneMinusSrcAlpha);
             Set(material, "_ZWriteMode", 0);

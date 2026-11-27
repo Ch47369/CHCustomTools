@@ -39,11 +39,26 @@ namespace CH.CustomTools.Paths.Editor
         }
         public static void MoveTangent(BezierPath path, int index, bool outgoing, Vector3 worldPosition)
         {
+            MoveTangent(path, index, outgoing, worldPosition, false);
+        }
+        internal static void MoveTangent(BezierPath path, int index, bool outgoing, Vector3 worldPosition, bool straight)
+        {
             Validate(path, 2);
             if (index < 0 || index >= path.knots.Count || !BezierPath.Finite(worldPosition)) throw new ArgumentException("Invalid tangent");
             Undo.RecordObject(path, "Move Bezier corner tangent");
             if (path.knots[index].automatic) Set(path, index, 2);
             var offset = path.transform.InverseTransformPoint(worldPosition) - path.knots[index].position;
+            int neighbor = outgoing ? index + 1 : index - 1;
+            if (path.closed) neighbor = (neighbor + path.knots.Count) % path.knots.Count;
+            if (straight && neighbor >= 0 && neighbor < path.knots.Count)
+            {
+                var chord = path.knots[neighbor].position - path.knots[index].position;
+                offset = chord.sqrMagnitude <= 1e-10f ? Vector3.zero :
+                    chord * Mathf.Clamp(Vector3.Dot(offset, chord) / chord.sqrMagnitude, 0, .5f);
+                if (path.knots[neighbor].automatic) Set(path, neighbor, 2);
+                if (outgoing) path.knots[neighbor].incoming = -chord / 3;
+                else path.knots[neighbor].outgoing = -chord / 3;
+            }
             if (outgoing) path.knots[index].outgoing = offset; else path.knots[index].incoming = offset;
             Changed(path);
         }

@@ -12,6 +12,14 @@ namespace CH.CustomTools.Paths.Editor
     internal static class PathFenceDraft
     {
         static readonly List<Vector3> points = new List<Vector3>();
+        static readonly List<Vector3> tangents = new List<Vector3>();
+        static readonly List<Vector3> incoming = new List<Vector3>();
+        static readonly List<Vector3> previousHandles = new List<Vector3>();
+        static Vector3 previousOutgoing;
+        static int dragControl, releaseControl;
+        static SceneView releaseView;
+        static Vector2 dragStart;
+        static readonly int DrawHint = "CH.PathDraft".GetHashCode();
         static Action<BezierPath> completed;
         static SceneView owner;
         static Vector3 normal;
@@ -49,7 +57,16 @@ namespace CH.CustomTools.Paths.Editor
             if (!Active) return;
             completed = null;
             rightPending = rightMoved = false;
+            if (dragControl != 0)
+            {
+                if (SceneView.currentDrawingSceneView == owner && GUIUtility.hotControl == dragControl) GUIUtility.hotControl = 0;
+                else { releaseView = owner; releaseControl = dragControl; }
+                dragControl = 0;
+            }
             points.Clear();
+            tangents.Clear();
+            incoming.Clear();
+            previousHandles.Clear();
             owner = null;
             SceneView.RepaintAll();
         }
@@ -89,7 +106,15 @@ namespace CH.CustomTools.Paths.Editor
                     break;
                 case KeyCode.Backspace:
                     input.Use();
-                    if (points.Count > 0) points.RemoveAt(points.Count - 1);
+                    if (points.Count > 0 && dragControl == 0)
+                    {
+                        int last = points.Count - 1;
+                        if (last > 0) tangents[last - 1] = previousHandles[last];
+                        points.RemoveAt(last);
+                        tangents.RemoveAt(last);
+                        incoming.RemoveAt(last);
+                        previousHandles.RemoveAt(last);
+                    }
                     view.Repaint();
                     break;
                 case KeyCode.KeypadEnter:
@@ -102,10 +127,15 @@ namespace CH.CustomTools.Paths.Editor
 
         static void Draw(SceneView view)
         {
+            if (releaseView == view)
+            {
+                if (GUIUtility.hotControl == releaseControl) GUIUtility.hotControl = 0;
+                releaseView = null; releaseControl = 0;
+            }
             if (!Active || view != owner) return;
             var input = Event.current;
-            if (input.type == EventType.Layout && !input.alt)
-                HandleUtility.AddDefaultControl(GUIUtility.GetControlID("CH.FenceDraft".GetHashCode(), FocusType.Passive));
+            int control = GUIUtility.GetControlID(DrawHint, FocusType.Passive);
+            if (input.type == EventType.Layout && !input.alt) HandleUtility.AddDefaultControl(control);
             if (input.type == EventType.MouseMove || input.type == EventType.KeyUp || input.type == EventType.KeyDown)
                 view.Repaint();
 
@@ -115,10 +145,34 @@ namespace CH.CustomTools.Paths.Editor
                 var plane = new Plane(normal, normal * planeOffset);
                 bool hasCursor = plane.Raycast(ray, out var distance);
                 Vector3 cursor = hasCursor ? ray.GetPoint(distance) : Vector3.zero;
-                if (hasCursor && input.shift && points.Count > 0)
+                if (hasCursor && input.shift && points.Count > 0 && dragControl == 0)
                     cursor = Orthogonal(points[points.Count - 1], cursor);
 
-                if (!input.alt && !input.control && !input.command && GUIUtility.hotControl == 0 &&
+                if (dragControl != 0 && GUIUtility.hotControl != dragControl)
+                    dragControl = 0;
+                if (dragControl != 0)
+                {
+                    if (input.type == EventType.MouseDrag && input.button == 0 && hasCursor)
+                    {
+                        bool straight = input.control || input.command || (input.mousePosition - dragStart).sqrMagnitude < 16;
+                        int last = tangents.Count - 1;
+                        tangents[last] = straight ? Vector3.zero : cursor - points[last];
+                        incoming[last] = -tangents[last];
+                        if (last > 0) tangents[last - 1] = straight && (input.control || input.command) ? Vector3.zero : previousOutgoing;
+                        input.Use(); view.Repaint();
+                    }
+                    if (input.rawType == EventType.MouseUp && input.button == 0)
+                    {
+                        if (input.control || input.command)
+                        {
+                            int last = tangents.Count - 1;
+                            tangents[last] = incoming[last] = Vector3.zero;
+                            if (last > 0) tangents[last - 1] = Vector3.zero;
+                        }
+                        GUIUtility.hotControl = 0; dragControl = 0; input.Use(); view.Repaint();
+                    }
+                }
+                if (!input.alt && GUIUtility.hotControl == 0 &&
                     input.type == EventType.MouseDown && input.button == 0)
                 {
                     if (points.Count >= 3 && (HandleUtility.WorldToGUIPoint(points[0]) - input.mousePosition).sqrMagnitude <= 12 * 12)
@@ -146,7 +200,13 @@ namespace CH.CustomTools.Paths.Editor
                     }
                     foreach (var point in points)
                         if ((point - cursor).sqrMagnitude < 1e-6f) return;
+                    previousOutgoing = tangents.Count == 0 ? Vector3.zero : tangents[tangents.Count - 1];
+                    previousHandles.Add(previousOutgoing);
                     points.Add(cursor);
+                    tangents.Add(Vector3.zero);
+                    incoming.Add(Vector3.zero);
+                    dragStart = input.mousePosition;
+                    GUIUtility.hotControl = dragControl = control;
                     view.Repaint();
                 }
                 if (input.type == EventType.Repaint) DrawOverlay(view, hasCursor, cursor);
@@ -169,16 +229,23 @@ namespace CH.CustomTools.Paths.Editor
             try
             {
                 Handles.zTest = CompareFunction.Always;
-                if (points.Count > 1) CHSceneVisuals.Line(accent, true, points.ToArray());
+                for (int i = 0; i + 1 < points.Count; i++)
+                    CHSceneVisuals.Curve(points[i], points[i] + tangents[i], points[i + 1] + incoming[i + 1], points[i + 1], accent, true);
                 for (int i = 0; i < points.Count; i++)
                 {
                     var p = points[i];
                     CHSceneVisuals.Anchor(view.camera, p, i == 0 ? DmSkin.Accent : accent,
                         CHSceneVisuals.PixelToWorld(view.camera, p, 4), true, i == 0);
+                    if (i == points.Count - 1 && tangents[i].sqrMagnitude > 1e-8f)
+                    {
+                        CHSceneVisuals.FineLine(DmSkin.Accent, 2, p + incoming[i], p + tangents[i]);
+                        CHSceneVisuals.Anchor(view.camera, p + tangents[i], DmSkin.Accent,
+                            CHSceneVisuals.PixelToWorld(view.camera, p, 4), true, false);
+                    }
                 }
-                if (points.Count > 0 && hasCursor)
+                if (points.Count > 0 && hasCursor && dragControl == 0)
                 {
-                    CHSceneVisuals.FineLine(accent, 2, points[points.Count - 1], cursor);
+                    CHSceneVisuals.Curve(points[points.Count - 1], points[points.Count - 1] + tangents[tangents.Count - 1], cursor, cursor, accent, true);
                     CHSceneVisuals.Anchor(view.camera, cursor, accent, CHSceneVisuals.PixelToWorld(view.camera, cursor, 4), false, false);
                 }
             }
@@ -199,8 +266,10 @@ namespace CH.CustomTools.Paths.Editor
             }
             var callback = completed;
             var boundary = points.ToArray();
+            var handles = tangents.ToArray();
+            var entering = incoming.ToArray();
             Cancel();
-            callback(PathAuthoring.CreateFenceBoundary(boundary, closed));
+            callback(PathAuthoring.CreateFenceBoundary(boundary, closed, handles, entering));
         }
     }
 }

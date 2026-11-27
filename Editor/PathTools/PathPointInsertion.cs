@@ -181,7 +181,7 @@ namespace CH.CustomTools.Paths.Editor
                 { BezierPathEditor.RotatePoints = input.keyCode == KeyCode.E; input.Use(); view.Repaint(); }
                 HandleInsertion(view);
                 PathPointDrag.SceneGUI(view, path, capturedControl != 0);
-                if (path != null && capturedControl == 0 && !Measurement.DmSceneTool.Active && (!InsertionModifier(Event.current) || GUIUtility.hotControl != 0)) BezierPathEditor.DrawSceneHandles(path);
+                if (path != null && capturedControl == 0 && !Measurement.DmSceneTool.Active && (!InsertionModifier(Event.current) || GUIUtility.hotControl != 0 || BezierPathEditor.HitsTangent(path, Event.current.mousePosition))) BezierPathEditor.DrawSceneHandles(path);
                 PathFenceHeightEditing.Draw(view);
                 PathWholeHandle.Draw(view, path);
             }
@@ -200,7 +200,7 @@ namespace CH.CustomTools.Paths.Editor
             }
             if (e.type == EventType.KeyUp && (e.keyCode == KeyCode.LeftControl || e.keyCode == KeyCode.RightControl || e.keyCode == KeyCode.LeftCommand || e.keyCode == KeyCode.RightCommand)) view.Repaint();
             if (!InsertionModifier(e) || Application.isPlaying || PathMotionPreview.BlocksPathEditing || Measurement.DmSceneTool.Active || GUIUtility.hotControl != 0) return;
-            var path = SelectedPath(); if (path == null) return;
+            var path = SelectedPath(); if (path == null || BezierPathEditor.HitsTangent(path, e.mousePosition)) return;
             Hit hit; bool found = TryFind(path, view.camera, e.mousePosition, out hit);
             if (e.type == EventType.MouseMove || e.type == EventType.KeyDown) view.Repaint();
             if (!found) return;

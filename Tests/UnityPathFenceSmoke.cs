@@ -242,11 +242,55 @@ public static class UnityPathFenceSmoke
                     break;
                 case 12:
                     Check(errorLog == null, "Scene drawing and rendering completed without errors");
+                    view.LookAtDirect(Vector3.zero, Quaternion.LookRotation(Vector3.down, Vector3.forward), 8);
+                    BeginDraft();
+                    view.Repaint();
+                    break;
+                case 13:
+                    Click(-165, -100);
+                    DrawDraggedPoint(0, -85, new Vector2(45, -80), false);
+                    DrawDraggedPoint(135, 80, new Vector2(30, 65), true);
+                    Key(KeyCode.Return);
+                    Check(path != null && !path.closed && path.knots.Count == 3, "Click and drag gesture produces an open three-point path");
+                    Check(path.knots[0].outgoing == Vector3.zero && path.knots[1].incoming.sqrMagnitude > .01f,
+                        "Dragging the second point sets a real Bezier tangent");
+                    Check(path.knots[1].outgoing == Vector3.zero && path.knots[2].incoming == Vector3.zero && path.knots[2].outgoing == Vector3.zero,
+                        "Ctrl-drawing a point forces its incoming segment and outgoing tangent straight");
+                    path.Cubic(1, .5f, out var middle, out _);
+                    Check(Vector3.Distance(middle, path.transform.TransformPoint((path.knots[1].position + path.knots[2].position) * .5f)) < .0001f,
+                        "Ctrl-drawn segment has no curvature");
+                    VerifyStylePresets();
+                    Check(errorLog == null, "All drawing and material checks finish without Console errors");
                     Finish(null);
                     return;
             }
         }
         catch (Exception e) { Finish(e); }
+    }
+
+    static void DrawDraggedPoint(float x, float y, Vector2 delta, bool ctrl)
+    {
+        var point = center + new Vector2(x, y) + offset;
+        CHValidationInput.Send(view, new Event { type = EventType.MouseDown, button = 0, mousePosition = point, control = ctrl });
+        CHValidationInput.Send(view, new Event { type = EventType.MouseDrag, button = 0, mousePosition = point + delta, delta = delta, control = ctrl });
+        CHValidationInput.Send(view, new Event { type = EventType.MouseUp, button = 0, mousePosition = point + delta, control = ctrl });
+    }
+    static void VerifyStylePresets()
+    {
+        var method = typeof(PathSceneTool).Assembly.GetType("CH.CustomTools.Paths.Editor.PathFenceMaterial").GetMethod("Create", StaticMethods);
+        var seen = new HashSet<Texture>();
+        foreach (PathFenceStyle style in Enum.GetValues(typeof(PathFenceStyle)))
+        {
+            var material = (Material)method.Invoke(null, new object[] { style });
+            try
+            {
+                Check(material.shader.name.Contains("Custom2TexV2") && material.GetTexture("_MainTex") != null &&
+                    seen.Add(material.GetTexture("_MainTex")) && material.GetTexture("_AddTex") != null &&
+                    material.GetFloat("_TexBlendMode") == 2 && Mathf.Abs(material.GetVector("_AddTexPanner").y) > .1f,
+                    style + " uses Custom2TexV2 with a distinct pattern and moving additive scan");
+            }
+            finally { Object.DestroyImmediate(material); }
+        }
     }
 
     static void VerifyMeshes()
@@ -327,9 +371,24 @@ public static class UnityPathFenceSmoke
             "Generated mesh origin is the geometric bounds center");
         PathAuthoringPreview.Stop();
         CaptureFence("electronic-fence.png", c => c.g > .15f && c.b > .2f && c.r < c.b * .6f);
+        var styleMethod = typeof(PathSceneTool).Assembly.GetType("CH.CustomTools.Paths.Editor.PathFenceMaterial").GetMethod("Create", StaticMethods);
+        foreach (var style in new[] { PathFenceStyle.AmberWarning, PathFenceStyle.VioletEnergy })
+        {
+            var styled = (Material)styleMethod.Invoke(null, new object[] { style });
+            try
+            {
+                outputRenderer.sharedMaterial = styled;
+                CaptureFence(style + ".png", c => style == PathFenceStyle.AmberWarning
+                    ? c.r > .2f && c.g > .06f && c.r > c.g * 1.5f
+                    : c.b > .2f && c.r > .09f && c.b > c.r * 1.3f);
+            }
+            finally { outputRenderer.sharedMaterial = material; Object.DestroyImmediate(styled); }
+        }
+
 
         var custom = new Material(material);
         custom.SetColor("_MainTexColor", new Color(1.4f, .23f, .04f, 1));
+        custom.SetFloat("_TexBlendMode", 0);
         AssetDatabase.CreateAsset(custom, "Assets/CustomFence06010.mat");
         path.knots[2].position += new Vector3(.6f, .3f, .76f);
         Refresh(settings, custom);

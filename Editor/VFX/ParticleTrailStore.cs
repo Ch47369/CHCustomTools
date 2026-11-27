@@ -17,6 +17,51 @@ namespace CH.CustomTools.VFX
         [SerializeField] public float Duration = 2f;
         [SerializeField] public string BakedSignature;
 
+        public static void ImportPath(ParticleSystem target, BezierPath source, bool reverse)
+        {
+            if (!ParticleTrailBaker.CanEdit(target) || source == null || EditorUtility.IsPersistent(source))
+                throw new ArgumentException("Choose a scene path and a particle system.");
+            source.ValidatePath();
+            int count = source.knots.Count + (source.closed ? 1 : 0);
+            if (count > ParticleTrailCurve.MaxPoints) throw new ArgumentException("The particle trail supports at most 128 points.");
+            var knots = new List<PathKnot>(count);
+            var toLocal = target.transform.worldToLocalMatrix * source.transform.localToWorldMatrix;
+            for (int i = 0; i < count; i++)
+            {
+                int index = i % source.knots.Count;
+                var knot = source.knots[index];
+                knots.Add(new PathKnot(toLocal.MultiplyPoint3x4(knot.position))
+                {
+                    automatic = false,
+                    incoming = toLocal.MultiplyVector(source.Handle(index, false) - knot.position),
+                    outgoing = toLocal.MultiplyVector(source.Handle(index, true) - knot.position)
+                });
+            }
+            if (reverse) ReverseKnots(knots);
+            // Validate before replacing existing editor data.
+            new ParticleTrailCurve(knots, target.transform.localToWorldMatrix);
+            ParticleTrailStore.Change(target, "Import scene path for particle trail", data => data.knots = knots);
+        }
+
+        public static void ReversePath(ParticleSystem target)
+        {
+            ParticleTrailStore.Change(target, "Reverse particle trail path", data =>
+            {
+                ReverseKnots(data.knots);
+            });
+        }
+
+        static void ReverseKnots(List<PathKnot> knots)
+        {
+            knots.Reverse();
+            foreach (var knot in knots)
+            {
+                var incoming = knot.incoming;
+                knot.incoming = knot.outgoing;
+                knot.outgoing = incoming;
+            }
+        }
+
         public Vector3 Handle(int index, bool outgoing)
         {
             return ParticleTrailCurve.Handle(knots, index, outgoing);

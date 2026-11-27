@@ -1,3 +1,5 @@
+0.7.7 接续：路径页单一 Scene 绘制开关，Alt+S 启停绘制；单击直线、拖动贝兹、Ctrl 将对应段拉直（包括已有控制柄），右键/Enter 开放完成、首点闭合。复用路径或生成物导入粒子本地控制点，反向导入/反转支持 Undo。Custom2TexV2 三份 ASE 图逐字节保留，新增原创网格/警示/能量/扫光纹理及三种样式。更新器相对文件路径失败后尝试绝对文件路径，保留校验包并显示安全错误分类。固定 0.7.6 包独立白名单验证，证据 Evidence/PathDraw077 与 Releases~，历史失败保留，不带 Backend/SidebarLine，不改用户项目；隔离 Unity 活跃时不改共享 C#。
+
 0.7.6 接续：用户明确移除着色器库。原用户Editor.log确认 ShaderLibraryPanel.DrawPanel:54 NullReferenceException 继发 GUIClips 不平衡。取消库页面、目录及293图随包分发；旧活动页/记忆页/窗口重定向到图转换，旧API返回空目录和明确退役结果，主窗和转换/设置/Agent外层GUI用Scope确保平衡。保留规则、转换核心、原电子围栏三图和路径/VFX/更新器（围栏高度柄与位置Y轴拾取冲突定点修复），既有用户Assets未修改。旧库证据及包保持；当前Verify-Release核验库缺失，UnityCustomToolsSmoke验收旧窗口和全部现有功能页，Evidence/LibraryRemoval076与Releases~。不带Backend/SidebarLine，隔离Unity活跃不改共享C#。
 
 0.7.5 接续：统一先创建/选择路径，再选编辑、模型、网格、电子围栏、运动。点击控制点自动单点，选择路径几何中心柄，选生成物原生Center，旧资产兼容；新网格局部原点居中且世界位置/UV/法线与预览一致，模型根居中保留实例矩阵。所有网格世界XYZ尺寸倍率/预览实际米数，面片支持厚度；生成围栏独立输出，旧Mesh围栏按资产名识别。原293图、Custom2TexV2三图、音频、更新器与非路径Runtime保护，独立基准0.7.4包白名单，验证UnityPathFenceSmoke/旧路径和预览回归、Evidence/PathWorkflow075与Releases~。隔离Unity活跃不改共享C#，不改用户项目、不带Backend/SidebarLine。

@@ -22,6 +22,7 @@ namespace CH.CustomTools.Paths.Editor
         static PathPlacementSettings placement;
         static PathMeshSettings settings;
         static Material material, posts, fallback, fenceFallback;
+        static PathFenceStyle fenceFallbackStyle;
         static Mesh mesh;
         static bool showModels, showMesh;
         static string signature, modelError, meshError;
@@ -123,9 +124,11 @@ namespace CH.CustomTools.Paths.Editor
         static Material MeshDefault(PathMeshKind kind)
         {
             if (kind != PathMeshKind.ElectronicFence) return Default();
-            if (fenceFallback == null)
+            if (fenceFallback == null || fenceFallbackStyle != settings.fenceStyle)
             {
-                fenceFallback = PathAuthoring.DefaultMeshMaterial(kind);
+                if (fenceFallback != null) Object.DestroyImmediate(fenceFallback);
+                fenceFallbackStyle = settings.fenceStyle;
+                fenceFallback = PathAuthoring.DefaultMeshMaterial(kind, fenceFallbackStyle);
                 fenceFallback.hideFlags = HideFlags.HideAndDontSave;
             }
             return fenceFallback;

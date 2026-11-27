@@ -19,7 +19,7 @@ namespace CH.CustomTools.Paths.Editor
         [SerializeField] PathPlacementSettings placement = new PathPlacementSettings();
         [SerializeField] string folder = "Assets";
         [SerializeField] Vector2 scroll;
-        [SerializeField] int tab, preset = 1;
+        [SerializeField] int tab;
         [SerializeField] bool previewModels = true, previewMesh = true;
         [NonSerialized] string message;
         [NonSerialized] internal Rect useSelectionArea;
@@ -44,19 +44,6 @@ namespace CH.CustomTools.Paths.Editor
                 tab = 4;
             }
             scroll = EditorGUILayout.BeginScrollView(scroll);
-            EditorGUILayout.LabelField(T("创建或选择路径", "Create or select a path"), EditorStyles.boldLabel);
-            using (new EditorGUILayout.HorizontalScope())
-            {
-                preset = EditorGUILayout.Popup(preset, CHToolLanguage.IsChinese ? new[] { "直线", "S形曲线", "圆形", "空间飞行" } : new[] { "Straight", "S curve", "Circle", "3D flight" });
-                if (GUILayout.Button(T("创建路径", "Create path"))) Action(() =>
-                {
-                    var view = SceneView.lastActiveSceneView;
-                    SelectPath(PathAuthoring.Create((PathPreset)preset, view == null ? Vector3.zero : view.pivot));
-                    tab = 0;
-                    previewModels = previewMesh = false;
-                    PathSceneTool.SelectWhole(path);
-                });
-            }
             DrawPathPlacement();
             EditorGUI.BeginChangeCheck(); var next = (BezierPath)EditorGUILayout.ObjectField(T("当前路径", "Current path"), path, typeof(BezierPath), true);
             if (EditorGUI.EndChangeCheck()) SelectPath(next);
@@ -127,43 +114,45 @@ namespace CH.CustomTools.Paths.Editor
                 : new[] { "XZ plane / +Y height", "YZ plane / +X height", "XY plane / +Z height" });
         }
 
+        internal void BeginDrawing(SceneView scene)
+        {
+            if (scene == null || EditorApplication.isPlayingOrWillChangePlaymode) return;
+            Deactivate();
+            var axis = fenceDrawingAxis;
+            PathFenceDraft.Begin(scene, axis, boundary =>
+            {
+                path = boundary;
+                fenceMesh.kind = PathMeshKind.ElectronicFence;
+                fenceMesh.fenceAxis = axis;
+                fenceMesh.fenceLocalAxis = false;
+                previewFence = true;
+                tab = 0;
+                previewModels = previewMesh = false;
+                scroll = Vector2.zero;
+                PathSceneTool.SelectWhole(path);
+            });
+        }
+
         void DrawPathPlacement()
         {
             using (new EditorGUILayout.HorizontalScope())
             {
-                using (new EditorGUI.DisabledScope(PathFenceDraft.Active))
-                    fenceDrawingAxis = (PathFenceAxis)AxisMenu((int)fenceDrawingAxis);
                 using (new EditorGUI.DisabledScope(EditorApplication.isPlayingOrWillChangePlaymode))
                 {
-                    if (PathFenceDraft.Active)
+                    bool draw = EditorGUILayout.ToggleLeft(T("在 Scene 绘制路径", "Draw path in Scene"), PathFenceDraft.Active, GUILayout.ExpandWidth(true));
+                    if (draw != PathFenceDraft.Active)
                     {
-                        if (GUILayout.Button(T("取消绘制", "Cancel drawing"))) PathFenceDraft.Cancel();
-                    }
-                    else if (GUILayout.Button(T("在 Scene 绘制路径", "Draw path in Scene")))
-                    {
-                        var scene = SceneView.lastActiveSceneView;
-                        if (scene == null) scene = EditorWindow.GetWindow<SceneView>();
-                        Deactivate();
-                        var axis = fenceDrawingAxis;
-                        PathFenceDraft.Begin(scene, axis, boundary =>
-                        {
-                            path = boundary;
-                            fenceMesh.kind = PathMeshKind.ElectronicFence;
-                            fenceMesh.fenceAxis = axis;
-                            fenceMesh.fenceLocalAxis = false;
-                            previewFence = true;
-                            tab = 0;
-                            previewModels = previewMesh = false;
-                            scroll = Vector2.zero;
-                            PathSceneTool.SelectWhole(path);
-                        });
+                        if (draw) BeginDrawing(SceneView.lastActiveSceneView ?? EditorWindow.GetWindow<SceneView>());
+                        else PathFenceDraft.Cancel();
                     }
                 }
+                using (new EditorGUI.DisabledScope(PathFenceDraft.Active))
+                    fenceDrawingAxis = (PathFenceAxis)EditorGUILayout.Popup((int)fenceDrawingAxis,
+                        new[] { "XZ", "YZ", "XY" }, GUILayout.Width(68));
             }
             if (PathFenceDraft.Active)
-                EditorGUILayout.HelpBox(T("左键落点，Shift 锁轴。右键单击或回车完成开放路径，点击首点闭合。Backspace 撤回，Esc 取消。",
-                    "Click to add points; Shift aligns an edge. Right-click or Enter finishes an open path; click the first point to close. Backspace removes the last point. Esc cancels."),
-                    MessageType.Info);
+                EditorGUILayout.HelpBox(T("左键单击落直线点，按住左键拖出贝塞尔切线。Ctrl 拖动保持直线；右键或 Enter 完成，点击首点闭合，Esc 取消，Backspace 撤回。",
+                    "Click for a straight knot, click-drag for Bezier tangents. Ctrl-drag keeps it straight. Right-click or Enter finishes; click the first point to close. Esc cancels; Backspace removes the last point."), MessageType.Info);
         }
         void DrawPlacement()
         {
@@ -288,6 +277,10 @@ namespace CH.CustomTools.Paths.Editor
                 PrefabUtility.RecordPrefabInstancePropertyModifications(path); EditorUtility.SetDirty(path);
             }
             mesh.fenceBaseOffset = EditorGUILayout.FloatField(T("底部偏移（米）", "Base offset (m)"), mesh.fenceBaseOffset);
+            using (new EditorGUI.DisabledScope(fenceMaterial != null))
+                mesh.fenceStyle = (PathFenceStyle)PathText.Choice("围栏样式", "Fence style", (int)mesh.fenceStyle,
+                    new[] { "青蓝网格扫描", "琥珀警示条纹", "紫色能量带" },
+                    new[] { "Cyan scan grid", "Amber warning stripes", "Violet energy bands" });
             fenceMaterial = (Material)EditorGUILayout.ObjectField(T("自定义围栏材质", "Custom fence material"), fenceMaterial, typeof(Material), false);
             using (new EditorGUI.DisabledScope(fenceMaterial == null))
                 mesh.fenceDoubleSided = EditorGUILayout.Toggle(T("为单面材质生成背面", "Add back faces for one-sided materials"),

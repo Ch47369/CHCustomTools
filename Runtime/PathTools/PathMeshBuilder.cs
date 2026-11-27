@@ -7,6 +7,7 @@ namespace CH.CustomTools.Paths
 {
     public enum PathMeshKind { Ribbon, DashedLine, Arrows, Tube, Railing, ElectronicFence }
     public enum PathFenceAxis { Y, X, Z }
+    public enum PathFenceStyle { CyanGrid, AmberWarning, VioletEnergy }
     [Serializable]
     public sealed class PathMeshSettings
     {
@@ -22,6 +23,7 @@ namespace CH.CustomTools.Paths
         public bool fenceDoubleSided;
         public PathFenceAxis fenceAxis;
         public bool fenceLocalAxis;
+        public PathFenceStyle fenceStyle;
         public Vector3 dimensionsScale = Vector3.one;
         public float sheetThickness;
     }

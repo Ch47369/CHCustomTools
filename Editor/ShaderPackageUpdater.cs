@@ -24,6 +24,7 @@ namespace ASEShaderConverter.Editor
         static AddRequest installation;
         static Task<string> download;
         const string PendingFile = "CH.CustomTools.Update.PendingFile";
+        const string RetriedAbsolute = "CH.CustomTools.Update.RetriedAbsolute";
         const string DownloadFolder = "CHCustomToolsCache~";
         static double nextPoll;
         static bool restored;
@@ -148,10 +149,24 @@ namespace ASEShaderConverter.Editor
                 default: return new CHToolMessage("GitHub 更新操作未完成，请重试并查看当前项目的包解析状态。", "The GitHub update did not complete. Retry and check this project's package resolution status.");
             }
         }
+        static CHToolMessage InstallFailure(string code, string diagnostic)
+        {
+            string value = (diagnostic ?? "").ToLowerInvariant();
+            string zh = "Unity 包解析失败";
+            string en = "Unity package resolution failed";
+            if (value.Contains("manifest") || value.Contains("json")) { zh = "项目包清单解析失败"; en = "Project package manifest could not be parsed"; }
+            else if (value.Contains("dependency") || value.Contains("dependencies")) { zh = "项目包依赖解析失败"; en = "Project package dependencies could not be resolved"; }
+            else if (value.Contains("tarball") || value.Contains("extract") || value.Contains("enoent")) { zh = "Unity 无法读取或解包已下载文件"; en = "Unity could not read or extract the archive"; }
+            else if (value.Contains("permission") || value.Contains("access denied")) { zh = "Unity 无法访问包文件或缓存"; en = "Unity could not access the package or cache"; }
+            return new CHToolMessage(zh + "（" + code + "）。安装包仍在项目缓存中，可使用 Package Manager 的 Add package from tarball 重试。",
+                en + " (" + code + "). The verified archive remains in the project cache. Retry using Add package from tarball.");
+        }
+
         public static void InstallLatest()
         {
             if (!CanInstall) return;
             string url = ShaderPackageUpdatePolicy.InstallationUrl(Repository, Latest.tag);
+            SessionState.SetBool(RetriedAbsolute, false);
             SessionState.SetString(Pending, url);
             SessionState.SetString(Started, DateTime.UtcNow.ToString("o"));
             try
@@ -249,12 +264,35 @@ namespace ASEShaderConverter.Editor
                 if (!installation.IsCompleted) return;
                 if (installation.Status == StatusCode.Failure)
                 {
-                    LastFailure = ShaderGitClient.Classify(installation.Error == null ? "" : installation.Error.message);
+                    var error = installation.Error;
+                    string diagnostic = error == null ? "" : error.message;
+                    string code = error == null ? "Unknown" : error.errorCode.ToString();
+                    LastFailure = ShaderGitClient.Classify(diagnostic);
                     if (LastFailure == ShaderGitFailure.Unknown) LastFailure = ShaderGitFailure.Installation;
-                    installation = null; SessionState.EraseString(Pending); SessionState.EraseString(Started);
-                    var reason = FailureMessage(LastFailure);
-                    // Keep Package Manager diagnostics private; expose only the classified reason.
-                    SetMessage(reason, true); return;
+                    installation = null;
+                    string file = SessionState.GetString(PendingFile, "");
+                    var installedBeforeRetry = Installed;
+                    string requestedTag = pending.Substring(pending.LastIndexOf('#') + 1);
+                    bool alreadyInstalled = installedBeforeRetry != null &&
+                        "v" + installedBeforeRetry.version == requestedTag && IsDownloadedRelease(installedBeforeRetry, file);
+                    if (!alreadyInstalled)
+                    {
+                        if (!SessionState.GetBool(RetriedAbsolute, false) && File.Exists(file))
+                        {
+                            SessionState.SetBool(RetriedAbsolute, true);
+                            try
+                            {
+                                installation = Client.Add("file:" + Path.GetFullPath(file).Replace('\\', '/'));
+                                SetMessage(new CHToolMessage("安装包已校验，正在通过绝对路径重试 Unity 安装…",
+                                    "Package verified. Retrying Unity installation using the absolute file path…"));
+                                return;
+                            }
+                            catch (Exception) { /* Report the original resolver failure below. */ }
+                        }
+                        SessionState.EraseString(Pending); SessionState.EraseString(Started); SessionState.EraseString(PendingFile);
+                        SetMessage(InstallFailure(code, diagnostic), true);
+                        return;
+                    }
                 }
                 installation = null;
             }

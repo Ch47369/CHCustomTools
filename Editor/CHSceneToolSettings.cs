@@ -48,9 +48,7 @@ namespace ASEShaderConverter.Editor
             }
             else
             {
-                bool enabled = !PathSceneTool.Active;
-                if (enabled) ASEShaderConverterWindow.OpenPathTools();
-                PathSceneTool.Active = enabled;
+                ASEShaderConverterWindow.TogglePathDrawing(view);
             }
             view.Focus(); e.Use();
         }
@@ -76,7 +74,7 @@ namespace ASEShaderConverter.Editor
             Load(); EditorGUILayout.Space();
             EditorGUILayout.LabelField(CHToolLanguage.Pick("场景工具快捷键", "Scene tool shortcuts"), EditorStyles.boldLabel);
             DrawBinding(true, CHToolLanguage.Pick("距离 / 角度测量", "Distance / angle measurement"), measureKey, measureMods);
-            DrawBinding(false, CHToolLanguage.Pick("路径编辑", "Path editing"), pathKey, pathMods);
+            DrawBinding(false, CHToolLanguage.Pick("路径绘制", "Path drawing"), pathKey, pathMods);
             if (!string.IsNullOrEmpty(message)) EditorGUILayout.HelpBox(message, MessageType.Warning);
             EditorGUILayout.HelpBox(CHToolLanguage.Pick("仅在 Scene 视图获得焦点且未输入文字时生效。快捷键切换启用状态；启用一个工具会停用另一个。设置保存在本机，可与 Unity 快捷键冲突时自行更改。", "Shortcuts work only in a focused Scene view outside text input. They toggle the tool; enabling one disables the other. Bindings are saved on this computer. Change them here if they conflict with Unity shortcuts."), MessageType.None);
             if (GUILayout.Button(CHToolLanguage.Pick("恢复默认快捷键（Alt+D / Alt+S）", "Reset shortcuts (Alt+D / Alt+S)"))) Reset();

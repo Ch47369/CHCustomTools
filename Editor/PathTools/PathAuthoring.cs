@@ -40,7 +40,7 @@ namespace CH.CustomTools.Paths.Editor
             }
             path.Invalidate(); Selection.activeGameObject = go; EditorSceneManager.MarkSceneDirty(go.scene); return path;
         }
-        internal static BezierPath CreateFenceBoundary(IReadOnlyList<Vector3> points, bool closed = true)
+        internal static BezierPath CreateFenceBoundary(IReadOnlyList<Vector3> points, bool closed = true, IReadOnlyList<Vector3> tangents = null, IReadOnlyList<Vector3> incoming = null)
         {
             Undo.IncrementCurrentGroup();
             int group = Undo.GetCurrentGroup();
@@ -53,8 +53,11 @@ namespace CH.CustomTools.Paths.Editor
             go.transform.position = points[0];
             path.closed = closed;
             path.knots = new List<PathKnot>(points.Count);
-            foreach (var p in points)
-                path.knots.Add(new PathKnot(p - points[0]) { automatic = false, incoming = Vector3.zero, outgoing = Vector3.zero });
+            for (int i = 0; i < points.Count; i++)
+            {
+                var tangent = tangents == null ? Vector3.zero : tangents[i];
+                path.knots.Add(new PathKnot(points[i] - points[0]) { automatic = false, incoming = incoming == null ? -tangent : incoming[i], outgoing = tangent });
+            }
             path.Invalidate();
             Undo.FlushUndoRecordObjects();
             Undo.CollapseUndoOperations(group);
@@ -131,10 +134,10 @@ namespace CH.CustomTools.Paths.Editor
             if (shader == null) throw new InvalidOperationException("Choose a material compatible with the active render pipeline. / 请指定适合当前渲染管线的材质。");
             return new Material(shader) { name = "CH Path default", color = new Color(.8f, .65f, .12f, 1) };
         }
-        internal static Material DefaultMeshMaterial(PathMeshKind kind)
+        internal static Material DefaultMeshMaterial(PathMeshKind kind, PathFenceStyle style = PathFenceStyle.CyanGrid)
         {
             if (kind != PathMeshKind.ElectronicFence) return DefaultMaterial();
-            return PathFenceMaterial.Create();
+            return PathFenceMaterial.Create(style);
         }
         public static GameObject Generate(BezierPath path, PathMeshSettings settings, Material material, Material posts, string folder)
         {
@@ -150,7 +153,7 @@ namespace CH.CustomTools.Paths.Editor
             GameObject root = null; string asset = null; Material created = null;
             try
             {
-                if (material == null) material = created = DefaultMeshMaterial(settings.kind);
+                if (material == null) material = created = DefaultMeshMaterial(settings.kind, settings.fenceStyle);
                 asset = AssetDatabase.GenerateUniqueAssetPath(folder + "/CHPath_" + settings.kind + ".asset");
                 AssetDatabase.CreateAsset(mesh, asset); if (created != null) AssetDatabase.AddObjectToAsset(created, mesh);
                 AssetDatabase.SaveAssets();

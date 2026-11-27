@@ -1,0 +1,32 @@
+{
+  "version": "0.7.7",
+  "sourceTests": {
+    "UnityPathFenceSmoke": {
+      "status": "Passed",
+      "count": 69,
+      "unity": "2022.3.10f1"
+    },
+    "UnitySceneToolsSmoke": {
+      "status": "Passed",
+      "count": 79,
+      "unity": "2022.3.10f1"
+    },
+    "UnityPathEditingSmoke": {
+      "status": "Passed",
+      "count": 59,
+      "unity": "2022.3.10f1"
+    },
+    "UnityParticleTrailSmoke": {
+      "status": "Passed",
+      "count": 52,
+      "unity": "2022.3.10f1"
+    }
+  },
+  "unchangedV2ShaderSha256": {
+    "Built-in": "cb5039b7e9f191b2b5a88040aa4aa0afd434e5b8f2668d09deb643f3ddfd2900",
+    "URP": "37aa456e18ea5df094b6430a74c54334ad7f0f4a6e25d08ad97255c5bdf30698",
+    "HDRP": "3bc0b09af27c65e96cc455c414305d24e56019e6c2f47fb2be90f6799fc70c60"
+  },
+  "textures": "Original generated patterns; reference sites consulted, no third-party texture files redistributed.",
+  "finalPackages": "See Releases~/path-draw-install-0.7.7.json"
+}

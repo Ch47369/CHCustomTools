@@ -9,6 +9,8 @@ namespace CH.CustomTools.VFX
     internal sealed class ParticleTrailPanel
     {
         [SerializeField] private ParticleSystem target;
+        [SerializeField] private Paths.BezierPath sourcePath;
+        [SerializeField] private bool reverseImport;
         [SerializeField] private Vector2 scroll;
         [NonSerialized] private string failure;
 
@@ -38,6 +40,27 @@ namespace CH.CustomTools.VFX
                     return;
                 }
 
+                EditorGUILayout.LabelField(Pick("复用场景路径", "Reuse scene path"), EditorStyles.boldLabel);
+                sourcePath = (Paths.BezierPath)EditorGUILayout.ObjectField(Pick("源路径", "Source path"), sourcePath, typeof(Paths.BezierPath), true);
+                using (new EditorGUILayout.HorizontalScope())
+                {
+                    if (GUILayout.Button(Pick("使用选中的路径或生成物", "Use selected path or output")))
+                        sourcePath = Paths.Editor.PathPointInsertion.SelectionPath();
+                    using (new EditorGUI.DisabledScope(sourcePath == null))
+                        if (GUILayout.Button(Pick("导入路径", "Import path")))
+                        {
+                            try
+                            {
+                                ParticleTrailData.ImportPath(target, sourcePath, reverseImport);
+                                ParticleTrailSceneTool.Start(target);
+                                failure = null;
+                            }
+                            catch (Exception error) { failure = error.Message; }
+                        }
+                }
+                reverseImport = EditorGUILayout.ToggleLeft(Pick("从终点到起点导入", "Import from end to start"), reverseImport);
+                if (!string.IsNullOrEmpty(failure)) EditorGUILayout.HelpBox(failure, MessageType.Error);
+
                 var path = ParticleTrailStore.Find(target);
                 if (path == null && target.GetComponent<ParticleTrailPath>() != null)
                     path = ParticleTrailStore.GetOrCreate(target);
@@ -57,6 +80,12 @@ namespace CH.CustomTools.VFX
                     MessageType.None);
                 if (path == null) return;
 
+                using (new EditorGUI.DisabledScope(path.knots.Count < 2))
+                    if (GUILayout.Button(Pick("反转拖尾方向", "Reverse trail direction")))
+                    {
+                        ParticleTrailData.ReversePath(target);
+                        ParticleTrailSceneTool.Selected = -1;
+                    }
                 DrawPath(path);
                 GUILayout.Space(8);
                 DrawBake(path);
@@ -132,7 +161,6 @@ namespace CH.CustomTools.VFX
                     catch (Exception error) { failure = error.Message; }
                 }
             }
-            if (!string.IsNullOrEmpty(failure)) EditorGUILayout.HelpBox(failure, MessageType.Error);
             var renderer = target.GetComponent<ParticleSystemRenderer>();
             if (renderer != null && target.trails.enabled && renderer.trailMaterial == null)
                 EditorGUILayout.HelpBox(Pick("请在粒子 Renderer 的 Trail Material 指定与当前渲染管线兼容的材质。",

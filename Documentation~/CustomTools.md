@@ -6,7 +6,7 @@
 
 0.6.0 新增 **场景工具 → 路径工具**：编辑曲线、沿线放置模型、生成带UV的面片/标线/圆管/栏杆、预览和运行路径运动，详见 [路径工具](PathTools.md)。所有功能仍在统一窗口内。
 
-# CH自定义工具集 0.7.6
+# CH自定义工具集 0.7.7
 
 作者：CH。统一入口 **Tools → CH自定义工具集**。左侧为 Shader、VFX、场景工具、设置，右侧的功能标签直接切换当前面板，不再打开新的功能窗口。原 Shader 包升级后就是完整工具集；包 ID 保持 `com.aseshader.handwritten-converter`。
 
@@ -53,7 +53,7 @@
 
 ## 安装、更新与语言
 
-首次安装可下载 [Unity Tarball 0.7.6](https://github.com/Ch47369/CHCustomTools/releases/download/v0.7.6/com.aseshader.handwritten-converter-0.7.6.tgz)，在 Package Manager 的「+」菜单选择 **Add package from tarball**，选中下载的 `.tgz`。此方式无需 Git。
+首次安装可下载 [Unity Tarball 0.7.7](https://github.com/Ch47369/CHCustomTools/releases/download/v0.7.7/com.aseshader.handwritten-converter-0.7.7.tgz)，在 Package Manager 的「+」菜单选择 **Add package from tarball**，选中下载的 `.tgz`。此方式无需 Git。
 
 在 Package Manager → Add package from git URL 输入：
 
@@ -61,9 +61,9 @@
 https://github.com/Ch47369/CHCustomTools.git
 ```
 
-固定本次版本可使用 `https://github.com/Ch47369/CHCustomTools.git#v0.7.6`。仓库现为公开，安装和更新无需 GitHub 登录。首次用 Git URL 安装需要 Unity 能找到 Git；遇到连接重置或传输中断时，可以使用上方的 Tarball。
+固定本次版本可使用 `https://github.com/Ch47369/CHCustomTools.git#v0.7.7`。仓库现为公开，安装和更新无需 GitHub 登录。首次用 Git URL 安装需要 Unity 能找到 Git；遇到连接重置或传输中断时，可以使用上方的 Tarball。
 
-更新在设置 → 插件更新中进行；HTTPS 安装从 GitHub Release 查询正式版本，只有严格高于当前版本才提供版本更新操作。下载通过 GitHub API 进行，验证发布资源的大小和 SHA-256，再交给 Unity 安装。安装包保存在当前项目 `Packages/CHCustomToolsCache~`，项目的包引用随之改为该文件；后续仍从 GitHub 检查和下载更新，不读取开发者本地仓库。请把此缓存目录连同 manifest 一起保留，便于项目在其他机器恢复。SSH 安装保留原 Git 传输方式。
+更新在设置 → 插件更新中进行；HTTPS 安装从 GitHub Release 查询正式版本，只有严格高于当前版本才提供版本更新操作。下载通过 GitHub API 进行，验证发布资源的大小和 SHA-256，再交给 Unity 安装。安装包保存在当前项目 `Packages/CHCustomToolsCache~`，项目的包引用随之改为该文件；后续仍从 GitHub 检查和下载更新，不读取开发者本地仓库。请把此缓存目录连同 manifest 一起保留，便于项目在其他机器恢复。SSH 安装保留原 Git 传输方式。0.7.7 在 UPM 相对路径安装失败后尝试绝对文件路径，并显示包解析错误类型。
 
 首次仍可用 Git URL 安装；更新后 Package Manager 的底层来源可能显示 Local tarball，工具窗口会显示 GitHub Release。包文件来自公开的 GitHub 正式发布资源。旧地址 `Ch47369/ShaderConverter` 继续兼容，新安装使用 `Ch47369/CHCustomTools`。
 
@@ -73,6 +73,6 @@ https://github.com/Ch47369/CHCustomTools.git
 
 最低 Unity 2022.3。音频/VFX及窗口在 Unity 2022.3.10f1 和 6000.0.80f1 实测；这不扩大 ShaderGraph 的 Unity 2022.3 / SG14.0.8 版本限制。已有转换能力、管线宿主要求和阻塞条件参见 ShaderConversionRoadmap.md，不宣称任意 Shader 都能自动互转。
 
-0.6.4：中文大类名称为“着色器 / 特效”。场景工具快捷键统一在“设置 → 常规”修改，默认测量 Alt+D、路径 Alt+S；均切换功能面板中的 Scene 启用状态，只在 Scene 获得焦点时生效。
+0.6.4：中文大类名称为“着色器 / 特效”。场景工具快捷键统一在“设置 → 常规”修改，默认测量 Alt+D、路径 Alt+S；测量切换 Scene 启用状态，路径自 0.7.7 起切换直接绘制，只在 Scene 获得焦点时生效。
 
 0.6.5：修复测量开放折线结束与场景线条显示，调整路径临时预览渲染；音频曲线页去掉英文大标题下方说明文字。

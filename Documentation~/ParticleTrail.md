@@ -8,6 +8,8 @@
 4. 查看运动模块冲突提示，点击「烘焙」或「重新烘焙」。工具配置单粒子 Burst、生命周期、本地模拟和 Velocity over Lifetime 的 X/Y/Z 三条曲线，并启用原生 Trails。
 5. 点击「选中粒子系统进行预览」，使用 Unity Scene 的粒子预览控制播放、暂停和重启。移动点或修改用时后可再次烘焙。
 
+已有场景路径可直接复用。选中目标 Particle System 后，在「复用场景路径」区域拖入 BezierPath，或在层级选择路径/其生成物后点击「使用选中的路径或生成物」。勾选「从终点到起点导入」可反向复制曲线。已有拖尾路径也可用「反转拖尾方向」后重新烘焙。修改源路径后再次导入，即可更新拖尾控制点。
+
 控制点、贝兹切线、用时和烘焙签名以粒子系统局部坐标保存到项目的 ProjectSettings/CHCustomToolsParticleTrailPaths.asset，依靠 Unity 全局对象 ID 找到对应场景或 Prefab 粒子系统。新建路径不添加组件，已使用旧版 ParticleTrailPath 的粒子会导入原数据并在成功烘焙后移除组件。保存场景或 Prefab 后，重新打开工程可继续编辑。工程迁移时需保留该项目设置文件和场景、Prefab 的 meta；单独导出烘焙效果时原生粒子可独立播放，编辑数据保留在原项目中。移动或旋转特效根对象时路径和本地模拟的粒子、拖尾一起变换。修改非均匀缩放后重新烘焙可重新按实际世界弧长分配时间。
 
 烘焙支持 Undo/Redo。Start Speed、重力、Noise、Force、速度限制、外力、碰撞等干扰运动的模块会被调整，Emission 改为一次单粒子发射，Trails 使用 Per Particle 本地拖尾。保留已有材质、颜色、宽度、粒子外观及拖尾生命周期。用户可在 Renderer 指定兼容当前管线的 Trail Material。

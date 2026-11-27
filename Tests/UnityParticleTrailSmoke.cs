@@ -405,6 +405,41 @@ public static class UnityParticleTrailSmoke
         Check(system.velocityOverLifetime.enabled && system.trails.enabled && renderer.trailMaterial == trailMaterial,
             "The saved particle system plays its native bake after reopening the scene");
         VerifyLegacyAndPrefab();
+        VerifySharedPath();
+    }
+
+    static void VerifySharedPath()
+    {
+        var source = new GameObject("Shared model path").AddComponent<CH.CustomTools.Paths.BezierPath>();
+        source.transform.SetPositionAndRotation(new Vector3(2, 3, -4), Quaternion.Euler(17, 35, 12));
+        source.transform.localScale = new Vector3(2, .7f, 1.3f);
+        source.knots = new List<CH.CustomTools.Paths.PathKnot> {
+            new CH.CustomTools.Paths.PathKnot(Vector3.zero),
+            new CH.CustomTools.Paths.PathKnot(new Vector3(3, 1, 4)),
+            new CH.CustomTools.Paths.PathKnot(new Vector3(1, 4, 7))
+        };
+        var particle = new GameObject("Shared-path particle").AddComponent<ParticleSystem>();
+        particle.transform.SetPositionAndRotation(new Vector3(5, -2, 1), Quaternion.Euler(19, -45, 8));
+        try
+        {
+            ParticleTrailData.ImportPath(particle, source, false);
+            var data = ParticleTrailStore.Find(particle);
+            var curve = new ParticleTrailCurve(data.knots, particle.transform.localToWorldMatrix);
+            Check(Vector3.Distance(particle.transform.TransformPoint(curve.Evaluate(0)), source.Evaluate(0).position) < .0001f &&
+                Vector3.Distance(particle.transform.TransformPoint(curve.Evaluate(1)), source.Evaluate(source.Length).position) < .0001f,
+                "Existing model path imports into transformed particle local space");
+            var original = source.knots.Select(k => k.position).ToArray();
+            var samples = Enumerable.Range(0, 21).Select(i => curve.Evaluate(i / 20f)).ToArray();
+            ParticleTrailData.ReversePath(particle);
+            var reversed = new ParticleTrailCurve(data.knots, particle.transform.localToWorldMatrix);
+            Check(Enumerable.Range(0, 21).All(i => Vector3.Distance(reversed.Evaluate(i / 20f), samples[20-i]) < .002f) &&
+                source.knots.Select(k => k.position).SequenceEqual(original),
+                "Reversing the particle path preserves exact curve shape and leaves source path unchanged");
+            ParticleTrailBaker.Bake(particle, data);
+            Check(particle.velocityOverLifetime.enabled && particle.GetComponent<ParticleTrailPath>() == null,
+                "Reversed shared path bakes native particle movement");
+        }
+        finally { Object.DestroyImmediate(source.gameObject); Object.DestroyImmediate(particle.gameObject); }
     }
 
     static void VerifyLegacyAndPrefab()

@@ -102,11 +102,21 @@ namespace CH.CustomTools.Paths.Editor
             SnapToSurface = EditorGUILayout.Toggle(PathText.T("拖点时贴合下方表面", "Snap moved points to surface"), SnapToSurface);
             ShowOrientation = EditorGUILayout.Toggle(PathText.T("显示路径朝向辅助线", "Show path orientation guides"), ShowOrientation);
         }
+        internal static bool HitsTangent(BezierPath path, Vector2 mouse)
+        {
+            if (!PathSceneTool.PointEditing || path == null || path.knots == null) return false;
+            int index = PathPointInsertion.FocusedIndex(path);
+            if (index < 0 || index >= path.knots.Count || PathKnotEditing.Mode(path, index) != 2) return false;
+            for (int h = 0; h < 2; h++)
+                if (Vector2.Distance(HandleUtility.WorldToGUIPoint(path.transform.TransformPoint(path.Handle(index, h == 1))), mouse) <= 12)
+                    return true;
+            return false;
+        }
         internal static void DrawSceneHandles(BezierPath path)
         {
             if (!PathSceneTool.PointEditing || Application.isPlaying || PathMotionPreview.BlocksPathEditing || path.knots == null || PathPointDrag.IsDragging) return;
             try { path.ValidatePath(); } catch (System.Exception) { return; }
-            if (PathPointInsertion.InsertionModifier(Event.current) && GUIUtility.hotControl == 0) return;
+            if (PathPointInsertion.InsertionModifier(Event.current) && GUIUtility.hotControl == 0 && !HitsTangent(path, Event.current.mousePosition)) return;
             if (Event.current.shift && GUIUtility.hotControl == 0) return;
             for (int i = 0; i < path.knots.Count; i++)
             {
@@ -143,7 +153,7 @@ namespace CH.CustomTools.Paths.Editor
                     int previousControl = GUIUtility.hotControl;
                     EditorGUI.BeginChangeCheck(); Vector3 handle = Handles.FreeMoveHandle(point, HandleUtility.GetHandleSize(point) * .065f, Vector3.zero, Handles.RectangleHandleCap);
                     if (previousControl == 0 && GUIUtility.hotControl != 0) Undo.IncrementCurrentGroup();
-                    if (EditorGUI.EndChangeCheck()) PathKnotEditing.MoveTangent(path, i, h == 1, handle);
+                    if (EditorGUI.EndChangeCheck()) PathKnotEditing.MoveTangent(path, i, h == 1, handle, Event.current.control || Event.current.command);
                 }
             }
         }

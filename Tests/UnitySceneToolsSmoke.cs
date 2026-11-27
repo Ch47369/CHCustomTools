@@ -98,6 +98,8 @@ public static class UnitySceneToolsSmoke
         view.Focus(); CHValidationInput.Send(view, new Event { type = EventType.KeyDown, keyCode = key, modifiers = modifiers });
         if (release) CHValidationInput.Send(view, new Event { type = EventType.KeyUp, keyCode = key, modifiers = modifiers });
     }
+    static bool DraftActive => (bool)typeof(PathSceneTool).Assembly.GetType("CH.CustomTools.Paths.Editor.PathFenceDraft")
+        .GetProperty("Active", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic).GetValue(null);
     static void Tick()
     {
         try
@@ -114,23 +116,23 @@ public static class UnitySceneToolsSmoke
                     Mouse(EventType.MouseDown, point, true); Mouse(EventType.MouseDrag, point + new Vector2(90, -40), true); Mouse(EventType.MouseUp, point + new Vector2(90, -40), true);
                     Mouse(EventType.MouseDown, new Vector2(200, 200), ctrl: true); Mouse(EventType.MouseUp, new Vector2(200, 200), ctrl: true);
                     Check(JsonUtility.ToJson(path) == before && !PathPointDrag.IsDragging, "Disabled path mode captures no drag or Ctrl insertion");
-                    Key(KeyCode.S, EventModifiers.Alt, false); Check(PathSceneTool.Active && !Measure, "Alt+S enables path editing and disables measurement");
-                    Key(KeyCode.S, EventModifiers.Alt, false); Check(PathSceneTool.Active, "Held shortcut key does not repeatedly toggle the tool");
+                    Key(KeyCode.S, EventModifiers.Alt, false); Check(DraftActive && !Measure, "Alt+S starts drawing and disables measurement");
+                    Key(KeyCode.S, EventModifiers.Alt, false); Check(DraftActive, "Held shortcut key does not repeatedly toggle the tool");
                     CHValidationInput.Send(view, new Event { type = EventType.KeyUp, keyCode = KeyCode.S, alt = true }); break;
                 case 1:
-                    Key(KeyCode.S, EventModifiers.Alt); Check(!PathSceneTool.Active, "Alt+S disables path editing");
+                    Key(KeyCode.S, EventModifiers.Alt); Check(!DraftActive, "Alt+S stops drawing");
                     Key(KeyCode.D, EventModifiers.Alt); Check(Measure && !PathSceneTool.Active, "Alt+D enables measurement");
-                    Key(KeyCode.S, EventModifiers.Alt); Check(!Measure && PathSceneTool.Active, "Path shortcut switches exclusively from measurement");
-                    Key(KeyCode.D, EventModifiers.Alt); Check(Measure && !PathSceneTool.Active, "Measurement shortcut switches exclusively from path");
+                    Key(KeyCode.S, EventModifiers.Alt); Check(!Measure && DraftActive, "Path shortcut switches exclusively from measurement");
+                    Key(KeyCode.D, EventModifiers.Alt); Check(Measure && !PathSceneTool.Active && !DraftActive, "Measurement shortcut switches exclusively from path");
                     Key(KeyCode.D, EventModifiers.Alt); Check(!Measure, "Alt+D disables measurement");
                     Check(!(bool)Call("SetBinding", false, KeyCode.D, EventModifiers.Alt), "Duplicate shortcuts are rejected");
                     Check(!(bool)Call("SetBinding", false, KeyCode.K, EventModifiers.None), "Unmodified text keys are rejected");
                     Check((bool)Call("SetBinding", false, KeyCode.K, EventModifiers.Control | EventModifiers.Shift), "Custom path shortcut can be saved");
-                    Key(KeyCode.S, EventModifiers.Alt); Check(!PathSceneTool.Active, "Old default no longer activates after rebinding");
-                    Key(KeyCode.K, EventModifiers.Control | EventModifiers.Shift); Check(PathSceneTool.Active, "Custom shortcut activates the path tool");
+                    Key(KeyCode.S, EventModifiers.Alt); Check(!DraftActive, "Old default no longer activates after rebinding");
+                    Key(KeyCode.K, EventModifiers.Control | EventModifiers.Shift); Check(DraftActive, "Custom shortcut activates the path tool");
                     Check(EditorPrefs.GetInt(Prefix + "path.key") == (int)KeyCode.K, "Custom shortcut is persisted on this computer");
-                    Key(KeyCode.K, EventModifiers.Control | EventModifiers.Shift); Check(!PathSceneTool.Active, "Custom shortcut disables the path tool");
-                    Call("Reset"); Key(KeyCode.S, EventModifiers.Alt); Check(PathSceneTool.Active, "Reset restores Alt+S"); Selection.activeGameObject = path.gameObject;
+                    Key(KeyCode.K, EventModifiers.Control | EventModifiers.Shift); Check(!DraftActive, "Custom shortcut disables the path tool");
+                    Call("Reset"); Key(KeyCode.S, EventModifiers.Alt); Check(DraftActive, "Reset restores Alt+S"); Key(KeyCode.S, EventModifiers.Alt); PathSceneTool.Edit(path); Selection.activeGameObject = path.gameObject;
                     Mouse(EventType.MouseDown, point); Mouse(EventType.MouseUp, point); break;
                 case 2:
                     oldOutgoing = path.knots[1].outgoing; before = JsonUtility.ToJson(path);
@@ -138,24 +140,43 @@ public static class UnitySceneToolsSmoke
                     Check(path.knots[1].outgoing == oldOutgoing && JsonUtility.ToJson(path) != before, "Actual square tangent handle drags independently in Scene"); break;
                 case 3:
                     Undo.PerformUndo(); Check(JsonUtility.ToJson(path) == before, "Actual square tangent drag is undoable; actual=" + JsonUtility.ToJson(path) + "; expected=" + before);
+                    Mouse(EventType.MouseMove, point); Mouse(EventType.MouseDown, point); Mouse(EventType.MouseUp, point);
+                    break;
+                case 4:
+                    Mouse(EventType.MouseMove, incoming, ctrl: true);
+                    Mouse(EventType.MouseDown, incoming, ctrl: true);
+                    Mouse(EventType.MouseDrag, incoming + new Vector2(-40, -45), ctrl: true);
+                    Mouse(EventType.MouseUp, incoming + new Vector2(-40, -45), ctrl: true);
+                    Undo.FlushUndoRecordObjects();
+                    var chord = path.transform.TransformVector(path.knots[1].position - path.knots[0].position).normalized;
+                    var start = path.transform.TransformPoint(path.knots[0].position);
+                    for (int i = 1; i < 10; i++)
+                    {
+                        path.Cubic(0, i / 10f, out var sample, out _);
+                        if (Vector3.Cross(sample - start, chord).magnitude > .0001f)
+                            throw new Exception("Ctrl-dragged tangent still curves");
+                    }
+                    Check(path.knots[1].outgoing == oldOutgoing && JsonUtility.ToJson(path) != before,
+                        "Ctrl-dragging a tangent straightens exactly one segment");
+                    Undo.PerformUndo(); Check(JsonUtility.ToJson(path) == before, "Ctrl tangent adjustment is undoable");
                     Mouse(EventType.MouseMove, point, true); Mouse(EventType.MouseDown, point, true); Mouse(EventType.MouseDrag, point + new Vector2(80, -30), true);
                     Check(PathPointDrag.IsDragging && path.knots.Count == 4, "Begin active Shift gesture before disabling");
                     Key(KeyCode.S, EventModifiers.Alt); break;
-                case 4:
+                case 5:
                     Mouse(EventType.MouseMove, point);
                     Check(!PathSceneTool.Active && !PathPointDrag.IsDragging && JsonUtility.ToJson(path) == before, "Disabling via shortcut cancels the gesture and releases Scene input");
                     Key(KeyCode.S, EventModifiers.Alt); ASEShaderConverterWindow.OpenUpdates();
-                    Check(!PathSceneTool.Active, "Leaving the path page disables path editing");
+                    Check(!PathSceneTool.Active && !DraftActive, "Leaving the path page disables path editing and drawing");
                     Key(KeyCode.D, EventModifiers.Alt);
                     foreach (var window in Resources.FindObjectsOfTypeAll<ASEShaderConverterWindow>()) window.Close();
                     break;
-                case 5:
+                case 6:
                     // Unity 6 completes closing windows in a later Editor loop.
                     Check(!Measure, "Closing the host disables measurement");
                     Key(KeyCode.S, EventModifiers.Alt);
                     foreach (var window in Resources.FindObjectsOfTypeAll<ASEShaderConverterWindow>()) window.Close();
                     break;
-                case 6:
+                case 7:
                     Check(!PathSceneTool.Active, "Closing the host disables path editing");
                     Check(errors == null, "Scene settings, types and tool gestures finish without Editor errors"); Finish(null); return;
             }
