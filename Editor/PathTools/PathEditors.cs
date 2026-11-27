@@ -26,9 +26,16 @@ namespace CH.CustomTools.Paths.Editor
         {
             try { path.ValidatePath(); } catch (System.Exception error) { EditorGUILayout.HelpBox(error.Message, MessageType.Error); return; }
             EditorGUILayout.HelpBox(PathText.T("直接拖动圆点调整路径；按住 Shift 从圆点拖出新点（首尾延长，中间插在后面）。Ctrl+点击曲线保形插点。松开鼠标完成，Esc取消拖拽，Ctrl+Z撤销整次操作。选中点显示控制柄；可切换移动 / 旋转，旋转圆环调整横向倾斜。高低起伏需配合点高度和切线。实时预览在工具集里开启，最后点生成确认。", "Drag a point to move it; hold Shift and drag a point to add one (extend endpoints, insert after an interior point). Ctrl+click the curve inserts without changing its shape. Release to finish, Esc to cancel, Ctrl+Z to undo the gesture. Select a point for its handles. Switch Move / Rotate to tilt around the tangent; adjust height and tangents for slopes. Enable live preview in the tool panel, then Generate to commit."), MessageType.None);
-            var pointNames = new string[path.knots.Count]; for (int i = 0; i < pointNames.Length; i++) pointNames[i] = PathText.T("路径点 ", "Point ") + (i + 1);
-            int focused = PathPointInsertion.FocusedIndex(path), nextPoint = EditorGUILayout.Popup(PathText.T("当前编辑点", "Editing point"), Mathf.Clamp(focused, 0, pointNames.Length - 1), pointNames);
-            if (focused != nextPoint) PathPointInsertion.Focus(path, nextPoint);
+            var pointNames = new string[path.knots.Count + 1];
+            pointNames[0] = PathText.T("整条路径", "Whole path");
+            for (int i = 1; i < pointNames.Length; i++) pointNames[i] = PathText.T("路径点 ", "Point ") + i;
+            int focused = PathSceneTool.PointEditing ? PathPointInsertion.FocusedIndex(path) : -1;
+            int nextPoint = EditorGUILayout.Popup(PathText.T("当前编辑点", "Editing point"), Mathf.Clamp(focused + 1, 0, pointNames.Length - 1), pointNames) - 1;
+            if (focused != nextPoint)
+            {
+                if (nextPoint < 0) PathSceneTool.SelectWhole(path);
+                else { PathSceneTool.Active = true; PathSceneTool.SelectPoint(path, nextPoint); }
+            }
             RotatePoints = EditorGUILayout.Popup(PathText.T("选中点操作（W / E）", "Point handle (W / E)"), RotatePoints ? 1 : 0,
                 ASEShaderConverter.Editor.CHToolLanguage.IsChinese ? new[] { "移动", "旋转 / 倾斜" } : new[] { "Move", "Rotate / tilt" }) == 1;
             EditorGUILayout.HelpBox(PathText.T("每个点都可选中后用三轴旋转。X/Y 转动切线，改变局部曲线和网格方向；绕路径方向旋转调整横向倾斜。点的位置保持不动。", "Select any point for three-axis rotation. X/Y turn its tangents and local curve/mesh direction; rotation around the path banks the mesh. The point position stays fixed."), MessageType.None);

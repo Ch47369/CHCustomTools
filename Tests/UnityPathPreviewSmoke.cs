@@ -77,7 +77,7 @@ public static class UnityPathPreviewSmoke
             var vertices = Temporary.vertices; var normals = Temporary.normals; var uv = Temporary.uv; var uv2 = Temporary.uv2; var triangles = Temporary.triangles;
             var final = PathAuthoring.Generate(path, settings, green, red, "Assets/Preview064"); var committed = final.GetComponent<MeshFilter>().sharedMesh;
             Check(EditorUtility.IsPersistent(committed) && committed != Temporary, "Generate creates a distinct persistent mesh asset");
-            Check(vertices.SequenceEqual(committed.vertices) && normals.SequenceEqual(committed.normals) && uv.SequenceEqual(committed.uv) && uv2.SequenceEqual(committed.uv2) && triangles.SequenceEqual(committed.triangles), "Committed positions, normals, UV0, UV1 and topology exactly match live mesh preview");
+            Check(vertices.Zip(committed.vertices, (a, b) => Vector3.Distance(a, final.transform.TransformPoint(b))).All(d => d < .0001f) && normals.SequenceEqual(committed.normals) && uv.SequenceEqual(committed.uv) && uv2.SequenceEqual(committed.uv2) && triangles.SequenceEqual(committed.triangles), "Committed world positions, normals, UV0, UV1 and topology match live mesh preview");
             var group = PathAuthoring.Place(path, model, placement);
             var draws = (IList)typeof(PathAuthoringPreview).GetField("models", Flags).GetValue(null);
             Check(group.transform.childCount == draws.Count, "Committed model count matches preview");
@@ -88,8 +88,9 @@ public static class UnityPathPreviewSmoke
                 Check(Enumerable.Range(0, 16).All(n => Mathf.Abs(matrix[n] - actual[n]) < .0001f), "Committed model transform matches preview at distance index " + i);
             }
             var oldVertices = committed.vertices;
+            PathSceneTool.Edit(path);
             path.knots[1].position += new Vector3(2, 1, 0); Configure();
-            Check(oldVertices.SequenceEqual(committed.vertices) && !oldVertices.SequenceEqual(Temporary.vertices), "Editing updates temporary mesh while preserving committed output until rebuild");
+            Check(oldVertices.SequenceEqual(committed.vertices) && !oldVertices.Select(final.transform.TransformPoint).SequenceEqual(Temporary.vertices), "Editing updates temporary mesh while preserving committed output until rebuild");
             var filter = model.GetComponent<MeshFilter>(); var sourceMesh = filter.sharedMesh; filter.sharedMesh = null; Configure();
             Check(PathAuthoringPreview.ModelDrawCount == 0 && !string.IsNullOrEmpty(PathAuthoringPreview.Status) && Temporary != null, "Invalid model clears stale model preview but retains valid mesh preview");
             filter.sharedMesh = sourceMesh; settings.width = -1; Configure();
@@ -163,6 +164,7 @@ public static class UnityPathPreviewSmoke
         var transparent = new Material(Shader.Find("Sprites/Default")) { color = new Color(0, 1, 0, .4f) };
         var group = PathAuthoring.Generate(path, settings, red, null, "Assets/Preview064");
         group.GetComponent<MeshRenderer>().enabled = true;
+        PathSceneTool.Edit(path);
         PathAuthoringPreview.Configure(path, null, placement, settings, transparent, null, false, true); Refresh();
         var sample = view.camera.WorldToViewportPoint(path.Evaluate(path.Length * .5f).position);
         view.camera.clearFlags = CameraClearFlags.SolidColor; view.camera.backgroundColor = Color.black;

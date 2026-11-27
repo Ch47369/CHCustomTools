@@ -1,3 +1,7 @@
+**0.7.5 路径工具** · 先创建或选择路径，随后选择编辑、沿线放模型、生成网格、电子围栏或路径运动。点击圆点自动进入单点编辑，点击曲线或“选择整条路径”启用位于曲线包围盒中心的整条操作轴。选择生成的 Mesh、模型组或组内模型可直接操作对应物体，Unity 轴心使用 Center。新生成 Mesh 和模型组的 Transform 原点也位于几何中心。
+
+所有网格支持整体宽 X、高 Y、长 Z 倍率。开启实时预览后可直接输入以米为单位的实际包围盒尺寸；围栏、连续面片、虚线和箭头支持面片厚度。整体尺寸使用世界轴并绕网格中心缩放，因此调整可使输出几何相对路径偏移。选中已生成 Mesh 后可直接操作该物体的 Transform 或输入局部尺寸，预览暂时让位于选中的生成物。切回路径可继续实时预览，重新生成时使用面板参数。电子围栏与一般网格互相独立生成。旧零倍率数据按单位倍率加载。
+
 **0.6.10 电子围栏** · 在 Scene 视图沿 XZ、YZ 或 XY 平面绘制围栏，网格沿垂直轴生成。支持 Shift 对齐、实时预览和自定义材质。
 
 **0.6.9 路径编辑** · 在 Scene 视图选中路径点后按 Delete，即可删除该点。支持撤销与重做，开放路径至少两个点，闭合路径至少三个点。
@@ -23,17 +27,17 @@
 
 ## 电子围栏 / Electronic fence (0.7.4)
 
-打开 **场景工具 → 路径工具 → 电子围栏**，选择 XZ、YZ 或 XY 绘制平面，分别对应 +Y、+X、+Z 高度方向。点击 **在 Scene 绘制电子围栏**。首点决定绘制平面的位置。
+打开 **场景工具 → 路径工具**，在上方选择 XZ、YZ 或 XY 绘制平面，分别对应 +Y、+X、+Z 高度方向。点击 **在 Scene 绘制路径**。首点决定绘制平面的位置。完成路径后选择 **电子围栏**。也可复用现有路径。
 
 - 左键落点，Shift 锁定平面主轴，Backspace 删除最后一个点。
 - 右键单击或 Enter 完成开放围栏（至少两个点），点击首点闭合（至少三个不共线的点）。右键拖动仍可导航 Scene 相机。Esc 取消绘制。
-- 完成后自动进入 **编辑控制点**，拖动任意点（包括首点）独立移动。W 移动、E 旋转，Ctrl 插点、Shift 拖出新点。切换 **整体移动 / 旋转** 使用 Unity 原生 Transform 工具调整整条路径。
+- 完成后选中整条路径，点击任意点（包括首点）自动进入单点编辑。W 移动、E 旋转，Ctrl 插点、Shift 拖出新点。点击曲线或“选择整条路径”使用居中操作轴。
 - 勾选实时预览，调整整体高度、底部偏移和世界/局部高度轴。选中任意点后输入其高度，或拖动点上方橙色控制柄。整体高度按比例缩放各点高度，**统一所有点的高度** 恢复统一高度。闭合开关可改变已有路径。
 - 材质留空时使用当前管线的 ASE Custom2TexV2 默认材质。支持自定义材质；对单面材质可选择生成背面。点击 **生成 / 重新生成网格** 确认保存。UV0 X 按距离平铺，Y 从底到顶。UV1 X 为路径进度，Y 为高度。
 
 默认 Shader 由 ASE 1.9.9.13 保存并重载（Built-in 官方模板、URP 14.0.8 与 HDRP 14.0.8 官方默认 Unlit 模板）。保留原图 133 个非主节点。HDRP 的混合、深度写入及剔除由其官方模板材质状态控制。首次使用默认材质时，插件将对应管线 Shader 复制到 Assets/CHCustomTools/PathShaders 下，已有同名文件保留。可在 ASE 中继续编辑。默认材质附带原创网格贴图。
 
-In **Path tools → Fence**, choose the drawing plane, click to place corners, and Shift-align edges. Right-click or Enter finishes an open fence. Click the first point to close it. Edit points individually or switch to whole-path transforms. Adjust overall height or drag an orange point height handle. Use Live fence preview, assign a material if desired, and generate the mesh to commit the geometry.
+In **Path tools**, choose the drawing plane and create or draw the path, then choose **Fence**. Click to place corners and Shift-align edges. Right-click or Enter finishes an open fence. Click the first point to close it. Click individual points, the curve, or generated objects to use the corresponding handles. Adjust overall height or drag an orange point height handle. Use Live fence preview, assign a material if desired, and generate the mesh to commit the geometry.
 
 ## 快速开始
 

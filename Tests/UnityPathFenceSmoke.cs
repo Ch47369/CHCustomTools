@@ -17,7 +17,9 @@ public static class UnityPathFenceSmoke
     static readonly List<string> checks = new List<string>();
     static SceneView view;
     static BezierPath path;
-    static Vector2 center, received, offset, firstPoint, heightTop, heightEnd;
+    static Vector2 center, received, offset, firstPoint, heightTop, heightEnd, wholeAxis, wholeAxisEnd;
+    static Vector3 wholeBefore;
+    static Vector3[] wholeKnots;
     static PathMeshSettings heightSettings;
     static bool calibrating, receivedMove;
     static double next, deadline;
@@ -68,6 +70,13 @@ public static class UnityPathFenceSmoke
             {
                 var point = path.transform.TransformPoint(path.knots[0].position);
                 firstPoint = GUIUtility.GUIToScreenPoint(HandleUtility.WorldToGUIPoint(point)) - view.position.position;
+                if (path.knots.Count == 3 && !path.closed)
+                {
+                    var center = WholeCenter(path);
+                    float handleSize = HandleUtility.GetHandleSize(center);
+                    wholeAxis = GUIUtility.GUIToScreenPoint(HandleUtility.WorldToGUIPoint(center + Vector3.right * handleSize * .8f)) - view.position.position;
+                    wholeAxisEnd = GUIUtility.GUIToScreenPoint(HandleUtility.WorldToGUIPoint(center + Vector3.right * (handleSize * .8f + 1f))) - view.position.position;
+                }
                 if (heightSettings != null)
                 {
                     var top = point + Vector3.up * PathMeshBuilder.FenceHeight(heightSettings, path.knots[0]);
@@ -163,12 +172,38 @@ public static class UnityPathFenceSmoke
                 case 5:
                     Check(path != null && !path.closed && path.knots.Count == 3, "Right-click finishes the open fence without adding a closing edge");
                     PathSceneTool.Edit(path);
-                    Check(Tools.hidden && PathSceneTool.PointEditing, "Point mode hides the object's Transform gizmo");
+                    var selectWhole = typeof(PathSceneTool).GetMethod("SelectWhole", StaticMethods);
+                    selectWhole.Invoke(null, new object[] { path });
+                    Check(Tools.hidden && !PathSceneTool.PointEditing && Tools.pivotMode == PivotMode.Center,
+                        "Selecting the path starts whole-path editing with centered handles");
+                    Key(KeyCode.W);
+                    Tools.current = Tool.Move;
+                    Tools.pivotRotation = PivotRotation.Global;
+                    wholeBefore = path.transform.position;
+                    wholeKnots = path.knots.Select(k => k.position).ToArray();
+                    view.Repaint();
                     break;
                 case 6:
-                    CHValidationInput.Send(view, new Event { type = EventType.MouseMove, mousePosition = firstPoint + offset });
+                    CHValidationInput.Send(view, new Event { type = EventType.MouseMove, mousePosition = wholeAxis + offset });
                     break;
                 case 7:
+                    var axisDelta = wholeAxisEnd - wholeAxis;
+                    foreach (var kind in new[] { EventType.MouseDown, EventType.MouseDrag, EventType.MouseUp })
+                        CHValidationInput.Send(view, new Event { type = kind, mousePosition =
+                            (kind == EventType.MouseDown ? wholeAxis : wholeAxisEnd) + offset,
+                            delta = kind == EventType.MouseDrag ? axisDelta : Vector2.zero, button = 0 });
+                    Check(Vector3.Distance(path.transform.position, wholeBefore) > .3f &&
+                        path.knots.Select(k => k.position).SequenceEqual(wholeKnots),
+                        "Dragging the centered Scene axis moves the entire path without changing individual knots");
+                    Undo.FlushUndoRecordObjects();
+                    Undo.PerformUndo();
+                    Check(Vector3.Distance(path.transform.position, wholeBefore) < .0001f, "Undo restores the whole-path transform");
+                    view.Repaint();
+                    break;
+                case 8:
+                    CHValidationInput.Send(view, new Event { type = EventType.MouseMove, mousePosition = firstPoint + offset });
+                    break;
+                case 9:
                     var root = path.transform.position;
                     var other = path.knots[1].position;
                     var before = path.knots[0].position;
@@ -178,9 +213,10 @@ public static class UnityPathFenceSmoke
                             (kind == EventType.MouseDown ? Vector2.zero : delta), delta = kind == EventType.MouseDrag ? delta : Vector2.zero, button = 0 });
                     Check(path.transform.position == root && path.knots[1].position == other &&
                         Vector3.Distance(path.knots[0].position, before) > .05f, "Dragging the first point moves only that point");
+                    Check(PathSceneTool.PointEditing, "Clicking a point automatically switches to individual point editing");
                     var whole = typeof(PathSceneTool).GetProperty("WholePath", StaticMethods);
                     whole.SetValue(null, true);
-                    Check(!PathSceneTool.PointEditing && !Tools.hidden, "Whole-path mode restores native Transform tools");
+                    Check(!PathSceneTool.PointEditing && Tools.hidden && Tools.pivotMode == PivotMode.Center, "Whole-path mode uses a dedicated centered Transform handle");
                     whole.SetValue(null, false);
                     Check(PathSceneTool.PointEditing && Tools.hidden, "Point editing restores exclusive point handles");
                     heightSettings = new PathMeshSettings { kind = PathMeshKind.ElectronicFence };
@@ -189,10 +225,10 @@ public static class UnityPathFenceSmoke
                     view.LookAtDirect(path.transform.position, Quaternion.Euler(22, 18, 0), 8);
                     view.Repaint();
                     break;
-                case 8:
+                case 10:
                     CHValidationInput.Send(view, new Event { type = EventType.MouseMove, mousePosition = heightTop + offset });
                     break;
-                case 9:
+                case 11:
                     var originalHeight = PathMeshBuilder.FenceHeight(heightSettings, path.knots[0]);
                     var originalPoint = path.knots[0].position;
                     var heightDelta = heightEnd - heightTop;
@@ -204,7 +240,7 @@ public static class UnityPathFenceSmoke
                     PathSceneTool.Active = false;
                     Check(!Tools.hidden, "Disabling path editing restores Unity tools");
                     break;
-                case 10:
+                case 12:
                     Check(errorLog == null, "Scene drawing and rendering completed without errors");
                     Finish(null);
                     return;
@@ -282,8 +318,13 @@ public static class UnityPathFenceSmoke
             "Default fence uses the matching native ASE Custom2TexV2 shader");
         for (int i = 0; i < material.passCount; i++) ShaderUtil.CompilePass(material, i, true);
         Check(!ShaderUtil.ShaderHasError(material.shader), "All material passes compile synchronously");
-        Check(temporary.vertices.SequenceEqual(defaultOutput.GetComponent<MeshFilter>().sharedMesh.vertices),
+        Check(temporary.vertices.Zip(defaultOutput.GetComponent<MeshFilter>().sharedMesh.vertices, (a, b) => Vector3.Distance(a, defaultOutput.transform.TransformPoint(b))).All(d => d < .0001f),
             "The generated fence matches the preview geometry");
+        Check(!PathSceneTool.PointEditing && !Tools.hidden && Tools.pivotMode == PivotMode.Center,
+            "Selecting the generated mesh automatically exposes its native centered Transform tools");
+        Check(defaultOutput.GetComponent<MeshFilter>().sharedMesh.bounds.center.sqrMagnitude < .000001f &&
+            Vector3.Distance(defaultOutput.transform.position, temporary.bounds.center) < .0001f,
+            "Generated mesh origin is the geometric bounds center");
         PathAuthoringPreview.Stop();
         CaptureFence("electronic-fence.png", c => c.g > .15f && c.b > .2f && c.r < c.b * .6f);
 
@@ -292,7 +333,7 @@ public static class UnityPathFenceSmoke
         AssetDatabase.CreateAsset(custom, "Assets/CustomFence06010.mat");
         path.knots[2].position += new Vector3(.6f, .3f, .76f);
         Refresh(settings, custom);
-        Check(!PathAuthoringPreview.PreviewMesh.vertices.SequenceEqual(defaultOutput.GetComponent<MeshFilter>().sharedMesh.vertices),
+        Check(!PathAuthoringPreview.PreviewMesh.vertices.SequenceEqual(defaultOutput.GetComponent<MeshFilter>().sharedMesh.vertices.Select(defaultOutput.transform.TransformPoint)),
             "Moving a knot rebuilds the fence preview");
         var replaced = PathAuthoring.Generate(path, settings, custom, null, "Assets");
         Check(defaultOutput == null && replaced.GetComponent<MeshRenderer>().sharedMaterial == custom,
@@ -308,6 +349,53 @@ public static class UnityPathFenceSmoke
             "Individual point height controls both sides of the closed seam");
         Check(variable.colors32.All(c => c.r == 255 && c.a == 255), "Generated fence supplies valid white vertex colors to Custom2TexV2");
         Object.DestroyImmediate(variable);
+        VerifyDimensions();
+    }
+
+    static void VerifyDimensions()
+    {
+        var testPath = new GameObject("Dimension test path").AddComponent<BezierPath>();
+        testPath.knots = new List<PathKnot> { new PathKnot(new Vector3(1, 0, 1)), new PathKnot(new Vector3(4, 1, 4)), new PathKnot(new Vector3(2, 2, 8)) };
+        try
+        {
+            foreach (PathMeshKind kind in Enum.GetValues(typeof(PathMeshKind)))
+            {
+                var settings = new PathMeshSettings { kind = kind, step = .5f };
+                var original = PathMeshBuilder.Build(testPath, settings);
+                settings.dimensionsScale = new Vector3(1.7f, .8f, 1.3f);
+                var resized = PathMeshBuilder.Build(testPath, settings);
+                try
+                {
+                    Check(Vector3.Distance(resized.bounds.size, Vector3.Scale(original.bounds.size, settings.dimensionsScale)) < .0001f &&
+                        Vector3.Distance(resized.bounds.center, original.bounds.center) < .0001f,
+                        kind + " supports independent XYZ dimensions around its geometric center");
+                    Check(resized.uv.SequenceEqual(original.uv) && resized.uv2.SequenceEqual(original.uv2) &&
+                        resized.normals.All(n => Mathf.Abs(n.magnitude - 1) < .001f),
+                        kind + " retains UVs and valid normals after resizing");
+                }
+                finally { Object.DestroyImmediate(original); Object.DestroyImmediate(resized); }
+            }
+            testPath.knots = new List<PathKnot> { new PathKnot(Vector3.zero), new PathKnot(Vector3.forward * 6) };
+            testPath.Invalidate();
+            foreach (var kind in new[] { PathMeshKind.Ribbon, PathMeshKind.DashedLine, PathMeshKind.Arrows, PathMeshKind.ElectronicFence })
+            {
+                var settings = new PathMeshSettings { kind = kind, sheetThickness = .3f, step = .5f };
+                var thick = PathMeshBuilder.Build(testPath, settings);
+                Check(Mathf.Abs((kind == PathMeshKind.ElectronicFence ? thick.bounds.size.x : thick.bounds.size.y) - .3f) < .001f,
+                    kind + " has actual adjustable sheet thickness");
+                Object.DestroyImmediate(thick);
+            }
+            var center = WholeCenter(testPath);
+            Check(Vector3.Distance(center, Vector3.forward * 3) < .0001f,
+                "Whole-path handle uses the curve bounds center, away from the first knot");
+        }
+        finally { Object.DestroyImmediate(testPath.gameObject); }
+    }
+
+    static Vector3 WholeCenter(BezierPath target)
+    {
+        return (Vector3)typeof(PathSceneTool).Assembly.GetType("CH.CustomTools.Paths.Editor.PathWholeHandle")
+            .GetMethod("Center", StaticMethods).Invoke(null, new object[] { target });
     }
 
     static void Refresh(PathMeshSettings settings, Material material)

@@ -11,38 +11,86 @@ namespace CH.CustomTools.Paths.Editor
     public static class PathSceneTool
     {
         static bool active, dirty = true;
-        static bool wholePath, ownsHiddenTools, originalHidden;
+        static bool wholePath, ownsHiddenTools, originalHidden, ownsPivot;
+        static int expectedSelection;
+        static PivotMode originalPivot;
         public static bool PointEditing => Active && !wholePath;
         internal static bool WholePath
         {
             get => wholePath;
             set
             {
-                if (wholePath == value) return;
-                wholePath = value;
-                var path = EditingPath;
-                int focused = PathPointInsertion.FocusedIndex(path);
-                PathPointDrag.CancelActive();
-                PathPointInsertion.CancelActive();
-                if (path != null && focused >= 0 && focused < path.knots.Count)
-                    PathPointInsertion.Focus(path, focused);
-                UpdateToolVisibility();
-                if (active && wholePath && EditingPath != null) Selection.activeGameObject = EditingPath.gameObject;
-                SceneView.RepaintAll();
+                ChangeMode(value);
+                if (value && EditingPath != null) SelectObject(EditingPath.gameObject);
             }
         }
+        static void ChangeMode(bool whole)
+        {
+            if (wholePath != whole)
+            {
+                PathPointDrag.CancelActive();
+                wholePath = whole;
+                SceneView.RepaintAll();
+            }
+            UpdateToolVisibility();
+        }
+        static void SelectObject(GameObject target)
+        {
+            if (Selection.activeGameObject != target)
+            {
+                expectedSelection = target.GetInstanceID();
+                Selection.activeGameObject = target;
+            }
+            UpdateToolVisibility();
+        }
+        internal static void SelectPoint(BezierPath path, int index)
+        {
+            SetTarget(path);
+            ChangeMode(false);
+            PathPointInsertion.Focus(path, index);
+            SelectObject(path.gameObject);
+        }
+        internal static void SelectWhole(BezierPath path)
+        {
+            if (path == null) return;
+            Active = true;
+            SetTarget(path);
+            WholePath = true;
+        }
+        internal static void SelectGenerated(GameObject output, BezierPath path)
+        {
+            if (!Active) { Selection.activeGameObject = output; return; }
+            SetTarget(path);
+            ChangeMode(true);
+            SelectObject(output);
+        }
+        internal static bool WholePathSelected => Active && wholePath && EditingPath != null &&
+            Selection.activeGameObject == EditingPath.gameObject && Selection.gameObjects.Length == 1;
+        internal static bool OutputSelected => Active && wholePath && Selection.activeGameObject != null &&
+            Selection.activeGameObject.GetComponentInParent<PathGeneratedOutput>() != null;
         static void UpdateToolVisibility()
         {
-            if (PointEditing && !ownsHiddenTools)
+            bool hideNative = PointEditing || WholePathSelected;
+            if (hideNative && !ownsHiddenTools)
             {
                 originalHidden = Tools.hidden;
                 Tools.hidden = true;
                 ownsHiddenTools = true;
             }
-            else if (!PointEditing && ownsHiddenTools)
+            else if (!hideNative && ownsHiddenTools)
             {
                 Tools.hidden = originalHidden;
                 ownsHiddenTools = false;
+            }
+            if (Active)
+            {
+                if (!ownsPivot) { originalPivot = Tools.pivotMode; ownsPivot = true; }
+                Tools.pivotMode = PivotMode.Center;
+            }
+            else if (ownsPivot)
+            {
+                Tools.pivotMode = originalPivot;
+                ownsPivot = false;
             }
         }
         static BezierPath[] paths = new BezierPath[0];
@@ -58,7 +106,8 @@ namespace CH.CustomTools.Paths.Editor
         public static void Edit(BezierPath path)
         {
             if (path == null || EditorUtility.IsPersistent(path) || !path.gameObject.scene.IsValid()) return;
-            Active = true; WholePath = false; SetTarget(path); Selection.activeGameObject = path.gameObject;
+            Active = true; SetTarget(path);
+            SelectPoint(path, Mathf.Max(0, PathPointInsertion.FocusedIndex(path)));
         }
         public static bool Active
         {
@@ -68,8 +117,8 @@ namespace CH.CustomTools.Paths.Editor
                 value &= !EditorApplication.isPlayingOrWillChangePlaymode;
                 if (active == value) return;
                 active = value;
-                if (value) { DmSceneTool.Active = false; CH.CustomTools.VFX.ParticleTrailSceneTool.Stop(); PathFenceDraft.Cancel(); wholePath = false; SetTarget(PathPointInsertion.SelectionPath()); }
-                else { PathAuthoringPreview.Stop(); SetTarget(null); PathPointDrag.CancelActive(); PathPointInsertion.CancelActive(); }
+                if (value) { DmSceneTool.Active = false; CH.CustomTools.VFX.ParticleTrailSceneTool.Stop(); PathFenceDraft.Cancel(); wholePath = true; SetTarget(PathPointInsertion.SelectionPath()); }
+                else { expectedSelection = 0; PathAuthoringPreview.Stop(); SetTarget(null); PathPointDrag.CancelActive(); PathPointInsertion.CancelActive(); }
                 UpdateToolVisibility();
                 SceneView.RepaintAll();
                 foreach (var window in Resources.FindObjectsOfTypeAll<EditorWindow>()) window.Repaint();
@@ -78,7 +127,23 @@ namespace CH.CustomTools.Paths.Editor
         static PathSceneTool()
         {
             EditorApplication.hierarchyChanged += () => { dirty = true; };
-            Selection.selectionChanged += () => { var path = PathPointInsertion.SelectionPath(); if (Active && path != null) SetTarget(path); };
+            Selection.selectionChanged += () =>
+            {
+                if (!Active) return;
+                int expected = expectedSelection;
+                expectedSelection = 0;
+                if (expected != 0 && Selection.activeGameObject != null &&
+                    Selection.activeGameObject.GetInstanceID() == expected) { UpdateToolVisibility(); return; }
+                var path = PathPointInsertion.SelectionPath();
+                if (path != null)
+                {
+                    SetTarget(path);
+                    ChangeMode(true);
+                }
+                else if (Selection.activeGameObject != null && !EditorUtility.IsPersistent(Selection.activeGameObject))
+                    ChangeMode(true);
+                else UpdateToolVisibility();
+            };
             AssemblyReloadEvents.beforeAssemblyReload += () => Active = false;
             EditorApplication.quitting += () => Active = false;
             EditorApplication.playModeStateChanged += state => Active = false;
@@ -87,6 +152,7 @@ namespace CH.CustomTools.Paths.Editor
         }
         internal static void Draw(SceneView view)
         {
+            if (Active && Tools.pivotMode != PivotMode.Center) Tools.pivotMode = PivotMode.Center;
             if (Event.current.type != EventType.Repaint) return;
             if (dirty) { paths = UnityEngine.Object.FindObjectsByType<BezierPath>(FindObjectsSortMode.None); dirty = false; }
             var selected = PathPointInsertion.SelectedPath();
@@ -103,14 +169,17 @@ namespace CH.CustomTools.Paths.Editor
             bool enabled = EditorGUILayout.ToggleLeft(PathText.T("在 Scene 视图中启用路径编辑", "Enable path editing in Scene view"), Active);
             if (enabled != Active)
             {
-                if (enabled && path != null) Edit(path); else Active = enabled;
+                if (enabled && path != null) SelectWhole(path); else Active = enabled;
             }
             if (Active && EditingPath == null && path != null) SetTarget(path);
             if (Active)
             {
-                int mode = GUILayout.Toolbar(wholePath ? 1 : 0,
-                    new[] { PathText.T("编辑控制点", "Edit points"), PathText.T("整体移动 / 旋转", "Transform whole path") });
-                WholePath = mode == 1;
+                EditorGUILayout.LabelField(PathText.T("当前操作", "Editing selection"),
+                    PointEditing ? PathText.T("控制点", "Control point") : OutputSelected ?
+                        PathText.T("生成物", "Generated object") : PathText.T("整体", "Whole object"));
+                if (GUILayout.Button(PathText.T("选择整条路径", "Select whole path"))) SelectWhole(path);
+                EditorGUILayout.HelpBox(PathText.T("点击圆点编辑单点，点击曲线选择整体，点击生成的模型或 Mesh 编辑该物体。整体操作轴使用中心位置。",
+                    "Click a point to edit it, the curve to select the whole path, or a generated model/mesh to transform that object. Whole-object handles use the center."), MessageType.None);
             }
         }
     }

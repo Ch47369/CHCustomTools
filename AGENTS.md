@@ -1,3 +1,5 @@
+0.7.5 接续：统一先创建/选择路径，再选编辑、模型、网格、电子围栏、运动。点击控制点自动单点，选择路径几何中心柄，选生成物原生Center，旧资产兼容；新网格局部原点居中且世界位置/UV/法线与预览一致，模型根居中保留实例矩阵。所有网格世界XYZ尺寸倍率/预览实际米数，面片支持厚度；生成围栏独立输出，旧Mesh围栏按资产名识别。原293图、Custom2TexV2三图、音频、更新器与非路径Runtime保护，独立基准0.7.4包白名单，验证UnityPathFenceSmoke/旧路径和预览回归、Evidence/PathWorkflow075与Releases~。隔离Unity活跃不改共享C#，不改用户项目、不带Backend/SidebarLine。
+
 0.7.4 接续：独立电子围栏子页、右键/Enter开放完成、点击首点闭合；点编辑与整条Transform分离，原生工具轴恢复；逐点高度比例和Scene高度柄。默认材质改为用户提供的 Custom2TexV2，经ASE1.9.9.13官方三管线默认模板真实保存重载，保留133非主节点，Built-in透明模板修正，HDRP采用官方材质状态。仅按当前管线复制Shader到Assets，保留已有文件。原293图/核心/音频/更新器及其他任务保持基准包字节。验证 UnityPathFenceSmoke、Evidence/FenceCustom074、Releases~，失败尝试保留；不改用户项目，不带Backend/SidebarLine。
 
 0.6.6 接续：路径编辑目标与当前路径统一，选择模型/材质/空选保留已启用编辑，切换另一条路径同步；Use selected 不再停用，Edit in Scene 显式启用。选择变更仍取消进行中手势。逐点世界三轴 RotationHandle 与数值输入、W/E、点选择；转动切线并更新 roll，点位置不变，纯 bank 保留类型，自动点转向冻结成独立柄；Runtime 数据格式/全部 Runtime/293图/音频VFX/更新器保留0.6.5字节。模型来源放到预览区，缺源/停用有提示。验证 UnityPathEditingSmoke（真实主窗按钮、模型选择后 Scene 拖点/旋转环、所有开放/闭合点三轴与 Undo/Redo）、旧插点/SceneTools/预览/可见性，Evidence/PathEditing066 与 Releases~。保留失败 Attempts，不带 Backend/SidebarLine，不修改用户项目；隔离 Unity 活跃时不改共享 C#。

@@ -124,8 +124,12 @@ namespace CH.CustomTools.Paths.Editor
         }
         public static bool TryFind(BezierPath path, Camera camera, Vector2 mouse, out Hit hit)
         {
+            return TryFind(path, camera, mouse, out hit, true);
+        }
+        internal static bool TryFind(BezierPath path, Camera camera, Vector2 mouse, out Hit hit, bool forInsertion)
+        {
             hit = default(Hit);
-            if (path == null || camera == null || path.knots == null || path.knots.Count >= 512) return false;
+            if (path == null || camera == null || path.knots == null || (forInsertion && path.knots.Count >= 512)) return false;
             try { path.ValidatePath(); } catch (Exception) { return false; }
             // Do not insert duplicates on an existing point, including the closed seam.
             foreach (var knot in path.knots)
@@ -165,7 +169,7 @@ namespace CH.CustomTools.Paths.Editor
             {
                 var path = SelectedPath();
                 PathSceneTool.Draw(view);
-                if (!PathSceneTool.PointEditing)
+                if (!PathSceneTool.Active)
                 {
                     if (capturedControl != 0 && capturedView == view)
                     { if (GUIUtility.hotControl == capturedControl) GUIUtility.hotControl = 0; capturedControl = 0; capturedView = null; }
@@ -173,11 +177,12 @@ namespace CH.CustomTools.Paths.Editor
                 }
                 var input = Event.current;
                 if (input.type == EventType.KeyDown && !input.alt && !input.control && !input.command && !input.shift && GUIUtility.hotControl == 0 && !EditorGUIUtility.editingTextField
-                    && EditorWindow.focusedWindow == view && path != null && (input.keyCode == KeyCode.W || input.keyCode == KeyCode.E))
+                    && PathSceneTool.PointEditing && EditorWindow.focusedWindow == view && path != null && (input.keyCode == KeyCode.W || input.keyCode == KeyCode.E))
                 { BezierPathEditor.RotatePoints = input.keyCode == KeyCode.E; input.Use(); view.Repaint(); }
                 HandleInsertion(view);
                 PathPointDrag.SceneGUI(view, path, capturedControl != 0);
                 if (path != null && capturedControl == 0 && !Measurement.DmSceneTool.Active && (!InsertionModifier(Event.current) || GUIUtility.hotControl != 0)) BezierPathEditor.DrawSceneHandles(path);
+                PathWholeHandle.Draw(view, path);
             }
         }
         static void HandleInsertion(SceneView view)
@@ -213,7 +218,7 @@ namespace CH.CustomTools.Paths.Editor
             {
                 try
                 {
-                    Insert(path, hit.segment, hit.parameter); Selection.activeGameObject = path.gameObject;
+                    int index = Insert(path, hit.segment, hit.parameter); PathSceneTool.SelectPoint(path, index);
                     capturedView = view;
                     GUIUtility.hotControl = capturedControl = control; e.Use();
                 }

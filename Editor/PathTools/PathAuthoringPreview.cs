@@ -27,10 +27,20 @@ namespace CH.CustomTools.Paths.Editor
         static string signature, modelError, meshError;
         static int revision;
         static double next;
+        static Vector3 builtDimensionScale;
         public static bool IsActive { get { return path != null; } }
         public static string Status { get { return string.Join("\n", new[] { modelError, meshError }).Trim(); } }
         public static int ModelDrawCount { get { return models.Count; } }
         public static Mesh PreviewMesh { get { return mesh; } }
+        internal static bool TryGetDimensions(BezierPath target, PathMeshSettings meshSettings, out Vector3 size)
+        {
+            size = Vector3.zero;
+            if (path != target || settings != meshSettings || mesh == null) return false;
+            var scale = PathMeshBuilder.DimensionScale(meshSettings);
+            size = Vector3.Scale(mesh.bounds.size, new Vector3(scale.x / builtDimensionScale.x,
+                scale.y / builtDimensionScale.y, scale.z / builtDimensionScale.z));
+            return true;
+        }
         static PathAuthoringPreview()
         {
             EditorApplication.update += Tick;
@@ -73,7 +83,7 @@ namespace CH.CustomTools.Paths.Editor
             if (showModels && source != null) try { BuildModels(); } catch (Exception e) { ClearModels(); modelError = e.Message; }
             if (showMesh) try
             {
-                mesh = PathMeshBuilder.Build(path, settings); mesh.hideFlags = HideFlags.HideAndDontSave;
+                mesh = PathMeshBuilder.Build(path, settings); builtDimensionScale = PathMeshBuilder.DimensionScale(settings); mesh.hideFlags = HideFlags.HideAndDontSave;
                 for (int i = 0; i < mesh.subMeshCount; i++) surface.Add(new Draw { mesh = mesh, matrix = Matrix4x4.identity, material = i == 1 && posts != null ? posts : material != null ? material : MeshDefault(settings.kind), submesh = i, layer = path.gameObject.layer });
             }
             catch (Exception e) { if (mesh != null) Object.DestroyImmediate(mesh); mesh = null; surface.Clear(); meshError = e.Message; }
@@ -167,7 +177,7 @@ namespace CH.CustomTools.Paths.Editor
         static void EndCamera(ScriptableRenderContext context, Camera camera) { AfterCamera(camera); }
         static bool Visible(Camera camera)
         {
-            if (!IsActive || camera == null || camera.cameraType != CameraType.SceneView || !PathSceneTool.Active || PathMotionPreview.IsActive) return false;
+            if (!IsActive || camera == null || camera.cameraType != CameraType.SceneView || !PathSceneTool.Active || PathSceneTool.OutputSelected || PathMotionPreview.IsActive) return false;
             if (StageUtility.GetStageHandle(path.gameObject) != StageUtility.GetCurrentStageHandle() || SceneVisibilityManager.instance.IsHidden(path.gameObject)) return false;
             foreach (SceneView view in SceneView.sceneViews) if (view.camera == camera) return view.cameraMode.drawMode == DrawCameraMode.Textured || view.cameraMode.drawMode == DrawCameraMode.TexturedWire || view.cameraMode.drawMode == DrawCameraMode.Wireframe;
             return false;
@@ -178,9 +188,14 @@ namespace CH.CustomTools.Paths.Editor
             RestoreRenderers();
             // Hide only the matching committed group during this Scene camera render.
             foreach (var output in Object.FindObjectsByType<PathGeneratedOutput>(FindObjectsInactive.Include, FindObjectsSortMode.None))
-                if (output != null && output.owner == path && ((output.kind == "Models" && models.Count > 0) || (output.kind == "Mesh" && surface.Count > 0)))
+                if (output != null && output.owner == path && ((output.kind == "Models" && models.Count > 0) || (OutputMatchesMesh(output) && surface.Count > 0)))
                     foreach (var renderer in output.GetComponentsInChildren<Renderer>(true)) { hidden[renderer] = renderer.forceRenderingOff; renderer.forceRenderingOff = true; }
             foreach (var helper in helpers) if (helper != null) helper.GetComponent<MeshRenderer>().forceRenderingOff = false;
+        }
+        static bool OutputMatchesMesh(PathGeneratedOutput output)
+        {
+            if (settings == null) return false;
+            return PathAuthoring.OutputKind(output) == (settings.kind == PathMeshKind.ElectronicFence ? "Fence" : "Mesh");
         }
         static void AfterCamera(Camera camera)
         {

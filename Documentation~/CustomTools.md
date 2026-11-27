@@ -6,7 +6,7 @@
 
 0.6.0 新增 **场景工具 → 路径工具**：编辑曲线、沿线放置模型、生成带UV的面片/标线/圆管/栏杆、预览和运行路径运动，详见 [路径工具](PathTools.md)。所有功能仍在统一窗口内。
 
-# CH自定义工具集 0.7.4
+# CH自定义工具集 0.7.5
 
 作者：CH。统一入口 **Tools → CH自定义工具集**。左侧为 Shader、VFX、场景工具、设置，右侧的功能标签直接切换当前面板，不再打开新的功能窗口。原 Shader 包升级后就是完整工具集；包 ID 保持 `com.aseshader.handwritten-converter`。
 
@@ -21,7 +21,7 @@
 | VFX | 曲线转粒子拖尾 | 三维路径编辑、原生粒子速度曲线烘焙与 Trails 预览，详见 [使用说明](ParticleTrail.md) |
 | VFX | 特效资源整理 | 引用扫描、分类命名、移动预览、执行及记录恢复 |
 | 场景工具 | 距离 / 角度测量 | 世界坐标距离、折线、0–180° 夹角、共面多边形面积和周长 |
-| 场景工具 | 路径工具 | 编辑曲线、沿线放置模型、生成UV网格、独立电子围栏页（开放/闭合、逐点高度）与路径运动 |
+| 场景工具 | 路径工具 | 统一创建路径，沿线放置模型、生成UV网格、电子围栏和路径运动；选择驱动编辑、居中操作轴及网格尺寸 |
 | 设置 | 常规 / 插件更新 / 关于 | 全局语言、同一 Git 包更新、作者及安装地址 |
 
 系统文件选择框、保存对话框和资源移动确认仍按操作需要显示。功能页、语言和更新使用同一个主窗口。切页保留 Shader 输入、库筛选、音频分析结果和资源整理设置；离开音频页停止本工具启动的试听。
@@ -54,7 +54,7 @@
 
 ## 安装、更新与语言
 
-首次安装可下载 [Unity Tarball 0.7.4](https://github.com/Ch47369/CHCustomTools/releases/download/v0.7.4/com.aseshader.handwritten-converter-0.7.4.tgz)，在 Package Manager 的「+」菜单选择 **Add package from tarball**，选中下载的 `.tgz`。此方式无需 Git。
+首次安装可下载 [Unity Tarball 0.7.5](https://github.com/Ch47369/CHCustomTools/releases/download/v0.7.5/com.aseshader.handwritten-converter-0.7.5.tgz)，在 Package Manager 的「+」菜单选择 **Add package from tarball**，选中下载的 `.tgz`。此方式无需 Git。
 
 在 Package Manager → Add package from git URL 输入：
 
@@ -62,7 +62,7 @@
 https://github.com/Ch47369/CHCustomTools.git
 ```
 
-固定本次版本可使用 `https://github.com/Ch47369/CHCustomTools.git#v0.7.4`。仓库现为公开，安装和更新无需 GitHub 登录。首次用 Git URL 安装需要 Unity 能找到 Git；遇到连接重置或传输中断时，可以使用上方的 Tarball。
+固定本次版本可使用 `https://github.com/Ch47369/CHCustomTools.git#v0.7.5`。仓库现为公开，安装和更新无需 GitHub 登录。首次用 Git URL 安装需要 Unity 能找到 Git；遇到连接重置或传输中断时，可以使用上方的 Tarball。
 
 更新在设置 → 插件更新中进行；HTTPS 安装从 GitHub Release 查询正式版本，只有严格高于当前版本才提供版本更新操作。下载通过 GitHub API 进行，验证发布资源的大小和 SHA-256，再交给 Unity 安装。安装包保存在当前项目 `Packages/CHCustomToolsCache~`，项目的包引用随之改为该文件；后续仍从 GitHub 检查和下载更新，不读取开发者本地仓库。请把此缓存目录连同 manifest 一起保留，便于项目在其他机器恢复。SSH 安装保留原 Git 传输方式。
 

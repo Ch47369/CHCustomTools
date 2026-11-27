@@ -22,6 +22,8 @@ namespace CH.CustomTools.Paths
         public bool fenceDoubleSided;
         public PathFenceAxis fenceAxis;
         public bool fenceLocalAxis;
+        public Vector3 dimensionsScale = Vector3.one;
+        public float sheetThickness;
     }
     /// <summary>World-space path meshes with tiling UV0 and normalized effect UV1.</summary>
     public static class PathMeshBuilder
@@ -49,9 +51,71 @@ namespace CH.CustomTools.Paths
                 uv[index] = Vector2.Scale(new Vector2(distance / settings.metersPerTile, height), settings.uvScale) + settings.uvOffset;
                 uv1[index] = new Vector2(distance / length, height);
             }
+            void AddSheetVertex(int source, Vector3 position, Vector3 normal)
+            {
+                if (v.Count >= 200000) throw new InvalidOperationException("Mesh exceeds 200,000 vertices. / 网格超过20万顶点。");
+                v.Add(position); n.Add(normal); uv.Add(uv[source]); uv1.Add(uv1[source]);
+            }
+
+            void ExtrudeSheet()
+            {
+                int count = v.Count;
+                int[] front = indices[0].ToArray();
+                var boundary = new Dictionary<long, (int start, int end)>();
+                void Edge(int a, int b)
+                {
+                    long key = ((long)Math.Min(a, b) << 32) | (uint)Math.Max(a, b);
+                    if (!boundary.Remove(key)) boundary.Add(key, (a, b));
+                }
+                for (int i = 0; i < front.Length; i += 3)
+                {
+                    Edge(front[i], front[i + 1]);
+                    Edge(front[i + 1], front[i + 2]);
+                    Edge(front[i + 2], front[i]);
+                }
+                float half = settings.sheetThickness * .5f;
+                for (int i = 0; i < count; i++)
+                {
+                    AddSheetVertex(i, v[i] - n[i] * half, -n[i]);
+                    v[i] += n[i] * half;
+                }
+                for (int i = 0; i < front.Length; i += 3)
+                    Tri(front[i] + count, front[i + 2] + count, front[i + 1] + count);
+                foreach (var edge in boundary.Values)
+                {
+                    int a = edge.start, b = edge.end;
+                    var normal = Vector3.Cross(v[a + count] - v[a], v[b] - v[a]).normalized;
+                    if (normal.sqrMagnitude < .5f) continue;
+                    int first = v.Count;
+                    AddSheetVertex(a, v[a], normal);
+                    AddSheetVertex(b, v[b], normal);
+                    AddSheetVertex(a, v[a + count], normal);
+                    AddSheetVertex(b, v[b + count], normal);
+                    Tri(first, first + 2, first + 1);
+                    Tri(first + 1, first + 2, first + 3);
+                }
+            }
+
+            void ScaleDimensions()
+            {
+                var scale = DimensionScale(settings);
+                if (scale == Vector3.one) return;
+                var bounds = new Bounds(v[0], Vector3.zero);
+                for (int i = 1; i < v.Count; i++) bounds.Encapsulate(v[i]);
+                Vector3 center = bounds.center;
+                var normalScale = new Vector3(1 / scale.x, 1 / scale.y, 1 / scale.z);
+                for (int i = 0; i < v.Count; i++)
+                {
+                    v[i] = center + Vector3.Scale(v[i] - center, scale);
+                    n[i] = Vector3.Scale(n[i], normalScale).normalized;
+                }
+            }
+
             public Mesh Finish()
             {
                 if (v.Count == 0) throw new InvalidOperationException("No mesh generated. / 未生成网格。");
+                if (IsSheet(settings.kind) && settings.sheetThickness > 0) ExtrudeSheet();
+                ScaleDimensions();
                 var mesh = new Mesh { name = "CH Path " + settings.kind, indexFormat = v.Count > 65535 ? IndexFormat.UInt32 : IndexFormat.UInt16 };
                 mesh.SetVertices(v); mesh.SetNormals(n); mesh.SetUVs(0, uv); mesh.SetUVs(1, uv1);
                 if (settings.kind == PathMeshKind.ElectronicFence)
@@ -66,9 +130,23 @@ namespace CH.CustomTools.Paths
             }
         }
         static void Positive(float value, string name) { if (float.IsNaN(value) || float.IsInfinity(value) || value < .001f || value > 100000) throw new ArgumentException(name + " must be 0.001–100000. / 参数超出范围：" + name); }
+        public static bool IsSheet(PathMeshKind kind)
+        {
+            return kind == PathMeshKind.Ribbon || kind == PathMeshKind.DashedLine ||
+                kind == PathMeshKind.Arrows || kind == PathMeshKind.ElectronicFence;
+        }
+        public static Vector3 DimensionScale(PathMeshSettings settings)
+        {
+            // Unity instances serialized before this field existed can contain all zeros.
+            return settings.dimensionsScale == Vector3.zero ? Vector3.one : settings.dimensionsScale;
+        }
         public static Mesh Build(BezierPath path, PathMeshSettings settings)
         {
             if (path == null || settings == null) throw new ArgumentNullException();
+            var scale = DimensionScale(settings);
+            Positive(scale.x, "Width multiplier"); Positive(scale.y, "Height multiplier"); Positive(scale.z, "Length multiplier");
+            if (IsSheet(settings.kind) && (!float.IsFinite(settings.sheetThickness) || settings.sheetThickness < 0 || settings.sheetThickness > 100000))
+                throw new ArgumentException("Invalid sheet thickness. / 面片厚度无效。");
             Positive(settings.step, "Step");
             Positive(settings.metersPerTile, "Meters per tile");
             if (!BezierPath.Finite(new Vector3(settings.uvScale.x, settings.uvScale.y, 0)) ||
@@ -135,7 +213,7 @@ namespace CH.CustomTools.Paths
                     heights[i] = Mathf.Lerp(firstHeight, lastHeight, i / (float)rows);
                 }
                 AddFenceFace(builder, bottoms, distances, heights, up, false);
-                if (settings.fenceDoubleSided) AddFenceFace(builder, bottoms, distances, heights, up, true);
+                if (settings.fenceDoubleSided && settings.sheetThickness == 0) AddFenceFace(builder, bottoms, distances, heights, up, true);
             }
         }
         public static float FenceHeight(PathMeshSettings settings, PathKnot knot)
@@ -188,7 +266,7 @@ namespace CH.CustomTools.Paths
             for (int i = 0; i <= count; i++) distances.Add(Mathf.Lerp(start, end, i / (float)count));
             float shoulder = Mathf.Lerp(start, end, .65f);
             if (arrow) { distances.Add(shoulder); distances.Sort(); }
-            for (int face = 0; face < (b.settings.twoSided ? 2 : 1); face++)
+            for (int face = 0; face < (b.settings.twoSided && b.settings.sheetThickness == 0 ? 2 : 1); face++)
             {
                 int first = b.v.Count;
                 for (int i = 0; i < distances.Count; i++)

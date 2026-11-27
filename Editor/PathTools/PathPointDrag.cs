@@ -94,7 +94,11 @@ namespace CH.CustomTools.Paths.Editor
                 }
                 else if (e.type == EventType.MouseUp && e.button == 0) { Complete(); e.Use(); }
             }
-            if (!PathSceneTool.PointEditing || path == null || inserting || Application.isPlaying || PathMotionPreview.BlocksPathEditing || DmSceneTool.Active) return;
+            if (!PathSceneTool.Active || path == null || inserting || Application.isPlaying || PathMotionPreview.BlocksPathEditing || DmSceneTool.Active ||
+                view.camera == null || SceneVisibilityManager.instance.IsHidden(path.gameObject) ||
+                SceneVisibilityManager.instance.IsPickingDisabled(path.gameObject) ||
+                (view.camera.cullingMask & (1 << path.gameObject.layer)) == 0 ||
+                StageUtility.GetStageHandle(path.gameObject) != StageUtility.GetCurrentStageHandle()) return;
             try { path.ValidatePath(); } catch (Exception) { return; }
             int hover = FindPoint(path, view.camera, e.mousePosition);
             bool canPick = !e.alt && !PathPointInsertion.InsertionModifier(e) && GUIUtility.hotControl == 0;
@@ -113,10 +117,10 @@ namespace CH.CustomTools.Paths.Editor
                 plane = new Plane(view.camera.transform.forward, point);
                 float enter; Ray ray = HandleUtility.GUIPointToWorldRay(e.mousePosition);
                 if (!plane.Raycast(ray, out enter)) return;
+                PathSceneTool.SelectPoint(path, hover);
                 dragging = path; owner = view; index = hover; duplicate = e.shift; changed = false; undoGroup = -1;
                 sourcePosition = point;
                 offset = point - ray.GetPoint(enter); mouseStart = e.mousePosition;
-                PathPointInsertion.Focus(path, hover); Selection.activeGameObject = path.gameObject;
                 GUIUtility.hotControl = control = id; e.Use();
             }
         }
@@ -174,7 +178,7 @@ namespace CH.CustomTools.Paths.Editor
             {
                 Vector3 point = path.transform.TransformPoint(path.knots[i].position);
                 if (view.camera.WorldToViewportPoint(point).z <= view.camera.nearClipPlane) continue;
-                bool hot = i == hover || PathPointInsertion.IsFocused(path, i);
+                bool hot = i == hover || (PathSceneTool.PointEditing && PathPointInsertion.IsFocused(path, i));
                 Color color = hot ? DmSkin.Accent : DmSkin.Palette[1];
                 CHSceneVisuals.Anchor(view.camera, point, color, CHSceneVisuals.PixelToWorld(view.camera, point, hot ? 4.8f : 3.2f), true, hot);
                 if (!hot) continue;

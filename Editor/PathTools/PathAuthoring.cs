@@ -44,9 +44,9 @@ namespace CH.CustomTools.Paths.Editor
         {
             Undo.IncrementCurrentGroup();
             int group = Undo.GetCurrentGroup();
-            Undo.SetCurrentGroupName("Draw electronic fence");
-            const string label = "Draw electronic fence";
-            var go = new GameObject("CH Electronic Fence Path");
+            Undo.SetCurrentGroupName("Draw path");
+            const string label = "Draw path";
+            var go = new GameObject("CH Drawn Path");
             Undo.RegisterCreatedObjectUndo(go, label);
             var path = Undo.AddComponent<BezierPath>(go);
             Undo.RecordObjects(new Object[] { go.transform, path }, label);
@@ -77,8 +77,14 @@ namespace CH.CustomTools.Paths.Editor
             Undo.IncrementCurrentGroup(); int group = Undo.GetCurrentGroup(); Undo.SetCurrentGroupName("Generate CH " + kind);
             Undo.RegisterCreatedObjectUndo(root, "Generate CH " + kind);
             foreach (var old in Object.FindObjectsByType<PathGeneratedOutput>(FindObjectsInactive.Include, FindObjectsSortMode.None))
-                if (old != null && old.gameObject != root && old.owner == path && old.kind == kind && old.gameObject.scene == path.gameObject.scene) Undo.DestroyObjectImmediate(old.gameObject);
-            Undo.CollapseUndoOperations(group); EditorSceneManager.MarkSceneDirty(path.gameObject.scene); Selection.activeGameObject = root;
+                if (old != null && old.gameObject != root && old.owner == path && OutputKind(old) == kind && old.gameObject.scene == path.gameObject.scene) Undo.DestroyObjectImmediate(old.gameObject);
+            Undo.CollapseUndoOperations(group); EditorSceneManager.MarkSceneDirty(path.gameObject.scene); PathSceneTool.SelectGenerated(root, path);
+        }
+        internal static string OutputKind(PathGeneratedOutput output)
+        {
+            if (output.kind != "Mesh") return output.kind;
+            var filter = output.GetComponent<MeshFilter>();
+            return filter != null && filter.sharedMesh != null && filter.sharedMesh.name == "CH Path ElectronicFence" ? "Fence" : "Mesh";
         }
         public static GameObject Place(BezierPath path, GameObject source, PathPlacementSettings settings)
         {
@@ -103,6 +109,16 @@ namespace CH.CustomTools.Paths.Editor
                     instance.transform.localScale = Vector3.Scale(source.transform.localScale, settings.scale);
                     instance.name = source.name + " " + distance.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "m";
                 }
+                var renderers = root.GetComponentsInChildren<Renderer>(true);
+                if (renderers.Length > 0)
+                {
+                    var bounds = renderers[0].bounds;
+                    foreach (var renderer in renderers) bounds.Encapsulate(renderer.bounds);
+                    var children = new List<(Transform child, Vector3 position)>();
+                    foreach (Transform child in root.transform) children.Add((child, child.position));
+                    root.transform.position = bounds.center;
+                    foreach (var item in children) item.child.position = item.position;
+                }
                 Commit(root, path, "Models"); return root;
             }
             catch { Object.DestroyImmediate(root); throw; }
@@ -125,16 +141,24 @@ namespace CH.CustomTools.Paths.Editor
             ValidateScene(path);
             folder = (folder ?? "").Replace('\\', '/').TrimEnd('/');
             if (!(folder == "Assets" || folder.StartsWith("Assets/", StringComparison.Ordinal)) || !AssetDatabase.IsValidFolder(folder)) throw new ArgumentException("Choose an existing Assets folder. / 请选择Assets中的现有目录。");
-            Mesh mesh = PathMeshBuilder.Build(path, settings); GameObject root = null; string asset = null; Material created = null;
+            Mesh mesh = PathMeshBuilder.Build(path, settings);
+            Vector3 center = mesh.bounds.center;
+            var vertices = mesh.vertices;
+            for (int i = 0; i < vertices.Length; i++) vertices[i] -= center;
+            mesh.vertices = vertices;
+            mesh.RecalculateBounds();
+            GameObject root = null; string asset = null; Material created = null;
             try
             {
                 if (material == null) material = created = DefaultMeshMaterial(settings.kind);
                 asset = AssetDatabase.GenerateUniqueAssetPath(folder + "/CHPath_" + settings.kind + ".asset");
                 AssetDatabase.CreateAsset(mesh, asset); if (created != null) AssetDatabase.AddObjectToAsset(created, mesh);
                 AssetDatabase.SaveAssets();
-                root = Root(path, "Mesh"); root.AddComponent<MeshFilter>().sharedMesh = mesh;
+                root = Root(path, settings.kind == PathMeshKind.ElectronicFence ? "Fence" : "Mesh");
+                root.transform.position = center;
+                root.AddComponent<MeshFilter>().sharedMesh = mesh;
                 root.AddComponent<MeshRenderer>().sharedMaterials = settings.kind == PathMeshKind.Railing ? new[] { material, posts == null ? material : posts } : new[] { material };
-                Commit(root, path, "Mesh"); return root;
+                Commit(root, path, settings.kind == PathMeshKind.ElectronicFence ? "Fence" : "Mesh"); return root;
             }
             catch
             {

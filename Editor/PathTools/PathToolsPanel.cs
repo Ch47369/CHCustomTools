@@ -31,7 +31,7 @@ namespace CH.CustomTools.Paths.Editor
             PathFenceDraft.Cancel();
             PathAuthoringPreview.Stop(); PathMotionPreview.Stop(); PathFenceHeightEditing.Clear(); path = next;
             if (next == null) PathSceneTool.Active = false;
-            else if (PathSceneTool.Active) PathSceneTool.Edit(next);
+            else if (PathSceneTool.Active && PathSceneTool.EditingPath != next) PathSceneTool.SelectWhole(next);
         }
         public void DrawPanel()
         {
@@ -43,6 +43,28 @@ namespace CH.CustomTools.Paths.Editor
                 mesh = new PathMeshSettings();
                 tab = 4;
             }
+            scroll = EditorGUILayout.BeginScrollView(scroll);
+            EditorGUILayout.LabelField(T("创建或选择路径", "Create or select a path"), EditorStyles.boldLabel);
+            using (new EditorGUILayout.HorizontalScope())
+            {
+                preset = EditorGUILayout.Popup(preset, CHToolLanguage.IsChinese ? new[] { "直线", "S形曲线", "圆形", "空间飞行" } : new[] { "Straight", "S curve", "Circle", "3D flight" });
+                if (GUILayout.Button(T("创建路径", "Create path"))) Action(() =>
+                {
+                    var view = SceneView.lastActiveSceneView;
+                    SelectPath(PathAuthoring.Create((PathPreset)preset, view == null ? Vector3.zero : view.pivot));
+                    tab = 0;
+                    previewModels = previewMesh = false;
+                    PathSceneTool.SelectWhole(path);
+                });
+            }
+            DrawPathPlacement();
+            EditorGUI.BeginChangeCheck(); var next = (BezierPath)EditorGUILayout.ObjectField(T("当前路径", "Current path"), path, typeof(BezierPath), true);
+            if (EditorGUI.EndChangeCheck()) SelectPath(next);
+            if (GUILayout.Button(T("使用当前选择的路径", "Use selected path"))) { var selected = PathPointInsertion.SelectionPath(); if (selected != null) SelectPath(selected); else message = T("请先在层级中选择路径或它的生成组。", "Select a path or its generated group in the Hierarchy."); }
+            if (Event.current.type == EventType.Repaint) { var rect = GUILayoutUtility.GetLastRect(); useSelectionArea = new Rect(GUIUtility.GUIToScreenPoint(rect.position), rect.size); }
+            if (path == null || PathFenceDraft.Active) { EditorGUILayout.EndScrollView(); return; }
+            GUILayout.Space(8);
+            EditorGUILayout.LabelField(T("选择用途", "Choose a function"), EditorStyles.boldLabel);
             int newTab = GUILayout.Toolbar(tab, CHToolLanguage.IsChinese
                 ? new[] { "编辑路径", "沿线放模型", "生成网格", "路径运动", "电子围栏" }
                 : new[] { "Edit path", "Place models", "Build mesh", "Motion", "Fence" });
@@ -54,22 +76,10 @@ namespace CH.CustomTools.Paths.Editor
                 PathFenceHeightEditing.Clear();
                 PathSequenceEditor.SetGuideTarget(null);
                 tab = newTab;
+                if (tab == 1) previewModels = true;
+                if (tab == 2) previewMesh = true;
+                if (tab == 4) previewFence = true;
             }
-            scroll = EditorGUILayout.BeginScrollView(scroll);
-            if (tab == 4) DrawFencePlacement();
-            else
-            {
-                using (new EditorGUILayout.HorizontalScope())
-                {
-                    preset = EditorGUILayout.Popup(preset, CHToolLanguage.IsChinese ? new[] { "直线", "S形曲线", "圆形", "空间飞行" } : new[] { "Straight", "S curve", "Circle", "3D flight" });
-                    if (GUILayout.Button(T("创建路径", "Create path"))) Action(() => { var view = SceneView.lastActiveSceneView; SelectPath(PathAuthoring.Create((PathPreset)preset, view == null ? Vector3.zero : view.pivot)); });
-                }
-            }
-            EditorGUI.BeginChangeCheck(); var next = (BezierPath)EditorGUILayout.ObjectField(T("当前路径", "Current path"), path, typeof(BezierPath), true);
-            if (EditorGUI.EndChangeCheck()) SelectPath(next);
-            if (GUILayout.Button(T("使用当前选择的路径", "Use selected path"))) { var selected = PathPointInsertion.SelectionPath(); if (selected != null) SelectPath(selected); else message = T("请先在层级中选择路径或它的生成组。", "Select a path or its generated group in the Hierarchy."); }
-            if (Event.current.type == EventType.Repaint) { var rect = GUILayoutUtility.GetLastRect(); useSelectionArea = new Rect(GUIUtility.GUIToScreenPoint(rect.position), rect.size); }
-            if (path == null || PathFenceDraft.Active) { EditorGUILayout.EndScrollView(); return; }
             PathSceneTool.DrawEnable(path);
             try { EditorGUILayout.LabelField(T("路径长度", "Path length"), path.Length.ToString("0.###") + " m"); }
             catch (Exception e) { EditorGUILayout.HelpBox(e.Message, MessageType.Warning); }
@@ -103,6 +113,7 @@ namespace CH.CustomTools.Paths.Editor
                 if (tab != 3) PathAuthoringPreview.Configure(path, model, placement, mesh, material, posts,
                     tab != 2 && previewModels, tab != 1 && previewMesh);
             }
+            DrawSelectedMeshDimensions();
             if (!string.IsNullOrEmpty(PathAuthoringPreview.Status)) EditorGUILayout.HelpBox(PathAuthoringPreview.Status, MessageType.Warning);
             if (!string.IsNullOrEmpty(message)) EditorGUILayout.HelpBox(message, MessageType.Info);
             EditorGUILayout.EndScrollView();
@@ -116,7 +127,7 @@ namespace CH.CustomTools.Paths.Editor
                 : new[] { "XZ plane / +Y height", "YZ plane / +X height", "XY plane / +Z height" });
         }
 
-        void DrawFencePlacement()
+        void DrawPathPlacement()
         {
             using (new EditorGUILayout.HorizontalScope())
             {
@@ -128,7 +139,7 @@ namespace CH.CustomTools.Paths.Editor
                     {
                         if (GUILayout.Button(T("取消绘制", "Cancel drawing"))) PathFenceDraft.Cancel();
                     }
-                    else if (GUILayout.Button(T("在 Scene 绘制电子围栏", "Draw electronic fence in Scene")))
+                    else if (GUILayout.Button(T("在 Scene 绘制路径", "Draw path in Scene")))
                     {
                         var scene = SceneView.lastActiveSceneView;
                         if (scene == null) scene = EditorWindow.GetWindow<SceneView>();
@@ -141,20 +152,22 @@ namespace CH.CustomTools.Paths.Editor
                             fenceMesh.fenceAxis = axis;
                             fenceMesh.fenceLocalAxis = false;
                             previewFence = true;
-                            tab = 4;
+                            tab = 0;
+                            previewModels = previewMesh = false;
                             scroll = Vector2.zero;
-                            PathSceneTool.Edit(path);
+                            PathSceneTool.SelectWhole(path);
                         });
                     }
                 }
             }
             if (PathFenceDraft.Active)
-                EditorGUILayout.HelpBox(T("左键落点，Shift 锁轴。右键单击或回车完成开放围栏，点击首点闭合。Backspace 撤回，Esc 取消。",
-                    "Click to add points; Shift aligns an edge. Right-click or Enter finishes an open fence; click the first point to close. Backspace removes the last point. Esc cancels."),
+                EditorGUILayout.HelpBox(T("左键落点，Shift 锁轴。右键单击或回车完成开放路径，点击首点闭合。Backspace 撤回，Esc 取消。",
+                    "Click to add points; Shift aligns an edge. Right-click or Enter finishes an open path; click the first point to close. Backspace removes the last point. Esc cancels."),
                     MessageType.Info);
         }
         void DrawPlacement()
         {
+            EditorGUI.BeginChangeCheck();
             placement.spacing = EditorGUILayout.FloatField(T("放置间距（米）", "Spacing (m)"), placement.spacing);
             placement.includeEnd = EditorGUILayout.Toggle(T("开放路径补上终点", "Include open-path endpoint"), placement.includeEnd);
             placement.orientation = (PlacementOrientation)PathText.Choice("模型朝向", "Orientation", (int)placement.orientation, new[] { "跟随路径", "竖直放置", "固定世界朝向" }, new[] { "Follow path", "Upright", "Fixed world rotation" });
@@ -162,10 +175,63 @@ namespace CH.CustomTools.Paths.Editor
             placement.rotation = EditorGUILayout.Vector3Field(T("模型旋转修正（度）", "Model rotation offset (degrees)"), placement.rotation);
             placement.scale = EditorGUILayout.Vector3Field(T("模型缩放倍率", "Model scale multiplier"), placement.scale);
             EditorGUILayout.HelpBox(T("按实际距离放置，保留预制体关联；模型保持刚体形状，不沿曲线弯曲。默认模型朝前 +Z，朝上 +Y。补终点时最后一段可能短于间距。", "Uses world-distance spacing and preserves prefab links. Models keep their rigid shape. Default forward is +Z, up is +Y. Including the endpoint can shorten the final interval."), MessageType.None);
+            if (EditorGUI.EndChangeCheck() && PathSceneTool.OutputSelected) PathSceneTool.SelectWhole(path);
             GenerationNote(); if (GUILayout.Button(T("生成 / 重新生成模型", "Generate / rebuild models"), GUILayout.Height(28))) Action(() => PathAuthoring.Place(path, model, placement));
         }
+        static float DimensionField(string label, float value, float scale)
+        {
+            // Planar geometry can have a zero extent. Its thickness control supplies that extra dimension.
+            using (new EditorGUI.DisabledScope(value < .00001f))
+            {
+                float next = EditorGUILayout.DelayedFloatField(label, value);
+                if (value < .00001f || !float.IsFinite(next) || next <= 0 || next == value) return scale;
+                return Mathf.Clamp(scale * next / value, .001f, 100000f);
+            }
+        }
+        void DrawMeshDimensions(PathMeshSettings settings)
+        {
+            EditorGUILayout.LabelField(T("整体网格尺寸", "Overall mesh dimensions"), EditorStyles.boldLabel);
+            if (PathMeshBuilder.IsSheet(settings.kind))
+                settings.sheetThickness = Mathf.Max(0, EditorGUILayout.FloatField(T("面片厚度（米）", "Sheet thickness (m)"), settings.sheetThickness));
+            var scale = PathMeshBuilder.DimensionScale(settings);
+            var next = EditorGUILayout.Vector3Field(T("尺寸倍率 XYZ", "Size multiplier XYZ"), scale);
+            if (BezierPath.Finite(next) && next.x > 0 && next.y > 0 && next.z > 0) scale = next;
+            settings.dimensionsScale = scale;
+            if (PathAuthoringPreview.TryGetDimensions(path, settings, out var size))
+            {
+                scale.x = DimensionField(T("宽 X（米）", "Width X (m)"), size.x, scale.x);
+                scale.y = DimensionField(T("高 Y（米）", "Height Y (m)"), size.y, scale.y);
+                scale.z = DimensionField(T("长 Z（米）", "Length Z (m)"), size.z, scale.z);
+                settings.dimensionsScale = scale;
+            }
+            EditorGUILayout.HelpBox(T("整体尺寸按世界 XYZ 绕网格中心缩放，开启预览后可以直接输入实际尺寸。面片可增加厚度。尺寸调整会影响网格与路径的相对位置。",
+                "Overall dimensions scale around the mesh center on world XYZ axes. Enable live preview to enter actual dimensions. Sheets can have thickness. Scaling changes the mesh relative to the path."), MessageType.None);
+        }
+
+        void DrawSelectedMeshDimensions()
+        {
+            if (!PathSceneTool.OutputSelected || Selection.activeGameObject == null) return;
+            var filter = Selection.activeGameObject.GetComponent<MeshFilter>();
+            if (filter == null || filter.sharedMesh == null) return;
+            EditorGUILayout.LabelField(T("选中 Mesh 的尺寸", "Selected mesh dimensions"), EditorStyles.boldLabel);
+            var transform = filter.transform;
+            var scale = transform.localScale;
+            var size = Vector3.Scale(filter.sharedMesh.bounds.size, new Vector3(Mathf.Abs(scale.x), Mathf.Abs(scale.y), Mathf.Abs(scale.z)));
+            var next = new Vector3(
+                DimensionField(T("局部宽 X（米）", "Local width X (m)"), size.x, Mathf.Abs(scale.x)),
+                DimensionField(T("局部高 Y（米）", "Local height Y (m)"), size.y, Mathf.Abs(scale.y)),
+                DimensionField(T("局部长 Z（米）", "Local length Z (m)"), size.z, Mathf.Abs(scale.z)));
+            next = Vector3.Scale(next, new Vector3(Mathf.Sign(scale.x), Mathf.Sign(scale.y), Mathf.Sign(scale.z)));
+            if (next == scale) return;
+            Undo.RecordObject(transform, "Resize selected path mesh");
+            transform.localScale = next;
+            PrefabUtility.RecordPrefabInstancePropertyModifications(transform);
+            SceneView.RepaintAll();
+        }
+
         void DrawMesh(PathMeshSettings mesh, bool fenceOnly)
         {
+            EditorGUI.BeginChangeCheck();
             if (fenceOnly) mesh.kind = PathMeshKind.ElectronicFence;
             else mesh.kind = (PathMeshKind)PathText.Choice("网格类型", "Mesh type", (int)mesh.kind, new[] { "连续标线 / 面片", "虚线", "方向箭头", "圆管", "栏杆" }, new[] { "Continuous ribbon", "Dashed line", "Direction arrows", "Tube", "Railing" });
             bool fence = mesh.kind == PathMeshKind.ElectronicFence;
@@ -175,12 +241,14 @@ namespace CH.CustomTools.Paths.Editor
             else { mesh.width = EditorGUILayout.FloatField(T("标线宽度（米）", "Width (m)"), mesh.width); mesh.surfaceOffset = EditorGUILayout.FloatField(T("离路径表面高度（米）", "Surface offset (m)"), mesh.surfaceOffset); mesh.twoSided = EditorGUILayout.Toggle(T("生成双面", "Generate two sides"), mesh.twoSided); }
             if (mesh.kind == PathMeshKind.DashedLine || mesh.kind == PathMeshKind.Arrows) { mesh.dashLength = EditorGUILayout.FloatField(T("每段长度（米）", "Mark length (m)"), mesh.dashLength); mesh.gap = EditorGUILayout.FloatField(T("空白间隔（米）", "Gap (m)"), mesh.gap); }
             if (mesh.kind == PathMeshKind.Railing) { mesh.height = EditorGUILayout.FloatField(T("栏杆高度（米）", "Railing height (m)"), mesh.height); mesh.postSpacing = EditorGUILayout.FloatField(T("立柱间距（米）", "Post spacing (m)"), mesh.postSpacing); mesh.railCount = EditorGUILayout.IntSlider(T("横杆数量", "Rail count"), mesh.railCount, 1, 4); }
+            DrawMeshDimensions(mesh);
             mesh.step = EditorGUILayout.FloatField(T("网格分段间距（米）", "Mesh segment step (m)"), mesh.step);
             mesh.metersPerTile = EditorGUILayout.FloatField(T("贴图每次重复长度（米）", "Metres per texture repeat"), mesh.metersPerTile);
             mesh.uvScale = EditorGUILayout.Vector2Field(T("UV平铺倍率", "UV tiling multiplier"), mesh.uvScale); mesh.uvOffset = EditorGUILayout.Vector2Field(T("UV偏移", "UV offset"), mesh.uvOffset);
             if (!fence) material = (Material)EditorGUILayout.ObjectField(T("材质 / 横杆材质", "Material / rail material"), material, typeof(Material), false);
             if (mesh.kind == PathMeshKind.Railing) posts = (Material)EditorGUILayout.ObjectField(T("立柱材质（可选）", "Post material (optional)"), posts, typeof(Material), false);
             if (!fence) EditorGUILayout.HelpBox(T("UV0：X横向，Y按距离平铺；UV1：X横向，Y为0到1路径进度（立柱为底到顶）。可直接赋予特效材质。空材质自动创建当前管线默认材质。急弯处宽网格可能相交，请减小宽度或调整曲线。UV1用于特效，烘焙光照前需另做光照UV。", "UV0: X across, Y tiled by distance. UV1: X across, Y normalized path progress (posts: bottom to top). Assign an effect material directly. Empty material creates a default for the active pipeline. Wide meshes can overlap at tight bends. UV1 is for effects; generate separate lightmap UVs before baking."), MessageType.None);
+            if (EditorGUI.EndChangeCheck() && PathSceneTool.OutputSelected) PathSceneTool.SelectWhole(path);
             EditorGUILayout.BeginHorizontal(); folder = EditorGUILayout.TextField(T("网格保存目录", "Mesh asset folder"), folder);
             if (GUILayout.Button(T("使用选择目录", "Use selected folder"), GUILayout.Width(135))) { string p = AssetDatabase.GetAssetPath(Selection.activeObject); if (AssetDatabase.IsValidFolder(p)) folder = p; }
             EditorGUILayout.EndHorizontal();
@@ -206,7 +274,7 @@ namespace CH.CustomTools.Paths.Editor
                 path.closed = closed; path.Invalidate(); PrefabUtility.RecordPrefabInstancePropertyModifications(path);
                 EditorUtility.SetDirty(path);
             }
-            int selected = PathPointInsertion.FocusedIndex(path);
+            int selected = PathSceneTool.PointEditing ? PathPointInsertion.FocusedIndex(path) : -1;
             if (selected >= 0 && selected < path.knots.Count)
             {
                 float height = mesh.fenceHeight * (path.knots[selected].fenceHeightOverride ? path.knots[selected].fenceHeightScale : 1);

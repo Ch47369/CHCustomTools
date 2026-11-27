@@ -193,8 +193,8 @@ namespace CH.CustomTools.Paths.Editor
                 doubledArea += Vector3.Dot(Vector3.Cross(points[i] - origin, points[i + 1] - origin), normal);
             if (points.Count < (closed ? 3 : 2) || (closed && Mathf.Abs(doubledArea) < 1e-5f))
             {
-                view.ShowNotification(new GUIContent(closed ? PathText.T("闭合围栏需要至少三个不共线的点。", "A closed fence needs at least three non-collinear points.")
-                    : PathText.T("开放围栏至少需要两个点。", "An open fence needs at least two points.")));
+                view.ShowNotification(new GUIContent(closed ? PathText.T("闭合路径需要至少三个不共线的点。", "A closed path needs at least three non-collinear points.")
+                    : PathText.T("开放路径至少需要两个点。", "An open path needs at least two points.")));
                 return;
             }
             var callback = completed;
