@@ -68,9 +68,13 @@ namespace CH.CustomTools.Paths
             if (!k.automatic) return k.position + (outgoing ? k.outgoing : k.incoming);
             var previous = knots[index == 0 ? closed ? knots.Count - 1 : 0 : index - 1].position;
             var next = knots[index == knots.Count - 1 ? closed ? 0 : index : index + 1].position;
+            return AutomaticHandle(previous, k.position, next, outgoing);
+        }
+        public static Vector3 AutomaticHandle(Vector3 previous, Vector3 point, Vector3 next, bool outgoing)
+        {
             var direction = (next - previous).normalized;
-            float length = (outgoing ? next - k.position : k.position - previous).magnitude / 3;
-            return k.position + direction * (outgoing ? length : -length);
+            float length = (outgoing ? next - point : point - previous).magnitude / 3;
+            return point + direction * (outgoing ? length : -length);
         }
         public void Cubic(int segment, float t, out Vector3 position, out Vector3 tangent)
         {

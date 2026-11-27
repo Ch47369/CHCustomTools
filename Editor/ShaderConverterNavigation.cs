@@ -20,7 +20,8 @@ namespace ASEShaderConverter.Editor
         [SerializeField] private string lastShaderPage = "conversion", lastVfxPage = "audio";
         [SerializeField] private RhythmCurvePanel audio = new RhythmCurvePanel();
         [SerializeField] private VfxResourceOrganizerPanel organizer = new VfxResourceOrganizerPanel();
-        private string ActiveCategory { get { return activePage == "settings" ? "settings" : activePage == "measurement" || activePage == "paths" ? "scene" : activePage == "audio" || activePage == "organizer" ? "vfx" : "shader"; } }
+        [SerializeField] private ParticleTrailPanel particleTrails = new ParticleTrailPanel();
+        private string ActiveCategory { get { return activePage == "settings" ? "settings" : activePage == "measurement" || activePage == "paths" ? "scene" : activePage == "audio" || activePage == "organizer" || activePage == "particleTrails" ? "vfx" : "shader"; } }
         private void EnableVfxPanels()
         {
             if (audio == null) audio = new RhythmCurvePanel();
@@ -29,7 +30,7 @@ namespace ASEShaderConverter.Editor
             if(measurement==null)measurement=new MeasurementPanel();
             measurement.Enable(Repaint);
         }
-        private void DisableVfxPanels() { if (audio != null) audio.Disable(); if (organizer != null) organizer.Disable(); if(measurement!=null)measurement.Disable(); if(paths!=null)paths.Deactivate(); }
+        private void DisableVfxPanels() { if (audio != null) audio.Disable(); if (organizer != null) organizer.Disable(); if(measurement!=null)measurement.Disable(); if(paths!=null)paths.Deactivate(); ParticleTrailSceneTool.Stop(); }
         private void OnDestroy() { if (audio != null) audio.Dispose(); }
         private void OnFocus() { if (audio != null) audio.ValidateSource(); }
         public static void OpenAudio(RhythmCurveProfile profile = null)
@@ -62,6 +63,7 @@ namespace ASEShaderConverter.Editor
             if (page == "scene") page = "measurement";
             if(activePage=="measurement" && page!="measurement" && measurement!=null)measurement.Deactivate();
             if(activePage=="paths" && page!="paths" && paths!=null)paths.Deactivate();
+            if (activePage == "particleTrails" && page != "particleTrails") ParticleTrailSceneTool.Stop();
             if (activePage == "audio" && page != "audio") RhythmAudioPreview.StopOwn();
             activePage = page;
             if (ActiveCategory == "shader") lastShaderPage = page;
@@ -79,6 +81,13 @@ namespace ASEShaderConverter.Editor
         public static void OpenAgent() { ShowMain().Navigate("agent"); }
         public static void OpenMeasurement() { ShowMain().Navigate("measurement"); }
         public static void OpenPathTools() { ShowMain().Navigate("paths"); }
+        public static void OpenParticleTrails(ParticleSystem system = null)
+        {
+            var window = ShowMain();
+            if (window.particleTrails == null) window.particleTrails = new ParticleTrailPanel();
+            if (system != null) window.particleTrails.SetTarget(system);
+            window.Navigate("particleTrails");
+        }
         public static void OpenUpdates()
         {
             var window = ShowMain(); window.settingsTab = 1; window.Navigate("settings");
@@ -87,9 +96,10 @@ namespace ASEShaderConverter.Editor
         private void OnGUI()
         {
             titleContent.text = CHToolLanguage.Pick("CH自定义工具集", "CH Custom Tools");
-            if (System.Array.IndexOf(new[] { "conversion", "library", "agent", "audio", "organizer", "measurement", "paths", "settings" }, activePage) < 0) activePage = "conversion";
+            if (System.Array.IndexOf(new[] { "conversion", "library", "agent", "audio", "organizer", "particleTrails", "measurement", "paths", "settings" }, activePage) < 0) activePage = "conversion";
             if(paths==null)paths=new PathToolsPanel();
             if (library == null) library = new ShaderLibraryPanel();
+            if (particleTrails == null) particleTrails = new ParticleTrailPanel();
             EditorGUILayout.BeginHorizontal();
             DrawNavigation();
             EditorGUILayout.BeginVertical(GUILayout.Width(Mathf.Max(400, position.width - 210)), GUILayout.ExpandHeight(true));
@@ -103,6 +113,7 @@ namespace ASEShaderConverter.Editor
             else if (activePage == "settings") DrawSettingsPage();
             else if (activePage == "audio") audio.DrawPanel();
             else if (activePage == "organizer") organizer.DrawPanel();
+            else if (activePage == "particleTrails") particleTrails.DrawPanel();
             else if (activePage == "measurement") measurement.DrawPanel();
             else if (activePage == "paths") paths.DrawPanel();
             else DrawConversionPage();
@@ -118,6 +129,7 @@ namespace ASEShaderConverter.Editor
                 case "agent": CHFeatureHeader.Draw("AGENT", "INTEGRATION"); break;
                 case "audio": CHFeatureHeader.Draw("AUDIO", "RHYTHM CURVES"); break;
                 case "organizer": CHFeatureHeader.Draw("VFX", "RESOURCE ORGANIZER"); break;
+                case "particleTrails": CHFeatureHeader.Draw("VFX", "PARTICLE TRAILS"); break;
                 case "measurement": CHFeatureHeader.Draw("SCENE", "MEASUREMENT"); break;
                 case "paths": CHFeatureHeader.Draw("PATH", "CREATION & MOTION"); break;
                 case "settings": CHFeatureHeader.Draw("SETTINGS", settingsTab == 1 ? "PLUGIN UPDATES" : settingsTab == 2 ? "ABOUT" : "GENERAL"); break;
@@ -127,7 +139,7 @@ namespace ASEShaderConverter.Editor
         private void DrawCategoryTabs()
         {
             if (ActiveCategory == "settings") return;
-            var pages = ActiveCategory == "shader" ? new[] { "conversion", "library", "agent" } : ActiveCategory=="scene" ? new[]{"measurement","paths"} : new[] { "audio", "organizer" };
+            var pages = ActiveCategory == "shader" ? new[] { "conversion", "library", "agent" } : ActiveCategory=="scene" ? new[]{"measurement","paths"} : new[] { "audio", "organizer", "particleTrails" };
             var titles = System.Array.ConvertAll(pages, PageTitle);
             int selected = System.Array.IndexOf(pages, activePage);
             int next = GUILayout.Toolbar(selected, titles);
@@ -143,6 +155,7 @@ namespace ASEShaderConverter.Editor
             if (page == "paths") return CHToolLanguage.Pick("路径工具", "Path tools");
             if (page == "audio") return CHToolLanguage.Pick("音频转动画曲线", "Audio to animation curves");
             if (page == "organizer") return CHToolLanguage.Pick("特效资源整理", "VFX resource organizer");
+            if (page == "particleTrails") return CHToolLanguage.Pick("曲线转粒子拖尾", "Curve to particle trail");
             if (page == "library") return CHToolLanguage.Pick("着色器库", "Shader library");
             if (page == "agent") return CHToolLanguage.Pick("Agent 接入", "Agent integration");
             if (page == "settings") return CHToolLanguage.Pick("设置", "Settings");
