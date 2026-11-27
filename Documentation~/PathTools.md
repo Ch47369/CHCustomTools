@@ -1,3 +1,5 @@
+**0.6.10 电子围栏** · 在 Scene 视图沿 XZ、YZ 或 XY 平面绘制围栏，网格沿垂直轴生成。支持 Shift 对齐、实时预览和自定义材质。
+
 **0.6.9 路径编辑** · 在 Scene 视图选中路径点后按 Delete，即可删除该点。支持撤销与重做，开放路径至少两个点，闭合路径至少三个点。
 
 **0.6.8 路径编辑** · 按住 Shift 从开放路径首点拖出新点，向前延长路径。选中任意点后在 Scene 按 F，镜头对准该点，并保留当前缩放和观察方向。
@@ -18,6 +20,14 @@
 **点类型**：在“整条路径类型”统一设置，或选中一个点后/展开该点单独设置。直线角点收起两侧切线，连接为折线；自动平滑按相邻点计算；贝兹角点保留两侧独立切线，选中后拖动方形控制柄调整进入或离开方向/长度，不联动另一侧，允许尖角。此处“角点”不强制90°。新建/旧路径继续使用原有控制点格式，支持混合类型、Undo/Redo 和 Prefab 覆盖。Ctrl 保形插点会使用独立切线保留形状。
 
 **连线显示修复**：0.6.4 在 Scene 编辑绘制阶段画线，与点的位置一致，不依赖 Gizmos 开关。选中路径的线穿透几何便于编辑；未选中路径尊重深度，隐藏对象、相机层和当前 Stage 过滤仍生效。
+
+## 电子围栏 / Electronic fence
+
+在 **编辑路径** 选择绘制平面，再点 **在 Scene 绘制电子围栏**。XZ 对应 +Y，YZ 对应 +X，XY 对应 +Z。默认是 XZ。首点决定绘制平面的位置，后续落点沿同一平面。左键添加点，按住 Shift 将下一段限制在平面内最近的一条主轴，Backspace 撤回上一点。点回首点或按 Enter 闭合，Esc 取消。
+
+已有路径可在 **生成网格 → 网格类型 → 电子围栏** 使用。可选择世界轴或路径局部轴，调整高度和底部偏移，并在 Scene 中实时预览。拖入自定义材质即可替换默认的青色半透明扫描效果。材质剔除背面且需要从两边观看时，勾选 **生成背面**。点击生成或重新生成网格后保存结果。UV0 的 X 按路径距离平铺，Y 从底到顶。UV1 的 X 为归一化路径进度，Y 从底到顶。
+
+In **Edit path**, choose the drawing plane and click **Draw electronic fence in Scene**. The selected plane determines the extrusion axis. Click to place corners, hold Shift to align the next edge, and click the first point or press Enter to close. In **Generate mesh**, choose **Electronic fence** to use an existing path. Assign a custom material to replace the default scan effect and generate the mesh to commit the preview.
 
 ## 快速开始
 

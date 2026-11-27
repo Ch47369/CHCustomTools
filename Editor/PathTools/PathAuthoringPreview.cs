@@ -21,7 +21,7 @@ namespace CH.CustomTools.Paths.Editor
         static GameObject source;
         static PathPlacementSettings placement;
         static PathMeshSettings settings;
-        static Material material, posts, fallback;
+        static Material material, posts, fallback, fenceFallback;
         static Mesh mesh;
         static bool showModels, showMesh;
         static string signature, modelError, meshError;
@@ -51,7 +51,7 @@ namespace CH.CustomTools.Paths.Editor
         }
         static void Tick()
         {
-            if (path == null) { if (signature != null || fallback != null) Stop(); return; }
+            if (path == null) { if (signature != null || fallback != null || fenceFallback != null) Stop(); return; }
             if (!PathSceneTool.Active || EditorApplication.isPlayingOrWillChangePlaymode || PathMotionPreview.IsActive || !path.gameObject.scene.isLoaded) { Stop(); return; }
             if (EditorApplication.timeSinceStartup < next) return;
             next = EditorApplication.timeSinceStartup + 1.0 / 20;
@@ -74,7 +74,7 @@ namespace CH.CustomTools.Paths.Editor
             if (showMesh) try
             {
                 mesh = PathMeshBuilder.Build(path, settings); mesh.hideFlags = HideFlags.HideAndDontSave;
-                for (int i = 0; i < mesh.subMeshCount; i++) surface.Add(new Draw { mesh = mesh, matrix = Matrix4x4.identity, material = i == 1 && posts != null ? posts : material != null ? material : Default(), submesh = i, layer = path.gameObject.layer });
+                for (int i = 0; i < mesh.subMeshCount; i++) surface.Add(new Draw { mesh = mesh, matrix = Matrix4x4.identity, material = i == 1 && posts != null ? posts : material != null ? material : MeshDefault(settings.kind), submesh = i, layer = path.gameObject.layer });
             }
             catch (Exception e) { if (mesh != null) Object.DestroyImmediate(mesh); mesh = null; surface.Clear(); meshError = e.Message; }
             BuildRenderers(); SceneView.RepaintAll();
@@ -110,6 +110,16 @@ namespace CH.CustomTools.Paths.Editor
             renderer.forceRenderingOff = true;
         }
         static Material Default() { if (fallback == null) { fallback = PathAuthoring.DefaultMaterial(); fallback.hideFlags = HideFlags.HideAndDontSave; } return fallback; }
+        static Material MeshDefault(PathMeshKind kind)
+        {
+            if (kind != PathMeshKind.ElectronicFence) return Default();
+            if (fenceFallback == null)
+            {
+                fenceFallback = PathAuthoring.DefaultMeshMaterial(kind);
+                fenceFallback.hideFlags = HideFlags.HideAndDontSave;
+            }
+            return fenceFallback;
+        }
         static void BuildModels()
         {
             if (placement == null || source.GetComponentInChildren<BezierPath>(true) != null || source.GetComponentInChildren<PathGeneratedOutput>(true) != null) throw new ArgumentException(PathText.T("预览请选择模型或预制体。", "Choose a model or prefab for preview."));
@@ -186,6 +196,8 @@ namespace CH.CustomTools.Paths.Editor
             bool changed = path != null || mesh != null || models.Count > 0;
             path = null; source = null; placement = null; settings = null; material = posts = null; signature = null; ClearGeometry();
             if (fallback != null) Object.DestroyImmediate(fallback); fallback = null; modelError = meshError = null;
+            if (fenceFallback != null) Object.DestroyImmediate(fenceFallback);
+            fenceFallback = null;
             if (changed) SceneView.RepaintAll();
         }
     }

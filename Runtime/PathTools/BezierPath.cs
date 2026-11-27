@@ -33,10 +33,12 @@ namespace CH.CustomTools.Paths
         [Range(.02f, 2)] public float sampleStep = .2f;
         [Range(.0001f, .02f)] public float chordTolerance = .001f;
         [NonSerialized] PathSample[] table;
+        [NonSerialized] float[] knotDistances;
         [NonSerialized] int signature;
         public int SegmentCount { get { return knots == null ? 0 : closed ? knots.Count : knots.Count - 1; } }
         public float Length { get { EnsureCache(); return table[table.Length - 1].distance; } }
         public int SampleCount { get { EnsureCache(); return table.Length; } }
+        internal float KnotDistance(int index) { EnsureCache(); return knotDistances[index]; }
         public void Invalidate() { table = null; }
         void OnValidate() { Invalidate(); }
         static bool Finite(float v) { return !float.IsNaN(v) && !float.IsInfinity(v); }
@@ -83,11 +85,13 @@ namespace CH.CustomTools.Paths
             int hash = Signature(); if (table != null && hash == signature) return;
             ValidatePath();
             var points = new List<PathSample>(); var angles = new List<float>();
+            var distances = new float[knots.Count];
             for (int segment = 0; segment < SegmentCount; segment++)
             {
                 Vector3 start, tangent; Cubic(segment, 0, out start, out tangent);
                 if (segment == 0) Add(points, angles, segment, 0, start, tangent);
                 for (int j = 0; j < 8; j++) Subdivide(points, angles, segment, j / 8f, (j + 1) / 8f, 0);
+                if (segment + 1 < distances.Length) distances[segment + 1] = points[points.Count - 1].distance;
             }
             if (points.Count < 2 || points[points.Count - 1].distance < .001f) throw new InvalidOperationException("Path length must exceed 1 mm. / 路径长度须大于1毫米。");
             for (int i = 0; i < points.Count; i++)
@@ -105,7 +109,7 @@ namespace CH.CustomTools.Paths
             {
                 var p = points[i]; p.up = Quaternion.AngleAxis(seam * p.distance / length + angles[i], p.tangent) * p.up; points[i] = p;
             }
-            table = points.ToArray(); signature = hash;
+            table = points.ToArray(); knotDistances = distances; signature = hash;
         }
         void Subdivide(List<PathSample> points, List<float> angles, int s, float a, float b, int depth)
         {

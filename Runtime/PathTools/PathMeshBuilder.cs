@@ -5,7 +5,8 @@ using UnityEngine.Rendering;
 
 namespace CH.CustomTools.Paths
 {
-    public enum PathMeshKind { Ribbon, DashedLine, Arrows, Tube, Railing }
+    public enum PathMeshKind { Ribbon, DashedLine, Arrows, Tube, Railing, ElectronicFence }
+    public enum PathFenceAxis { Y, X, Z }
     [Serializable]
     public sealed class PathMeshSettings
     {
@@ -17,8 +18,12 @@ namespace CH.CustomTools.Paths
         [Range(3, 32)] public int sides = 8;
         public int railCount = 2;
         public bool caps = true, twoSided;
+        public float fenceHeight = 2f, fenceBaseOffset;
+        public bool fenceDoubleSided;
+        public PathFenceAxis fenceAxis;
+        public bool fenceLocalAxis;
     }
-    /// <summary>World-space mesh. UV0: across / metres per repeat. UV1: across / normalized path distance.</summary>
+    /// <summary>World-space path meshes with tiling UV0 and normalized effect UV1.</summary>
     public static class PathMeshBuilder
     {
         sealed class Builder
@@ -37,6 +42,13 @@ namespace CH.CustomTools.Paths
                 uv1.Add(new Vector2(across, effectV >= 0 ? effectV : distance / length)); return index;
             }
             public void Tri(int a, int b, int c, int sub = 0) { indices[sub].Add(a); indices[sub].Add(b); indices[sub].Add(c); }
+            public void FenceVertex(Vector3 point, Vector3 normal, float distance, float height)
+            {
+                Vertex(point, normal, height, distance);
+                int index = v.Count - 1;
+                uv[index] = Vector2.Scale(new Vector2(distance / settings.metersPerTile, height), settings.uvScale) + settings.uvOffset;
+                uv1[index] = new Vector2(distance / length, height);
+            }
             public Mesh Finish()
             {
                 if (v.Count == 0) throw new InvalidOperationException("No mesh generated. / 未生成网格。");
@@ -51,8 +63,19 @@ namespace CH.CustomTools.Paths
         public static Mesh Build(BezierPath path, PathMeshSettings settings)
         {
             if (path == null || settings == null) throw new ArgumentNullException();
-            Positive(settings.step, "Step"); Positive(settings.metersPerTile, "Meters per tile"); Positive(settings.width, "Width"); Positive(settings.radius, "Radius");
-            if (settings.sides < 3 || settings.sides > 32 || settings.railCount < 1 || settings.railCount > 4 || !BezierPath.Finite(new Vector3(settings.uvScale.x, settings.uvScale.y, settings.surfaceOffset)) || !BezierPath.Finite(new Vector3(settings.uvOffset.x, settings.uvOffset.y, 0))) throw new ArgumentException("Invalid mesh parameters. / 网格参数无效。");
+            Positive(settings.step, "Step");
+            Positive(settings.metersPerTile, "Meters per tile");
+            if (!BezierPath.Finite(new Vector3(settings.uvScale.x, settings.uvScale.y, 0)) ||
+                !BezierPath.Finite(new Vector3(settings.uvOffset.x, settings.uvOffset.y, 0)))
+                throw new ArgumentException("Invalid mesh UV parameters. / 网格 UV 参数无效。");
+            if (settings.kind != PathMeshKind.ElectronicFence)
+            {
+                Positive(settings.width, "Width");
+                Positive(settings.radius, "Radius");
+                if (settings.sides < 3 || settings.sides > 32 || settings.railCount < 1 ||
+                    settings.railCount > 4 || !BezierPath.Finite(new Vector3(0, settings.surfaceOffset, 0)))
+                    throw new ArgumentException("Invalid mesh parameters. / 网格参数无效。");
+            }
             float length = path.Length; var builder = new Builder(settings, length);
             if (length / settings.step > 20000) throw new InvalidOperationException("Too many path divisions. / 路径分段过多。");
             if (settings.kind == PathMeshKind.Tube) Tube(builder, path, 0, length, 0, 0, 0, settings.caps && !path.closed);
@@ -65,6 +88,7 @@ namespace CH.CustomTools.Paths
                     var p = path.Evaluate(distance); Cylinder(builder, p.position, p.position + p.up * settings.height, p.Right, distance);
                 }
             }
+            else if (settings.kind == PathMeshKind.ElectronicFence) Fence(builder, path);
             else if (settings.kind == PathMeshKind.Ribbon) Ribbon(builder, path, 0, length, false);
             else
             {
@@ -74,6 +98,64 @@ namespace CH.CustomTools.Paths
                 for (int i = 0; i < count; i++) { float start = i * (settings.dashLength + settings.gap); Ribbon(builder, path, start, Mathf.Min(length, start + settings.dashLength), settings.kind == PathMeshKind.Arrows); }
             }
             return builder.Finish();
+        }
+        static void Fence(Builder builder, BezierPath path)
+        {
+            var settings = builder.settings;
+            Positive(settings.fenceHeight, "Fence height");
+            if (!BezierPath.Finite(new Vector3(0, settings.fenceBaseOffset, 0)))
+                throw new ArgumentException("Invalid fence base offset. / 围栏底部偏移无效。");
+            var up = FenceAxis(settings.fenceAxis);
+            if (settings.fenceLocalAxis) up = path.transform.TransformDirection(up);
+
+            for (int segment = 0; segment < path.SegmentCount; segment++)
+            {
+                float start = path.KnotDistance(segment);
+                float end = segment + 1 < path.knots.Count ? path.KnotDistance(segment + 1) : builder.length;
+                if (end - start < .00001f) continue;
+                int rows = Mathf.Max(1, Mathf.CeilToInt((end - start) / settings.step));
+                var bottoms = new Vector3[rows + 1];
+                var distances = new float[rows + 1];
+                for (int i = 0; i <= rows; i++)
+                {
+                    distances[i] = Mathf.Lerp(start, end, i / (float)rows);
+                    Vector3 position = i == 0 || i == rows
+                        ? path.transform.TransformPoint(path.knots[(segment + (i == rows ? 1 : 0)) % path.knots.Count].position)
+                        : path.Evaluate(distances[i]).position;
+                    bottoms[i] = position + up * settings.fenceBaseOffset;
+                }
+                AddFenceFace(builder, bottoms, distances, up, false);
+                if (settings.fenceDoubleSided) AddFenceFace(builder, bottoms, distances, up, true);
+            }
+        }
+
+        public static Vector3 FenceAxis(PathFenceAxis axis)
+        {
+            switch (axis)
+            {
+                case PathFenceAxis.X: return Vector3.right;
+                case PathFenceAxis.Y: return Vector3.up;
+                case PathFenceAxis.Z: return Vector3.forward;
+                default: throw new ArgumentOutOfRangeException(nameof(axis));
+            }
+        }
+
+        static void AddFenceFace(Builder builder, Vector3[] bottoms, float[] distances, Vector3 up, bool reverse)
+        {
+            int first = builder.v.Count;
+            for (int i = 0; i < bottoms.Length; i++)
+            {
+                var delta = bottoms[Mathf.Min(i + 1, bottoms.Length - 1)] - bottoms[Mathf.Max(i - 1, 0)];
+                var normal = Vector3.Cross(delta, up).normalized;
+                if (normal.sqrMagnitude < .5f) normal = BezierPath.Perpendicular(up, Vector3.right);
+                if (reverse) normal = -normal;
+                builder.FenceVertex(bottoms[i], normal, distances[i], 0f);
+                builder.FenceVertex(bottoms[i] + up * builder.settings.fenceHeight, normal, distances[i], 1f);
+                if (i == 0) continue;
+                int a = first + (i - 1) * 2, c = a + 2;
+                if (reverse) { builder.Tri(a, a + 1, c); builder.Tri(a + 1, c + 1, c); }
+                else { builder.Tri(a, c, a + 1); builder.Tri(a + 1, c, c + 1); }
+            }
         }
         public static List<float> PlacementDistances(float length, float spacing, bool closed, bool includeEnd)
         {
