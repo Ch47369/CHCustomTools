@@ -1,3 +1,5 @@
+**历史功能说明** · CH自定义工具集 0.7.6 已移除内置着色器库与随包图；下方说明对应旧版本。
+
 # ASE 着色器库（0.3.5）
 
 入口为 **Tools → ASE Shader Converter → ASE 着色器库**，主转换窗口也有入口。支持材质分类、Built-in / URP / HDRP、Mobile / Pad / PC、低/中/高复杂度与组合关键词检索；可按材质、复杂度、设备分组，一键安装筛选结果的 Shader 并创建 `.mat`。完整操作与分级依据见 [设备与批量生成](LibraryTargets.md)，全部方案见 [库索引](ShaderLibraryIndex.md)。

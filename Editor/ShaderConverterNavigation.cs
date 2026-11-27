@@ -11,7 +11,6 @@ namespace ASEShaderConverter.Editor
     {
         [SerializeField] private string activePage = "conversion";
         [SerializeField] private int conversionTab, settingsTab, agentTab;
-        [SerializeField] private ShaderLibraryPanel library = new ShaderLibraryPanel();
         [SerializeField] private Vector2 settingsScroll, agentScroll;
         private readonly Rect[] navigationAreas = new Rect[4];
         private static readonly string[] PageIds = { "shader", "vfx", "scene", "settings" };
@@ -58,9 +57,11 @@ namespace ASEShaderConverter.Editor
         }
         private void Navigate(string page)
         {
+            NormalizeNavigation();
             if (page == "shader") page = lastShaderPage;
             if (page == "vfx") page = lastVfxPage;
             if (page == "scene") page = "measurement";
+            if (!IsPage(page)) page = "conversion";
             if(activePage=="measurement" && page!="measurement" && measurement!=null)measurement.Deactivate();
             if(activePage=="paths" && page!="paths" && paths!=null)paths.Deactivate();
             if (activePage == "particleTrails" && page != "particleTrails") ParticleTrailSceneTool.Stop();
@@ -71,13 +72,8 @@ namespace ASEShaderConverter.Editor
             if (Event.current != null) GUI.FocusControl(null);
             Repaint();
         }
-        public static void OpenLibrary(string category = null)
-        {
-            var window = ShowMain();
-            if (window.library == null) window.library = new ShaderLibraryPanel();
-            if (!string.IsNullOrEmpty(category)) window.library.SelectCategory(category);
-            window.Navigate("library");
-        }
+        // Keep old public entry points and saved EditorWindow layouts recoverable.
+        public static void OpenLibrary(string category = null) { ShowMain().Navigate("conversion"); }
         public static void OpenAgent() { ShowMain().Navigate("agent"); }
         public static void OpenMeasurement() { ShowMain().Navigate("measurement"); }
         public static void OpenPathTools() { ShowMain().Navigate("paths"); }
@@ -92,40 +88,54 @@ namespace ASEShaderConverter.Editor
         {
             var window = ShowMain(); window.settingsTab = 1; window.Navigate("settings");
         }
-        private void OnInspectorUpdate() { if (ShaderLibraryBatch.IsRunning || PathMotionPreview.IsActive) Repaint(); }
+        private void OnInspectorUpdate() { if (PathMotionPreview.IsActive) Repaint(); }
+        private static bool IsPage(string page)
+        {
+            return page == "conversion" || page == "agent" || page == "settings" ||
+                page == "audio" || page == "organizer" || page == "particleTrails" ||
+                page == "measurement" || page == "paths";
+        }
+        private void NormalizeNavigation()
+        {
+            if (lastShaderPage != "conversion" && lastShaderPage != "agent") lastShaderPage = "conversion";
+            if (lastVfxPage != "audio" && lastVfxPage != "organizer" && lastVfxPage != "particleTrails") lastVfxPage = "audio";
+            if (!IsPage(activePage)) activePage = "conversion";
+            conversionTab = Mathf.Clamp(conversionTab, 0, 2);
+            settingsTab = Mathf.Clamp(settingsTab, 0, 2);
+            agentTab = Mathf.Clamp(agentTab, 0, 1);
+        }
         private void OnGUI()
         {
             titleContent.text = CHToolLanguage.Pick("CH自定义工具集", "CH Custom Tools");
-            if (System.Array.IndexOf(new[] { "conversion", "library", "agent", "audio", "organizer", "particleTrails", "measurement", "paths", "settings" }, activePage) < 0) activePage = "conversion";
-            if(paths==null)paths=new PathToolsPanel();
-            if (library == null) library = new ShaderLibraryPanel();
+            NormalizeNavigation();
+            if (paths == null) paths = new PathToolsPanel();
             if (particleTrails == null) particleTrails = new ParticleTrailPanel();
-            EditorGUILayout.BeginHorizontal();
-            DrawNavigation();
-            EditorGUILayout.BeginVertical(GUILayout.Width(Mathf.Max(400, position.width - 210)), GUILayout.ExpandHeight(true));
-            GUILayout.Space(10);
-            GUILayout.Label(PageTitle(ActiveCategory), EditorStyles.boldLabel);
-            DrawCategoryTabs();
-            GUILayout.Space(6);
-            DrawFeatureHeader();
-            if (activePage == "library") library.DrawPanel();
-            else if (activePage == "agent") DrawAgentPage();
-            else if (activePage == "settings") DrawSettingsPage();
-            else if (activePage == "audio") audio.DrawPanel();
-            else if (activePage == "organizer") organizer.DrawPanel();
-            else if (activePage == "particleTrails") particleTrails.DrawPanel();
-            else if (activePage == "measurement") measurement.DrawPanel();
-            else if (activePage == "paths") paths.DrawPanel();
-            else DrawConversionPage();
-            EditorGUILayout.EndVertical();
-            GUILayout.Space(8);
-            EditorGUILayout.EndHorizontal();
+            using (new EditorGUILayout.HorizontalScope())
+            {
+                DrawNavigation();
+                using (new EditorGUILayout.VerticalScope(GUILayout.Width(Mathf.Max(400, position.width - 210)), GUILayout.ExpandHeight(true)))
+                {
+                    GUILayout.Space(10);
+                    GUILayout.Label(PageTitle(ActiveCategory), EditorStyles.boldLabel);
+                    DrawCategoryTabs();
+                    GUILayout.Space(6);
+                    DrawFeatureHeader();
+                    if (activePage == "agent") DrawAgentPage();
+                    else if (activePage == "settings") DrawSettingsPage();
+                    else if (activePage == "audio") audio.DrawPanel();
+                    else if (activePage == "organizer") organizer.DrawPanel();
+                    else if (activePage == "particleTrails") particleTrails.DrawPanel();
+                    else if (activePage == "measurement") measurement.DrawPanel();
+                    else if (activePage == "paths") paths.DrawPanel();
+                    else DrawConversionPage();
+                }
+                GUILayout.Space(8);
+            }
         }
         private void DrawFeatureHeader()
         {
             switch (activePage)
             {
-                case "library": CHFeatureHeader.Draw("SHADER", "SHADER LIBRARY"); break;
                 case "agent": CHFeatureHeader.Draw("AGENT", "INTEGRATION"); break;
                 case "audio": CHFeatureHeader.Draw("AUDIO", "RHYTHM CURVES"); break;
                 case "organizer": CHFeatureHeader.Draw("VFX", "RESOURCE ORGANIZER"); break;
@@ -139,7 +149,7 @@ namespace ASEShaderConverter.Editor
         private void DrawCategoryTabs()
         {
             if (ActiveCategory == "settings") return;
-            var pages = ActiveCategory == "shader" ? new[] { "conversion", "library", "agent" } : ActiveCategory=="scene" ? new[]{"measurement","paths"} : new[] { "audio", "organizer", "particleTrails" };
+            var pages = ActiveCategory == "shader" ? new[] { "conversion", "agent" } : ActiveCategory=="scene" ? new[]{"measurement","paths"} : new[] { "audio", "organizer", "particleTrails" };
             var titles = System.Array.ConvertAll(pages, PageTitle);
             int selected = System.Array.IndexOf(pages, activePage);
             int next = GUILayout.Toolbar(selected, titles);
@@ -156,36 +166,36 @@ namespace ASEShaderConverter.Editor
             if (page == "audio") return CHToolLanguage.Pick("音频转动画曲线", "Audio to animation curves");
             if (page == "organizer") return CHToolLanguage.Pick("特效资源整理", "VFX resource organizer");
             if (page == "particleTrails") return CHToolLanguage.Pick("曲线转粒子拖尾", "Curve to particle trail");
-            if (page == "library") return CHToolLanguage.Pick("着色器库", "Shader library");
             if (page == "agent") return CHToolLanguage.Pick("Agent 接入", "Agent integration");
             if (page == "settings") return CHToolLanguage.Pick("设置", "Settings");
             return CHToolLanguage.Pick("图转换", "Graph conversion");
         }
         private void DrawNavigation()
         {
-            EditorGUILayout.BeginVertical(GUILayout.Width(180), GUILayout.ExpandHeight(true));
-            GUILayout.Space(12);
-            GUILayout.Label(CHToolLanguage.Pick("CH自定义工具集", "CH Custom Tools"), EditorStyles.boldLabel);
-            GUILayout.Space(12);
-            var style = new GUIStyle(EditorStyles.label) { alignment = TextAnchor.MiddleLeft, padding = new RectOffset(16, 8, 0, 0) };
-            for (int i = 0; i < PageIds.Length; i++)
+            using (new EditorGUILayout.VerticalScope(GUILayout.Width(180), GUILayout.ExpandHeight(true)))
             {
-                var rect = GUILayoutUtility.GetRect(180, 30, GUILayout.ExpandWidth(true));
-                if (Event.current.type == EventType.Repaint)
-                    navigationAreas[i] = new Rect(GUIUtility.GUIToScreenPoint(rect.position) - position.position, rect.size);
-                bool selected = ActiveCategory == PageIds[i];
-                if (selected) EditorGUI.DrawRect(rect, EditorGUIUtility.isProSkin ? new Color(.17f, .36f, .53f) : new Color(.24f, .49f, .78f));
-                style.normal.textColor = selected ? Color.white : EditorStyles.label.normal.textColor;
-                string label = PageTitle(PageIds[i]);
-                if (PageIds[i] == "settings" && ShaderPackageUpdater.HasNewVersion) label += "  •";
-                if (GUI.Button(rect, label, style)) Navigate(PageIds[i]);
+                GUILayout.Space(12);
+                GUILayout.Label(CHToolLanguage.Pick("CH自定义工具集", "CH Custom Tools"), EditorStyles.boldLabel);
+                GUILayout.Space(12);
+                var style = new GUIStyle(EditorStyles.label) { alignment = TextAnchor.MiddleLeft, padding = new RectOffset(16, 8, 0, 0) };
+                for (int i = 0; i < PageIds.Length; i++)
+                {
+                    var rect = GUILayoutUtility.GetRect(180, 30, GUILayout.ExpandWidth(true));
+                    if (Event.current.type == EventType.Repaint)
+                        navigationAreas[i] = new Rect(GUIUtility.GUIToScreenPoint(rect.position) - position.position, rect.size);
+                    bool selected = ActiveCategory == PageIds[i];
+                    if (selected) EditorGUI.DrawRect(rect, EditorGUIUtility.isProSkin ? new Color(.17f, .36f, .53f) : new Color(.24f, .49f, .78f));
+                    style.normal.textColor = selected ? Color.white : EditorStyles.label.normal.textColor;
+                    string label = PageTitle(PageIds[i]);
+                    if (PageIds[i] == "settings" && ShaderPackageUpdater.HasNewVersion) label += "  •";
+                    if (GUI.Button(rect, label, style)) Navigate(PageIds[i]);
+                }
+                GUILayout.FlexibleSpace();
+                GUILayout.Label(CHToolLanguage.Pick("作者：CH", "Author: CH"), EditorStyles.miniLabel);
+                var installed = ShaderPackageUpdater.Installed;
+                if (installed != null) GUILayout.Label("v" + installed.version, EditorStyles.miniLabel);
+                GUILayout.Space(8);
             }
-            GUILayout.FlexibleSpace();
-            GUILayout.Label(CHToolLanguage.Pick("作者：CH", "Author: CH"), EditorStyles.miniLabel);
-            var installed = ShaderPackageUpdater.Installed;
-            if (installed != null) GUILayout.Label("v" + installed.version, EditorStyles.miniLabel);
-            GUILayout.Space(8);
-            EditorGUILayout.EndVertical();
             var divider = GUILayoutUtility.GetRect(1, 1, GUILayout.Width(1), GUILayout.ExpandHeight(true));
             EditorGUI.DrawRect(divider, EditorGUIUtility.isProSkin ? new Color(.12f, .12f, .12f) : new Color(.6f, .6f, .6f));
             GUILayout.Space(8);
@@ -193,55 +203,59 @@ namespace ASEShaderConverter.Editor
         private void DrawSettingsPage()
         {
             settingsTab = GUILayout.Toolbar(settingsTab, new[] { CHToolLanguage.Pick("常规", "General"), CHToolLanguage.Pick("插件更新", "Updates"), CHToolLanguage.Pick("关于", "About") });
-            settingsScroll = EditorGUILayout.BeginScrollView(settingsScroll);
-            GUILayout.Space(10);
-            if (settingsTab == 0)
+            using (var view = new EditorGUILayout.ScrollViewScope(settingsScroll))
             {
-                CHToolLanguage.DrawLanguageSelector();
-                CHSceneToolSettings.Draw();
-                GUILayout.Space(14);
-                EditorGUILayout.HelpBox(CHToolLanguage.Pick("默认跟随 Unity 的语言。手动选择中文或 English 后，插件内所有功能统一使用所选语言；恢复默认即可继续跟随 Unity。", "Follows Unity's language by default. A manual Chinese or English choice applies to every feature in the plugin. Reset language to follow Unity again."), MessageType.None);
+                settingsScroll = view.scrollPosition;
+                GUILayout.Space(10);
+                if (settingsTab == 0)
+                {
+                    CHToolLanguage.DrawLanguageSelector();
+                    CHSceneToolSettings.Draw();
+                    GUILayout.Space(14);
+                    EditorGUILayout.HelpBox(CHToolLanguage.Pick("默认跟随 Unity 的语言。手动选择中文或 English 后，插件内所有功能统一使用所选语言；恢复默认即可继续跟随 Unity。", "Follows Unity's language by default. A manual Chinese or English choice applies to every feature in the plugin. Reset language to follow Unity again."), MessageType.None);
+                }
+                else if (settingsTab == 1)
+                {
+                    ShaderPackageUpdateGUI.Draw();
+                    EditorGUILayout.LabelField(ShaderPackageUpdater.InstallationNote, EditorStyles.wordWrappedLabel);
+                }
+                else
+                {
+                    EditorGUILayout.LabelField(CHToolLanguage.Pick("作者", "Author"), "CH");
+                    EditorGUILayout.LabelField(CHToolLanguage.Pick("工具集", "Tool collection"), "CH自定义工具集");
+                    EditorGUILayout.LabelField(CHToolLanguage.Pick("功能", "Features"), "Shader / VFX / "+PageTitle("scene"));
+                    EditorGUILayout.LabelField(ShaderPackageUpdater.SourceLabel, EditorStyles.wordWrappedLabel);
+                    EditorGUILayout.Space();
+                    EditorGUILayout.LabelField(CHToolLanguage.Pick("Git 安装地址", "Git install URL"), EditorStyles.boldLabel);
+                    EditorGUILayout.SelectableLabel(ShaderPackageUpdatePolicy.Repository, EditorStyles.textField, GUILayout.Height(22));
+                    if (GUILayout.Button(CHToolLanguage.Pick("复制 Git 地址", "Copy Git URL"))) EditorGUIUtility.systemCopyBuffer = ShaderPackageUpdatePolicy.Repository;
+                }
             }
-            else if (settingsTab == 1)
-            {
-                ShaderPackageUpdateGUI.Draw();
-                EditorGUILayout.LabelField(ShaderPackageUpdater.InstallationNote, EditorStyles.wordWrappedLabel);
-            }
-            else
-            {
-                EditorGUILayout.LabelField(CHToolLanguage.Pick("作者", "Author"), "CH");
-                EditorGUILayout.LabelField(CHToolLanguage.Pick("工具集", "Tool collection"), "CH自定义工具集");
-                EditorGUILayout.LabelField(CHToolLanguage.Pick("功能", "Features"), "Shader / VFX / "+PageTitle("scene"));
-                EditorGUILayout.LabelField(ShaderPackageUpdater.SourceLabel, EditorStyles.wordWrappedLabel);
-                EditorGUILayout.Space();
-                EditorGUILayout.LabelField(CHToolLanguage.Pick("Git 安装地址", "Git install URL"), EditorStyles.boldLabel);
-                EditorGUILayout.SelectableLabel(ShaderPackageUpdatePolicy.Repository, EditorStyles.textField, GUILayout.Height(22));
-                if (GUILayout.Button(CHToolLanguage.Pick("复制 Git 地址", "Copy Git URL"))) EditorGUIUtility.systemCopyBuffer = ShaderPackageUpdatePolicy.Repository;
-            }
-            EditorGUILayout.EndScrollView();
         }
         private void DrawAgentPage()
         {
             agentTab = GUILayout.Toolbar(agentTab, new[] { CHToolLanguage.Pick("连接目录", "Connection"), CHToolLanguage.Pick("使用说明", "Workflow") });
-            agentScroll = EditorGUILayout.BeginScrollView(agentScroll);
-            GUILayout.Space(10);
-            if (agentTab == 0)
+            using (var view = new EditorGUILayout.ScrollViewScope(agentScroll))
             {
-                string root = ShaderAgentInbox.Root;
-                EditorGUILayout.LabelField(CHToolLanguage.Pick("当前项目的 Agent 连接", "Agent connection for this project"), EditorStyles.boldLabel);
-                EditorGUILayout.HelpBox(File.Exists(Path.Combine(root, "connection.json")) ? CHToolLanguage.Pick("连接文件已建立。Agent 可通过此目录提交请求并读取响应。", "The connection file is available. Agents can submit requests and read responses in this directory.") : CHToolLanguage.Pick("正在等待连接文件。Unity 完成导入后会在此项目的 Library 目录自动建立连接。", "Waiting for the connection file. Unity creates it automatically under this project's Library after import."), MessageType.Info);
-                DrawAgentPath(CHToolLanguage.Pick("根目录", "Root"), root);
-                DrawAgentPath("connection.json", Path.Combine(root, "connection.json"));
-                DrawAgentPath("requests", Path.Combine(root, "requests"));
-                DrawAgentPath("responses", Path.Combine(root, "responses"));
-                if (GUILayout.Button(CHToolLanguage.Pick("在资源管理器中显示目录", "Show folder in file manager"))) EditorUtility.RevealInFinder(root);
+                agentScroll = view.scrollPosition;
+                GUILayout.Space(10);
+                if (agentTab == 0)
+                {
+                    string root = ShaderAgentInbox.Root;
+                    EditorGUILayout.LabelField(CHToolLanguage.Pick("当前项目的 Agent 连接", "Agent connection for this project"), EditorStyles.boldLabel);
+                    EditorGUILayout.HelpBox(File.Exists(Path.Combine(root, "connection.json")) ? CHToolLanguage.Pick("连接文件已建立。Agent 可通过此目录提交请求并读取响应。", "The connection file is available. Agents can submit requests and read responses in this directory.") : CHToolLanguage.Pick("正在等待连接文件。Unity 完成导入后会在此项目的 Library 目录自动建立连接。", "Waiting for the connection file. Unity creates it automatically under this project's Library after import."), MessageType.Info);
+                    DrawAgentPath(CHToolLanguage.Pick("根目录", "Root"), root);
+                    DrawAgentPath("connection.json", Path.Combine(root, "connection.json"));
+                    DrawAgentPath("requests", Path.Combine(root, "requests"));
+                    DrawAgentPath("responses", Path.Combine(root, "responses"));
+                    if (GUILayout.Button(CHToolLanguage.Pick("在资源管理器中显示目录", "Show folder in file manager"))) EditorUtility.RevealInFinder(root);
+                }
+                else
+                {
+                    EditorGUILayout.HelpBox(CHToolLanguage.Pick("1. 读取 connection.json 并执行 probe，检查实际 Unity、ASE / ShaderGraph 和目标管线。\n\n2. 使用 describe 获取真实模板与节点端口，然后 analyze 源文件。\n\n3. 通过 generate 或 generatePlan 建图。只有保存重载、Unity 编译通过的结果才标记为 Generated。\n\n4. 在目标场景另外比较材质效果。编译通过不代表画面等价。", "1. Read connection.json and run probe to check Unity, ASE / ShaderGraph and the target pipeline.\n\n2. Use describe for actual template and node ports, then analyze the source file.\n\n3. Build with generate or generatePlan. Only saved, reloaded and compiled results are marked Generated.\n\n4. Compare material appearance separately in the target scene. Compilation does not prove visual equivalence."), MessageType.None);
+                    EditorGUILayout.LabelField(CHToolLanguage.Pick("完整协议随包提供：Documentation~/AgentProtocol.md", "Full protocol included in the package: Documentation~/AgentProtocol.md"), EditorStyles.wordWrappedLabel);
+                }
             }
-            else
-            {
-                EditorGUILayout.HelpBox(CHToolLanguage.Pick("1. 读取 connection.json 并执行 probe，检查实际 Unity、ASE / ShaderGraph 和目标管线。\n\n2. 使用 describe 获取真实模板与节点端口，然后 analyze 源文件。\n\n3. 通过 generate 或 generatePlan 建图。只有保存重载、Unity 编译通过的结果才标记为 Generated。\n\n4. 在目标场景另外比较材质效果。编译通过不代表画面等价。", "1. Read connection.json and run probe to check Unity, ASE / ShaderGraph and the target pipeline.\n\n2. Use describe for actual template and node ports, then analyze the source file.\n\n3. Build with generate or generatePlan. Only saved, reloaded and compiled results are marked Generated.\n\n4. Compare material appearance separately in the target scene. Compilation does not prove visual equivalence."), MessageType.None);
-                EditorGUILayout.LabelField(CHToolLanguage.Pick("完整协议随包提供：Documentation~/AgentProtocol.md", "Full protocol included in the package: Documentation~/AgentProtocol.md"), EditorStyles.wordWrappedLabel);
-            }
-            EditorGUILayout.EndScrollView();
         }
         private static void DrawAgentPath(string label, string path)
         {

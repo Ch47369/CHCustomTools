@@ -66,7 +66,9 @@ namespace ASEShaderConverter.Editor
                 switch (request.operation)
                 {
                     case "library":
-                        response.shaderLibrary=ShaderLibraryAssets.Load();response.success=true;break;
+                        response.shaderLibrary = ShaderLibraryAssets.Load();
+                        response.error = ShaderLibraryAssets.RemovedMessage;
+                        break;
                     case "rules":
                         response.ruleLibrary = ShaderRuleLibrary.Catalog(); response.success = true; break;
                     case "probe":

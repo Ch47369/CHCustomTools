@@ -37,6 +37,7 @@ namespace ASEShaderConverter.Editor
         private void OnEnable()
         {
             titleContent = new GUIContent(CHToolLanguage.Pick("CH自定义工具集", "CH Custom Tools"));
+            NormalizeNavigation();
             EnableVfxPanels();
             ShaderPackageUpdater.Changed += Repaint;
             EditorApplication.delayCall += EnsureUpdateCheck;
@@ -65,17 +66,19 @@ namespace ASEShaderConverter.Editor
         {
             int next = GUILayout.Toolbar(conversionTab, new[]{CHToolLanguage.Pick("转换设置","Conversion settings"),CHToolLanguage.Pick("分析报告","Analysis report"),CHToolLanguage.Pick("环境检查","Environment")});
             if (next != conversionTab) { conversionTab = next; scroll = Vector2.zero; GUI.FocusControl(null); }
-            scroll = EditorGUILayout.BeginScrollView(scroll);
-            if (!string.IsNullOrEmpty(error)) EditorGUILayout.HelpBox(error, MessageType.Error);
-            if (conversionTab == 0) DrawConversionControls();
-            else if (conversionTab == 1) DrawConversionReport();
-            else
+            using (var view = new EditorGUILayout.ScrollViewScope(scroll))
             {
-                if (GUILayout.Button(CHToolLanguage.Text("检查环境"))) CheckEnvironment();
-                if (environment == null && nativeEnvironment == null) EditorGUILayout.HelpBox(CHToolLanguage.Pick("按当前输出格式与目标管线检查项目环境。", "Check the project for the selected output format and target pipeline."), MessageType.Info);
-                DrawEnvironment();
+                scroll = view.scrollPosition;
+                if (!string.IsNullOrEmpty(error)) EditorGUILayout.HelpBox(error, MessageType.Error);
+                if (conversionTab == 0) DrawConversionControls();
+                else if (conversionTab == 1) DrawConversionReport();
+                else
+                {
+                    if (GUILayout.Button(CHToolLanguage.Text("检查环境"))) CheckEnvironment();
+                    if (environment == null && nativeEnvironment == null) EditorGUILayout.HelpBox(CHToolLanguage.Pick("按当前输出格式与目标管线检查项目环境。", "Check the project for the selected output format and target pipeline."), MessageType.Info);
+                    DrawEnvironment();
+                }
             }
-            EditorGUILayout.EndScrollView();
         }
         private void DrawConversionControls()
         {
@@ -249,7 +252,6 @@ namespace ASEShaderConverter.Editor
                 EditorGUILayout.LabelField(character.title + CHToolLanguage.Text(" · 人物材质分析，尚未生成验证"), EditorStyles.boldLabel);
                 EditorGUILayout.HelpBox(CHToolLanguage.Text("识别线索：") + string.Join("、", character.matchedSignals.ToArray()) + CHToolLanguage.Text("\n待核对：") + string.Join("；", character.requiredReview.ToArray()), MessageType.None);
             }
-            if(knowledge.characterMaterials.Count>0 && GUILayout.Button(CHToolLanguage.Text("在 ASE 着色器库查看人物分类与适配要求"))) ShaderLibraryWindow.OpenCategory(knowledge.characterMaterials[0].profileId);
             EditorGUILayout.LabelField(CHToolLanguage.Text("静态成本线索（未测 GPU）"), CHToolLanguage.Text("采样位置 ") + knowledge.performance.directTextureSampleSites + CHToolLanguage.Text(" / 循环 ") + knowledge.performance.loopSites + CHToolLanguage.Text(" / 显式 Pass ") + knowledge.performance.explicitPasses);
             foreach (string observation in knowledge.performance.observations) EditorGUILayout.HelpBox(observation, MessageType.None);
             if (!string.IsNullOrEmpty(knowledge.referenceFile))

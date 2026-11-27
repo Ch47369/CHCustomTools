@@ -34,7 +34,7 @@ public static class UnityCustomToolsSmoke
     static void One(string page)
     {
         var windows = Resources.FindObjectsOfTypeAll<EditorWindow>().Where(w => w.GetType().Assembly == typeof(ASEShaderConverterWindow).Assembly).ToArray();
-        Check(windows.Length == 1 && windows[0] == main && (string)Get(main, "activePage") == page, "One host window displays " + page);
+        Check(windows.Length == 1 && windows[0] == main && (string)Get(main, "activePage") == page, "One host window displays " + page + " (actual=" + Get(main, "activePage") + ", windows=" + string.Join(",", windows.Select(w => w.GetType().Name)) + ")");
     }
     static void Click(int row)
     {
@@ -243,32 +243,69 @@ public static class UnityCustomToolsSmoke
                 case 3:
                     One("organizer"); Set(Get(main, "organizer"), "filter", "RetainedFilter");
                     ((VfxOrganizerSettings)Get(Get(main,"organizer"),"settings")).rules[0].customNaming=true;Click(0); break;
-                case 4: One("conversion"); Check((string)Get(main, "inputPath") == "Assets/Retained.shader", "Shader input is retained across VFX navigation"); ASEShaderConverterWindow.OpenLibrary(); break;
+                case 4:
+                    One("conversion");
+                    Check((string)Get(main, "inputPath") == "Assets/Retained.shader", "Shader input is retained across VFX navigation");
+                    // Simulate a serialized window restored on the old library page.
+                    Set(main, "activePage", "library"); Set(main, "lastShaderPage", "library");
+                    break;
                 case 5:
-                    One("library"); var library = Get(main, "library");
-                    var actions=(Rect)Get(library,"actionRow");var selectors=(Rect)Get(library,"selectorRow");
-                    Check(actions.width>500 && Math.Abs(actions.x-selectors.x)<.1f && Math.Abs(actions.width-selectors.width)<.1f,"Library action and selector rows have matching edges and equal columns");
-                    Check(((ASEShaderConverter.ShaderLibraryCatalog)Get(library, "catalog")).entries.Count == 293, "Unified window retains the full 293-shader catalog");
-                    Set(library, "search", "玉石"); ASEShaderConverterWindow.OpenAgent(); break;
-                case 6: One("agent"); Check(File.Exists(Path.Combine(ShaderAgentInbox.Root, "connection.json")), "Agent connection stays available"); ASEShaderConverterWindow.OpenAudio(); break;
-                case 7: One("audio"); Check(Math.Abs((float)Get(Get(main, "audio"), "cursor") - .75f) < .001f, "Audio cursor/profile state survives category changes"); Click(3); break;
-                case 8: One("settings"); language.GetMethod("Set", S).Invoke(null, new object[] { false }); break;
-                case 9:
+                    One("conversion");
+                    Check((string)Get(main, "lastShaderPage") == "conversion", "Restored library page and remembered category safely migrate to Graph conversion");
+                    Check(typeof(ASEShaderConverterWindow).GetField("library", I) == null &&
+                        Resources.Load<TextAsset>("ASEShaderLibraryCatalog") == null &&
+                        !Directory.Exists(Path.Combine(ShaderLibraryAssets.PackageRoot(), "Samples~/ShaderLibrary")),
+                        "The retired browser and bundled catalog are absent");
+                    var retired = ShaderConverterApi.Execute(new ShaderAgentRequest { operation = "library" });
+                    Check(!retired.success && retired.shaderLibrary != null && retired.shaderLibrary.entries.Count == 0 &&
+                        retired.error.Contains("removed"), "Legacy library requests receive an explicit retired-feature result");
+                    var rules = ShaderConverterApi.Execute(new ShaderAgentRequest { operation = "rules" });
+                    Check(rules.success && rules.ruleLibrary.rules.Count > 0, "Conversion rules remain available independently of the library");
+                    Check(!ShaderLibraryBatch.Generate("original-BuiltIn-DeepWater").success && !ShaderLibraryBatch.IsRunning,
+                        "Old batch entry points cannot install removed assets");
+                    ShaderLibraryWindow.Open();
+                    One("conversion");
+                    EditorWindow.GetWindow<ShaderLibraryWindow>().Show();
+                    break;
+                case 6:
+                    One("conversion");
+                    EditorWindow.GetWindow<CharacterMaterialWindow>().Show();
+                    break;
+                case 7:
+                    One("conversion"); ASEShaderConverterWindow.OpenAgent(); break;
+                case 8:
+                    One("agent"); Check(File.Exists(Path.Combine(ShaderAgentInbox.Root, "connection.json")), "Agent connection stays available");
+                    ASEShaderConverterWindow.OpenAudio(); break;
+                case 9: One("audio"); Check(Math.Abs((float)Get(Get(main, "audio"), "cursor") - .75f) < .001f, "Audio cursor/profile state survives category changes"); Click(3); break;
+                case 10: One("settings"); language.GetMethod("Set", S).Invoke(null, new object[] { false }); break;
+                case 11:
                     Check(main.titleContent.text == "CH Custom Tools", "One settings choice updates the host to English");
                     Check((string)typeof(ASEShaderConverterWindow).GetMethod("PageTitle", S).Invoke(null,new object[]{"shader"}) == "Shader" && (string)typeof(ASEShaderConverterWindow).GetMethod("PageTitle", S).Invoke(null,new object[]{"vfx"}) == "VFX", "English language restores Shader and VFX categories");
                     var audioLang = typeof(RhythmAnalyzer).Assembly.GetType("CH.CustomTools.VFX.CHToolLanguage");
                     Check(!(bool)audioLang.GetProperty("IsChinese", S).GetValue(null), "Audio/VFX panels share the host language cache");
                     language.GetMethod("Reset", S).Invoke(null, null);
                     Check(!EditorPrefs.HasKey(LanguageKey), "Reset restores Unity language following"); ASEShaderConverterWindow.OpenUpdates(); break;
-                case 10:
+                case 12:
                     One("settings"); Check((int)Get(main, "settingsTab") == 1, "Updates remain inside collection Settings");
                     ASEShaderConverterWindow.OpenOrganizer(); break;
-                case 11:
+                case 13:
                     One("organizer"); Check((string)Get(Get(main, "organizer"), "filter") == "RetainedFilter", "Organizer state survives language and category changes");
                     main.position = new Rect(180, 150, 800, 500); break;
-                case 12: ASEShaderConverterWindow.OpenAudio(profile); break;
-                case 13: One("audio"); Check(error == null, "Audio results and VFX panels render at minimum size without GUI errors");ASEShaderConverterWindow.OpenOrganizer();language.GetMethod("Set", S).Invoke(null,new object[]{false});break;
-                case 14: One("organizer");Check(error==null,"Readable custom naming renders at minimum width in English");Finish(null);return;
+                case 14: ASEShaderConverterWindow.OpenAudio(profile); break;
+                case 15: One("audio"); Check(error == null, "Audio results and VFX panels render at minimum size without GUI errors");ASEShaderConverterWindow.OpenOrganizer();language.GetMethod("Set", S).Invoke(null,new object[]{false});break;
+                case 16:
+                    One("organizer"); Check(error==null,"Readable custom naming renders at minimum width in English");
+                    ASEShaderConverterWindow.OpenMeasurement(); break;
+                case 17:
+                    One("measurement"); ASEShaderConverterWindow.OpenPathTools(); break;
+                case 18:
+                    One("paths"); ASEShaderConverterWindow.OpenParticleTrails(); break;
+                case 19:
+                    One("particleTrails"); ASEShaderConverterWindow.Open(); break;
+                case 20:
+                    One("conversion");
+                    Check(error == null, "All remaining feature pages and restored old layouts draw without GUIClip or reference errors");
+                    Finish(null);return;
             }
             main.Repaint(); next = EditorApplication.timeSinceStartup + .45;
         }

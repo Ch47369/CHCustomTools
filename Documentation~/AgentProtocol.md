@@ -1,3 +1,5 @@
+**0.7.6** · 内置着色器库已退役。旧 `library` 请求返回空目录、`success=false` 与明确的移除说明。规则查询、源分析、环境描述和建图操作照常提供。以下库相关说明适用于历史版本。
+
 # Agent 协议 v1
 
 0.4.6 输出格式显示为 ASE / ShaderGraph，均提供 Built-in / URP / HDRP 选择。`options.targetGraph="ShaderGraph"` 路由 probe/describe/analyze/generate/generatePlan 支持 Unity2022.3、SG14.0.8 三管线标准不透明 Unlit 原生子集；URP/HDRP 需对应包14.0.8与活动管线。`options.acceptStandardUnlitTarget=true` 明确授权目标标准宿主；原生计划同名字段亦需填写。旧 `acceptStandardUrpUnlitTarget` 只授权 URP。源 HDRP 宿主审查仍保留。新计划使用独立 `shaderGraphPlan`；旧 `ShaderGraphPlan`/`plan` 仍为 ASE 类型与端口，不是 Unity `.shadergraph`。包 ID、程序集/命名空间、公开旧 API、schema1 与 Agent 目录兼容。通用 ASE↔ShaderGraph 自动互转尚未实现；具体字段、宿主适配选择和限制见 [图格式与 Agent 使用](ShaderConversionRoadmap.md)。目录、293 库图及规则仍沿用 0.3.6。

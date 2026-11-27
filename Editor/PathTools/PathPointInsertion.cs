@@ -182,6 +182,7 @@ namespace CH.CustomTools.Paths.Editor
                 HandleInsertion(view);
                 PathPointDrag.SceneGUI(view, path, capturedControl != 0);
                 if (path != null && capturedControl == 0 && !Measurement.DmSceneTool.Active && (!InsertionModifier(Event.current) || GUIUtility.hotControl != 0)) BezierPathEditor.DrawSceneHandles(path);
+                PathFenceHeightEditing.Draw(view);
                 PathWholeHandle.Draw(view, path);
             }
         }

@@ -1,3 +1,5 @@
+0.7.6 接续：用户明确移除着色器库。原用户Editor.log确认 ShaderLibraryPanel.DrawPanel:54 NullReferenceException 继发 GUIClips 不平衡。取消库页面、目录及293图随包分发；旧活动页/记忆页/窗口重定向到图转换，旧API返回空目录和明确退役结果，主窗和转换/设置/Agent外层GUI用Scope确保平衡。保留规则、转换核心、原电子围栏三图和路径/VFX/更新器（围栏高度柄与位置Y轴拾取冲突定点修复），既有用户Assets未修改。旧库证据及包保持；当前Verify-Release核验库缺失，UnityCustomToolsSmoke验收旧窗口和全部现有功能页，Evidence/LibraryRemoval076与Releases~。不带Backend/SidebarLine，隔离Unity活跃不改共享C#。
+
 0.7.5 接续：统一先创建/选择路径，再选编辑、模型、网格、电子围栏、运动。点击控制点自动单点，选择路径几何中心柄，选生成物原生Center，旧资产兼容；新网格局部原点居中且世界位置/UV/法线与预览一致，模型根居中保留实例矩阵。所有网格世界XYZ尺寸倍率/预览实际米数，面片支持厚度；生成围栏独立输出，旧Mesh围栏按资产名识别。原293图、Custom2TexV2三图、音频、更新器与非路径Runtime保护，独立基准0.7.4包白名单，验证UnityPathFenceSmoke/旧路径和预览回归、Evidence/PathWorkflow075与Releases~。隔离Unity活跃不改共享C#，不改用户项目、不带Backend/SidebarLine。
 
 0.7.4 接续：独立电子围栏子页、右键/Enter开放完成、点击首点闭合；点编辑与整条Transform分离，原生工具轴恢复；逐点高度比例和Scene高度柄。默认材质改为用户提供的 Custom2TexV2，经ASE1.9.9.13官方三管线默认模板真实保存重载，保留133非主节点，Built-in透明模板修正，HDRP采用官方材质状态。仅按当前管线复制Shader到Assets，保留已有文件。原293图/核心/音频/更新器及其他任务保持基准包字节。验证 UnityPathFenceSmoke、Evidence/FenceCustom074、Releases~，失败尝试保留；不改用户项目，不带Backend/SidebarLine。
