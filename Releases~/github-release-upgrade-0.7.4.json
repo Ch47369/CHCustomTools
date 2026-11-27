@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "version": "0.7.4",
+  "release": "https://github.com/Ch47369/CHCustomTools/releases/tag/v0.7.4",
+  "downloadSha256Matches": true,
+  "sha256": "189d166519fdd15c7c4fefaf14fca14cf2682ffd25ffe8bcc98308435efde692",
+  "report": {
+    "success": true,
+    "unity": "2022.3.10f1",
+    "beforeVersion": "0.7.3",
+    "beforeSource": "Local",
+    "targetTag": "v0.7.4",
+    "installedVersion": "0.7.4",
+    "installedSource": "LocalTarball",
+    "packageId": "com.aseshader.handwritten-converter@file:F:\\ASEShader\\.validation\\GitHubReleaseUpgrade074-2022-Project\\Packages\\CHCustomToolsCache~\\com.aseshader.handwritten-converter-0.7.4.tgz",
+    "failure": ""
+  }
+}
