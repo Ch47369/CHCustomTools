@@ -1,0 +1,41 @@
+{
+  "version": "0.6.9",
+  "tarballSha256": "f8a5b24f92b0e5e9dfc098e009efb199004c840e303147e5d79c18c80931e4d0",
+  "changedFiles": [
+    "Documentation~/CustomTools.md",
+    "Documentation~/PathTools.md",
+    "Editor/PathTools/PathEditors.cs",
+    "Editor/PathTools/PathKnotEditing.cs",
+    "Editor/PathTools/PathPointInsertion.cs",
+    "README.md",
+    "Tests/UnityPathEditingSmoke.cs",
+    "package.json"
+  ],
+  "checks": 354,
+  "installations": [
+    {
+      "fixture": "PathDelete069",
+      "unity": "2022.3.10f1",
+      "checks": 59,
+      "filesVerified": 1457
+    },
+    {
+      "fixture": "PathShift069",
+      "unity": "2022.3.10f1",
+      "checks": 118,
+      "filesVerified": 1457
+    },
+    {
+      "fixture": "PathDelete069",
+      "unity": "6000.0.80f1",
+      "checks": 59,
+      "filesVerified": 1457
+    },
+    {
+      "fixture": "PathShift069",
+      "unity": "6000.0.80f1",
+      "checks": 118,
+      "filesVerified": 1457
+    }
+  ]
+}

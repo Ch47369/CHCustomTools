@@ -25,6 +25,7 @@ public static class UnityPathEditingSmoke
     static Vector3[] previewBefore;
     static float frameSize;
     static Quaternion frameRotation;
+    static string afterDelete;
     static void Check(bool ok, string message) { if (!ok) throw new Exception(message); checks.Add(message); }
     static object Get(object target, string name) { return target.GetType().GetField(name, F).GetValue(target); }
     static void Set(object target, string name, object value) { target.GetType().GetField(name, F).SetValue(target, value); }
@@ -119,8 +120,35 @@ public static class UnityPathEditingSmoke
                     break;
                 case 8:
                     Check(Vector3.Distance(view.pivot, path.transform.TransformPoint(path.knots[1].position)) < .01f, "Unity's Frame Selected command frames the focused knot");
-                    RotateEveryPoint(); Selection.activeObject = null; break;
+                    before = JsonUtility.ToJson(path);
+                    previewBefore = PathAuthoringPreview.PreviewMesh.vertices;
+                    var endpoints = new[] { path.knots[0].position, path.knots[2].position };
+                    view.Focus();
+                    CHValidationInput.Send(view, new Event { type = EventType.KeyDown, keyCode = KeyCode.Delete });
+                    CHValidationInput.Send(view, new Event { type = EventType.KeyUp, keyCode = KeyCode.Delete });
+                    Check(path != null && path.knots.Select(k => k.position).SequenceEqual(endpoints),
+                        "Scene Delete removes only the selected middle knot");
+                    afterDelete = JsonUtility.ToJson(path);
+                    break;
                 case 9:
+                    Check(!PathAuthoringPreview.PreviewMesh.vertices.SequenceEqual(previewBefore), "Deleting a path point refreshes the live mesh");
+                    CHValidationInput.Send(view, EditorGUIUtility.CommandEvent("SoftDelete"));
+                    Check(path != null && JsonUtility.ToJson(path) == afterDelete, "The open path minimum consumes Delete without deleting the object");
+                    Undo.PerformUndo();
+                    Check(JsonUtility.ToJson(path) == before, "One Undo restores the exact deleted knot");
+                    Undo.PerformRedo();
+                    Check(JsonUtility.ToJson(path) == afterDelete, "One Redo removes the same knot");
+                    Undo.PerformUndo();
+                    path.closed = true;
+                    path.Invalidate();
+                    break;
+                case 10:
+                    Mouse(EventType.MouseMove, point); Mouse(EventType.MouseDown, point); Mouse(EventType.MouseUp, point);
+                    string closedPath = JsonUtility.ToJson(path);
+                    CHValidationInput.Send(view, EditorGUIUtility.CommandEvent("Delete"));
+                    Check(path != null && JsonUtility.ToJson(path) == closedPath, "The closed path minimum consumes Delete without deleting the object");
+                    RotateEveryPoint(); Selection.activeObject = null; break;
+                case 11:
                     Check(PathPointInsertion.SelectedPath() == path, "Deselecting Hierarchy objects retains the explicitly enabled editing target");
                     PathSceneTool.Active = false; Check(!PathAuthoringPreview.IsActive && PathSceneTool.EditingPath == null, "Explicitly disabling releases the target and all previews");
                     Check(errors == null, "Selection, gestures and three-axis point rotations finish without Editor errors"); Finish(null); return;

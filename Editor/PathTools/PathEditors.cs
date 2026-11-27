@@ -72,7 +72,14 @@ namespace CH.CustomTools.Paths.Editor
                 }
                 EditorGUILayout.PropertyField(k.FindPropertyRelative("roll"), new GUIContent(PathText.T("旋转 / 横向倾斜（度）", "Rotation / bank (degrees)")));
                 using (new EditorGUI.DisabledScope(knots.arraySize <= (path.closed ? 3 : 2)))
-                    if (GUILayout.Button(PathText.T("删除此点", "Remove point"))) { knots.DeleteArrayElementAtIndex(i); EditorGUI.indentLevel--; break; }
+                    if (GUILayout.Button(PathText.T("删除此点", "Remove point")))
+                    {
+                        so.ApplyModifiedProperties();
+                        PathKnotEditing.TryRemovePoint(path, i);
+                        so.Update();
+                        EditorGUI.indentLevel--;
+                        break;
+                    }
                 EditorGUI.indentLevel--;
             }
             if (EditorGUI.EndChangeCheck()) { so.ApplyModifiedProperties(); path.Invalidate(); SceneView.RepaintAll(); }

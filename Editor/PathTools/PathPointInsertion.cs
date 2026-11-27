@@ -23,25 +23,43 @@ namespace CH.CustomTools.Paths.Editor
         static PathPointInsertion()
         {
             SceneView.duringSceneGui += SceneGUI;
-            SceneView.beforeSceneGui += HandleFrameSelected;
+            SceneView.beforeSceneGui += HandlePointCommands;
             Undo.undoRedoPerformed += ClearFocus;
             Selection.selectionChanged += SceneView.RepaintAll;
         }
-        static void HandleFrameSelected(SceneView view)
+        static void HandlePointCommands(SceneView view)
         {
             var input = Event.current;
-            bool execute = input.type == EventType.ExecuteCommand && input.commandName == "FrameSelected";
-            bool keyDown = input.type == EventType.KeyDown && input.keyCode == KeyCode.F &&
+            bool execute = input.type == EventType.ExecuteCommand;
+            bool keyDown = input.type == EventType.KeyDown &&
                 !input.alt && !input.control && !input.command && !input.shift;
-            if ((!execute && !keyDown) || !PathSceneTool.Active || PathMotionPreview.IsActive ||
+            bool frame = (execute && input.commandName == "FrameSelected") || (keyDown && input.keyCode == KeyCode.F);
+            bool delete = (execute && (input.commandName == "Delete" || input.commandName == "SoftDelete")) ||
+                (keyDown && input.keyCode == KeyCode.Delete);
+            if ((!frame && !delete) || !PathSceneTool.Active || PathMotionPreview.IsActive ||
                 Measurement.DmSceneTool.Active || EditorApplication.isPlayingOrWillChangePlaymode ||
-                GUIUtility.hotControl != 0 || EditorGUIUtility.editingTextField || EditorWindow.focusedWindow != view)
+                EditorGUIUtility.editingTextField || EditorWindow.focusedWindow != view)
                 return;
 
             var path = SelectedPath();
             int index = FocusedIndex(path);
             if (path == null || path.knots == null || index < 0 || index >= path.knots.Count || path.knots[index] == null)
                 return;
+            if (delete)
+            {
+                // Consume the command even at the minimum count so Unity can't delete the path object.
+                input.Use();
+                if (GUIUtility.hotControl != 0)
+                    return;
+                if (!PathKnotEditing.TryRemovePoint(path, index))
+                    view.ShowNotification(new GUIContent(path.closed
+                        ? PathText.T("闭合路径至少需要三个点。", "A closed path needs at least three points.")
+                        : PathText.T("开放路径至少需要两个点。", "An open path needs at least two points.")));
+                return;
+            }
+            if (GUIUtility.hotControl != 0)
+                return;
+
             var position = path.transform.TransformPoint(path.knots[index].position);
             if (!BezierPath.Finite(position))
                 return;
