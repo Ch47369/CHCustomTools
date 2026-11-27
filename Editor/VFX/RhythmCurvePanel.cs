@@ -94,7 +94,6 @@ namespace CH.CustomTools.VFX
             try
             {
                 DrawSource();
-                if (GUILayout.Button(CHToolLanguage.Pick("迁移旧版曲线数据（创建副本）", "Migrate legacy curve data (create a copy)"))) RhythmProfileMigration.ChooseCopy();
                 GUILayout.Space(8);
                 DrawAnalysis();
                 if (profile != null)

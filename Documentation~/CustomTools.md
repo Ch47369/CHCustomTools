@@ -6,7 +6,7 @@
 
 0.6.0 新增 **场景工具 → 路径工具**：编辑曲线、沿线放置模型、生成带UV的面片/标线/圆管/栏杆、预览和运行路径运动，详见 [路径工具](PathTools.md)。所有功能仍在统一窗口内。
 
-# CH自定义工具集 0.6.5
+# CH自定义工具集 0.6.7
 
 作者：CH。统一入口 **Tools → CH自定义工具集**。左侧为 Shader、VFX、场景工具、设置，右侧的功能标签直接切换当前面板，不再打开新的功能窗口。原 Shader 包升级后就是完整工具集；包 ID 保持 `com.aseshader.handwritten-converter`。
 
@@ -41,7 +41,7 @@
 
 ## 场景测量
 
-在场景工具中启用 Scene 测量，左键放点，右键或 Enter 完成，回到起点闭合面积。支持顶点 / 线段拖动、当前场景 Undo、标题与颜色修改，以及旧 WorkBuddy 记录导入。按 1 世界单位 = 1 m 显示；角度为较小夹角，面积只接受共面无自交边界。记录位于本机 EditorPrefs，不写场景。详见 [场景测量](SceneMeasurement.md)。
+在场景工具中启用 Scene 测量，左键放点，右键或 Enter 完成，回到起点闭合面积。支持顶点 / 线段拖动、当前场景 Undo、标题与颜色修改。按 1 世界单位 = 1 m 显示；角度为较小夹角，面积只接受共面无自交边界。记录位于本机 EditorPrefs，不写场景。详见 [场景测量](SceneMeasurement.md)。
 
 ## 资源整理
 
@@ -51,18 +51,9 @@
 
 执行前确认预览；移动通过 AssetDatabase 完成以保留 GUID，并生成当前项目的恢复记录。资源或层级发生变化后会使预览失效；执行时也会复查引用。路径恢复通过整理记录完成，保留整理后对资源内容的编辑。整理记录位于项目 `Artifacts/VfxResourceOrganizer`，不会被工具包升级删除。
 
-## 从旧独立音频插件升级
-
-新版完整包含 AudioRhythmCurves 1.0.9 的音频和资源整理功能，不需要再安装第二个依赖包。代码命名空间为 `CH.CustomTools.VFX`，与旧独立包的 `AudioRhythmCurves` 类型和 MonoScript GUID 区分，允许升级期间同时安装。
-
-1. 在设置 → 常规，或音频面板点击 **迁移旧版曲线数据（创建副本）**。
-2. 选择当前项目 Assets 中旧插件保存的 `.asset`。工具在同一目录创建新的 `_CH.asset`（重名自动编号），打开兼容副本。
-3. 原文件及其 GUID、音频引用、已有 `.anim` 和粒子数据保留。副本不会自动改写其他资源对原曲线数据的引用；若自定义编辑器引用旧数据，请主动改用副本。
-4. 确认副本后，可通过 Package Manager 移除旧独立音频包。若旧插件以 Assets 源码导入，只清理旧代码，保留曲线、音频、AnalysisCopies 和导出资源。
-
-支持 Unity 文本序列化的旧单对象曲线资源；二进制资源需先在旧插件中以文本格式重新保存。迁移严格检查原脚本 GUID 和数据字段，原文件不被修改。资源整理方案沿用原来按项目存储的设置键；历史整理记录仍可选择恢复。
-
 ## 安装、更新与语言
+
+首次安装可下载 [Unity Tarball 0.6.7](https://github.com/Ch47369/CHCustomTools/releases/download/v0.6.7/com.aseshader.handwritten-converter-0.6.7.tgz)，在 Package Manager 的「+」菜单选择 **Add package from tarball**，选中下载的 `.tgz`。此方式无需 Git。
 
 在 Package Manager → Add package from git URL 输入：
 
@@ -70,7 +61,7 @@
 https://github.com/Ch47369/CHCustomTools.git
 ```
 
-固定本次版本可使用 `https://github.com/Ch47369/CHCustomTools.git#v0.6.5`。仓库现为公开，安装和更新无需 GitHub 登录。首次用 Git URL 安装需要 Unity 能找到 Git；离线可安装同版本 Unity Tarball，不需要另取音频包。
+固定本次版本可使用 `https://github.com/Ch47369/CHCustomTools.git#v0.6.7`。仓库现为公开，安装和更新无需 GitHub 登录。首次用 Git URL 安装需要 Unity 能找到 Git；遇到连接重置或传输中断时，可以使用上方的 Tarball。
 
 更新在设置 → 插件更新中进行；HTTPS 安装从 GitHub Release 查询正式版本，只有严格高于当前版本才提供版本更新操作。下载通过 GitHub API 进行，验证发布资源的大小和 SHA-256，再交给 Unity 安装。安装包保存在当前项目 `Packages/CHCustomToolsCache~`，项目的包引用随之改为该文件；后续仍从 GitHub 检查和下载更新，不读取开发者本地仓库。请把此缓存目录连同 manifest 一起保留，便于项目在其他机器恢复。SSH 安装保留原 Git 传输方式。
 

@@ -12,7 +12,6 @@ namespace CH.CustomTools.Measurement
         [SerializeField] Vector2 scroll;
         [NonSerialized] Action repaint;
         [NonSerialized] bool initialized;
-        [NonSerialized] string message;
         static string T(string zh,string en) { return DmText.Pick(zh,en); }
         public void Enable(Action callback) { repaint=callback; EditorApplication.delayCall+=Initialize; }
         void Initialize()
@@ -90,13 +89,7 @@ namespace CH.CustomTools.Measurement
             if(GUILayout.Button(T("清空当前场景记录（可撤销）","Clear active scene measurements (undoable)")) && DmStore.Count>0)DmStore.Clear();
             EditorGUILayout.Space();
             if(AppDomain.CurrentDomain.GetAssemblies().Any(a=>a.GetType("UnityToolbox.DistanceMeasure.DmSceneTool")!=null))
-                EditorGUILayout.HelpBox(T("检测到旧独立测量插件。请先关闭旧插件的测量开关，避免两个工具同时处理场景输入；导入记录并确认后可移除旧包。","The standalone measurement plugin is installed. Disable its measurement mode to avoid two tools handling Scene input. Import and verify records before removing the old package."),MessageType.Warning);
-            if(GUILayout.Button(T("导入本场景旧版记录（保留旧数据）","Import legacy records for this scene (preserve originals)")))
-            {
-                try { int count=DmStore.ImportLegacy();message=T("已导入记录：","Imported records: ")+count; }
-                catch(Exception ex){message=ex.Message;}
-            }
-            if(!string.IsNullOrEmpty(message))EditorGUILayout.HelpBox(message,MessageType.Info);
+                EditorGUILayout.HelpBox(T("检测到独立测量插件。请关闭它的测量开关，避免两个工具同时处理场景输入。","The standalone measurement plugin is installed. Disable its measurement mode to avoid two tools handling Scene input."),MessageType.Warning);
             EditorGUILayout.HelpBox(T("记录按项目及场景保存在本机 EditorPrefs；不会修改场景或生成运行时物体。首次保存场景会保留记录。撤销适用于当前活动场景；切换场景会结束当前交互并保存。","Records are stored locally in EditorPrefs per project and scene. No scene edits or runtime objects are created. Saving a new scene preserves its records. Undo applies to the active scene; changing scenes finishes interaction and saves records."),MessageType.None);
             EditorGUILayout.EndScrollView();
         }

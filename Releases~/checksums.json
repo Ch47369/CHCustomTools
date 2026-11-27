@@ -1,12 +1,12 @@
 [
   {
-    "file": "com.aseshader.handwritten-converter-0.6.6.tgz",
-    "bytes": 15631242,
-    "sha256": "6b117b5b372226a12d52fe21b93e1398caf4517eb9dfd2edae60d52e02230c6d"
+    "file": "com.aseshader.handwritten-converter-0.6.7.tgz",
+    "bytes": 15630099,
+    "sha256": "0ddac1de49bdf612f64a60fed8dac76af588897ec6a5620063ca1de543ac17a2"
   },
   {
-    "file": "CHCustomTools-0.6.6.zip",
-    "bytes": 18307930,
-    "sha256": "f59d4613a235904d2e036aafc6eccedf3a1adb9bd2e37f9ec3cb7b3c588662fe"
+    "file": "CHCustomTools-0.6.7.zip",
+    "bytes": 18305835,
+    "sha256": "c252a658db576b1bc3ae6ee56217e5e44c7749f31ab1c2b9cd190be4ee8f65cc"
   }
 ]

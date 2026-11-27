@@ -187,9 +187,6 @@ namespace ASEShaderConverter.Editor
                 CHToolLanguage.DrawLanguageSelector();
                 CHSceneToolSettings.Draw();
                 GUILayout.Space(14);
-                EditorGUILayout.LabelField(CHToolLanguage.Pick("旧版音频插件", "Standalone audio plugin"), EditorStyles.boldLabel);
-                EditorGUILayout.HelpBox(CHToolLanguage.Pick("音频和资源整理现已包含在工具集中。可移除旧独立包；原曲线资源不会被删除。旧曲线数据可在此创建兼容副本，原文件和导出的动画保留。", "Audio and VFX organization are bundled here. You can remove the standalone package without deleting profile assets. Create compatible profile copies below; original files and exported animations are preserved."), MessageType.None);
-                if (GUILayout.Button(CHToolLanguage.Pick("迁移旧版曲线数据（创建副本）", "Migrate legacy curve data (create a copy)"))) RhythmProfileMigration.ChooseCopy();
                 EditorGUILayout.HelpBox(CHToolLanguage.Pick("默认跟随 Unity 的语言。手动选择中文或 English 后，插件内所有功能统一使用所选语言；恢复默认即可继续跟随 Unity。", "Follows Unity's language by default. A manual Chinese or English choice applies to every feature in the plugin. Reset language to follow Unity again."), MessageType.None);
             }
             else if (settingsTab == 1)

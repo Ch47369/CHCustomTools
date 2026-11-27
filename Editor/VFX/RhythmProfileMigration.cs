@@ -41,17 +41,5 @@ namespace CH.CustomTools.VFX
             if (result == null) throw new InvalidOperationException("The converted copy could not be loaded: " + destination + ". The original asset is preserved.");
             return result;
         }
-        internal static void ChooseCopy()
-        {
-            string path = EditorUtility.OpenFilePanel(CHToolLanguage.Pick("选择旧版曲线数据（创建副本）", "Select legacy curve data (create a copy)"), Application.dataPath, "asset");
-            if (string.IsNullOrEmpty(path)) return;
-            try
-            {
-                var copy = CreateCopy(path);
-                ASEShaderConverter.Editor.ASEShaderConverterWindow.OpenAudio(copy);
-                EditorGUIUtility.PingObject(copy);
-            }
-            catch (Exception error) { EditorUtility.DisplayDialog(CHToolLanguage.Pick("曲线数据迁移", "Curve migration"), error.Message, "OK"); }
-        }
     }
 }

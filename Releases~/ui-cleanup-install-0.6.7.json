@@ -1,0 +1,42 @@
+{
+  "version": "0.6.7",
+  "tarballSha256": "0ddac1de49bdf612f64a60fed8dac76af588897ec6a5620063ca1de543ac17a2",
+  "changedFiles": [
+    "Documentation~/CustomTools.md",
+    "Documentation~/SceneMeasurement.md",
+    "Editor/Measurement/MeasurementPanel.cs",
+    "Editor/ShaderConverterNavigation.cs",
+    "Editor/VFX/README.md",
+    "Editor/VFX/RhythmCurvePanel.cs",
+    "Editor/VFX/RhythmProfileMigration.cs",
+    "README.md",
+    "package.json"
+  ],
+  "checks": 314,
+  "installations": [
+    {
+      "fixture": "CleanUi067",
+      "unity": "2022.3.10f1",
+      "checks": 80,
+      "filesVerified": 1457
+    },
+    {
+      "fixture": "SceneUi067",
+      "unity": "2022.3.10f1",
+      "checks": 77,
+      "filesVerified": 1457
+    },
+    {
+      "fixture": "CleanUi067",
+      "unity": "6000.0.80f1",
+      "checks": 80,
+      "filesVerified": 1457
+    },
+    {
+      "fixture": "SceneUi067",
+      "unity": "6000.0.80f1",
+      "checks": 77,
+      "filesVerified": 1457
+    }
+  ]
+}
