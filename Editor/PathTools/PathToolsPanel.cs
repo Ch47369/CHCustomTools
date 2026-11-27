@@ -174,13 +174,23 @@ namespace CH.CustomTools.Paths.Editor
         void GenerationNote() { EditorGUILayout.HelpBox(T("预览仅临时显示，点击生成才保存。重新生成会替换此路径对应的生成组；组内手动编辑也会替换。其他场景物体保留。网格另存唯一资源，撤销场景生成后资源仍保留，便于重做。修改路径后需要重新生成。", "Preview is temporary; Generate saves it. Rebuild replaces this path's generated group, including manual edits inside it. Other scene objects are preserved. Meshes use unique assets; scene Undo retains assets for Redo. Rebuild after editing the path."), MessageType.None); }
         void DrawMotion()
         {
-            motionTarget = (GameObject)EditorGUILayout.ObjectField(T("运动根物体", "Moving root object"), motionTarget, typeof(GameObject), true);
+            EditorGUI.BeginChangeCheck();
+            motionTarget = (GameObject)EditorGUILayout.ObjectField(T("运动物体", "Moving object"), motionTarget, typeof(GameObject), true);
+            if (EditorGUI.EndChangeCheck()) PathMotionPreview.Stop();
+            using (new EditorGUI.DisabledScope(Selection.activeGameObject == null))
+                if (GUILayout.Button(T("使用当前选中的物体", "Use selected object")))
+                {
+                    PathMotionPreview.Stop();
+                    motionTarget = Selection.activeGameObject;
+                }
+            follower = motionTarget == null ? null : motionTarget.GetComponent<PathFollower>();
             EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button(T("给物体设置路径运动", "Attach path motion"))) Action(() => follower = PathAuthoring.Attach(path, motionTarget));
+            using (new EditorGUI.DisabledScope(motionTarget == null || (follower != null && follower.path == path)))
+                if (GUILayout.Button(follower == null ? T("绑定当前路径", "Bind current path") : T("改用当前路径", "Use current path")))
+                    Action(() => follower = PathAuthoring.Attach(path, motionTarget));
             if (GUILayout.Button(T("创建飞行演示", "Create flight demo"))) Action(() => { follower = PathAuthoring.FlightDemo(path); motionTarget = follower.gameObject; });
             EditorGUILayout.EndHorizontal();
-            EditorGUILayout.HelpBox(T("飞行演示使用几何占位模型，可把鸟的模型或预制体放到根物体下替换外观。翅膀动画由自己的 Animator 控制。预览在停止、切页、关窗、重载或进入运行模式时恢复原姿态。", "Flight demo uses a geometric placeholder. Replace its visual child with your bird model/prefab and use its own Animator for wings. Preview restores the original pose on stop, page change, window close, reload or entering Play mode."), MessageType.None);
-            if (motionTarget != null) follower = motionTarget.GetComponent<PathFollower>();
+            if (follower == null) EditorGUILayout.HelpBox(T("先选择运动物体并绑定当前路径，再设置朝向、拖动预览进度或制作动画。", "Select the moving object and bind the current path to configure orientation, preview or animation."), MessageType.Info);
             if (follower != null) PathFollowerEditor.DrawFollower(follower);
         }
     }

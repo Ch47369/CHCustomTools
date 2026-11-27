@@ -152,8 +152,11 @@ namespace CH.CustomTools.Paths.Editor
         {
             ValidateScene(path);
             if (target == null || EditorUtility.IsPersistent(target) || target.scene != path.gameObject.scene || path.transform.IsChildOf(target.transform)) throw new ArgumentException("Choose a separate scene object in the path's scene. / 请选择同场景中的独立运动物体，不能是路径的父级。");
-            var follower = target.GetComponent<PathFollower>(); if (follower == null) follower = Undo.AddComponent<PathFollower>(target);
-            Undo.RecordObject(follower, "Assign CH path"); follower.path = path; follower.travel = path.closed ? PathTravel.Loop : PathTravel.PingPong;
+            var follower = target.GetComponent<PathFollower>(); bool created = follower == null;
+            if (created) follower = Undo.AddComponent<PathFollower>(target);
+            Undo.RecordObject(follower, "Assign CH path"); follower.path = path;
+            if (created) follower.travel = path.closed ? PathTravel.Loop : PathTravel.PingPong;
+            PrefabUtility.RecordPrefabInstancePropertyModifications(follower);
             EditorUtility.SetDirty(follower); return follower;
         }
         public static PathFollower FlightDemo(BezierPath path)
@@ -176,23 +179,79 @@ namespace CH.CustomTools.Paths.Editor
         static Vector3 localPosition, localScale, worldPosition;
         static Quaternion localRotation, worldRotation;
         static double started;
+        static bool playing;
+        static float progress;
         public static bool IsActive { get { return follower != null; } }
+        public static bool IsFor(PathFollower target) => follower != null && follower == target;
+        public static bool IsPlaying => IsActive && playing;
+        public static float Progress => progress;
         static PathMotionPreview()
         {
             AssemblyReloadEvents.beforeAssemblyReload += Stop; EditorApplication.quitting += Stop;
             EditorApplication.playModeStateChanged += _ => Stop(); EditorSceneManager.sceneClosing += (_, __) => Stop();
+            EditorSceneManager.sceneSaving += (_, __) => Stop();
+            SceneView.duringSceneGui += DrawOrientation;
+        }
+        static void DrawOrientation(SceneView view)
+        {
+            if (follower == null || view.camera == null || Event.current.type != EventType.Repaint ||
+                SceneVisibilityManager.instance.IsHidden(follower.gameObject) ||
+                StageUtility.GetStageHandle(follower.gameObject) != StageUtility.GetCurrentStageHandle()) return;
+            var t = follower.transform;
+            float size = HandleUtility.GetHandleSize(t.position);
+            var forward = t.rotation * PathFollower.AxisVector(follower.modelForward);
+            var up = t.rotation * PathFollower.AxisVector(follower.modelUp);
+            using (new Handles.DrawingScope(new Color(1, .47f, .067f), Matrix4x4.identity))
+                Handles.ArrowHandleCap(0, t.position, Quaternion.LookRotation(forward), size, EventType.Repaint);
+            using (new Handles.DrawingScope(Color.green, Matrix4x4.identity))
+                Handles.ArrowHandleCap(0, t.position, Quaternion.LookRotation(up, BezierPath.Perpendicular(up, forward)), size * .8f, EventType.Repaint);
         }
         public static void Start(PathFollower target)
         {
-            Stop(); PathAuthoringPreview.Stop(); if (target == null || target.path == null || EditorUtility.IsPersistent(target) || EditorApplication.isPlayingOrWillChangePlaymode || target.path.transform.IsChildOf(target.transform)) throw new InvalidOperationException("Choose a separate scene follower with a path, outside Play mode. / 请在非运行模式选择独立的路径运动对象。");
+            Stop(); PathAuthoringPreview.Stop(); if (target == null || target.path == null || EditorUtility.IsPersistent(target) || EditorApplication.isPlayingOrWillChangePlaymode || AnimationMode.InAnimationMode() || target.path.transform.IsChildOf(target.transform)) throw new InvalidOperationException("Choose a separate scene follower with a path, outside Play mode and Animation Window preview. / 请退出播放与动画窗口预览，选择独立的路径运动对象。");
             target.path.ValidatePath(); var t = target.transform;
             follower = target; parent = t.parent; localPosition = t.localPosition; localRotation = t.localRotation; localScale = t.localScale; worldPosition = t.position; worldRotation = t.rotation;
-            started = EditorApplication.timeSinceStartup; EditorApplication.update += Tick;
+            started = EditorApplication.timeSinceStartup; playing = true; progress = 0;
+            EditorApplication.update += Tick;
+        }
+        public static void Scrub(PathFollower target, float value)
+        {
+            if (!IsFor(target)) Start(target);
+            playing = false;
+            progress = Mathf.Clamp01(value);
+            try { follower.ApplyProgress(progress); }
+            catch { Stop(); throw; }
+            SceneView.RepaintAll();
+        }
+        public static void Refresh(PathFollower target)
+        {
+            if (!IsFor(target)) return;
+            if (playing) Tick();
+            else Scrub(target, progress);
         }
         static void Tick()
         {
             if (follower == null) { Stop(); return; }
-            try { follower.Apply(EditorApplication.timeSinceStartup - started); SceneView.RepaintAll(); }
+            if (AnimationMode.InAnimationMode()) { Stop(); return; }
+            if (!playing) return;
+            try
+            {
+                double elapsed = EditorApplication.timeSinceStartup - started;
+                if (follower.drive == PathMotionDrive.AnimationProgress)
+                {
+                    float duration = PathMotionAnimation.Duration(follower);
+                    float time = Mathf.Min((float)elapsed, duration);
+                    progress = PathMotionAnimation.ProgressAt(follower, time);
+                    follower.ApplyProgress(progress);
+                    if (time >= duration) playing = false;
+                }
+                else
+                {
+                    progress = follower.DistanceAt(elapsed, out _) / follower.path.Length;
+                    follower.Apply(elapsed);
+                }
+                SceneView.RepaintAll();
+            }
             catch (Exception e) { Stop(); Debug.LogWarning(e.Message); }
         }
         public static void Stop()
@@ -205,7 +264,7 @@ namespace CH.CustomTools.Paths.Editor
                 else { t.position = worldPosition; t.rotation = worldRotation; }
                 t.localScale = localScale;
             }
-            follower = null; SceneView.RepaintAll();
+            follower = null; playing = false; progress = 0; SceneView.RepaintAll();
         }
     }
 }

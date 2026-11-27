@@ -172,22 +172,183 @@ namespace CH.CustomTools.Paths.Editor
     public sealed class PathFollowerEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI() { DrawFollower((PathFollower)target); }
+        static readonly string[] AxisNames = { "+Z", "+Y", "+X", "-Z", "-Y", "-X" };
+        static bool advanced;
+        static int bakeFrameRate = 60;
+        static string motionMessage;
         internal static void DrawFollower(PathFollower follower)
         {
-            var so = new SerializedObject(follower); so.Update(); EditorGUI.BeginChangeCheck();
-            Field(so, "path", "运动路径", "Path"); Field(so, "speed", "速度（米/秒）", "Speed (m/s)"); Field(so, "startDistance", "起始距离（米）", "Start distance (m)");
-            Field(so, "reverse", "反向行进", "Reverse"); Field(so, "playOnEnable", "运行时自动播放", "Play on enable");
-            var travel = so.FindProperty("travel"); travel.enumValueIndex = PathText.Choice("到达终点", "End behavior", travel.enumValueIndex, new[] { "停在终点", "循环", "往返" }, new[] { "Once", "Loop", "Ping-pong" });
-            var orientation = so.FindProperty("orientation"); orientation.enumValueIndex = PathText.Choice("朝向方式", "Orientation", orientation.enumValueIndex, new[] { "跟随路径（含俯仰）", "保持世界上方向", "只移动位置" }, new[] { "Path frame (with pitch)", "World up", "Position only" });
-            Field(so, "rotationOffset", "模型旋转修正（度）", "Model rotation offset (degrees)"); Field(so, "positionOffset", "路径局部偏移（米）", "Path frame offset (m)");
-            Field(so, "lookAhead", "朝向前视距离（米）", "Look-ahead distance (m)"); Field(so, "turnSmoothing", "运行时转向平滑", "Runtime turn smoothing");
-            Field(so, "maxBank", "最大侧倾角度", "Maximum bank (degrees)"); Field(so, "bankStrength", "转弯侧倾强度", "Bank strength");
-            if (EditorGUI.EndChangeCheck()) { PathMotionPreview.Stop(); so.ApplyModifiedProperties(); }
-            if (follower.path != null && !follower.path.closed && follower.travel == PathTravel.Loop) EditorGUILayout.HelpBox(PathText.T("开放路径使用循环会从终点跳回起点；连续飞行建议闭合路径，或选择往返。", "Looping an open path jumps from end to start. Use a closed path or ping-pong for continuous motion."), MessageType.Warning);
-            EditorGUILayout.HelpBox(PathText.T("模型默认朝向 +Z、上方 +Y。鸟的 Animator 放在外观子物体上；根物体负责路径运动。侧倾设为0可关闭。", "Model forward is +Z and up is +Y. Put a bird's Animator on its visual child; the root handles path motion. Set maximum bank to 0 to disable banking."), MessageType.None);
-            using (new EditorGUI.DisabledScope(Application.isPlaying))
-                if (GUILayout.Button(PathMotionPreview.IsActive ? PathText.T("停止预览并恢复姿态", "Stop preview and restore pose") : PathText.T("预览路径运动", "Preview motion")))
-                { if (PathMotionPreview.IsActive) PathMotionPreview.Stop(); else { try { PathMotionPreview.Start(follower); } catch (System.Exception e) { Debug.LogWarning(e.Message); } } }
+            var so = new SerializedObject(follower);
+            so.Update();
+            EditorGUI.BeginChangeCheck();
+            Field(so, "path", "运动路径", "Path");
+            var drive = so.FindProperty("drive");
+            drive.enumValueIndex = PathText.Choice("运动方式", "Motion driver", drive.enumValueIndex,
+                new[] { "自动运动", "动画进度 K 帧" }, new[] { "Automatic motion", "Animation progress keys" });
+            bool animation = drive.enumValueIndex == (int)PathMotionDrive.AnimationProgress;
+            if (animation)
+            {
+                Field(so, "animationDuration", "默认动画用时（秒）", "Default clip duration (s)");
+                Field(so, "progressClip", "进度动画片段", "Progress animation clip");
+                Field(so, "progress", "路径进度（0–1）", "Path progress (0–1)");
+                Field(so, "reverse", "反向朝向", "Face backwards");
+            }
+            else
+            {
+                Field(so, "speed", "速度（米/秒）", "Speed (m/s)");
+                if (follower.path != null)
+                {
+                    try
+                    {
+                        var length = follower.path.Length;
+                        var speed = so.FindProperty("speed");
+                        EditorGUI.BeginChangeCheck();
+                        float duration = EditorGUILayout.FloatField(PathText.T("走完整条路径（秒）", "Full path duration (s)"),
+                            speed.floatValue > 0 ? length / speed.floatValue : 0);
+                        if (EditorGUI.EndChangeCheck() && duration > 0 && float.IsFinite(duration))
+                            speed.floatValue = length / duration;
+                    }
+                    catch (System.Exception e) { EditorGUILayout.HelpBox(e.Message, MessageType.Warning); }
+                }
+                Field(so, "startDistance", "起始距离（米）", "Start distance (m)");
+                Field(so, "reverse", "反向行进", "Reverse");
+                Field(so, "playOnEnable", "运行时自动播放", "Play on enable");
+                var travel = so.FindProperty("travel");
+                travel.enumValueIndex = PathText.Choice("到达终点", "End behavior", travel.enumValueIndex,
+                    new[] { "停在终点", "循环", "往返" }, new[] { "Once", "Loop", "Ping-pong" });
+            }
+
+            EditorGUILayout.Space(6);
+            EditorGUILayout.LabelField(PathText.T("模型朝向", "Model orientation"), EditorStyles.boldLabel);
+            var orientation = so.FindProperty("orientation");
+            orientation.enumValueIndex = PathText.Choice("朝向方式", "Orientation", orientation.enumValueIndex,
+                new[] { "空间飞行（沿路径俯仰、倾斜）", "沿路径，世界上方向", "保持原旋转", "地面运动（仅水平转向）" },
+                new[] { "3D flight (pitch and bank)", "Follow path, world up", "Keep rotation", "Ground motion (yaw only)" });
+            if (orientation.enumValueIndex != (int)PathOrientation.PositionOnly)
+            {
+                var forward = so.FindProperty("modelForward");
+                var up = so.FindProperty("modelUp");
+                forward.enumValueIndex = EditorGUILayout.Popup(PathText.T("模型正前方", "Model forward"), forward.enumValueIndex, AxisNames);
+                var forwardVector = PathFollower.AxisVector((PathModelAxis)forward.enumValueIndex);
+                var validUp = new System.Collections.Generic.List<int>();
+                var upNames = new System.Collections.Generic.List<string>();
+                for (int i = 0; i < AxisNames.Length; i++)
+                    if (Mathf.Abs(Vector3.Dot(forwardVector, PathFollower.AxisVector((PathModelAxis)i))) < .5f)
+                    { validUp.Add(i); upNames.Add(AxisNames[i]); }
+                int current = validUp.IndexOf(up.enumValueIndex);
+                up.enumValueIndex = validUp[EditorGUILayout.Popup(PathText.T("模型上方向", "Model up"), Mathf.Max(current, 0), upNames.ToArray())];
+                Field(so, "rotationOffset", "额外旋转修正（度）", "Additional rotation offset (degrees)");
+                if (GUILayout.Button(PathText.T("重置旋转修正", "Reset rotation offset")))
+                    so.FindProperty("rotationOffset").vector3Value = Vector3.zero;
+            }
+            advanced = EditorGUILayout.Foldout(advanced, PathText.T("偏移、前视与侧倾", "Offset, look-ahead and banking"), true);
+            if (advanced)
+            {
+                Field(so, "positionOffset", "路径局部偏移（米）", "Path frame offset (m)");
+                Field(so, "lookAhead", "朝向前视距离（米）", "Look-ahead distance (m)");
+                if (!animation) Field(so, "turnSmoothing", "运行时转向平滑", "Runtime turn smoothing");
+                Field(so, "maxBank", "最大侧倾角度", "Maximum bank (degrees)");
+                Field(so, "bankStrength", "转弯侧倾强度", "Bank strength");
+            }
+            if (EditorGUI.EndChangeCheck())
+            {
+                so.ApplyModifiedProperties();
+                RunMotionAction(() => { if (PathMotionPreview.IsFor(follower)) PathMotionPreview.Refresh(follower); });
+            }
+            if (!animation && follower.path != null && !follower.path.closed && follower.travel == PathTravel.Loop)
+                EditorGUILayout.HelpBox(PathText.T("开放路径循环会从终点跳回起点。", "Looping an open path jumps from end to start."), MessageType.Warning);
+            using (new EditorGUI.DisabledScope(Application.isPlaying || AnimationMode.InAnimationMode() || follower.path == null))
+            {
+                EditorGUILayout.Space(6);
+                EditorGUILayout.LabelField(PathText.T("运动预览", "Motion preview"), EditorStyles.boldLabel);
+                float current = PathMotionPreview.IsFor(follower) ? PathMotionPreview.Progress : follower.progress;
+                EditorGUI.BeginChangeCheck();
+                float previewProgress = EditorGUILayout.Slider(PathText.T("预览位置 (%)", "Preview position (%)"), current * 100, 0, 100) / 100;
+                if (EditorGUI.EndChangeCheck()) RunMotionAction(() => PathMotionPreview.Scrub(follower, previewProgress));
+                using (new EditorGUILayout.HorizontalScope())
+                {
+                    if (GUILayout.Button(PathText.T("播放预览", "Play preview"))) RunMotionAction(() => PathMotionPreview.Start(follower));
+                    if (GUILayout.Button(PathText.T("停在当前位置", "Pause at current"))) RunMotionAction(() => PathMotionPreview.Scrub(follower, current));
+                    if (GUILayout.Button(PathText.T("停止并恢复", "Stop and restore"))) PathMotionPreview.Stop();
+                }
+                DrawAnimationTools(follower);
+            }
+            if (!string.IsNullOrEmpty(motionMessage)) EditorGUILayout.HelpBox(motionMessage, MessageType.Warning);
+        }
+        static void RunMotionAction(System.Action action)
+        {
+            try { action(); motionMessage = null; }
+            catch (System.Exception error) { motionMessage = error.Message; }
+        }
+        static void DrawAnimationTools(PathFollower follower)
+        {
+            EditorGUILayout.Space(8);
+            EditorGUILayout.LabelField(PathText.T("动画片段", "Animation clips"), EditorStyles.boldLabel);
+            if (follower.drive != PathMotionDrive.AnimationProgress)
+            {
+                var durationSettings = new SerializedObject(follower);
+                durationSettings.Update();
+                Field(durationSettings, "animationDuration", "动画用时（秒）", "Clip duration (s)");
+                durationSettings.ApplyModifiedProperties();
+            }
+            if (GUILayout.Button(PathText.T("创建进度 K 帧片段", "Create progress keyframe clip")))
+                RunMotionAction(() =>
+                {
+                    PathMotionPreview.Stop();
+                    string path = EditorUtility.SaveFilePanelInProject(PathText.T("保存进度动画", "Save progress clip"), follower.name + "_Progress", "anim", "");
+                    if (!string.IsNullOrEmpty(path)) PathMotionAnimation.CreateProgressClip(follower, path);
+                });
+            if (follower.progressClip != null)
+            {
+                if (PathMotionAnimation.Timing(follower) == null)
+                    EditorGUILayout.HelpBox(PathText.T("此片段中缺少 Path Follower / Progress 曲线。", "This clip has no Path Follower / Progress curve."), MessageType.Warning);
+                var animator = follower.GetComponent<Animator>();
+                using (new EditorGUI.DisabledScope(animator != null && animator.runtimeAnimatorController != null))
+                    if (GUILayout.Button(PathText.T("创建并绑定 Animator 控制器", "Create and assign Animator controller")))
+                        RunMotionAction(() => PathMotionAnimation.AttachProgressController(follower));
+                if (GUILayout.Button(PathText.T("打开 Unity Animation 编辑 K 帧", "Open Unity Animation to edit keys")))
+                    RunMotionAction(() =>
+                    {
+                        PathMotionPreview.Stop();
+                        Selection.activeGameObject = follower.gameObject;
+                        var window = EditorWindow.GetWindow<AnimationWindow>();
+                        window.animationClip = follower.progressClip;
+                        window.Show();
+                    });
+                EditorGUILayout.HelpBox(PathText.T("进度曲线的 0 和 1 对应路径首尾。修改路径后，原 K 帧会沿新路径计算位置与朝向。外观动画可以在子物体上独立播放。",
+                    "Progress 0 and 1 correspond to the path endpoints. Editing the path keeps the timing keys and updates the pose. Animate visual children independently."), MessageType.None);
+                EditorGUILayout.LabelField(PathText.T("倒着运动时，可勾选反向朝向。", "Enable Face backwards for reverse motion."), EditorStyles.wordWrappedMiniLabel);
+            }
+            var so = new SerializedObject(follower);
+            Field(so, "bakedClip", "位置 / 旋转输出片段", "Position / rotation clip");
+            so.ApplyModifiedProperties();
+            bakeFrameRate = EditorGUILayout.IntSlider(PathText.T("烘焙帧率", "Bake frame rate"), bakeFrameRate, 1, 120);
+            if (GUILayout.Button(follower.bakedClip == null ? PathText.T("烘焙 Transform 动画", "Bake Transform animation") :
+                PathText.T("重新烘焙已有片段", "Rebake existing clip")))
+                RunMotionAction(() =>
+                {
+                    PathMotionPreview.Stop();
+                    var output = follower.bakedClip;
+                    bool create = output == null;
+                    if (create)
+                    {
+                        string path = EditorUtility.SaveFilePanelInProject(PathText.T("保存位置旋转动画", "Save transform animation"), follower.name + "_Motion", "anim", "");
+                        if (string.IsNullOrEmpty(path)) return;
+                        if (AssetDatabase.LoadMainAssetAtPath(path) != null)
+                            throw new System.InvalidOperationException(PathText.T("请选择新的资源路径或指定已有输出片段。", "Choose a new asset path or assign the existing output clip."));
+                        output = new AnimationClip();
+                        AssetDatabase.CreateAsset(output, path);
+                    }
+                    try { PathMotionAnimation.BakeTransform(follower, output, bakeFrameRate); }
+                    catch
+                    {
+                        if (create) AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(output));
+                        throw;
+                    }
+                });
+            if (follower.bakedClip != null)
+                EditorGUILayout.HelpBox(PathText.T("输出位置和旋转曲线可用于普通 Animator。播放输出片段时请停用 Path Follower，避免重复控制根物体。重新烘焙会更新根位置和旋转曲线。",
+                    "Play the baked Transform clip with Path Follower disabled to avoid driving the same root twice. Rebake updates the root position and rotation curves."), MessageType.None);
         }
         internal static void Field(SerializedObject so, string property, string zh, string en) { EditorGUILayout.PropertyField(so.FindProperty(property), new GUIContent(PathText.T(zh, en)), true); }
     }

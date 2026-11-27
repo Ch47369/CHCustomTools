@@ -92,7 +92,7 @@ namespace ASEShaderConverter.Editor
         {
             var window = ShowMain(); window.settingsTab = 1; window.Navigate("settings");
         }
-        private void OnInspectorUpdate() { if (ShaderLibraryBatch.IsRunning) Repaint(); }
+        private void OnInspectorUpdate() { if (ShaderLibraryBatch.IsRunning || PathMotionPreview.IsActive) Repaint(); }
         private void OnGUI()
         {
             titleContent.text = CHToolLanguage.Pick("CH自定义工具集", "CH Custom Tools");
