@@ -1,3 +1,5 @@
+0.7.8 接续：围栏 UV0 默认高度归一化固定 0–1（独立于整体、逐点和尺寸倍率），横向保持按米，显式自定义高度 UV 可继续使用倍率/偏移；三预设图纹理纵向改 Repeat，材质主/附贴图 ST 显式单位值；原三管线 Custom2TexV2 ASE 图字节保护。Shift 拖点从已有圆点自由新增或直接拖世界/局部三轴约束新增，三轴随新点显示至释放，保留原有撤销/取消。UnityPathFenceSmoke 实际高度 UV 与三样式 1/4/8m 绘制、UnityPathInsertionSmoke 实际 Shift 轴拖动回归。固定0.7.7包白名单，Evidence/FenceUv078 和 Releases~，历史包与失败保存，不带 Backend/SidebarLine，不改用户项目，隔离 Unity 活跃不改共享 C#。
+
 0.7.7 接续：路径页单一 Scene 绘制开关，Alt+S 启停绘制；单击直线、拖动贝兹、Ctrl 将对应段拉直（包括已有控制柄），右键/Enter 开放完成、首点闭合。复用路径或生成物导入粒子本地控制点，反向导入/反转支持 Undo。Custom2TexV2 三份 ASE 图逐字节保留，新增原创网格/警示/能量/扫光纹理及三种样式。更新器相对文件路径失败后尝试绝对文件路径，保留校验包并显示安全错误分类。固定 0.7.6 包独立白名单验证，证据 Evidence/PathDraw077 与 Releases~，历史失败保留，不带 Backend/SidebarLine，不改用户项目；隔离 Unity 活跃时不改共享 C#。
 
 0.7.6 接续：用户明确移除着色器库。原用户Editor.log确认 ShaderLibraryPanel.DrawPanel:54 NullReferenceException 继发 GUIClips 不平衡。取消库页面、目录及293图随包分发；旧活动页/记忆页/窗口重定向到图转换，旧API返回空目录和明确退役结果，主窗和转换/设置/Agent外层GUI用Scope确保平衡。保留规则、转换核心、原电子围栏三图和路径/VFX/更新器（围栏高度柄与位置Y轴拾取冲突定点修复），既有用户Assets未修改。旧库证据及包保持；当前Verify-Release核验库缺失，UnityCustomToolsSmoke验收旧窗口和全部现有功能页，Evidence/LibraryRemoval076与Releases~。不带Backend/SidebarLine，隔离Unity活跃不改共享C#。

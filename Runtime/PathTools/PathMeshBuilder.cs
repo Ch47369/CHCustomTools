@@ -24,6 +24,7 @@ namespace CH.CustomTools.Paths
         public PathFenceAxis fenceAxis;
         public bool fenceLocalAxis;
         public PathFenceStyle fenceStyle;
+        public bool fenceCustomVerticalUv;
         public Vector3 dimensionsScale = Vector3.one;
         public float sheetThickness;
     }
@@ -50,7 +51,9 @@ namespace CH.CustomTools.Paths
             {
                 Vertex(point, normal, height, distance);
                 int index = v.Count - 1;
-                uv[index] = Vector2.Scale(new Vector2(distance / settings.metersPerTile, height), settings.uvScale) + settings.uvOffset;
+                float u = distance / settings.metersPerTile * settings.uvScale.x + settings.uvOffset.x;
+                float vertical = settings.fenceCustomVerticalUv ? height * settings.uvScale.y + settings.uvOffset.y : height;
+                uv[index] = new Vector2(u, vertical);
                 uv1[index] = new Vector2(distance / length, height);
             }
             void AddSheetVertex(int source, Vector3 position, Vector3 normal)

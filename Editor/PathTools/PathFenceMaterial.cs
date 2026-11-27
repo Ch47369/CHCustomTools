@@ -58,10 +58,18 @@ namespace CH.CustomTools.Paths.Editor
             const string assetFolder = "Packages/com.aseshader.handwritten-converter/Runtime/PathTools/";
             var pattern = AssetDatabase.LoadAssetAtPath<Texture2D>(assetFolder + texture + ".png");
             var scan = AssetDatabase.LoadAssetAtPath<Texture2D>(assetFolder + "FenceSweep.png");
-            if (pattern != null) material.SetTexture("_MainTex", pattern);
+            if (pattern != null)
+            {
+                material.SetTexture("_MainTex", pattern);
+                material.SetTextureScale("_MainTex", Vector2.one);
+                material.SetTextureOffset("_MainTex", Vector2.zero);
+                material.SetVector("_MainTexPanner", Vector4.zero);
+            }
             if (scan != null)
             {
                 material.SetTexture("_AddTex", scan);
+                material.SetTextureScale("_AddTex", Vector2.one);
+                material.SetTextureOffset("_AddTex", Vector2.zero);
                 material.SetColor("_AddTexColor", new Color(tint.r * .65f, tint.g * .65f, tint.b * .65f, .7f));
                 material.SetFloat("_AddTexIntensity", .8f);
                 material.SetVector("_AddTexPanner", new Vector4(0, speed, 0, 0));

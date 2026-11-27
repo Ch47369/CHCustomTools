@@ -29,7 +29,7 @@ public static class UnityPathInsertionSmoke
     static bool calibrating, receivedMove;
     static Vector2 receivedPosition, inputOffset;
     static Vector2 lastMouse;
-    static Vector2 gestureSource, gestureDestination;
+    static Vector2 gestureSource, gestureDestination, shiftAxisStart, shiftAxisEnd;
     static int gestureIndex;
     static string beforeGesture, afterGesture;
     static Vector3 originalPoint;
@@ -142,6 +142,11 @@ public static class UnityPathInsertionSmoke
         {
             gestureSource = WindowPoint(path.transform.TransformPoint(path.knots[gestureIndex].position));
             gestureDestination = gestureSource + new Vector2(90, -45);
+            var point = path.transform.TransformPoint(path.knots[gestureIndex].position);
+            var right = (Tools.pivotRotation == PivotRotation.Local ? path.transform.rotation : Quaternion.identity) * Vector3.right;
+            float size = HandleUtility.GetHandleSize(point);
+            shiftAxisStart = WindowPoint(point + right * size * .7f);
+            shiftAxisEnd = shiftAxisStart + (shiftAxisStart - gestureSource).normalized * 65;
         }
         hit = WindowPoint(new Vector3(0, -1.2f, 0)); endpoint = WindowPoint(new Vector3(0, -4, 0));
         if (path.knots.Count == 3)
@@ -270,6 +275,19 @@ public static class UnityPathInsertionSmoke
                     Mouse(EventType.MouseMove, gestureSource);
                     Check(JsonUtility.ToJson(path) == beforeGesture && !PathPointDrag.IsDragging,
                         "Ctrl+Z during a drag restores the gesture and releases Scene input; dragging=" + PathPointDrag.IsDragging + "; actual=" + JsonUtility.ToJson(path) + "; expected=" + beforeGesture);
+                    Mouse(EventType.MouseMove, gestureSource); Mouse(EventType.MouseDown, gestureSource); Mouse(EventType.MouseUp, gestureSource);
+                    phase = 23; break;
+                case 23:
+                    originalPoint = path.knots[gestureIndex].position;
+                    Mouse(EventType.MouseMove, shiftAxisStart, shift: true); Mouse(EventType.MouseDown, shiftAxisStart, shift: true);
+                    Mouse(EventType.MouseDrag, shiftAxisEnd, shift: true);
+                    Check(PathPointDrag.IsDragging && path.knots.Count == 4, "Shift dragging an actual visible X axis duplicates the selected point");
+                    var delta = path.knots[gestureIndex + 1].position - originalPoint;
+                    Check(Mathf.Abs(delta.x) > .2f && Mathf.Abs(delta.y) < .001f && Mathf.Abs(delta.z) < .001f,
+                        "Shift axis motion is constrained to its X direction");
+                    Mouse(EventType.MouseUp, shiftAxisEnd, shift: true);
+                    Undo.FlushUndoRecordObjects(); Undo.PerformUndo();
+                    Check(JsonUtility.ToJson(path) == beforeGesture, "Shift axis duplication is one Undo operation");
                     Check(errors == null, "Shared Scene markers, labels and all drag gestures render without GUI errors"); Finish(null); return;
                 case 20:
                     Mouse(EventType.MouseDown, pointScreen); Mouse(EventType.MouseUp, pointScreen); phase = 3; break;

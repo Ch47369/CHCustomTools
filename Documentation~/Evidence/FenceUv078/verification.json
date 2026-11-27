@@ -1,0 +1,23 @@
+{
+  "version": "0.7.8",
+  "sourceTests": {
+    "UnityPathFenceSmoke": {
+      "count": 93,
+      "status": "Passed",
+      "unity": "2022.3.10f1"
+    },
+    "UnityPathInsertionSmoke": {
+      "count": 121,
+      "status": "Passed",
+      "unity": "2022.3.10f1"
+    }
+  },
+  "shadersSha256": {
+    "Built-in": "cb5039b7e9f191b2b5a88040aa4aa0afd434e5b8f2668d09deb643f3ddfd2900",
+    "URP": "37aa456e18ea5df094b6430a74c54334ad7f0f4a6e25d08ad97255c5bdf30698",
+    "HDRP": "3bc0b09af27c65e96cc455c414305d24e56019e6c2f47fb2be90f6799fc70c60"
+  },
+  "renderFixture": "Orthographic projection is normalized to panel dimensions; scan panner frozen for deterministic texture-framing comparison.",
+  "userProjectReadOnlyObservation": "Five previously saved fence meshes had UV0 V 0–1. The reported live Scene artifact was not reproduced from these saved asset coordinates.",
+  "tarball": "See Releases~/fence-uv-install-0.7.8.json"
+}

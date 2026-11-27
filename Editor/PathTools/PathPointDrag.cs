@@ -22,7 +22,8 @@ namespace CH.CustomTools.Paths.Editor
         static Plane plane;
         static Vector2 mouseStart;
         static Vector3 offset;
-        static Vector3 sourcePosition;
+        static Vector3 sourcePosition, dragAxis;
+        static readonly Vector3[] Axes = { Vector3.right, Vector3.up, Vector3.forward };
         public static bool IsDragging { get { return control != 0; } }
         static PathPointDrag()
         {
@@ -101,12 +102,22 @@ namespace CH.CustomTools.Paths.Editor
                 StageUtility.GetStageHandle(path.gameObject) != StageUtility.GetCurrentStageHandle()) return;
             try { path.ValidatePath(); } catch (Exception) { return; }
             int hover = FindPoint(path, view.camera, e.mousePosition);
+            Vector3 pickedAxis = Vector3.zero;
+            bool shiftAxes = e.shift && !e.alt && PathSceneTool.PointEditing;
+            if (shiftAxes && hover < 0)
+            {
+                int focused = PathPointInsertion.FocusedIndex(path);
+                if (focused >= 0 && TryPickAxis(view, path, focused, e.mousePosition, out pickedAxis))
+                    hover = focused;
+            }
             bool canPick = !e.alt && !PathPointInsertion.InsertionModifier(e) && GUIUtility.hotControl == 0;
             if (canPick && hover >= 0 && e.type == EventType.Layout) HandleUtility.AddControl(id, 0);
             if (e.type == EventType.MouseMove || e.type == EventType.KeyDown || e.type == EventType.KeyUp) view.Repaint();
             if (e.type == EventType.Repaint)
             {
                 Draw(view, path, hover);
+                if ((shiftAxes && !IsDragging) || (dragging == path && duplicate && owner == view))
+                    DrawShiftAxes(view, path);
                 if (canPick && hover >= 0) EditorGUIUtility.AddCursorRect(new Rect(e.mousePosition - Vector2.one * Radius, Vector2.one * Radius * 2), e.shift ? MouseCursor.ArrowPlus : MouseCursor.MoveArrow);
             }
             // The last Layout can still name the previous gizmo when Shift is first held on MouseDown.
@@ -119,7 +130,7 @@ namespace CH.CustomTools.Paths.Editor
                 if (!plane.Raycast(ray, out enter)) return;
                 PathSceneTool.SelectPoint(path, hover);
                 dragging = path; owner = view; index = hover; duplicate = e.shift; changed = false; undoGroup = -1;
-                sourcePosition = point;
+                sourcePosition = point; dragAxis = pickedAxis;
                 offset = point - ray.GetPoint(enter); mouseStart = e.mousePosition;
                 GUIUtility.hotControl = control = id; e.Use();
             }
@@ -127,15 +138,24 @@ namespace CH.CustomTools.Paths.Editor
         static void Move(Event e)
         {
             if (!changed && (e.mousePosition - mouseStart).sqrMagnitude < 16) return;
-            float enter; Ray ray = HandleUtility.GUIPointToWorldRay(e.mousePosition);
-            if (!plane.Raycast(ray, out enter)) return;
-            Vector3 position = ray.GetPoint(enter) + offset;
-            if (BezierPathEditor.SnapToSurface)
+            Vector3 position;
+            if (dragAxis != Vector3.zero)
+            {
+                float translation = HandleUtility.CalcLineTranslation(mouseStart, e.mousePosition, sourcePosition, dragAxis);
+                position = sourcePosition + dragAxis * translation;
+            }
+            else
+            {
+                Ray ray = HandleUtility.GUIPointToWorldRay(e.mousePosition);
+                if (!plane.Raycast(ray, out float enter)) return;
+                position = ray.GetPoint(enter) + offset;
+            }
+            if (dragAxis == Vector3.zero && BezierPathEditor.SnapToSurface)
             {
                 Vector3 surface;
                 if (DmSceneTool.TrySurface(new Ray(position + Vector3.up * 1000, Vector3.down), ~0, out surface)) position = surface;
             }
-            if (!BezierPath.Finite(position)) return;
+            if (!BezierPath.Finite(position) || (!changed && (position - sourcePosition).sqrMagnitude < 1e-8f)) return;
             if (!changed)
             {
                 if (duplicate) { index = Duplicate(dragging, index, position); undoGroup = Undo.GetCurrentGroup(); }
@@ -163,7 +183,7 @@ namespace CH.CustomTools.Paths.Editor
                 if (SceneView.currentDrawingSceneView == owner && GUIUtility.hotControl == control) GUIUtility.hotControl = 0;
                 else { releaseView = owner; releaseControl = control; }
             }
-            dragging = null; owner = null; control = 0; undoGroup = -1; changed = false; SceneView.RepaintAll();
+            dragging = null; owner = null; control = 0; undoGroup = -1; changed = false; dragAxis = Vector3.zero; SceneView.RepaintAll();
         }
         internal static void CancelActive() { Cancel(); }
         static void Cancel()
@@ -171,6 +191,47 @@ namespace CH.CustomTools.Paths.Editor
             var path = dragging; int group = undoGroup; bool restore = changed;
             Clear();
             if (restore && path != null) { Undo.FlushUndoRecordObjects(); Undo.RevertAllDownToGroup(group); path.Invalidate(); }
+        }
+        static Quaternion AxisRotation(BezierPath path)
+        {
+            return Tools.pivotRotation == PivotRotation.Local ? path.transform.rotation : Quaternion.identity;
+        }
+        static bool TryPickAxis(SceneView view, BezierPath path, int knot, Vector2 mouse, out Vector3 axis)
+        {
+            axis = Vector3.zero;
+            var position = path.transform.TransformPoint(path.knots[knot].position);
+            if (view.camera.WorldToViewportPoint(position).z <= view.camera.nearClipPlane) return false;
+            float size = HandleUtility.GetHandleSize(position);
+            var start = HandleUtility.WorldToGUIPoint(position);
+            float best = 10;
+            foreach (var localAxis in Axes)
+            {
+                Vector3 direction = AxisRotation(path) * localAxis;
+                Vector2 delta = HandleUtility.WorldToGUIPoint(position + direction * size) - start;
+                if (delta.sqrMagnitude < 144) continue;
+                float t = Vector2.Dot(mouse - start, delta) / delta.sqrMagnitude;
+                if (t < .2f || t > 1.2f) continue;
+                float distance = Vector2.Distance(mouse, start + delta * Mathf.Clamp01(t));
+                if (distance < best) { best = distance; axis = direction; }
+            }
+            return axis != Vector3.zero;
+        }
+        static void DrawShiftAxes(SceneView view, BezierPath path)
+        {
+            int knot = PathPointInsertion.FocusedIndex(path);
+            if (knot < 0 || knot >= path.knots.Count) return;
+            var position = path.transform.TransformPoint(path.knots[knot].position);
+            if (view.camera.WorldToViewportPoint(position).z <= view.camera.nearClipPlane) return;
+            float size = HandleUtility.GetHandleSize(position);
+            var rotation = AxisRotation(path);
+            for (int i = 0; i < Axes.Length; i++)
+            {
+                var axis = rotation * Axes[i];
+                Color color = i == 0 ? Handles.xAxisColor : i == 1 ? Handles.yAxisColor : Handles.zAxisColor;
+                if (dragAxis != Vector3.zero && Vector3.Dot(dragAxis, axis) > .999f) color = Handles.selectedColor;
+                using (new Handles.DrawingScope(color))
+                    Handles.ArrowHandleCap(0, position, Quaternion.LookRotation(axis), size, EventType.Repaint);
+            }
         }
         static void Draw(SceneView view, BezierPath path, int hover)
         {

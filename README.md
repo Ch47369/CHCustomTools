@@ -1,3 +1,5 @@
+**0.7.8** · 电子围栏高度 UV 默认锁定 0–1，预设纹理双轴重复采样；Shift 拖点时三轴随点显示，可沿轴新增控制点。
+
 **0.7.7** · 简化 Scene 路径绘制，Alt+S 直接绘制，单击直线、拖动贝兹、Ctrl 拉直；支持复用场景路径及反向粒子拖尾，Custom2TexV2 围栏新增三种样式。
 
 **0.7.6** · 移除内置着色器库及其 293 个随包示例图，旧库页面和旧窗口恢复时自动回到图转换，修复库页空引用及由此引发的 GUIClips 不平衡。历史库内容可在以前版本中查看。
@@ -44,9 +46,9 @@
 
 **0.4.9 下载修复**：保留 0.4.8 的完整音频/VFX整合。针对 Unity 6 实际下载中 512 KB 分段接近完成时触发 30 秒超时的问题，缩小为 128 KB 分段、单请求 60 秒、最多三次尝试，总下载仍限制十分钟；继续验证范围、大小与 SHA-256。实际失败和后续验证见 `Documentation~/Evidence/GitHubDownload049`。
 
-**0.7.7 当前版：CH自定义工具集**，作者 CH。统一入口 **Tools → CH自定义工具集**；左侧 Shader / VFX / 场景工具 / 设置，右侧显示功能。完整包含 Shader转换器、Agent、音频转动画曲线、子特效时序、曲线转粒子拖尾、VFX资源整理与恢复、场景距离 / 角度 / 面积测量。语言、版本和 Git 更新统一管理。原包 ID 保持兼容，GitHub 仓库已按用户要求设为公开；更新从 GitHub Release 下载，无需登录。音频无需第二个依赖包，详见 [工具集操作与升级](Documentation~/CustomTools.md)。
+**0.7.8 当前版：CH自定义工具集**，作者 CH。统一入口 **Tools → CH自定义工具集**；左侧 Shader / VFX / 场景工具 / 设置，右侧显示功能。完整包含 Shader转换器、Agent、音频转动画曲线、子特效时序、曲线转粒子拖尾、VFX资源整理与恢复、场景距离 / 角度 / 面积测量。语言、版本和 Git 更新统一管理。原包 ID 保持兼容，GitHub 仓库已按用户要求设为公开；更新从 GitHub Release 下载，无需登录。音频无需第二个依赖包，详见 [工具集操作与升级](Documentation~/CustomTools.md)。
 
-本次安装包：`Releases~/com.aseshader.handwritten-converter-0.7.7.tgz`，源码归档 `Releases~/CHCustomTools-0.7.7.zip`。以下旧版说明和证据按历史批次保留，菜单以当前统一入口为准。
+本次安装包：`Releases~/com.aseshader.handwritten-converter-0.7.8.tgz`，源码归档 `Releases~/CHCustomTools-0.7.8.zip`。以下旧版说明和证据按历史批次保留，菜单以当前统一入口为准。
 
 # CH自定义工具集
 
@@ -97,7 +99,7 @@
 ## 安装和使用
 
 1. ASE 输出/库需安装正版 ASE 和目标管线模板。ShaderGraph 输出需 Unity 2022.3、Shader Graph 14.0.8；URP/HDRP 需对应包 14.0.8。项目需启用所选目标管线，无需安装 ASE。
-2. 首次安装可下载 [Unity Tarball 0.7.7](https://github.com/Ch47369/CHCustomTools/releases/download/v0.7.7/com.aseshader.handwritten-converter-0.7.7.tgz)，在 Package Manager 的「+」菜单选择 **Add package from tarball**，选中下载的 `.tgz`。此方式无需 Git。 网络稳定时也可在 **Add package from git URL** 输入 `https://github.com/Ch47369/CHCustomTools.git#v0.7.7`。安装后在 **设置 → 插件更新** 从 GitHub Release 下载更新。
+2. 首次安装可下载 [Unity Tarball 0.7.8](https://github.com/Ch47369/CHCustomTools/releases/download/v0.7.8/com.aseshader.handwritten-converter-0.7.8.tgz)，在 Package Manager 的「+」菜单选择 **Add package from tarball**，选中下载的 `.tgz`。此方式无需 Git。 网络稳定时也可在 **Add package from git URL** 输入 `https://github.com/Ch47369/CHCustomTools.git#v0.7.8`。安装后在 **设置 → 插件更新** 从 GitHub Release 下载更新。
 3. 打开 `Tools/CH自定义工具集` → Shader → 图转换，把 Project 窗口中的 Shader 拖到“输入 Shader”栏，或把系统文件夹中的单个 `.shader` 拖到拖放区域。也可浏览、粘贴路径或使用选中 Shader；切换输入会建议一个不会覆盖原文件的 `Assets/*_ASE.shader` 输出路径。
 4. 选择输出格式 ASE 或 ShaderGraph 及目标管线；后者需明确勾选标准宿主适配。点击“分析”，通过后点击“生成并验证”，获取新的 `.shader` 或 `.shadergraph`。若显示“需要适配”，列出的项目仍阻止生成；复制/导出报告供 Agent 逐项适配。已有输出不会覆盖。拖入目录仅作目录选择，不进行扫描或批量转换。
 5. 在 ASE 中打开输出，并在目标场景比较原、新材质的颜色、Alpha、深度和渲染状态。报告中的 `visualComparisonPassed` 默认是 false。

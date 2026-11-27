@@ -260,6 +260,7 @@ public static class UnityPathFenceSmoke
                     Check(Vector3.Distance(middle, path.transform.TransformPoint((path.knots[1].position + path.knots[2].position) * .5f)) < .0001f,
                         "Ctrl-drawn segment has no curvature");
                     VerifyStylePresets();
+                VerifyHeightRendering();
                     Check(errorLog == null, "All drawing and material checks finish without Console errors");
                     Finish(null);
                     return;
@@ -284,6 +285,10 @@ public static class UnityPathFenceSmoke
             var material = (Material)method.Invoke(null, new object[] { style });
             try
             {
+                Check(material.GetTexture("_MainTex").wrapModeV == TextureWrapMode.Repeat &&
+                    material.GetTexture("_AddTex").wrapModeV == TextureWrapMode.Repeat &&
+                    material.GetTextureScale("_MainTex") == Vector2.one && material.GetTextureOffset("_MainTex") == Vector2.zero,
+                    style + " repeat-safe texture sampling and normalized preset UV transform");
                 Check(material.shader.name.Contains("Custom2TexV2") && material.GetTexture("_MainTex") != null &&
                     seen.Add(material.GetTexture("_MainTex")) && material.GetTexture("_AddTex") != null &&
                     material.GetFloat("_TexBlendMode") == 2 && Mathf.Abs(material.GetVector("_AddTexPanner").y) > .1f,
@@ -297,6 +302,31 @@ public static class UnityPathFenceSmoke
     {
         var settings = new PathMeshSettings { kind = PathMeshKind.ElectronicFence, fenceHeight = 2.5f,
             fenceBaseOffset = .3f, step = 1.37f, metersPerTile = 2f };
+        var baseline = PathMeshBuilder.Build(path, settings);
+        var baselineUv = baseline.uv;
+        var baselineUv1 = baseline.uv2;
+        Object.DestroyImmediate(baseline);
+        settings.uvScale.y = 4;
+        settings.uvOffset.y = .3f;
+        foreach (float height in new[] { .5f, 1f, 2f, 5f, 12f })
+        {
+            settings.fenceHeight = height;
+            var raised = PathMeshBuilder.Build(path, settings);
+            Check(raised.uv.SequenceEqual(baselineUv) && raised.uv2.SequenceEqual(baselineUv1) &&
+                raised.uv.Where((_, i) => i % 2 == 0).All(v => v.y == 0) &&
+                raised.uv.Where((_, i) => i % 2 != 0).All(v => v.y == 1),
+                "Fence UV0 and UV1 remain identical at height " + height + "m even with older vertical tiling values");
+            Object.DestroyImmediate(raised);
+        }
+        settings.fenceCustomVerticalUv = true;
+        var customUv = PathMeshBuilder.Build(path, settings);
+        Check(Mathf.Abs(customUv.uv[0].y - .3f) < .0001f && Mathf.Abs(customUv.uv[1].y - 4.3f) < .0001f,
+            "Explicit custom vertical UV still supports tiling and offset");
+        Object.DestroyImmediate(customUv);
+        settings.fenceCustomVerticalUv = false;
+        settings.uvScale = Vector2.one;
+        settings.uvOffset = Vector2.zero;
+        settings.fenceHeight = 2.5f;
         var mesh = PathMeshBuilder.Build(path, settings);
         try
         {
@@ -463,6 +493,121 @@ public static class UnityPathFenceSmoke
         var type = typeof(PathAuthoringPreview);
         type.GetField("next", StaticMethods).SetValue(null, 0d);
         type.GetMethod("Tick", StaticMethods).Invoke(null, null);
+    }
+
+    static void VerifyHeightRendering()
+    {
+        var fixture = new GameObject("Fence UV height fixture").AddComponent<BezierPath>();
+        fixture.knots = new List<PathKnot> { new PathKnot(Vector3.zero), new PathKnot(Vector3.right * 4) };
+        fixture.knots.ForEach(k => k.automatic = false);
+        fixture.Invalidate();
+        var plane = new GameObject("Fence height render", typeof(MeshFilter), typeof(MeshRenderer));
+        plane.layer = 30;
+        var filter = plane.GetComponent<MeshFilter>();
+        var renderer = plane.GetComponent<MeshRenderer>();
+        renderer.shadowCastingMode = ShadowCastingMode.Off;
+        var camera = new GameObject("Fence UV camera").AddComponent<Camera>();
+        camera.clearFlags = CameraClearFlags.SolidColor;
+        camera.backgroundColor = Color.black;
+        camera.cullingMask = 1 << plane.layer;
+        camera.orthographic = true;
+        var target = RenderTexture.GetTemporary(480, 240, 24, RenderTextureFormat.ARGB32);
+        var result = new Texture2D(target.width, target.height, TextureFormat.RGB24, false);
+        var prior = RenderTexture.active;
+        camera.targetTexture = target;
+        GameObject volumeObject = null;
+        ScriptableObject profile = null;
+        // Keep HDRP exposure independent of camera history and distance.
+        if (GraphicsSettings.currentRenderPipeline != null && GraphicsSettings.currentRenderPipeline.GetType().Name.Contains("HDRender"))
+        {
+            Type Find(string name) => AppDomain.CurrentDomain.GetAssemblies().Select(a => a.GetType(name)).First(t => t != null);
+            var dataType = Find("UnityEngine.Rendering.HighDefinition.HDAdditionalCameraData");
+            var data = camera.GetComponent(dataType) ?? camera.gameObject.AddComponent(dataType);
+            dataType.GetField("volumeLayerMask").SetValue(data, (LayerMask)(1 << 30));
+            var profileType = Find("UnityEngine.Rendering.VolumeProfile");
+            profile = ScriptableObject.CreateInstance(profileType);
+            var exposureType = Find("UnityEngine.Rendering.HighDefinition.Exposure");
+            var exposure = profileType.GetMethod("Add", new[] { typeof(Type), typeof(bool) }).Invoke(profile, new object[] { exposureType, true });
+            var mode = exposureType.GetField("mode").GetValue(exposure);
+            var modeValue = mode.GetType().GetProperty("value");
+            modeValue.SetValue(mode, Enum.Parse(modeValue.PropertyType, "Fixed"));
+            var fixedExposure = exposureType.GetField("fixedExposure").GetValue(exposure);
+            fixedExposure.GetType().GetProperty("value").SetValue(fixedExposure, 0f);
+            volumeObject = new GameObject("Fence fixed exposure");
+            volumeObject.layer = 30;
+            var volumeType = Find("UnityEngine.Rendering.Volume");
+            var volume = volumeObject.AddComponent(volumeType);
+            volumeType.GetProperty("isGlobal").SetValue(volume, true);
+            volumeType.GetField("priority").SetValue(volume, 10000f);
+            volumeType.GetField("sharedProfile").SetValue(volume, profile);
+        }
+        var method = typeof(PathSceneTool).Assembly.GetType("CH.CustomTools.Paths.Editor.PathFenceMaterial").GetMethod("Create", StaticMethods);
+        var settings = new PathMeshSettings { kind = PathMeshKind.ElectronicFence, uvScale = new Vector2(1, 4), uvOffset = new Vector2(0, .3f) };
+        try
+        {
+            foreach (PathFenceStyle style in Enum.GetValues(typeof(PathFenceStyle)))
+            {
+                var material = (Material)method.Invoke(null, new object[] { style });
+                renderer.sharedMaterial = material;
+                material.SetVector("_AddTexPanner", Vector4.zero);
+                Color32[] reference = null;
+                try
+                {
+                    foreach (float height in new[] { 1f, 4f, 8f })
+                    {
+                        settings.fenceHeight = height;
+                        var raw = PathMeshBuilder.Build(fixture, settings);
+                        var combined = new Mesh();
+                        // The live Scene surface uses the same submesh combination.
+                        combined.CombineMeshes(new[] { new CombineInstance { mesh = raw, transform = Matrix4x4.identity } }, true, true);
+                        Check(combined.uv.SequenceEqual(raw.uv) && combined.uv2.SequenceEqual(raw.uv2),
+                            style + " preview preserves both UV channels at " + height + "m");
+                        filter.sharedMesh = combined;
+                        camera.transform.position = new Vector3(2, height * .5f, -10);
+                        camera.transform.rotation = Quaternion.identity;
+                        camera.orthographicSize = height * .6f;
+                        camera.aspect = 4f / height;
+                        camera.Render();
+                        RenderTexture.active = target;
+                        result.ReadPixels(new Rect(0, 0, target.width, target.height), 0, 0);
+                        result.Apply();
+                        var pixels = result.GetPixels32();
+                        File.WriteAllBytes("Artifacts/" + style + "-height-" + height + ".png", result.EncodeToPNG());
+                        if (reference == null) reference = pixels;
+                        else
+                        {
+                            double sum = 0;
+                            // Interior only, excluding silhouette pixels and the black border.
+                            int samples = 0;
+                            for (int y = 32; y < 208; y++)
+                                for (int x = 44; x < 436; x++)
+                                {
+                                    int i = y * target.width + x;
+                                    sum += Math.Abs(pixels[i].r - reference[i].r) + Math.Abs(pixels[i].g - reference[i].g) + Math.Abs(pixels[i].b - reference[i].b);
+                                    samples += 3;
+                                }
+                            Check(sum / samples < 8, style + " normalized height texture at " + height + "m matches 1m, mean RGB byte error " + (sum / samples).ToString("F3"));
+                        }
+                        filter.sharedMesh = null;
+                        Object.DestroyImmediate(combined);
+                        Object.DestroyImmediate(raw);
+                    }
+                }
+                finally { Object.DestroyImmediate(material); }
+            }
+        }
+        finally
+        {
+            camera.targetTexture = null;
+            RenderTexture.active = prior;
+            RenderTexture.ReleaseTemporary(target);
+            Object.DestroyImmediate(result);
+            Object.DestroyImmediate(camera.gameObject);
+            Object.DestroyImmediate(plane);
+            Object.DestroyImmediate(fixture.gameObject);
+            if (volumeObject != null) Object.DestroyImmediate(volumeObject);
+            if (profile != null) Object.DestroyImmediate(profile);
+        }
     }
 
     static void CaptureFence(string file, Func<Color, bool> matches)

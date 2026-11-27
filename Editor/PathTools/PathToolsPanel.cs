@@ -233,7 +233,22 @@ namespace CH.CustomTools.Paths.Editor
             DrawMeshDimensions(mesh);
             mesh.step = EditorGUILayout.FloatField(T("网格分段间距（米）", "Mesh segment step (m)"), mesh.step);
             mesh.metersPerTile = EditorGUILayout.FloatField(T("贴图每次重复长度（米）", "Metres per texture repeat"), mesh.metersPerTile);
-            mesh.uvScale = EditorGUILayout.Vector2Field(T("UV平铺倍率", "UV tiling multiplier"), mesh.uvScale); mesh.uvOffset = EditorGUILayout.Vector2Field(T("UV偏移", "UV offset"), mesh.uvOffset);
+            if (fence)
+            {
+                mesh.uvScale.x = EditorGUILayout.FloatField(T("横向 UV 平铺", "Horizontal UV tiling"), mesh.uvScale.x);
+                mesh.uvOffset.x = EditorGUILayout.FloatField(T("横向 UV 偏移", "Horizontal UV offset"), mesh.uvOffset.x);
+                mesh.fenceCustomVerticalUv = EditorGUILayout.Toggle(T("自定义高度 UV", "Custom vertical UV"), mesh.fenceCustomVerticalUv);
+                if (mesh.fenceCustomVerticalUv)
+                {
+                    mesh.uvScale.y = EditorGUILayout.FloatField(T("高度 UV 平铺", "Vertical UV tiling"), mesh.uvScale.y);
+                    mesh.uvOffset.y = EditorGUILayout.FloatField(T("高度 UV 偏移", "Vertical UV offset"), mesh.uvOffset.y);
+                }
+            }
+            else
+            {
+                mesh.uvScale = EditorGUILayout.Vector2Field(T("UV平铺倍率", "UV tiling multiplier"), mesh.uvScale);
+                mesh.uvOffset = EditorGUILayout.Vector2Field(T("UV偏移", "UV offset"), mesh.uvOffset);
+            }
             if (!fence) material = (Material)EditorGUILayout.ObjectField(T("材质 / 横杆材质", "Material / rail material"), material, typeof(Material), false);
             if (mesh.kind == PathMeshKind.Railing) posts = (Material)EditorGUILayout.ObjectField(T("立柱材质（可选）", "Post material (optional)"), posts, typeof(Material), false);
             if (!fence) EditorGUILayout.HelpBox(T("UV0：X横向，Y按距离平铺；UV1：X横向，Y为0到1路径进度（立柱为底到顶）。可直接赋予特效材质。空材质自动创建当前管线默认材质。急弯处宽网格可能相交，请减小宽度或调整曲线。UV1用于特效，烘焙光照前需另做光照UV。", "UV0: X across, Y tiled by distance. UV1: X across, Y normalized path progress (posts: bottom to top). Assign an effect material directly. Empty material creates a default for the active pipeline. Wide meshes can overlap at tight bends. UV1 is for effects; generate separate lightmap UVs before baking."), MessageType.None);
@@ -285,8 +300,8 @@ namespace CH.CustomTools.Paths.Editor
             using (new EditorGUI.DisabledScope(fenceMaterial == null))
                 mesh.fenceDoubleSided = EditorGUILayout.Toggle(T("为单面材质生成背面", "Add back faces for one-sided materials"),
                     fenceMaterial != null && mesh.fenceDoubleSided);
-            EditorGUILayout.HelpBox(T("材质留空时使用 Custom2TexV2。整体高度按比例调节所有点；可在 Scene 拖动选中点顶部的橙色高度控制柄。UV0 的 X 沿围栏按米平铺，Y 从底到顶。UV1 的 X 是围栏进度，Y 是高度。",
-                "Leave material empty for Custom2TexV2. Overall height scales all points proportionally. Drag the selected point's orange height handle in Scene. UV0 X tiles along the fence and Y runs bottom to top. UV1 X stores path progress and Y stores height."),
+            EditorGUILayout.HelpBox(T("材质留空时使用 Custom2TexV2。整体高度按比例调节所有点；可在 Scene 拖动选中点顶部的橙色高度控制柄。UV0 默认高度固定 0–1，调高时保留完整图案。X 沿围栏按米平铺。UV1 的 X 是围栏进度，Y 是高度。",
+                "Leave material empty for Custom2TexV2. Overall height scales all points proportionally. Drag the selected point's orange height handle in Scene. UV0 height is locked to 0–1 by default for the full pattern at any height. X tiles along the fence. UV1 X stores path progress and Y stores height."),
                 MessageType.None);
         }
         void GenerationNote() { EditorGUILayout.HelpBox(T("预览仅临时显示，点击生成才保存。重新生成会替换此路径对应的生成组；组内手动编辑也会替换。其他场景物体保留。网格另存唯一资源，撤销场景生成后资源仍保留，便于重做。修改路径后需要重新生成。", "Preview is temporary; Generate saves it. Rebuild replaces this path's generated group, including manual edits inside it. Other scene objects are preserved. Meshes use unique assets; scene Undo retains assets for Redo. Rebuild after editing the path."), MessageType.None); }
